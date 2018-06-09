@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b64a68e3f9fb4363bcd646fac7a1f6b4" Name="Diagrama1" ZoomLevel="77">
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.fa_Equipo_graf" Width="1.5" PointX="4.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.fa_factura_graf" Width="1.5" PointX="3.7582321706033461" PointY="1.635979980992144" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.fa_guia_remision_graf" Width="1.5" PointX="2.711530891578426" PointY="29.090166105465109" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.fa_notaCreDeb_graf" Width="1.5" PointX="1.8354831383728807" PointY="24.748055499395381" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.vwfa_factura_graf" Width="1.5" PointX="4.43686814999062" PointY="23.322046097052304" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.vwfa_Guia_Remision_graf" Width="1.5" PointX="11.773133832855679" PointY="17.06403832932191" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model.vwfa_NotaCre_graf" Width="1.5" PointX="8.5248726608813143" PointY="19.971292668940169" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a58d108168c4752bc9facd18e71e6fe" Name="Diagrama1" ZoomLevel="72">
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cancelacion_Intercompany" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cancelacion_Intercompany_det" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_Catalogo" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_CatalogoTipo" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_det" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_tipo_Param_conta_x_sucursal" Width="1.5" PointX="3" PointY="39" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_tipo_x_anticipo" Width="1.5" PointX="3" PointY="41.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_tipo_x_cobros_Docxc" Width="1.5" PointX="3" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_Anticipo" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_Anticipo_det" Width="1.5" PointX="8.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_caj_Caja_Movimiento" Width="1.5" PointX="5.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_ct_cbtecble" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_ct_cbtecble_x_Anulado" Width="1.5" PointX="5.25" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_EstadoCobro" Width="1.5" PointX="5.25" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_x_tarjeta" Width="1.5" PointX="5.25" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_conciliacion" Width="1.5" PointX="9" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_conciliacion_det" Width="1.5" PointX="11.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_conciliacion_tipo" Width="1.5" PointX="9" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_EstadoCobro" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_Parametros_x_cheqProtesto" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_Rango_dias_x_Vencimiento" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_anticipos_x_cruzar" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cancelacion_Intercompany" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cancelacion_Intercompany_x_cxc_cobro_det" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwCxc_Catalogo_IdAuto_numeric" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_tipo_Param_conta_x_sucursal" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_anticipo_total_respaldado" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_Cobro_x_anticipo_x_cobros" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_Anticipo_x_Persona" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_caj_Caja_Movimiento" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_cobro_det" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_documentos_x_cobrar" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_EstadoCobro" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_x_movi_caja_x_cbtecble" Width="1.5" PointX="7.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_conciliados" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_Pendientes_x_conciliar" Width="1.5" PointX="11.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_cheque_deposito" Width="1.5" PointX="13.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_vta_nota_x_RetFuente" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_vta_nota_x_RetFuente_Sumatoria" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_vta_nota_x_RetIVA_Sumatoria" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_conciliacion" Width="1.5" PointX="20.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_conciliacion_Det_Anticipo" Width="1.5" PointX="15.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_conciliacion_Det_Cobro" Width="1.5" PointX="20.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_conciliacion_Det_CreDeb" Width="1.5" PointX="17.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_Detalle_Deposito" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_EstadoCobro_Actual" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwCXC_EstadoCta_x_Cliente" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_Parametros_x_cheqProtesto" Width="1.5" PointX="22.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cancelacion_Intercompany_det_cxc_cancelacion_Intercompany" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_Catalogo_cxc_CatalogoTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_det_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_Anticipo_det_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_caj_Caja_Movimiento_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_ct_cbtecble_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_ct_cbtecble_x_Anulado_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_EstadoCobro_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_tarjeta_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_conciliacion_det_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_Anticipo_det_cxc_cobro_x_Anticipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_EstadoCobro_cxc_EstadoCobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_conciliacion_det_cxc_conciliacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_conciliacion_det_cxc_conciliacion_tipo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_vta_nota_x_RetIVA" Width="1.5" PointX="9.360439722128417" PointY="29.708211763626064" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_tipo_motivo" Width="1.5" PointX="6.0813024798786746" PointY="14.869348622332025" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_tipo" Width="1.5" PointX="3.3987899270834352" PointY="8.3120803871713953" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cancelacion_Intercompany_cxc_cobro_tipo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_cxc_cobro_tipo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_tipo_cxc_cobro_tipo_motivo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_tipo_Param_conta_x_sucursal_cxc_cobro_tipo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_tipo_x_anticipo_cxc_cobro_tipo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_tipo_x_cobros_Docxc_cxc_cobro_tipo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_cobro_x_Anticipo_det_cxc_cobro_tipo" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_cobro_det_x_ct_cbtecble_det" Width="1.5" PointX="0.4073086326975881" PointY="7.1898755911690531" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobro_det" Width="1.5" PointX="5.4846040911435168" PointY="16.726825736801526" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_vta_x_RetFte_x_Cliente_x_AnioMes" Width="1.5" PointX="3.37675487034803" PointY="13.539756945120058" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_vta_x_RetIva_x_Cliente_x_AnioMes" Width="1.5" PointX="6.038130671734983" PointY="25.018166047063733" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_ND_x_RetFte_x_Cliente_x_AnioMes" Width="1.5" PointX="6.1882389235255486" PointY="8.442470852491665" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cobros_x_ND_x_RetIva_x_Cliente_x_AnioMes" Width="1.5" PointX="6.60466615604454" PointY="30.912493481725683" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwcxc_cartera_x_cobrar" Width="1.5" PointX="11.834513207820482" PointY="19.338378065888946" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.cxc_Parametro" Width="1.5" PointX="9.7019042417881565" PointY="13.900573841249837" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_Parametro_cxc_cobro_tipo" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBASModel.FK_cxc_Parametro_cxc_cobro_tipo1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

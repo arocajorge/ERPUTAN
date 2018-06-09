@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="61717195a7cc4d5cbe6a0ce4c49b21f5" Name="Diagrama1" ZoomLevel="63">
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt001" Width="1.625" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt002" Width="1.875" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt004" Width="1.75" PointX="8.625" PointY="5.875" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt005" Width="1.625" PointX="8.875" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt009" Width="1.75" PointX="13.25" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt003" Width="1.625" PointX="5.625" PointY="4.75" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt008" Width="1.75" PointX="11" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt014" Width="1.5" PointX="9.2756732168028471" PointY="8.369304809891295" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="415fd69dffb64c84b5eafbbb9864478c" Name="Diagrama1" ZoomLevel="55">
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt001" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt004" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt002" Width="1.5" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt003" Width="1.5" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt010" Width="1.5" PointX="11.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt012" Width="1.5" PointX="11.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt014" Width="1.5" PointX="13.625" PointY="6.375" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt015" Width="1.5" PointX="15.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt016" Width="1.5" PointX="15.5" PointY="4.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt006" Width="1.5" PointX="9.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt005" Width="1.5" PointX="8" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt013" Width="1.5" PointX="13.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt019" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModel4.vwBAN_Rpt018" Width="1.5" PointX="17.375" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

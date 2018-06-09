@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBERP_NATModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DBERP_NATModelStoreContainer">
+          <EntitySet Name="vwCONTA_NATU_Rpt002" EntityType="DBERP_NATModel.Store.vwCONTA_NATU_Rpt002" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwCONTA_NATU_Rpt002].[debe] AS [debe], 
+      [vwCONTA_NATU_Rpt002].[Cred] AS [Cred], 
+      [vwCONTA_NATU_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_NATU_Rpt002].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwCONTA_NATU_Rpt002].[IdCbteCble] AS [IdCbteCble], 
+      [vwCONTA_NATU_Rpt002].[CodCbteCble] AS [CodCbteCble], 
+      [vwCONTA_NATU_Rpt002].[IdPeriodo] AS [IdPeriodo], 
+      [vwCONTA_NATU_Rpt002].[cb_Fecha] AS [cb_Fecha], 
+      [vwCONTA_NATU_Rpt002].[cb_Valor] AS [cb_Valor], 
+      [vwCONTA_NATU_Rpt002].[cb_Observacion] AS [cb_Observacion], 
+      [vwCONTA_NATU_Rpt002].[cb_Estado] AS [cb_Estado], 
+      [vwCONTA_NATU_Rpt002].[cb_Anio] AS [cb_Anio], 
+      [vwCONTA_NATU_Rpt002].[cb_mes] AS [cb_mes], 
+      [vwCONTA_NATU_Rpt002].[secuencia] AS [secuencia], 
+      [vwCONTA_NATU_Rpt002].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_NATU_Rpt002].[dc_Valor] AS [dc_Valor], 
+      [vwCONTA_NATU_Rpt002].[dc_Observacion] AS [dc_Observacion], 
+      [vwCONTA_NATU_Rpt002].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_NATU_Rpt002].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwCONTA_NATU_Rpt002].[nom_punto_cargo_grupo] AS [nom_punto_cargo_grupo], 
+      [vwCONTA_NATU_Rpt002].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwCONTA_NATU_Rpt002].[pc_clave_corta] AS [pc_clave_corta]
+      FROM [Naturisa].[vwCONTA_NATU_Rpt002] AS [vwCONTA_NATU_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="DBERP_NATModel.Store.vwCONTA_NATU_Rpt003" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwCONTA_NATU_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_NATU_Rpt003].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwCONTA_NATU_Rpt003].[IdCbteCble] AS [IdCbteCble], 
+      [vwCONTA_NATU_Rpt003].[CodCbteCble] AS [CodCbteCble], 
+      [vwCONTA_NATU_Rpt003].[IdPeriodo] AS [IdPeriodo], 
+      [vwCONTA_NATU_Rpt003].[cb_Fecha] AS [cb_Fecha], 
+      [vwCONTA_NATU_Rpt003].[cb_Valor] AS [cb_Valor], 
+      [vwCONTA_NATU_Rpt003].[cb_Observacion] AS [cb_Observacion], 
+      [vwCONTA_NATU_Rpt003].[cb_Estado] AS [cb_Estado], 
+      [vwCONTA_NATU_Rpt003].[cb_Anio] AS [cb_Anio], 
+      [vwCONTA_NATU_Rpt003].[cb_mes] AS [cb_mes], 
+      [vwCONTA_NATU_Rpt003].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_NATU_Rpt003].[dc_Valor] AS [dc_Valor], 
+      [vwCONTA_NATU_Rpt003].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_NATU_Rpt003].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwCONTA_NATU_Rpt003].[pc_clave_corta] AS [pc_clave_corta], 
+      [vwCONTA_NATU_Rpt003].[debe] AS [debe], 
+      [vwCONTA_NATU_Rpt003].[Cred] AS [Cred]
+      FROM [Naturisa].[vwCONTA_NATU_Rpt003] AS [vwCONTA_NATU_Rpt003]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_NATU_Rpt002">
+          <Key>
+            <PropertyRef Name="debe" />
+            <PropertyRef Name="Cred" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="CodCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Estado" />
+            <PropertyRef Name="cb_Anio" />
+            <PropertyRef Name="cb_mes" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Name="debe" Type="float" Nullable="false" />
+          <Property Name="Cred" Type="float" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="CodCbteCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_Anio" Type="int" Nullable="false" />
+          <Property Name="cb_mes" Type="int" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="dc_Valor" Type="float" Nullable="false" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_NATU_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="CodCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Estado" />
+            <PropertyRef Name="cb_Anio" />
+            <PropertyRef Name="cb_mes" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="CodCbteCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_Anio" Type="int" Nullable="false" />
+          <Property Name="cb_mes" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="dc_Valor" Type="float" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
+          <Property Name="debe" Type="float" />
+          <Property Name="Cred" Type="float" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBERP_NATModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesContabilidad_Natu_Rpt" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwCONTA_NATU_Rpt002" EntityType="DBERP_NATModel.vwCONTA_NATU_Rpt002" />
+          <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="DBERP_NATModel.vwCONTA_NATU_Rpt003" />
+        </EntityContainer>
+        <EntityType Name="vwCONTA_NATU_Rpt002">
+          <Key>
+            <PropertyRef Name="debe" />
+            <PropertyRef Name="Cred" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="CodCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Estado" />
+            <PropertyRef Name="cb_Anio" />
+            <PropertyRef Name="cb_mes" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Type="Double" Name="debe" Nullable="false" />
+          <Property Type="Double" Name="Cred" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="cb_Anio" Nullable="false" />
+          <Property Type="Int32" Name="cb_mes" Nullable="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_clave_corta" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCONTA_NATU_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="CodCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Estado" />
+            <PropertyRef Name="cb_Anio" />
+            <PropertyRef Name="cb_mes" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="cb_Anio" Nullable="false" />
+          <Property Type="Int32" Name="cb_mes" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pc_clave_corta" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debe" />
+          <Property Type="Double" Name="Cred" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBERP_NATModelStoreContainer" CdmEntityContainer="EntitiesContabilidad_Natu_Rpt">
+          <EntitySetMapping Name="vwCONTA_NATU_Rpt002">
+            <EntityTypeMapping TypeName="DBERP_NATModel.vwCONTA_NATU_Rpt002">
+              <MappingFragment StoreEntitySet="vwCONTA_NATU_Rpt002">
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="cb_mes" ColumnName="cb_mes" />
+                <ScalarProperty Name="cb_Anio" ColumnName="cb_Anio" />
+                <ScalarProperty Name="cb_Estado" ColumnName="cb_Estado" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="CodCbteCble" ColumnName="CodCbteCble" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Cred" ColumnName="Cred" />
+                <ScalarProperty Name="debe" ColumnName="debe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCONTA_NATU_Rpt003">
+            <EntityTypeMapping TypeName="DBERP_NATModel.vwCONTA_NATU_Rpt003">
+              <MappingFragment StoreEntitySet="vwCONTA_NATU_Rpt003">
+                <ScalarProperty Name="Cred" ColumnName="Cred" />
+                <ScalarProperty Name="debe" ColumnName="debe" />
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="cb_mes" ColumnName="cb_mes" />
+                <ScalarProperty Name="cb_Anio" ColumnName="cb_Anio" />
+                <ScalarProperty Name="cb_Estado" ColumnName="cb_Estado" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="CodCbteCble" ColumnName="CodCbteCble" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

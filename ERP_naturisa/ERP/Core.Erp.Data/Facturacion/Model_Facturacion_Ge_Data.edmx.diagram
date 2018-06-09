@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6f7ef4729f234c128161a8442db24784" Name="Diagrama1" ZoomLevel="47">
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_catalogo" Width="1.5" PointX="4.5" PointY="75.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_catalogo_tipo" Width="1.5" PointX="2.25" PointY="77" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_cliente" Width="1.5" PointX="1.5" PointY="51.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_cliente_contactos" Width="1.5" PointX="3.75" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_cliente_tipo" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_cotizacion" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_cotizacion_det" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_devol_venta" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_devol_venta_det" Width="1.5" PointX="8.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_det" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_x_ct_cbtecble" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_x_fa_cotizacion" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_x_fa_guia_remision" Width="1.5" PointX="9" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_x_formaPago" Width="1.5" PointX="9" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_x_in_movi_inve" Width="1.5" PointX="3" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_factura_x_in_movi_inve_x_Anulacion" Width="1.5" PointX="3" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_guia_remision" Width="1.5" PointX="6.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_guia_remision_det" Width="1.5" PointX="9" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_guia_remision_det_x_fa_orden_Desp_det" Width="1.5" PointX="11.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_guia_remision_x_prd_Despacho" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_motivo_venta" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_notaCreDeb" Width="1.5" PointX="3.75" PointY="64.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_notaCreDeb_det" Width="1.5" PointX="6" PointY="63.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_notaCreDeb_x_ct_cbtecble" Width="1.5" PointX="6" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_notaCreDeb_x_cxc_cobro" Width="1.5" PointX="6" PointY="72" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_orden_Desp" Width="1.5" PointX="5.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_orden_Desp_det" Width="1.5" PointX="8" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_orden_Desp_det_x_fa_pedido_det" Width="1.5" PointX="13.25" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_parametro" Width="1.5" PointX="9.75" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_pedido" Width="1.5" PointX="8.75" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_pedido_det" Width="1.5" PointX="11" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_pedido_estadoAprobacion" Width="1.5" PointX="6.5" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_pedido_x_formaPago" Width="1.5" PointX="11" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_TerminoPago" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_TerminoPago_Distribucion" Width="1.5" PointX="9" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_TipoNota" Width="1.5" PointX="1.5" PointY="66.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_TipoNota_x_Empresa_x_Sucursal" Width="1.5" PointX="3.75" PointY="81.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_Vendedor" Width="1.5" PointX="1.5" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_vendedor_x_ro_empleado" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_VendedorxSucursal" Width="1.5" PointX="3.75" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_venta_telefonica" Width="1.5" PointX="6.75" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.fa_venta_telefonica_det" Width="1.5" PointX="9" PointY="55.625" IsExpanded="true" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_catalogo_fa_catalogo_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_venta_telefonica_fa_catalogo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_cliente_contactos_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_cotizacion_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_devol_venta_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_guia_remision_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_notaCreDeb_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_orden_Desp_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_pedido_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_venta_telefonica_fa_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_cotizacion_det_fa_cotizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_cotizacion_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_fa_cotizacion_fa_cotizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_devol_venta_det_fa_devol_venta" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_devol_venta_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_devol_venta_fa_notaCreDeb" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_devol_venta_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_detalle_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_ct_cbtecble_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_fa_cotizacion_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_fa_guia_remision_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_formaPago_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_in_movi_inve_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_in_movi_inve_x_Anulacion_fa_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_fa_guia_remision_fa_guia_remision" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_x_formaPago_fa_TerminoPago" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_guia_remision_det_fa_guia_remision" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_guia_remision_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_guia_remision_det_x_fa_orden_Desp_det_fa_guia_remision_det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_guia_remision_det_x_fa_orden_Desp_det_fa_orden_Desp_det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_notaCreDeb_det_fa_notaCreDeb" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_notaCreDeb_fa_TipoNota" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_notaCreDeb_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_notaCreDeb_x_ct_cbtecble_fa_notaCreDeb" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_notaCreDeb_x_cxc_cobro_fa_notaCreDeb" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_orden_Desp_det_fa_orden_Desp" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_orden_Desp_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_orden_Desp_det_x_fa_pedido_det_fa_orden_Desp_det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_orden_Desp_det_x_fa_pedido_det_fa_pedido_det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_parametro_fa_pedido_estadoAprobacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_parametro_fa_TipoNota" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_pedido_detalle_fa_pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_pedido_fa_pedido_estadoAprobacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_pedido_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_pedido_x_formaPago_fa_pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_pedido_x_formaPago_fa_TerminoPago" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_factura_tipo_formaPago_Distribucion_fa_factura_tipo_formaPago" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_TipoNota_x_Empresa_fa_TipoNota" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_VendedorxSucursal_fa_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge_Data.FK_fa_venta_telefonica_det_fa_venta_telefonica" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_Catalogo_IdAuto_numeric" Width="1.5" PointX="1.7923501831443747" PointY="7.5012591665150872" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_cliente" Width="1.5" PointX="7.2303117826722154" PointY="26.165972453619339" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_cliente_vista_previa" Width="1.5" PointX="10.917476606982516" PointY="16.394793100838918" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_clientes_contactos" Width="1.5" PointX="3.0492399330480211" PointY="28.200575230736554" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_ContabilizacionFactura" Width="1.5" PointX="1.1024520551331583" PointY="10.67236145337688" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_ContabilizacionFactura_x_Costo" Width="1.5" PointX="11.879499848875916" PointY="22.707623879754742" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_ContabilizacionFactura_x_Item" Width="1.5" PointX="10.600524253491557" PointY="10.504893576030105" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_ContabilizacionFactura_x_Sucursal" Width="1.5" PointX="3.3227313977306392" PointY="25.014210727538082" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_ContabilizarNotaCredDeb" Width="1.5" PointX="3.845679918232225" PointY="30.95237407039496" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_ContabilizarNotaCredDeb_x_sucursal" Width="1.5" PointX="1.5603090792709538" PointY="18.045181878863453" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_cotizacion_detalle" Width="1.5" PointX="2.9670841614562478" PointY="9.4765224798938839" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_creditos_debitos_con_saldo" Width="1.5" PointX="1.9112012618739165" PointY="14.427117488545886" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_devolucion" Width="1.5" PointX="10.060357722481879" PointY="22.033903191813224" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Documento_DeclaracionSRI" Width="1.5" PointX="9.19245255235231" PointY="21.841517995037844" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_Documento_Tipo_x_Secuencia_Talonario" Width="1.5" PointX="3.268046078862644" PointY="12.923132246790051" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Documentos_Relacionados_NC_ND" Width="1.5" PointX="3.3625313618045913" PointY="3.2357434645461587" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Documentos_x_Relacionar_NC_ND" Width="1.5" PointX="1.7409755204529387" PointY="20.480916137099694" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_factura" Width="1.5" PointX="8.4026133717981217" PointY="7.6221172547070859" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_factura_det" Width="1.5" PointX="0.6328446420993864" PointY="0.66022315652120078" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_Factura_Dev" Width="1.5" PointX="5.7176918488543906" PointY="0.50013656937523587" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_factura_sri" Width="1.5" PointX="0.10049867262155687" PointY="2.6704207969226039" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Facturas_y_NotasDebito" Width="1.5" PointX="11.008771832570794" PointY="19.33985868996934" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_FacturasConDevolucionxItemConsulta" Width="1.5" PointX="11.686795497167294" PointY="20.290055001289609" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_FacturasConDevolucionxItemSaldos" Width="1.5" PointX="4.4591643421254883" PointY="29.01453217725015" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_FacturasxDevolucionxIdDevolucion" Width="1.5" PointX="4.702765476285836" PointY="3.1374017163819641" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_FacturasxDevolucionxItem" Width="1.5" PointX="5.1124208630586141" PointY="28.162630317808421" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_Guia_Remision" Width="1.5" PointX="11.224175428610376" PointY="3.558784918654144" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_guia_remision_sin_factura" Width="1.5" PointX="0.15597698099723878" PointY="27.303078008491116" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_movimientos_x_bodega_x_cat" Width="1.5" PointX="0.90177092556924132" PointY="4.8537139319133544" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_Nota_Credito" Width="1.5" PointX="11.751881947625373" PointY="7.0793677601401548" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_notaCreDeb" Width="1.5" PointX="8.9555948604622824" PointY="18.28978849309021" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_notaCreDeb_det_sri" Width="1.5" PointX="7.3071696326635642" PointY="22.016739900231705" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_notaCreDeb_sri" Width="1.5" PointX="0.63960418321173829" PointY="28.44292279912295" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_orden_Desp_det_x_fa_pedido_det_x_pedido" Width="1.5" PointX="6.7743834344550891" PointY="7.7871485388777915" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_orden_Desp_det_x_Pedido_det" Width="1.5" PointX="7.5367217192131655" PointY="1.2384998059079515" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_orden_Desp_sin_guiaRemi" Width="1.5" PointX="8.7474843807273928" PointY="9.5949232920980663" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_orden_despacho_detalle" Width="1.5" PointX="5.8894484275437184" PointY="3.6606876420139742" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Pedido_det_x_orden_desp_conSaldo" Width="1.5" PointX="6.6664445319522372" PointY="5.2418036336273905" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_pedido_detalle" Width="1.5" PointX="4.5449240973894129" PointY="17.756678008361103" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_pedido_x_fa_orden_Desp_det_x_fa_guia_remision_det" Width="1.5" PointX="5.7233735610374126" PointY="6.5375655919954019" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Producto_x_Pedidos" Width="1.5" PointX="3.80354935480447" PointY="27.49867462902268" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_TipoNota_x_Empresa" Width="1.5" PointX="3.4878037718533559" PointY="5.5773878272517532" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Total_pedidos_x_cliente_No_despachados" Width="1.5" PointX="11.733753729487654" PointY="12.804119980337154" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwfa_venta_telefonica_det" Width="1.5" PointX="1.9892283705944327" PointY="1.0838164692203591" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge_Data.vwFa_Ventas_x_cliente_x_periodo_BI" Width="1.5" PointX="7.5243665704151468" PointY="27.103890982970544" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

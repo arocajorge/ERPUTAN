@@ -1,0 +1,845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelActivoFijo_FJ.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelActivoFijo_FJStoreContainer">
+          <EntitySet Name="Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo" EntityType="ModelActivoFijo_FJ.Store.Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="Af_Activo_fijo_x_ct_punto_cargo" EntityType="ModelActivoFijo_FJ.Store.Af_Activo_fijo_x_ct_punto_cargo" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="Af_Poliza_x_AF" EntityType="ModelActivoFijo_FJ.Store.Af_Poliza_x_AF" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="Af_Poliza_x_AF_det" EntityType="ModelActivoFijo_FJ.Store.Af_Poliza_x_AF_det" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="Af_Poliza_x_AF_det_cuota" EntityType="ModelActivoFijo_FJ.Store.Af_Poliza_x_AF_det_cuota" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="vwAf_Activo_fijo_x_ct_centro_costo" EntityType="ModelActivoFijo_FJ.Store.vwAf_Activo_fijo_x_ct_centro_costo" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwAf_Activo_fijo_x_ct_centro_costo">
+            <DefiningQuery>SELECT 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdEmpresa] AS [IdEmpresa], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[Af_Nombre] AS [Af_Nombre], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdUnidadFact_cat] AS [IdUnidadFact_cat], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[Af_ValorUnidad_Actu] AS [Af_ValorUnidad_Actu], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[Estado_Ubicacion] AS [Estado_Ubicacion], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[nom_Centro_costo_sub_centro_costo] AS [nom_Centro_costo_sub_centro_costo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[nom_UnidadFact] AS [nom_UnidadFact], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdEmpresa_PC] AS [IdEmpresa_PC], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdPunto_cargo_PC] AS [IdPunto_cargo_PC], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdEmpresa_Scc] AS [IdEmpresa_Scc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdCentroCosto_Scc] AS [IdCentroCosto_Scc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdCentroCosto_sub_centro_costo_Scc] AS [IdCentroCosto_sub_centro_costo_Scc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdEmpresa_cli] AS [IdEmpresa_cli], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdCliente_cli] AS [IdCliente_cli], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdEmpresa_cc] AS [IdEmpresa_cc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[IdCentroCosto_cc] AS [IdCentroCosto_cc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo].[Af_DescripcionCorta] AS [Af_DescripcionCorta]
+      FROM [Fj_servindustrias].[vwAf_Activo_fijo_x_ct_centro_costo] AS [vwAf_Activo_fijo_x_ct_centro_costo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro" EntityType="ModelActivoFijo_FJ.Store.vwAf_Activo_fijo_x_ct_centro_costo_x_Registro" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro">
+            <DefiningQuery>SELECT 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdEmpresa] AS [IdEmpresa], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[Af_Nombre] AS [Af_Nombre], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[Estado_Ubicacion] AS [Estado_Ubicacion], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[nom_Centro_costo_sub_centro_costo] AS [nom_Centro_costo_sub_centro_costo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[nom_UnidadFact] AS [nom_UnidadFact], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdEmpresa_PC] AS [IdEmpresa_PC], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdPunto_cargo_PC] AS [IdPunto_cargo_PC], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdEmpresa_Scc] AS [IdEmpresa_Scc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdCentroCosto_Scc] AS [IdCentroCosto_Scc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdCentroCosto_sub_centro_costo_Scc] AS [IdCentroCosto_sub_centro_costo_Scc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdEmpresa_cli] AS [IdEmpresa_cli], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdCliente_cli] AS [IdCliente_cli], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdEmpresa_cc] AS [IdEmpresa_cc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdCentroCosto_cc] AS [IdCentroCosto_cc], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdUnidadFact_cat] AS [IdUnidadFact_cat], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[Af_ValorUnidad_Actu] AS [Af_ValorUnidad_Actu], 
+      [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro].[IdRegistro] AS [IdRegistro]
+      FROM [Fj_servindustrias].[vwAf_Activo_fijo_x_ct_centro_costo_x_Registro] AS [vwAf_Activo_fijo_x_ct_centro_costo_x_Registro]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwaf_Af_Poliza_x_AF" EntityType="ModelActivoFijo_FJ.Store.vwaf_Af_Poliza_x_AF" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwaf_Af_Poliza_x_AF">
+            <DefiningQuery>SELECT 
+      [vwaf_Af_Poliza_x_AF].[IdEmpresa] AS [IdEmpresa], 
+      [vwaf_Af_Poliza_x_AF].[IdPoliza] AS [IdPoliza], 
+      [vwaf_Af_Poliza_x_AF].[IdProveedor] AS [IdProveedor], 
+      [vwaf_Af_Poliza_x_AF].[cod_poliza] AS [cod_poliza], 
+      [vwaf_Af_Poliza_x_AF].[fecha] AS [fecha], 
+      [vwaf_Af_Poliza_x_AF].[observacion] AS [observacion], 
+      [vwaf_Af_Poliza_x_AF].[fecha_vigencia_desde] AS [fecha_vigencia_desde], 
+      [vwaf_Af_Poliza_x_AF].[fecha_vigencia_hasta] AS [fecha_vigencia_hasta], 
+      [vwaf_Af_Poliza_x_AF].[num_cuotas] AS [num_cuotas], 
+      [vwaf_Af_Poliza_x_AF].[valor_cuota] AS [valor_cuota], 
+      [vwaf_Af_Poliza_x_AF].[fecha_1era_cuota] AS [fecha_1era_cuota], 
+      [vwaf_Af_Poliza_x_AF].[suma_asegurada] AS [suma_asegurada], 
+      [vwaf_Af_Poliza_x_AF].[total_meses] AS [total_meses], 
+      [vwaf_Af_Poliza_x_AF].[subtotal] AS [subtotal], 
+      [vwaf_Af_Poliza_x_AF].[porc_iva] AS [porc_iva], 
+      [vwaf_Af_Poliza_x_AF].[iva] AS [iva], 
+      [vwaf_Af_Poliza_x_AF].[Total] AS [Total], 
+      [vwaf_Af_Poliza_x_AF].[Estado] AS [Estado], 
+      [vwaf_Af_Poliza_x_AF].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwaf_Af_Poliza_x_AF].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwaf_Af_Poliza_x_AF].[pe_apellido] AS [pe_apellido], 
+      [vwaf_Af_Poliza_x_AF].[pe_nombre] AS [pe_nombre], 
+      [vwaf_Af_Poliza_x_AF].[subtotal_noIva] AS [subtotal_noIva], 
+      [vwaf_Af_Poliza_x_AF].[pago_contado] AS [pago_contado], 
+      [vwaf_Af_Poliza_x_AF].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwaf_Af_Poliza_x_AF].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo]
+      FROM [Fj_servindustrias].[vwaf_Af_Poliza_x_AF] AS [vwaf_Af_Poliza_x_AF]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwaf_Af_Poliza_x_AF_det" EntityType="ModelActivoFijo_FJ.Store.vwaf_Af_Poliza_x_AF_det" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwaf_Af_Poliza_x_AF_det">
+            <DefiningQuery>SELECT 
+      [vwaf_Af_Poliza_x_AF_det].[IdEmpresa] AS [IdEmpresa], 
+      [vwaf_Af_Poliza_x_AF_det].[IdPoliza] AS [IdPoliza], 
+      [vwaf_Af_Poliza_x_AF_det].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwaf_Af_Poliza_x_AF_det].[secuencia] AS [secuencia], 
+      [vwaf_Af_Poliza_x_AF_det].[Subtotal_0] AS [Subtotal_0], 
+      [vwaf_Af_Poliza_x_AF_det].[Subtotal_12] AS [Subtotal_12], 
+      [vwaf_Af_Poliza_x_AF_det].[Iva] AS [Iva], 
+      [vwaf_Af_Poliza_x_AF_det].[Prima] AS [Prima], 
+      [vwaf_Af_Poliza_x_AF_det].[observacion_det] AS [observacion_det], 
+      [vwaf_Af_Poliza_x_AF_det].[Af_Nombre] AS [Af_Nombre], 
+      [vwaf_Af_Poliza_x_AF_det].[IdEstadoFacturacion_cat] AS [IdEstadoFacturacion_cat]
+      FROM [Fj_servindustrias].[vwaf_Af_Poliza_x_AF_det] AS [vwaf_Af_Poliza_x_AF_det]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo">
+          <Key>
+            <PropertyRef Name="IdEmpresa_AF" />
+            <PropertyRef Name="IdActivoFijo_AF" />
+            <PropertyRef Name="IdEmpresa_Scc" />
+            <PropertyRef Name="IdCentroCosto_Scc" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo_Scc" />
+          </Key>
+          <Property Name="IdEmpresa_AF" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo_AF" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa_Scc" Type="int" Nullable="false" />
+          <Property Name="IdCentroCosto_Scc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo_Scc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Af_Activo_fijo_x_ct_punto_cargo">
+          <Key>
+            <PropertyRef Name="IdEmpresa_PC" />
+            <PropertyRef Name="IdPunto_cargo_PC" />
+          </Key>
+          <Property Name="IdEmpresa_AF" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo_AF" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa_PC" Type="int" Nullable="false" />
+          <Property Name="IdPunto_cargo_PC" Type="int" Nullable="false" />
+          <Property Name="observacion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Af_Poliza_x_AF">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPoliza" Type="numeric" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="cod_poliza" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="fecha_vigencia_desde" Type="datetime" Nullable="false" />
+          <Property Name="fecha_vigencia_hasta" Type="datetime" Nullable="false" />
+          <Property Name="num_cuotas" Type="int" Nullable="false" />
+          <Property Name="valor_cuota" Type="float" Nullable="false" />
+          <Property Name="fecha_1era_cuota" Type="datetime" Nullable="false" />
+          <Property Name="suma_asegurada" Type="float" Nullable="false" />
+          <Property Name="total_meses" Type="int" Nullable="false" />
+          <Property Name="subtotal" Type="float" Nullable="false" />
+          <Property Name="porc_iva" Type="float" Nullable="false" />
+          <Property Name="iva" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_Transac" Type="datetime" />
+          <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltAnu" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_UltAnu" Type="datetime" />
+          <Property Name="nom_pc" Type="varchar" MaxLength="50" />
+          <Property Name="ip" Type="varchar" MaxLength="25" />
+          <Property Name="MotivoAnulacion" Type="nchar" MaxLength="10" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="subtotal_noIva" Type="float" />
+          <Property Name="pago_contado" Type="float" />
+        </EntityType>
+        <EntityType Name="Af_Poliza_x_AF_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPoliza" Type="numeric" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="Subtotal_0" Type="float" />
+          <Property Name="Subtotal_12" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Prima" Type="float" />
+          <Property Name="observacion_det" Type="varchar" MaxLength="150" />
+          <Property Name="IdEstadoFacturacion_cat" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Af_Poliza_x_AF_det_cuota">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="cod_couta" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPoliza" Type="numeric" Nullable="false" />
+          <Property Name="cod_couta" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Fecha_Pago" Type="date" Nullable="false" />
+          <Property Name="valor_prima" Type="float" Nullable="false" />
+          <Property Name="IdEstadoCancelacion_cat" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdEstadoFacturacion_cat" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Sub_total_12" Type="float" Nullable="false" />
+          <Property Name="Iva" Type="float" Nullable="false" />
+          <Property Name="Observacion_detalle" Type="varchar" MaxLength="200" />
+          <Property Name="Sub_total_0" Type="float" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwAf_Activo_fijo_x_ct_centro_costo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="nom_punto_cargo" />
+            <PropertyRef Name="IdEmpresa_PC" />
+            <PropertyRef Name="IdPunto_cargo_PC" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdUnidadFact_cat" Type="varchar" MaxLength="50" />
+          <Property Name="Af_ValorUnidad_Actu" Type="float" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="nom_punto_cargo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Estado_Ubicacion" Type="bit" />
+          <Property Name="nom_Centro_costo_sub_centro_costo" Type="varchar" MaxLength="200" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="200" />
+          <Property Name="nom_UnidadFact" Type="varchar" MaxLength="250" />
+          <Property Name="IdEmpresa_PC" Type="int" Nullable="false" />
+          <Property Name="IdPunto_cargo_PC" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa_Scc" Type="int" />
+          <Property Name="IdCentroCosto_Scc" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo_Scc" Type="varchar" MaxLength="20" />
+          <Property Name="IdEmpresa_cli" Type="int" />
+          <Property Name="IdCliente_cli" Type="numeric" />
+          <Property Name="IdEmpresa_cc" Type="int" />
+          <Property Name="IdCentroCosto_cc" Type="varchar" MaxLength="20" />
+          <Property Name="Af_DescripcionCorta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo_x_Registro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro">
+          <Key>
+            <PropertyRef Name="nom_UnidadFact" />
+            <PropertyRef Name="IdRegistro" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="Af_Nombre" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="Estado_Ubicacion" Type="bit" />
+          <Property Name="nom_Centro_costo_sub_centro_costo" Type="varchar" MaxLength="200" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="200" />
+          <Property Name="nom_UnidadFact" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="IdEmpresa_PC" Type="int" />
+          <Property Name="IdPunto_cargo_PC" Type="int" />
+          <Property Name="IdEmpresa_Scc" Type="int" />
+          <Property Name="IdCentroCosto_Scc" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo_Scc" Type="varchar" MaxLength="20" />
+          <Property Name="IdEmpresa_cli" Type="int" />
+          <Property Name="IdCliente_cli" Type="numeric" />
+          <Property Name="IdEmpresa_cc" Type="int" />
+          <Property Name="IdCentroCosto_cc" Type="varchar" MaxLength="20" />
+          <Property Name="IdUnidadFact_cat" Type="varchar" MaxLength="50" />
+          <Property Name="Af_ValorUnidad_Actu" Type="float" />
+          <Property Name="IdRegistro" Type="decimal" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwaf_Af_Poliza_x_AF' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwaf_Af_Poliza_x_AF">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="cod_poliza" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="fecha_vigencia_desde" />
+            <PropertyRef Name="fecha_vigencia_hasta" />
+            <PropertyRef Name="num_cuotas" />
+            <PropertyRef Name="valor_cuota" />
+            <PropertyRef Name="fecha_1era_cuota" />
+            <PropertyRef Name="suma_asegurada" />
+            <PropertyRef Name="total_meses" />
+            <PropertyRef Name="subtotal" />
+            <PropertyRef Name="porc_iva" />
+            <PropertyRef Name="iva" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPoliza" Type="numeric" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="cod_poliza" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="fecha_vigencia_desde" Type="datetime" Nullable="false" />
+          <Property Name="fecha_vigencia_hasta" Type="datetime" Nullable="false" />
+          <Property Name="num_cuotas" Type="int" Nullable="false" />
+          <Property Name="valor_cuota" Type="float" Nullable="false" />
+          <Property Name="fecha_1era_cuota" Type="datetime" Nullable="false" />
+          <Property Name="suma_asegurada" Type="float" Nullable="false" />
+          <Property Name="total_meses" Type="int" Nullable="false" />
+          <Property Name="subtotal" Type="float" Nullable="false" />
+          <Property Name="porc_iva" Type="float" Nullable="false" />
+          <Property Name="iva" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="subtotal_noIva" Type="float" />
+          <Property Name="pago_contado" Type="float" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwaf_Af_Poliza_x_AF_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwaf_Af_Poliza_x_AF_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdEstadoFacturacion_cat" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPoliza" Type="numeric" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="Subtotal_0" Type="float" />
+          <Property Name="Subtotal_12" Type="float" />
+          <Property Name="Iva" Type="float" />
+          <Property Name="Prima" Type="float" />
+          <Property Name="observacion_det" Type="varchar" MaxLength="150" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdEstadoFacturacion_cat" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelActivoFijo_FJ" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesActivoFijo_FJ" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo" EntityType="ModelActivoFijo_FJ.Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo" />
+          <EntitySet Name="vwaf_Af_Poliza_x_AF" EntityType="ModelActivoFijo_FJ.vwaf_Af_Poliza_x_AF" />
+          <EntitySet Name="Af_Activo_fijo_x_ct_punto_cargo" EntityType="ModelActivoFijo_FJ.Af_Activo_fijo_x_ct_punto_cargo" />
+          <EntitySet Name="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro" EntityType="ModelActivoFijo_FJ.vwAf_Activo_fijo_x_ct_centro_costo_x_Registro" />
+          <EntitySet Name="Af_Poliza_x_AF" EntityType="ModelActivoFijo_FJ.Af_Poliza_x_AF" />
+          <EntitySet Name="Af_Poliza_x_AF_det" EntityType="ModelActivoFijo_FJ.Af_Poliza_x_AF_det" />
+          <EntitySet Name="Af_Poliza_x_AF_det_cuota" EntityType="ModelActivoFijo_FJ.Af_Poliza_x_AF_det_cuota" />
+          <EntitySet Name="vwaf_Af_Poliza_x_AF_det" EntityType="ModelActivoFijo_FJ.vwaf_Af_Poliza_x_AF_det" />
+          <EntitySet Name="vwAf_Activo_fijo_x_ct_centro_costo" EntityType="ModelActivoFijo_FJ.vwAf_Activo_fijo_x_ct_centro_costo" />
+        </EntityContainer>
+        <EntityType Name="Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo">
+          <Key>
+            <PropertyRef Name="IdEmpresa_AF" />
+            <PropertyRef Name="IdActivoFijo_AF" />
+            <PropertyRef Name="IdEmpresa_Scc" />
+            <PropertyRef Name="IdCentroCosto_Scc" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo_Scc" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa_AF" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo_AF" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_Scc" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto_Scc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo_Scc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwaf_Af_Poliza_x_AF">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="cod_poliza" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="fecha_vigencia_desde" />
+            <PropertyRef Name="fecha_vigencia_hasta" />
+            <PropertyRef Name="num_cuotas" />
+            <PropertyRef Name="valor_cuota" />
+            <PropertyRef Name="fecha_1era_cuota" />
+            <PropertyRef Name="suma_asegurada" />
+            <PropertyRef Name="total_meses" />
+            <PropertyRef Name="subtotal" />
+            <PropertyRef Name="porc_iva" />
+            <PropertyRef Name="iva" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPoliza" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="cod_poliza" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="observacion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha_vigencia_desde" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="fecha_vigencia_hasta" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="num_cuotas" Nullable="false" />
+          <Property Type="Double" Name="valor_cuota" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_1era_cuota" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="suma_asegurada" Nullable="false" />
+          <Property Type="Int32" Name="total_meses" Nullable="false" />
+          <Property Type="Double" Name="subtotal" Nullable="false" />
+          <Property Type="Double" Name="porc_iva" Nullable="false" />
+          <Property Type="Double" Name="iva" Nullable="false" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="subtotal_noIva" />
+          <Property Type="Double" Name="pago_contado" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Af_Activo_fijo_x_ct_punto_cargo">
+          <Key>
+            <PropertyRef Name="IdEmpresa_PC" />
+            <PropertyRef Name="IdPunto_cargo_PC" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa_AF" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo_AF" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_PC" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_PC" Nullable="false" />
+          <Property Type="String" Name="observacion" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro">
+          <Key>
+            <PropertyRef Name="nom_UnidadFact" />
+            <PropertyRef Name="IdRegistro" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="String" Name="Af_Nombre" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado_Ubicacion" />
+          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_UnidadFact" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_PC" />
+          <Property Type="Int32" Name="IdPunto_cargo_PC" />
+          <Property Type="Int32" Name="IdEmpresa_Scc" />
+          <Property Type="String" Name="IdCentroCosto_Scc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo_Scc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cli" />
+          <Property Type="Decimal" Name="IdCliente_cli" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_cc" />
+          <Property Type="String" Name="IdCentroCosto_cc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadFact_cat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_ValorUnidad_Actu" />
+          <Property Type="Decimal" Name="IdRegistro" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Af_Poliza_x_AF">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPoliza" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cod_poliza" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="observacion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha_vigencia_desde" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="fecha_vigencia_hasta" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="num_cuotas" Nullable="false" />
+          <Property Type="Double" Name="valor_cuota" Nullable="false" />
+          <Property Type="DateTime" Name="fecha_1era_cuota" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="suma_asegurada" Nullable="false" />
+          <Property Type="Int32" Name="total_meses" Nullable="false" />
+          <Property Type="Double" Name="subtotal" Nullable="false" />
+          <Property Type="Double" Name="porc_iva" Nullable="false" />
+          <Property Type="Double" Name="iva" Nullable="false" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="subtotal_noIva" />
+          <Property Type="Double" Name="pago_contado" />
+        </EntityType>
+        <EntityType Name="Af_Poliza_x_AF_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPoliza" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="Double" Name="Subtotal_0" />
+          <Property Type="Double" Name="Subtotal_12" />
+          <Property Type="Double" Name="Iva" />
+          <Property Type="Double" Name="Prima" />
+          <Property Type="String" Name="observacion_det" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoFacturacion_cat" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Af_Poliza_x_AF_det_cuota">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="cod_couta" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPoliza" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="cod_couta" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Nullable="false" Precision="0" />
+          <Property Type="Double" Name="valor_prima" Nullable="false" />
+          <Property Type="String" Name="IdEstadoCancelacion_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoFacturacion_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Sub_total_12" Nullable="false" />
+          <Property Type="Double" Name="Iva" Nullable="false" />
+          <Property Type="String" Name="Observacion_detalle" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Sub_total_0" />
+        </EntityType>
+        <EntityType Name="vwaf_Af_Poliza_x_AF_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPoliza" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdEstadoFacturacion_cat" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPoliza" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="Double" Name="Subtotal_0" />
+          <Property Type="Double" Name="Subtotal_12" />
+          <Property Type="Double" Name="Iva" />
+          <Property Type="Double" Name="Prima" />
+          <Property Type="String" Name="observacion_det" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoFacturacion_cat" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwAf_Activo_fijo_x_ct_centro_costo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="nom_punto_cargo" />
+            <PropertyRef Name="IdEmpresa_PC" />
+            <PropertyRef Name="IdPunto_cargo_PC" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadFact_cat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_ValorUnidad_Actu" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado_Ubicacion" />
+          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_UnidadFact" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_PC" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_PC" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_Scc" />
+          <Property Type="String" Name="IdCentroCosto_Scc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo_Scc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cli" />
+          <Property Type="Decimal" Name="IdCliente_cli" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_cc" />
+          <Property Type="String" Name="IdCentroCosto_cc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_DescripcionCorta" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelActivoFijo_FJStoreContainer" CdmEntityContainer="EntitiesActivoFijo_FJ">
+          <EntitySetMapping Name="Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo">
+              <MappingFragment StoreEntitySet="Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo_Scc" ColumnName="IdCentroCosto_sub_centro_costo_Scc" />
+                <ScalarProperty Name="IdCentroCosto_Scc" ColumnName="IdCentroCosto_Scc" />
+                <ScalarProperty Name="IdEmpresa_Scc" ColumnName="IdEmpresa_Scc" />
+                <ScalarProperty Name="IdActivoFijo_AF" ColumnName="IdActivoFijo_AF" />
+                <ScalarProperty Name="IdEmpresa_AF" ColumnName="IdEmpresa_AF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwaf_Af_Poliza_x_AF">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.vwaf_Af_Poliza_x_AF">
+              <MappingFragment StoreEntitySet="vwaf_Af_Poliza_x_AF">
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="pago_contado" ColumnName="pago_contado" />
+                <ScalarProperty Name="subtotal_noIva" ColumnName="subtotal_noIva" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="iva" ColumnName="iva" />
+                <ScalarProperty Name="porc_iva" ColumnName="porc_iva" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="total_meses" ColumnName="total_meses" />
+                <ScalarProperty Name="suma_asegurada" ColumnName="suma_asegurada" />
+                <ScalarProperty Name="fecha_1era_cuota" ColumnName="fecha_1era_cuota" />
+                <ScalarProperty Name="valor_cuota" ColumnName="valor_cuota" />
+                <ScalarProperty Name="num_cuotas" ColumnName="num_cuotas" />
+                <ScalarProperty Name="fecha_vigencia_hasta" ColumnName="fecha_vigencia_hasta" />
+                <ScalarProperty Name="fecha_vigencia_desde" ColumnName="fecha_vigencia_desde" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cod_poliza" ColumnName="cod_poliza" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdPoliza" ColumnName="IdPoliza" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Af_Activo_fijo_x_ct_punto_cargo">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.Af_Activo_fijo_x_ct_punto_cargo">
+              <MappingFragment StoreEntitySet="Af_Activo_fijo_x_ct_punto_cargo">
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="IdPunto_cargo_PC" ColumnName="IdPunto_cargo_PC" />
+                <ScalarProperty Name="IdEmpresa_PC" ColumnName="IdEmpresa_PC" />
+                <ScalarProperty Name="IdActivoFijo_AF" ColumnName="IdActivoFijo_AF" />
+                <ScalarProperty Name="IdEmpresa_AF" ColumnName="IdEmpresa_AF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.vwAf_Activo_fijo_x_ct_centro_costo_x_Registro">
+              <MappingFragment StoreEntitySet="vwAf_Activo_fijo_x_ct_centro_costo_x_Registro">
+                <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+                <ScalarProperty Name="Af_ValorUnidad_Actu" ColumnName="Af_ValorUnidad_Actu" />
+                <ScalarProperty Name="IdUnidadFact_cat" ColumnName="IdUnidadFact_cat" />
+                <ScalarProperty Name="IdCentroCosto_cc" ColumnName="IdCentroCosto_cc" />
+                <ScalarProperty Name="IdEmpresa_cc" ColumnName="IdEmpresa_cc" />
+                <ScalarProperty Name="IdCliente_cli" ColumnName="IdCliente_cli" />
+                <ScalarProperty Name="IdEmpresa_cli" ColumnName="IdEmpresa_cli" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo_Scc" ColumnName="IdCentroCosto_sub_centro_costo_Scc" />
+                <ScalarProperty Name="IdCentroCosto_Scc" ColumnName="IdCentroCosto_Scc" />
+                <ScalarProperty Name="IdEmpresa_Scc" ColumnName="IdEmpresa_Scc" />
+                <ScalarProperty Name="IdPunto_cargo_PC" ColumnName="IdPunto_cargo_PC" />
+                <ScalarProperty Name="IdEmpresa_PC" ColumnName="IdEmpresa_PC" />
+                <ScalarProperty Name="nom_UnidadFact" ColumnName="nom_UnidadFact" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo" ColumnName="nom_Centro_costo_sub_centro_costo" />
+                <ScalarProperty Name="Estado_Ubicacion" ColumnName="Estado_Ubicacion" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Af_Poliza_x_AF">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.Af_Poliza_x_AF">
+              <MappingFragment StoreEntitySet="Af_Poliza_x_AF">
+                <ScalarProperty Name="pago_contado" ColumnName="pago_contado" />
+                <ScalarProperty Name="subtotal_noIva" ColumnName="subtotal_noIva" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="iva" ColumnName="iva" />
+                <ScalarProperty Name="porc_iva" ColumnName="porc_iva" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="total_meses" ColumnName="total_meses" />
+                <ScalarProperty Name="suma_asegurada" ColumnName="suma_asegurada" />
+                <ScalarProperty Name="fecha_1era_cuota" ColumnName="fecha_1era_cuota" />
+                <ScalarProperty Name="valor_cuota" ColumnName="valor_cuota" />
+                <ScalarProperty Name="num_cuotas" ColumnName="num_cuotas" />
+                <ScalarProperty Name="fecha_vigencia_hasta" ColumnName="fecha_vigencia_hasta" />
+                <ScalarProperty Name="fecha_vigencia_desde" ColumnName="fecha_vigencia_desde" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cod_poliza" ColumnName="cod_poliza" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdPoliza" ColumnName="IdPoliza" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Af_Poliza_x_AF_det">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.Af_Poliza_x_AF_det">
+              <MappingFragment StoreEntitySet="Af_Poliza_x_AF_det">
+                <ScalarProperty Name="IdEstadoFacturacion_cat" ColumnName="IdEstadoFacturacion_cat" />
+                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
+                <ScalarProperty Name="Prima" ColumnName="Prima" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Subtotal_12" ColumnName="Subtotal_12" />
+                <ScalarProperty Name="Subtotal_0" ColumnName="Subtotal_0" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdPoliza" ColumnName="IdPoliza" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Af_Poliza_x_AF_det_cuota">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.Af_Poliza_x_AF_det_cuota">
+              <MappingFragment StoreEntitySet="Af_Poliza_x_AF_det_cuota">
+                <ScalarProperty Name="Sub_total_0" ColumnName="Sub_total_0" />
+                <ScalarProperty Name="Observacion_detalle" ColumnName="Observacion_detalle" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Sub_total_12" ColumnName="Sub_total_12" />
+                <ScalarProperty Name="IdEstadoFacturacion_cat" ColumnName="IdEstadoFacturacion_cat" />
+                <ScalarProperty Name="IdEstadoCancelacion_cat" ColumnName="IdEstadoCancelacion_cat" />
+                <ScalarProperty Name="valor_prima" ColumnName="valor_prima" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="cod_couta" ColumnName="cod_couta" />
+                <ScalarProperty Name="IdPoliza" ColumnName="IdPoliza" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwaf_Af_Poliza_x_AF_det">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.vwaf_Af_Poliza_x_AF_det">
+              <MappingFragment StoreEntitySet="vwaf_Af_Poliza_x_AF_det">
+                <ScalarProperty Name="IdEstadoFacturacion_cat" ColumnName="IdEstadoFacturacion_cat" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
+                <ScalarProperty Name="Prima" ColumnName="Prima" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Subtotal_12" ColumnName="Subtotal_12" />
+                <ScalarProperty Name="Subtotal_0" ColumnName="Subtotal_0" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdPoliza" ColumnName="IdPoliza" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAf_Activo_fijo_x_ct_centro_costo">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.vwAf_Activo_fijo_x_ct_centro_costo">
+              <MappingFragment StoreEntitySet="vwAf_Activo_fijo_x_ct_centro_costo">
+                <ScalarProperty Name="Af_DescripcionCorta" ColumnName="Af_DescripcionCorta" />
+                <ScalarProperty Name="IdCentroCosto_cc" ColumnName="IdCentroCosto_cc" />
+                <ScalarProperty Name="IdEmpresa_cc" ColumnName="IdEmpresa_cc" />
+                <ScalarProperty Name="IdCliente_cli" ColumnName="IdCliente_cli" />
+                <ScalarProperty Name="IdEmpresa_cli" ColumnName="IdEmpresa_cli" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo_Scc" ColumnName="IdCentroCosto_sub_centro_costo_Scc" />
+                <ScalarProperty Name="IdCentroCosto_Scc" ColumnName="IdCentroCosto_Scc" />
+                <ScalarProperty Name="IdEmpresa_Scc" ColumnName="IdEmpresa_Scc" />
+                <ScalarProperty Name="IdPunto_cargo_PC" ColumnName="IdPunto_cargo_PC" />
+                <ScalarProperty Name="IdEmpresa_PC" ColumnName="IdEmpresa_PC" />
+                <ScalarProperty Name="nom_UnidadFact" ColumnName="nom_UnidadFact" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo" ColumnName="nom_Centro_costo_sub_centro_costo" />
+                <ScalarProperty Name="Estado_Ubicacion" ColumnName="Estado_Ubicacion" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Af_ValorUnidad_Actu" ColumnName="Af_ValorUnidad_Actu" />
+                <ScalarProperty Name="IdUnidadFact_cat" ColumnName="IdUnidadFact_cat" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee64cce9d7d44c268eefc6bdf3e29c18" Name="Diagrama1">
+        <EntityTypeShape EntityType="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo_det" Width="1.5" PointX="9.9438538280985576" PointY="3.477767990658883" />
+        <EntityTypeShape EntityType="ModelInventario_Fj.vwin_Orden_servicio_x_activo_fijo" Width="1.5" PointX="2.587853216839886" PointY="2.001936362125881" />
+        <EntityTypeShape EntityType="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo" Width="1.5" PointX="8.52479503328204" PointY="19.381550783003473" />
+        <AssociationConnector Association="ModelInventario_Fj.FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

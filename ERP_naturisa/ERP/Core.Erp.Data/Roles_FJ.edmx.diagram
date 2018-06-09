@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48a494435c3f4688a84e46634c8e7ba5" Name="Diagrama1" ZoomLevel="65">
+        <EntityTypeShape EntityType="Entiti_Roles_FJ.ro_Remplazo_x_emplado" Width="1.5" PointX="10.029915410107893" PointY="23.9142921976346" />
+        <EntityTypeShape EntityType="Entiti_Roles_FJ.vwro_Remplazo_x_emplado" Width="1.5" PointX="6.8048214608825841" PointY="3.1016858979601811" />
+        <EntityTypeShape EntityType="Entiti_Roles_FJ.vwro_empleados_con_sueldo_actual_para_calculo_HE" Width="1.5" PointX="10.897939709433327" PointY="3.4144479648277386" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

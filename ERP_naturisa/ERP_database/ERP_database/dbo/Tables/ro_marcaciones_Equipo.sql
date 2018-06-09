@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[ro_marcaciones_Equipo] (
+    [IdEmpresa]                        INT           NOT NULL,
+    [IdSucursal]                       INT           NOT NULL,
+    [IdEquipoMar]                      INT           NOT NULL,
+    [Nombre_Equipo]                    VARCHAR (50)  NOT NULL,
+    [Modelo_Equipo]                    VARCHAR (50)  NULL,
+    [TipoBd]                           VARCHAR (50)  NOT NULL,
+    [CadenaConexion]                   VARCHAR (400) NOT NULL,
+    [Tabla_Vista]                      VARCHAR (100) NOT NULL,
+    [FormatoFecha]                     VARCHAR (50)  NOT NULL,
+    [FormatoHora]                      VARCHAR (50)  NOT NULL,
+    [FechaUltimaImportacionMarcaiones] DATE          NOT NULL,
+    [IdUsuario]                        VARCHAR (20)  NOT NULL,
+    [Estado]                           CHAR (1)      NOT NULL,
+    [Fecha_Transac]                    DATETIME      NOT NULL,
+    [Ip]                               VARCHAR (30)  NULL,
+    [IdUsuarioUltModi]                 VARCHAR (20)  NULL,
+    [Fecha_UltMod]                     DATETIME      NULL,
+    [IdUsuarioUltAnu]                  VARCHAR (20)  NULL,
+    [Fecha_UltAnu]                     DATETIME      NULL,
+    [nom_pc]                           VARCHAR (50)  NULL,
+    [Motivo_Anu]                       VARCHAR (200) NULL,
+    CONSTRAINT [PK_ro_marcaciones_TipoCarga] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdSucursal] ASC, [IdEquipoMar] ASC)
+);
+

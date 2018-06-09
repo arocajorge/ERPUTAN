@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b0954107f9814abe879d11a006ad3457" Name="Diagrama1" ZoomLevel="94">
+        <EntityTypeShape EntityType="ModelProduccion_Edehsa.vwprd_Obra" Width="2" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelProduccion_Edehsa.prd_motivo_traslado" Width="1.5" PointX="3.25" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelProduccion_Edehsa.vwprd_Guia_Remision_Electronica" Width="1.5" PointX="5.25" PointY="0.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

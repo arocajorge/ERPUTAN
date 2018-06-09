@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28433d8017fc4f3eb942db42b268c77c" Name="Diagrama1" ZoomLevel="87">
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt002" Width="2.125" PointX="10.625" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt004" Width="2.125" PointX="8.125" PointY="7.125" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_Rpt001" Width="2.125" PointX="3" PointY="18.625" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt007" Width="1.5" PointX="0.91712743831664667" PointY="27.633830545299606" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt003" Width="1.5" PointX="5.5797248117531293" PointY="8.9878249508272035" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCONTA_NATU_Rpt003" Width="1.5" PointX="1.0152064063657105" PointY="11.86175859526813" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_Rpt003" Width="2" PointX="6.25" PointY="13.125" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_Rpt002" Width="1.5" PointX="8.463186273567" PointY="13.9309716885588" />
+        <EntityTypeShape EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt001" Width="1.5" PointX="11.339504660730951" PointY="6.18655775775507" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

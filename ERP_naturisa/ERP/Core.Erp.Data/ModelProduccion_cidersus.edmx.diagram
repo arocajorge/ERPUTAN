@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8c687b89a31d4547b334e0beeb0edaf7" Name="Diagrama1" ZoomLevel="13">
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_ChatarraTipo_CusTalme" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Clave_Autorizacion" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_CompraChatarra_CusTalme" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_CompraChatarra_CusTalme_x__in_movi_inven" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_in_movi_inve_data" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_in_movi_inve_data_ProdTermi" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_in_movi_inve_data_SALDOINICIAL" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_in_movi_inve_data_SALDOINICIAL_PROCTER" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_ParametrosGenerales" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_Rubros_Grupos" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_Rubros_x_Tipo_costeo_cusTalme" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_Rubros_x_Tipo_costeo_Datos_cusTalme" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_Rubros_x_Tipo_costeo_Datos_cusTalme_Temp" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_Rubros_x_tipo_costeo_Parametros_cusTalme" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Costeo_Tipo_Costeo_cusTalme" Width="1.5" PointX="11.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaAcero_CusTalme" Width="1.5" PointX="6.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaAcero_CusTalme_x_in_movi_inven" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaLaminado_CusTalme" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaLaminado_x_paradas_CusTalme" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaTechos_CusTalme_Cab" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaTechos_CusTalme_Detalle" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_GestionProductivaTechos_CusTalme_X_in_movi_inve" Width="1.5" PointX="13.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_horno_CusTalme" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_LiquidacionChatarraDetalle" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_ModeloProduccion_CusTalme" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_ModeloProduccion_x_Producto_CusTal" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Operador" Width="1.5" PointX="14.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Parametro" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Parametros_x_MoviInven_x_ModeloProduccion" Width="1.5" PointX="15.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_ParametrosAceria" Width="1.5" PointX="16.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_ParametrosPorCampos" Width="1.5" PointX="16.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_ProgramaProd" Width="1.5" PointX="14.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Proveedores_X_Presupuesto_CusTalme" Width="1.5" PointX="16.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_PuenteGrua" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_TipoParada_CusTalme" Width="1.5" PointX="17.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prod_Turno" Width="1.5" PointX="10.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.ro_Acta_Finiquito" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.ro_Acta_Finiquito_Detalle" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.ro_archivos_bancos_generacion" Width="1.5" PointX="18.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_CantidadEnsamblada_x_OT_CusCider" Width="1.5" PointX="18.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ControlProduccion_Obrero_Cab" Width="1.5" PointX="18.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ControlProduccion_Producto_x_Etapa" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ControlProduccionObreroConsultaGeneral" Width="1.5" PointX="4.75" PointY="19.875" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ConversionDetalle_CusCidersus" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ConversionProCuscidersus" Width="1.5" PointX="8.75" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Despacho" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Ensamblado_CabDet_CusCider" Width="1.5" PointX="12.75" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Ensamblado_CusCidersus" Width="1.5" PointX="14.75" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_MovPteGrua" Width="1.5" PointX="22.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ProcesoProductivo" Width="1.5" PointX="23.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_ProcesoProductivo_x_prd_obra" Width="1.5" PointX="20.75" PointY="23.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Saldos_Requerimientos_x_OT" Width="1.5" PointX="22.75" PointY="23.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Saldos_x_Req_x_OT_x_Consumo" Width="1.5" PointX="0.75" PointY="24.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_SubgruposTrabajos" Width="1.5" PointX="2.75" PointY="24.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_UsuarioAutorizados_Cidersus" Width="1.5" PointX="24.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwpre_PedidoXPresupuesto" Width="1.5" PointX="24.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwpre_PedidoXPresupuesto_det" Width="1.5" PointX="24.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwpre_presupuesto_plancta" Width="1.5" PointX="24.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwPre_PresupuestoxCta" Width="1.5" PointX="24.75" PointY="21.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwProd_CompraChatarra" Width="1.5" PointX="4.75" PointY="25.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwProd_GestionProductivaAceria_CusTalme" Width="1.5" PointX="6.75" PointY="25.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwProd_GestionProductivaTalmeLaminado" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprod_GestionProductivaTechos_Talme" Width="1.5" PointX="8.75" PointY="26.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwProd_ProgramaProd" Width="1.5" PointX="26.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwProd_Rpt_GestionPordLaminados_Talme" Width="1.5" PointX="10.75" PointY="26.75" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_ro_Acta_Finiquito_Detalle_ro_Acta_Finiquito" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ProcesoProductivo" Width="1.5" PointX="26.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ProcesoProductivo_x_prd_obra" Width="1.5" PointX="26.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.in_movi_inven_x_in_movi_inven_CusCidersus" Width="1.5" PointX="26.75" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_GeneracionCompraCidersus" Width="1.5" PointX="26.75" PointY="24.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_prd_CidersusConsultaProductosCortados" PointX="16.75" PointY="27.75" Width="1.5" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_ReimpresionCodigoBarra_cusCider" Width="1.5" PointX="18.75" PointY="27.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Producto_a_Cortar_CusCider" Width="1.5" PointX="28.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ControlInventarioProd" Width="1.5" PointX="28.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ControlProduccion_Obrero" Width="1.5" PointX="28.75" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ControlProduccion_Obrero_Det" Width="1.5" PointX="20.75" PointY="28.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ControlProduccion_Obrero_x_in_movi_inve" Width="1.5" PointX="22.75" PointY="28.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Conversion_CusCidersus" Width="1.5" PointX="28.75" PointY="24.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_conversion_cusCidersus_x_in_movi_inven" Width="1.5" PointX="28.75" PointY="29.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Conversion_det_CusCidersus" Width="1.5" PointX="30.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Despacho" Width="1.5" PointX="51.75" PointY="7.375" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Despacho_cusCidersus_x_in_movi_inven" Width="1.5" PointX="30.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_DespachoDet" Width="2.25" PointX="54.625" PointY="7.375" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_ensamblado_cusCider_x_in_movi_inven" Width="1.5" PointX="30.75" PointY="23.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Ensamblado_Det_CusCider" Width="1.5" PointX="63" PointY="7.875" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_EtapaProduccion" Width="1.5" PointX="30.75" PointY="29.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_GruposTrabajo" Width="1.5" PointX="0.75" PointY="31.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_GruposTrabajo_PorPP" Width="1.5" PointX="22.75" PointY="31.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_GrupoTrabajo_Det" Width="1.5" PointX="2.75" PointY="32.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Obra" Width="1.5" PointX="32.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_PiezasEnEspera_Pendiente_PorSubgrupo" Width="1.5" PointX="14.75" PointY="32.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_PteGrua" Width="1.5" PointX="32.75" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_UsuarioAutorizado_CusCider" Width="1.5" PointX="32.75" PointY="26.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos" Width="1.5" PointX="28.75" PointY="32.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_prd_ConsultaKardex" Width="1.5" PointX="18.75" PointY="34.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_prd_ConsultaPiezasMover" Width="1.5" PointX="20.75" PointY="34.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_prd_EgresoInventario_x_Produccion" Width="1.5" PointX="34.75" PointY="22.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_prd_EtasProcesoProductivo" Width="1.5" PointX="22.75" PointY="34.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_prd_GruposTrabajosPorPProductivos" Width="4" PointX="39" PointY="31.375" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_BuscarProducto" Width="1.5" PointX="30.75" PointY="34.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_Etapa_ProceP" Width="1.5" PointX="34.75" PointY="31.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_Loginmovil" Width="1.5" PointX="34.75" PointY="34.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_OperadorPG" Width="1.5" PointX="0.75" PointY="35.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_Trazabilidad" Width="1.5" PointX="2.75" PointY="35.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_Trazabilidad_IngresoEtapas" Width="1.5" PointX="36.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_TrazabilidadPro" Width="1.5" PointX="32.75" PointY="4.25" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwPRO_CUS_CID_Rpt001" Width="1.5" PointX="12.75" PointY="36.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Orden_Taller" Width="1.5" PointX="58" PointY="7.375" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_movi_inve_detalle_x_Producto_CusCider_Saldos" Width="1.5" PointX="9.7198511761239956" PointY="30.725873529317731" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Imprimir_Cod_Barra" Width="1.5" PointX="11.363777467684717" PointY="20.17439732894972" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Movi_Inven_Asig_Saldo_x_OT_CusCider" Width="1.5" PointX="4.5" PointY="2.5" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Movi_Inven_CusCider_Cab" Width="1.5" PointX="9.657675928276813" PointY="21.855955774828772" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Movi_Inven_x_CodBarra_CusCider" Width="1.5" PointX="8.933536200287536" PointY="30.031625418938521" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Movi_Inven_x_ControlProduccion_CusCider_Cab" Width="1.5" PointX="5.8422695611800393" PointY="12.65300548665831" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Movi_Inven_x_Conversion_CusCider_Cab" Width="1.5" PointX="6.49284215760084" PointY="31.320620104354163" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_Movi_Inven_x_Ensamblado_CusCider_Cab" Width="1.5" PointX="3.0423480360965929" PointY="9.9567628549210561" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_DespachoSaldo" Width="1.5" PointX="2.9207750237177939" PointY="18.576991834946437" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_OrdenCompraCidersus" Width="1.5" PointX="4.75222215277712" PointY="10.852913801955484" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_parametros_CusCidersus" Width="1.5" PointX="10.415625292070036" PointY="16.608927347049548" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_OrdenTaller" Width="1.5" PointX="1.0012191948486582" PointY="25.126726132410916" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwin_ReimpresionCodigoBarraProductoTerminado_CusCider" Width="1.5" PointX="9.3562698873487626" PointY="4.7464576832700791" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccion_GruposTrabajo_PorPP" Width="1.5" PointX="1.5417938239601412" PointY="15.57315253446491" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vw_WSProduccionCidersus_EtapaSiguiente" Width="1.5" PointX="5.4696459087867506" PointY="3.7557456808889964" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Ensamblado_CusCider" Width="1.5" PointX="60.5" PointY="7.25" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_prd_DespachoDet_prd_Despacho" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_prd_DespachoDet_prd_Orden_Taller" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_prd_Ensamblado_CusCider_prd_Orden_Taller" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_prd_Ensamblado_Det_CusCider_prd_Ensamblado_CusCider" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_GrupoTrabajo" Width="1.5" PointX="72.625" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.prd_Movimiento_PteGrua" Width="1.5" PointX="75.625" PointY="9.25" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_prd_Movimiento_PteGrua_prd_GrupoTrabajo" />
+        <AssociationConnector Association="DBERPModelProducion_Cidersus.FK_prd_Movimiento_PteGrua_prd_Movimiento_PteGrua" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_GrupoTrabajo_Det" Width="1.5" PointX="55.75" PointY="16.5" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_GrupoTrabajo_x_Etapa" Width="1.5" PointX="54" PointY="16.5" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_GrupoTrabajoEtapa" Width="1.5" PointX="53.875" PointY="19.25" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Movimiento_PteGrua" Width="1.5" PointX="57.625" PointY="16.5" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_GrupoTrabajoCab" Width="1.5" PointX="8.2577615400113924" PointY="28.657513020866325" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.in_movi_inve_detalle_x_Producto_CusCider" Width="1.5" PointX="66.75" PointY="7.125" />
+        <EntityTypeShape EntityType="DBERPModelProducion_Cidersus.vwprd_Obras_Cliente" Width="1.5" PointX="4.1394006871336142" PointY="18.340598591761943" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

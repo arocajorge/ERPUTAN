@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fbce09e8cd32498b8f8790d799569187" Name="Diagrama1" ZoomLevel="33">
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Archivo_Transferencia_Parametros" Width="1.5" PointX="5.9773875223367421" PointY="0.066386789114394593" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Banco_Cuenta" Width="1.5" PointX="0.10116707352044391" PointY="16.214402102033795" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito" Width="1.5" PointX="3.1577986605268897" PointY="0.422059580880245" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Catalogo" Width="1.5" PointX="4.5960645194147087" PointY="15.409926615380648" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_CatalogoTipo" Width="1.5" PointX="9.7346203465641565" PointY="21.516825268751393" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Cbte_Ban_tipo" Width="1.5" PointX="6.4543549616142908" PointY="19.260706895618096" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Cbte_Ban_tipo_x_CodBancoExterno" Width="1.5" PointX="1.2181122718463244" PointY="3.2100884184288274" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo" Width="1.5" PointX="7.188981238374943" PointY="30.8523520523926" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_cbte_ban_verificado" Width="1.5" PointX="3.6221791522680684" PointY="21.867850731065428" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Conciliacion_det_IngEgr" Width="1.5" PointX="0.814754773310737" PointY="18.570041367118264" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Config_Diseno_Cheque" Width="1.5" PointX="4.485624680521723" PointY="18.877432966082093" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Inversion" Width="1.5" PointX="5.8601381638367371" PointY="14.843668437955747" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_notasDebCre_masivo" Width="1.5" PointX="4.4907082042147914" PointY="9.9575682477827971" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_prestamo_detalle" Width="1.5" PointX="7.7031372653800707" PointY="25.711443585209288" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_prestamo_detalle_cancelacion" Width="1.5" PointX="9.1755702035387827" PointY="3.4022841469395368" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_prestamo_detalle_x_af_activo_fijo_Prendados" Width="1.5" PointX="0.86096741299189961" PointY="18.610465892874853" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Talonario_cheques_x_banco" Width="1.5" PointX="10.282573648860014" PointY="26.8045122301227" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_tipo_nota" Width="1.5" PointX="5.5958594892154725" PointY="15.5139774454357" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_transferencia" Width="1.5" PointX="11.74766497302226" PointY="31.967101588829934" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_ba_Banco_Cuenta" Width="1.5" PointX="2.2354680105277653" PointY="7.8543234951115792" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Banco_Estado_Cheques" Width="1.5" PointX="11.210140272607161" PointY="13.699737495602918" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado" Width="1.5" PointX="1.59477610774095" PointY="21.543363461989614" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Catalogo_IdAuto_numeric" Width="1.5" PointX="6.2981341789933545" PointY="29.41250361381681" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Cbte_Ban_detallePagos" Width="1.5" PointX="4.5837222899234487" PointY="24.185505416330653" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Conciliacion_det_IngEgr" Width="1.5" PointX="4.0282129533720266" PointY="15.76833248872698" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Estado_cbte_ban" Width="1.5" PointX="10.708664606655326" PointY="23.048678513173328" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_EstadoPago" Width="1.5" PointX="9.917870375289521" PointY="28.292024208368744" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_MetodoCalculo" Width="1.5" PointX="9.4361567224544274" PointY="18.658701950059598" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_MotivoPrestamo" Width="1.5" PointX="4.4728557842191572" PointY="30.77327707352735" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_notasDebCre_masivo" Width="1.5" PointX="8.9179588243914587" PointY="13.927448353696358" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_notasDebCre_masivo_consul" Width="1.5" PointX="5.8382451859480913" PointY="17.198867507837186" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_ordenGiroPendientes" Width="1.5" PointX="6.0608540782988323" PointY="12.687375879235274" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_PeriocidadPago" Width="1.5" PointX="10.431651071846321" PointY="10.768449713833839" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_prestamo" Width="1.5" PointX="11.681080447361378" PointY="12.752549639322119" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_prestamo_detalle_cancelacion" Width="1.5" PointX="0.68079053083471519" PointY="30.007692783143227" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwBA_Sucursal_x_TipoCobro" Width="1.5" PointX="8.76367780974306" PointY="30.920872628186306" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_tipo_nota" Width="1.5" PointX="1.2340192521149382" PointY="14.456920526203197" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_transferencia" Width="1.5" PointX="7.23970211820663" PointY="10.620581929860908" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Config_Diseno_Cheque_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Inversion_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Talonario_cheques_x_banco_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_transferencia_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_transferencia_ba_Banco_Cuenta1" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Catalogo_ba_CatalogoTipo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_detalle_ba_Catalogo1" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_tipo_x_CodBancoExterno_ba_Cbte_Ban_tipo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo_ba_Cbte_Ban_tipo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_detalle_cancelacion_ba_prestamo_detalle" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_ba_prestamo_detalle_x_af_activo_fijo_Prendados" Width="1.5" PointX="11.43859010536158" PointY="12.129758959696517" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_MoviCaja_Depositados" Width="1.5" PointX="5.0225592837774" PointY="19.718881944063529" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Conciliacion" Width="1.5" PointX="7.6063216457172862" PointY="17.577135183651528" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Conciliacion_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Conciliacion_ba_Catalogo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Conciliacion_det_IngEgr_ba_Conciliacion" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Conciliacion" Width="1.5" PointX="6.71814651355061" PointY="7.0800833437033388" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_TipoFlujo" Width="1.5" PointX="1.5002258985770056" PointY="9.25845849945138" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_TipoFlujo" Width="1.5" PointX="0.75891570223444871" PointY="29.332826031992596" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_TipoFlujo_ba_TipoFlujo" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Cbte_Ban" Width="1.5" PointX="4.0904102288607556" PointY="31.82281047097538" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito_ba_Cbte_Ban1" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_ba_Catalogo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_ba_tipo_nota" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_ba_TipoFlujo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_transferencia_ba_Cbte_Ban" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_transferencia_ba_Cbte_Ban1" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Archivo_Transferencia_x_PreAviso_Cheq" Width="1.5" PointX="9.8793526915271546" PointY="10.499150281073129" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Archivo_Transferencia_x_PreAviso_Cheq_det" Width="1.5" PointX="9.0510399048454317" PointY="8.3041073867604638" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_x_PreAviso_Cheq_det_ba_Archivo_Transferencia_x_PreAviso_Cheq" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_x_PreAviso_Cheq_ba_Banco_Cuenta" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_Det_sum_valores" Width="1.5" PointX="3.7816352433439508" PointY="24.024025555711251" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_x_PreAviso_Cheq_det_ba_Cbte_Ban" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_x_PreAviso_Cheq" Width="1.5" PointX="11.916267972400537" PointY="3.3893304781007259" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_x_PreAviso_Cheq_det" Width="1.5" PointX="1.0976936319366533" PointY="23.607706006433677" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_op_ba_Archivo_Transferencia_Det" Width="1.5" PointX="7.884298110326891" PointY="2.7168220741286975" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Cbte_Ban_tipo_x_ct_CbteCble_tipo" Width="1.5" PointX="4.3471032587565031" PointY="20.429183790660083" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Cbte_Ban_Datos_Entrega_cheq" Width="1.5" PointX="2.9282780117021305" PointY="28.726986153389788" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_ba_Catalogo1" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_Datos_Entrega_cheq_ba_Catalogo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_Datos_Entrega_cheq_ba_Cbte_Ban" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Cbte_Ban" Width="1.5" PointX="8.1762154680566" PointY="19.551278972789309" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Archivo_Transferencia" Width="1.5" PointX="3.1897707316976831" PointY="15.767254285405974" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Banco_Cuenta" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_TransaccionesAConciliar" Width="1.5" PointX="9.1655096230867841" PointY="14.026041082118658" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_prestamo" Width="1.5" PointX="10.480373135991568" PointY="24.634559538510889" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo1" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo2" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_TipoFlujo" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_detalle_ba_prestamo" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwBa_ChequexCbteCtble" Width="1.5" PointX="6.5004510928413133" PointY="19.003870153335793" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_parametros" Width="1.5" PointX="1.6479445927068335" PointY="20.408121789064314" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Archivo_Transferencia" Width="1.5" PointX="9.903100970156073" PointY="20.557783240712148" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro" Width="1.5" PointX="2.9445976218882004" PointY="17.540170677723442" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_Det" Width="1.5" PointX="2.7933272639258426" PointY="1.3864882743854488" />
+        <EntityTypeShape EntityType="DBERPModelBanco.ba_Archivo_Transferencia_Det" Width="1.5" PointX="10.785856291086347" PointY="9.71329248403818" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" />
+        <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Catalogo1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

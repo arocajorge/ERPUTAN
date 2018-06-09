@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[imp_ordencompra_ext_x_imp_gastosxImport] (
+    [IdEmpresa]        INT           NOT NULL,
+    [IdRegistroGasto]  NUMERIC (18)  NOT NULL,
+    [IdSucusal]        INT           NOT NULL,
+    [IdOrdenCompraExt] NUMERIC (18)  NOT NULL,
+    [Fecha]            DATETIME      NOT NULL,
+    [Observacion]      VARCHAR (150) NOT NULL,
+    [IdProveedor]      NUMERIC (18)  NULL,
+    [IdBanco]          INT           NULL,
+    [CodDocu_Pago]     VARCHAR (10)  NOT NULL,
+    [Estado]           CHAR (1)      NOT NULL,
+    [IdTipoCbte]       INT           NULL,
+    [IdCbteCble]       NUMERIC (18)  NULL,
+    [IdTipoCbte_Anu]   INT           NULL,
+    [IdCbteCble_Anu]   NUMERIC (18)  NULL,
+    [IdUsuario]        VARCHAR (20)  NULL,
+    [Fecha_Transac]    DATETIME      NULL,
+    [IdUsuarioUltMod]  VARCHAR (20)  NULL,
+    [Fecha_UltMod]     DATETIME      NULL,
+    [IdUsuarioUltAnu]  VARCHAR (20)  NULL,
+    [Fecha_UltAnu]     DATETIME      NULL,
+    [nom_pc]           VARCHAR (50)  NULL,
+    [ip]               VARCHAR (25)  NULL,
+    CONSTRAINT [PK_imp_ordencompra_ext_x_imp_gastosxImport_1] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdRegistroGasto] ASC, [IdSucusal] ASC, [IdOrdenCompraExt] ASC),
+    CONSTRAINT [FK_imp_ordencompra_ext_x_imp_gastosxImport_cp_proveedor] FOREIGN KEY ([IdEmpresa], [IdProveedor]) REFERENCES [dbo].[cp_proveedor] ([IdEmpresa], [IdProveedor]),
+    CONSTRAINT [FK_imp_ordencompra_ext_x_imp_gastosxImport_imp_ordencompra_ext] FOREIGN KEY ([IdEmpresa], [IdSucusal], [IdOrdenCompraExt]) REFERENCES [dbo].[imp_ordencompra_ext] ([IdEmpresa], [IdSucusal], [IdOrdenCompraExt])
+);
+

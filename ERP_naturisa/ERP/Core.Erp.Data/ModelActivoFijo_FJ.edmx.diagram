@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7314c7553ef344b5ac3a607322518e80" Name="Diagrama1" ZoomLevel="65">
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo" Width="1.5" PointX="0.43572938648784965" PointY="15.879419527891754" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.vwaf_Af_Poliza_x_AF" Width="1.5" PointX="5.7193886533935494" PointY="3.0346303894345792" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.Af_Activo_fijo_x_ct_punto_cargo" Width="1.5" PointX="11.807288691311744" PointY="1.6706287272603384" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.vwAf_Activo_fijo_x_ct_centro_costo_x_Registro" Width="1.5" PointX="3.125" PointY="0.875" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.Af_Poliza_x_AF" Width="1.5" PointX="2.9197301971352334" PointY="6.44310221376042" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.Af_Poliza_x_AF_det" Width="1.5" PointX="3.2146269973435562" PointY="3.50120416446645" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.Af_Poliza_x_AF_det_cuota" Width="1.5" PointX="7.3018920567361132" PointY="3.1895546331953044" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.vwaf_Af_Poliza_x_AF_det" Width="1.5" PointX="5.041670045369151" PointY="5.139254214772607" />
+        <EntityTypeShape EntityType="ModelActivoFijo_FJ.vwAf_Activo_fijo_x_ct_centro_costo" Width="1.5" PointX="8.036542724835007" PointY="30.684245123846569" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

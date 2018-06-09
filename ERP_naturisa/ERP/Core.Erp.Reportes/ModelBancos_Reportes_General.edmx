@@ -1,0 +1,2525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBERPModel4.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DBERPModel4StoreContainer">
+          <EntitySet Name="vwBAN_Rpt001" EntityType="DBERPModel4.Store.vwBAN_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt001].[Tipo_Cbte] AS [Tipo_Cbte], 
+      [vwBAN_Rpt001].[Num_Cbte] AS [Num_Cbte], 
+      [vwBAN_Rpt001].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt001].[Banco] AS [Banco], 
+      [vwBAN_Rpt001].[Fch_Cbte] AS [Fch_Cbte], 
+      [vwBAN_Rpt001].[Observacion] AS [Observacion], 
+      [vwBAN_Rpt001].[Valor] AS [Valor], 
+      [vwBAN_Rpt001].[Cheque] AS [Cheque], 
+      [vwBAN_Rpt001].[Chq_Girado_A] AS [Chq_Girado_A], 
+      [vwBAN_Rpt001].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwBAN_Rpt001].[Tipo_Flujo] AS [Tipo_Flujo], 
+      [vwBAN_Rpt001].[IdTipoNota] AS [IdTipoNota], 
+      [vwBAN_Rpt001].[Tipo_Nota] AS [Tipo_Nota], 
+      [vwBAN_Rpt001].[Fch_PostFechado] AS [Fch_PostFechado], 
+      [vwBAN_Rpt001].[Es_Chq_Impreso] AS [Es_Chq_Impreso], 
+      [vwBAN_Rpt001].[Fch_Chq] AS [Fch_Chq], 
+      [vwBAN_Rpt001].[Cta_Cble_Banco] AS [Cta_Cble_Banco], 
+      [vwBAN_Rpt001].[IdCalendario] AS [IdCalendario], 
+      [vwBAN_Rpt001].[AnioFiscal] AS [AnioFiscal], 
+      [vwBAN_Rpt001].[NombreMes] AS [NombreMes], 
+      [vwBAN_Rpt001].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwBAN_Rpt001].[IdMes] AS [IdMes], 
+      [vwBAN_Rpt001].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwBAN_Rpt001].[Estado] AS [Estado]
+      FROM [dbo].[vwBAN_Rpt001] AS [vwBAN_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt002" EntityType="DBERPModel4.Store.vwBAN_Rpt002" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt002].[Tipo_Cbte] AS [Tipo_Cbte], 
+      [vwBAN_Rpt002].[Num_Cbte] AS [Num_Cbte], 
+      [vwBAN_Rpt002].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt002].[Banco] AS [Banco], 
+      [vwBAN_Rpt002].[Fch_Cbte] AS [Fch_Cbte], 
+      [vwBAN_Rpt002].[Observacion] AS [Observacion], 
+      [vwBAN_Rpt002].[Valor] AS [Valor], 
+      [vwBAN_Rpt002].[Cheque] AS [Cheque], 
+      [vwBAN_Rpt002].[Chq_Girado_A] AS [Chq_Girado_A], 
+      [vwBAN_Rpt002].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwBAN_Rpt002].[Tipo_Flujo] AS [Tipo_Flujo], 
+      [vwBAN_Rpt002].[IdTipoNota] AS [IdTipoNota], 
+      [vwBAN_Rpt002].[Tipo_Nota] AS [Tipo_Nota], 
+      [vwBAN_Rpt002].[Fch_PostFechado] AS [Fch_PostFechado], 
+      [vwBAN_Rpt002].[Es_Chq_Impreso] AS [Es_Chq_Impreso], 
+      [vwBAN_Rpt002].[debe] AS [debe], 
+      [vwBAN_Rpt002].[haber] AS [haber], 
+      [vwBAN_Rpt002].[saldo] AS [saldo], 
+      [vwBAN_Rpt002].[Fch_Chq] AS [Fch_Chq], 
+      [vwBAN_Rpt002].[Cta_Cble_Banco] AS [Cta_Cble_Banco], 
+      [vwBAN_Rpt002].[IdCalendario] AS [IdCalendario], 
+      [vwBAN_Rpt002].[AnioFiscal] AS [AnioFiscal], 
+      [vwBAN_Rpt002].[NombreMes] AS [NombreMes], 
+      [vwBAN_Rpt002].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwBAN_Rpt002].[IdMes] AS [IdMes], 
+      [vwBAN_Rpt002].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwBAN_Rpt002].[IdPersona_Girado_a] AS [IdPersona_Girado_a]
+      FROM [dbo].[vwBAN_Rpt002] AS [vwBAN_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt003" EntityType="DBERPModel4.Store.vwBAN_Rpt003" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt003].[Tipo_Cbte] AS [Tipo_Cbte], 
+      [vwBAN_Rpt003].[Num_Cbte] AS [Num_Cbte], 
+      [vwBAN_Rpt003].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt003].[Banco] AS [Banco], 
+      [vwBAN_Rpt003].[Fch_Cbte] AS [Fch_Cbte], 
+      [vwBAN_Rpt003].[Observacion] AS [Observacion], 
+      [vwBAN_Rpt003].[debe] AS [debe], 
+      [vwBAN_Rpt003].[haber] AS [haber], 
+      [vwBAN_Rpt003].[saldo] AS [saldo], 
+      [vwBAN_Rpt003].[Valor] AS [Valor], 
+      [vwBAN_Rpt003].[Cheque] AS [Cheque], 
+      [vwBAN_Rpt003].[Chq_Girado_A] AS [Chq_Girado_A], 
+      [vwBAN_Rpt003].[IdPersona_Girado_a] AS [IdPersona_Girado_a], 
+      [vwBAN_Rpt003].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwBAN_Rpt003].[Tipo_Flujo] AS [Tipo_Flujo], 
+      [vwBAN_Rpt003].[IdTipoNota] AS [IdTipoNota], 
+      [vwBAN_Rpt003].[Tipo_Nota] AS [Tipo_Nota], 
+      [vwBAN_Rpt003].[Fch_PostFechado] AS [Fch_PostFechado], 
+      [vwBAN_Rpt003].[Es_Chq_Impreso] AS [Es_Chq_Impreso], 
+      [vwBAN_Rpt003].[Fch_Chq] AS [Fch_Chq], 
+      [vwBAN_Rpt003].[Cta_Cble_Banco] AS [Cta_Cble_Banco], 
+      [vwBAN_Rpt003].[IdCalendario] AS [IdCalendario], 
+      [vwBAN_Rpt003].[AnioFiscal] AS [AnioFiscal], 
+      [vwBAN_Rpt003].[NombreMes] AS [NombreMes], 
+      [vwBAN_Rpt003].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwBAN_Rpt003].[IdMes] AS [IdMes], 
+      [vwBAN_Rpt003].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwBAN_Rpt003].[MontoAplicado] AS [MontoAplicado], 
+      [vwBAN_Rpt003].[IdOrdenPago_op] AS [IdOrdenPago_op], 
+      [vwBAN_Rpt003].[Secuencia_op] AS [Secuencia_op], 
+      [vwBAN_Rpt003].[Referencia] AS [Referencia], 
+      [vwBAN_Rpt003].[Fecha_Venc_Fac_Prov] AS [Fecha_Venc_Fac_Prov], 
+      [vwBAN_Rpt003].[Observacion_FP] AS [Observacion_FP], 
+      [vwBAN_Rpt003].[TipoRegistro] AS [TipoRegistro], 
+      [vwBAN_Rpt003].[IdReg] AS [IdReg]
+      FROM [dbo].[vwBAN_Rpt003] AS [vwBAN_Rpt003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt004" EntityType="DBERPModel4.Store.vwBAN_Rpt004" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt004">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt004].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt004].[Tipo_Cbte] AS [Tipo_Cbte], 
+      [vwBAN_Rpt004].[Num_Cbte] AS [Num_Cbte], 
+      [vwBAN_Rpt004].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt004].[Banco] AS [Banco], 
+      [vwBAN_Rpt004].[Fch_Cbte] AS [Fch_Cbte], 
+      [vwBAN_Rpt004].[Observacion] AS [Observacion], 
+      [vwBAN_Rpt004].[debe] AS [debe], 
+      [vwBAN_Rpt004].[haber] AS [haber], 
+      [vwBAN_Rpt004].[saldo] AS [saldo], 
+      [vwBAN_Rpt004].[Valor] AS [Valor], 
+      [vwBAN_Rpt004].[Cheque] AS [Cheque], 
+      [vwBAN_Rpt004].[Chq_Girado_A] AS [Chq_Girado_A], 
+      [vwBAN_Rpt004].[IdPersona_Girado_a] AS [IdPersona_Girado_a], 
+      [vwBAN_Rpt004].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwBAN_Rpt004].[Tipo_Flujo] AS [Tipo_Flujo], 
+      [vwBAN_Rpt004].[IdTipoNota] AS [IdTipoNota], 
+      [vwBAN_Rpt004].[Tipo_Nota] AS [Tipo_Nota], 
+      [vwBAN_Rpt004].[Fch_PostFechado] AS [Fch_PostFechado], 
+      [vwBAN_Rpt004].[Es_Chq_Impreso] AS [Es_Chq_Impreso], 
+      [vwBAN_Rpt004].[Fch_Chq] AS [Fch_Chq], 
+      [vwBAN_Rpt004].[Cta_Cble_Banco] AS [Cta_Cble_Banco], 
+      [vwBAN_Rpt004].[IdCalendario] AS [IdCalendario], 
+      [vwBAN_Rpt004].[AnioFiscal] AS [AnioFiscal], 
+      [vwBAN_Rpt004].[NombreMes] AS [NombreMes], 
+      [vwBAN_Rpt004].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwBAN_Rpt004].[IdMes] AS [IdMes], 
+      [vwBAN_Rpt004].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwBAN_Rpt004].[MontoAplicado] AS [MontoAplicado], 
+      [vwBAN_Rpt004].[IdOrdenPago_op] AS [IdOrdenPago_op], 
+      [vwBAN_Rpt004].[Secuencia_op] AS [Secuencia_op], 
+      [vwBAN_Rpt004].[Referencia] AS [Referencia], 
+      [vwBAN_Rpt004].[Fecha_Venc_Fac_Prov] AS [Fecha_Venc_Fac_Prov], 
+      [vwBAN_Rpt004].[Observacion_FP] AS [Observacion_FP], 
+      [vwBAN_Rpt004].[TipoRegistro] AS [TipoRegistro], 
+      [vwBAN_Rpt004].[IdReg] AS [IdReg]
+      FROM [dbo].[vwBAN_Rpt004] AS [vwBAN_Rpt004]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt005" EntityType="DBERPModel4.Store.vwBAN_Rpt005" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt005">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt005].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt005].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt005].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt005].[Cod_Cbtecble] AS [Cod_Cbtecble], 
+      [vwBAN_Rpt005].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt005].[cb_secuencia] AS [cb_secuencia], 
+      [vwBAN_Rpt005].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt005].[cb_Cheque] AS [cb_Cheque], 
+      [vwBAN_Rpt005].[cb_ChequeImpreso] AS [cb_ChequeImpreso], 
+      [vwBAN_Rpt005].[cb_FechaCheque] AS [cb_FechaCheque], 
+      [vwBAN_Rpt005].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwBAN_Rpt005].[Estado] AS [Estado], 
+      [vwBAN_Rpt005].[cb_giradoA] AS [cb_giradoA], 
+      [vwBAN_Rpt005].[cb_ciudadChq] AS [cb_ciudadChq], 
+      [vwBAN_Rpt005].[CodTipoCbteBan] AS [CodTipoCbteBan], 
+      [vwBAN_Rpt005].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt005].[con_Fecha] AS [con_Fecha], 
+      [vwBAN_Rpt005].[con_Valor] AS [con_Valor], 
+      [vwBAN_Rpt005].[con_Observacion] AS [con_Observacion], 
+      [vwBAN_Rpt005].[con_IdCbteCble] AS [con_IdCbteCble], 
+      [vwBAN_Rpt005].[IdCtaCble] AS [IdCtaCble], 
+      [vwBAN_Rpt005].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwBAN_Rpt005].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt005].[dc_Valor] AS [dc_Valor], 
+      [vwBAN_Rpt005].[nom_ciudad] AS [nom_ciudad]
+      FROM [dbo].[vwBAN_Rpt005] AS [vwBAN_Rpt005]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt006" EntityType="DBERPModel4.Store.vwBAN_Rpt006" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt006">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt006].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwBAN_Rpt006].[ba_descripcion] AS [ba_descripcion], 
+      [vwBAN_Rpt006].[NombreProveedor] AS [NombreProveedor], 
+      [vwBAN_Rpt006].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt006].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt006].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt006].[Cod_Cbtecble] AS [Cod_Cbtecble], 
+      [vwBAN_Rpt006].[IdPeriodo] AS [IdPeriodo], 
+      [vwBAN_Rpt006].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt006].[IdProveedor] AS [IdProveedor], 
+      [vwBAN_Rpt006].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt006].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt006].[cb_secuencia] AS [cb_secuencia], 
+      [vwBAN_Rpt006].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt006].[cb_Cheque] AS [cb_Cheque], 
+      [vwBAN_Rpt006].[cb_ChequeImpreso] AS [cb_ChequeImpreso], 
+      [vwBAN_Rpt006].[cb_FechaCheque] AS [cb_FechaCheque], 
+      [vwBAN_Rpt006].[IdUsuario] AS [IdUsuario], 
+      [vwBAN_Rpt006].[IdUsuario_Anu] AS [IdUsuario_Anu], 
+      [vwBAN_Rpt006].[FechaAnulacion] AS [FechaAnulacion], 
+      [vwBAN_Rpt006].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwBAN_Rpt006].[Fecha_UltMod] AS [Fecha_UltMod], 
+      [vwBAN_Rpt006].[IdUsuarioUltMod] AS [IdUsuarioUltMod], 
+      [vwBAN_Rpt006].[Estado] AS [Estado], 
+      [vwBAN_Rpt006].[MotivoAnulacion] AS [MotivoAnulacion], 
+      [vwBAN_Rpt006].[ip] AS [ip], 
+      [vwBAN_Rpt006].[nom_pc] AS [nom_pc], 
+      [vwBAN_Rpt006].[cb_giradoA] AS [cb_giradoA], 
+      [vwBAN_Rpt006].[cb_ciudadChq] AS [cb_ciudadChq], 
+      [vwBAN_Rpt006].[IdCbteCble_Anulacion] AS [IdCbteCble_Anulacion], 
+      [vwBAN_Rpt006].[IdTipoCbte_Anulacion] AS [IdTipoCbte_Anulacion], 
+      [vwBAN_Rpt006].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwBAN_Rpt006].[IdTipoNota] AS [IdTipoNota], 
+      [vwBAN_Rpt006].[NomTipoNota] AS [NomTipoNota], 
+      [vwBAN_Rpt006].[Por_Anticipo] AS [Por_Anticipo], 
+      [vwBAN_Rpt006].[PosFechado] AS [PosFechado], 
+      [vwBAN_Rpt006].[IdPersona_Girado_a] AS [IdPersona_Girado_a], 
+      [vwBAN_Rpt006].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt006].[nom_ciudadChq] AS [nom_ciudadChq]
+      FROM [dbo].[vwBAN_Rpt006] AS [vwBAN_Rpt006]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt010" EntityType="DBERPModel4.Store.vwBAN_Rpt010" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt010">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt010].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt010].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt010].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt010].[Descripcion] AS [Descripcion], 
+      [vwBAN_Rpt010].[IdPeriodo] AS [IdPeriodo], 
+      [vwBAN_Rpt010].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt010].[nom_Banco] AS [nom_Banco], 
+      [vwBAN_Rpt010].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt010].[IdCtaCble] AS [IdCtaCble], 
+      [vwBAN_Rpt010].[nom_CtaCble] AS [nom_CtaCble], 
+      [vwBAN_Rpt010].[Debito] AS [Debito], 
+      [vwBAN_Rpt010].[Haber] AS [Haber], 
+      [vwBAN_Rpt010].[referencia] AS [referencia], 
+      [vwBAN_Rpt010].[Concepto] AS [Concepto], 
+      [vwBAN_Rpt010].[ruc_empresa] AS [ruc_empresa], 
+      [vwBAN_Rpt010].[nom_empresa] AS [nom_empresa]
+      FROM [dbo].[vwBAN_Rpt010] AS [vwBAN_Rpt010]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt012" EntityType="DBERPModel4.Store.vwBAN_Rpt012" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt012">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt012].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt012].[nom_empresa] AS [nom_empresa], 
+      [vwBAN_Rpt012].[ruc_empresa] AS [ruc_empresa], 
+      [vwBAN_Rpt012].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt012].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt012].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt012].[nom_banco] AS [nom_banco], 
+      [vwBAN_Rpt012].[ba_Num_Cuenta] AS [ba_Num_Cuenta], 
+      [vwBAN_Rpt012].[IdCtaCble_ban] AS [IdCtaCble_ban], 
+      [vwBAN_Rpt012].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt012].[IdPeriodo] AS [IdPeriodo], 
+      [vwBAN_Rpt012].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt012].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt012].[Estado] AS [Estado], 
+      [vwBAN_Rpt012].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt012].[secuencia] AS [secuencia], 
+      [vwBAN_Rpt012].[IdCtaCble] AS [IdCtaCble], 
+      [vwBAN_Rpt012].[nom_cuenta] AS [nom_cuenta], 
+      [vwBAN_Rpt012].[dc_Observacion] AS [dc_Observacion], 
+      [vwBAN_Rpt012].[debito] AS [debito], 
+      [vwBAN_Rpt012].[credito] AS [credito]
+      FROM [dbo].[vwBAN_Rpt012] AS [vwBAN_Rpt012]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt013" EntityType="DBERPModel4.Store.vwBAN_Rpt013" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt013">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt013].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt013].[nom_empresa] AS [nom_empresa], 
+      [vwBAN_Rpt013].[ruc_empresa] AS [ruc_empresa], 
+      [vwBAN_Rpt013].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt013].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt013].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt013].[nom_banco] AS [nom_banco], 
+      [vwBAN_Rpt013].[ba_Num_Cuenta] AS [ba_Num_Cuenta], 
+      [vwBAN_Rpt013].[IdCtaCble_ban] AS [IdCtaCble_ban], 
+      [vwBAN_Rpt013].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt013].[IdPeriodo] AS [IdPeriodo], 
+      [vwBAN_Rpt013].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt013].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt013].[Estado] AS [Estado], 
+      [vwBAN_Rpt013].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt013].[secuencia] AS [secuencia], 
+      [vwBAN_Rpt013].[IdCtaCble] AS [IdCtaCble], 
+      [vwBAN_Rpt013].[nom_cuenta] AS [nom_cuenta], 
+      [vwBAN_Rpt013].[dc_Observacion] AS [dc_Observacion], 
+      [vwBAN_Rpt013].[debito] AS [debito], 
+      [vwBAN_Rpt013].[credito] AS [credito], 
+      [vwBAN_Rpt013].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwBAN_Rpt013].[nom_punto_cargo_grupo] AS [nom_punto_cargo_grupo], 
+      [vwBAN_Rpt013].[clave_cta] AS [clave_cta]
+      FROM [dbo].[vwBAN_Rpt013] AS [vwBAN_Rpt013]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt014" EntityType="DBERPModel4.Store.vwBAN_Rpt014" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt014">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt014].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt014].[nom_empresa] AS [nom_empresa], 
+      [vwBAN_Rpt014].[ruc_empresa] AS [ruc_empresa], 
+      [vwBAN_Rpt014].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt014].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt014].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt014].[nom_banco] AS [nom_banco], 
+      [vwBAN_Rpt014].[ba_Num_Cuenta] AS [ba_Num_Cuenta], 
+      [vwBAN_Rpt014].[IdCtaCble_ban] AS [IdCtaCble_ban], 
+      [vwBAN_Rpt014].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt014].[IdPeriodo] AS [IdPeriodo], 
+      [vwBAN_Rpt014].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt014].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt014].[Estado] AS [Estado], 
+      [vwBAN_Rpt014].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt014].[secuencia] AS [secuencia], 
+      [vwBAN_Rpt014].[IdCtaCble] AS [IdCtaCble], 
+      [vwBAN_Rpt014].[nom_cuenta] AS [nom_cuenta], 
+      [vwBAN_Rpt014].[dc_Observacion] AS [dc_Observacion], 
+      [vwBAN_Rpt014].[debito] AS [debito], 
+      [vwBAN_Rpt014].[credito] AS [credito]
+      FROM [dbo].[vwBAN_Rpt014] AS [vwBAN_Rpt014]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt015" EntityType="DBERPModel4.Store.vwBAN_Rpt015" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt015">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt015].[mba_IdEmpresa] AS [mba_IdEmpresa], 
+      [vwBAN_Rpt015].[mba_IdCbteCble] AS [mba_IdCbteCble], 
+      [vwBAN_Rpt015].[mba_IdTipocbte] AS [mba_IdTipocbte], 
+      [vwBAN_Rpt015].[mcj_Secuencia] AS [mcj_Secuencia], 
+      [vwBAN_Rpt015].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt015].[nom_sucursal] AS [nom_sucursal], 
+      [vwBAN_Rpt015].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt015].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt015].[nom_Tipocbte] AS [nom_Tipocbte], 
+      [vwBAN_Rpt015].[Beneficiario] AS [Beneficiario], 
+      [vwBAN_Rpt015].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwBAN_Rpt015].[Fecha_Cobro] AS [Fecha_Cobro], 
+      [vwBAN_Rpt015].[cr_Valor] AS [cr_Valor], 
+      [vwBAN_Rpt015].[cm_observacion] AS [cm_observacion]
+      FROM [dbo].[vwBAN_Rpt015] AS [vwBAN_Rpt015]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt016" EntityType="DBERPModel4.Store.vwBAN_Rpt016" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt016">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt016].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt016].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt016].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt016].[Cod_Cbtecble] AS [Cod_Cbtecble], 
+      [vwBAN_Rpt016].[IdPeriodo] AS [IdPeriodo], 
+      [vwBAN_Rpt016].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt016].[IdProveedor] AS [IdProveedor], 
+      [vwBAN_Rpt016].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt016].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt016].[cb_secuencia] AS [cb_secuencia], 
+      [vwBAN_Rpt016].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt016].[cb_Cheque] AS [cb_Cheque], 
+      [vwBAN_Rpt016].[cb_ChequeImpreso] AS [cb_ChequeImpreso], 
+      [vwBAN_Rpt016].[cb_FechaCheque] AS [cb_FechaCheque], 
+      [vwBAN_Rpt016].[IdUsuario] AS [IdUsuario], 
+      [vwBAN_Rpt016].[IdUsuario_Anu] AS [IdUsuario_Anu], 
+      [vwBAN_Rpt016].[FechaAnulacion] AS [FechaAnulacion], 
+      [vwBAN_Rpt016].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwBAN_Rpt016].[Fecha_UltMod] AS [Fecha_UltMod], 
+      [vwBAN_Rpt016].[IdUsuarioUltMod] AS [IdUsuarioUltMod], 
+      [vwBAN_Rpt016].[Estado] AS [Estado], 
+      [vwBAN_Rpt016].[MotivoAnulacion] AS [MotivoAnulacion], 
+      [vwBAN_Rpt016].[ip] AS [ip], 
+      [vwBAN_Rpt016].[nom_pc] AS [nom_pc], 
+      [vwBAN_Rpt016].[IdPersona_Girado_a] AS [IdPersona_Girado_a], 
+      [vwBAN_Rpt016].[cb_giradoA] AS [cb_giradoA], 
+      [vwBAN_Rpt016].[cb_ciudadChq] AS [cb_ciudadChq], 
+      [vwBAN_Rpt016].[IdCbteCble_Anulacion] AS [IdCbteCble_Anulacion], 
+      [vwBAN_Rpt016].[IdTipoCbte_Anulacion] AS [IdTipoCbte_Anulacion], 
+      [vwBAN_Rpt016].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwBAN_Rpt016].[IdTipoNota] AS [IdTipoNota], 
+      [vwBAN_Rpt016].[IdTransaccion] AS [IdTransaccion], 
+      [vwBAN_Rpt016].[Por_Anticipo] AS [Por_Anticipo], 
+      [vwBAN_Rpt016].[PosFechado] AS [PosFechado], 
+      [vwBAN_Rpt016].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt016].[IdSucursal] AS [IdSucursal], 
+      [vwBAN_Rpt016].[Tipo_Conciliacion] AS [Tipo_Conciliacion], 
+      [vwBAN_Rpt016].[ba_descripcion] AS [ba_descripcion]
+      FROM [dbo].[vwBAN_Rpt016] AS [vwBAN_Rpt016]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt018" EntityType="DBERPModel4.Store.vwBAN_Rpt018" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt018">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt018].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt018].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt018].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt018].[Cod_Cbtecble] AS [Cod_Cbtecble], 
+      [vwBAN_Rpt018].[cb_Observacion] AS [cb_Observacion], 
+      [vwBAN_Rpt018].[cb_secuencia] AS [cb_secuencia], 
+      [vwBAN_Rpt018].[cb_Valor] AS [cb_Valor], 
+      [vwBAN_Rpt018].[cb_Cheque] AS [cb_Cheque], 
+      [vwBAN_Rpt018].[cb_ChequeImpreso] AS [cb_ChequeImpreso], 
+      [vwBAN_Rpt018].[cb_FechaCheque] AS [cb_FechaCheque], 
+      [vwBAN_Rpt018].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwBAN_Rpt018].[Estado] AS [Estado], 
+      [vwBAN_Rpt018].[cb_giradoA] AS [cb_giradoA], 
+      [vwBAN_Rpt018].[cb_ciudadChq] AS [cb_ciudadChq], 
+      [vwBAN_Rpt018].[CodTipoCbteBan] AS [CodTipoCbteBan], 
+      [vwBAN_Rpt018].[cb_Fecha] AS [cb_Fecha], 
+      [vwBAN_Rpt018].[con_Fecha] AS [con_Fecha], 
+      [vwBAN_Rpt018].[con_Valor] AS [con_Valor], 
+      [vwBAN_Rpt018].[con_Observacion] AS [con_Observacion], 
+      [vwBAN_Rpt018].[con_IdCbteCble] AS [con_IdCbteCble], 
+      [vwBAN_Rpt018].[IdCtaCble] AS [IdCtaCble], 
+      [vwBAN_Rpt018].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwBAN_Rpt018].[ValorEnLetras] AS [ValorEnLetras], 
+      [vwBAN_Rpt018].[dc_Valor] AS [dc_Valor], 
+      [vwBAN_Rpt018].[IdBanco] AS [IdBanco], 
+      [vwBAN_Rpt018].[ba_descripcion] AS [ba_descripcion]
+      FROM [dbo].[vwBAN_Rpt018] AS [vwBAN_Rpt018]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBAN_Rpt019" EntityType="DBERPModel4.Store.vwBAN_Rpt019" store:Type="Views" store:Schema="dbo" store:Name="vwBAN_Rpt019">
+            <DefiningQuery>SELECT 
+      [vwBAN_Rpt019].[IdEmpresa] AS [IdEmpresa], 
+      [vwBAN_Rpt019].[IdTipocbte] AS [IdTipocbte], 
+      [vwBAN_Rpt019].[IdCbteCble] AS [IdCbteCble], 
+      [vwBAN_Rpt019].[IdCbteCble_Ogiro] AS [IdCbteCble_Ogiro], 
+      [vwBAN_Rpt019].[Referencia] AS [Referencia], 
+      [vwBAN_Rpt019].[MontoAplicado] AS [MontoAplicado], 
+      [vwBAN_Rpt019].[co_observacion] AS [co_observacion], 
+      [vwBAN_Rpt019].[co_fecha] AS [co_fecha]
+      FROM [dbo].[vwBAN_Rpt019] AS [vwBAN_Rpt019]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="Tipo_Cbte" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Num_Cbte" Type="numeric" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="Banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Fch_Cbte" Type="date" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="Chq_Girado_A" Type="varchar" MaxLength="150" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="Tipo_Flujo" Type="varchar" MaxLength="50" />
+          <Property Name="IdTipoNota" Type="int" />
+          <Property Name="Tipo_Nota" Type="varchar" MaxLength="50" />
+          <Property Name="Fch_PostFechado" Type="char" MaxLength="1" />
+          <Property Name="Es_Chq_Impreso" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Fch_Chq" Type="date" />
+          <Property Name="Cta_Cble_Banco" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="8" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdMes" Type="int" />
+          <Property Name="pc_Cuenta" Type="varchar" MaxLength="150" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            <PropertyRef Name="saldo" />
+            
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="Tipo_Cbte" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Num_Cbte" Type="numeric" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="Banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Fch_Cbte" Type="date" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="Chq_Girado_A" Type="varchar" MaxLength="150" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="Tipo_Flujo" Type="varchar" MaxLength="50" />
+          <Property Name="IdTipoNota" Type="int" />
+          <Property Name="Tipo_Nota" Type="varchar" MaxLength="50" />
+          <Property Name="Fch_PostFechado" Type="char" MaxLength="1" />
+          <Property Name="Es_Chq_Impreso" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="debe" Type="float" />
+          <Property Name="haber" Type="float" />
+          <Property Name="saldo" Type="float" Nullable="false" />
+          <Property Name="Fch_Chq" Type="date" />
+          <Property Name="Cta_Cble_Banco" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="30" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdMes" Type="int" />
+          <Property Name="pc_Cuenta" Type="varchar" MaxLength="150" />
+          <Property Name="IdPersona_Girado_a" Type="numeric" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="TipoRegistro" />
+            <PropertyRef Name="IdReg" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="Tipo_Cbte" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Num_Cbte" Type="numeric" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="Banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Fch_Cbte" Type="date" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="debe" Type="float" />
+          <Property Name="haber" Type="float" />
+          <Property Name="saldo" Type="float" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="Chq_Girado_A" Type="varchar" MaxLength="150" />
+          <Property Name="IdPersona_Girado_a" Type="numeric" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="Tipo_Flujo" Type="varchar" MaxLength="50" />
+          <Property Name="IdTipoNota" Type="int" />
+          <Property Name="Tipo_Nota" Type="varchar" MaxLength="50" />
+          <Property Name="Fch_PostFechado" Type="char" MaxLength="1" />
+          <Property Name="Es_Chq_Impreso" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Fch_Chq" Type="date" />
+          <Property Name="Cta_Cble_Banco" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="30" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdMes" Type="int" />
+          <Property Name="pc_Cuenta" Type="varchar" MaxLength="150" />
+          <Property Name="MontoAplicado" Type="float" Nullable="false" />
+          <Property Name="IdOrdenPago_op" Type="numeric" />
+          <Property Name="Secuencia_op" Type="int" />
+          <Property Name="Referencia" Type="varchar" MaxLength="523" />
+          <Property Name="Fecha_Venc_Fac_Prov" Type="datetime" />
+          <Property Name="Observacion_FP" Type="varchar" MaxLength="500" />
+          <Property Name="TipoRegistro" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="IdReg" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="TipoRegistro" />
+            <PropertyRef Name="IdReg" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="Tipo_Cbte" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Num_Cbte" Type="numeric" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="Banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Fch_Cbte" Type="date" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="debe" Type="float" />
+          <Property Name="haber" Type="float" />
+          <Property Name="saldo" Type="float" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="Chq_Girado_A" Type="varchar" MaxLength="150" />
+          <Property Name="IdPersona_Girado_a" Type="numeric" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="Tipo_Flujo" Type="varchar" MaxLength="50" />
+          <Property Name="IdTipoNota" Type="int" />
+          <Property Name="Tipo_Nota" Type="varchar" MaxLength="50" />
+          <Property Name="Fch_PostFechado" Type="char" MaxLength="1" />
+          <Property Name="Es_Chq_Impreso" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Fch_Chq" Type="date" />
+          <Property Name="Cta_Cble_Banco" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="30" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdMes" Type="int" />
+          <Property Name="pc_Cuenta" Type="varchar" MaxLength="150" />
+          <Property Name="MontoAplicado" Type="float" Nullable="false" />
+          <Property Name="IdOrdenPago_op" Type="numeric" />
+          <Property Name="Secuencia_op" Type="int" />
+          <Property Name="Referencia" Type="varchar" MaxLength="523" />
+          <Property Name="Fecha_Venc_Fac_Prov" Type="datetime" />
+          <Property Name="Observacion_FP" Type="varchar" MaxLength="500" />
+          <Property Name="TipoRegistro" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="IdReg" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="CodTipoCbteBan" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="con_Fecha" />
+            <PropertyRef Name="con_Valor" />
+            <PropertyRef Name="con_Observacion" />
+            <PropertyRef Name="con_IdCbteCble" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="dc_Valor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="Cod_Cbtecble" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_secuencia" Type="numeric" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="cb_ChequeImpreso" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_FechaCheque" Type="date" />
+          <Property Name="Fecha_Transac" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_giradoA" Type="varchar" MaxLength="150" />
+          <Property Name="cb_ciudadChq" Type="varchar" MaxLength="25" />
+          <Property Name="CodTipoCbteBan" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="con_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="con_Valor" Type="float" Nullable="false" />
+          <Property Name="con_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="con_IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="dc_Valor" Type="float" Nullable="false" />
+          <Property Name="nom_ciudad" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt006">
+          <Key>
+            <PropertyRef Name="tc_TipoCbte" />
+            
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="ba_descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="NombreProveedor" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="Cod_Cbtecble" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_secuencia" Type="numeric" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="cb_ChequeImpreso" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_FechaCheque" Type="date" />
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdUsuario_Anu" Type="varchar" MaxLength="50" />
+          <Property Name="FechaAnulacion" Type="datetime" />
+          <Property Name="Fecha_Transac" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="200" />
+          <Property Name="ip" Type="varchar" MaxLength="25" />
+          <Property Name="nom_pc" Type="varchar" MaxLength="50" />
+          <Property Name="cb_giradoA" Type="varchar" MaxLength="150" />
+          <Property Name="cb_ciudadChq" Type="varchar" MaxLength="25" />
+          <Property Name="IdCbteCble_Anulacion" Type="numeric" />
+          <Property Name="IdTipoCbte_Anulacion" Type="int" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="IdTipoNota" Type="int" />
+          <Property Name="NomTipoNota" Type="varchar" MaxLength="50" />
+          <Property Name="Por_Anticipo" Type="char" MaxLength="1" />
+          <Property Name="PosFechado" Type="char" MaxLength="1" />
+          <Property Name="IdPersona_Girado_a" Type="numeric" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="nom_ciudadChq" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt010' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt010">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_Banco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_CtaCble" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="nom_empresa" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="numeric" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="nom_Banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_CtaCble" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Debito" Type="float" />
+          <Property Name="Haber" Type="float" />
+          <Property Name="referencia" Type="varchar" MaxLength="72" />
+          <Property Name="Concepto" Type="varchar(max)" />
+          <Property Name="ruc_empresa" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt012' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt012">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_banco" />
+            <PropertyRef Name="ba_Num_Cuenta" />
+            <PropertyRef Name="IdCtaCble_ban" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="debito" />
+            <PropertyRef Name="credito" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ruc_empresa" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="nom_banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="ba_Num_Cuenta" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCtaCble_ban" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="debito" Type="float" Nullable="false" />
+          <Property Name="credito" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt013' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt013">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_banco" />
+            <PropertyRef Name="ba_Num_Cuenta" />
+            <PropertyRef Name="IdCtaCble_ban" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="debito" />
+            <PropertyRef Name="credito" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ruc_empresa" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="nom_banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="ba_Num_Cuenta" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCtaCble_ban" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="debito" Type="float" Nullable="false" />
+          <Property Name="credito" Type="float" Nullable="false" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="clave_cta" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt014' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_banco" />
+            <PropertyRef Name="ba_Num_Cuenta" />
+            <PropertyRef Name="IdCtaCble_ban" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="debito" />
+            <PropertyRef Name="credito" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ruc_empresa" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="nom_banco" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="ba_Num_Cuenta" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCtaCble_ban" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="debito" Type="float" Nullable="false" />
+          <Property Name="credito" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt015' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt015">
+          <Key>
+            <PropertyRef Name="mba_IdEmpresa" />
+            <PropertyRef Name="mba_IdCbteCble" />
+            <PropertyRef Name="mba_IdTipocbte" />
+            <PropertyRef Name="mcj_Secuencia" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Beneficiario" />
+            <PropertyRef Name="Fecha_Cobro" />
+            <PropertyRef Name="cr_Valor" />
+            <PropertyRef Name="cm_observacion" />
+          </Key>
+          <Property Name="mba_IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="mba_IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="mba_IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="mcj_Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" MaxLength="60" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="nom_Tipocbte" Type="char" MaxLength="50" />
+          <Property Name="Beneficiario" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdCobro_tipo" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_Cobro" Type="datetime" Nullable="false" />
+          <Property Name="cr_Valor" Type="float" Nullable="false" />
+          <Property Name="cm_observacion" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt016' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt016">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdPersona_Girado_a" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="Cod_Cbtecble" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_secuencia" Type="numeric" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="cb_ChequeImpreso" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_FechaCheque" Type="date" />
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdUsuario_Anu" Type="varchar" MaxLength="50" />
+          <Property Name="FechaAnulacion" Type="datetime" />
+          <Property Name="Fecha_Transac" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="200" />
+          <Property Name="ip" Type="varchar" MaxLength="25" />
+          <Property Name="nom_pc" Type="varchar" MaxLength="50" />
+          <Property Name="IdPersona_Girado_a" Type="numeric" Nullable="false" />
+          <Property Name="cb_giradoA" Type="varchar" MaxLength="150" />
+          <Property Name="cb_ciudadChq" Type="varchar" MaxLength="25" />
+          <Property Name="IdCbteCble_Anulacion" Type="numeric" />
+          <Property Name="IdTipoCbte_Anulacion" Type="int" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="IdTipoNota" Type="int" />
+          <Property Name="IdTransaccion" Type="varchar(max)" />
+          <Property Name="Por_Anticipo" Type="char" MaxLength="1" />
+          <Property Name="PosFechado" Type="char" MaxLength="1" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="IdSucursal" Type="int" />
+          <Property Name="Tipo_Conciliacion" Type="varchar" MaxLength="13" />
+          <Property Name="ba_descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt018' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt018">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="CodTipoCbteBan" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="con_Fecha" />
+            <PropertyRef Name="con_Valor" />
+            <PropertyRef Name="con_Observacion" />
+            <PropertyRef Name="con_IdCbteCble" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="ba_descripcion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="Cod_Cbtecble" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_secuencia" Type="numeric" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Cheque" Type="varchar" MaxLength="50" />
+          <Property Name="cb_ChequeImpreso" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_FechaCheque" Type="date" />
+          <Property Name="Fecha_Transac" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_giradoA" Type="varchar" MaxLength="150" />
+          <Property Name="cb_ciudadChq" Type="varchar" MaxLength="25" />
+          <Property Name="CodTipoCbteBan" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cb_Fecha" Type="date" Nullable="false" />
+          <Property Name="con_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="con_Valor" Type="float" Nullable="false" />
+          <Property Name="con_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="con_IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="ValorEnLetras" Type="varchar(max)" />
+          <Property Name="dc_Valor" Type="float" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="ba_descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwBAN_Rpt019' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwBAN_Rpt019">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="co_observacion" />
+            <PropertyRef Name="co_fecha" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipocbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdCbteCble_Ogiro" Type="numeric" Nullable="false" />
+          <Property Name="Referencia" Type="varchar" MaxLength="72" />
+          <Property Name="MontoAplicado" Type="float" Nullable="false" />
+          <Property Name="co_observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="co_fecha" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="spBAN_Rpt007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="fecha_Ini" Type="datetime" Mode="In" />
+          <Parameter Name="fecha_Fin" Type="datetime" Mode="In" />
+          <Parameter Name="IdTipoFlujo_ini" Type="int" Mode="In" />
+          <Parameter Name="IdTipoFlujo_fin" Type="int" Mode="In" />
+          <Parameter Name="IdBanco_ini" Type="int" Mode="In" />
+          <Parameter Name="IdBanco_fin" Type="int" Mode="In" />
+          <Parameter Name="Mostrar_detallado" Type="bit" Mode="In" />
+          <Parameter Name="Mostrar_registros_en_conciliacion" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spBAN_Rpt007_saldos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
+          <Parameter Name="Fecha_fin" Type="datetime" Mode="In" />
+          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spBAN_Rpt008" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="fecha_Ini" Type="datetime" Mode="In" />
+          <Parameter Name="fecha_Fin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spBAN_Rpt009" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
+          <Parameter Name="fecha_fin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spBAN_Rpt010" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdBanco" Type="int" Mode="In" />
+          <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
+          <Parameter Name="Fecha_fin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spBAN_Rpt011" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdBanco" Type="int" Mode="In" />
+          <Parameter Name="IdConciliacion" Type="numeric" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBERPModel4" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesBancos_Reporte_Ge" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="vwBAN_Rpt001" EntityType="DBERPModel4.vwBAN_Rpt001" />
+          <EntitySet Name="vwBAN_Rpt004" EntityType="DBERPModel4.vwBAN_Rpt004" />
+          <EntitySet Name="vwBAN_Rpt002" EntityType="DBERPModel4.vwBAN_Rpt002" />
+          <EntitySet Name="vwBAN_Rpt003" EntityType="DBERPModel4.vwBAN_Rpt003" />
+          <FunctionImport Name="spBAN_Rpt008" ReturnType="Collection(DBERPModel4.spBAN_Rpt008_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="fecha_Ini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_Fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="vwBAN_Rpt010" EntityType="DBERPModel4.vwBAN_Rpt010" />
+          <EntitySet Name="vwBAN_Rpt012" EntityType="DBERPModel4.vwBAN_Rpt012" />
+          <EntitySet Name="vwBAN_Rpt014" EntityType="DBERPModel4.vwBAN_Rpt014" />
+          <EntitySet Name="vwBAN_Rpt015" EntityType="DBERPModel4.vwBAN_Rpt015" />
+          <EntitySet Name="vwBAN_Rpt016" EntityType="DBERPModel4.vwBAN_Rpt016" />
+          <FunctionImport Name="spBAN_Rpt009" ReturnType="Collection(DBERPModel4.spBAN_Rpt009_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spBAN_Rpt011" ReturnType="Collection(DBERPModel4.spBAN_Rpt011_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdBanco" Mode="In" Type="Int32" />
+            <Parameter Name="IdConciliacion" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="vwBAN_Rpt006" EntityType="DBERPModel4.vwBAN_Rpt006" />
+          <EntitySet Name="vwBAN_Rpt005" EntityType="DBERPModel4.vwBAN_Rpt005" />
+          <EntitySet Name="vwBAN_Rpt013" EntityType="DBERPModel4.vwBAN_Rpt013" />
+          <FunctionImport Name="spBAN_Rpt007_saldos" ReturnType="Collection(DBERPModel4.spBAN_Rpt007_saldos_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spBAN_Rpt010" ReturnType="Collection(DBERPModel4.spBAN_Rpt010_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdBanco" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="vwBAN_Rpt019" EntityType="DBERPModel4.vwBAN_Rpt019" />
+          <EntitySet Name="vwBAN_Rpt018" EntityType="DBERPModel4.vwBAN_Rpt018" />
+          <FunctionImport Name="spBAN_Rpt007" ReturnType="Collection(DBERPModel4.spBAN_Rpt007_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="fecha_Ini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_Fin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdTipoFlujo_ini" Mode="In" Type="Int32" />
+            <Parameter Name="IdTipoFlujo_fin" Mode="In" Type="Int32" />
+            <Parameter Name="IdBanco_ini" Mode="In" Type="Int32" />
+            <Parameter Name="IdBanco_fin" Mode="In" Type="Int32" />
+            <Parameter Name="Mostrar_detallado" Mode="In" Type="Boolean" />
+            <Parameter Name="Mostrar_registros_en_conciliacion" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="vwBAN_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="Tipo_Cbte" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Num_Cbte" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="Banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Cbte" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="String" Name="Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Chq_Girado_A" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tipo_Flujo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="Tipo_Nota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fch_PostFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Es_Chq_Impreso" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Chq" Precision="0" />
+          <Property Type="String" Name="Cta_Cble_Banco" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMes" />
+          <Property Type="String" Name="pc_Cuenta" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="TipoRegistro" />
+            <PropertyRef Name="IdReg" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="Tipo_Cbte" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Num_Cbte" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="Banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Cbte" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debe" />
+          <Property Type="Double" Name="haber" />
+          <Property Type="Double" Name="saldo" Nullable="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="String" Name="Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Chq_Girado_A" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona_Girado_a" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tipo_Flujo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="Tipo_Nota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fch_PostFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Es_Chq_Impreso" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Chq" Precision="0" />
+          <Property Type="String" Name="Cta_Cble_Banco" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMes" />
+          <Property Type="String" Name="pc_Cuenta" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPago_op" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_op" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Precision="3" />
+          <Property Type="String" Name="Observacion_FP" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TipoRegistro" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdReg" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="Tipo_Cbte" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Num_Cbte" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="Banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Cbte" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="String" Name="Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Chq_Girado_A" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tipo_Flujo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="Tipo_Nota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fch_PostFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Es_Chq_Impreso" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debe" />
+          <Property Type="Double" Name="haber" />
+          <Property Type="Double" Name="saldo" Nullable="false" />
+          <Property Type="DateTime" Name="Fch_Chq" Precision="0" />
+          <Property Type="String" Name="Cta_Cble_Banco" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMes" />
+          <Property Type="String" Name="pc_Cuenta" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona_Girado_a" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Tipo_Cbte" />
+            <PropertyRef Name="Num_Cbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="Banco" />
+            <PropertyRef Name="Fch_Cbte" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Es_Chq_Impreso" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="TipoRegistro" />
+            <PropertyRef Name="IdReg" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="Tipo_Cbte" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Num_Cbte" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="Banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Cbte" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debe" />
+          <Property Type="Double" Name="haber" />
+          <Property Type="Double" Name="saldo" Nullable="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="String" Name="Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Chq_Girado_A" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona_Girado_a" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="String" Name="Tipo_Flujo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="Tipo_Nota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Fch_PostFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Es_Chq_Impreso" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fch_Chq" Precision="0" />
+          <Property Type="String" Name="Cta_Cble_Banco" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMes" />
+          <Property Type="String" Name="pc_Cuenta" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPago_op" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_op" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Precision="3" />
+          <Property Type="String" Name="Observacion_FP" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TipoRegistro" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdReg" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="spBAN_Rpt008_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="idTipoFlujo" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="descripcion_flujo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ba_descripcion" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="ba_Num_Cuenta" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Des_tipo_cbte" Nullable="true" MaxLength="12" />
+          <Property Type="Double" Name="dc_Valor" Nullable="true" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="Int32" Name="id_Des_tipo_cbte" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vwBAN_Rpt010">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_Banco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_CtaCble" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="nom_empresa" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdTipocbte" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="nom_Banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_CtaCble" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Debito" />
+          <Property Type="Double" Name="Haber" />
+          <Property Type="String" Name="referencia" MaxLength="72" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Concepto" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt012">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_banco" />
+            <PropertyRef Name="ba_Num_Cuenta" />
+            <PropertyRef Name="IdCtaCble_ban" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="debito" />
+            <PropertyRef Name="credito" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="nom_banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ba_Num_Cuenta" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble_ban" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debito" Nullable="false" />
+          <Property Type="Double" Name="credito" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_banco" />
+            <PropertyRef Name="ba_Num_Cuenta" />
+            <PropertyRef Name="IdCtaCble_ban" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="debito" />
+            <PropertyRef Name="credito" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="nom_banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ba_Num_Cuenta" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble_ban" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debito" Nullable="false" />
+          <Property Type="Double" Name="credito" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt015">
+          <Key>
+            <PropertyRef Name="mba_IdEmpresa" />
+            <PropertyRef Name="mba_IdCbteCble" />
+            <PropertyRef Name="mba_IdTipocbte" />
+            <PropertyRef Name="mcj_Secuencia" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Beneficiario" />
+            <PropertyRef Name="Fecha_Cobro" />
+            <PropertyRef Name="cr_Valor" />
+            <PropertyRef Name="cm_observacion" />
+          </Key>
+          <Property Type="Int32" Name="mba_IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="mba_IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="mba_IdTipocbte" Nullable="false" />
+          <Property Type="Int32" Name="mcj_Secuencia" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="String" Name="nom_Tipocbte" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Beneficiario" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCobro_tipo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Cobro" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="cr_Valor" Nullable="false" />
+          <Property Type="String" Name="cm_observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt016">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdPersona_Girado_a" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="String" Name="Cod_Cbtecble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="cb_secuencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ChequeImpreso" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="cb_FechaCheque" Precision="0" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario_Anu" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaAnulacion" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona_Girado_a" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="cb_giradoA" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ciudadChq" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Anulacion" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Anulacion" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="IdTransaccion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Por_Anticipo" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="PosFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" />
+          <Property Type="String" Name="Tipo_Conciliacion" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ba_descripcion" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spBAN_Rpt009_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="Saldo_anterior" Nullable="false" />
+          <Property Type="Double" Name="Ingreso" Nullable="true" />
+          <Property Type="Double" Name="Egreso" Nullable="true" />
+          <Property Type="Double" Name="Saldo_final" Nullable="true" />
+          <Property Type="DateTime" Name="fecha_ini" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fecha_fin" Nullable="false" Precision="23" />
+          <Property Type="String" Name="nom_Banco" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spBAN_Rpt011_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="nom_banco" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="ba_Num_Cuenta" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" />
+          <Property Type="String" Name="CodTipoCbte" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Tipo_Cbte" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Int32" Name="SecuenciaCbte" Nullable="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="String" Name="Observacion" Nullable="true" />
+          <Property Type="String" Name="Cheque" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="SaldoInicial" Nullable="false" />
+          <Property Type="Double" Name="SaldoFinal" Nullable="false" />
+          <Property Type="String" Name="Titulo_grupo" Nullable="true" MaxLength="73" />
+          <Property Type="String" Name="referencia" Nullable="true" MaxLength="88" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="SaldoBanco_EstCta" Nullable="false" />
+          <Property Type="String" Name="Estado_Conciliacion" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="GiradoA" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_tipo_flujo" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Total_Conciliado" Nullable="false" />
+          <Property Type="DateTime" Name="FechaIni" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="vwBAN_Rpt006">
+          <Key>
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ba_descripcion" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreProveedor" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="String" Name="Cod_Cbtecble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="cb_secuencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ChequeImpreso" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="cb_FechaCheque" Precision="0" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario_Anu" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaAnulacion" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_giradoA" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ciudadChq" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Anulacion" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Anulacion" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="NomTipoNota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Por_Anticipo" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="PosFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona_Girado_a" Precision="18" Scale="0" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_ciudadChq" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="CodTipoCbteBan" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="con_Fecha" />
+            <PropertyRef Name="con_Valor" />
+            <PropertyRef Name="con_Observacion" />
+            <PropertyRef Name="con_IdCbteCble" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="dc_Valor" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="String" Name="Cod_Cbtecble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="cb_secuencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ChequeImpreso" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="cb_FechaCheque" Precision="0" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="cb_giradoA" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ciudadChq" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodTipoCbteBan" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="con_Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="con_Valor" Nullable="false" />
+          <Property Type="String" Name="con_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="con_IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="nom_ciudad" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt013">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="nom_banco" />
+            <PropertyRef Name="ba_Num_Cuenta" />
+            <PropertyRef Name="IdCtaCble_ban" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="debito" />
+            <PropertyRef Name="credito" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="nom_banco" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ba_Num_Cuenta" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble_ban" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="debito" Nullable="false" />
+          <Property Type="Double" Name="credito" Nullable="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="clave_cta" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spBAN_Rpt007_saldos_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nom_cuenta_banco" Nullable="false" MaxLength="200" />
+          <Property Type="Double" Name="Saldo_inicial" Nullable="false" />
+          <Property Type="Double" Name="Saldo_final" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spBAN_Rpt010_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" />
+          <Property Type="String" Name="Observacion_girado_a" Nullable="true" />
+          <Property Type="String" Name="Referencia" Nullable="true" MaxLength="63" />
+          <Property Type="String" Name="cb_giradoA" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="CodTipoCbte" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" />
+          <Property Type="Double" Name="Saldo_inicial" Nullable="false" />
+          <Property Type="Double" Name="Debe" Nullable="false" />
+          <Property Type="Double" Name="Haber" Nullable="false" />
+          <Property Type="Double" Name="Saldo" Nullable="false" />
+          <Property Type="String" Name="Origen" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <EntityType Name="vwBAN_Rpt019">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="co_observacion" />
+            <PropertyRef Name="co_fecha" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Referencia" MaxLength="72" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="String" Name="co_observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="co_fecha" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwBAN_Rpt018">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="CodTipoCbteBan" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="con_Fecha" />
+            <PropertyRef Name="con_Valor" />
+            <PropertyRef Name="con_Observacion" />
+            <PropertyRef Name="con_IdCbteCble" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="ba_descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="String" Name="Cod_Cbtecble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="cb_secuencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ChequeImpreso" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="cb_FechaCheque" Precision="0" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="cb_giradoA" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ciudadChq" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodTipoCbteBan" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="con_Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="con_Valor" Nullable="false" />
+          <Property Type="String" Name="con_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="con_IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="ba_descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spBAN_Rpt007_Result">
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_cxp" Nullable="true" />
+          <Property Type="Int32" Name="IdTipoCbte_cxp" Nullable="true" />
+          <Property Type="String" Name="Tipo_cbte_cxp" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IdCbteCble_cxp" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_pago" Nullable="true" />
+          <Property Type="Int32" Name="IdTipoCbte_pago" Nullable="true" />
+          <Property Type="String" Name="Tipo_cbte_pago" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="IdCbteCble_pago" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="co_observacion" Nullable="true" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="true" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_tipo_flujo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="cod_flujo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="3" />
+          <Property Type="Double" Name="dc_Valor" Nullable="true" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="nom_banco" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Tipo_movi" Nullable="false" MaxLength="8" />
+          <Property Type="Int32" Name="orden" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBERPModel4StoreContainer" CdmEntityContainer="EntitiesBancos_Reporte_Ge">
+          <EntitySetMapping Name="vwBAN_Rpt001">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt001">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt001">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="Cta_Cble_Banco" ColumnName="Cta_Cble_Banco" />
+                <ScalarProperty Name="Fch_Chq" ColumnName="Fch_Chq" />
+                <ScalarProperty Name="Es_Chq_Impreso" ColumnName="Es_Chq_Impreso" />
+                <ScalarProperty Name="Fch_PostFechado" ColumnName="Fch_PostFechado" />
+                <ScalarProperty Name="Tipo_Nota" ColumnName="Tipo_Nota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="Tipo_Flujo" ColumnName="Tipo_Flujo" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="Chq_Girado_A" ColumnName="Chq_Girado_A" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fch_Cbte" ColumnName="Fch_Cbte" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Num_Cbte" ColumnName="Num_Cbte" />
+                <ScalarProperty Name="Tipo_Cbte" ColumnName="Tipo_Cbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt004">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt004">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt004">
+                <ScalarProperty Name="IdReg" ColumnName="IdReg" />
+                <ScalarProperty Name="TipoRegistro" ColumnName="TipoRegistro" />
+                <ScalarProperty Name="Observacion_FP" ColumnName="Observacion_FP" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Secuencia_op" ColumnName="Secuencia_op" />
+                <ScalarProperty Name="IdOrdenPago_op" ColumnName="IdOrdenPago_op" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="Cta_Cble_Banco" ColumnName="Cta_Cble_Banco" />
+                <ScalarProperty Name="Fch_Chq" ColumnName="Fch_Chq" />
+                <ScalarProperty Name="Es_Chq_Impreso" ColumnName="Es_Chq_Impreso" />
+                <ScalarProperty Name="Fch_PostFechado" ColumnName="Fch_PostFechado" />
+                <ScalarProperty Name="Tipo_Nota" ColumnName="Tipo_Nota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="Tipo_Flujo" ColumnName="Tipo_Flujo" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
+                <ScalarProperty Name="Chq_Girado_A" ColumnName="Chq_Girado_A" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="haber" ColumnName="haber" />
+                <ScalarProperty Name="debe" ColumnName="debe" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fch_Cbte" ColumnName="Fch_Cbte" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Num_Cbte" ColumnName="Num_Cbte" />
+                <ScalarProperty Name="Tipo_Cbte" ColumnName="Tipo_Cbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt002">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt002">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt002">
+                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="Cta_Cble_Banco" ColumnName="Cta_Cble_Banco" />
+                <ScalarProperty Name="Fch_Chq" ColumnName="Fch_Chq" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="haber" ColumnName="haber" />
+                <ScalarProperty Name="debe" ColumnName="debe" />
+                <ScalarProperty Name="Es_Chq_Impreso" ColumnName="Es_Chq_Impreso" />
+                <ScalarProperty Name="Fch_PostFechado" ColumnName="Fch_PostFechado" />
+                <ScalarProperty Name="Tipo_Nota" ColumnName="Tipo_Nota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="Tipo_Flujo" ColumnName="Tipo_Flujo" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="Chq_Girado_A" ColumnName="Chq_Girado_A" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fch_Cbte" ColumnName="Fch_Cbte" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Num_Cbte" ColumnName="Num_Cbte" />
+                <ScalarProperty Name="Tipo_Cbte" ColumnName="Tipo_Cbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt003">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt003">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt003">
+                <ScalarProperty Name="IdReg" ColumnName="IdReg" />
+                <ScalarProperty Name="TipoRegistro" ColumnName="TipoRegistro" />
+                <ScalarProperty Name="Observacion_FP" ColumnName="Observacion_FP" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Secuencia_op" ColumnName="Secuencia_op" />
+                <ScalarProperty Name="IdOrdenPago_op" ColumnName="IdOrdenPago_op" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="Cta_Cble_Banco" ColumnName="Cta_Cble_Banco" />
+                <ScalarProperty Name="Fch_Chq" ColumnName="Fch_Chq" />
+                <ScalarProperty Name="Es_Chq_Impreso" ColumnName="Es_Chq_Impreso" />
+                <ScalarProperty Name="Fch_PostFechado" ColumnName="Fch_PostFechado" />
+                <ScalarProperty Name="Tipo_Nota" ColumnName="Tipo_Nota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="Tipo_Flujo" ColumnName="Tipo_Flujo" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
+                <ScalarProperty Name="Chq_Girado_A" ColumnName="Chq_Girado_A" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="haber" ColumnName="haber" />
+                <ScalarProperty Name="debe" ColumnName="debe" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fch_Cbte" ColumnName="Fch_Cbte" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Num_Cbte" ColumnName="Num_Cbte" />
+                <ScalarProperty Name="Tipo_Cbte" ColumnName="Tipo_Cbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBAN_Rpt008" FunctionName="DBERPModel4.Store.spBAN_Rpt008">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel4.spBAN_Rpt008_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="idTipoFlujo" ColumnName="idTipoFlujo" />
+                <ScalarProperty Name="descripcion_flujo" ColumnName="descripcion_flujo" />
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="ba_Num_Cuenta" ColumnName="ba_Num_Cuenta" />
+                <ScalarProperty Name="Des_tipo_cbte" ColumnName="Des_tipo_cbte" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="id_Des_tipo_cbte" ColumnName="id_Des_tipo_cbte" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwBAN_Rpt010">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt010">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt010">
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="Haber" ColumnName="Haber" />
+                <ScalarProperty Name="Debito" ColumnName="Debito" />
+                <ScalarProperty Name="nom_CtaCble" ColumnName="nom_CtaCble" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="nom_Banco" ColumnName="nom_Banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt012">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt012">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt012">
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="debito" ColumnName="debito" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdCtaCble_ban" ColumnName="IdCtaCble_ban" />
+                <ScalarProperty Name="ba_Num_Cuenta" ColumnName="ba_Num_Cuenta" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt014">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt014">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt014">
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="debito" ColumnName="debito" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdCtaCble_ban" ColumnName="IdCtaCble_ban" />
+                <ScalarProperty Name="ba_Num_Cuenta" ColumnName="ba_Num_Cuenta" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt015">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt015">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt015">
+                <ScalarProperty Name="cm_observacion" ColumnName="cm_observacion" />
+                <ScalarProperty Name="cr_Valor" ColumnName="cr_Valor" />
+                <ScalarProperty Name="Fecha_Cobro" ColumnName="Fecha_Cobro" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="Beneficiario" ColumnName="Beneficiario" />
+                <ScalarProperty Name="nom_Tipocbte" ColumnName="nom_Tipocbte" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="mcj_Secuencia" ColumnName="mcj_Secuencia" />
+                <ScalarProperty Name="mba_IdTipocbte" ColumnName="mba_IdTipocbte" />
+                <ScalarProperty Name="mba_IdCbteCble" ColumnName="mba_IdCbteCble" />
+                <ScalarProperty Name="mba_IdEmpresa" ColumnName="mba_IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt016">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt016">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt016">
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="Tipo_Conciliacion" ColumnName="Tipo_Conciliacion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="PosFechado" ColumnName="PosFechado" />
+                <ScalarProperty Name="Por_Anticipo" ColumnName="Por_Anticipo" />
+                <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="IdTipoCbte_Anulacion" ColumnName="IdTipoCbte_Anulacion" />
+                <ScalarProperty Name="IdCbteCble_Anulacion" ColumnName="IdCbteCble_Anulacion" />
+                <ScalarProperty Name="cb_ciudadChq" ColumnName="cb_ciudadChq" />
+                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
+                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="FechaAnulacion" ColumnName="FechaAnulacion" />
+                <ScalarProperty Name="IdUsuario_Anu" ColumnName="IdUsuario_Anu" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="cb_FechaCheque" ColumnName="cb_FechaCheque" />
+                <ScalarProperty Name="cb_ChequeImpreso" ColumnName="cb_ChequeImpreso" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_secuencia" ColumnName="cb_secuencia" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Cod_Cbtecble" ColumnName="Cod_Cbtecble" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBAN_Rpt009" FunctionName="DBERPModel4.Store.spBAN_Rpt009">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel4.spBAN_Rpt009_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Saldo_anterior" ColumnName="Saldo_anterior" />
+                <ScalarProperty Name="Ingreso" ColumnName="Ingreso" />
+                <ScalarProperty Name="Egreso" ColumnName="Egreso" />
+                <ScalarProperty Name="Saldo_final" ColumnName="Saldo_final" />
+                <ScalarProperty Name="fecha_ini" ColumnName="fecha_ini" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="nom_Banco" ColumnName="nom_Banco" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spBAN_Rpt011" FunctionName="DBERPModel4.Store.spBAN_Rpt011">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel4.spBAN_Rpt011_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="ba_Num_Cuenta" ColumnName="ba_Num_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="CodTipoCbte" ColumnName="CodTipoCbte" />
+                <ScalarProperty Name="Tipo_Cbte" ColumnName="Tipo_Cbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="SecuenciaCbte" ColumnName="SecuenciaCbte" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="SaldoInicial" ColumnName="SaldoInicial" />
+                <ScalarProperty Name="SaldoFinal" ColumnName="SaldoFinal" />
+                <ScalarProperty Name="Titulo_grupo" ColumnName="Titulo_grupo" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="SaldoBanco_EstCta" ColumnName="SaldoBanco_EstCta" />
+                <ScalarProperty Name="Estado_Conciliacion" ColumnName="Estado_Conciliacion" />
+                <ScalarProperty Name="GiradoA" ColumnName="GiradoA" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="nom_tipo_flujo" ColumnName="nom_tipo_flujo" />
+                <ScalarProperty Name="Total_Conciliado" ColumnName="Total_Conciliado" />
+                <ScalarProperty Name="FechaIni" ColumnName="FechaIni" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwBAN_Rpt006">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt006">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt006">
+                <ScalarProperty Name="nom_ciudadChq" ColumnName="nom_ciudadChq" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
+                <ScalarProperty Name="PosFechado" ColumnName="PosFechado" />
+                <ScalarProperty Name="Por_Anticipo" ColumnName="Por_Anticipo" />
+                <ScalarProperty Name="NomTipoNota" ColumnName="NomTipoNota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="IdTipoCbte_Anulacion" ColumnName="IdTipoCbte_Anulacion" />
+                <ScalarProperty Name="IdCbteCble_Anulacion" ColumnName="IdCbteCble_Anulacion" />
+                <ScalarProperty Name="cb_ciudadChq" ColumnName="cb_ciudadChq" />
+                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="FechaAnulacion" ColumnName="FechaAnulacion" />
+                <ScalarProperty Name="IdUsuario_Anu" ColumnName="IdUsuario_Anu" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="cb_FechaCheque" ColumnName="cb_FechaCheque" />
+                <ScalarProperty Name="cb_ChequeImpreso" ColumnName="cb_ChequeImpreso" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_secuencia" ColumnName="cb_secuencia" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Cod_Cbtecble" ColumnName="Cod_Cbtecble" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt005">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt005">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt005">
+                <ScalarProperty Name="nom_ciudad" ColumnName="nom_ciudad" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="con_IdCbteCble" ColumnName="con_IdCbteCble" />
+                <ScalarProperty Name="con_Observacion" ColumnName="con_Observacion" />
+                <ScalarProperty Name="con_Valor" ColumnName="con_Valor" />
+                <ScalarProperty Name="con_Fecha" ColumnName="con_Fecha" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="CodTipoCbteBan" ColumnName="CodTipoCbteBan" />
+                <ScalarProperty Name="cb_ciudadChq" ColumnName="cb_ciudadChq" />
+                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="cb_FechaCheque" ColumnName="cb_FechaCheque" />
+                <ScalarProperty Name="cb_ChequeImpreso" ColumnName="cb_ChequeImpreso" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_secuencia" ColumnName="cb_secuencia" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="Cod_Cbtecble" ColumnName="Cod_Cbtecble" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt013">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt013">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt013">
+                <ScalarProperty Name="clave_cta" ColumnName="clave_cta" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="debito" ColumnName="debito" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdCtaCble_ban" ColumnName="IdCtaCble_ban" />
+                <ScalarProperty Name="ba_Num_Cuenta" ColumnName="ba_Num_Cuenta" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBAN_Rpt007_saldos" FunctionName="DBERPModel4.Store.spBAN_Rpt007_saldos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel4.spBAN_Rpt007_saldos_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="nom_cuenta_banco" ColumnName="nom_cuenta_banco" />
+                <ScalarProperty Name="Saldo_inicial" ColumnName="Saldo_inicial" />
+                <ScalarProperty Name="Saldo_final" ColumnName="Saldo_final" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spBAN_Rpt010" FunctionName="DBERPModel4.Store.spBAN_Rpt010">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel4.spBAN_Rpt010_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="Observacion_girado_a" ColumnName="Observacion_girado_a" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
+                <ScalarProperty Name="CodTipoCbte" ColumnName="CodTipoCbte" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="Saldo_inicial" ColumnName="Saldo_inicial" />
+                <ScalarProperty Name="Debe" ColumnName="Debe" />
+                <ScalarProperty Name="Haber" ColumnName="Haber" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwBAN_Rpt019">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt019">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt019">
+                <ScalarProperty Name="co_fecha" ColumnName="co_fecha" />
+                <ScalarProperty Name="co_observacion" ColumnName="co_observacion" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBAN_Rpt018">
+            <EntityTypeMapping TypeName="DBERPModel4.vwBAN_Rpt018">
+              <MappingFragment StoreEntitySet="vwBAN_Rpt018">
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="con_IdCbteCble" ColumnName="con_IdCbteCble" />
+                <ScalarProperty Name="con_Observacion" ColumnName="con_Observacion" />
+                <ScalarProperty Name="con_Valor" ColumnName="con_Valor" />
+                <ScalarProperty Name="con_Fecha" ColumnName="con_Fecha" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="CodTipoCbteBan" ColumnName="CodTipoCbteBan" />
+                <ScalarProperty Name="cb_ciudadChq" ColumnName="cb_ciudadChq" />
+                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="cb_FechaCheque" ColumnName="cb_FechaCheque" />
+                <ScalarProperty Name="cb_ChequeImpreso" ColumnName="cb_ChequeImpreso" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_secuencia" ColumnName="cb_secuencia" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="Cod_Cbtecble" ColumnName="Cod_Cbtecble" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBAN_Rpt007" FunctionName="DBERPModel4.Store.spBAN_Rpt007">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel4.spBAN_Rpt007_Result">
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
+                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
+                <ScalarProperty Name="Tipo_cbte_cxp" ColumnName="Tipo_cbte_cxp" />
+                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
+                <ScalarProperty Name="IdEmpresa_pago" ColumnName="IdEmpresa_pago" />
+                <ScalarProperty Name="IdTipoCbte_pago" ColumnName="IdTipoCbte_pago" />
+                <ScalarProperty Name="Tipo_cbte_pago" ColumnName="Tipo_cbte_pago" />
+                <ScalarProperty Name="IdCbteCble_pago" ColumnName="IdCbteCble_pago" />
+                <ScalarProperty Name="co_observacion" ColumnName="co_observacion" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="nom_tipo_flujo" ColumnName="nom_tipo_flujo" />
+                <ScalarProperty Name="cod_flujo" ColumnName="cod_flujo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
+                <ScalarProperty Name="Tipo_movi" ColumnName="Tipo_movi" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelContabilidadGeneralRpt.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelContabilidadGeneralRptStoreContainer">
+          <EntitySet Name="vwCONTA_Rpt001" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt001].[IdAnioF] AS [IdAnioF], 
+      [vwCONTA_Rpt001].[IdPeriodo] AS [IdPeriodo], 
+      [vwCONTA_Rpt001].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt001].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_Rpt001].[pc_Naturaleza] AS [pc_Naturaleza], 
+      [vwCONTA_Rpt001].[IdNivel] AS [IdNivel], 
+      [vwCONTA_Rpt001].[IdCtaCblePadre] AS [IdCtaCblePadre], 
+      [vwCONTA_Rpt001].[sc_saldo_anterior] AS [sc_saldo_anterior], 
+      [vwCONTA_Rpt001].[sc_debito_mes] AS [sc_debito_mes], 
+      [vwCONTA_Rpt001].[sc_credito_mes] AS [sc_credito_mes], 
+      [vwCONTA_Rpt001].[sc_saldoPeriodo] AS [sc_saldoPeriodo], 
+      [vwCONTA_Rpt001].[sc_debito_acum] AS [sc_debito_acum], 
+      [vwCONTA_Rpt001].[sc_credito_acum] AS [sc_credito_acum], 
+      [vwCONTA_Rpt001].[sc_saldo_acum] AS [sc_saldo_acum], 
+      [vwCONTA_Rpt001].[IdGrupoCble] AS [IdGrupoCble], 
+      [vwCONTA_Rpt001].[gc_GrupoCble] AS [gc_GrupoCble], 
+      [vwCONTA_Rpt001].[gc_Orden] AS [gc_Orden], 
+      [vwCONTA_Rpt001].[gc_estado_financiero] AS [gc_estado_financiero], 
+      [vwCONTA_Rpt001].[SIdPeriodo] AS [SIdPeriodo]
+      FROM [dbo].[vwCONTA_Rpt001] AS [vwCONTA_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt002" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt002" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt002].[IdAnioF] AS [IdAnioF], 
+      [vwCONTA_Rpt002].[IdPeriodo] AS [IdPeriodo], 
+      [vwCONTA_Rpt002].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt002].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_Rpt002].[pc_Naturaleza] AS [pc_Naturaleza], 
+      [vwCONTA_Rpt002].[IdNivel] AS [IdNivel], 
+      [vwCONTA_Rpt002].[IdCtaCblePadre] AS [IdCtaCblePadre], 
+      [vwCONTA_Rpt002].[sc_saldo_anterior] AS [sc_saldo_anterior], 
+      [vwCONTA_Rpt002].[sc_debito_mes] AS [sc_debito_mes], 
+      [vwCONTA_Rpt002].[sc_credito_mes] AS [sc_credito_mes], 
+      [vwCONTA_Rpt002].[sc_saldoPeriodo] AS [sc_saldoPeriodo], 
+      [vwCONTA_Rpt002].[sc_debito_acum] AS [sc_debito_acum], 
+      [vwCONTA_Rpt002].[sc_credito_acum] AS [sc_credito_acum], 
+      [vwCONTA_Rpt002].[sc_saldo_acum] AS [sc_saldo_acum], 
+      [vwCONTA_Rpt002].[IdGrupoCble] AS [IdGrupoCble], 
+      [vwCONTA_Rpt002].[gc_GrupoCble] AS [gc_GrupoCble], 
+      [vwCONTA_Rpt002].[gc_Orden] AS [gc_Orden], 
+      [vwCONTA_Rpt002].[gc_estado_financiero] AS [gc_estado_financiero], 
+      [vwCONTA_Rpt002].[SIdPeriodo] AS [SIdPeriodo]
+      FROM [dbo].[vwCONTA_Rpt002] AS [vwCONTA_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt003" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt003" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt003].[debe] AS [debe], 
+      [vwCONTA_Rpt003].[Cred] AS [Cred], 
+      [vwCONTA_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt003].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwCONTA_Rpt003].[IdCbteCble] AS [IdCbteCble], 
+      [vwCONTA_Rpt003].[CodCbteCble] AS [CodCbteCble], 
+      [vwCONTA_Rpt003].[IdPeriodo] AS [IdPeriodo], 
+      [vwCONTA_Rpt003].[cb_Fecha] AS [cb_Fecha], 
+      [vwCONTA_Rpt003].[cb_Valor] AS [cb_Valor], 
+      [vwCONTA_Rpt003].[cb_Observacion] AS [cb_Observacion], 
+      [vwCONTA_Rpt003].[cb_Estado] AS [cb_Estado], 
+      [vwCONTA_Rpt003].[cb_Anio] AS [cb_Anio], 
+      [vwCONTA_Rpt003].[cb_mes] AS [cb_mes], 
+      [vwCONTA_Rpt003].[secuencia] AS [secuencia], 
+      [vwCONTA_Rpt003].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt003].[dc_Valor] AS [dc_Valor], 
+      [vwCONTA_Rpt003].[dc_Observacion] AS [dc_Observacion], 
+      [vwCONTA_Rpt003].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_Rpt003].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwCONTA_Rpt003].[nom_punto_cargo_grupo] AS [nom_punto_cargo_grupo], 
+      [vwCONTA_Rpt003].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwCONTA_Rpt003].[pc_clave_corta] AS [pc_clave_corta]
+      FROM [dbo].[vwCONTA_Rpt003] AS [vwCONTA_Rpt003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt004" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt004" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt004">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt004].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt004].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt004].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_Rpt004].[IdCtaCblePadre] AS [IdCtaCblePadre], 
+      [vwCONTA_Rpt004].[pc_Naturaleza] AS [pc_Naturaleza], 
+      [vwCONTA_Rpt004].[IdNivelCta] AS [IdNivelCta], 
+      [vwCONTA_Rpt004].[IdGrupoCble] AS [IdGrupoCble], 
+      [vwCONTA_Rpt004].[IdTipoCtaCble] AS [IdTipoCtaCble], 
+      [vwCONTA_Rpt004].[pc_Estado] AS [pc_Estado], 
+      [vwCONTA_Rpt004].[pc_EsMovimiento] AS [pc_EsMovimiento], 
+      [vwCONTA_Rpt004].[pc_es_flujo_efectivo] AS [pc_es_flujo_efectivo], 
+      [vwCONTA_Rpt004].[pc_clave_corta] AS [pc_clave_corta]
+      FROM [dbo].[vwCONTA_Rpt004] AS [vwCONTA_Rpt004]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt005" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt005" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt005">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt005].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt005].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwCONTA_Rpt005].[IdCbteCble] AS [IdCbteCble], 
+      [vwCONTA_Rpt005].[IdPeriodo] AS [IdPeriodo], 
+      [vwCONTA_Rpt005].[Fecha] AS [Fecha], 
+      [vwCONTA_Rpt005].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt005].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwCONTA_Rpt005].[Valor] AS [Valor], 
+      [vwCONTA_Rpt005].[Centro_costo] AS [Centro_costo], 
+      [vwCONTA_Rpt005].[TipoCbte] AS [TipoCbte], 
+      [vwCONTA_Rpt005].[nom_Cuenta] AS [nom_Cuenta], 
+      [vwCONTA_Rpt005].[Naturaleza_cta] AS [Naturaleza_cta], 
+      [vwCONTA_Rpt005].[IdCtaCblePadre] AS [IdCtaCblePadre], 
+      [vwCONTA_Rpt005].[AnioFiscal] AS [AnioFiscal], 
+      [vwCONTA_Rpt005].[IdMes] AS [IdMes], 
+      [vwCONTA_Rpt005].[Mes] AS [Mes]
+      FROM [dbo].[vwCONTA_Rpt005] AS [vwCONTA_Rpt005]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt008" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt008" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt008">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt008].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt008].[IdOrdenPago] AS [IdOrdenPago], 
+      [vwCONTA_Rpt008].[Secuencia_op] AS [Secuencia_op], 
+      [vwCONTA_Rpt008].[IdEmpresa_cxp] AS [IdEmpresa_cxp], 
+      [vwCONTA_Rpt008].[IdCbteCble_cxp] AS [IdCbteCble_cxp], 
+      [vwCONTA_Rpt008].[IdTipoCbte_cxp] AS [IdTipoCbte_cxp], 
+      [vwCONTA_Rpt008].[secuencia_cxp] AS [secuencia_cxp], 
+      [vwCONTA_Rpt008].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt008].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_Rpt008].[pc_clave_corta] AS [pc_clave_corta], 
+      [vwCONTA_Rpt008].[dc_Observacion] AS [dc_Observacion], 
+      [vwCONTA_Rpt008].[cb_Fecha] AS [cb_Fecha], 
+      [vwCONTA_Rpt008].[dc_Valor] AS [dc_Valor], 
+      [vwCONTA_Rpt008].[CodTipoCbte] AS [CodTipoCbte], 
+      [vwCONTA_Rpt008].[tc_TipoCbte] AS [tc_TipoCbte]
+      FROM [dbo].[vwCONTA_Rpt008] AS [vwCONTA_Rpt008]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt009" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt009" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt009">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt009].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt009].[IdConciliacion_Caja] AS [IdConciliacion_Caja], 
+      [vwCONTA_Rpt009].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwCONTA_Rpt009].[IdEmpresa_cbte] AS [IdEmpresa_cbte], 
+      [vwCONTA_Rpt009].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwCONTA_Rpt009].[IdCbteCble] AS [IdCbteCble], 
+      [vwCONTA_Rpt009].[secuencia] AS [secuencia], 
+      [vwCONTA_Rpt009].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt009].[nom_Cuenta] AS [nom_Cuenta], 
+      [vwCONTA_Rpt009].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwCONTA_Rpt009].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwCONTA_Rpt009].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwCONTA_Rpt009].[nom_Centro_costo_sub_centro_costo] AS [nom_Centro_costo_sub_centro_costo], 
+      [vwCONTA_Rpt009].[Debe] AS [Debe], 
+      [vwCONTA_Rpt009].[Haber] AS [Haber], 
+      [vwCONTA_Rpt009].[dc_Observacion] AS [dc_Observacion], 
+      [vwCONTA_Rpt009].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwCONTA_Rpt009].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo], 
+      [vwCONTA_Rpt009].[nom_punto_cargo_grupo] AS [nom_punto_cargo_grupo], 
+      [vwCONTA_Rpt009].[nom_punto_cargo] AS [nom_punto_cargo]
+      FROM [dbo].[vwCONTA_Rpt009] AS [vwCONTA_Rpt009]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCONTA_Rpt014" EntityType="ModelContabilidadGeneralRpt.Store.vwCONTA_Rpt014" store:Type="Views" store:Schema="dbo" store:Name="vwCONTA_Rpt014">
+            <DefiningQuery>SELECT 
+      [vwCONTA_Rpt014].[IdEmpresa] AS [IdEmpresa], 
+      [vwCONTA_Rpt014].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwCONTA_Rpt014].[IdCbteCble] AS [IdCbteCble], 
+      [vwCONTA_Rpt014].[secuencia] AS [secuencia], 
+      [vwCONTA_Rpt014].[cb_Observacion] AS [cb_Observacion], 
+      [vwCONTA_Rpt014].[cb_Fecha] AS [cb_Fecha], 
+      [vwCONTA_Rpt014].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwCONTA_Rpt014].[IdCtaCble] AS [IdCtaCble], 
+      [vwCONTA_Rpt014].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwCONTA_Rpt014].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwCONTA_Rpt014].[Centro_costo] AS [Centro_costo], 
+      [vwCONTA_Rpt014].[dc_Valor] AS [dc_Valor], 
+      [vwCONTA_Rpt014].[IdGrupoCble] AS [IdGrupoCble], 
+      [vwCONTA_Rpt014].[gc_GrupoCble] AS [gc_GrupoCble], 
+      [vwCONTA_Rpt014].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwCONTA_Rpt014].[nom_subcentro] AS [nom_subcentro], 
+      [vwCONTA_Rpt014].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo], 
+      [vwCONTA_Rpt014].[nom_punto_cargo_grupo] AS [nom_punto_cargo_grupo], 
+      [vwCONTA_Rpt014].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwCONTA_Rpt014].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwCONTA_Rpt014].[gc_Orden] AS [gc_Orden]
+      FROM [dbo].[vwCONTA_Rpt014] AS [vwCONTA_Rpt014]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdAnioF" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdNivel" />
+            <PropertyRef Name="sc_saldo_anterior" />
+            <PropertyRef Name="sc_debito_mes" />
+            <PropertyRef Name="sc_credito_mes" />
+            <PropertyRef Name="sc_saldoPeriodo" />
+            <PropertyRef Name="sc_debito_acum" />
+            <PropertyRef Name="sc_credito_acum" />
+            <PropertyRef Name="sc_saldo_acum" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="gc_GrupoCble" />
+            <PropertyRef Name="gc_Orden" />
+            <PropertyRef Name="gc_estado_financiero" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdAnioF" Type="int" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" MaxLength="173" />
+          <Property Name="pc_Naturaleza" Type="char" MaxLength="1" />
+          <Property Name="IdNivel" Type="int" Nullable="false" />
+          <Property Name="IdCtaCblePadre" Type="varchar" MaxLength="20" />
+          <Property Name="sc_saldo_anterior" Type="float" Nullable="false" />
+          <Property Name="sc_debito_mes" Type="float" Nullable="false" />
+          <Property Name="sc_credito_mes" Type="float" Nullable="false" />
+          <Property Name="sc_saldoPeriodo" Type="float" Nullable="false" />
+          <Property Name="sc_debito_acum" Type="int" Nullable="false" />
+          <Property Name="sc_credito_acum" Type="int" Nullable="false" />
+          <Property Name="sc_saldo_acum" Type="float" Nullable="false" />
+          <Property Name="IdGrupoCble" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="gc_GrupoCble" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="gc_Orden" Type="int" Nullable="false" />
+          <Property Name="gc_estado_financiero" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="SIdPeriodo" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdAnioF" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdNivel" />
+            <PropertyRef Name="sc_saldo_anterior" />
+            <PropertyRef Name="sc_debito_mes" />
+            <PropertyRef Name="sc_credito_mes" />
+            <PropertyRef Name="sc_saldoPeriodo" />
+            <PropertyRef Name="sc_debito_acum" />
+            <PropertyRef Name="sc_credito_acum" />
+            <PropertyRef Name="sc_saldo_acum" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="gc_GrupoCble" />
+            <PropertyRef Name="gc_Orden" />
+            <PropertyRef Name="gc_estado_financiero" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdAnioF" Type="int" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" MaxLength="173" />
+          <Property Name="pc_Naturaleza" Type="char" MaxLength="1" />
+          <Property Name="IdNivel" Type="int" Nullable="false" />
+          <Property Name="IdCtaCblePadre" Type="varchar" MaxLength="20" />
+          <Property Name="sc_saldo_anterior" Type="float" Nullable="false" />
+          <Property Name="sc_debito_mes" Type="float" Nullable="false" />
+          <Property Name="sc_credito_mes" Type="float" Nullable="false" />
+          <Property Name="sc_saldoPeriodo" Type="float" Nullable="false" />
+          <Property Name="sc_debito_acum" Type="int" Nullable="false" />
+          <Property Name="sc_credito_acum" Type="int" Nullable="false" />
+          <Property Name="sc_saldo_acum" Type="float" Nullable="false" />
+          <Property Name="IdGrupoCble" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="gc_GrupoCble" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="gc_Orden" Type="int" Nullable="false" />
+          <Property Name="gc_estado_financiero" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="SIdPeriodo" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt003">
+          <Key>
+            <PropertyRef Name="debe" />
+            <PropertyRef Name="Cred" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="CodCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Estado" />
+            <PropertyRef Name="cb_Anio" />
+            <PropertyRef Name="cb_mes" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Name="debe" Type="float" Nullable="false" />
+          <Property Name="Cred" Type="float" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="CodCbteCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cb_Valor" Type="float" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cb_Anio" Type="int" Nullable="false" />
+          <Property Name="cb_mes" Type="int" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="dc_Valor" Type="float" Nullable="false" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="pc_Naturaleza" />
+            <PropertyRef Name="IdNivelCta" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="pc_Estado" />
+            <PropertyRef Name="pc_EsMovimiento" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="IdCtaCblePadre" Type="varchar" MaxLength="20" />
+          <Property Name="pc_Naturaleza" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IdNivelCta" Type="int" Nullable="false" />
+          <Property Name="IdGrupoCble" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="IdTipoCtaCble" Type="varchar" MaxLength="10" />
+          <Property Name="pc_Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="pc_EsMovimiento" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="pc_es_flujo_efectivo" Type="char" MaxLength="1" />
+          <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="TipoCbte" />
+            <PropertyRef Name="nom_Cuenta" />
+            <PropertyRef Name="Naturaleza_cta" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="nom_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Naturaleza_cta" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IdCtaCblePadre" Type="varchar" MaxLength="20" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="IdMes" Type="int" />
+          <Property Name="Mes" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPago" />
+            <PropertyRef Name="Secuencia_op" />
+            <PropertyRef Name="secuencia_cxp" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="CodTipoCbte" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdOrdenPago" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia_op" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa_cxp" Type="int" />
+          <Property Name="IdCbteCble_cxp" Type="numeric" />
+          <Property Name="IdTipoCbte_cxp" Type="int" />
+          <Property Name="secuencia_cxp" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="dc_Valor" Type="float" Nullable="false" />
+          <Property Name="CodTipoCbte" Type="char" Nullable="false" MaxLength="10" />
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt009' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt009">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdConciliacion_Caja" />
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="IdEmpresa_cbte" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_Cuenta" />
+            <PropertyRef Name="Debe" />
+            <PropertyRef Name="Haber" />
+            <PropertyRef Name="dc_Observacion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdConciliacion_Caja" Type="numeric" Nullable="false" />
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="IdEmpresa_cbte" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="nom_Centro_costo_sub_centro_costo" Type="varchar" MaxLength="200" />
+          <Property Name="Debe" Type="float" Nullable="false" />
+          <Property Name="Haber" Type="float" Nullable="false" />
+          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="IdPunto_cargo_grupo" Type="int" />
+          <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt014' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCONTA_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="Centro_costo" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="gc_GrupoCble" />
+            <PropertyRef Name="nom_subcentro" />
+            <PropertyRef Name="nom_punto_cargo_grupo" />
+            <PropertyRef Name="nom_punto_cargo" />
+            <PropertyRef Name="gc_Orden" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
+          <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="Centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="dc_Valor" Type="float" Nullable="false" />
+          <Property Name="IdGrupoCble" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="gc_GrupoCble" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="nom_subcentro" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="IdPunto_cargo_grupo" Type="int" />
+          <Property Name="nom_punto_cargo_grupo" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="nom_punto_cargo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="gc_Orden" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Function Name="spCON_Mayorizar_x_fecha_corte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="i_Fecha_Ini" Type="datetime" Mode="In" />
+          <Parameter Name="i_Fecha_Fin" Type="datetime" Mode="In" />
+          <Parameter Name="i_IdCentroCosto" Type="varchar" Mode="In" />
+          <Parameter Name="i_IdPunto_cargo_grupo" Type="int" Mode="In" />
+          <Parameter Name="i_IdPunto_cargo" Type="int" Mode="In" />
+          <Parameter Name="i_Mostrar_reg_en_cero" Type="bit" Mode="In" />
+          <Parameter Name="i_Mostrar_reg_Centro_costo" Type="bit" Mode="In" />
+          <Parameter Name="i_Considerar_Asiento_cierre_anual" Type="bit" Mode="In" />
+          <Parameter Name="i_IdUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spCON_Saldo_Inicial_x_cta_cble" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="i_FechaCorte" Type="datetime" Mode="In" />
+          <Parameter Name="i_IdCentroCosto" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spCONTA_Rpt006" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="i_IdCtaCble" Type="varchar" Mode="In" />
+          <Parameter Name="i_IdCentro_Costo" Type="varchar" Mode="In" />
+          <Parameter Name="i_FechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="i_FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="i_IdGrupo_Punto_cargo" Type="int" Mode="In" />
+          <Parameter Name="i_IdPunto_cargo" Type="int" Mode="In" />
+          <Parameter Name="i_Mostrar_Asiento_Cierre" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spCONTA_Rpt007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="i_Fecha_Ini" Type="datetime" Mode="In" />
+          <Parameter Name="i_Fecha_Fin" Type="datetime" Mode="In" />
+          <Parameter Name="i_IdCentroCosto" Type="varchar" Mode="In" />
+          <Parameter Name="i_IdPunto_cargo_grupo" Type="int" Mode="In" />
+          <Parameter Name="i_IdPunto_cargo" Type="int" Mode="In" />
+          <Parameter Name="i_mostrar_cero" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spCONTA_Rpt010" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="i_IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="i_FechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="i_FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="i_IdPunto_cargo_grupo" Type="int" Mode="In" />
+          <Parameter Name="i_Mostrar_reg_cero" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spCONTA_Rpt016" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdPeriodo" Type="int" Mode="In" />
+          <Parameter Name="Mostrar_CC" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spCONTA_Rpt016_cuentas_x_anio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Anio" Type="int" Mode="In" />
+          <Parameter Name="Mostrar_CC" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spCONTA_Rpt018" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
+          <Parameter Name="Fecha_fin" Type="datetime" Mode="In" />
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdPunto_cargo_grupo_ini" Type="int" Mode="In" />
+          <Parameter Name="IdPunto_cargo_grupo_fin" Type="int" Mode="In" />
+          <Parameter Name="Mostrar_detalle" Type="bit" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelContabilidadGeneralRpt" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesContabilidadRptGeneral" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="vwCONTA_Rpt001" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt001" />
+          <EntitySet Name="vwCONTA_Rpt002" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt002" />
+          <EntitySet Name="vwCONTA_Rpt004" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt004" />
+          <EntitySet Name="vwCONTA_Rpt005" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt005" />
+          <FunctionImport Name="spCON_Saldo_Inicial_x_cta_cble">
+            <Parameter Name="i_IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="i_FechaCorte" Mode="In" Type="DateTime" />
+            <Parameter Name="i_IdCentroCosto" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="vwCONTA_Rpt009" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt009" />
+          <FunctionImport Name="spCONTA_Rpt009" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt009_Result)">
+            <Parameter Name="i_IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="i_FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="i_FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="i_IdPunto_cargo_grupo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spCONTA_Rpt007" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt007_Result)">
+            <Parameter Name="i_IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="i_Fecha_Ini" Mode="In" Type="DateTime" />
+            <Parameter Name="i_Fecha_Fin" Mode="In" Type="DateTime" />
+            <Parameter Name="i_IdCentroCosto" Mode="In" Type="String" />
+            <Parameter Name="i_IdPunto_cargo_grupo" Mode="In" Type="Int32" />
+            <Parameter Name="i_IdPunto_cargo" Mode="In" Type="Int32" />
+            <Parameter Name="i_mostrar_cero" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spCONTA_Rpt016" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt016_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdPeriodo" Mode="In" Type="Int32" />
+            <Parameter Name="Mostrar_CC" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spCONTA_Rpt016_cuentas_x_anio" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt016_cuentas_x_anio_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Anio" Mode="In" Type="Int32" />
+            <Parameter Name="Mostrar_CC" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spCONTA_Rpt018" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt018_Result)">
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdPunto_cargo_grupo_ini" Mode="In" Type="Int32" />
+            <Parameter Name="IdPunto_cargo_grupo_fin" Mode="In" Type="Int32" />
+            <Parameter Name="Mostrar_detalle" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="vwCONTA_Rpt003" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt003" />
+          <FunctionImport Name="spCONTA_Rpt010" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt010_Result)">
+            <Parameter Name="i_IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="i_FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="i_FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="i_IdPunto_cargo_grupo" Mode="In" Type="Int32" />
+            <Parameter Name="i_Mostrar_reg_cero" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="vwCONTA_Rpt008" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt008" />
+          <FunctionImport Name="spCON_Mayorizar_x_fecha_corte" ReturnType="Collection(ModelContabilidadGeneralRpt.spCON_Mayorizar_x_fecha_corte_Result)">
+            <Parameter Name="i_IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="i_Fecha_Ini" Mode="In" Type="DateTime" />
+            <Parameter Name="i_Fecha_Fin" Mode="In" Type="DateTime" />
+            <Parameter Name="i_IdCentroCosto" Mode="In" Type="String" />
+            <Parameter Name="i_IdPunto_cargo_grupo" Mode="In" Type="Int32" />
+            <Parameter Name="i_IdPunto_cargo" Mode="In" Type="Int32" />
+            <Parameter Name="i_Mostrar_reg_en_cero" Mode="In" Type="Boolean" />
+            <Parameter Name="i_Mostrar_reg_Centro_costo" Mode="In" Type="Boolean" />
+            <Parameter Name="i_Considerar_Asiento_cierre_anual" Mode="In" Type="Boolean" />
+            <Parameter Name="i_IdUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spCONTA_Rpt006" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt006_Result)">
+            <Parameter Name="i_IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="i_IdCtaCble" Mode="In" Type="String" />
+            <Parameter Name="i_IdCentro_Costo" Mode="In" Type="String" />
+            <Parameter Name="i_FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="i_FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="i_IdGrupo_Punto_cargo" Mode="In" Type="Int32" />
+            <Parameter Name="i_IdPunto_cargo" Mode="In" Type="Int32" />
+            <Parameter Name="i_Mostrar_Asiento_Cierre" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="vwCONTA_Rpt014" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt014" />
+        </EntityContainer>
+        <EntityType Name="vwCONTA_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdAnioF" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdNivel" />
+            <PropertyRef Name="sc_saldo_anterior" />
+            <PropertyRef Name="sc_debito_mes" />
+            <PropertyRef Name="sc_credito_mes" />
+            <PropertyRef Name="sc_saldoPeriodo" />
+            <PropertyRef Name="sc_debito_acum" />
+            <PropertyRef Name="sc_credito_acum" />
+            <PropertyRef Name="sc_saldo_acum" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="gc_GrupoCble" />
+            <PropertyRef Name="gc_Orden" />
+            <PropertyRef Name="gc_estado_financiero" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdAnioF" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" MaxLength="173" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Naturaleza" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdNivel" Nullable="false" />
+          <Property Type="String" Name="IdCtaCblePadre" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="sc_saldo_anterior" Nullable="false" />
+          <Property Type="Double" Name="sc_debito_mes" Nullable="false" />
+          <Property Type="Double" Name="sc_credito_mes" Nullable="false" />
+          <Property Type="Double" Name="sc_saldoPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="sc_debito_acum" Nullable="false" />
+          <Property Type="Int32" Name="sc_credito_acum" Nullable="false" />
+          <Property Type="Double" Name="sc_saldo_acum" Nullable="false" />
+          <Property Type="String" Name="IdGrupoCble" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="gc_GrupoCble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="gc_Orden" Nullable="false" />
+          <Property Type="String" Name="gc_estado_financiero" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SIdPeriodo" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCONTA_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdAnioF" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdNivel" />
+            <PropertyRef Name="sc_saldo_anterior" />
+            <PropertyRef Name="sc_debito_mes" />
+            <PropertyRef Name="sc_credito_mes" />
+            <PropertyRef Name="sc_saldoPeriodo" />
+            <PropertyRef Name="sc_debito_acum" />
+            <PropertyRef Name="sc_credito_acum" />
+            <PropertyRef Name="sc_saldo_acum" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="gc_GrupoCble" />
+            <PropertyRef Name="gc_Orden" />
+            <PropertyRef Name="gc_estado_financiero" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdAnioF" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" MaxLength="173" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Naturaleza" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdNivel" Nullable="false" />
+          <Property Type="String" Name="IdCtaCblePadre" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="sc_saldo_anterior" Nullable="false" />
+          <Property Type="Double" Name="sc_debito_mes" Nullable="false" />
+          <Property Type="Double" Name="sc_credito_mes" Nullable="false" />
+          <Property Type="Double" Name="sc_saldoPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="sc_debito_acum" Nullable="false" />
+          <Property Type="Int32" Name="sc_credito_acum" Nullable="false" />
+          <Property Type="Double" Name="sc_saldo_acum" Nullable="false" />
+          <Property Type="String" Name="IdGrupoCble" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="gc_GrupoCble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="gc_Orden" Nullable="false" />
+          <Property Type="String" Name="gc_estado_financiero" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SIdPeriodo" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCONTA_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="pc_Naturaleza" />
+            <PropertyRef Name="IdNivelCta" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="pc_Estado" />
+            <PropertyRef Name="pc_EsMovimiento" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCblePadre" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Naturaleza" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdNivelCta" Nullable="false" />
+          <Property Type="String" Name="IdGrupoCble" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoCtaCble" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pc_EsMovimiento" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pc_es_flujo_efectivo" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pc_clave_corta" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCONTA_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="TipoCbte" />
+            <PropertyRef Name="nom_Cuenta" />
+            <PropertyRef Name="Naturaleza_cta" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="String" Name="Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="nom_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Naturaleza_cta" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdCtaCblePadre" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="Int32" Name="IdMes" />
+          <Property Type="String" Name="Mes" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCONTA_Rpt009">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdConciliacion_Caja" />
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="IdEmpresa_cbte" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="nom_Cuenta" />
+            <PropertyRef Name="Debe" />
+            <PropertyRef Name="Haber" />
+            <PropertyRef Name="dc_Observacion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdConciliacion_Caja" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cbte" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Debe" Nullable="false" />
+          <Property Type="Double" Name="Haber" Nullable="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spCONTA_Rpt009_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="nom_Punto_cargo" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Saldo_Anterior" Nullable="false" />
+          <Property Type="Double" Name="Debito" Nullable="false" />
+          <Property Type="Double" Name="Credito" Nullable="false" />
+          <Property Type="Double" Name="Saldo_Total" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spCONTA_Rpt007_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="IdNivelCta" Nullable="false" />
+          <Property Type="String" Name="GrupoCble" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="OrderGrupoCble" Nullable="true" />
+          <Property Type="String" Name="gc_estado_financiero" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="IdCtaCblePadre" Nullable="true" MaxLength="20" />
+          <Property Type="Double" Name="Saldo_Inicial" Nullable="true" />
+          <Property Type="Double" Name="Debito_Mes" Nullable="true" />
+          <Property Type="Double" Name="Credito_Mes" Nullable="true" />
+          <Property Type="Double" Name="Saldo" Nullable="true" />
+          <Property Type="String" Name="pc_EsMovimiento" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="gc_signo_operacion" Nullable="true" />
+          <Property Type="Boolean" Name="CtaUtilidad" Nullable="true" />
+          <Property Type="Double" Name="Saldo_inicial_x_Movi" Nullable="true" />
+          <Property Type="Double" Name="Debito_Mes_x_Movi" Nullable="true" />
+          <Property Type="Double" Name="Credito_Mes_x_Movi" Nullable="true" />
+          <Property Type="Double" Name="Saldo_x_Movi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spCONTA_Rpt016_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="nivel" Nullable="true" />
+          <Property Type="Int32" Name="orden" Nullable="true" />
+          <Property Type="Int32" Name="IdTipo_Gasto" Nullable="false" />
+          <Property Type="Int32" Name="orden_tipo_gasto" Nullable="true" />
+          <Property Type="String" Name="nom_tipo_Gasto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nom_tipo_Gasto_padre" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="IdCta" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="nom_grupo_CC" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spCONTA_Rpt016_cuentas_x_anio_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="nivel" Nullable="true" />
+          <Property Type="Int32" Name="orden" Nullable="true" />
+          <Property Type="Int32" Name="IdTipo_Gasto" Nullable="false" />
+          <Property Type="Int32" Name="orden_tipo_gasto" Nullable="true" />
+          <Property Type="String" Name="nom_tipo_Gasto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nom_tipo_Gasto_padre" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="IdCta" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="nom_grupo_CC" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spCONTA_Rpt018_Result">
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Observacion" Nullable="false" />
+          <Property Type="Double" Name="Valor" Nullable="true" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" Nullable="true" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Comprobante" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <EntityType Name="vwCONTA_Rpt003">
+          <Key>
+            <PropertyRef Name="debe" />
+            <PropertyRef Name="Cred" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="CodCbteCble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Estado" />
+            <PropertyRef Name="cb_Anio" />
+            <PropertyRef Name="cb_mes" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Type="Double" Name="debe" Nullable="false" />
+          <Property Type="Double" Name="Cred" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="cb_Anio" Nullable="false" />
+          <Property Type="Int32" Name="cb_mes" Nullable="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_clave_corta" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spCONTA_Rpt010_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nom_Punto_cargo" Nullable="false" MaxLength="550" />
+          <Property Type="Double" Name="Saldo_Anterior" Nullable="false" />
+          <Property Type="Double" Name="Debito" Nullable="false" />
+          <Property Type="Double" Name="Credito" Nullable="false" />
+          <Property Type="Double" Name="Saldo_Total" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <EntityType Name="vwCONTA_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPago" />
+            <PropertyRef Name="Secuencia_op" />
+            <PropertyRef Name="secuencia_cxp" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="dc_Observacion" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="CodTipoCbte" />
+            <PropertyRef Name="tc_TipoCbte" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_op" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_cxp" />
+          <Property Type="Decimal" Name="IdCbteCble_cxp" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_cxp" />
+          <Property Type="Int32" Name="secuencia_cxp" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_clave_corta" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="CodTipoCbte" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spCON_Mayorizar_x_fecha_corte_Result">
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="nom_cuenta" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdNivelCta" Nullable="false" />
+          <Property Type="String" Name="GrupoCble" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="OrderGrupoCble" Nullable="true" />
+          <Property Type="String" Name="gc_estado_financiero" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="IdCtaCblePadre" Nullable="true" MaxLength="20" />
+          <Property Type="Double" Name="Saldo_Inicial" Nullable="false" />
+          <Property Type="Double" Name="Debito_Mes" Nullable="false" />
+          <Property Type="Double" Name="Credito_Mes" Nullable="false" />
+          <Property Type="Double" Name="Saldo" Nullable="false" />
+          <Property Type="String" Name="pc_EsMovimiento" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="gc_signo_operacion" Nullable="true" />
+          <Property Type="Boolean" Name="CtaUtilidad" Nullable="true" />
+          <Property Type="Double" Name="Saldo_inicial_x_Movi" Nullable="true" />
+          <Property Type="Double" Name="Debito_Mes_x_Movi" Nullable="true" />
+          <Property Type="Double" Name="Credito_Mes_x_Movi" Nullable="true" />
+          <Property Type="Double" Name="Saldo_x_Movi" Nullable="true" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="nom_centro_costo" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" Nullable="true" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="true" />
+          <Property Type="String" Name="nom_punto_cargo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdGrupo_Mayor" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nom_grupo_mayor" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="order_grupo_mayor" Nullable="true" />
+          <Property Type="Int32" Name="orden_fila" Nullable="false" />
+          <Property Type="Boolean" Name="Reg_x_CC" Nullable="true" />
+          <Property Type="Double" Name="Saldo_Mes" Nullable="true" />
+          <Property Type="Double" Name="Saldo_Inicial_deudor" Nullable="true" />
+          <Property Type="Double" Name="Saldo_Inicial_acreedor" Nullable="true" />
+          <Property Type="Double" Name="Saldo_fin_deudor" Nullable="true" />
+          <Property Type="Double" Name="Saldo_fin_acreedor" Nullable="true" />
+          <Property Type="String" Name="pc_clave_corta" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="idusuario" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="spCONTA_Rpt006_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="String" Name="sTipocbte" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="FechaCbte" Nullable="false" Precision="23" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nom_cuenta" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Concepto" Nullable="false" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="SaldoInicial" Nullable="true" />
+          <Property Type="Double" Name="SaldoFinal" Nullable="true" />
+          <Property Type="Double" Name="Debito" Nullable="false" />
+          <Property Type="Double" Name="Credito" Nullable="true" />
+          <Property Type="String" Name="nom_grupo_punto_cargo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="nom_punto_cargo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="IdCentro_Costo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="nom_centro_costo" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="pc_clave_corta" Nullable="true" MaxLength="15" />
+        </ComplexType>
+        <EntityType Name="vwCONTA_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="Centro_costo" />
+            <PropertyRef Name="dc_Valor" />
+            <PropertyRef Name="IdGrupoCble" />
+            <PropertyRef Name="gc_GrupoCble" />
+            <PropertyRef Name="nom_subcentro" />
+            <PropertyRef Name="nom_punto_cargo_grupo" />
+            <PropertyRef Name="nom_punto_cargo" />
+            <PropertyRef Name="gc_Orden" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Centro_costo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" Nullable="false" />
+          <Property Type="String" Name="IdGrupoCble" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="gc_GrupoCble" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subcentro" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="nom_punto_cargo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="gc_Orden" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelContabilidadGeneralRptStoreContainer" CdmEntityContainer="EntitiesContabilidadRptGeneral">
+          <EntitySetMapping Name="vwCONTA_Rpt001">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt001">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt001">
+                <ScalarProperty Name="SIdPeriodo" ColumnName="SIdPeriodo" />
+                <ScalarProperty Name="gc_estado_financiero" ColumnName="gc_estado_financiero" />
+                <ScalarProperty Name="gc_Orden" ColumnName="gc_Orden" />
+                <ScalarProperty Name="gc_GrupoCble" ColumnName="gc_GrupoCble" />
+                <ScalarProperty Name="IdGrupoCble" ColumnName="IdGrupoCble" />
+                <ScalarProperty Name="sc_saldo_acum" ColumnName="sc_saldo_acum" />
+                <ScalarProperty Name="sc_credito_acum" ColumnName="sc_credito_acum" />
+                <ScalarProperty Name="sc_debito_acum" ColumnName="sc_debito_acum" />
+                <ScalarProperty Name="sc_saldoPeriodo" ColumnName="sc_saldoPeriodo" />
+                <ScalarProperty Name="sc_credito_mes" ColumnName="sc_credito_mes" />
+                <ScalarProperty Name="sc_debito_mes" ColumnName="sc_debito_mes" />
+                <ScalarProperty Name="sc_saldo_anterior" ColumnName="sc_saldo_anterior" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="pc_Naturaleza" ColumnName="pc_Naturaleza" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdAnioF" ColumnName="IdAnioF" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCONTA_Rpt002">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt002">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt002">
+                <ScalarProperty Name="SIdPeriodo" ColumnName="SIdPeriodo" />
+                <ScalarProperty Name="gc_estado_financiero" ColumnName="gc_estado_financiero" />
+                <ScalarProperty Name="gc_Orden" ColumnName="gc_Orden" />
+                <ScalarProperty Name="gc_GrupoCble" ColumnName="gc_GrupoCble" />
+                <ScalarProperty Name="IdGrupoCble" ColumnName="IdGrupoCble" />
+                <ScalarProperty Name="sc_saldo_acum" ColumnName="sc_saldo_acum" />
+                <ScalarProperty Name="sc_credito_acum" ColumnName="sc_credito_acum" />
+                <ScalarProperty Name="sc_debito_acum" ColumnName="sc_debito_acum" />
+                <ScalarProperty Name="sc_saldoPeriodo" ColumnName="sc_saldoPeriodo" />
+                <ScalarProperty Name="sc_credito_mes" ColumnName="sc_credito_mes" />
+                <ScalarProperty Name="sc_debito_mes" ColumnName="sc_debito_mes" />
+                <ScalarProperty Name="sc_saldo_anterior" ColumnName="sc_saldo_anterior" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="pc_Naturaleza" ColumnName="pc_Naturaleza" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdAnioF" ColumnName="IdAnioF" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCONTA_Rpt004">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt004">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt004">
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+                <ScalarProperty Name="pc_es_flujo_efectivo" ColumnName="pc_es_flujo_efectivo" />
+                <ScalarProperty Name="pc_EsMovimiento" ColumnName="pc_EsMovimiento" />
+                <ScalarProperty Name="pc_Estado" ColumnName="pc_Estado" />
+                <ScalarProperty Name="IdTipoCtaCble" ColumnName="IdTipoCtaCble" />
+                <ScalarProperty Name="IdGrupoCble" ColumnName="IdGrupoCble" />
+                <ScalarProperty Name="IdNivelCta" ColumnName="IdNivelCta" />
+                <ScalarProperty Name="pc_Naturaleza" ColumnName="pc_Naturaleza" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCONTA_Rpt005">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt005">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt005">
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="Naturaleza_cta" ColumnName="Naturaleza_cta" />
+                <ScalarProperty Name="nom_Cuenta" ColumnName="nom_Cuenta" />
+                <ScalarProperty Name="TipoCbte" ColumnName="TipoCbte" />
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCON_Saldo_Inicial_x_cta_cble" FunctionName="ModelContabilidadGeneralRpt.Store.spCON_Saldo_Inicial_x_cta_cble" />
+          <EntitySetMapping Name="vwCONTA_Rpt009">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt009">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt009">
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="Haber" ColumnName="Haber" />
+                <ScalarProperty Name="Debe" ColumnName="Debe" />
+                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo" ColumnName="nom_Centro_costo_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="nom_Cuenta" ColumnName="nom_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdEmpresa_cbte" ColumnName="IdEmpresa_cbte" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="IdConciliacion_Caja" ColumnName="IdConciliacion_Caja" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt007" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt007">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt007_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="IdNivelCta" ColumnName="IdNivelCta" />
+                <ScalarProperty Name="GrupoCble" ColumnName="GrupoCble" />
+                <ScalarProperty Name="OrderGrupoCble" ColumnName="OrderGrupoCble" />
+                <ScalarProperty Name="gc_estado_financiero" ColumnName="gc_estado_financiero" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="Saldo_Inicial" ColumnName="Saldo_Inicial" />
+                <ScalarProperty Name="Debito_Mes" ColumnName="Debito_Mes" />
+                <ScalarProperty Name="Credito_Mes" ColumnName="Credito_Mes" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="pc_EsMovimiento" ColumnName="pc_EsMovimiento" />
+                <ScalarProperty Name="gc_signo_operacion" ColumnName="gc_signo_operacion" />
+                <ScalarProperty Name="CtaUtilidad" ColumnName="CtaUtilidad" />
+                <ScalarProperty Name="Saldo_inicial_x_Movi" ColumnName="Saldo_inicial_x_Movi" />
+                <ScalarProperty Name="Debito_Mes_x_Movi" ColumnName="Debito_Mes_x_Movi" />
+                <ScalarProperty Name="Credito_Mes_x_Movi" ColumnName="Credito_Mes_x_Movi" />
+                <ScalarProperty Name="Saldo_x_Movi" ColumnName="Saldo_x_Movi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt016" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt016">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt016_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="IdTipo_Gasto" ColumnName="IdTipo_Gasto" />
+                <ScalarProperty Name="orden_tipo_gasto" ColumnName="orden_tipo_gasto" />
+                <ScalarProperty Name="nom_tipo_Gasto" ColumnName="nom_tipo_Gasto" />
+                <ScalarProperty Name="nom_tipo_Gasto_padre" ColumnName="nom_tipo_Gasto_padre" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdCta" ColumnName="IdCta" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="nom_grupo_CC" ColumnName="nom_grupo_CC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt016_cuentas_x_anio" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt016_cuentas_x_anio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt016_cuentas_x_anio_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="IdTipo_Gasto" ColumnName="IdTipo_Gasto" />
+                <ScalarProperty Name="orden_tipo_gasto" ColumnName="orden_tipo_gasto" />
+                <ScalarProperty Name="nom_tipo_Gasto" ColumnName="nom_tipo_Gasto" />
+                <ScalarProperty Name="nom_tipo_Gasto_padre" ColumnName="nom_tipo_Gasto_padre" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdCta" ColumnName="IdCta" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="nom_grupo_CC" ColumnName="nom_grupo_CC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt018" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt018">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt018_Result">
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCONTA_Rpt003">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt003">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt003">
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="cb_mes" ColumnName="cb_mes" />
+                <ScalarProperty Name="cb_Anio" ColumnName="cb_Anio" />
+                <ScalarProperty Name="cb_Estado" ColumnName="cb_Estado" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="CodCbteCble" ColumnName="CodCbteCble" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Cred" ColumnName="Cred" />
+                <ScalarProperty Name="debe" ColumnName="debe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt010" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt010">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt010_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="nom_Punto_cargo" ColumnName="nom_Punto_cargo" />
+                <ScalarProperty Name="Saldo_Anterior" ColumnName="Saldo_Anterior" />
+                <ScalarProperty Name="Debito" ColumnName="Debito" />
+                <ScalarProperty Name="Credito" ColumnName="Credito" />
+                <ScalarProperty Name="Saldo_Total" ColumnName="Saldo_Total" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCONTA_Rpt008">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt008">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt008">
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="CodTipoCbte" ColumnName="CodTipoCbte" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia_cxp" ColumnName="secuencia_cxp" />
+                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
+                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
+                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
+                <ScalarProperty Name="Secuencia_op" ColumnName="Secuencia_op" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCON_Mayorizar_x_fecha_corte" FunctionName="ModelContabilidadGeneralRpt.Store.spCON_Mayorizar_x_fecha_corte">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCON_Mayorizar_x_fecha_corte_Result">
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="IdNivelCta" ColumnName="IdNivelCta" />
+                <ScalarProperty Name="GrupoCble" ColumnName="GrupoCble" />
+                <ScalarProperty Name="OrderGrupoCble" ColumnName="OrderGrupoCble" />
+                <ScalarProperty Name="gc_estado_financiero" ColumnName="gc_estado_financiero" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="Saldo_Inicial" ColumnName="Saldo_Inicial" />
+                <ScalarProperty Name="Debito_Mes" ColumnName="Debito_Mes" />
+                <ScalarProperty Name="Credito_Mes" ColumnName="Credito_Mes" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="pc_EsMovimiento" ColumnName="pc_EsMovimiento" />
+                <ScalarProperty Name="gc_signo_operacion" ColumnName="gc_signo_operacion" />
+                <ScalarProperty Name="CtaUtilidad" ColumnName="CtaUtilidad" />
+                <ScalarProperty Name="Saldo_inicial_x_Movi" ColumnName="Saldo_inicial_x_Movi" />
+                <ScalarProperty Name="Debito_Mes_x_Movi" ColumnName="Debito_Mes_x_Movi" />
+                <ScalarProperty Name="Credito_Mes_x_Movi" ColumnName="Credito_Mes_x_Movi" />
+                <ScalarProperty Name="Saldo_x_Movi" ColumnName="Saldo_x_Movi" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="nom_centro_costo" ColumnName="nom_centro_costo" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdGrupo_Mayor" ColumnName="IdGrupo_Mayor" />
+                <ScalarProperty Name="nom_grupo_mayor" ColumnName="nom_grupo_mayor" />
+                <ScalarProperty Name="order_grupo_mayor" ColumnName="order_grupo_mayor" />
+                <ScalarProperty Name="orden_fila" ColumnName="orden_fila" />
+                <ScalarProperty Name="Reg_x_CC" ColumnName="Reg_x_CC" />
+                <ScalarProperty Name="Saldo_Mes" ColumnName="Saldo_Mes" />
+                <ScalarProperty Name="Saldo_Inicial_deudor" ColumnName="Saldo_Inicial_deudor" />
+                <ScalarProperty Name="Saldo_Inicial_acreedor" ColumnName="Saldo_Inicial_acreedor" />
+                <ScalarProperty Name="Saldo_fin_deudor" ColumnName="Saldo_fin_deudor" />
+                <ScalarProperty Name="Saldo_fin_acreedor" ColumnName="Saldo_fin_acreedor" />
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt006" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt006">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt006_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="sTipocbte" ColumnName="sTipocbte" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="FechaCbte" ColumnName="FechaCbte" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="SaldoInicial" ColumnName="SaldoInicial" />
+                <ScalarProperty Name="SaldoFinal" ColumnName="SaldoFinal" />
+                <ScalarProperty Name="Debito" ColumnName="Debito" />
+                <ScalarProperty Name="Credito" ColumnName="Credito" />
+                <ScalarProperty Name="nom_grupo_punto_cargo" ColumnName="nom_grupo_punto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdCentro_Costo" ColumnName="IdCentro_Costo" />
+                <ScalarProperty Name="nom_centro_costo" ColumnName="nom_centro_costo" />
+                <ScalarProperty Name="pc_clave_corta" ColumnName="pc_clave_corta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCONTA_Rpt014">
+            <EntityTypeMapping TypeName="ModelContabilidadGeneralRpt.vwCONTA_Rpt014">
+              <MappingFragment StoreEntitySet="vwCONTA_Rpt014">
+                <ScalarProperty Name="gc_Orden" ColumnName="gc_Orden" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="nom_subcentro" ColumnName="nom_subcentro" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="gc_GrupoCble" ColumnName="gc_GrupoCble" />
+                <ScalarProperty Name="IdGrupoCble" ColumnName="IdGrupoCble" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cef287d291414c32b1d3f493e3fe469e" Name="Diagrama1" ZoomLevel="75" >
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt002" Width="1.75" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt003" Width="1.75" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt004" Width="1.75" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt005" Width="1.5" PointX="2.7086476342327184" PointY="9.43405899844787" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt001" Width="1.5" PointX="8.0720627550371269" PointY="18.540149816563424" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt006" Width="1.5" PointX="5.6658080526002719" PointY="22.899196635419131" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

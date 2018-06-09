@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4c7e53f1d304b64b8b02faffc5e7aa8" Name="Diagrama1" ZoomLevel="14">
+        <EntityTypeShape EntityType="DBERPModelCompras.com_catalogo" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_catalogo_tipo" Width="1.5" PointX="0.75" PointY="16.5" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_catalogo_com_catalogo_tipo" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_cotizacion_compra" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_cotizacion_compra_det" Width="1.5" PointX="3" PointY="2.25" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_departamento" Width="1.5" PointX="9" PointY="9.5" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_dev_compra" Width="1.5" PointX="16.5" PointY="10.25" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_estado_cierre" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_GenerOCompra" Width="1.5" PointX="11.25" PointY="7.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_GenerOCompra_Det" Width="1.5" PointX="13.5" PointY="7" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider" Width="1.5" PointX="15.75" PointY="16" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ListadoMateriales" Width="2.125" PointX="5.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ListadoMateriales_Det_x_com_GenerOCompra_Det" Width="1.5" PointX="5.75" PointY="5.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_Motivo_Orden_Compra" Width="1.5" PointX="9" PointY="28.625" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ordencompra_local" Width="1.5" PointX="11.25" PointY="12.75" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ordencompra_local_det_x_com_solicitud_compra_det" Width="1.5" PointX="15.75" PointY="20.25" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_parametro" Width="1.5" PointX="5.25" PointY="15.75" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_solicitante" Width="1.5" PointX="9" PointY="5" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_solicitud_compra" Width="1.5" PointX="8.25" PointY="14.5" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_solicitud_compra_det" Width="1.5" PointX="10.5" PointY="23.375" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_solicitud_compra_det_pre_aprobacion" Width="1.5" PointX="12.75" PointY="23.5" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_catalogo" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_catalogo1" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_parametro_com_catalogo" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_parametro_com_catalogo1" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_parametro_com_catalogo2" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_com_catalogo" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_det_pre_aprobacion_com_catalogo" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_cotizacion_compra_det_com_cotizacion_compra" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_departamento" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_com_departamento" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_estado_cierre" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_parametro_com_estado_cierre" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_GenerOCompra_Det_com_GenerOCompra" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_com_GenerOCompra_Det" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_Motivo_Orden_Compra" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_solicitante" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_solicitud_compra_det" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_det_com_solicitud_compra" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_det_pre_aprobacion_com_solicitud_compra_det" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_Catalogo_IdAuto_numeric" Width="1.5" PointX="4.75" PointY="9.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_cotizacion_compra" Width="1.5" PointX="11.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_cotizacion_compra_det" Width="1.5" PointX="13.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_cotizacion_compra_det_activa" Width="1.5" PointX="15.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_cotizacion_compra_det_Saldos" Width="1.5" PointX="17.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_dev_compra" Width="1.5" PointX="18.75" PointY="6.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_EstadoAnulacion" Width="1.5" PointX="15.75" PointY="6.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_EstadoAprob_List_Req" Width="1.5" PointX="19.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_EstadoAprobacion" Width="1.5" PointX="0.5" PointY="23.125" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_EstadoAprobacion_sol_compra" Width="1.5" PointX="3.125" PointY="20.75" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_EstadoRecibido" Width="1.5" PointX="20.75" PointY="5.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_GenerOCompra_Det" Width="1.5" PointX="4.75" PointY="21.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_MotivoRequerimiento" Width="1.5" PointX="21.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_con_cant_devolver" Width="1.5" PointX="22.75" PointY="5.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_det_x_com_solicitud_compra_det" Width="1.5" PointX="22.75" PointY="16.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_det_x_MoviInven_SaldoItem" Width="1.5" PointX="14.75" PointY="24.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordenesCompras_Aprobadas" Width="1.5" PointX="24.75" PointY="16.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra" Width="1.5" PointX="24.75" PointY="22.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_det" Width="1.5" PointX="26.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_det_x_Orden_Compra" Width="1.5" PointX="24.75" PointY="8.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_TerminoPago" Width="1.5" PointX="26.75" PointY="8.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_solicitud_compra_det_aprobacion" Width="1.5" PointX="18.75" PointY="21.625" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_det_aprobacion_com_catalogo" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_det_aprobacion_com_catalogo1" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_det_aprobacion_com_solicitud_compra_det" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_dev_compra_det" Width="1.5" PointX="18.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_dev_compra_con_det" Width="1.5" PointX="2.75" PointY="28.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_dev_compra_det_cant_devuelta_x_prod" Width="1.5" PointX="4.75" PointY="28.875" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_dev_compra_det_com_dev_compra" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ordencompra_local_det" Width="1.5" PointX="13.5" PointY="14.25" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_dev_compra_det_com_ordencompra_local_det" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_com_ordencompra_local_det" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_com_ordencompra_local" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_ordencompra_local_det" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven" Width="1.5" PointX="22.75" PointY="28.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo" Width="1.5" PointX="28.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ListadoMateriales_Det" Width="1.5" PointX="0.5" PointY="0.75" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_cotizacion_compra_det_com_ListadoMateriales_Det" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_x_in_guia_x_traspaso_bodega" Width="1.5" PointX="6.88774391956988" PointY="31.716634929048194" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local" Width="1.5" PointX="1.8796527282705777" PointY="28.597317768538986" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_det" Width="1.5" PointX="2.9132904368048953" PointY="23.922062437945076" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_vs_in_Guia_x_traspaso_bodega_Total_Reg" Width="1.5" PointX="5.2226260086626866" PointY="28.5670603795755" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_comprador" Width="1.5" PointX="8.625" PointY="22" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_comprador" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_solicitud_compra_com_comprador" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ListadoMateriales" Width="1.5" PointX="6.4148777343402044" PointY="13.15579796450017" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ListadoMateriales_Detalle" Width="1.5" PointX="11.461819192144004" PointY="25.413000789197628" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ListadoMateriales_Detalle_Saldos" Width="1.5" PointX="1.8459482406479997" PointY="21.284223521726311" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ListadoMateriales_Detalle_SaldosReporte" Width="1.5" PointX="6.319406437836312" PointY="24.91343938974358" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ListadoMateriales_com_ListadoMateriales" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ListadoMateriales_com_ListadoMateriales1" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul" Width="1.5" PointX="11.786440450598692" PointY="3.7185115533501429" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_AllListDetMateriales" Width="1.5" PointX="0.63050730928336607" PointY="25.674165797268117" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega" Width="1.5" PointX="11.666865454831564" PointY="14.415410495556616" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det" Width="1.5" PointX="3.3120584577843823" PointY="14.633667729158731" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_det_aprobacion" Width="1.5" PointX="7.0923255845402942" PointY="1.9778353134066962" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_x_items_con_saldos" Width="1.5" PointX="2.0849904576712244" PointY="8.4892640600396625" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_TerminoPago" Width="1.5" PointX="11.814596436831447" PointY="2.4987491380883142" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_TerminoPago" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

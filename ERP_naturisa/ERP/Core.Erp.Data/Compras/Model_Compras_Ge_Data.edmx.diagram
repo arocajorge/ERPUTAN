@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5dca2c41f794fc4870cef67777a5f69" Name="Diagrama1">
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_catalogo" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_catalogo_tipo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_comprador" Width="1.5" PointX="3.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_cotizacion_compra" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_cotizacion_compra_det" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_departamento" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_dev_compra" Width="1.5" PointX="10.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_dev_compra_det" Width="1.5" PointX="13" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_estado_cierre" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_GenerOCompra" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_GenerOCompra_Det" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_ListadoMateriales" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_ListadoMateriales_Det" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_ListadoMateriales_Det_x_com_GenerOCompra_Det" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_Motivo_Orden_Compra" Width="1.5" PointX="3.75" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_ordencompra_local" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_ordencompra_local_det" Width="1.5" PointX="8.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_ordencompra_local_det_x_com_solicitud_compra_det" Width="1.5" PointX="10.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_parametro" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_solicitante" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_solicitud_compra" Width="1.5" PointX="6" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_solicitud_compra_det" Width="1.5" PointX="8.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_solicitud_compra_det_aprobacion" Width="1.5" PointX="10.5" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_solicitud_compra_det_pre_aprobacion" Width="1.5" PointX="10.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.com_TerminoPago" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_AllListDetMateriales" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_Catalogo_IdAuto_numeric" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_cotizacion_compra" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_cotizacion_compra_det" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_cotizacion_compra_det_activa" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_cotizacion_compra_det_Saldos" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_dev_compra" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_dev_compra_con_det" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_dev_compra_det_cant_devuelta_x_prod" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_EstadoAnulacion" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_EstadoAprob_List_Req" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_EstadoAprobacion" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_EstadoAprobacion_sol_compra" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_EstadoRecibido" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_GenerOCompra_Det" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ListadoMateriales" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ListadoMateriales_Detalle" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ListadoMateriales_Detalle_Saldos" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ListadoMateriales_Detalle_SaldosReporte" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_MotivoRequerimiento" Width="1.5" PointX="20.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_con_cant_devolver" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_det" Width="1.5" PointX="22.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo" Width="1.5" PointX="22.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra" Width="1.5" PointX="14.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_det_x_com_solicitud_compra_det" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_det_x_MoviInven_SaldoItem" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul" Width="1.5" PointX="24.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_ordenesCompras_Aprobadas" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_solicitud_compra" Width="1.5" PointX="26.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_solicitud_compra_det" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_solicitud_compra_det_aprobacion" Width="1.5" PointX="26.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_solicitud_compra_det_x_Orden_Compra" Width="1.5" PointX="26.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_solicitud_compra_x_items_con_saldos" Width="1.5" PointX="2.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBAS_2Model_Ge.vwcom_TerminoPago" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_GenerOCompra_Det_com_catalogo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ListadoMateriales_Det_com_catalogo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ordencompra_local_com_catalogo3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ordencompra_local_com_catalogo4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_parametro_com_catalogo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_parametro_com_catalogo1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_parametro_com_catalogo2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ordencompra_local_com_comprador" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_solicitud_compra_com_comprador" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_cotizacion_compra_det_com_cotizacion_compra" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_cotizacion_compra_det_com_ListadoMateriales_Det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_dev_compra_det_com_dev_compra" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_parametro_com_estado_cierre" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_com_GenerOCompra_Det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ListadoMateriales_Det_x_com_GenerOCompra_Det_com_GenerOCompra_Det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ListadoMateriales_Det_com_ListadoMateriales" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ListadoMateriales_Det_x_com_GenerOCompra_Det_com_ListadoMateriales_Det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ordencompra_local_com_Motivo_Orden_Compra" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ordencompra_local_det_com_ordencompra_local" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_ordencompra_local_det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_solicitud_compra_det_com_solicitud_compra" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_solicitud_compra_det_aprobacion_com_solicitud_compra_det" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERP_GRAFPRUEBAS_2Model_Ge.FK_com_solicitud_compra_det_pre_aprobacion_com_solicitud_compra_det" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

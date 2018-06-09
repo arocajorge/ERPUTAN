@@ -1,0 +1,2393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EntitiesComprasEdehsa.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="EntitiesComprasEdehsaStoreContainer">
+          <EntitySet Name="com_ListadoDiseno" EntityType="EntitiesComprasEdehsa.Store.com_ListadoDiseno" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_ListadoDiseno_Det" EntityType="EntitiesComprasEdehsa.Store.com_ListadoDiseno_Det" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_ListadoDisenoTipo" EntityType="EntitiesComprasEdehsa.Store.com_ListadoDisenoTipo" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_ListadoElementos_x_OT" EntityType="EntitiesComprasEdehsa.Store.com_ListadoElementos_x_OT" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_ListadoElementos_x_OT_Det" EntityType="EntitiesComprasEdehsa.Store.com_ListadoElementos_x_OT_Det" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.Store.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det" EntityType="EntitiesComprasEdehsa.Store.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="com_Registro_OrdenCompra_x_Cotizacion" EntityType="EntitiesComprasEdehsa.Store.com_Registro_OrdenCompra_x_Cotizacion" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="vwcom_AllListDetElementos_x_OT" EntityType="EntitiesComprasEdehsa.Store.vwcom_AllListDetElementos_x_OT" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_AllListDetElementos_x_OT">
+            <DefiningQuery>SELECT 
+      [vwcom_AllListDetElementos_x_OT].[mr_descripcion] AS [mr_descripcion], 
+      [vwcom_AllListDetElementos_x_OT].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_AllListDetElementos_x_OT].[CodObra] AS [CodObra], 
+      [vwcom_AllListDetElementos_x_OT].[IdOrdenTaller] AS [IdOrdenTaller], 
+      [vwcom_AllListDetElementos_x_OT].[IdListadoElementos_x_OT] AS [IdListadoElementos_x_OT], 
+      [vwcom_AllListDetElementos_x_OT].[IdDetalle] AS [IdDetalle], 
+      [vwcom_AllListDetElementos_x_OT].[IdProducto] AS [IdProducto], 
+      [vwcom_AllListDetElementos_x_OT].[Unidades] AS [Unidades], 
+      [vwcom_AllListDetElementos_x_OT].[Det_Kg] AS [Det_Kg], 
+      [vwcom_AllListDetElementos_x_OT].[pr_codigo] AS [pr_codigo], 
+      [vwcom_AllListDetElementos_x_OT].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_AllListDetElementos_x_OT].[IdEstadoAprob] AS [IdEstadoAprob], 
+      [vwcom_AllListDetElementos_x_OT].[ot_descripcion] AS [ot_descripcion], 
+      [vwcom_AllListDetElementos_x_OT].[ob_descripcion] AS [ob_descripcion], 
+      [vwcom_AllListDetElementos_x_OT].[Motivo] AS [Motivo], 
+      [vwcom_AllListDetElementos_x_OT].[FechaReg] AS [FechaReg], 
+      [vwcom_AllListDetElementos_x_OT].[IdSucursal] AS [IdSucursal], 
+      [vwcom_AllListDetElementos_x_OT].[Usuario] AS [Usuario], 
+      [vwcom_AllListDetElementos_x_OT].[pr_largo] AS [pr_largo], 
+      [vwcom_AllListDetElementos_x_OT].[largo_total] AS [largo_total], 
+      [vwcom_AllListDetElementos_x_OT].[largo_restante] AS [largo_restante], 
+      [vwcom_AllListDetElementos_x_OT].[largo_pieza_entera] AS [largo_pieza_entera], 
+      [vwcom_AllListDetElementos_x_OT].[cantidad_pieza_entera] AS [cantidad_pieza_entera], 
+      [vwcom_AllListDetElementos_x_OT].[largo_pieza_complementaria] AS [largo_pieza_complementaria], 
+      [vwcom_AllListDetElementos_x_OT].[cantidad_pieza_complementaria] AS [cantidad_pieza_complementaria], 
+      [vwcom_AllListDetElementos_x_OT].[cantidad_total_pieza_complementaria] AS [cantidad_total_pieza_complementaria], 
+      [vwcom_AllListDetElementos_x_OT].[largo_despunte1] AS [largo_despunte1], 
+      [vwcom_AllListDetElementos_x_OT].[es_despunte_usable1] AS [es_despunte_usable1], 
+      [vwcom_AllListDetElementos_x_OT].[cantidad_despunte1] AS [cantidad_despunte1], 
+      [vwcom_AllListDetElementos_x_OT].[largo_despunte2] AS [largo_despunte2], 
+      [vwcom_AllListDetElementos_x_OT].[cantidad_despunte2] AS [cantidad_despunte2], 
+      [vwcom_AllListDetElementos_x_OT].[es_despunte_usable2] AS [es_despunte_usable2]
+      FROM [Edehsa].[vwcom_AllListDetElementos_x_OT] AS [vwcom_AllListDetElementos_x_OT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_AllListDetMateriales_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.Store.vwcom_AllListDetMateriales_PreAsignado_a_Obra" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_AllListDetMateriales_PreAsignado_a_Obra">
+            <DefiningQuery>SELECT 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdSucursal] AS [IdSucursal], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdBodega] AS [IdBodega], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdProducto] AS [IdProducto], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[CodigoBarra] AS [CodigoBarra], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[dm_cantidad] AS [dm_cantidad], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[cm_fecha] AS [cm_fecha], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[pr_codigo] AS [pr_codigo], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[bodega] AS [bodega], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[observacion] AS [observacion], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[dm_precio] AS [dm_precio], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[mv_costo] AS [mv_costo], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[longitud] AS [longitud], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[espesor] AS [espesor], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[ancho] AS [ancho], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[alto] AS [alto], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[ceja] AS [ceja], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[diametro] AS [diametro], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[descripcion_corta] AS [descripcion_corta], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[densidad] AS [densidad], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[Secuencia] AS [Secuencia], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[mv_Secuencia] AS [mv_Secuencia], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[dm_observacion] AS [dm_observacion], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdNumMovi] AS [IdNumMovi], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[ot_CodObra] AS [ot_CodObra], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[ot_IdOrdenTaller] AS [ot_IdOrdenTaller], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[pr_peso] AS [pr_peso], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[PesoEspecifico] AS [PesoEspecifico], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[secmax] AS [secmax], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[largo_conversion] AS [largo_conversion], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[alto_conversion] AS [alto_conversion], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[cantidad] AS [cantidad], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[CodObra_preasignada] AS [CodObra_preasignada], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[IdOrdenTaller_preasignada] AS [IdOrdenTaller_preasignada], 
+      [vwcom_AllListDetMateriales_PreAsignado_a_Obra].[Obra] AS [Obra]
+      FROM [Edehsa].[vwcom_AllListDetMateriales_PreAsignado_a_Obra] AS [vwcom_AllListDetMateriales_PreAsignado_a_Obra]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.Store.vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra">
+            <DefiningQuery>SELECT 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdSucursal] AS [IdSucursal], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdBodega] AS [IdBodega], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdNumMovi] AS [IdNumMovi], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdProducto] AS [IdProducto], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[CodigoBarra] AS [CodigoBarra], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[dm_cantidad] AS [dm_cantidad], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[dm_observacion] AS [dm_observacion], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[CodObra_preasignada] AS [CodObra_preasignada], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[Det_Kg] AS [Det_Kg], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[pr_largo] AS [pr_largo], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[largo_total] AS [largo_total], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[largo_restante] AS [largo_restante], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[largo_pieza_entera] AS [largo_pieza_entera], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[cantidad_pieza_entera] AS [cantidad_pieza_entera], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[largo_pieza_complementaria] AS [largo_pieza_complementaria], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[cantidad_pieza_complementaria] AS [cantidad_pieza_complementaria], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[cantidad_total_pieza_complementaria] AS [cantidad_total_pieza_complementaria], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[largo_despunte1] AS [largo_despunte1], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[cantidad_despunte1] AS [cantidad_despunte1], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[es_despunte_usable1] AS [es_despunte_usable1], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[largo_despunte2] AS [largo_despunte2], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[cantidad_despunte2] AS [cantidad_despunte2], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[es_despunte_usable2] AS [es_despunte_usable2], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdEstadoAprob] AS [IdEstadoAprob], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[pr_codigo] AS [pr_codigo], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[IdCategoria] AS [IdCategoria], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[longitud] AS [longitud], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[espesor] AS [espesor], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[ancho] AS [ancho], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[mr_descripcion] AS [mr_descripcion], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[ea_descripcion] AS [ea_descripcion], 
+      [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra].[Obra] AS [Obra]
+      FROM [Edehsa].[vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra] AS [vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoDiseno" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoDiseno" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoDiseno">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoDiseno].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoDiseno].[IdListadoDiseno] AS [IdListadoDiseno], 
+      [vwcom_ListadoDiseno].[CodObra] AS [CodObra], 
+      [vwcom_ListadoDiseno].[IdOrdenTaller] AS [IdOrdenTaller], 
+      [vwcom_ListadoDiseno].[FechaReg] AS [FechaReg], 
+      [vwcom_ListadoDiseno].[Estado] AS [Estado], 
+      [vwcom_ListadoDiseno].[ob_descripcion] AS [ob_descripcion], 
+      [vwcom_ListadoDiseno].[Usuario] AS [Usuario], 
+      [vwcom_ListadoDiseno].[Motivo] AS [Motivo], 
+      [vwcom_ListadoDiseno].[lm_Observacion] AS [lm_Observacion], 
+      [vwcom_ListadoDiseno].[tipo_listado] AS [tipo_listado], 
+      [vwcom_ListadoDiseno].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwcom_ListadoDiseno].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoDiseno].[TipoListadoDiseno] AS [TipoListadoDiseno]
+      FROM [Edehsa].[vwcom_ListadoDiseno] AS [vwcom_ListadoDiseno]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoDiseno_Detalle" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoDiseno_Detalle" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoDiseno_Detalle">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoDiseno_Detalle].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoDiseno_Detalle].[IdListadoDiseno] AS [IdListadoDiseno], 
+      [vwcom_ListadoDiseno_Detalle].[CodObra] AS [CodObra], 
+      [vwcom_ListadoDiseno_Detalle].[IdOrdenTaller] AS [IdOrdenTaller], 
+      [vwcom_ListadoDiseno_Detalle].[IdDetalle] AS [IdDetalle], 
+      [vwcom_ListadoDiseno_Detalle].[IdProducto] AS [IdProducto], 
+      [vwcom_ListadoDiseno_Detalle].[Unidades] AS [Unidades], 
+      [vwcom_ListadoDiseno_Detalle].[Det_Kg] AS [Det_Kg], 
+      [vwcom_ListadoDiseno_Detalle].[pr_codigo] AS [pr_codigo], 
+      [vwcom_ListadoDiseno_Detalle].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_ListadoDiseno_Detalle].[IdEstadoAprob] AS [IdEstadoAprob], 
+      [vwcom_ListadoDiseno_Detalle].[FechaReg] AS [FechaReg], 
+      [vwcom_ListadoDiseno_Detalle].[Estado] AS [Estado], 
+      [vwcom_ListadoDiseno_Detalle].[lm_Observacion] AS [lm_Observacion], 
+      [vwcom_ListadoDiseno_Detalle].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoDiseno_Detalle].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwcom_ListadoDiseno_Detalle].[IdCategoria] AS [IdCategoria], 
+      [vwcom_ListadoDiseno_Detalle].[tipo_listado] AS [tipo_listado]
+      FROM [Edehsa].[vwcom_ListadoDiseno_Detalle] AS [vwcom_ListadoDiseno_Detalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoElementos_x_OT" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoElementos_x_OT" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoElementos_x_OT">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoElementos_x_OT].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoElementos_x_OT].[CodObra] AS [CodObra], 
+      [vwcom_ListadoElementos_x_OT].[IdOrdenTaller] AS [IdOrdenTaller], 
+      [vwcom_ListadoElementos_x_OT].[IdListadoElementos_x_OT] AS [IdListadoElementos_x_OT], 
+      [vwcom_ListadoElementos_x_OT].[FechaReg] AS [FechaReg], 
+      [vwcom_ListadoElementos_x_OT].[Estado] AS [Estado], 
+      [vwcom_ListadoElementos_x_OT].[ob_descripcion] AS [ob_descripcion], 
+      [vwcom_ListadoElementos_x_OT].[ot_descripcion] AS [ot_descripcion], 
+      [vwcom_ListadoElementos_x_OT].[Usuario] AS [Usuario], 
+      [vwcom_ListadoElementos_x_OT].[Motivo] AS [Motivo], 
+      [vwcom_ListadoElementos_x_OT].[lm_Observacion] AS [lm_Observacion], 
+      [vwcom_ListadoElementos_x_OT].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoElementos_x_OT].[Su_Descripcion] AS [Su_Descripcion]
+      FROM [Edehsa].[vwcom_ListadoElementos_x_OT] AS [vwcom_ListadoElementos_x_OT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoElementos_x_OT_Detalle" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoElementos_x_OT_Detalle" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoElementos_x_OT_Detalle">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[CodObra] AS [CodObra], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdOrdenTaller] AS [IdOrdenTaller], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdListadoElementos_x_OT] AS [IdListadoElementos_x_OT], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdDetalle] AS [IdDetalle], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdProducto] AS [IdProducto], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[Unidades] AS [Unidades], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[Det_Kg] AS [Det_Kg], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[pr_codigo] AS [pr_codigo], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdEstadoAprob] AS [IdEstadoAprob], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[FechaReg] AS [FechaReg], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[Estado] AS [Estado], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[lm_Observacion] AS [lm_Observacion], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[IdCategoria] AS [IdCategoria], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[longitud] AS [longitud], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[pr_largo] AS [pr_largo], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[largo_total] AS [largo_total], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[largo_restante] AS [largo_restante], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[largo_pieza_entera] AS [largo_pieza_entera], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[cantidad_pieza_entera] AS [cantidad_pieza_entera], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[largo_pieza_complementaria] AS [largo_pieza_complementaria], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[cantidad_pieza_complementaria] AS [cantidad_pieza_complementaria], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[cantidad_total_pieza_complementaria] AS [cantidad_total_pieza_complementaria], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[largo_despunte1] AS [largo_despunte1], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[es_despunte_usable1] AS [es_despunte_usable1], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[cantidad_despunte1] AS [cantidad_despunte1], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[largo_despunte2] AS [largo_despunte2], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[cantidad_despunte2] AS [cantidad_despunte2], 
+      [vwcom_ListadoElementos_x_OT_Detalle].[es_despunte_usable2] AS [es_despunte_usable2]
+      FROM [Edehsa].[vwcom_ListadoElementos_x_OT_Detalle] AS [vwcom_ListadoElementos_x_OT_Detalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoMateriales_x_OC_x_Obra_x_OT" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT].[Idproducto] AS [Idproducto], 
+      [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT].[CodObra] AS [CodObra], 
+      [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT].[IdOrdenTaller] AS [IdOrdenTaller]
+      FROM [Edehsa].[vwcom_ListadoMateriales_x_OC_x_Obra_x_OT] AS [vwcom_ListadoMateriales_x_OC_x_Obra_x_OT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoMaterialesDisponibles" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoMaterialesDisponibles" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoMaterialesDisponibles">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoMaterialesDisponibles].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoMaterialesDisponibles].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoMaterialesDisponibles].[IdBodega] AS [IdBodega], 
+      [vwcom_ListadoMaterialesDisponibles].[IdProducto] AS [IdProducto], 
+      [vwcom_ListadoMaterialesDisponibles].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwcom_ListadoMaterialesDisponibles].[CodigoBarra] AS [CodigoBarra], 
+      [vwcom_ListadoMaterialesDisponibles].[dm_cantidad] AS [dm_cantidad], 
+      [vwcom_ListadoMaterialesDisponibles].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwcom_ListadoMaterialesDisponibles].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwcom_ListadoMaterialesDisponibles].[cm_fecha] AS [cm_fecha], 
+      [vwcom_ListadoMaterialesDisponibles].[pr_codigo] AS [pr_codigo], 
+      [vwcom_ListadoMaterialesDisponibles].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_ListadoMaterialesDisponibles].[bodega] AS [bodega], 
+      [vwcom_ListadoMaterialesDisponibles].[observacion] AS [observacion], 
+      [vwcom_ListadoMaterialesDisponibles].[dm_precio] AS [dm_precio], 
+      [vwcom_ListadoMaterialesDisponibles].[mv_costo] AS [mv_costo], 
+      [vwcom_ListadoMaterialesDisponibles].[longitud] AS [longitud], 
+      [vwcom_ListadoMaterialesDisponibles].[espesor] AS [espesor], 
+      [vwcom_ListadoMaterialesDisponibles].[ancho] AS [ancho], 
+      [vwcom_ListadoMaterialesDisponibles].[alto] AS [alto], 
+      [vwcom_ListadoMaterialesDisponibles].[ceja] AS [ceja], 
+      [vwcom_ListadoMaterialesDisponibles].[diametro] AS [diametro], 
+      [vwcom_ListadoMaterialesDisponibles].[descripcion_corta] AS [descripcion_corta], 
+      [vwcom_ListadoMaterialesDisponibles].[densidad] AS [densidad], 
+      [vwcom_ListadoMaterialesDisponibles].[Secuencia] AS [Secuencia], 
+      [vwcom_ListadoMaterialesDisponibles].[mv_Secuencia] AS [mv_Secuencia], 
+      [vwcom_ListadoMaterialesDisponibles].[dm_observacion] AS [dm_observacion], 
+      [vwcom_ListadoMaterialesDisponibles].[IdNumMovi] AS [IdNumMovi], 
+      [vwcom_ListadoMaterialesDisponibles].[ot_CodObra] AS [ot_CodObra], 
+      [vwcom_ListadoMaterialesDisponibles].[ot_IdOrdenTaller] AS [ot_IdOrdenTaller], 
+      [vwcom_ListadoMaterialesDisponibles].[pr_peso] AS [pr_peso], 
+      [vwcom_ListadoMaterialesDisponibles].[PesoEspecifico] AS [PesoEspecifico], 
+      [vwcom_ListadoMaterialesDisponibles].[secmax] AS [secmax], 
+      [vwcom_ListadoMaterialesDisponibles].[largo_conversion] AS [largo_conversion], 
+      [vwcom_ListadoMaterialesDisponibles].[alto_conversion] AS [alto_conversion], 
+      [vwcom_ListadoMaterialesDisponibles].[cantidad] AS [cantidad], 
+      [vwcom_ListadoMaterialesDisponibles].[CodObra_preasignada] AS [CodObra_preasignada], 
+      [vwcom_ListadoMaterialesDisponibles].[IdOrdenTaller_preasignada] AS [IdOrdenTaller_preasignada]
+      FROM [Edehsa].[vwcom_ListadoMaterialesDisponibles] AS [vwcom_ListadoMaterialesDisponibles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[IdBodega] AS [IdBodega], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[IdNumMovi] AS [IdNumMovi], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[CodObra_preasignada] AS [CodObra_preasignada], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[FechaReg] AS [FechaReg], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[Estado] AS [Estado], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[Usuario] AS [Usuario], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[Motivo] AS [Motivo], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[lm_Observacion] AS [lm_Observacion], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra].[ob_descripcion] AS [ob_descripcion]
+      FROM [Edehsa].[vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra] AS [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle" EntityType="EntitiesComprasEdehsa.Store.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle">
+            <DefiningQuery>SELECT 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdBodega] AS [IdBodega], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdNumMovi] AS [IdNumMovi], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdProducto] AS [IdProducto], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[CodigoBarra] AS [CodigoBarra], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[dm_cantidad] AS [dm_cantidad], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[dm_observacion] AS [dm_observacion], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[CodObra_preasignada] AS [CodObra_preasignada], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[Det_Kg] AS [Det_Kg], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[pr_largo] AS [pr_largo], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[largo_total] AS [largo_total], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[largo_restante] AS [largo_restante], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[largo_pieza_entera] AS [largo_pieza_entera], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[cantidad_pieza_entera] AS [cantidad_pieza_entera], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[largo_pieza_complementaria] AS [largo_pieza_complementaria], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[cantidad_pieza_complementaria] AS [cantidad_pieza_complementaria], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[cantidad_total_pieza_complementaria] AS [cantidad_total_pieza_complementaria], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[largo_despunte1] AS [largo_despunte1], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[cantidad_despunte1] AS [cantidad_despunte1], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[es_despunte_usable1] AS [es_despunte_usable1], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[largo_despunte2] AS [largo_despunte2], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[cantidad_despunte2] AS [cantidad_despunte2], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[es_despunte_usable2] AS [es_despunte_usable2], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdEstadoAprob] AS [IdEstadoAprob], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[pr_codigo] AS [pr_codigo], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[IdCategoria] AS [IdCategoria], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[longitud] AS [longitud], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[espesor] AS [espesor], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[ancho] AS [ancho], 
+      [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle].[alto] AS [alto]
+      FROM [Edehsa].[vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle] AS [vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT" EntityType="EntitiesComprasEdehsa.Store.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT" store:Type="Views" store:Schema="Edehsa" store:Name="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT">
+            <DefiningQuery>SELECT 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdSucursal] AS [IdSucursal], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[Secuencia] AS [Secuencia], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdProducto] AS [IdProducto], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[do_CantidadOC] AS [do_CantidadOC], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[dm_cantidad_Inv] AS [dm_cantidad_Inv], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[SaldoxRecibir] AS [SaldoxRecibir], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[pr_nombre] AS [pr_nombre], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdProveedor] AS [IdProveedor], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[Estado] AS [Estado], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[oc_fecha] AS [oc_fecha], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[oc_NumDocumento] AS [oc_NumDocumento], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[oc_observacion] AS [oc_observacion], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[Solicitante] AS [Solicitante], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[MotivoAnulacion] AS [MotivoAnulacion], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[MotivoReprobacion] AS [MotivoReprobacion], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[co_fechaReproba] AS [co_fechaReproba], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdUsuario_Reprue] AS [IdUsuario_Reprue], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdUsuario_Aprueba] AS [IdUsuario_Aprueba], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[co_fecha_aprobacion] AS [co_fecha_aprobacion], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[CodObra_preasignada] AS [CodObra_preasignada], 
+      [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT].[IdOrdenTaller_preasignada] AS [IdOrdenTaller_preasignada]
+      FROM [Edehsa].[vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT] AS [vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="com_ListadoDiseno">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdListadoDiseno" Type="numeric" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ot_IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenTaller" Type="numeric" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="tipo_listado" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="com_ListadoDiseno_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdListadoDiseno" Type="numeric" Nullable="false" />
+          <Property Name="IdDetalle" Type="int" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Unidades" Type="float" Nullable="false" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="com_ListadoDisenoTipo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoListadoDiseno" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoListadoDiseno" Type="int" Nullable="false" />
+          <Property Name="TipoListadoDiseno" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="com_ListadoElementos_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdListadoElementos_x_OT" Type="numeric" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ot_IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenTaller" Type="numeric" Nullable="false" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="com_ListadoElementos_x_OT_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdListadoElementos_x_OT" Type="numeric" Nullable="false" />
+          <Property Name="IdDetalle" Type="int" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Unidades" Type="float" Nullable="false" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_largo" Type="float" />
+          <Property Name="largo_total" Type="float" />
+          <Property Name="largo_restante" Type="float" />
+          <Property Name="largo_pieza_entera" Type="float" />
+          <Property Name="cantidad_pieza_entera" Type="int" />
+          <Property Name="largo_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_total_pieza_complementaria" Type="float" />
+          <Property Name="largo_despunte1" Type="float" />
+          <Property Name="cantidad_despunte1" Type="float" />
+          <Property Name="es_despunte_usable1" Type="bit" />
+          <Property Name="largo_despunte2" Type="float" />
+          <Property Name="cantidad_despunte2" Type="float" />
+          <Property Name="es_despunte_usable2" Type="bit" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdListadoMPPreasingado" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodObra_preasignada" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdListadoMPPreasingado" Type="numeric" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodObra_preasignada" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdListadoMPPreasingado" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="CodigoBarra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdListadoMPPreasingado" Type="numeric" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodObra_preasignada" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CodigoBarra" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="dm_cantidad" Type="float" Nullable="false" />
+          <Property Name="dm_observacion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_largo" Type="float" />
+          <Property Name="largo_total" Type="float" />
+          <Property Name="largo_restante" Type="float" />
+          <Property Name="largo_pieza_entera" Type="float" />
+          <Property Name="cantidad_pieza_entera" Type="int" />
+          <Property Name="largo_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_total_pieza_complementaria" Type="float" />
+          <Property Name="largo_despunte1" Type="float" />
+          <Property Name="cantidad_despunte1" Type="float" />
+          <Property Name="es_despunte_usable1" Type="bit" />
+          <Property Name="largo_despunte2" Type="float" />
+          <Property Name="cantidad_despunte2" Type="float" />
+          <Property Name="es_despunte_usable2" Type="bit" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="com_Registro_OrdenCompra_x_Cotizacion">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="IdCotizacion" />
+            <PropertyRef Name="SecuenciaDetalleCotizacion" />
+            <PropertyRef Name="IdListadoMateriales" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="IdCotizacion" Type="numeric" Nullable="false" />
+          <Property Name="SecuenciaDetalleCotizacion" Type="numeric" Nullable="false" />
+          <Property Name="IdListadoMateriales" Type="numeric" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_AllListDetElementos_x_OT' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_AllListDetElementos_x_OT">
+          <Key>
+            <PropertyRef Name="mr_descripcion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="IdDetalle" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Unidades" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="ot_descripcion" />
+            <PropertyRef Name="ob_descripcion" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Usuario" />
+          </Key>
+          <Property Name="mr_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" Nullable="false" />
+          <Property Name="IdListadoElementos_x_OT" Type="numeric" Nullable="false" />
+          <Property Name="IdDetalle" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Unidades" Type="float" Nullable="false" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="ot_descripcion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="ob_descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pr_largo" Type="float" />
+          <Property Name="largo_total" Type="float" />
+          <Property Name="largo_restante" Type="float" />
+          <Property Name="largo_pieza_entera" Type="float" />
+          <Property Name="cantidad_pieza_entera" Type="int" />
+          <Property Name="largo_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_total_pieza_complementaria" Type="float" />
+          <Property Name="largo_despunte1" Type="float" />
+          <Property Name="es_despunte_usable1" Type="bit" />
+          <Property Name="cantidad_despunte1" Type="float" />
+          <Property Name="largo_despunte2" Type="float" />
+          <Property Name="cantidad_despunte2" Type="float" />
+          <Property Name="es_despunte_usable2" Type="bit" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_AllListDetMateriales_PreAsignado_a_Obra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_AllListDetMateriales_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="bodega" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="dm_precio" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="alto" />
+            <PropertyRef Name="ceja" />
+            <PropertyRef Name="diametro" />
+            <PropertyRef Name="densidad" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="mv_Secuencia" />
+            <PropertyRef Name="dm_observacion" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="pr_peso" />
+            <PropertyRef Name="secmax" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="Obra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="CodigoBarra" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="dm_cantidad" Type="float" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="Fecha_Transac" Type="datetime" />
+          <Property Name="cm_fecha" Type="datetime" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="bodega" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="dm_precio" Type="float" Nullable="false" />
+          <Property Name="mv_costo" Type="float" Nullable="false" />
+          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="espesor" Type="float" Nullable="false" />
+          <Property Name="ancho" Type="float" Nullable="false" />
+          <Property Name="alto" Type="float" Nullable="false" />
+          <Property Name="ceja" Type="float" Nullable="false" />
+          <Property Name="diametro" Type="float" Nullable="false" />
+          <Property Name="descripcion_corta" Type="varchar" MaxLength="3" />
+          <Property Name="densidad" Type="int" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="mv_Secuencia" Type="int" Nullable="false" />
+          <Property Name="dm_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="ot_CodObra" Type="varchar" MaxLength="20" />
+          <Property Name="ot_IdOrdenTaller" Type="numeric" />
+          <Property Name="pr_peso" Type="float" Nullable="false" />
+          <Property Name="PesoEspecifico" Type="float" />
+          <Property Name="secmax" Type="numeric" Nullable="false" />
+          <Property Name="largo_conversion" Type="float" />
+          <Property Name="alto_conversion" Type="float" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="CodObra_preasignada" Type="varchar" MaxLength="20" />
+          <Property Name="IdOrdenTaller_preasignada" Type="numeric" />
+          <Property Name="Obra" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="dm_cantidad" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="mr_descripcion" />
+            <PropertyRef Name="ea_descripcion" />
+            <PropertyRef Name="Obra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="CodigoBarra" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="dm_cantidad" Type="float" Nullable="false" />
+          <Property Name="dm_observacion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CodObra_preasignada" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_largo" Type="float" />
+          <Property Name="largo_total" Type="float" />
+          <Property Name="largo_restante" Type="float" />
+          <Property Name="largo_pieza_entera" Type="float" />
+          <Property Name="cantidad_pieza_entera" Type="int" />
+          <Property Name="largo_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_total_pieza_complementaria" Type="float" />
+          <Property Name="largo_despunte1" Type="float" />
+          <Property Name="cantidad_despunte1" Type="float" />
+          <Property Name="es_despunte_usable1" Type="bit" />
+          <Property Name="largo_despunte2" Type="float" />
+          <Property Name="cantidad_despunte2" Type="float" />
+          <Property Name="es_despunte_usable2" Type="bit" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdCategoria" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="espesor" Type="float" Nullable="false" />
+          <Property Name="ancho" Type="float" Nullable="false" />
+          <Property Name="mr_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ea_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Obra" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoDiseno' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoDiseno">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="ob_descripcion" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="TipoListadoDiseno" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdListadoDiseno" Type="numeric" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ob_descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="tipo_listado" Type="char" MaxLength="1" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="TipoListadoDiseno" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoDiseno_Detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoDiseno_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdDetalle" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Unidades" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdListadoDiseno" Type="numeric" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" />
+          <Property Name="IdDetalle" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Unidades" Type="float" Nullable="false" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCategoria" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="tipo_listado" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoElementos_x_OT' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoElementos_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="ob_descripcion" />
+            <PropertyRef Name="ot_descripcion" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" Nullable="false" />
+          <Property Name="IdListadoElementos_x_OT" Type="numeric" Nullable="false" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ob_descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ot_descripcion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoElementos_x_OT_Detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoElementos_x_OT_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="IdDetalle" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Unidades" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="longitud" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" Nullable="false" />
+          <Property Name="IdListadoElementos_x_OT" Type="numeric" Nullable="false" />
+          <Property Name="IdDetalle" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Unidades" Type="float" Nullable="false" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCategoria" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="pr_largo" Type="float" />
+          <Property Name="largo_total" Type="float" />
+          <Property Name="largo_restante" Type="float" />
+          <Property Name="largo_pieza_entera" Type="float" />
+          <Property Name="cantidad_pieza_entera" Type="int" />
+          <Property Name="largo_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_total_pieza_complementaria" Type="float" />
+          <Property Name="largo_despunte1" Type="float" />
+          <Property Name="es_despunte_usable1" Type="bit" />
+          <Property Name="cantidad_despunte1" Type="float" />
+          <Property Name="largo_despunte2" Type="float" />
+          <Property Name="cantidad_despunte2" Type="float" />
+          <Property Name="es_despunte_usable2" Type="bit" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoMateriales_x_OC_x_Obra_x_OT' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="Idproducto" Type="numeric" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller" Type="numeric" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoMaterialesDisponibles' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoMaterialesDisponibles">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="bodega" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="dm_precio" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="alto" />
+            <PropertyRef Name="ceja" />
+            <PropertyRef Name="diametro" />
+            <PropertyRef Name="densidad" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="mv_Secuencia" />
+            <PropertyRef Name="dm_observacion" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="pr_peso" />
+            <PropertyRef Name="secmax" />
+            <PropertyRef Name="cantidad" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="CodigoBarra" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="dm_cantidad" Type="float" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="Fecha_Transac" Type="datetime" />
+          <Property Name="cm_fecha" Type="datetime" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="bodega" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="dm_precio" Type="float" Nullable="false" />
+          <Property Name="mv_costo" Type="float" Nullable="false" />
+          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="espesor" Type="float" Nullable="false" />
+          <Property Name="ancho" Type="float" Nullable="false" />
+          <Property Name="alto" Type="float" Nullable="false" />
+          <Property Name="ceja" Type="float" Nullable="false" />
+          <Property Name="diametro" Type="float" Nullable="false" />
+          <Property Name="descripcion_corta" Type="varchar" MaxLength="3" />
+          <Property Name="densidad" Type="int" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="mv_Secuencia" Type="int" Nullable="false" />
+          <Property Name="dm_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="ot_CodObra" Type="varchar" MaxLength="20" />
+          <Property Name="ot_IdOrdenTaller" Type="numeric" />
+          <Property Name="pr_peso" Type="float" Nullable="false" />
+          <Property Name="PesoEspecifico" Type="float" />
+          <Property Name="secmax" Type="numeric" Nullable="false" />
+          <Property Name="largo_conversion" Type="float" />
+          <Property Name="alto_conversion" Type="float" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="CodObra_preasignada" Type="varchar" MaxLength="20" />
+          <Property Name="IdOrdenTaller_preasignada" Type="numeric" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="ob_descripcion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodObra_preasignada" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FechaReg" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Usuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lm_Observacion" Type="varchar" MaxLength="500" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="ob_descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="dm_cantidad" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="alto" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="CodigoBarra" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="dm_cantidad" Type="float" Nullable="false" />
+          <Property Name="dm_observacion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CodObra_preasignada" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Det_Kg" Type="float" Nullable="false" />
+          <Property Name="pr_largo" Type="float" />
+          <Property Name="largo_total" Type="float" />
+          <Property Name="largo_restante" Type="float" />
+          <Property Name="largo_pieza_entera" Type="float" />
+          <Property Name="cantidad_pieza_entera" Type="int" />
+          <Property Name="largo_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_pieza_complementaria" Type="float" />
+          <Property Name="cantidad_total_pieza_complementaria" Type="float" />
+          <Property Name="largo_despunte1" Type="float" />
+          <Property Name="cantidad_despunte1" Type="float" />
+          <Property Name="es_despunte_usable1" Type="bit" />
+          <Property Name="largo_despunte2" Type="float" />
+          <Property Name="cantidad_despunte2" Type="float" />
+          <Property Name="es_despunte_usable2" Type="bit" />
+          <Property Name="IdEstadoAprob" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdCategoria" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="longitud" Type="float" Nullable="false" />
+          <Property Name="espesor" Type="float" Nullable="false" />
+          <Property Name="ancho" Type="float" Nullable="false" />
+          <Property Name="alto" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="do_CantidadOC" />
+            <PropertyRef Name="dm_cantidad_Inv" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="oc_fecha" />
+            <PropertyRef Name="oc_NumDocumento" />
+            <PropertyRef Name="oc_observacion" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="IdOrdenTaller_preasignada" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="do_CantidadOC" Type="float" Nullable="false" />
+          <Property Name="dm_cantidad_Inv" Type="float" Nullable="false" />
+          <Property Name="SaldoxRecibir" Type="float" />
+          <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="oc_fecha" Type="datetime" Nullable="false" />
+          <Property Name="oc_NumDocumento" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="oc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Solicitante" Type="varchar" MaxLength="200" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="500" />
+          <Property Name="MotivoReprobacion" Type="varchar" MaxLength="500" />
+          <Property Name="co_fechaReproba" Type="datetime" />
+          <Property Name="IdUsuario_Reprue" Type="varchar" MaxLength="20" />
+          <Property Name="IdUsuario_Aprueba" Type="varchar" MaxLength="20" />
+          <Property Name="co_fecha_aprobacion" Type="datetime" />
+          <Property Name="CodObra_preasignada" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdOrdenTaller_preasignada" Type="numeric" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EntitiesComprasEdehsa" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesCompras_Edehsa" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="com_Registro_OrdenCompra_x_Cotizacion" EntityType="EntitiesComprasEdehsa.com_Registro_OrdenCompra_x_Cotizacion" />
+          <EntitySet Name="com_ListadoDisenoTipo" EntityType="EntitiesComprasEdehsa.com_ListadoDisenoTipo" />
+          <EntitySet Name="com_ListadoDiseno" EntityType="EntitiesComprasEdehsa.com_ListadoDiseno" />
+          <EntitySet Name="com_ListadoDiseno_Det" EntityType="EntitiesComprasEdehsa.com_ListadoDiseno_Det" />
+          <EntitySet Name="vwcom_ListadoDiseno_Detalle" EntityType="EntitiesComprasEdehsa.vwcom_ListadoDiseno_Detalle" />
+          <EntitySet Name="vwcom_ListadoDiseno" EntityType="EntitiesComprasEdehsa.vwcom_ListadoDiseno" />
+          <EntitySet Name="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT" EntityType="EntitiesComprasEdehsa.vwcom_ListadoMateriales_x_OC_x_Obra_x_OT" />
+          <EntitySet Name="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT" EntityType="EntitiesComprasEdehsa.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT" />
+          <EntitySet Name="com_ListadoElementos_x_OT" EntityType="EntitiesComprasEdehsa.com_ListadoElementos_x_OT" />
+          <EntitySet Name="com_ListadoElementos_x_OT_Det" EntityType="EntitiesComprasEdehsa.com_ListadoElementos_x_OT_Det" />
+          <EntitySet Name="vwcom_ListadoElementos_x_OT" EntityType="EntitiesComprasEdehsa.vwcom_ListadoElementos_x_OT" />
+          <EntitySet Name="vwcom_ListadoElementos_x_OT_Detalle" EntityType="EntitiesComprasEdehsa.vwcom_ListadoElementos_x_OT_Detalle" />
+          <EntitySet Name="vwcom_AllListDetElementos_x_OT" EntityType="EntitiesComprasEdehsa.vwcom_AllListDetElementos_x_OT" />
+          <EntitySet Name="vwcom_ListadoMaterialesDisponibles" EntityType="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles" />
+          <EntitySet Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle" EntityType="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle" />
+          <EntitySet Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra" />
+          <EntitySet Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det" EntityType="EntitiesComprasEdehsa.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det" />
+          <EntitySet Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra" />
+          <EntitySet Name="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra" />
+          <EntitySet Name="vwcom_AllListDetMateriales_PreAsignado_a_Obra" EntityType="EntitiesComprasEdehsa.vwcom_AllListDetMateriales_PreAsignado_a_Obra" />
+          </EntityContainer>
+        <EntityType Name="com_Registro_OrdenCompra_x_Cotizacion">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="IdCotizacion" />
+            <PropertyRef Name="SecuenciaDetalleCotizacion" />
+            <PropertyRef Name="IdListadoMateriales" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdCotizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="SecuenciaDetalleCotizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdListadoMateriales" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="estado" Nullable="false" />
+        </EntityType>
+        <EntityType Name="com_ListadoDisenoTipo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoListadoDiseno" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoListadoDiseno" Nullable="false" />
+          <Property Type="String" Name="TipoListadoDiseno" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_ListadoDiseno">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoDiseno" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ot_IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tipo_listado" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_ListadoDiseno_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoDiseno" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="false" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Unidades" Nullable="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoDiseno_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdDetalle" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Unidades" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoDiseno" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Unidades" Nullable="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tipo_listado" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoDiseno">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoDiseno" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="ob_descripcion" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="TipoListadoDiseno" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoDiseno" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ob_descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tipo_listado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="TipoListadoDiseno" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Idproducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="do_CantidadOC" />
+            <PropertyRef Name="dm_cantidad_Inv" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="oc_fecha" />
+            <PropertyRef Name="oc_NumDocumento" />
+            <PropertyRef Name="oc_observacion" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="IdOrdenTaller_preasignada" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="do_CantidadOC" Nullable="false" />
+          <Property Type="Double" Name="dm_cantidad_Inv" Nullable="false" />
+          <Property Type="Double" Name="SaldoxRecibir" />
+          <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="oc_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="oc_NumDocumento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="oc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Solicitante" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MotivoReprobacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="co_fechaReproba" Precision="3" />
+          <Property Type="String" Name="IdUsuario_Reprue" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario_Aprueba" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="co_fecha_aprobacion" Precision="3" />
+          <Property Type="String" Name="CodObra_preasignada" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller_preasignada" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="com_ListadoElementos_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoElementos_x_OT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ot_IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_ListadoElementos_x_OT_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="IdDetalle" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoElementos_x_OT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="false" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Unidades" Nullable="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" />
+          <Property Type="Double" Name="largo_total" />
+          <Property Type="Double" Name="largo_restante" />
+          <Property Type="Double" Name="largo_pieza_entera" />
+          <Property Type="Int32" Name="cantidad_pieza_entera" />
+          <Property Type="Double" Name="largo_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_total_pieza_complementaria" />
+          <Property Type="Double" Name="largo_despunte1" />
+          <Property Type="Double" Name="cantidad_despunte1" />
+          <Property Type="Boolean" Name="es_despunte_usable1" />
+          <Property Type="Double" Name="largo_despunte2" />
+          <Property Type="Double" Name="cantidad_despunte2" />
+          <Property Type="Boolean" Name="es_despunte_usable2" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoElementos_x_OT">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="ob_descripcion" />
+            <PropertyRef Name="ot_descripcion" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdListadoElementos_x_OT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ob_descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ot_descripcion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoElementos_x_OT_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="IdDetalle" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Unidades" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="longitud" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdListadoElementos_x_OT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Unidades" Nullable="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="longitud" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" />
+          <Property Type="Double" Name="largo_total" />
+          <Property Type="Double" Name="largo_restante" />
+          <Property Type="Double" Name="largo_pieza_entera" />
+          <Property Type="Int32" Name="cantidad_pieza_entera" />
+          <Property Type="Double" Name="largo_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_total_pieza_complementaria" />
+          <Property Type="Double" Name="largo_despunte1" />
+          <Property Type="Boolean" Name="es_despunte_usable1" />
+          <Property Type="Double" Name="cantidad_despunte1" />
+          <Property Type="Double" Name="largo_despunte2" />
+          <Property Type="Double" Name="cantidad_despunte2" />
+          <Property Type="Boolean" Name="es_despunte_usable2" />
+        </EntityType>
+        <EntityType Name="vwcom_AllListDetElementos_x_OT">
+          <Key>
+            <PropertyRef Name="mr_descripcion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="IdOrdenTaller" />
+            <PropertyRef Name="IdListadoElementos_x_OT" />
+            <PropertyRef Name="IdDetalle" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Unidades" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="ot_descripcion" />
+            <PropertyRef Name="ob_descripcion" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Usuario" />
+          </Key>
+          <Property Type="String" Name="mr_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdListadoElementos_x_OT" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Unidades" Nullable="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ot_descripcion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ob_descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="pr_largo" />
+          <Property Type="Double" Name="largo_total" />
+          <Property Type="Double" Name="largo_restante" />
+          <Property Type="Double" Name="largo_pieza_entera" />
+          <Property Type="Int32" Name="cantidad_pieza_entera" />
+          <Property Type="Double" Name="largo_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_total_pieza_complementaria" />
+          <Property Type="Double" Name="largo_despunte1" />
+          <Property Type="Boolean" Name="es_despunte_usable1" />
+          <Property Type="Double" Name="cantidad_despunte1" />
+          <Property Type="Double" Name="largo_despunte2" />
+          <Property Type="Double" Name="cantidad_despunte2" />
+          <Property Type="Boolean" Name="es_despunte_usable2" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoMaterialesDisponibles">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="bodega" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="dm_precio" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="alto" />
+            <PropertyRef Name="ceja" />
+            <PropertyRef Name="diametro" />
+            <PropertyRef Name="densidad" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="mv_Secuencia" />
+            <PropertyRef Name="dm_observacion" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="pr_peso" />
+            <PropertyRef Name="secmax" />
+            <PropertyRef Name="cantidad" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="String" Name="CodigoBarra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dm_cantidad" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dm_precio" Nullable="false" />
+          <Property Type="Double" Name="mv_costo" Nullable="false" />
+          <Property Type="Double" Name="longitud" Nullable="false" />
+          <Property Type="Double" Name="espesor" Nullable="false" />
+          <Property Type="Double" Name="ancho" Nullable="false" />
+          <Property Type="Double" Name="alto" Nullable="false" />
+          <Property Type="Double" Name="ceja" Nullable="false" />
+          <Property Type="Double" Name="diametro" Nullable="false" />
+          <Property Type="String" Name="descripcion_corta" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="densidad" Nullable="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Int32" Name="mv_Secuencia" Nullable="false" />
+          <Property Type="String" Name="dm_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="ot_CodObra" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ot_IdOrdenTaller" Precision="18" Scale="0" />
+          <Property Type="Double" Name="pr_peso" Nullable="false" />
+          <Property Type="Double" Name="PesoEspecifico" />
+          <Property Type="Decimal" Name="secmax" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="largo_conversion" />
+          <Property Type="Double" Name="alto_conversion" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="String" Name="CodObra_preasignada" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller_preasignada" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="dm_cantidad" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="alto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="String" Name="CodigoBarra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dm_cantidad" Nullable="false" />
+          <Property Type="String" Name="dm_observacion" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodObra_preasignada" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" />
+          <Property Type="Double" Name="largo_total" />
+          <Property Type="Double" Name="largo_restante" />
+          <Property Type="Double" Name="largo_pieza_entera" />
+          <Property Type="Int32" Name="cantidad_pieza_entera" />
+          <Property Type="Double" Name="largo_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_total_pieza_complementaria" />
+          <Property Type="Double" Name="largo_despunte1" />
+          <Property Type="Double" Name="cantidad_despunte1" />
+          <Property Type="Boolean" Name="es_despunte_usable1" />
+          <Property Type="Double" Name="largo_despunte2" />
+          <Property Type="Double" Name="cantidad_despunte2" />
+          <Property Type="Boolean" Name="es_despunte_usable2" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="longitud" Nullable="false" />
+          <Property Type="Double" Name="espesor" Nullable="false" />
+          <Property Type="Double" Name="ancho" Nullable="false" />
+          <Property Type="Double" Name="alto" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="FechaReg" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Motivo" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="ob_descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra_preasignada" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="ob_descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdListadoMPPreasingado" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="CodigoBarra" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoMPPreasingado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra_preasignada" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodigoBarra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Double" Name="dm_cantidad" Nullable="false" />
+          <Property Type="String" Name="dm_observacion" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" />
+          <Property Type="Double" Name="largo_total" />
+          <Property Type="Double" Name="largo_restante" />
+          <Property Type="Double" Name="largo_pieza_entera" />
+          <Property Type="Int32" Name="cantidad_pieza_entera" />
+          <Property Type="Double" Name="largo_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_total_pieza_complementaria" />
+          <Property Type="Double" Name="largo_despunte1" />
+          <Property Type="Double" Name="cantidad_despunte1" />
+          <Property Type="Boolean" Name="es_despunte_usable1" />
+          <Property Type="Double" Name="largo_despunte2" />
+          <Property Type="Double" Name="cantidad_despunte2" />
+          <Property Type="Boolean" Name="es_despunte_usable2" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdListadoMPPreasingado" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodObra_preasignada" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdListadoMPPreasingado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodObra_preasignada" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaReg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lm_Observacion" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="dm_cantidad" />
+            <PropertyRef Name="CodObra_preasignada" />
+            <PropertyRef Name="Det_Kg" />
+            <PropertyRef Name="IdEstadoAprob" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="mr_descripcion" />
+            <PropertyRef Name="ea_descripcion" />
+            <PropertyRef Name="Obra" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="String" Name="CodigoBarra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dm_cantidad" Nullable="false" />
+          <Property Type="String" Name="dm_observacion" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodObra_preasignada" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Det_Kg" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" />
+          <Property Type="Double" Name="largo_total" />
+          <Property Type="Double" Name="largo_restante" />
+          <Property Type="Double" Name="largo_pieza_entera" />
+          <Property Type="Int32" Name="cantidad_pieza_entera" />
+          <Property Type="Double" Name="largo_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_pieza_complementaria" />
+          <Property Type="Double" Name="cantidad_total_pieza_complementaria" />
+          <Property Type="Double" Name="largo_despunte1" />
+          <Property Type="Double" Name="cantidad_despunte1" />
+          <Property Type="Boolean" Name="es_despunte_usable1" />
+          <Property Type="Double" Name="largo_despunte2" />
+          <Property Type="Double" Name="cantidad_despunte2" />
+          <Property Type="Boolean" Name="es_despunte_usable2" />
+          <Property Type="String" Name="IdEstadoAprob" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="longitud" Nullable="false" />
+          <Property Type="Double" Name="espesor" Nullable="false" />
+          <Property Type="Double" Name="ancho" Nullable="false" />
+          <Property Type="String" Name="mr_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ea_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Obra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcom_AllListDetMateriales_PreAsignado_a_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodigoBarra" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="bodega" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="dm_precio" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="longitud" />
+            <PropertyRef Name="espesor" />
+            <PropertyRef Name="ancho" />
+            <PropertyRef Name="alto" />
+            <PropertyRef Name="ceja" />
+            <PropertyRef Name="diametro" />
+            <PropertyRef Name="densidad" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="mv_Secuencia" />
+            <PropertyRef Name="dm_observacion" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="pr_peso" />
+            <PropertyRef Name="secmax" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="Obra" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="String" Name="CodigoBarra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dm_cantidad" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dm_precio" Nullable="false" />
+          <Property Type="Double" Name="mv_costo" Nullable="false" />
+          <Property Type="Double" Name="longitud" Nullable="false" />
+          <Property Type="Double" Name="espesor" Nullable="false" />
+          <Property Type="Double" Name="ancho" Nullable="false" />
+          <Property Type="Double" Name="alto" Nullable="false" />
+          <Property Type="Double" Name="ceja" Nullable="false" />
+          <Property Type="Double" Name="diametro" Nullable="false" />
+          <Property Type="String" Name="descripcion_corta" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="densidad" Nullable="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Int32" Name="mv_Secuencia" Nullable="false" />
+          <Property Type="String" Name="dm_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="ot_CodObra" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ot_IdOrdenTaller" Precision="18" Scale="0" />
+          <Property Type="Double" Name="pr_peso" Nullable="false" />
+          <Property Type="Double" Name="PesoEspecifico" />
+          <Property Type="Decimal" Name="secmax" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="largo_conversion" />
+          <Property Type="Double" Name="alto_conversion" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="String" Name="CodObra_preasignada" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenTaller_preasignada" Precision="18" Scale="0" />
+          <Property Type="String" Name="Obra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EntitiesComprasEdehsaStoreContainer" CdmEntityContainer="EntitiesCompras_Edehsa">
+          <EntitySetMapping Name="com_Registro_OrdenCompra_x_Cotizacion">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_Registro_OrdenCompra_x_Cotizacion">
+              <MappingFragment StoreEntitySet="com_Registro_OrdenCompra_x_Cotizacion">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="IdListadoMateriales" ColumnName="IdListadoMateriales" />
+                <ScalarProperty Name="SecuenciaDetalleCotizacion" ColumnName="SecuenciaDetalleCotizacion" />
+                <ScalarProperty Name="IdCotizacion" ColumnName="IdCotizacion" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoDisenoTipo">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoDisenoTipo">
+              <MappingFragment StoreEntitySet="com_ListadoDisenoTipo">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TipoListadoDiseno" ColumnName="TipoListadoDiseno" />
+                <ScalarProperty Name="IdTipoListadoDiseno" ColumnName="IdTipoListadoDiseno" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoDiseno">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoDiseno">
+              <MappingFragment StoreEntitySet="com_ListadoDiseno">
+                <ScalarProperty Name="tipo_listado" ColumnName="tipo_listado" />
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="ot_IdSucursal" ColumnName="ot_IdSucursal" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdListadoDiseno" ColumnName="IdListadoDiseno" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoDiseno_Det">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoDiseno_Det">
+              <MappingFragment StoreEntitySet="com_ListadoDiseno_Det">
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdListadoDiseno" ColumnName="IdListadoDiseno" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoDiseno_Detalle">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoDiseno_Detalle">
+              <MappingFragment StoreEntitySet="vwcom_ListadoDiseno_Detalle">
+                <ScalarProperty Name="tipo_listado" ColumnName="tipo_listado" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdListadoDiseno" ColumnName="IdListadoDiseno" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoDiseno">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoDiseno">
+              <MappingFragment StoreEntitySet="vwcom_ListadoDiseno">
+                <ScalarProperty Name="TipoListadoDiseno" ColumnName="TipoListadoDiseno" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="tipo_listado" ColumnName="tipo_listado" />
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="ob_descripcion" ColumnName="ob_descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdListadoDiseno" ColumnName="IdListadoDiseno" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoMateriales_x_OC_x_Obra_x_OT">
+              <MappingFragment StoreEntitySet="vwcom_ListadoMateriales_x_OC_x_Obra_x_OT">
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="Idproducto" ColumnName="Idproducto" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT">
+              <MappingFragment StoreEntitySet="vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT">
+                <ScalarProperty Name="IdOrdenTaller_preasignada" ColumnName="IdOrdenTaller_preasignada" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="co_fecha_aprobacion" ColumnName="co_fecha_aprobacion" />
+                <ScalarProperty Name="IdUsuario_Aprueba" ColumnName="IdUsuario_Aprueba" />
+                <ScalarProperty Name="IdUsuario_Reprue" ColumnName="IdUsuario_Reprue" />
+                <ScalarProperty Name="co_fechaReproba" ColumnName="co_fechaReproba" />
+                <ScalarProperty Name="MotivoReprobacion" ColumnName="MotivoReprobacion" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="Solicitante" ColumnName="Solicitante" />
+                <ScalarProperty Name="oc_observacion" ColumnName="oc_observacion" />
+                <ScalarProperty Name="oc_NumDocumento" ColumnName="oc_NumDocumento" />
+                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
+                <ScalarProperty Name="SaldoxRecibir" ColumnName="SaldoxRecibir" />
+                <ScalarProperty Name="dm_cantidad_Inv" ColumnName="dm_cantidad_Inv" />
+                <ScalarProperty Name="do_CantidadOC" ColumnName="do_CantidadOC" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoElementos_x_OT">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoElementos_x_OT">
+              <MappingFragment StoreEntitySet="com_ListadoElementos_x_OT">
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="ot_IdSucursal" ColumnName="ot_IdSucursal" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdListadoElementos_x_OT" ColumnName="IdListadoElementos_x_OT" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoElementos_x_OT_Det">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoElementos_x_OT_Det">
+              <MappingFragment StoreEntitySet="com_ListadoElementos_x_OT_Det">
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="es_despunte_usable2" ColumnName="es_despunte_usable2" />
+                <ScalarProperty Name="cantidad_despunte2" ColumnName="cantidad_despunte2" />
+                <ScalarProperty Name="largo_despunte2" ColumnName="largo_despunte2" />
+                <ScalarProperty Name="es_despunte_usable1" ColumnName="es_despunte_usable1" />
+                <ScalarProperty Name="cantidad_despunte1" ColumnName="cantidad_despunte1" />
+                <ScalarProperty Name="largo_despunte1" ColumnName="largo_despunte1" />
+                <ScalarProperty Name="cantidad_total_pieza_complementaria" ColumnName="cantidad_total_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_complementaria" ColumnName="cantidad_pieza_complementaria" />
+                <ScalarProperty Name="largo_pieza_complementaria" ColumnName="largo_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_entera" ColumnName="cantidad_pieza_entera" />
+                <ScalarProperty Name="largo_pieza_entera" ColumnName="largo_pieza_entera" />
+                <ScalarProperty Name="largo_restante" ColumnName="largo_restante" />
+                <ScalarProperty Name="largo_total" ColumnName="largo_total" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdListadoElementos_x_OT" ColumnName="IdListadoElementos_x_OT" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoElementos_x_OT">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoElementos_x_OT">
+              <MappingFragment StoreEntitySet="vwcom_ListadoElementos_x_OT">
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="ot_descripcion" ColumnName="ot_descripcion" />
+                <ScalarProperty Name="ob_descripcion" ColumnName="ob_descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="IdListadoElementos_x_OT" ColumnName="IdListadoElementos_x_OT" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoElementos_x_OT_Detalle">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoElementos_x_OT_Detalle">
+              <MappingFragment StoreEntitySet="vwcom_ListadoElementos_x_OT_Detalle">
+                <ScalarProperty Name="es_despunte_usable2" ColumnName="es_despunte_usable2" />
+                <ScalarProperty Name="cantidad_despunte2" ColumnName="cantidad_despunte2" />
+                <ScalarProperty Name="largo_despunte2" ColumnName="largo_despunte2" />
+                <ScalarProperty Name="cantidad_despunte1" ColumnName="cantidad_despunte1" />
+                <ScalarProperty Name="es_despunte_usable1" ColumnName="es_despunte_usable1" />
+                <ScalarProperty Name="largo_despunte1" ColumnName="largo_despunte1" />
+                <ScalarProperty Name="cantidad_total_pieza_complementaria" ColumnName="cantidad_total_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_complementaria" ColumnName="cantidad_pieza_complementaria" />
+                <ScalarProperty Name="largo_pieza_complementaria" ColumnName="largo_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_entera" ColumnName="cantidad_pieza_entera" />
+                <ScalarProperty Name="largo_pieza_entera" ColumnName="largo_pieza_entera" />
+                <ScalarProperty Name="largo_restante" ColumnName="largo_restante" />
+                <ScalarProperty Name="largo_total" ColumnName="largo_total" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdListadoElementos_x_OT" ColumnName="IdListadoElementos_x_OT" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_AllListDetElementos_x_OT">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_AllListDetElementos_x_OT">
+              <MappingFragment StoreEntitySet="vwcom_AllListDetElementos_x_OT">
+                <ScalarProperty Name="es_despunte_usable2" ColumnName="es_despunte_usable2" />
+                <ScalarProperty Name="cantidad_despunte2" ColumnName="cantidad_despunte2" />
+                <ScalarProperty Name="largo_despunte2" ColumnName="largo_despunte2" />
+                <ScalarProperty Name="cantidad_despunte1" ColumnName="cantidad_despunte1" />
+                <ScalarProperty Name="es_despunte_usable1" ColumnName="es_despunte_usable1" />
+                <ScalarProperty Name="largo_despunte1" ColumnName="largo_despunte1" />
+                <ScalarProperty Name="cantidad_total_pieza_complementaria" ColumnName="cantidad_total_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_complementaria" ColumnName="cantidad_pieza_complementaria" />
+                <ScalarProperty Name="largo_pieza_complementaria" ColumnName="largo_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_entera" ColumnName="cantidad_pieza_entera" />
+                <ScalarProperty Name="largo_pieza_entera" ColumnName="largo_pieza_entera" />
+                <ScalarProperty Name="largo_restante" ColumnName="largo_restante" />
+                <ScalarProperty Name="largo_total" ColumnName="largo_total" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="ob_descripcion" ColumnName="ob_descripcion" />
+                <ScalarProperty Name="ot_descripcion" ColumnName="ot_descripcion" />
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdListadoElementos_x_OT" ColumnName="IdListadoElementos_x_OT" />
+                <ScalarProperty Name="IdOrdenTaller" ColumnName="IdOrdenTaller" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="mr_descripcion" ColumnName="mr_descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoMaterialesDisponibles">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles">
+              <MappingFragment StoreEntitySet="vwcom_ListadoMaterialesDisponibles">
+                <ScalarProperty Name="IdOrdenTaller_preasignada" ColumnName="IdOrdenTaller_preasignada" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="alto_conversion" ColumnName="alto_conversion" />
+                <ScalarProperty Name="largo_conversion" ColumnName="largo_conversion" />
+                <ScalarProperty Name="secmax" ColumnName="secmax" />
+                <ScalarProperty Name="PesoEspecifico" ColumnName="PesoEspecifico" />
+                <ScalarProperty Name="pr_peso" ColumnName="pr_peso" />
+                <ScalarProperty Name="ot_IdOrdenTaller" ColumnName="ot_IdOrdenTaller" />
+                <ScalarProperty Name="ot_CodObra" ColumnName="ot_CodObra" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="dm_observacion" ColumnName="dm_observacion" />
+                <ScalarProperty Name="mv_Secuencia" ColumnName="mv_Secuencia" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="densidad" ColumnName="densidad" />
+                <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />
+                <ScalarProperty Name="diametro" ColumnName="diametro" />
+                <ScalarProperty Name="ceja" ColumnName="ceja" />
+                <ScalarProperty Name="alto" ColumnName="alto" />
+                <ScalarProperty Name="ancho" ColumnName="ancho" />
+                <ScalarProperty Name="espesor" ColumnName="espesor" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="mv_costo" ColumnName="mv_costo" />
+                <ScalarProperty Name="dm_precio" ColumnName="dm_precio" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="bodega" ColumnName="bodega" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle">
+              <MappingFragment StoreEntitySet="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle">
+                <ScalarProperty Name="alto" ColumnName="alto" />
+                <ScalarProperty Name="ancho" ColumnName="ancho" />
+                <ScalarProperty Name="espesor" ColumnName="espesor" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="es_despunte_usable2" ColumnName="es_despunte_usable2" />
+                <ScalarProperty Name="cantidad_despunte2" ColumnName="cantidad_despunte2" />
+                <ScalarProperty Name="largo_despunte2" ColumnName="largo_despunte2" />
+                <ScalarProperty Name="es_despunte_usable1" ColumnName="es_despunte_usable1" />
+                <ScalarProperty Name="cantidad_despunte1" ColumnName="cantidad_despunte1" />
+                <ScalarProperty Name="largo_despunte1" ColumnName="largo_despunte1" />
+                <ScalarProperty Name="cantidad_total_pieza_complementaria" ColumnName="cantidad_total_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_complementaria" ColumnName="cantidad_pieza_complementaria" />
+                <ScalarProperty Name="largo_pieza_complementaria" ColumnName="largo_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_entera" ColumnName="cantidad_pieza_entera" />
+                <ScalarProperty Name="largo_pieza_entera" ColumnName="largo_pieza_entera" />
+                <ScalarProperty Name="largo_restante" ColumnName="largo_restante" />
+                <ScalarProperty Name="largo_total" ColumnName="largo_total" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="dm_observacion" ColumnName="dm_observacion" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+              <MappingFragment StoreEntitySet="vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+                <ScalarProperty Name="ob_descripcion" ColumnName="ob_descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det">
+              <MappingFragment StoreEntitySet="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det">
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="es_despunte_usable2" ColumnName="es_despunte_usable2" />
+                <ScalarProperty Name="cantidad_despunte2" ColumnName="cantidad_despunte2" />
+                <ScalarProperty Name="largo_despunte2" ColumnName="largo_despunte2" />
+                <ScalarProperty Name="es_despunte_usable1" ColumnName="es_despunte_usable1" />
+                <ScalarProperty Name="cantidad_despunte1" ColumnName="cantidad_despunte1" />
+                <ScalarProperty Name="largo_despunte1" ColumnName="largo_despunte1" />
+                <ScalarProperty Name="cantidad_total_pieza_complementaria" ColumnName="cantidad_total_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_complementaria" ColumnName="cantidad_pieza_complementaria" />
+                <ScalarProperty Name="largo_pieza_complementaria" ColumnName="largo_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_entera" ColumnName="cantidad_pieza_entera" />
+                <ScalarProperty Name="largo_pieza_entera" ColumnName="largo_pieza_entera" />
+                <ScalarProperty Name="largo_restante" ColumnName="largo_restante" />
+                <ScalarProperty Name="largo_total" ColumnName="largo_total" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="dm_observacion" ColumnName="dm_observacion" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdListadoMPPreasingado" ColumnName="IdListadoMPPreasingado" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+              <MappingFragment StoreEntitySet="com_ListadoMaterialesDisponibles_PreAsignado_a_Obra">
+                <ScalarProperty Name="lm_Observacion" ColumnName="lm_Observacion" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaReg" ColumnName="FechaReg" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdListadoMPPreasingado" ColumnName="IdListadoMPPreasingado" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra">
+              <MappingFragment StoreEntitySet="vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra">
+                <ScalarProperty Name="Obra" ColumnName="Obra" />
+                <ScalarProperty Name="ea_descripcion" ColumnName="ea_descripcion" />
+                <ScalarProperty Name="mr_descripcion" ColumnName="mr_descripcion" />
+                <ScalarProperty Name="ancho" ColumnName="ancho" />
+                <ScalarProperty Name="espesor" ColumnName="espesor" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="es_despunte_usable2" ColumnName="es_despunte_usable2" />
+                <ScalarProperty Name="cantidad_despunte2" ColumnName="cantidad_despunte2" />
+                <ScalarProperty Name="largo_despunte2" ColumnName="largo_despunte2" />
+                <ScalarProperty Name="es_despunte_usable1" ColumnName="es_despunte_usable1" />
+                <ScalarProperty Name="cantidad_despunte1" ColumnName="cantidad_despunte1" />
+                <ScalarProperty Name="largo_despunte1" ColumnName="largo_despunte1" />
+                <ScalarProperty Name="cantidad_total_pieza_complementaria" ColumnName="cantidad_total_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_complementaria" ColumnName="cantidad_pieza_complementaria" />
+                <ScalarProperty Name="largo_pieza_complementaria" ColumnName="largo_pieza_complementaria" />
+                <ScalarProperty Name="cantidad_pieza_entera" ColumnName="cantidad_pieza_entera" />
+                <ScalarProperty Name="largo_pieza_entera" ColumnName="largo_pieza_entera" />
+                <ScalarProperty Name="largo_restante" ColumnName="largo_restante" />
+                <ScalarProperty Name="largo_total" ColumnName="largo_total" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="Det_Kg" ColumnName="Det_Kg" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="dm_observacion" ColumnName="dm_observacion" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_AllListDetMateriales_PreAsignado_a_Obra">
+            <EntityTypeMapping TypeName="EntitiesComprasEdehsa.vwcom_AllListDetMateriales_PreAsignado_a_Obra">
+              <MappingFragment StoreEntitySet="vwcom_AllListDetMateriales_PreAsignado_a_Obra">
+                <ScalarProperty Name="Obra" ColumnName="Obra" />
+                <ScalarProperty Name="IdOrdenTaller_preasignada" ColumnName="IdOrdenTaller_preasignada" />
+                <ScalarProperty Name="CodObra_preasignada" ColumnName="CodObra_preasignada" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="alto_conversion" ColumnName="alto_conversion" />
+                <ScalarProperty Name="largo_conversion" ColumnName="largo_conversion" />
+                <ScalarProperty Name="secmax" ColumnName="secmax" />
+                <ScalarProperty Name="PesoEspecifico" ColumnName="PesoEspecifico" />
+                <ScalarProperty Name="pr_peso" ColumnName="pr_peso" />
+                <ScalarProperty Name="ot_IdOrdenTaller" ColumnName="ot_IdOrdenTaller" />
+                <ScalarProperty Name="ot_CodObra" ColumnName="ot_CodObra" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="dm_observacion" ColumnName="dm_observacion" />
+                <ScalarProperty Name="mv_Secuencia" ColumnName="mv_Secuencia" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="densidad" ColumnName="densidad" />
+                <ScalarProperty Name="descripcion_corta" ColumnName="descripcion_corta" />
+                <ScalarProperty Name="diametro" ColumnName="diametro" />
+                <ScalarProperty Name="ceja" ColumnName="ceja" />
+                <ScalarProperty Name="alto" ColumnName="alto" />
+                <ScalarProperty Name="ancho" ColumnName="ancho" />
+                <ScalarProperty Name="espesor" ColumnName="espesor" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="mv_costo" ColumnName="mv_costo" />
+                <ScalarProperty Name="dm_precio" ColumnName="dm_precio" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="bodega" ColumnName="bodega" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="CodigoBarra" ColumnName="CodigoBarra" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

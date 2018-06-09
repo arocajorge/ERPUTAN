@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09a5fa1d690c47bcb79212c980eff885" Name="Diagrama1">
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_x_Empresa" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_x_Empresa_x_Usuario" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Usuario_x_Empresa" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_x_Empresa_x_Usuario_seg_Menu_x_Empresa" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vw_Seg_Menu_x_Usuario_x_Empresa" Width="1.5" PointX="9.21765815895873" PointY="25.595464465019976" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_Usuario_x_Empresa" Width="1.5" PointX="5.2198748277592824" PointY="10.545398538254853" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu" Width="1.5" PointX="1.0617358149316796" PointY="21.128997618858236" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_Grupo" Width="1.5" PointX="6.2984401911024186" PointY="29.415567843902654" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_Item_Tipo" Width="1.5" PointX="2.7809280933723448" PointY="27.975602058682405" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_Pagina" Width="1.5" PointX="6.1257117586795751" PointY="7.8851819075109351" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_x_Empresa_seg_Menu" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_Grupo_seg_Menu_Pagina" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_Categoria" Width="1.5" PointX="3.094264326195356" PointY="20.529942253851306" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_Pagina_seg_Menu_Categoria" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_Grupo_x_seg_Menu_Item" Width="1.5" PointX="1.3253619080993169" PointY="15.850054450263295" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_Grupo_x_seg_Menu_Item_seg_Menu_Grupo" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_Menu_Item" Width="1.5" PointX="1.0971300160033302" PointY="14.80502802822973" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_Grupo_x_seg_Menu_Item_seg_Menu_Item" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_Item_seg_Menu_Item_Tipo" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario" Width="1.5" PointX="7.7545496857513445" PointY="29.454599260098579" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Menu_x_Empresa_x_Usuario_seg_usuario" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_Usuario_x_Empresa_seg_usuario" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.seg_usuario_x_tb_sis_reporte" Width="1.5" PointX="4.5463926235895569" PointY="20.102229723754444" />
+        <AssociationConnector Association="DBERPModelSeguridad.FK_seg_usuario_x_tb_sis_reporte_seg_usuario" />
+        <EntityTypeShape EntityType="DBERPModelSeguridad.vwseg_usuario_x_tb_sis_reporte" Width="1.5" PointX="3.6155847067085958" PointY="29.102859436116582" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

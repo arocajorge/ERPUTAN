@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28b8a4fabe7144878940489dbc741c55" Name="Diagrama1" ZoomLevel="87">
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt004" Width="1.5" PointX="5.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt006" Width="1.5" PointX="9.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt005" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt016" Width="1.5" PointX="0.5" PointY="10.375" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt010" Width="1.5" PointX="12.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt011" Width="1.5" PointX="14.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt022" Width="1.5" PointX="5.75" PointY="10.375" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt024" Width="1.5" PointX="9.25" PointY="10.375" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt019" Width="1.5" PointX="4" PointY="10.375" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt012" Width="1.5" PointX="16.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt007" Width="1.5" PointX="11" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt001" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt003" Width="1.5" PointX="4" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt025" Width="1.5" PointX="11" PointY="10.375" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt028" Width="1.5" PointX="9.5441075663753345" PointY="4.7263909600332337" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt015" Width="1.5" PointX="4.5741771294615123" PointY="25.767993164140726" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt002" Width="1.5" PointX="2.8752573108651012" PointY="0.97733062551232552" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt013" Width="1.5" PointX="10.076220278663662" PointY="20.888751188706955" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt017" Width="1.5" PointX="9.9954917775446042" PointY="16.460394896781256" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt023" Width="1.5" PointX="9.0550651741470514" PointY="21.874206135922208" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

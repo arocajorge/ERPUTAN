@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelActivoFijo_FJ.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelActivoFijo_FJStoreContainer">
+          <EntitySet Name="vwACTF_FJ_Rpt002" EntityType="ModelActivoFijo_FJ.Store.vwACTF_FJ_Rpt002" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwACTF_FJ_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwACTF_FJ_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwACTF_FJ_Rpt002].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwACTF_FJ_Rpt002].[IdCategoriaAF] AS [IdCategoriaAF], 
+      [vwACTF_FJ_Rpt002].[Marca] AS [Marca], 
+      [vwACTF_FJ_Rpt002].[Af_Capacidad] AS [Af_Capacidad], 
+      [vwACTF_FJ_Rpt002].[Modelo] AS [Modelo], 
+      [vwACTF_FJ_Rpt002].[Num_Serie_Motor] AS [Num_Serie_Motor], 
+      [vwACTF_FJ_Rpt002].[Anio_Fabricacion] AS [Anio_Fabricacion], 
+      [vwACTF_FJ_Rpt002].[Factura_Serie] AS [Factura_Serie], 
+      [vwACTF_FJ_Rpt002].[Num_Factura] AS [Num_Factura], 
+      [vwACTF_FJ_Rpt002].[Fecha_compra] AS [Fecha_compra], 
+      [vwACTF_FJ_Rpt002].[Costo_Compra] AS [Costo_Compra], 
+      [vwACTF_FJ_Rpt002].[Garantia_Bancaria] AS [Garantia_Bancaria], 
+      [vwACTF_FJ_Rpt002].[Monto_Canc] AS [Monto_Canc], 
+      [vwACTF_FJ_Rpt002].[MontoSol] AS [MontoSol], 
+      [vwACTF_FJ_Rpt002].[NumCuotas] AS [NumCuotas], 
+      [vwACTF_FJ_Rpt002].[Pago_contado] AS [Pago_contado], 
+      [vwACTF_FJ_Rpt002].[Institucion_prendada] AS [Institucion_prendada], 
+      [vwACTF_FJ_Rpt002].[Fecha_Avaluo] AS [Fecha_Avaluo], 
+      [vwACTF_FJ_Rpt002].[IdBanco] AS [IdBanco], 
+      [vwACTF_FJ_Rpt002].[Categoria] AS [Categoria], 
+      [vwACTF_FJ_Rpt002].[Af_Fecha_Venta] AS [Af_Fecha_Venta], 
+      [vwACTF_FJ_Rpt002].[Operacion] AS [Operacion], 
+      [vwACTF_FJ_Rpt002].[Af_NumSerie_Chasis] AS [Af_NumSerie_Chasis]
+      FROM [Fj_servindustrias].[vwACTF_FJ_Rpt002] AS [vwACTF_FJ_Rpt002]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ.Fj_servindustrias.vwACTF_FJ_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwACTF_FJ_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Costo_Compra" />
+            <PropertyRef Name="Categoria" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="IdCategoriaAF" Type="int" />
+          <Property Name="Marca" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Af_Capacidad" Type="varchar" MaxLength="50" />
+          <Property Name="Modelo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Num_Serie_Motor" Type="varchar" MaxLength="50" />
+          <Property Name="Anio_Fabricacion" Type="int" />
+          <Property Name="Factura_Serie" Type="varchar" MaxLength="10" />
+          <Property Name="Num_Factura" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_compra" Type="datetime" />
+          <Property Name="Costo_Compra" Type="float" Nullable="false" />
+          <Property Name="Garantia_Bancaria" Type="float" />
+          <Property Name="Monto_Canc" Type="float" />
+          <Property Name="MontoSol" Type="float" />
+          <Property Name="NumCuotas" Type="int" />
+          <Property Name="Pago_contado" Type="float" />
+          <Property Name="Institucion_prendada" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Avaluo" Type="datetime" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="Categoria" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Af_Fecha_Venta" Type="datetime" />
+          <Property Name="Operacion" Type="varchar" MaxLength="250" />
+          <Property Name="Af_NumSerie_Chasis" Type="varchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelActivoFijo_FJ" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesActivoFijo_FJ" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwACTF_FJ_Rpt002" EntityType="ModelActivoFijo_FJ.vwACTF_FJ_Rpt002" />
+        </EntityContainer>
+        <EntityType Name="vwACTF_FJ_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Costo_Compra" />
+            <PropertyRef Name="Categoria" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Int32" Name="IdCategoriaAF" />
+          <Property Type="String" Name="Marca" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Capacidad" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Modelo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Serie_Motor" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Anio_Fabricacion" />
+          <Property Type="String" Name="Factura_Serie" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Factura" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_compra" Precision="3" />
+          <Property Type="Double" Name="Costo_Compra" Nullable="false" />
+          <Property Type="Double" Name="Garantia_Bancaria" />
+          <Property Type="Double" Name="Monto_Canc" />
+          <Property Type="Double" Name="MontoSol" />
+          <Property Type="Int32" Name="NumCuotas" />
+          <Property Type="Double" Name="Pago_contado" />
+          <Property Type="String" Name="Institucion_prendada" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Avaluo" Precision="3" />
+          <Property Type="Int32" Name="IdBanco" />
+          <Property Type="String" Name="Categoria" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Af_Fecha_Venta" Precision="3" />
+          <Property Type="String" Name="Operacion" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_NumSerie_Chasis" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelActivoFijo_FJStoreContainer" CdmEntityContainer="EntitiesActivoFijo_FJ">
+          <EntitySetMapping Name="vwACTF_FJ_Rpt002">
+            <EntityTypeMapping TypeName="ModelActivoFijo_FJ.vwACTF_FJ_Rpt002">
+              <MappingFragment StoreEntitySet="vwACTF_FJ_Rpt002">
+                <ScalarProperty Name="Af_NumSerie_Chasis" ColumnName="Af_NumSerie_Chasis" />
+                <ScalarProperty Name="Operacion" ColumnName="Operacion" />
+                <ScalarProperty Name="Af_Fecha_Venta" ColumnName="Af_Fecha_Venta" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Fecha_Avaluo" ColumnName="Fecha_Avaluo" />
+                <ScalarProperty Name="Institucion_prendada" ColumnName="Institucion_prendada" />
+                <ScalarProperty Name="Pago_contado" ColumnName="Pago_contado" />
+                <ScalarProperty Name="NumCuotas" ColumnName="NumCuotas" />
+                <ScalarProperty Name="MontoSol" ColumnName="MontoSol" />
+                <ScalarProperty Name="Monto_Canc" ColumnName="Monto_Canc" />
+                <ScalarProperty Name="Garantia_Bancaria" ColumnName="Garantia_Bancaria" />
+                <ScalarProperty Name="Costo_Compra" ColumnName="Costo_Compra" />
+                <ScalarProperty Name="Fecha_compra" ColumnName="Fecha_compra" />
+                <ScalarProperty Name="Num_Factura" ColumnName="Num_Factura" />
+                <ScalarProperty Name="Factura_Serie" ColumnName="Factura_Serie" />
+                <ScalarProperty Name="Anio_Fabricacion" ColumnName="Anio_Fabricacion" />
+                <ScalarProperty Name="Num_Serie_Motor" ColumnName="Num_Serie_Motor" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Af_Capacidad" ColumnName="Af_Capacidad" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="IdCategoriaAF" ColumnName="IdCategoriaAF" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

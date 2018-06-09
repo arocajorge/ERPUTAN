@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="905eb47b33bd4a548b2988e09be94bc9" Name="Diagrama1" ZoomLevel="40">
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_Registro_OrdenCompra_x_Cotizacion" Width="1.875" PointX="10.25" PointY="0.5" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoDisenoTipo" Width="2.5" PointX="7.25" PointY="0.5" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoDiseno" Width="2.625" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoDiseno_Det" Width="2.5" PointX="3.625" PointY="0.5" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoDiseno_Detalle" Width="2.875" PointX="3.25" PointY="4.375" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoDiseno" Width="2.25" PointX="0.5" PointY="3.75" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoMateriales_x_OC_x_Obra_x_OT" Width="3.625" PointX="2.75" PointY="9.375" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT" Width="1.5" PointX="0.5" PointY="7.75" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoElementos_x_OT" Width="2.375" PointX="7" PointY="3" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoElementos_x_OT_Det" Width="2.625" PointX="11.375" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoElementos_x_OT" Width="2.625" PointX="14.125" PointY="2.875" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoElementos_x_OT_Detalle" Width="2.5" PointX="7" PointY="6" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles" Width="2.625" PointX="0.625" PointY="13.625" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Detalle" Width="1.5" PointX="6.625" PointY="17.5" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_ListadoMaterialesDisponibles_PreAsignado_a_Obra" Width="1.5" PointX="4.125" PointY="13.75" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det" Width="1.5" PointX="10.125" PointY="19.125" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.com_ListadoMaterialesDisponibles_PreAsignado_a_Obra" Width="1.5" PointX="7.25" PointY="14" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_AllListDetMaterialesDisponibles_PreAsignado_a_Obra" Width="1.5" PointX="3.875" PointY="18.375" />
+        <EntityTypeShape EntityType="EntitiesComprasEdehsa.vwcom_AllListDetMateriales_PreAsignado_a_Obra" Width="1.5" PointX="12.25" PointY="17.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

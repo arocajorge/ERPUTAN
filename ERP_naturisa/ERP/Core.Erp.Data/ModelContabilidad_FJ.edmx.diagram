@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4210ee60b1b74f549abf6b3791ebf5e9" Name="Diagrama1" ZoomLevel="83">
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.vwct_centro_costo_x_cliente" Width="1.5" PointX="7.9298777598561152" PointY="27.147341204410111" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.ct_punto_cargo_FJ" Width="1.5" PointX="5.7249120314255881" PointY="10.686114748328047" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.vwct_punto_cargo_x_Af_Activo_fijo" Width="1.5" PointX="3.3964576625248686" PointY="12.508300831778115" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo" Width="1.5" PointX="9.7237138700316255" PointY="21.719754691105223" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" Width="1.5" PointX="4.1984784697175392" PointY="7.7537959701166468" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_gastos" Width="1.5" PointX="8.787288356939" PointY="28.326592041331619" />
+        <AssociationConnector Association="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo" />
+        <AssociationConnector Association="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.vwct_distribucion_gastos_x_periodo" Width="1.5" PointX="10.003498791718622" PointY="21.634097139180682" />
+        <EntityTypeShape EntityType="ModelContabilidad_FJ.vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir" Width="1.5" PointX="8.97676308871096" PointY="13.943373030956543" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

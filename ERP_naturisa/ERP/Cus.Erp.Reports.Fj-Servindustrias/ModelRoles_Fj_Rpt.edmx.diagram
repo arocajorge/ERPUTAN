@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="82bd0f606b384827ab5e997cad3c8277" Name="Diagrama1" ZoomLevel="65" >
+        <EntityTypeShape EntityType="Entities_RolesFj_Rpt.vwROLES_Rpt001" Width="2" PointX="11" PointY="23.75" />
+        <EntityTypeShape EntityType="Entities_RolesFj_Rpt.vwROLES_Rpt004" Width="2.125" PointX="9.75" PointY="12" />
+        <EntityTypeShape EntityType="Entities_RolesFj_Rpt.vwROLES_Rpt008" Width="1.5" PointX="11.034049842056842" PointY="2.4401610803046081" />
+        <EntityTypeShape EntityType="Entities_RolesFj_Rpt.vwROL_Rpt002" Width="1.5" PointX="9.952116613254006" PointY="8.8897738945157148" />
+        <EntityTypeShape EntityType="Entities_RolesFj_Rpt.vwROLES_Rpt003" Width="1.5" PointX="8.7801861356851578" PointY="13.105883798145635" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

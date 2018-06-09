@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a34280bb4e144d03a5e53ce94f4cc0d7" Name="Diagrama1" ZoomLevel="62">
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble" Width="1.5" PointX="2.7757942894360959" PointY="20.412910873262636" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_Plantilla" Width="1.5" PointX="5.5560495003853223" PointY="30.109907149388413" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_Reversado" Width="1.5" PointX="7.5517736056594984" PointY="26.002083075233774" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_tipo" Width="1.5" PointX="3.96814095972485" PointY="15.68484000101911" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo" Width="1.5" PointX="2.3296967569411251" PointY="20.479128713011335" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_nivel" Width="1.5" PointX="2.4217074170809738" PointY="24.437862333114193" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_sub_centro_costo" Width="1.5" PointX="10.246674432534107" PointY="20.668795744268593" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo" Width="1.5" PointX="1.5427945840837407" PointY="11.332580869706618" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial" Width="1.5" PointX="3.312603125028593" PointY="2.3876359324844723" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial_grupocble" Width="1.5" PointX="2.4910644080913924" PointY="2.2247443060505874" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial_plancta" Width="1.5" PointX="10.004399315456114" PointY="29.166730700604028" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial_plancta_nivel" Width="1.5" PointX="10.480279325731228" PointY="28.361449433658947" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial_plancta_x_ct_plancta" Width="1.5" PointX="10.073023012873263" PointY="28.226891292364751" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_periodo" Width="1.5" PointX="7.9190991352866869" PointY="24.248376961913134" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_plancta_nivel" Width="1.5" PointX="3.8735019806183417" PointY="3.8400646466017072" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_punto_cargo" Width="1.875" PointX="8.875" PointY="8.625" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_rpt_Empresas_A_mostrar" Width="1.5" PointX="3.1866631187436463" PointY="9.6433911219441288" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_rpt_MovxCta" Width="1.5" PointX="8.5103831442587" PointY="22.275280858518222" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_rpt_SaldoxCta" Width="1.5" PointX="2.0069260159539644" PointY="7.4797088836690921" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_saldoxCuentas" Width="1.5" PointX="3.5775685513287638" PointY="30.073547317680692" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_saldoxCuentas_Movi" Width="1.5" PointX="3.3871885516621116" PointY="27.108082128273363" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_saldoxCuentas_Movi_tmp" Width="1.5" PointX="10.590122853680571" PointY="17.32446212383195" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_saldoxCuentas_Movi_x_RangoFecha" Width="1.5" PointX="1.8512088851310355" PointY="4.3311750908993067" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_saldoxCuentas_TMP" Width="1.5" PointX="4.3422384524448958" PointY="0.64626497060352239" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_tipo_ctacble" Width="1.5" PointX="1.2868158655645399" PointY="22.483549813965126" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_ctacble_acreedora" Width="1.5" PointX="0.25347251270593729" PointY="23.776613514766382" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_Con_Saldo" Width="1.5" PointX="11.677758140339403" PointY="14.35481793356818" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp" Width="1.5" PointX="5.6377202727076225" PointY="1.1070291703133979" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_con_saldo_cxp_consulta" Width="1.5" PointX="11.760574132092565" PointY="14.209509483636129" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det_TotalDiario" Width="1.5" PointX="3.877296423482381" PointY="0.27405424428826863" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_centro_costo" Width="1.5" PointX="2.6385720961906816" PointY="5.1546863192481389" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_ComprobanteContable" Width="1.5" PointX="9.9649405116052083" PointY="31.190217211465452" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_periodo" Width="1.5" PointX="4.3849803304229766" PointY="16.367557563058828" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_plancta" Width="1.5" PointX="10.827353098815006" PointY="19.198689290880548" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_Plancta_UltimoNivel" Width="1.5" PointX="7.359955461397746" PointY="29.873864217602584" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_SaldosxCuentas" Width="1.5" PointX="7.2483549859599936" PointY="31.753312572722002" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_UtilidadxPeriodo" Width="1.5" PointX="11.994961380956211" PointY="15.326457149966833" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_UtilidadxPeriodo_Saldo_Acumulado" Width="1.5" PointX="0.0633519329425655" PointY="16.786422603198524" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_UtilidadxPeriodo_Saldo_Anterior" Width="1.5" PointX="4.7509029082725309" PointY="6.392380359765319" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_UtilidadxPeriodo_Saldo_PeriodoActual" Width="1.5" PointX="7.2396879527902636" PointY="29.737950920005307" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_ct_cbtecble_tipo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_ct_periodo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Reversado_ct_cbtecble" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Reversado_ct_cbtecble1" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_ct_cbtecble_tipo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_ct_centro_costo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_ct_centro_costo_nivel" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_centro_costo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_x_ct_plancta_ct_GrupoEmpresarial" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_ct_GrupoEmpresarial_grupocble" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_ct_GrupoEmpresarial_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_ct_GrupoEmpresarial_plancta_nivel" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_x_ct_plancta_ct_GrupoEmpresarial_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_ct_periodo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_Movi_ct_periodo" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_punto_cargo_grupo" Width="1.5" PointX="11.25" PointY="8.25" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_punto_cargo_ct_punto_cargo_grupo" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal" Width="1.5" PointX="7.683810552434907" PointY="3.9548857081471409" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_ct_anio_fiscal" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_periodo_ct_anio_fiscal" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_ct_anio_fiscal" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_Movi_ct_anio_fiscal" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="10.847967434138043" PointY="20.317683586998694" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_Plantilla_det" Width="1.5" PointX="2.8027053004143321" PointY="31.196206211669466" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_det_ct_cbtecble_Plantilla" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_det_ct_centro_costo" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_x_cp_Conciliacion_caja" Width="1.5" PointX="5.050351053965441" PointY="29.612720995029772" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_det_ct_punto_cargo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_det_ct_punto_cargo_grupo" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_grupocble" Width="1.5" PointX="0.82780340724988066" PointY="0.04694844784538655" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_grupocble_Mayor" Width="1.5" PointX="2.9179096757052045" PointY="19.784791761909048" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_grupocble_ct_grupocble_Mayor" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_grupo_x_Tipo_Gasto" Width="1.5" PointX="4.4255764914795641" PointY="17.063248046237625" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_grupo_x_Tipo_Gasto_ct_grupo_x_Tipo_Gasto" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_periodo_x_tb_modulo" Width="1.5" PointX="9.787408432824261" PointY="31.46618102466044" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_periodo_x_tb_modulo_ct_periodo" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_grupo_x_Tipo_Gasto" Width="1.5" PointX="6.2358221049587348" PointY="16.073918305371851" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_parametro" Width="1.5" PointX="10.670628027371423" PointY="17.825914346531924" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_parametro_ct_cbtecble_tipo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_parametro_ct_cbtecble_tipo1" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_centro_costo_sub_centro_costo" Width="1.5" PointX="6.2058136231293037" PointY="14.126406959316883" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_det" Width="1.5" PointX="6.6509853297150627" PointY="23.736354630317702" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det" Width="1.5" PointX="7.9265923834995338" PointY="9.9605914400706954" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_cbtecble" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_centro_costo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_centro_costo_sub_centro_costo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_punto_cargo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_punto_cargo_grupo" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="9.73395914292613" PointY="29.424230023019124" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_anio_fiscal_x_cuenta_utilidad_ct_anio_fiscal" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_anio_fiscal_x_cuenta_utilidad_ct_cbtecble" />
+        <EntityTypeShape EntityType="DBERPModelConta.vwct_plancta_nivel" Width="1.5" PointX="11.829841777603068" PointY="14.565000928270166" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_plancta" Width="1.5" PointX="7.3735962879721058" PointY="16.010425172751034" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_anio_fiscal_x_cuenta_utilidad_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_det_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_grupo_x_Tipo_Gasto" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_grupocble" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_x_ct_plancta_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_plancta_nivel" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_tipo_ctacble" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_punto_cargo_grupo_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_ct_plancta" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_Movi_ct_plancta" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

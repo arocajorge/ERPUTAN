@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc0e044977de49fca2a36d7eb7569636" Name="Diagrama1">
+        <EntityTypeShape EntityType="DBERPModelImport.imp_DatosEmbarque" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_gastosxImport" Width="1.5" PointX="10.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_gastosxImport_x_Empresa" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_ordencompra_ext" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_ordencompra_ext_det" Width="1.5" PointX="10.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_ordencompra_ext_x_Condiciones_Pago" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_ordencompra_ext_x_imp_gastosxImport" Width="1.5" PointX="10.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_ordencompra_ext_x_imp_gastosxImport_det" Width="1.5" PointX="12.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_Parametros" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_Tipo_docu_pago" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_Tipo_docu_pago_x_Empresa_x_tipocbte" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_gastosxImport_x_Empresa_imp_gastosxImport" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_x_imp_gastosxImport_det_imp_gastosxImport" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_det_imp_ordencompra_ext" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_x_imp_gastosxImport_imp_ordencompra_ext" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_x_imp_gastosxImport_det_imp_ordencompra_ext_x_imp_gastosxImport" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_Tipo_docu_pago_x_Empresa_x_tipocbte_imp_Tipo_docu_pago" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwImp_GastosImportacion" Width="1.5" PointX="8.8982574403743513" PointY="15.453434310598967" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwImp_GastosImportacion_X_Proveedor" Width="1.5" PointX="0.86368513892576337" PointY="16.196511469872906" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwImp_GastosImportacionCabYDet" Width="1.5" PointX="3.0761017199028755" PointY="27.053025869211659" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwimp_gastosxImport_x_Empresa" Width="1.5" PointX="5.0611365852230863" PointY="10.351160858921316" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwimp_gastosxImport_x_Empresa_x_CtaCble" Width="1.5" PointX="5" PointY="0.625" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwIMP_Importacion_det_x_Producto" Width="1.5" PointX="11.595878010427523" PointY="13.265301054932783" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwImp_LiquidacionImportacion" Width="1.5" PointX="11.830603754069006" PointY="21.093817586588589" />
+        <EntityTypeShape EntityType="DBERPModelImport.vwIMP_Orden_Compra" Width="1.5" PointX="8.6480135585405" PointY="14.291112459400255" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_ordencompra_ext_x_ct_cbtecble" Width="1.5" PointX="7.3051249232632687" PointY="26.248473596874845" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_catalogo" Width="1.5" PointX="6.9873924325161578" PointY="12.597269421721469" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_catalogo_tipo" Width="1.5" PointX="8.5315316470952389" PointY="10.882092510760804" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_Conversion" Width="1.5" PointX="4.14125827892742" PointY="12.842801547070406" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_catalogo_imp_catalogo_tipo" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_imp_catalogo" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_imp_catalogo1" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_x_Condiciones_Pago_imp_catalogo" />
+        <AssociationConnector Association="DBERPModelImport.FK_imp_ordencompra_ext_x_Condiciones_Pago_imp_catalogo1" />
+        <EntityTypeShape EntityType="DBERPModelImport.imp_Embarcador" Width="1.5" PointX="5.4975695877790312" PointY="17.225588314805918" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50dbbcac2e524f72ad8ce9744597155b" Name="Diagrama1">
+        <EntityTypeShape EntityType="DBERP_NATModel.vwCONTA_NATU_Rpt002" Width="1.5" PointX="9.64684283810055" PointY="18.928206258885659" />
+        <EntityTypeShape EntityType="DBERP_NATModel.vwCONTA_NATU_Rpt003" Width="1.5" PointX="2.8484697597327036" PointY="18.503123724136092" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

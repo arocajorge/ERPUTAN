@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9268c003bd04a6d95ca531d686e3e2a" Name="Diagrama1" ZoomLevel="31">
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_catalogo" Width="1.5" PointX="4.5" PointY="26.25" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_catalogo_tipo" Width="1.5" PointX="2.25" PointY="27.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_cliente_contactos" Width="1.5" PointX="9" PointY="27.375" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_cliente_pto_emision_cliente" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_cliente_tipo" Width="1.5" PointX="4.5" PointY="21" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_cotizacion" Width="1.5" PointX="9" PointY="50.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_cotizacion_det" Width="1.5" PointX="11.25" PointY="64.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_devol_venta" Width="1.5" PointX="6" PointY="50.125" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_devol_venta_det" Width="1.5" PointX="8.25" PointY="58.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_det_otros_campos" Width="1.5" PointX="16.5" PointY="57.125" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_ct_cbtecble" Width="1.5" PointX="16.5" PointY="35.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_fa_cotizacion" Width="1.5" PointX="19.5" PointY="53.125" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_fa_guia_remision" Width="1.5" PointX="19.5" PointY="48.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_in_movi_inve" Width="1.5" PointX="16.5" PointY="49.375" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_in_movi_inve_x_Anulacion" Width="1.5" PointX="16.5" PointY="53.25" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_guia_remision_det" Width="1.5" PointX="14.25" PointY="54.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_guia_remision_det_x_fa_orden_Desp_det" Width="1.5" PointX="19.5" PointY="57.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_guia_remision_x_prd_Despacho" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_motivo_venta" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb_x_ct_cbtecble" Width="1.5" PointX="11.25" PointY="60.375" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb_x_cxc_cobro" Width="1.5" PointX="11.25" PointY="43.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_orden_Desp" Width="1.5" PointX="3" PointY="50.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_orden_Desp_det" Width="1.5" PointX="5.25" PointY="59.375" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_orden_Desp_det_x_fa_pedido_det" Width="1.5" PointX="13.5" PointY="61.125" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_pedido" Width="1.5" PointX="3" PointY="42.125" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_pedido_det" Width="1.5" PointX="5.25" PointY="43.625" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_pedido_estadoAprobacion" Width="1.5" PointX="0.75" PointY="44.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_pedido_x_formaPago" Width="1.5" PointX="5.25" PointY="39.125" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_TipoNota" Width="1.5" PointX="6.75" PointY="33" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_TipoNota_x_Empresa_x_Sucursal" Width="1.5" PointX="9" PointY="35" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_Vendedor" Width="1.5" PointX="0.75" PointY="50.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_vendedor_x_ro_empleado" Width="1.5" PointX="3" PointY="58.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_VendedorxSucursal" Width="1.5" PointX="3" PointY="61.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_venta_telefonica" Width="1.5" PointX="9" PointY="22" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_venta_telefonica_det" Width="1.5" PointX="11.25" PointY="23" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_Catalogo_IdAuto_numeric" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_clientes_contactos" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_cotizacion_detalle" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_creditos_debitos_con_saldo" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_devolucion" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_Documento_Tipo_x_Secuencia_Talonario" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Documentos_Relacionados_NC_ND" Width="1.5" PointX="12.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Documentos_x_Relacionar_NC_ND" Width="1.5" PointX="10.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_guia_remision_sin_factura" Width="1.5" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_movimientos_x_bodega_x_cat" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_orden_Desp_det_x_fa_pedido_det_x_pedido" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_orden_Desp_det_x_Pedido_det" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_orden_Desp_sin_guiaRemi" Width="1.5" PointX="15.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_orden_despacho_detalle" Width="1.5" PointX="15.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Pedido_det_x_orden_desp_conSaldo" Width="1.5" PointX="7.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_pedido_detalle" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_pedido_x_fa_orden_Desp_det_x_fa_guia_remision_det" Width="1.5" PointX="17.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Producto_x_Pedidos" Width="1.5" PointX="17.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_TipoNota_x_Empresa" Width="1.5" PointX="17.75" PointY="18.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Total_pedidos_x_cliente_No_despachados" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_venta_telefonica_det" Width="1.5" PointX="19.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Ventas_x_cliente_x_periodo_BI" Width="1.5" PointX="19.75" PointY="7.75" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_catalogo_fa_catalogo_tipo" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_cotizacion_det_fa_cotizacion" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_cotizacion_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_fa_cotizacion_fa_cotizacion" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_devol_venta_det_fa_devol_venta" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_devol_venta_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_guia_remision_det_x_fa_orden_Desp_det_fa_guia_remision_det" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_guia_remision_det_x_fa_orden_Desp_det_fa_orden_Desp_det" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_orden_Desp_det_fa_orden_Desp" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_orden_Desp_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_orden_Desp_det_x_fa_pedido_det_fa_orden_Desp_det" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_orden_Desp_det_x_fa_pedido_det_fa_pedido_det" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_pedido_det_fa_pedido" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_pedido_fa_pedido_estadoAprobacion" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_pedido_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_pedido_x_formaPago_fa_pedido" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_TipoNota_x_Empresa_x_Sucursal_fa_TipoNota" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_vendedor_x_ro_empleado_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_VendedorxSucursal_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_venta_telefonica_det_fa_venta_telefonica" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Facturas_y_NotasDebito" Width="1.5" PointX="19.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Costo" Width="1.5" PointX="19.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_parametro" Width="1.5" PointX="14" PointY="33.125" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_parametro_fa_pedido_estadoAprobacion" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_parametro_fa_TipoNota" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_guia_remision" Width="1.5" PointX="12" PointY="48.875" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_fa_guia_remision_fa_guia_remision" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_guia_remision_det_fa_guia_remision" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_guia_remision_fa_Vendedor" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_Guia_Remision" Width="1.5" PointX="21.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_guia_remision_det" Width="1.5" PointX="21.75" PointY="19.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_in_Ing_Egr_Inven" Width="1.5" PointX="16.5" PointY="60.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb_x_fa_factura_NotaDeb" Width="1.5" PointX="0.75" PointY="21.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC" Width="1.5" PointX="23.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_factura_x_cbte_cble" Width="1.5" PointX="23.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro" Width="1.5" PointX="23.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura" Width="1.5" PointX="23.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Sucursal" Width="1.5" PointX="17.75" PointY="23.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_FacturasConDevolucionxItemConsulta" Width="1.5" PointX="23.75" PointY="21.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_FacturasConDevolucionxItemSaldos" Width="1.5" PointX="25.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_FacturasxDevolucionxIdDevolucion" Width="1.5" PointX="25.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_FacturasxDevolucionxItem" Width="1.5" PointX="25.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizarNotaCredDeb" Width="1.5" PointX="25.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizarNotaCredDeb_x_sucursal" Width="1.5" PointX="19.75" PointY="25.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_formaPago" Width="1.5" PointX="17.25" PointY="39.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_formaPago" Width="1.5" PointX="19.5" PointY="45.375" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_fa_TerminoPago" Width="1.5" PointX="27.75" PointY="0.75" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_formaPago_fa_formaPago" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_TerminoPago" Width="1.5" PointX="3" PointY="38.875" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_TerminoPago_Distribucion" Width="1.5" PointX="5.25" PointY="16" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_pedido_x_formaPago_fa_TerminoPago" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_TerminoPago_Distribucion_fa_TerminoPago" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Formas_Pago_x_Factura_DeclaracionSRI" Width="1.5" PointX="15.75" PointY="27.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_Factura_Dev" Width="1.5" PointX="29.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Documento_DeclaracionSRI" Width="1.5" PointX="7.677253562806758" PointY="25.292033088063835" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwFa_Documento_DeclaracionSRI_DATA" Width="1.5" PointX="6.6375075758609494" PointY="22.245030368792374" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura" Width="1.5" PointX="0.18068169624576425" PointY="26.834847492554619" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb" Width="1.5" PointX="33.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_PuntoVta" Width="1.5" PointX="4.75" PointY="4.625" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_Nota_Credito" Width="1.5" PointX="11.630787608973117" PointY="31.270272209900558" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb" Width="1.5" PointX="3.1713377866760539" PointY="15.953855790176363" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_devol_venta_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_devol_venta_fa_notaCreDeb" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_det_otros_campos_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_fa_notaCreDeb" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_fa_PuntoVta" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_ct_cbtecble_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_fa_cotizacion_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_fa_guia_remision_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_formaPago_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_in_Ing_Egr_Inven_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_in_movi_inve_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_x_in_movi_inve_x_Anulacion_fa_factura" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_fa_PuntoVta" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_fa_TipoNota" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_fa_Vendedor" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_x_ct_cbtecble_fa_notaCreDeb" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_x_cxc_cobro_fa_notaCreDeb" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_cliente" Width="1.5" PointX="2.6142780550822051" PointY="30.195136516445846" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_cliente" Width="1.5" PointX="31.75" PointY="3.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_cliente_vista_previa" Width="1.5" PointX="27.75" PointY="4.375" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_cliente_fa_catalogo" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_cliente_contactos_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_cliente_fa_cliente_tipo" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_cotizacion_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_devol_venta_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_guia_remision_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_orden_Desp_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_pedido_fa_cliente" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_venta_telefonica_fa_cliente" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_factura" Width="1.5" PointX="25.75" PointY="20.375" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_factura_sri" Width="1.5" PointX="0.93210369205665944" PointY="9.8959175692386534" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb_det" Width="1.5" PointX="6.616431710597328" PointY="23.345029603384916" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_factura_det" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_det_sri" Width="1.5" PointX="21.75" PointY="0.75" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_notaCreDeb_det_fa_notaCreDeb" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizarNotaCredDeb_x_Item" Width="1.5" PointX="10.75" PointY="7.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_sri" Width="1.5" PointX="6.75" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_det" Width="1.5" PointX="6.4023572497080812" PointY="7.5028791909585149" />
+        <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_det_fa_factura" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Item" Width="1.5" PointX="10.67839285483509" PointY="13.6443397764323" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_PuntoVta" Width="1.5" PointX="5.7862708427879355" PointY="24.205796834177242" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

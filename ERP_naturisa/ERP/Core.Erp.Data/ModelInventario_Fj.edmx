@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelInventario_Fj.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelInventario_FjStoreContainer">
+          <EntitySet Name="in_Orden_servicio_x_Activo_fijo" EntityType="ModelInventario_Fj.Store.in_Orden_servicio_x_Activo_fijo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="in_Orden_servicio_x_Activo_fijo_det" EntityType="ModelInventario_Fj.Store.in_Orden_servicio_x_Activo_fijo_det" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vwin_Orden_servicio_x_activo_fijo" EntityType="ModelInventario_Fj.Store.vwin_Orden_servicio_x_activo_fijo" store:Type="Views" store:Schema="dbo" store:Name="vwin_Orden_servicio_x_activo_fijo">
+            <DefiningQuery>SELECT 
+      [vwin_Orden_servicio_x_activo_fijo].[IdEmpresa] AS [IdEmpresa], 
+      [vwin_Orden_servicio_x_activo_fijo].[IdSucursal] AS [IdSucursal], 
+      [vwin_Orden_servicio_x_activo_fijo].[IdOrdenSer_x_Af] AS [IdOrdenSer_x_Af], 
+      [vwin_Orden_servicio_x_activo_fijo].[IdBodega] AS [IdBodega], 
+      [vwin_Orden_servicio_x_activo_fijo].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwin_Orden_servicio_x_activo_fijo].[IdProveedor] AS [IdProveedor], 
+      [vwin_Orden_servicio_x_activo_fijo].[Fecha] AS [Fecha], 
+      [vwin_Orden_servicio_x_activo_fijo].[Num_Fact] AS [Num_Fact], 
+      [vwin_Orden_servicio_x_activo_fijo].[Num_Documento] AS [Num_Documento], 
+      [vwin_Orden_servicio_x_activo_fijo].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwin_Orden_servicio_x_activo_fijo].[Observacion] AS [Observacion], 
+      [vwin_Orden_servicio_x_activo_fijo].[Estado] AS [Estado], 
+      [vwin_Orden_servicio_x_activo_fijo].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwin_Orden_servicio_x_activo_fijo].[Af_Nombre] AS [Af_Nombre], 
+      [vwin_Orden_servicio_x_activo_fijo].[Centro_costo] AS [Centro_costo], 
+      [vwin_Orden_servicio_x_activo_fijo].[pr_nombre] AS [pr_nombre], 
+      [vwin_Orden_servicio_x_activo_fijo].[Su_Descripcion] AS [Su_Descripcion]
+      FROM [dbo].[vwin_Orden_servicio_x_activo_fijo] AS [vwin_Orden_servicio_x_activo_fijo]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo" Association="ModelInventario_Fj.Store.FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo">
+            <End Role="in_Orden_servicio_x_Activo_fijo" EntitySet="in_Orden_servicio_x_Activo_fijo" />
+            <End Role="in_Orden_servicio_x_Activo_fijo_det" EntitySet="in_Orden_servicio_x_Activo_fijo_det" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="in_Orden_servicio_x_Activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenSer_x_Af" Type="numeric" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Num_Fact" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Num_Documento" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1500" />
+          <Property Name="IdUsuarioUltAnu" Type="varchar" MaxLength="20" />
+          <Property Name="motivoAnulacion" Type="varchar" MaxLength="150" />
+          <Property Name="FechaHoraAnul" Type="datetime" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_Orden_servicio_x_Activo_fijo_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenSer_x_Af" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Cantidad" Type="float" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="SubTotal" Type="float" Nullable="false" />
+          <Property Name="Iva" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="Maneja_Iva" Type="bit" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NATPRUEBAS.dbo.vwin_Orden_servicio_x_activo_fijo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwin_Orden_servicio_x_activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Num_Fact" />
+            <PropertyRef Name="Num_Documento" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="Centro_costo" />
+            <PropertyRef Name="Su_Descripcion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenSer_x_Af" Type="numeric" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Num_Fact" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Num_Documento" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1500" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NATPRUEBAS.dbo.vwin_Transferencia_sin_guia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <Association Name="FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo">
+          <End Role="in_Orden_servicio_x_Activo_fijo" Type="ModelInventario_Fj.Store.in_Orden_servicio_x_Activo_fijo" Multiplicity="1" />
+          <End Role="in_Orden_servicio_x_Activo_fijo_det" Type="ModelInventario_Fj.Store.in_Orden_servicio_x_Activo_fijo_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Orden_servicio_x_Activo_fijo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+              <PropertyRef Name="IdOrdenSer_x_Af" />
+            </Principal>
+            <Dependent Role="in_Orden_servicio_x_Activo_fijo_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+              <PropertyRef Name="IdOrdenSer_x_Af" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelInventario_Fj" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesInventario_Fj" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="in_Orden_servicio_x_Activo_fijo_det" EntityType="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo_det" />
+          <EntitySet Name="vwin_Orden_servicio_x_activo_fijo" EntityType="ModelInventario_Fj.vwin_Orden_servicio_x_activo_fijo" />
+          <EntitySet Name="in_Orden_servicio_x_Activo_fijo" EntityType="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo" />
+          <AssociationSet Name="FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo" Association="ModelInventario_Fj.FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo">
+            <End Role="in_Orden_servicio_x_Activo_fijo" EntitySet="in_Orden_servicio_x_Activo_fijo" />
+            <End Role="in_Orden_servicio_x_Activo_fijo_det" EntitySet="in_Orden_servicio_x_Activo_fijo_det" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="in_Orden_servicio_x_Activo_fijo_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenSer_x_Af" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="Double" Name="Costo" Nullable="false" />
+          <Property Type="Double" Name="SubTotal" Nullable="false" />
+          <Property Type="Double" Name="Iva" Nullable="false" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="Boolean" Name="Maneja_Iva" />
+          <NavigationProperty Name="in_Orden_servicio_x_Activo_fijo" Relationship="ModelInventario_Fj.FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo" FromRole="in_Orden_servicio_x_Activo_fijo_det" ToRole="in_Orden_servicio_x_Activo_fijo" />
+        </EntityType>
+        <EntityType Name="vwin_Orden_servicio_x_activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Num_Fact" />
+            <PropertyRef Name="Num_Documento" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="Centro_costo" />
+            <PropertyRef Name="Su_Descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenSer_x_Af" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Num_Fact" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Documento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Centro_costo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="in_Orden_servicio_x_Activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenSer_x_Af" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Num_Fact" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Documento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="motivoAnulacion" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaHoraAnul" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="in_Orden_servicio_x_Activo_fijo_det" Relationship="ModelInventario_Fj.FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo" FromRole="in_Orden_servicio_x_Activo_fijo" ToRole="in_Orden_servicio_x_Activo_fijo_det" />
+        </EntityType>
+        <Association Name="FK_in_Orden_servicio_x_Activo_fijo_det_in_Orden_servicio_x_Activo_fijo">
+          <End Type="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo" Role="in_Orden_servicio_x_Activo_fijo" Multiplicity="1" />
+          <End Type="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo_det" Role="in_Orden_servicio_x_Activo_fijo_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Orden_servicio_x_Activo_fijo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+              <PropertyRef Name="IdOrdenSer_x_Af" />
+            </Principal>
+            <Dependent Role="in_Orden_servicio_x_Activo_fijo_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+              <PropertyRef Name="IdOrdenSer_x_Af" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelInventario_FjStoreContainer" CdmEntityContainer="EntitiesInventario_Fj">
+          <EntitySetMapping Name="in_Orden_servicio_x_Activo_fijo_det">
+            <EntityTypeMapping TypeName="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo_det">
+              <MappingFragment StoreEntitySet="in_Orden_servicio_x_Activo_fijo_det">
+                <ScalarProperty Name="Maneja_Iva" ColumnName="Maneja_Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenSer_x_Af" ColumnName="IdOrdenSer_x_Af" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwin_Orden_servicio_x_activo_fijo">
+            <EntityTypeMapping TypeName="ModelInventario_Fj.vwin_Orden_servicio_x_activo_fijo">
+              <MappingFragment StoreEntitySet="vwin_Orden_servicio_x_activo_fijo">
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Num_Documento" ColumnName="Num_Documento" />
+                <ScalarProperty Name="Num_Fact" ColumnName="Num_Fact" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdOrdenSer_x_Af" ColumnName="IdOrdenSer_x_Af" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_Orden_servicio_x_Activo_fijo">
+            <EntityTypeMapping TypeName="ModelInventario_Fj.in_Orden_servicio_x_Activo_fijo">
+              <MappingFragment StoreEntitySet="in_Orden_servicio_x_Activo_fijo">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FechaHoraAnul" ColumnName="FechaHoraAnul" />
+                <ScalarProperty Name="motivoAnulacion" ColumnName="motivoAnulacion" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Num_Documento" ColumnName="Num_Documento" />
+                <ScalarProperty Name="Num_Fact" ColumnName="Num_Fact" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdOrdenSer_x_Af" ColumnName="IdOrdenSer_x_Af" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

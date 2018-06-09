@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelContabilidad_FJ.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelContabilidad_FJStoreContainer">
+          <EntitySet Name="ct_distribucion_gastos_x_periodo" EntityType="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" EntityType="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="ct_distribucion_gastos_x_periodo_det_gastos" EntityType="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo_det_gastos" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="ct_punto_cargo_FJ" EntityType="ModelContabilidad_FJ.Store.ct_punto_cargo_FJ" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="vwct_centro_costo_x_cliente" EntityType="ModelContabilidad_FJ.Store.vwct_centro_costo_x_cliente" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwct_centro_costo_x_cliente">
+            <DefiningQuery>SELECT 
+      [vwct_centro_costo_x_cliente].[pe_razonSocial] AS [pe_razonSocial], 
+      [vwct_centro_costo_x_cliente].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwct_centro_costo_x_cliente].[pe_direccion] AS [pe_direccion], 
+      [vwct_centro_costo_x_cliente].[pe_telefonoOfic] AS [pe_telefonoOfic], 
+      [vwct_centro_costo_x_cliente].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwct_centro_costo_x_cliente].[pe_correo] AS [pe_correo], 
+      [vwct_centro_costo_x_cliente].[pe_Naturaleza] AS [pe_Naturaleza], 
+      [vwct_centro_costo_x_cliente].[pe_estado] AS [pe_estado], 
+      [vwct_centro_costo_x_cliente].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwct_centro_costo_x_cliente].[IdCliente_cli] AS [IdCliente_cli], 
+      [vwct_centro_costo_x_cliente].[IdEmpresa_cli] AS [IdEmpresa_cli], 
+      [vwct_centro_costo_x_cliente].[IdActividadComercial] AS [IdActividadComercial], 
+      [vwct_centro_costo_x_cliente].[Estado] AS [Estado], 
+      [vwct_centro_costo_x_cliente].[IdProvincia] AS [IdProvincia], 
+      [vwct_centro_costo_x_cliente].[IdPais] AS [IdPais], 
+      [vwct_centro_costo_x_cliente].[Descripcion_Ciudad] AS [Descripcion_Ciudad], 
+      [vwct_centro_costo_x_cliente].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwct_centro_costo_x_cliente].[nom_Cliente] AS [nom_Cliente], 
+      [vwct_centro_costo_x_cliente].[pe_celular] AS [pe_celular], 
+      [vwct_centro_costo_x_cliente].[num_cta_acreditacion] AS [num_cta_acreditacion], 
+      [vwct_centro_costo_x_cliente].[pc_Estado] AS [pc_Estado], 
+      [vwct_centro_costo_x_cliente].[CodCentroCosto] AS [CodCentroCosto], 
+      [vwct_centro_costo_x_cliente].[IdCentroCostoPadre] AS [IdCentroCostoPadre], 
+      [vwct_centro_costo_x_cliente].[IdCentroCosto_cc] AS [IdCentroCosto_cc], 
+      [vwct_centro_costo_x_cliente].[IdEmpresa_cc] AS [IdEmpresa_cc]
+      FROM [Fj_servindustrias].[vwct_centro_costo_x_cliente] AS [vwct_centro_costo_x_cliente]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwct_distribucion_gastos_x_periodo" EntityType="ModelContabilidad_FJ.Store.vwct_distribucion_gastos_x_periodo" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwct_distribucion_gastos_x_periodo">
+            <DefiningQuery>SELECT 
+      [vwct_distribucion_gastos_x_periodo].[IdEmpresa] AS [IdEmpresa], 
+      [vwct_distribucion_gastos_x_periodo].[IdDistribucion] AS [IdDistribucion], 
+      [vwct_distribucion_gastos_x_periodo].[IdPeriodo] AS [IdPeriodo], 
+      [vwct_distribucion_gastos_x_periodo].[Fecha] AS [Fecha], 
+      [vwct_distribucion_gastos_x_periodo].[Observacion] AS [Observacion], 
+      [vwct_distribucion_gastos_x_periodo].[Estado] AS [Estado], 
+      [vwct_distribucion_gastos_x_periodo].[IdEmpresa_ct] AS [IdEmpresa_ct], 
+      [vwct_distribucion_gastos_x_periodo].[IdTipoCbte_ct] AS [IdTipoCbte_ct], 
+      [vwct_distribucion_gastos_x_periodo].[IdCbteCble_ct] AS [IdCbteCble_ct], 
+      [vwct_distribucion_gastos_x_periodo].[tc_TipoCbte] AS [tc_TipoCbte], 
+      [vwct_distribucion_gastos_x_periodo].[pe_mes] AS [pe_mes], 
+      [vwct_distribucion_gastos_x_periodo].[smes] AS [smes], 
+      [vwct_distribucion_gastos_x_periodo].[IdanioFiscal] AS [IdanioFiscal]
+      FROM [Fj_servindustrias].[vwct_distribucion_gastos_x_periodo] AS [vwct_distribucion_gastos_x_periodo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir" EntityType="ModelContabilidad_FJ.Store.vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir">
+            <DefiningQuery>SELECT 
+      [vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir].[IdEmpresa] AS [IdEmpresa], 
+      [vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir].[IdCtaCble] AS [IdCtaCble], 
+      [vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir].[pc_Cuenta] AS [pc_Cuenta], 
+      [vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir].[IdPeriodo] AS [IdPeriodo], 
+      [vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir].[dc_Valor] AS [dc_Valor]
+      FROM [Fj_servindustrias].[vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir] AS [vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwct_punto_cargo_x_Af_Activo_fijo" EntityType="ModelContabilidad_FJ.Store.vwct_punto_cargo_x_Af_Activo_fijo" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwct_punto_cargo_x_Af_Activo_fijo">
+            <DefiningQuery>SELECT 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[IdEmpresa] AS [IdEmpresa], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[codPunto_cargo] AS [codPunto_cargo], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[Estado] AS [Estado], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[IdCentroCosto_Scc] AS [IdCentroCosto_Scc], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[IdCentroCosto_sub_centro_costo_Scc] AS [IdCentroCosto_sub_centro_costo_Scc], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[nom_centro] AS [nom_centro], 
+      [vwct_punto_cargo_x_Af_Activo_fijo].[nom_subcentro] AS [nom_subcentro]
+      FROM [Fj_servindustrias].[vwct_punto_cargo_x_Af_Activo_fijo] AS [vwct_punto_cargo_x_Af_Activo_fijo]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo" Association="ModelContabilidad_FJ.Store.FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo">
+            <End Role="ct_distribucion_gastos_x_periodo" EntitySet="ct_distribucion_gastos_x_periodo" />
+            <End Role="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" EntitySet="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo" Association="ModelContabilidad_FJ.Store.FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo">
+            <End Role="ct_distribucion_gastos_x_periodo" EntitySet="ct_distribucion_gastos_x_periodo" />
+            <End Role="ct_distribucion_gastos_x_periodo_det_gastos" EntitySet="ct_distribucion_gastos_x_periodo_det_gastos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ct_distribucion_gastos_x_periodo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdDistribucion" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="IdEmpresa_ct" Type="int" />
+          <Property Name="IdTipoCbte_ct" Type="int" />
+          <Property Name="IdCbteCble_ct" Type="numeric" />
+        </EntityType>
+        <EntityType Name="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdDistribucion" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdPunto_cargo" Type="int" Nullable="false" />
+          <Property Name="Porcentaje" Type="float" Nullable="false" />
+          <Property Name="Checked" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ct_distribucion_gastos_x_periodo_det_gastos">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdDistribucion" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Saldo" Type="float" Nullable="false" />
+          <Property Name="Checked" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ct_punto_cargo_FJ">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPunto_cargo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPunto_cargo" Type="int" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwct_centro_costo_x_cliente' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwct_centro_costo_x_cliente">
+          <Key>
+            <PropertyRef Name="nom_Centro_costo" />
+            <PropertyRef Name="pc_Estado" />
+            <PropertyRef Name="CodCentroCosto" />
+            <PropertyRef Name="IdCentroCosto_cc" />
+            <PropertyRef Name="IdEmpresa_cc" />
+          </Key>
+          <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
+          <Property Name="pe_cedulaRuc" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" MaxLength="150" />
+          <Property Name="pe_telefonoOfic" Type="varchar" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_correo" Type="varchar" MaxLength="100" />
+          <Property Name="pe_Naturaleza" Type="varchar" MaxLength="25" />
+          <Property Name="pe_estado" Type="varchar" MaxLength="1" />
+          <Property Name="IdTipoDocumento" Type="varchar" MaxLength="25" />
+          <Property Name="IdCliente_cli" Type="numeric" />
+          <Property Name="IdEmpresa_cli" Type="int" />
+          <Property Name="IdActividadComercial" Type="varchar" MaxLength="15" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="IdProvincia" Type="varchar" MaxLength="25" />
+          <Property Name="IdPais" Type="varchar" MaxLength="10" />
+          <Property Name="Descripcion_Ciudad" Type="varchar" MaxLength="50" />
+          <Property Name="nom_Centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="nom_Cliente" Type="varchar" MaxLength="200" />
+          <Property Name="pe_celular" Type="varchar" MaxLength="50" />
+          <Property Name="num_cta_acreditacion" Type="varchar" MaxLength="50" />
+          <Property Name="pc_Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="CodCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCostoPadre" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_cc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdEmpresa_cc" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwct_distribucion_gastos_x_periodo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwct_distribucion_gastos_x_periodo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="pe_mes" />
+            <PropertyRef Name="smes" />
+            <PropertyRef Name="IdanioFiscal" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdDistribucion" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="IdEmpresa_ct" Type="int" />
+          <Property Name="IdTipoCbte_ct" Type="int" />
+          <Property Name="IdCbteCble_ct" Type="numeric" />
+          <Property Name="tc_TipoCbte" Type="char" MaxLength="50" />
+          <Property Name="pe_mes" Type="int" Nullable="false" />
+          <Property Name="smes" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdanioFiscal" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="IdPeriodo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="dc_Valor" Type="float" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwct_punto_cargo_x_Af_Activo_fijo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwct_punto_cargo_x_Af_Activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPunto_cargo" />
+            <PropertyRef Name="codPunto_cargo" />
+            <PropertyRef Name="nom_punto_cargo" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPunto_cargo" Type="int" Nullable="false" />
+          <Property Name="codPunto_cargo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_punto_cargo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IdPunto_cargo_grupo" Type="int" />
+          <Property Name="IdCentroCosto_Scc" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo_Scc" Type="varchar" MaxLength="20" />
+          <Property Name="nom_centro" Type="varchar" MaxLength="250" />
+          <Property Name="nom_subcentro" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo">
+          <End Role="ct_distribucion_gastos_x_periodo" Type="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo" Multiplicity="1" />
+          <End Role="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" Type="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_distribucion_gastos_x_periodo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Principal>
+            <Dependent Role="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo">
+          <End Role="ct_distribucion_gastos_x_periodo" Type="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo" Multiplicity="1" />
+          <End Role="ct_distribucion_gastos_x_periodo_det_gastos" Type="ModelContabilidad_FJ.Store.ct_distribucion_gastos_x_periodo_det_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_distribucion_gastos_x_periodo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Principal>
+            <Dependent Role="ct_distribucion_gastos_x_periodo_det_gastos">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelContabilidad_FJ" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesContabilidad_FJ" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwct_centro_costo_x_cliente" EntityType="ModelContabilidad_FJ.vwct_centro_costo_x_cliente" />
+          <EntitySet Name="ct_punto_cargo_FJ" EntityType="ModelContabilidad_FJ.ct_punto_cargo_FJ" />
+          <EntitySet Name="vwct_punto_cargo_x_Af_Activo_fijo" EntityType="ModelContabilidad_FJ.vwct_punto_cargo_x_Af_Activo_fijo" />
+          <EntitySet Name="ct_distribucion_gastos_x_periodo" EntityType="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo" />
+          <EntitySet Name="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" EntityType="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" />
+          <EntitySet Name="ct_distribucion_gastos_x_periodo_det_gastos" EntityType="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_gastos" />
+          <AssociationSet Name="FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo" Association="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo">
+            <End Role="ct_distribucion_gastos_x_periodo" EntitySet="ct_distribucion_gastos_x_periodo" />
+            <End Role="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" EntitySet="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo" Association="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo">
+            <End Role="ct_distribucion_gastos_x_periodo" EntitySet="ct_distribucion_gastos_x_periodo" />
+            <End Role="ct_distribucion_gastos_x_periodo_det_gastos" EntitySet="ct_distribucion_gastos_x_periodo_det_gastos" />
+          </AssociationSet>
+          <EntitySet Name="vwct_distribucion_gastos_x_periodo" EntityType="ModelContabilidad_FJ.vwct_distribucion_gastos_x_periodo" />
+          <EntitySet Name="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir" EntityType="ModelContabilidad_FJ.vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir" />
+        </EntityContainer>
+        <EntityType Name="vwct_centro_costo_x_cliente">
+          <Key>
+            <PropertyRef Name="nom_Centro_costo" />
+            <PropertyRef Name="pc_Estado" />
+            <PropertyRef Name="CodCentroCosto" />
+            <PropertyRef Name="IdCentroCosto_cc" />
+            <PropertyRef Name="IdEmpresa_cc" />
+          </Key>
+          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoOfic" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_Naturaleza" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_estado" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente_cli" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_cli" />
+          <Property Type="String" Name="IdActividadComercial" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdProvincia" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdPais" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion_Ciudad" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Cliente" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_celular" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="num_cta_acreditacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="CodCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCostoPadre" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_cc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cc" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ct_punto_cargo_FJ">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPunto_cargo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwct_punto_cargo_x_Af_Activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPunto_cargo" />
+            <PropertyRef Name="codPunto_cargo" />
+            <PropertyRef Name="nom_punto_cargo" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="false" />
+          <Property Type="String" Name="codPunto_cargo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
+          <Property Type="String" Name="IdCentroCosto_Scc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo_Scc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_centro" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subcentro" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ct_distribucion_gastos_x_periodo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDistribucion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_ct" />
+          <Property Type="Int32" Name="IdTipoCbte_ct" />
+          <Property Type="Decimal" Name="IdCbteCble_ct" Precision="18" Scale="0" />
+          <NavigationProperty Name="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" Relationship="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo" FromRole="ct_distribucion_gastos_x_periodo" ToRole="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" />
+          <NavigationProperty Name="ct_distribucion_gastos_x_periodo_det_gastos" Relationship="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo" FromRole="ct_distribucion_gastos_x_periodo" ToRole="ct_distribucion_gastos_x_periodo_det_gastos" />
+        </EntityType>
+        <EntityType Name="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDistribucion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="false" />
+          <Property Type="Double" Name="Porcentaje" Nullable="false" />
+          <Property Type="Boolean" Name="Checked" Nullable="false" />
+          <NavigationProperty Name="ct_distribucion_gastos_x_periodo" Relationship="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo" FromRole="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" ToRole="ct_distribucion_gastos_x_periodo" />
+        </EntityType>
+        <EntityType Name="ct_distribucion_gastos_x_periodo_det_gastos">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDistribucion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Saldo" Nullable="false" />
+          <Property Type="Boolean" Name="Checked" Nullable="false" />
+          <NavigationProperty Name="ct_distribucion_gastos_x_periodo" Relationship="ModelContabilidad_FJ.FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo" FromRole="ct_distribucion_gastos_x_periodo_det_gastos" ToRole="ct_distribucion_gastos_x_periodo" />
+        </EntityType>
+        <Association Name="FK_ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_ct_distribucion_gastos_x_periodo">
+          <End Type="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo" Role="ct_distribucion_gastos_x_periodo" Multiplicity="1" />
+          <End Type="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" Role="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_distribucion_gastos_x_periodo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Principal>
+            <Dependent Role="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ct_distribucion_gastos_x_periodo_det_gastos_ct_distribucion_gastos_x_periodo">
+          <End Type="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo" Role="ct_distribucion_gastos_x_periodo" Multiplicity="1" />
+          <End Type="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_gastos" Role="ct_distribucion_gastos_x_periodo_det_gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ct_distribucion_gastos_x_periodo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Principal>
+            <Dependent Role="ct_distribucion_gastos_x_periodo_det_gastos">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDistribucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwct_distribucion_gastos_x_periodo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDistribucion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="pe_mes" />
+            <PropertyRef Name="smes" />
+            <PropertyRef Name="IdanioFiscal" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDistribucion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_ct" />
+          <Property Type="Int32" Name="IdTipoCbte_ct" />
+          <Property Type="Decimal" Name="IdCbteCble_ct" Precision="18" Scale="0" />
+          <Property Type="String" Name="tc_TipoCbte" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="pe_mes" Nullable="false" />
+          <Property Type="String" Name="smes" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdanioFiscal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="pc_Cuenta" />
+            <PropertyRef Name="IdPeriodo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pc_Cuenta" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Double" Name="dc_Valor" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelContabilidad_FJStoreContainer" CdmEntityContainer="EntitiesContabilidad_FJ">
+          <EntitySetMapping Name="vwct_centro_costo_x_cliente">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.vwct_centro_costo_x_cliente">
+              <MappingFragment StoreEntitySet="vwct_centro_costo_x_cliente">
+                <ScalarProperty Name="IdEmpresa_cc" ColumnName="IdEmpresa_cc" />
+                <ScalarProperty Name="IdCentroCosto_cc" ColumnName="IdCentroCosto_cc" />
+                <ScalarProperty Name="IdCentroCostoPadre" ColumnName="IdCentroCostoPadre" />
+                <ScalarProperty Name="CodCentroCosto" ColumnName="CodCentroCosto" />
+                <ScalarProperty Name="pc_Estado" ColumnName="pc_Estado" />
+                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
+                <ScalarProperty Name="pe_celular" ColumnName="pe_celular" />
+                <ScalarProperty Name="nom_Cliente" ColumnName="nom_Cliente" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="Descripcion_Ciudad" ColumnName="Descripcion_Ciudad" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdActividadComercial" ColumnName="IdActividadComercial" />
+                <ScalarProperty Name="IdEmpresa_cli" ColumnName="IdEmpresa_cli" />
+                <ScalarProperty Name="IdCliente_cli" ColumnName="IdCliente_cli" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="pe_estado" ColumnName="pe_estado" />
+                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_telefonoOfic" ColumnName="pe_telefonoOfic" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_punto_cargo_FJ">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.ct_punto_cargo_FJ">
+              <MappingFragment StoreEntitySet="ct_punto_cargo_FJ">
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwct_punto_cargo_x_Af_Activo_fijo">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.vwct_punto_cargo_x_Af_Activo_fijo">
+              <MappingFragment StoreEntitySet="vwct_punto_cargo_x_Af_Activo_fijo">
+                <ScalarProperty Name="nom_subcentro" ColumnName="nom_subcentro" />
+                <ScalarProperty Name="nom_centro" ColumnName="nom_centro" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo_Scc" ColumnName="IdCentroCosto_sub_centro_costo_Scc" />
+                <ScalarProperty Name="IdCentroCosto_Scc" ColumnName="IdCentroCosto_Scc" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="codPunto_cargo" ColumnName="codPunto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_distribucion_gastos_x_periodo">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo">
+              <MappingFragment StoreEntitySet="ct_distribucion_gastos_x_periodo">
+                <ScalarProperty Name="IdCbteCble_ct" ColumnName="IdCbteCble_ct" />
+                <ScalarProperty Name="IdTipoCbte_ct" ColumnName="IdTipoCbte_ct" />
+                <ScalarProperty Name="IdEmpresa_ct" ColumnName="IdEmpresa_ct" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdDistribucion" ColumnName="IdDistribucion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+              <MappingFragment StoreEntitySet="ct_distribucion_gastos_x_periodo_det_ct_punto_cargo">
+                <ScalarProperty Name="Checked" ColumnName="Checked" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdDistribucion" ColumnName="IdDistribucion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_distribucion_gastos_x_periodo_det_gastos">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.ct_distribucion_gastos_x_periodo_det_gastos">
+              <MappingFragment StoreEntitySet="ct_distribucion_gastos_x_periodo_det_gastos">
+                <ScalarProperty Name="Checked" ColumnName="Checked" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdDistribucion" ColumnName="IdDistribucion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwct_distribucion_gastos_x_periodo">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.vwct_distribucion_gastos_x_periodo">
+              <MappingFragment StoreEntitySet="vwct_distribucion_gastos_x_periodo">
+                <ScalarProperty Name="IdanioFiscal" ColumnName="IdanioFiscal" />
+                <ScalarProperty Name="smes" ColumnName="smes" />
+                <ScalarProperty Name="pe_mes" ColumnName="pe_mes" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="IdCbteCble_ct" ColumnName="IdCbteCble_ct" />
+                <ScalarProperty Name="IdTipoCbte_ct" ColumnName="IdTipoCbte_ct" />
+                <ScalarProperty Name="IdEmpresa_ct" ColumnName="IdEmpresa_ct" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdDistribucion" ColumnName="IdDistribucion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir">
+            <EntityTypeMapping TypeName="ModelContabilidad_FJ.vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir">
+              <MappingFragment StoreEntitySet="vwct_distribucion_gastos_x_periodo_det_gastos_para_distribuir">
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="pc_Cuenta" ColumnName="pc_Cuenta" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

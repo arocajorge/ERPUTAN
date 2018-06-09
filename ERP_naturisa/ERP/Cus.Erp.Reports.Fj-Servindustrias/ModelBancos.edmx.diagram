@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9f3bfb29dcb40fbae1b6e204bcced1b" Name="Diagrama1" ZoomLevel="73">
+        <EntityTypeShape EntityType="ModelBancos_Rpt_Fj.vwBAN_FJ_Rpt001" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelBancos_Rpt_Fj.vwBAN_FJ_Rpt002" Width="1.5" PointX="6.1132049477254995" PointY="13.349555915850008" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

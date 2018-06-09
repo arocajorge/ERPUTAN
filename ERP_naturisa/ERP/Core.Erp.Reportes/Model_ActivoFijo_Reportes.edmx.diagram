@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="049682e8f5a24766a34f3f3ea5f8cc25" Name="Diagram1" ZoomLevel="49">
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt002" Width="1.5" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt003" Width="1.5" PointX="4.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt004" Width="1.5" PointX="6.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt005" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt006" Width="1.5" PointX="10.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt007" Width="1.5" PointX="12.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt008" Width="1.5" PointX="0.5" PointY="8.375" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt009" Width="1.5" PointX="2.5" PointY="8.375" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt010" Width="1.5" PointX="4.5" PointY="8.375" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt011" Width="1.5" PointX="6.375" PointY="8.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt013" Width="1.5" PointX="10.5" PointY="8.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt001" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt012" Width="1.5" PointX="7.8638964350632836" PointY="18.60533142956222" />
+        <EntityTypeShape EntityType="DBERPModel6.vwACTF_Rpt014" Width="1.5" PointX="11.987153308460094" PointY="18.5096469905738" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

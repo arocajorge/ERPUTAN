@@ -1,0 +1,1975 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBERPModel5.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DBERPModel5StoreContainer">
+          <EntitySet Name="vwCXC_Rpt001" EntityType="DBERPModel5.Store.vwCXC_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt001].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt001].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt001].[IdCobro_a_aplicar] AS [IdCobro_a_aplicar], 
+      [vwCXC_Rpt001].[cr_Codigo] AS [cr_Codigo], 
+      [vwCXC_Rpt001].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt001].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt001].[nombreCliente] AS [nombreCliente], 
+      [vwCXC_Rpt001].[cr_fecha] AS [cr_fecha], 
+      [vwCXC_Rpt001].[IdCalendario] AS [IdCalendario], 
+      [vwCXC_Rpt001].[AnioFiscal] AS [AnioFiscal], 
+      [vwCXC_Rpt001].[NombreMes] AS [NombreMes], 
+      [vwCXC_Rpt001].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwCXC_Rpt001].[cr_TotalCobro] AS [cr_TotalCobro], 
+      [vwCXC_Rpt001].[cr_fechaDocu] AS [cr_fechaDocu], 
+      [vwCXC_Rpt001].[cr_fechaCobro] AS [cr_fechaCobro], 
+      [vwCXC_Rpt001].[cr_observacion] AS [cr_observacion], 
+      [vwCXC_Rpt001].[Referencia] AS [Referencia], 
+      [vwCXC_Rpt001].[numDocumento] AS [numDocumento], 
+      [vwCXC_Rpt001].[IdTipoNotaCredito] AS [IdTipoNotaCredito]
+      FROM [dbo].[vwCXC_Rpt001] AS [vwCXC_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt002" EntityType="DBERPModel5.Store.vwCXC_Rpt002" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt002].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt002].[IdAnticipo] AS [IdAnticipo], 
+      [vwCXC_Rpt002].[Secuencia] AS [Secuencia], 
+      [vwCXC_Rpt002].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt002].[IdEmpresa_Cobro] AS [IdEmpresa_Cobro], 
+      [vwCXC_Rpt002].[IdSucursal_cobro] AS [IdSucursal_cobro], 
+      [vwCXC_Rpt002].[IdCobro_cobro] AS [IdCobro_cobro], 
+      [vwCXC_Rpt002].[cr_fechaCobro] AS [cr_fechaCobro], 
+      [vwCXC_Rpt002].[cr_observacion] AS [cr_observacion], 
+      [vwCXC_Rpt002].[cr_Banco] AS [cr_Banco], 
+      [vwCXC_Rpt002].[cr_cuenta] AS [cr_cuenta], 
+      [vwCXC_Rpt002].[cr_NumDocumento] AS [cr_NumDocumento], 
+      [vwCXC_Rpt002].[cr_Tarjeta] AS [cr_Tarjeta], 
+      [vwCXC_Rpt002].[cr_propietarioCta] AS [cr_propietarioCta], 
+      [vwCXC_Rpt002].[cr_TotalCobro] AS [cr_TotalCobro], 
+      [vwCXC_Rpt002].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt002].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt002].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwCXC_Rpt002].[pe_direccion] AS [pe_direccion]
+      FROM [dbo].[vwCXC_Rpt002] AS [vwCXC_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt003" EntityType="DBERPModel5.Store.vwCXC_Rpt003" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt003].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt003].[IdConciliacion] AS [IdConciliacion], 
+      [vwCXC_Rpt003].[Fecha] AS [Fecha], 
+      [vwCXC_Rpt003].[IdTipoConciliacion] AS [IdTipoConciliacion], 
+      [vwCXC_Rpt003].[numDocumento] AS [numDocumento], 
+      [vwCXC_Rpt003].[Saldo_por_aplicar] AS [Saldo_por_aplicar], 
+      [vwCXC_Rpt003].[Valor_Aplicado] AS [Valor_Aplicado], 
+      [vwCXC_Rpt003].[TipoDoc_vta] AS [TipoDoc_vta], 
+      [vwCXC_Rpt003].[Observacion] AS [Observacion], 
+      [vwCXC_Rpt003].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt003].[IdUsuario] AS [IdUsuario], 
+      [vwCXC_Rpt003].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt003].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt003].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwCXC_Rpt003].[pe_direccion] AS [pe_direccion], 
+      [vwCXC_Rpt003].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwCXC_Rpt003].[IdEmpresa_cbte_cble] AS [IdEmpresa_cbte_cble], 
+      [vwCXC_Rpt003].[IdTipoCbte_cbte_cble] AS [IdTipoCbte_cbte_cble], 
+      [vwCXC_Rpt003].[IdCbteCble_cbte_cble] AS [IdCbteCble_cbte_cble]
+      FROM [dbo].[vwCXC_Rpt003] AS [vwCXC_Rpt003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt004" EntityType="DBERPModel5.Store.vwCXC_Rpt004" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt004">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt004].[fila] AS [fila], 
+      [vwCXC_Rpt004].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt004].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt004].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt004].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt004].[cr_Banco] AS [cr_Banco], 
+      [vwCXC_Rpt004].[cr_cuenta] AS [cr_cuenta], 
+      [vwCXC_Rpt004].[cr_NumDocumento] AS [cr_NumDocumento], 
+      [vwCXC_Rpt004].[cr_Tarjeta] AS [cr_Tarjeta], 
+      [vwCXC_Rpt004].[cr_propietarioCta] AS [cr_propietarioCta], 
+      [vwCXC_Rpt004].[cr_TotalCobro] AS [cr_TotalCobro], 
+      [vwCXC_Rpt004].[cr_fechaCobro] AS [cr_fechaCobro], 
+      [vwCXC_Rpt004].[cr_observacion] AS [cr_observacion], 
+      [vwCXC_Rpt004].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt004].[IdUsuario] AS [IdUsuario], 
+      [vwCXC_Rpt004].[dc_TipoDocumento] AS [dc_TipoDocumento], 
+      [vwCXC_Rpt004].[IdBodega_Cbte] AS [IdBodega_Cbte], 
+      [vwCXC_Rpt004].[IdCbte_vta_nota] AS [IdCbte_vta_nota], 
+      [vwCXC_Rpt004].[dc_ValorPago] AS [dc_ValorPago], 
+      [vwCXC_Rpt004].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt004].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt004].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwCXC_Rpt004].[pe_direccion] AS [pe_direccion], 
+      [vwCXC_Rpt004].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwCXC_Rpt004].[IdBanco] AS [IdBanco], 
+      [vwCXC_Rpt004].[IdCaja] AS [IdCaja], 
+      [vwCXC_Rpt004].[Documento_Cobrado] AS [Documento_Cobrado]
+      FROM [dbo].[vwCXC_Rpt004] AS [vwCXC_Rpt004]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt005" EntityType="DBERPModel5.Store.vwCXC_Rpt005" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt005">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt005].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt005].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt005].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt005].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt005].[cr_Banco] AS [cr_Banco], 
+      [vwCXC_Rpt005].[cr_cuenta] AS [cr_cuenta], 
+      [vwCXC_Rpt005].[cr_NumDocumento] AS [cr_NumDocumento], 
+      [vwCXC_Rpt005].[cr_Tarjeta] AS [cr_Tarjeta], 
+      [vwCXC_Rpt005].[cr_propietarioCta] AS [cr_propietarioCta], 
+      [vwCXC_Rpt005].[cr_TotalCobro] AS [cr_TotalCobro], 
+      [vwCXC_Rpt005].[cr_fechaCobro] AS [cr_fechaCobro], 
+      [vwCXC_Rpt005].[cr_observacion] AS [cr_observacion], 
+      [vwCXC_Rpt005].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt005].[IdUsuario] AS [IdUsuario], 
+      [vwCXC_Rpt005].[dc_TipoDocumento] AS [dc_TipoDocumento], 
+      [vwCXC_Rpt005].[IdBodega_Cbte] AS [IdBodega_Cbte], 
+      [vwCXC_Rpt005].[IdCbte_vta_nota] AS [IdCbte_vta_nota], 
+      [vwCXC_Rpt005].[dc_ValorPago] AS [dc_ValorPago], 
+      [vwCXC_Rpt005].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt005].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt005].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwCXC_Rpt005].[pe_direccion] AS [pe_direccion], 
+      [vwCXC_Rpt005].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwCXC_Rpt005].[IdBanco] AS [IdBanco], 
+      [vwCXC_Rpt005].[IdCaja] AS [IdCaja], 
+      [vwCXC_Rpt005].[Documento_Cobrado] AS [Documento_Cobrado]
+      FROM [dbo].[vwCXC_Rpt005] AS [vwCXC_Rpt005]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt006" EntityType="DBERPModel5.Store.vwCXC_Rpt006" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt006">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt006].[fila] AS [fila], 
+      [vwCXC_Rpt006].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt006].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt006].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt006].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt006].[cr_Banco] AS [cr_Banco], 
+      [vwCXC_Rpt006].[cr_cuenta] AS [cr_cuenta], 
+      [vwCXC_Rpt006].[cr_NumDocumento] AS [cr_NumDocumento], 
+      [vwCXC_Rpt006].[cr_Tarjeta] AS [cr_Tarjeta], 
+      [vwCXC_Rpt006].[cr_propietarioCta] AS [cr_propietarioCta], 
+      [vwCXC_Rpt006].[cr_TotalCobro] AS [cr_TotalCobro], 
+      [vwCXC_Rpt006].[cr_fecha] AS [cr_fecha], 
+      [vwCXC_Rpt006].[cr_fechaDocu] AS [cr_fechaDocu], 
+      [vwCXC_Rpt006].[cr_fechaCobro] AS [cr_fechaCobro], 
+      [vwCXC_Rpt006].[cr_observacion] AS [cr_observacion], 
+      [vwCXC_Rpt006].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt006].[IdUsuario] AS [IdUsuario], 
+      [vwCXC_Rpt006].[dc_TipoDocumento] AS [dc_TipoDocumento], 
+      [vwCXC_Rpt006].[IdBodega_Cbte] AS [IdBodega_Cbte], 
+      [vwCXC_Rpt006].[IdCbte_vta_nota] AS [IdCbte_vta_nota], 
+      [vwCXC_Rpt006].[dc_ValorPago] AS [dc_ValorPago], 
+      [vwCXC_Rpt006].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt006].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt006].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwCXC_Rpt006].[pe_direccion] AS [pe_direccion], 
+      [vwCXC_Rpt006].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwCXC_Rpt006].[IdBanco] AS [IdBanco], 
+      [vwCXC_Rpt006].[IdCaja] AS [IdCaja], 
+      [vwCXC_Rpt006].[Documento_Cobrado] AS [Documento_Cobrado], 
+      [vwCXC_Rpt006].[secuencial] AS [secuencial]
+      FROM [dbo].[vwCXC_Rpt006] AS [vwCXC_Rpt006]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt007" EntityType="DBERPModel5.Store.vwCXC_Rpt007" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt007">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt007].[IdRow] AS [IdRow], 
+      [vwCXC_Rpt007].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt007].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt007].[IdBodega] AS [IdBodega], 
+      [vwCXC_Rpt007].[IdCbteVta] AS [IdCbteVta], 
+      [vwCXC_Rpt007].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwCXC_Rpt007].[numDocumento] AS [numDocumento], 
+      [vwCXC_Rpt007].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt007].[vt_fecha] AS [vt_fecha], 
+      [vwCXC_Rpt007].[vt_plazo] AS [vt_plazo], 
+      [vwCXC_Rpt007].[vt_fech_venc] AS [vt_fech_venc], 
+      [vwCXC_Rpt007].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwCXC_Rpt007].[vt_total] AS [vt_total], 
+      [vwCXC_Rpt007].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt007].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt007].[Tipo] AS [Tipo], 
+      [vwCXC_Rpt007].[IdEstadoCobro] AS [IdEstadoCobro], 
+      [vwCXC_Rpt007].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt007].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt007].[dc_TipoDocumento] AS [dc_TipoDocumento], 
+      [vwCXC_Rpt007].[Idtipo_cliente] AS [Idtipo_cliente], 
+      [vwCXC_Rpt007].[Descripcion_tip_cliente] AS [Descripcion_tip_cliente], 
+      [vwCXC_Rpt007].[vt_Observacion] AS [vt_Observacion]
+      FROM [dbo].[vwCXC_Rpt007] AS [vwCXC_Rpt007]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt011" EntityType="DBERPModel5.Store.vwCXC_Rpt011" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt011">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt011].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt011].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt011].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt011].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwCXC_Rpt011].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt011].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwCXC_Rpt011].[vt_fecha] AS [vt_fecha], 
+      [vwCXC_Rpt011].[Idtipo_cliente] AS [Idtipo_cliente], 
+      [vwCXC_Rpt011].[Descripcion_tip_cliente] AS [Descripcion_tip_cliente], 
+      [vwCXC_Rpt011].[Total_Debe] AS [Total_Debe], 
+      [vwCXC_Rpt011].[Total_Haber] AS [Total_Haber]
+      FROM [dbo].[vwCXC_Rpt011] AS [vwCXC_Rpt011]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt013" EntityType="DBERPModel5.Store.vwCXC_Rpt013" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt013">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt013].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt013].[nom_sucursal] AS [nom_sucursal], 
+      [vwCXC_Rpt013].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt013].[Fecha_cobro] AS [Fecha_cobro], 
+      [vwCXC_Rpt013].[Fecha_Retencion] AS [Fecha_Retencion], 
+      [vwCXC_Rpt013].[Num_Retencion] AS [Num_Retencion], 
+      [vwCXC_Rpt013].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt013].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt013].[nom_cliente] AS [nom_cliente], 
+      [vwCXC_Rpt013].[ruc_ced] AS [ruc_ced], 
+      [vwCXC_Rpt013].[PorcentajeRet] AS [PorcentajeRet], 
+      [vwCXC_Rpt013].[Base_RIva] AS [Base_RIva], 
+      [vwCXC_Rpt013].[Base_RFte] AS [Base_RFte], 
+      [vwCXC_Rpt013].[Valor_Ret] AS [Valor_Ret], 
+      [vwCXC_Rpt013].[IdCbteVta] AS [IdCbteVta], 
+      [vwCXC_Rpt013].[num_factura] AS [num_factura], 
+      [vwCXC_Rpt013].[Fecha_Fact] AS [Fecha_Fact], 
+      [vwCXC_Rpt013].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwCXC_Rpt013].[Tipo_Retencion] AS [Tipo_Retencion], 
+      [vwCXC_Rpt013].[nomTipo_Retencion] AS [nomTipo_Retencion], 
+      [vwCXC_Rpt013].[nomTipoCobro] AS [nomTipoCobro]
+      FROM [dbo].[vwCXC_Rpt013] AS [vwCXC_Rpt013]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt014" EntityType="DBERPModel5.Store.vwCXC_Rpt014" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt014">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt014].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt014].[em_nombre] AS [em_nombre], 
+      [vwCXC_Rpt014].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt014].[IdCbteVta] AS [IdCbteVta], 
+      [vwCXC_Rpt014].[vt_NumFactura] AS [vt_NumFactura], 
+      [vwCXC_Rpt014].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCXC_Rpt014].[vt_cantidad] AS [vt_cantidad], 
+      [vwCXC_Rpt014].[vt_total] AS [vt_total], 
+      [vwCXC_Rpt014].[vt_fecha] AS [vt_fecha], 
+      [vwCXC_Rpt014].[pr_codigo] AS [pr_codigo], 
+      [vwCXC_Rpt014].[pr_descripcion] AS [pr_descripcion], 
+      [vwCXC_Rpt014].[IdVendedor] AS [IdVendedor], 
+      [vwCXC_Rpt014].[Ve_Vendedor] AS [Ve_Vendedor]
+      FROM [dbo].[vwCXC_Rpt014] AS [vwCXC_Rpt014]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCXC_Rpt016" EntityType="DBERPModel5.Store.vwCXC_Rpt016" store:Type="Views" store:Schema="dbo" store:Name="vwCXC_Rpt016">
+            <DefiningQuery>SELECT 
+      [vwCXC_Rpt016].[IdEmpresa] AS [IdEmpresa], 
+      [vwCXC_Rpt016].[IdSucursal] AS [IdSucursal], 
+      [vwCXC_Rpt016].[IdCobro] AS [IdCobro], 
+      [vwCXC_Rpt016].[secuencial] AS [secuencial], 
+      [vwCXC_Rpt016].[IdBodega_Cbte] AS [IdBodega_Cbte], 
+      [vwCXC_Rpt016].[IdCbte_vta_nota] AS [IdCbte_vta_nota], 
+      [vwCXC_Rpt016].[IdCobro_tipo] AS [IdCobro_tipo], 
+      [vwCXC_Rpt016].[CodDocumentoTipo] AS [CodDocumentoTipo], 
+      [vwCXC_Rpt016].[Serie1] AS [Serie1], 
+      [vwCXC_Rpt016].[Serie2] AS [Serie2], 
+      [vwCXC_Rpt016].[NumNota_Impresa] AS [NumNota_Impresa], 
+      [vwCXC_Rpt016].[IdCliente] AS [IdCliente], 
+      [vwCXC_Rpt016].[nom_cliente] AS [nom_cliente], 
+      [vwCXC_Rpt016].[sc_observacion] AS [sc_observacion], 
+      [vwCXC_Rpt016].[cr_fecha] AS [cr_fecha], 
+      [vwCXC_Rpt016].[tc_descripcion] AS [tc_descripcion], 
+      [vwCXC_Rpt016].[PorcentajeRet] AS [PorcentajeRet], 
+      [vwCXC_Rpt016].[dc_ValorPago] AS [dc_ValorPago], 
+      [vwCXC_Rpt016].[cr_NumDocumento] AS [cr_NumDocumento], 
+      [vwCXC_Rpt016].[Base] AS [Base], 
+      [vwCXC_Rpt016].[num_documento] AS [num_documento], 
+      [vwCXC_Rpt016].[sc_subtotal] AS [sc_subtotal], 
+      [vwCXC_Rpt016].[sc_iva] AS [sc_iva], 
+      [vwCXC_Rpt016].[sc_total] AS [sc_total]
+      FROM [dbo].[vwCXC_Rpt016] AS [vwCXC_Rpt016]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="cr_fecha" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fechaDocu" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCobro" Type="numeric" Nullable="false" />
+          <Property Name="IdCobro_a_aplicar" Type="numeric" />
+          <Property Name="cr_Codigo" Type="varchar" MaxLength="10" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="cr_fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="30" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="cr_TotalCobro" Type="float" Nullable="false" />
+          <Property Name="cr_fechaDocu" Type="datetime" Nullable="false" />
+          <Property Name="cr_fechaCobro" Type="datetime" Nullable="false" />
+          <Property Name="cr_observacion" Type="varchar" Nullable="false" MaxLength="700" />
+          <Property Name="Referencia" Type="varchar" MaxLength="430" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="70" />
+          <Property Name="IdTipoNotaCredito" Type="int" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdAnticipo" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdAnticipo" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdEmpresa_Cobro" Type="int" />
+          <Property Name="IdSucursal_cobro" Type="int" />
+          <Property Name="IdCobro_cobro" Type="numeric" />
+          <Property Name="cr_fechaCobro" Type="datetime" Nullable="false" />
+          <Property Name="cr_observacion" Type="varchar" Nullable="false" MaxLength="700" />
+          <Property Name="cr_Banco" Type="varchar" MaxLength="50" />
+          <Property Name="cr_cuenta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_NumDocumento" Type="varchar" MaxLength="100" />
+          <Property Name="cr_Tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="cr_propietarioCta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_TotalCobro" Type="float" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdConciliacion" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdTipoConciliacion" />
+            <PropertyRef Name="Saldo_por_aplicar" />
+            <PropertyRef Name="Valor_Aplicado" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdTipoCbte_cbte_cble" />
+            <PropertyRef Name="IdCbteCble_cbte_cble" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdConciliacion" Type="numeric" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="IdTipoConciliacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="129" />
+          <Property Name="Saldo_por_aplicar" Type="float" Nullable="false" />
+          <Property Name="Valor_Aplicado" Type="float" Nullable="false" />
+          <Property Name="TipoDoc_vta" Type="varchar" MaxLength="20" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdEmpresa_cbte_cble" Type="int" />
+          <Property Name="IdTipoCbte_cbte_cble" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble_cbte_cble" Type="numeric" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="dc_ValorPago" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="fila" />
+          </Key>
+          <Property Name="fila" Type="bigint" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCobro" Type="numeric" Nullable="false" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cr_Banco" Type="varchar" MaxLength="50" />
+          <Property Name="cr_cuenta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_NumDocumento" Type="varchar" MaxLength="100" />
+          <Property Name="cr_Tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="cr_propietarioCta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_TotalCobro" Type="float" Nullable="false" />
+          <Property Name="cr_fechaCobro" Type="datetime" Nullable="false" />
+          <Property Name="cr_observacion" Type="varchar" Nullable="false" MaxLength="700" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="dc_TipoDocumento" Type="varchar" MaxLength="20" />
+          <Property Name="IdBodega_Cbte" Type="int" />
+          <Property Name="IdCbte_vta_nota" Type="numeric" />
+          <Property Name="dc_ValorPago" Type="float" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="IdCaja" Type="int" Nullable="false" />
+          <Property Name="Documento_Cobrado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdCbte_vta_nota" />
+            <PropertyRef Name="dc_ValorPago" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCobro" Type="numeric" Nullable="false" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cr_Banco" Type="varchar" MaxLength="50" />
+          <Property Name="cr_cuenta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_NumDocumento" Type="varchar" MaxLength="100" />
+          <Property Name="cr_Tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="cr_propietarioCta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_TotalCobro" Type="float" Nullable="false" />
+          <Property Name="cr_fechaCobro" Type="datetime" Nullable="false" />
+          <Property Name="cr_observacion" Type="varchar" Nullable="false" MaxLength="700" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="dc_TipoDocumento" Type="varchar" MaxLength="20" />
+          <Property Name="IdBodega_Cbte" Type="int" />
+          <Property Name="IdCbte_vta_nota" Type="numeric" Nullable="false" />
+          <Property Name="dc_ValorPago" Type="float" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="IdCaja" Type="int" Nullable="false" />
+          <Property Name="Documento_Cobrado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt006">
+          <Key>
+            <PropertyRef Name="fila" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fecha" />
+            <PropertyRef Name="cr_fechaDocu" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="fila" Type="bigint" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCobro" Type="numeric" Nullable="false" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="cr_Banco" Type="varchar" MaxLength="50" />
+          <Property Name="cr_cuenta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_NumDocumento" Type="varchar" MaxLength="100" />
+          <Property Name="cr_Tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="cr_propietarioCta" Type="varchar" MaxLength="100" />
+          <Property Name="cr_TotalCobro" Type="float" Nullable="false" />
+          <Property Name="cr_fecha" Type="datetime" Nullable="false" />
+          <Property Name="cr_fechaDocu" Type="datetime" Nullable="false" />
+          <Property Name="cr_fechaCobro" Type="datetime" Nullable="false" />
+          <Property Name="cr_observacion" Type="varchar" Nullable="false" MaxLength="700" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="dc_TipoDocumento" Type="varchar" MaxLength="20" />
+          <Property Name="IdBodega_Cbte" Type="int" />
+          <Property Name="IdCbte_vta_nota" Type="numeric" />
+          <Property Name="dc_ValorPago" Type="float" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="IdCaja" Type="int" Nullable="false" />
+          <Property Name="Documento_Cobrado" Type="varchar" MaxLength="100" />
+          <Property Name="secuencial" Type="int" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt007">
+          <Key>
+            <PropertyRef Name="IdRow" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="Descripcion_tip_cliente" />
+            <PropertyRef Name="vt_Observacion" />
+          </Key>
+          <Property Name="IdRow" Type="bigint" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="vt_tipoDoc" Type="varchar" MaxLength="20" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="51" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_plazo" Type="numeric" Precision="10" />
+          <Property Name="vt_fech_venc" Type="datetime" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="vt_total" Type="float" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdEstadoCobro" Type="varchar" MaxLength="5" />
+          <Property Name="IdCobro" Type="numeric" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="dc_TipoDocumento" Type="varchar" MaxLength="20" />
+          <Property Name="Idtipo_cliente" Type="int" Nullable="false" />
+          <Property Name="Descripcion_tip_cliente" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt011' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt011">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="Descripcion_tip_cliente" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="Idtipo_cliente" Type="int" Nullable="false" />
+          <Property Name="Descripcion_tip_cliente" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Total_Debe" Type="float" />
+          <Property Name="Total_Haber" Type="float" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt013' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt013">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="Fecha_cobro" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="ruc_ced" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="Fecha_Fact" />
+            <PropertyRef Name="Tipo_Retencion" />
+            <PropertyRef Name="nomTipo_Retencion" />
+            <PropertyRef Name="nomTipoCobro" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCobro" Type="numeric" />
+          <Property Name="Fecha_cobro" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_Retencion" Type="datetime" />
+          <Property Name="Num_Retencion" Type="varchar" MaxLength="100" />
+          <Property Name="IdCobro_tipo" Type="varchar" MaxLength="20" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nom_cliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="ruc_ced" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PorcentajeRet" Type="float" />
+          <Property Name="Base_RIva" Type="float" />
+          <Property Name="Base_RFte" Type="float" />
+          <Property Name="Valor_Ret" Type="float" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="num_factura" Type="varchar" MaxLength="24" />
+          <Property Name="Fecha_Fact" Type="datetime" Nullable="false" />
+          <Property Name="vt_tipoDoc" Type="varchar" MaxLength="20" />
+          <Property Name="Tipo_Retencion" Type="varchar" Nullable="false" MaxLength="7" />
+          <Property Name="nomTipo_Retencion" Type="varchar" Nullable="false" MaxLength="26" />
+          <Property Name="nomTipoCobro" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt014' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="vt_NumFactura" Type="varchar" MaxLength="28" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.dbo.vwCXC_Rpt016' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCXC_Rpt016">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="secuencial" />
+            <PropertyRef Name="IdCbte_vta_nota" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="sc_observacion" />
+            <PropertyRef Name="cr_fecha" />
+            <PropertyRef Name="tc_descripcion" />
+            <PropertyRef Name="dc_ValorPago" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdCobro" Type="numeric" Nullable="false" />
+          <Property Name="secuencial" Type="int" Nullable="false" />
+          <Property Name="IdBodega_Cbte" Type="int" />
+          <Property Name="IdCbte_vta_nota" Type="numeric" Nullable="false" />
+          <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CodDocumentoTipo" Type="varchar" MaxLength="20" />
+          <Property Name="Serie1" Type="varchar" MaxLength="3" />
+          <Property Name="Serie2" Type="varchar" MaxLength="3" />
+          <Property Name="NumNota_Impresa" Type="varchar" MaxLength="20" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nom_cliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="sc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="cr_fecha" Type="datetime" Nullable="false" />
+          <Property Name="tc_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="PorcentajeRet" Type="float" />
+          <Property Name="dc_ValorPago" Type="float" Nullable="false" />
+          <Property Name="cr_NumDocumento" Type="varchar" MaxLength="100" />
+          <Property Name="Base" Type="float" />
+          <Property Name="num_documento" Type="varchar" MaxLength="70" />
+          <Property Name="sc_subtotal" Type="float" />
+          <Property Name="sc_iva" Type="float" />
+          <Property Name="sc_total" Type="float" />
+        </EntityType>
+        <Function Name="spCXC_Rpt007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="SucursalIni" Type="int" Mode="In" />
+          <Parameter Name="SucursalFin" Type="int" Mode="In" />
+          <Parameter Name="IdCliente" Type="decimal" Mode="In" />
+          <Parameter Name="fechaCorte" Type="datetime" Mode="In" />
+          <Parameter Name="i_solo_cbtes_con_saldo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spCXC_Rpt008" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="SucursalIni" Type="int" Mode="In" />
+          <Parameter Name="SucursalFin" Type="int" Mode="In" />
+          <Parameter Name="fechaCorte" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCXC_Rpt009" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="SucursalIni" Type="int" Mode="In" />
+          <Parameter Name="SucursalFin" Type="int" Mode="In" />
+          <Parameter Name="fechaCorte" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCXC_Rpt010" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="SucursalIni" Type="int" Mode="In" />
+          <Parameter Name="SucursalFin" Type="int" Mode="In" />
+          <Parameter Name="fechaCorte" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCXC_Rpt012" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdCliente" Type="decimal" Mode="In" />
+          <Parameter Name="fechaCorte" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCXC_Rpt015" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="SucursalIni" Type="int" Mode="In" />
+          <Parameter Name="SucursalFin" Type="int" Mode="In" />
+          <Parameter Name="fechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="fechaFin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="spCXC_Rpt017" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBERPModel5" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="Entities_CuentasxCobrar" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spCXC_Rpt008" ReturnType="Collection(DBERPModel5.spCXC_Rpt008_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="fechaCorte" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spCXC_Rpt010" ReturnType="Collection(DBERPModel5.spCXC_Rpt010_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="fechaCorte" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="vwCXC_Rpt002" EntityType="DBERPModel5.vwCXC_Rpt002" />
+          <EntitySet Name="vwCXC_Rpt003" EntityType="DBERPModel5.vwCXC_Rpt003" />
+          <EntitySet Name="vwCXC_Rpt005" EntityType="DBERPModel5.vwCXC_Rpt005" />
+          <EntitySet Name="vwCXC_Rpt011" EntityType="DBERPModel5.vwCXC_Rpt011" />
+          <EntitySet Name="vwCXC_Rpt001" EntityType="DBERPModel5.vwCXC_Rpt001" />
+          <FunctionImport Name="spCXC_Rpt009" ReturnType="Collection(DBERPModel5.spCXC_Rpt009_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="fechaCorte" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="vwCXC_Rpt014" EntityType="DBERPModel5.vwCXC_Rpt014" />
+          <FunctionImport Name="spCXC_Rpt007" ReturnType="Collection(DBERPModel5.spCXC_Rpt007_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="IdCliente" Mode="In" Type="Decimal" />
+            <Parameter Name="fechaCorte" Mode="In" Type="DateTime" />
+            <Parameter Name="i_solo_cbtes_con_saldo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="vwCXC_Rpt016" EntityType="DBERPModel5.vwCXC_Rpt016" />
+          <FunctionImport Name="spCXC_Rpt017" ReturnType="Collection(DBERPModel5.spCXC_Rpt017_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spCXC_Rpt012" ReturnType="Collection(DBERPModel5.spCXC_Rpt012_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdCliente" Mode="In" Type="Decimal" />
+            <Parameter Name="fechaCorte" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="vwCXC_Rpt013" EntityType="DBERPModel5.vwCXC_Rpt013" />
+          <EntitySet Name="vwCXC_Rpt004" EntityType="DBERPModel5.vwCXC_Rpt004" />
+          <EntitySet Name="vwCXC_Rpt006" EntityType="DBERPModel5.vwCXC_Rpt006" />
+          <EntitySet Name="vwCXC_Rpt007" EntityType="DBERPModel5.vwCXC_Rpt007" />
+          <FunctionImport Name="spCXC_Rpt015" ReturnType="Collection(DBERPModel5.spCXC_Rpt015_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="SucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="fechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spCXC_Rpt008_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" />
+          <Property Type="Double" Name="Monto" Nullable="false" />
+          <Property Type="Double" Name="TotalCobrado" Nullable="false" />
+          <Property Type="Double" Name="Valor_Vencido" Nullable="false" />
+          <Property Type="Double" Name="Valor_x_Vencer" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spCXC_Rpt010_Result">
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Double" Name="Monto" Nullable="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" />
+          <Property Type="Double" Name="TotalCobrado" Nullable="false" />
+          <Property Type="Double" Name="Valor_Vencido" Nullable="false" />
+          <Property Type="Double" Name="x_Ven_0_30" Nullable="false" />
+          <Property Type="Double" Name="x_Ven_181_999" Nullable="false" />
+          <Property Type="Double" Name="x_Ven_31_60" Nullable="false" />
+          <Property Type="Double" Name="x_Ven_61_90" Nullable="false" />
+          <Property Type="Double" Name="x_Ven_91_180" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="vwCXC_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdAnticipo" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdAnticipo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_Cobro" />
+          <Property Type="Int32" Name="IdSucursal_cobro" />
+          <Property Type="Decimal" Name="IdCobro_cobro" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cr_fechaCobro" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cr_observacion" Nullable="false" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Banco" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_cuenta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_NumDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Tarjeta" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_propietarioCta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cr_TotalCobro" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdConciliacion" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdTipoConciliacion" />
+            <PropertyRef Name="Saldo_por_aplicar" />
+            <PropertyRef Name="Valor_Aplicado" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdTipoCbte_cbte_cble" />
+            <PropertyRef Name="IdCbteCble_cbte_cble" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="0" />
+          <Property Type="String" Name="IdTipoConciliacion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="129" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Saldo_por_aplicar" Nullable="false" />
+          <Property Type="Double" Name="Valor_Aplicado" Nullable="false" />
+          <Property Type="String" Name="TipoDoc_vta" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Precision="18" Scale="0" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="IdEmpresa_cbte_cble" />
+          <Property Type="Int32" Name="IdTipoCbte_cbte_cble" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_cbte_cble" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdCbte_vta_nota" />
+            <PropertyRef Name="dc_ValorPago" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCobro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Banco" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_cuenta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_NumDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Tarjeta" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_propietarioCta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cr_TotalCobro" Nullable="false" />
+          <Property Type="DateTime" Name="cr_fechaCobro" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cr_observacion" Nullable="false" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_TipoDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdBodega_Cbte" />
+          <Property Type="Decimal" Name="IdCbte_vta_nota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="dc_ValorPago" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="IdBanco" />
+          <Property Type="Int32" Name="IdCaja" Nullable="false" />
+          <Property Type="String" Name="Documento_Cobrado" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt011">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="Descripcion_tip_cliente" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="Idtipo_cliente" Nullable="false" />
+          <Property Type="String" Name="Descripcion_tip_cliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Total_Debe" />
+          <Property Type="Double" Name="Total_Haber" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="cr_fecha" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fechaDocu" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCobro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdCobro_a_aplicar" Precision="18" Scale="0" />
+          <Property Type="String" Name="cr_Codigo" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreCliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cr_fecha" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cr_TotalCobro" Nullable="false" />
+          <Property Type="DateTime" Name="cr_fechaDocu" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="cr_fechaCobro" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cr_observacion" Nullable="false" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="430" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoNotaCredito" />
+        </EntityType>
+        <ComplexType Name="spCXC_Rpt009_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteVta" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vt_serie1" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="vt_serie2" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="vt_NumFactura" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="221" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Valor_Original" Nullable="true" />
+          <Property Type="Double" Name="Total_Pagado" Nullable="false" />
+          <Property Type="Double" Name="Valor_x_Vencer" Nullable="true" />
+          <Property Type="Double" Name="Vencer_30_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencer_60_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencer_90_Dias" Nullable="true" />
+          <Property Type="Double" Name="Mayor_a_90Dias" Nullable="true" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Idtipo_cliente" Nullable="false" />
+          <Property Type="Int32" Name="Dias_Vencidos" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="pe_telefonoOfic" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="num_op" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="vwCXC_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="em_nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="vt_NumFactura" MaxLength="28" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="spCXC_Rpt007_Result">
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="true" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numDocumento" Nullable="true" MaxLength="51" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="DiasVencidos" Nullable="true" />
+          <Property Type="String" Name="IdEstadoCobro" Nullable="true" MaxLength="5" />
+          <Property Type="Double" Name="Monto" Nullable="true" />
+          <Property Type="Double" Name="TotalCobrado" Nullable="true" />
+          <Property Type="Double" Name="Valor_Vencido" Nullable="true" />
+          <Property Type="Double" Name="Valor_x_Vencer" Nullable="true" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Documento_Grupo" Nullable="true" MaxLength="104" />
+        </ComplexType>
+        <EntityType Name="vwCXC_Rpt016">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="secuencial" />
+            <PropertyRef Name="IdCbte_vta_nota" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="sc_observacion" />
+            <PropertyRef Name="cr_fecha" />
+            <PropertyRef Name="tc_descripcion" />
+            <PropertyRef Name="dc_ValorPago" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCobro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencial" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega_Cbte" />
+          <Property Type="Decimal" Name="IdCbte_vta_nota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodDocumentoTipo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Serie1" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Serie2" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumNota_Impresa" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_cliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cr_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="tc_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PorcentajeRet" />
+          <Property Type="Double" Name="dc_ValorPago" Nullable="false" />
+          <Property Type="String" Name="cr_NumDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Base" />
+          <Property Type="String" Name="num_documento" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="sc_subtotal" />
+          <Property Type="Double" Name="sc_iva" />
+          <Property Type="Double" Name="sc_total" />
+        </EntityType>
+        <ComplexType Name="spCXC_Rpt017_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbte_vta_nota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="dc_TipoDocumento" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="Double" Name="dc_ValorPago" Nullable="false" />
+          <Property Type="Double" Name="Saldo" Nullable="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_Cliente" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="13" />
+          <Property Type="String" Name="IdProvincia" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="IdCiudad" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="IdParroquia" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="pe_Naturaleza" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="vt_NumFactura" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="false" Precision="23" />
+          <Property Type="Double" Name="ValorPago_mes" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spCXC_Rpt012_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="DiasVencidos" Nullable="true" />
+          <Property Type="Double" Name="Valor_Original" Nullable="true" />
+          <Property Type="Double" Name="TotalCobrado" Nullable="true" />
+          <Property Type="Double" Name="Saldo" Nullable="true" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="true" Precision="23" />
+          <Property Type="String" Name="numDocumento" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vt_Observacion" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="Valor_x_Vencer_f" Nullable="true" />
+          <Property Type="Double" Name="Vencer_30_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencer_60_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencer_90_Dias" Nullable="true" />
+          <Property Type="Double" Name="Mayor_a_90Dias" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vwCXC_Rpt013">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="Fecha_cobro" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="ruc_ced" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="Fecha_Fact" />
+            <PropertyRef Name="Tipo_Retencion" />
+            <PropertyRef Name="nomTipo_Retencion" />
+            <PropertyRef Name="nomTipoCobro" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCobro" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_cobro" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Retencion" Precision="3" />
+          <Property Type="String" Name="Num_Retencion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCobro_tipo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_cliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ruc_ced" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PorcentajeRet" />
+          <Property Type="Double" Name="Base_RIva" />
+          <Property Type="Double" Name="Base_RFte" />
+          <Property Type="Double" Name="Valor_Ret" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="num_factura" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Fact" Nullable="false" Precision="3" />
+          <Property Type="String" Name="vt_tipoDoc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo_Retencion" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nomTipo_Retencion" Nullable="false" MaxLength="26" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nomTipoCobro" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="dc_ValorPago" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="fila" />
+          </Key>
+          <Property Type="Int64" Name="fila" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCobro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Banco" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_cuenta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_NumDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Tarjeta" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_propietarioCta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cr_TotalCobro" Nullable="false" />
+          <Property Type="DateTime" Name="cr_fechaCobro" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cr_observacion" Nullable="false" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_TipoDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdBodega_Cbte" />
+          <Property Type="Decimal" Name="IdCbte_vta_nota" Precision="18" Scale="0" />
+          <Property Type="Double" Name="dc_ValorPago" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="IdBanco" />
+          <Property Type="Int32" Name="IdCaja" Nullable="false" />
+          <Property Type="String" Name="Documento_Cobrado" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt006">
+          <Key>
+            <PropertyRef Name="fila" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCobro" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="cr_TotalCobro" />
+            <PropertyRef Name="cr_fecha" />
+            <PropertyRef Name="cr_fechaDocu" />
+            <PropertyRef Name="cr_fechaCobro" />
+            <PropertyRef Name="cr_observacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Type="Int64" Name="fila" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdCobro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Banco" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_cuenta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_NumDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_Tarjeta" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cr_propietarioCta" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cr_TotalCobro" Nullable="false" />
+          <Property Type="DateTime" Name="cr_fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="cr_fechaDocu" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="cr_fechaCobro" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cr_observacion" Nullable="false" MaxLength="700" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_TipoDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdBodega_Cbte" />
+          <Property Type="Decimal" Name="IdCbte_vta_nota" Precision="18" Scale="0" />
+          <Property Type="Double" Name="dc_ValorPago" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="IdBanco" />
+          <Property Type="Int32" Name="IdCaja" Nullable="false" />
+          <Property Type="String" Name="Documento_Cobrado" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="secuencial" />
+        </EntityType>
+        <EntityType Name="vwCXC_Rpt007">
+          <Key>
+            <PropertyRef Name="IdRow" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="IdCobro_tipo" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="Descripcion_tip_cliente" />
+            <PropertyRef Name="vt_Observacion" />
+          </Key>
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="vt_tipoDoc" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="51" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="vt_plazo" Precision="10" Scale="0" />
+          <Property Type="DateTime" Name="vt_fech_venc" Precision="3" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="vt_total" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoCobro" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCobro" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCobro_tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_TipoDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Idtipo_cliente" Nullable="false" />
+          <Property Type="String" Name="Descripcion_tip_cliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spCXC_Rpt015_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteVta" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="vt_serie1" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="vt_serie2" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="vt_NumFactura" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Valor_Original" Nullable="true" />
+          <Property Type="Double" Name="Total_Pagado" Nullable="false" />
+          <Property Type="Double" Name="Valor_x_Vencer" Nullable="true" />
+          <Property Type="Double" Name="x_Vencer_1_30_Dias" Nullable="true" />
+          <Property Type="Double" Name="x_Vencer_31_90_Dias" Nullable="true" />
+          <Property Type="Double" Name="x_Vencer_91_180_Dias" Nullable="true" />
+          <Property Type="Double" Name="x_Vencer_181_360_Dias" Nullable="true" />
+          <Property Type="Double" Name="x_Vencer_Mayor_a_360Dias" Nullable="true" />
+          <Property Type="Double" Name="Valor_Vencido" Nullable="true" />
+          <Property Type="Double" Name="Vencido_1_30_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencido_31_90_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencido_91_180_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencido_181_360_Dias" Nullable="true" />
+          <Property Type="Double" Name="Vencido_Mayor_a_360Dias" Nullable="true" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Idtipo_cliente" Nullable="false" />
+          <Property Type="Int32" Name="Dias_Vencidos" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="pe_telefonoOfic" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="Cod_Provincia" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Cod_Ciudad" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="cod_parroquia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="pe_Naturaleza" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="pe_sexo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="IdEstadoCivil" Nullable="false" MaxLength="25" />
+          <Property Type="Decimal" Name="Plazo" Nullable="true" Precision="10" Scale="0" />
+          <Property Type="String" Name="cod_entidad_dinardap" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="cr_fechaCobro" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="Valor_cobrado" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBERPModel5StoreContainer" CdmEntityContainer="Entities_CuentasxCobrar">
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt008" FunctionName="DBERPModel5.Store.spCXC_Rpt008">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt008_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Valor_Vencido" ColumnName="Valor_Vencido" />
+                <ScalarProperty Name="Valor_x_Vencer" ColumnName="Valor_x_Vencer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt010" FunctionName="DBERPModel5.Store.spCXC_Rpt010">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt010_Result">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Valor_Vencido" ColumnName="Valor_Vencido" />
+                <ScalarProperty Name="x_Ven_0_30" ColumnName="x_Ven_0_30" />
+                <ScalarProperty Name="x_Ven_181_999" ColumnName="x_Ven_181_999" />
+                <ScalarProperty Name="x_Ven_31_60" ColumnName="x_Ven_31_60" />
+                <ScalarProperty Name="x_Ven_61_90" ColumnName="x_Ven_61_90" />
+                <ScalarProperty Name="x_Ven_91_180" ColumnName="x_Ven_91_180" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCXC_Rpt002">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt002">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt002">
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="cr_TotalCobro" ColumnName="cr_TotalCobro" />
+                <ScalarProperty Name="cr_propietarioCta" ColumnName="cr_propietarioCta" />
+                <ScalarProperty Name="cr_Tarjeta" ColumnName="cr_Tarjeta" />
+                <ScalarProperty Name="cr_NumDocumento" ColumnName="cr_NumDocumento" />
+                <ScalarProperty Name="cr_cuenta" ColumnName="cr_cuenta" />
+                <ScalarProperty Name="cr_Banco" ColumnName="cr_Banco" />
+                <ScalarProperty Name="cr_observacion" ColumnName="cr_observacion" />
+                <ScalarProperty Name="cr_fechaCobro" ColumnName="cr_fechaCobro" />
+                <ScalarProperty Name="IdCobro_cobro" ColumnName="IdCobro_cobro" />
+                <ScalarProperty Name="IdSucursal_cobro" ColumnName="IdSucursal_cobro" />
+                <ScalarProperty Name="IdEmpresa_Cobro" ColumnName="IdEmpresa_Cobro" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdAnticipo" ColumnName="IdAnticipo" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt003">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt003">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt003">
+                <ScalarProperty Name="IdCbteCble_cbte_cble" ColumnName="IdCbteCble_cbte_cble" />
+                <ScalarProperty Name="IdTipoCbte_cbte_cble" ColumnName="IdTipoCbte_cbte_cble" />
+                <ScalarProperty Name="IdEmpresa_cbte_cble" ColumnName="IdEmpresa_cbte_cble" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="TipoDoc_vta" ColumnName="TipoDoc_vta" />
+                <ScalarProperty Name="Valor_Aplicado" ColumnName="Valor_Aplicado" />
+                <ScalarProperty Name="Saldo_por_aplicar" ColumnName="Saldo_por_aplicar" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoConciliacion" ColumnName="IdTipoConciliacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt005">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt005">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt005">
+                <ScalarProperty Name="Documento_Cobrado" ColumnName="Documento_Cobrado" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="dc_ValorPago" ColumnName="dc_ValorPago" />
+                <ScalarProperty Name="IdCbte_vta_nota" ColumnName="IdCbte_vta_nota" />
+                <ScalarProperty Name="IdBodega_Cbte" ColumnName="IdBodega_Cbte" />
+                <ScalarProperty Name="dc_TipoDocumento" ColumnName="dc_TipoDocumento" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="cr_observacion" ColumnName="cr_observacion" />
+                <ScalarProperty Name="cr_fechaCobro" ColumnName="cr_fechaCobro" />
+                <ScalarProperty Name="cr_TotalCobro" ColumnName="cr_TotalCobro" />
+                <ScalarProperty Name="cr_propietarioCta" ColumnName="cr_propietarioCta" />
+                <ScalarProperty Name="cr_Tarjeta" ColumnName="cr_Tarjeta" />
+                <ScalarProperty Name="cr_NumDocumento" ColumnName="cr_NumDocumento" />
+                <ScalarProperty Name="cr_cuenta" ColumnName="cr_cuenta" />
+                <ScalarProperty Name="cr_Banco" ColumnName="cr_Banco" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt011">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt011">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt011">
+                <ScalarProperty Name="Total_Haber" ColumnName="Total_Haber" />
+                <ScalarProperty Name="Total_Debe" ColumnName="Total_Debe" />
+                <ScalarProperty Name="Descripcion_tip_cliente" ColumnName="Descripcion_tip_cliente" />
+                <ScalarProperty Name="Idtipo_cliente" ColumnName="Idtipo_cliente" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt001">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt001">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt001">
+                <ScalarProperty Name="IdTipoNotaCredito" ColumnName="IdTipoNotaCredito" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="cr_observacion" ColumnName="cr_observacion" />
+                <ScalarProperty Name="cr_fechaCobro" ColumnName="cr_fechaCobro" />
+                <ScalarProperty Name="cr_fechaDocu" ColumnName="cr_fechaDocu" />
+                <ScalarProperty Name="cr_TotalCobro" ColumnName="cr_TotalCobro" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="cr_fecha" ColumnName="cr_fecha" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="cr_Codigo" ColumnName="cr_Codigo" />
+                <ScalarProperty Name="IdCobro_a_aplicar" ColumnName="IdCobro_a_aplicar" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt009" FunctionName="DBERPModel5.Store.spCXC_Rpt009">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt009_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="CodCbteVta" ColumnName="CodCbteVta" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="vt_serie1" ColumnName="vt_serie1" />
+                <ScalarProperty Name="vt_serie2" ColumnName="vt_serie2" />
+                <ScalarProperty Name="vt_NumFactura" ColumnName="vt_NumFactura" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="Valor_Original" ColumnName="Valor_Original" />
+                <ScalarProperty Name="Total_Pagado" ColumnName="Total_Pagado" />
+                <ScalarProperty Name="Valor_x_Vencer" ColumnName="Valor_x_Vencer" />
+                <ScalarProperty Name="Vencer_30_Dias" ColumnName="Vencer_30_Dias" />
+                <ScalarProperty Name="Vencer_60_Dias" ColumnName="Vencer_60_Dias" />
+                <ScalarProperty Name="Vencer_90_Dias" ColumnName="Vencer_90_Dias" />
+                <ScalarProperty Name="Mayor_a_90Dias" ColumnName="Mayor_a_90Dias" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="Idtipo_cliente" ColumnName="Idtipo_cliente" />
+                <ScalarProperty Name="Dias_Vencidos" ColumnName="Dias_Vencidos" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="pe_telefonoOfic" ColumnName="pe_telefonoOfic" />
+                <ScalarProperty Name="num_op" ColumnName="num_op" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCXC_Rpt014">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt014">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt014">
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="vt_NumFactura" ColumnName="vt_NumFactura" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt007" FunctionName="DBERPModel5.Store.spCXC_Rpt007">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt007_Result">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="DiasVencidos" ColumnName="DiasVencidos" />
+                <ScalarProperty Name="IdEstadoCobro" ColumnName="IdEstadoCobro" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Valor_Vencido" ColumnName="Valor_Vencido" />
+                <ScalarProperty Name="Valor_x_Vencer" ColumnName="Valor_x_Vencer" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Documento_Grupo" ColumnName="Documento_Grupo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCXC_Rpt016">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt016">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt016">
+                <ScalarProperty Name="sc_total" ColumnName="sc_total" />
+                <ScalarProperty Name="sc_iva" ColumnName="sc_iva" />
+                <ScalarProperty Name="sc_subtotal" ColumnName="sc_subtotal" />
+                <ScalarProperty Name="num_documento" ColumnName="num_documento" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="cr_NumDocumento" ColumnName="cr_NumDocumento" />
+                <ScalarProperty Name="dc_ValorPago" ColumnName="dc_ValorPago" />
+                <ScalarProperty Name="PorcentajeRet" ColumnName="PorcentajeRet" />
+                <ScalarProperty Name="tc_descripcion" ColumnName="tc_descripcion" />
+                <ScalarProperty Name="cr_fecha" ColumnName="cr_fecha" />
+                <ScalarProperty Name="sc_observacion" ColumnName="sc_observacion" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="NumNota_Impresa" ColumnName="NumNota_Impresa" />
+                <ScalarProperty Name="Serie2" ColumnName="Serie2" />
+                <ScalarProperty Name="Serie1" ColumnName="Serie1" />
+                <ScalarProperty Name="CodDocumentoTipo" ColumnName="CodDocumentoTipo" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="IdCbte_vta_nota" ColumnName="IdCbte_vta_nota" />
+                <ScalarProperty Name="IdBodega_Cbte" ColumnName="IdBodega_Cbte" />
+                <ScalarProperty Name="secuencial" ColumnName="secuencial" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt017" FunctionName="DBERPModel5.Store.spCXC_Rpt017">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt017_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdCbte_vta_nota" ColumnName="IdCbte_vta_nota" />
+                <ScalarProperty Name="dc_TipoDocumento" ColumnName="dc_TipoDocumento" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="dc_ValorPago" ColumnName="dc_ValorPago" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="nom_Cliente" ColumnName="nom_Cliente" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="IdParroquia" ColumnName="IdParroquia" />
+                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
+                <ScalarProperty Name="vt_NumFactura" ColumnName="vt_NumFactura" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="ValorPago_mes" ColumnName="ValorPago_mes" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt012" FunctionName="DBERPModel5.Store.spCXC_Rpt012">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt012_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="DiasVencidos" ColumnName="DiasVencidos" />
+                <ScalarProperty Name="Valor_Original" ColumnName="Valor_Original" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="Valor_x_Vencer_f" ColumnName="Valor_x_Vencer_f" />
+                <ScalarProperty Name="Vencer_30_Dias" ColumnName="Vencer_30_Dias" />
+                <ScalarProperty Name="Vencer_60_Dias" ColumnName="Vencer_60_Dias" />
+                <ScalarProperty Name="Vencer_90_Dias" ColumnName="Vencer_90_Dias" />
+                <ScalarProperty Name="Mayor_a_90Dias" ColumnName="Mayor_a_90Dias" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwCXC_Rpt013">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt013">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt013">
+                <ScalarProperty Name="nomTipoCobro" ColumnName="nomTipoCobro" />
+                <ScalarProperty Name="nomTipo_Retencion" ColumnName="nomTipo_Retencion" />
+                <ScalarProperty Name="Tipo_Retencion" ColumnName="Tipo_Retencion" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="Fecha_Fact" ColumnName="Fecha_Fact" />
+                <ScalarProperty Name="num_factura" ColumnName="num_factura" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="Valor_Ret" ColumnName="Valor_Ret" />
+                <ScalarProperty Name="Base_RFte" ColumnName="Base_RFte" />
+                <ScalarProperty Name="Base_RIva" ColumnName="Base_RIva" />
+                <ScalarProperty Name="PorcentajeRet" ColumnName="PorcentajeRet" />
+                <ScalarProperty Name="ruc_ced" ColumnName="ruc_ced" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="Num_Retencion" ColumnName="Num_Retencion" />
+                <ScalarProperty Name="Fecha_Retencion" ColumnName="Fecha_Retencion" />
+                <ScalarProperty Name="Fecha_cobro" ColumnName="Fecha_cobro" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt004">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt004">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt004">
+                <ScalarProperty Name="Documento_Cobrado" ColumnName="Documento_Cobrado" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="dc_ValorPago" ColumnName="dc_ValorPago" />
+                <ScalarProperty Name="IdCbte_vta_nota" ColumnName="IdCbte_vta_nota" />
+                <ScalarProperty Name="IdBodega_Cbte" ColumnName="IdBodega_Cbte" />
+                <ScalarProperty Name="dc_TipoDocumento" ColumnName="dc_TipoDocumento" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="cr_observacion" ColumnName="cr_observacion" />
+                <ScalarProperty Name="cr_fechaCobro" ColumnName="cr_fechaCobro" />
+                <ScalarProperty Name="cr_TotalCobro" ColumnName="cr_TotalCobro" />
+                <ScalarProperty Name="cr_propietarioCta" ColumnName="cr_propietarioCta" />
+                <ScalarProperty Name="cr_Tarjeta" ColumnName="cr_Tarjeta" />
+                <ScalarProperty Name="cr_NumDocumento" ColumnName="cr_NumDocumento" />
+                <ScalarProperty Name="cr_cuenta" ColumnName="cr_cuenta" />
+                <ScalarProperty Name="cr_Banco" ColumnName="cr_Banco" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="fila" ColumnName="fila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt006">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt006">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt006">
+                <ScalarProperty Name="secuencial" ColumnName="secuencial" />
+                <ScalarProperty Name="Documento_Cobrado" ColumnName="Documento_Cobrado" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="dc_ValorPago" ColumnName="dc_ValorPago" />
+                <ScalarProperty Name="IdCbte_vta_nota" ColumnName="IdCbte_vta_nota" />
+                <ScalarProperty Name="IdBodega_Cbte" ColumnName="IdBodega_Cbte" />
+                <ScalarProperty Name="dc_TipoDocumento" ColumnName="dc_TipoDocumento" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="cr_observacion" ColumnName="cr_observacion" />
+                <ScalarProperty Name="cr_fechaCobro" ColumnName="cr_fechaCobro" />
+                <ScalarProperty Name="cr_fechaDocu" ColumnName="cr_fechaDocu" />
+                <ScalarProperty Name="cr_fecha" ColumnName="cr_fecha" />
+                <ScalarProperty Name="cr_TotalCobro" ColumnName="cr_TotalCobro" />
+                <ScalarProperty Name="cr_propietarioCta" ColumnName="cr_propietarioCta" />
+                <ScalarProperty Name="cr_Tarjeta" ColumnName="cr_Tarjeta" />
+                <ScalarProperty Name="cr_NumDocumento" ColumnName="cr_NumDocumento" />
+                <ScalarProperty Name="cr_cuenta" ColumnName="cr_cuenta" />
+                <ScalarProperty Name="cr_Banco" ColumnName="cr_Banco" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="fila" ColumnName="fila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXC_Rpt007">
+            <EntityTypeMapping TypeName="DBERPModel5.vwCXC_Rpt007">
+              <MappingFragment StoreEntitySet="vwCXC_Rpt007">
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="Descripcion_tip_cliente" ColumnName="Descripcion_tip_cliente" />
+                <ScalarProperty Name="Idtipo_cliente" ColumnName="Idtipo_cliente" />
+                <ScalarProperty Name="dc_TipoDocumento" ColumnName="dc_TipoDocumento" />
+                <ScalarProperty Name="IdCobro_tipo" ColumnName="IdCobro_tipo" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdEstadoCobro" ColumnName="IdEstadoCobro" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCXC_Rpt015" FunctionName="DBERPModel5.Store.spCXC_Rpt015">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModel5.spCXC_Rpt015_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="CodCbteVta" ColumnName="CodCbteVta" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="vt_serie1" ColumnName="vt_serie1" />
+                <ScalarProperty Name="vt_serie2" ColumnName="vt_serie2" />
+                <ScalarProperty Name="vt_NumFactura" ColumnName="vt_NumFactura" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="Valor_Original" ColumnName="Valor_Original" />
+                <ScalarProperty Name="Total_Pagado" ColumnName="Total_Pagado" />
+                <ScalarProperty Name="Valor_x_Vencer" ColumnName="Valor_x_Vencer" />
+                <ScalarProperty Name="x_Vencer_1_30_Dias" ColumnName="x_Vencer_1_30_Dias" />
+                <ScalarProperty Name="x_Vencer_31_90_Dias" ColumnName="x_Vencer_31_90_Dias" />
+                <ScalarProperty Name="x_Vencer_91_180_Dias" ColumnName="x_Vencer_91_180_Dias" />
+                <ScalarProperty Name="x_Vencer_181_360_Dias" ColumnName="x_Vencer_181_360_Dias" />
+                <ScalarProperty Name="x_Vencer_Mayor_a_360Dias" ColumnName="x_Vencer_Mayor_a_360Dias" />
+                <ScalarProperty Name="Valor_Vencido" ColumnName="Valor_Vencido" />
+                <ScalarProperty Name="Vencido_1_30_Dias" ColumnName="Vencido_1_30_Dias" />
+                <ScalarProperty Name="Vencido_31_90_Dias" ColumnName="Vencido_31_90_Dias" />
+                <ScalarProperty Name="Vencido_91_180_Dias" ColumnName="Vencido_91_180_Dias" />
+                <ScalarProperty Name="Vencido_181_360_Dias" ColumnName="Vencido_181_360_Dias" />
+                <ScalarProperty Name="Vencido_Mayor_a_360Dias" ColumnName="Vencido_Mayor_a_360Dias" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="Idtipo_cliente" ColumnName="Idtipo_cliente" />
+                <ScalarProperty Name="Dias_Vencidos" ColumnName="Dias_Vencidos" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="pe_telefonoOfic" ColumnName="pe_telefonoOfic" />
+                <ScalarProperty Name="Cod_Provincia" ColumnName="Cod_Provincia" />
+                <ScalarProperty Name="Cod_Ciudad" ColumnName="Cod_Ciudad" />
+                <ScalarProperty Name="cod_parroquia" ColumnName="cod_parroquia" />
+                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
+                <ScalarProperty Name="pe_sexo" ColumnName="pe_sexo" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+                <ScalarProperty Name="cod_entidad_dinardap" ColumnName="cod_entidad_dinardap" />
+                <ScalarProperty Name="cr_fechaCobro" ColumnName="cr_fechaCobro" />
+                <ScalarProperty Name="Valor_cobrado" ColumnName="Valor_cobrado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="false" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>

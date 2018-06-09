@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_parametros" msprop:Generator_TableClassName="tb_parametrosDataTable" msprop:Generator_TableVarName="tabletb_parametros" msprop:Generator_RowChangedName="tb_parametrosRowChanged" msprop:Generator_TablePropName="tb_parametros" msprop:Generator_RowDeletingName="tb_parametrosRowDeleting" msprop:Generator_RowChangingName="tb_parametrosRowChanging" msprop:Generator_RowEvHandlerName="tb_parametrosRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_parametrosRowDeleted" msprop:Generator_RowClassName="tb_parametrosRow" msprop:Generator_UserTableName="tb_parametros" msprop:Generator_RowEvArgName="tb_parametrosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdEmpresa" msprop:Generator_ColumnVarNameInTable="columnIdEmpresa" msprop:Generator_ColumnPropNameInRow="IdEmpresa" msprop:Generator_ColumnPropNameInTable="IdEmpresaColumn" msprop:Generator_UserColumnName="IdEmpresa" type="xs:int" minOccurs="0" />
+              <xs:element name="IdUsuario" msprop:Generator_ColumnVarNameInTable="columnIdUsuario" msprop:Generator_ColumnPropNameInRow="IdUsuario" msprop:Generator_ColumnPropNameInTable="IdUsuarioColumn" msprop:Generator_UserColumnName="IdUsuario" type="xs:string" minOccurs="0" />
+              <xs:element name="PorIva" msprop:Generator_ColumnVarNameInTable="columnPorIva" msprop:Generator_ColumnPropNameInRow="PorIva" msprop:Generator_ColumnPropNameInTable="PorIvaColumn" msprop:Generator_UserColumnName="PorIva" type="xs:byte" minOccurs="0" />
+              <xs:element name="Cl_Paramatros_Info" msprop:Generator_ColumnVarNameInTable="columnCl_Paramatros_Info" msprop:Generator_ColumnPropNameInRow="Cl_Paramatros_Info" msprop:Generator_ColumnPropNameInTable="Cl_Paramatros_InfoColumn" msprop:Generator_UserColumnName="Cl_Paramatros_Info" type="xs:anyType" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_menu" msprop:Generator_TableClassName="tb_menuDataTable" msprop:Generator_TableVarName="tabletb_menu" msprop:Generator_TablePropName="tb_menu" msprop:Generator_RowDeletingName="tb_menuRowDeleting" msprop:Generator_RowChangingName="tb_menuRowChanging" msprop:Generator_RowEvHandlerName="tb_menuRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_menuRowDeleted" msprop:Generator_UserTableName="tb_menu" msprop:Generator_RowChangedName="tb_menuRowChanged" msprop:Generator_RowEvArgName="tb_menuRowChangeEvent" msprop:Generator_RowClassName="tb_menuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdMenu" msprop:Generator_ColumnVarNameInTable="columnIdMenu" msprop:Generator_ColumnPropNameInRow="IdMenu" msprop:Generator_ColumnPropNameInTable="IdMenuColumn" msprop:Generator_UserColumnName="IdMenu" type="xs:int" minOccurs="0" />
+              <xs:element name="IdMenuPadre" msprop:Generator_ColumnVarNameInTable="columnIdMenuPadre" msprop:Generator_ColumnPropNameInRow="IdMenuPadre" msprop:Generator_ColumnPropNameInTable="IdMenuPadreColumn" msprop:Generator_UserColumnName="IdMenuPadre" type="xs:int" minOccurs="0" />
+              <xs:element name="DescripcionMenu" msprop:Generator_ColumnVarNameInTable="columnDescripcionMenu" msprop:Generator_ColumnPropNameInRow="DescripcionMenu" msprop:Generator_ColumnPropNameInTable="DescripcionMenuColumn" msprop:Generator_UserColumnName="DescripcionMenu" type="xs:string" minOccurs="0" />
+              <xs:element name="PosicionMenu" msprop:Generator_ColumnVarNameInTable="columnPosicionMenu" msprop:Generator_ColumnPropNameInRow="PosicionMenu" msprop:Generator_ColumnPropNameInTable="PosicionMenuColumn" msprop:Generator_UserColumnName="PosicionMenu" type="xs:int" minOccurs="0" />
+              <xs:element name="HabilitadoMenu" msprop:Generator_ColumnVarNameInTable="columnHabilitadoMenu" msprop:Generator_ColumnPropNameInRow="HabilitadoMenu" msprop:Generator_ColumnPropNameInTable="HabilitadoMenuColumn" msprop:Generator_UserColumnName="HabilitadoMenu" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="UrlMenu" msprop:Generator_ColumnVarNameInTable="columnUrlMenu" msprop:Generator_ColumnPropNameInRow="UrlMenu" msprop:Generator_ColumnPropNameInTable="UrlMenuColumn" msprop:Generator_UserColumnName="UrlMenu" type="xs:string" minOccurs="0" />
+              <xs:element name="FormularioAsociado" msprop:Generator_ColumnVarNameInTable="columnFormularioAsociado" msprop:Generator_ColumnPropNameInRow="FormularioAsociado" msprop:Generator_ColumnPropNameInTable="FormularioAsociadoColumn" msprop:Generator_UserColumnName="FormularioAsociado" type="xs:unsignedByte" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

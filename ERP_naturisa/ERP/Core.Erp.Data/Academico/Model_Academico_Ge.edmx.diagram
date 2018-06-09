@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ff42cbb7606348f7979509af4bf2f5f0" Name="Diagrama1" ZoomLevel="49">
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Aspirante" Width="1.5" PointX="24.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Beca" Width="1.5" PointX="22.75" PointY="11.75" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Catalogo" Width="1.5" PointX="3.875" PointY="20.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_CatalogoTipo" Width="1.5" PointX="20.125" PointY="0.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_curso" Width="1.5" PointX="7.375" PointY="22" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_curso_x_Aca_Rubro" Width="1.5" PointX="9.375" PointY="7.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Documento_tipo" Width="1.5" PointX="10.5" PointY="0.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Establecimiento_InstitucionFinanciera" Width="1.5" PointX="13.125" PointY="4.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_estudiante" Width="1.5" PointX="20.25" PointY="31.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_estudiante_x_Alergia" Width="1.5" PointX="24.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Familiar" Width="1.5" PointX="10.625" PointY="27.375" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_ficha_medica" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_InstitucionFinanciera" Width="1.5" PointX="24.625" PointY="16.125" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Jornada" Width="1.5" PointX="22.75" PointY="27" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_matricula_Tipo_documento" Width="1.5" PointX="9.375" PointY="3.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_matricula_x_documento" Width="1.5" PointX="22.375" PointY="0.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Parametros" Width="1.5" PointX="18.125" PointY="8" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Profesor" Width="1.5" PointX="19" PointY="19" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Rubro_Tipo" Width="1.5" PointX="12.75" PointY="7.875" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Seccion" Width="1.5" PointX="0.5" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Tarjeta_cred" Width="1.5" PointX="13.75" PointY="11.875" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_aspirante" Width="1.5" PointX="14.875" PointY="26.375" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_curso" Width="1.5" PointX="14.875" PointY="23.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_estudiante_x_Alergia" Width="1.5" PointX="8.9205226921106338" PointY="17.591871329393179" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Familiar_x_Estudiante_Madre" Width="1.5" PointX="14.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Familiar_x_Estudiante_Padre" Width="1.5" PointX="0.5" PointY="32.125" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Institucion_x_Sede_x_Jorn_x_Sec_Curso_x_Para" Width="1.5" PointX="20.5" PointY="24" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_matricula_documento" Width="1.5" PointX="17.375" PointY="0.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_profesor" Width="1.5" PointX="12.5" PointY="0.625" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Catalogo_Aca_CatalogoTipo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_estudiante_x_Alergia_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_ficha_medica_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_InstitucionFinanciera_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Rubro_Tipo_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_curso_Aca_Seccion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_estudiante_x_Alergia_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_ficha_medica_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Seccion_Aca_Jornada" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_x_documento_Aca_matricula_Tipo_documento" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwACA_fa_notaCredDeb" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Familiar_x_Estudiante" Width="1.5" PointX="0.42755733264030765" PointY="10.87953646987655" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_estudiante" Width="1.5" PointX="11.25" PointY="20.875" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_Aca_Catalogo1" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_Aca_Catalogo2" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_Aca_Catalogo3" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Estudiante_Sin_Matricula_Con_y_Sin_Contrato" Width="1.5" PointX="15" PointY="4.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_DocumBanc_x_Rep_Econx_estudi_x_Matri" Width="1.5" PointX="5" PointY="35.75" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Tipo_Mecanismo_Pago" Width="1.5" PointX="0.5" PointY="18.875" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Pre_Facturacion" Width="1.5" PointX="4.4995976428033773" PointY="30.43814496623266" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.tb_banco_x_mg_banco" Width="1.5" PointX="4.5" PointY="0.5" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Tipo_Mecanismo_Pago_Aca_Tipo_Mecanismo_Pago" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.fa_factura_aca" Width="1.5" PointX="15.125" PointY="18" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Anio_Lectivo_x_mg_anio_lectivo" Width="1.5" PointX="8.125" PointY="27.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Familiar_x_Estudiante_x_fa_cliente_Auditoria" Width="1.5" PointX="1.9449279615399091" PointY="25.742888179487963" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_matricula_x_mg_matricula" Width="1.5" PointX="20.125" PointY="8.125" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Admision" Width="1.5" PointX="22.625" PointY="17" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Anio_Lectivo" Width="1.5" PointX="2.125" PointY="5.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Contrato_x_Estudiante_det" Width="1.5" PointX="12" PointY="16" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Contrato_x_Estudiante_det_Beca" Width="1.5" PointX="17.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Contrato_x_Estudiante_det_Excepcion" Width="1.5" PointX="5.4319536524973593" PointY="18.208368011847309" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Familiar_x_Estudiante_x_fa_cliente" Width="1.5" PointX="4.125" PointY="8.125" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_matricula" Width="1.5" PointX="16.75" PointY="17.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Paralelo" Width="1.5" PointX="0.24397194396889393" PointY="30.181034206497035" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_periodo" Width="1.5" PointX="18.25" PointY="12.875" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Rubro_x_Aca_Periodo_Lectivo" Width="1.5" PointX="4.375" PointY="4" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwACA_fa_factura_aca_Det" Width="1.5" PointX="12.625" PointY="26.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwfa_factura_CAH" Width="1.5" PointX="2.5" PointY="18.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vw_aca_Familiar_Estudiante" Width="1.5" PointX="2.625" PointY="11.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_admision" Width="1.5" PointX="28.125" PointY="6" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_AnioPeriodo_Activo" Width="1.5" PointX="5.375" PointY="23.125" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Contrato_x_Estudiante_x_Rubro" Width="1.5" PointX="26.375" PointY="24.875" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Contrato_x_Estudiante_x_Rubro_y_Beca" Width="1.5" PointX="20" PointY="4.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Estudiante_Matricula_Con_y_Sin_Contrato" Width="1.5" PointX="11.25" PointY="6.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_matricula" Width="1.5" PointX="14.5" PointY="32" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Matricula_x_Estudiante" Width="1.5" PointX="20.625" PointY="14.375" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Pre_Facturacion" Width="1.5" PointX="6.625" PointY="0.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Pre_Facturacion_det" Width="1.5" PointX="24.375" PointY="20.625" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Rubro_x_Aca_Periodo_Lectivo" Width="1.5" PointX="20.25" PointY="10.875" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_fa_factura_aca_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Anio_Lectivo_x_mg_anio_lectivo_Aca_Anio_Lectivo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_mg_Aca_matricula_x_matricula_Aca_matricula" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_Anio_Lectivo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_Aspirante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_Catalogo1" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_Catalogo2" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_Catalogo3" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Admision_Aca_curso" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_Aca_Anio_Lectivo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_periodo_Aca_Anio_Lectivo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Paralelo_Aca_curso" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_Aca_Familiar" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_Aca_Familiar1" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_Aca_Paralelo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_matricula_x_documento_Aca_matricula" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Contrato_Preparacion_x_Estudiante" Width="1.5" PointX="0.5" PointY="36" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Contrato_x_Estudiante_det_Beca" Width="1.5" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Rubro_Grupo_FE" Width="1.5" PointX="15.75" PointY="14.25" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Estudiante_Sin_Maticula" Width="1.5" PointX="26.375" PointY="31.5" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Familiar_no_Regis_Como_cliente" Width="1.5" PointX="8.625" PointY="30" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Lista_Familiar_x_Estudiante" Width="1.5" PointX="11.25" PointY="36.125" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vw_Aca_Estudiante_Matriculado_Sin_Contrato_Cab_Det" Width="1.5" PointX="8.7583094298645428" PointY="26.513198358245752" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Estudiante_con_Matricula_Sin_Contrato" Width="1.5" PointX="8.1068909597149545" PointY="2.1931516985377071" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Rubro" Width="1.5" PointX="3.2565146196896748" PointY="4.28045824369437" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Rubro_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Rubro_Aca_Rubro_Tipo" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Contrato_x_Estudiante_Detalle" Width="1.5" PointX="2.8636435861064324" PointY="18.599188530165325" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Estudiante_Matricula_x_Rubro_x_Curso" Width="1.5" PointX="2.1334497938554033" PointY="6.8798034819214617" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Archivo_Transferencia_Det" Width="1.5" PointX="10.628735470878302" PointY="19.150677764392775" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Estudiante_con_Matricula_Sin_Contrato_Detalle" Width="1.5" PointX="7.1871625777274186" PointY="14.889608643431966" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Archivo_Transferencia_Det_conciliar" Width="1.5" PointX="1.9481271831077183" PointY="15.008487171963084" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Pre_Facturacion_det" Width="1.5" PointX="9.5756002318000419" PointY="9.1428641272442714" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Pre_Facturacion_det_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Pre_Facturacion_det_Aca_Pre_Facturacion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Pre_Facturacion_det_Aca_Rubro" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Rubro_x_Aca_Periodo_Lectivo_Aca_periodo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Rubro_x_Aca_Periodo_Lectivo_Aca_Rubro" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.fa_notaCredDeb_aca" Width="1.5" PointX="5.5482264354583926" PointY="21.4474991659855" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_fa_notaCredDeb_aca_Aca_estudiante" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Documento_Bancario_x_Rep_Economico" Width="1.5" PointX="10.009572078478323" PointY="1.3339905148995996" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula" Width="1.5" PointX="1.8467165985362217" PointY="11.120917921476494" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_tb_banco_x_mg_banco" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula_tb_banco_x_mg_banco" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_Aca_Familiar" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_Aca_Tipo_Mecanismo_Pago" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula_Aca_Documento_Bancario_x_Rep_Economico" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula_Aca_Tipo_Mecanismo_Pago" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Pre_Facturacion_det_A_Facturar" Width="1.5" PointX="9.8510968432999668" PointY="26.776938748907735" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Familiar_x_Estudiante_RepEco" Width="1.5" PointX="1.0015128967359257" PointY="20.506287032974086" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_fa_factura_aca_Aca_Rubro" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Contrato_x_Estudiante" Width="1.5" PointX="2.5773077935806046" PointY="2.8024373216565874" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Familiar_x_Estudiante" Width="1.5" PointX="1.208843289506083" PointY="5.7919956323653441" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Pre_Facturacion_det_Generar_Archivo_Banco" Width="1.5" PointX="7.2910908345557246" PointY="5.6785191920020237" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_fa_factura_aca_Aca_Familiar_x_Estudiante1" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_x_Estudiante_Aca_Catalogo" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Contrato_x_Estudiante_Aca_matricula" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Pre_Facturacion_det_Aca_Contrato_x_Estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_x_Estudiante_Aca_estudiante" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_x_Estudiante_Aca_Familiar" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Pre_Facturacion_det_Aca_Familiar" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Generar_Archivo_Banco_Garantizados" Width="1.5" PointX="3.4281078071464357" PointY="1.7430882313023732" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Institucion" Width="1.5" PointX="0.9871468343712142" PointY="14.229864350627114" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.Aca_Sede" Width="1.5" PointX="2.8859470928488049" PointY="1.1531867837315364" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Anio_Lectivo_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Aspirante_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Beca_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_estudiante_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Familiar_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Profesor_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Rubro_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Sede_Aca_Institucion" />
+        <AssociationConnector Association="Model_Academico_Ge.FK_Aca_Jornada_Aca_Sede" />
+        <EntityTypeShape EntityType="Model_Academico_Ge.vwAca_Sede_Sucursal" Width="1.5" PointX="10.956959684825018" PointY="13.048356613632457" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

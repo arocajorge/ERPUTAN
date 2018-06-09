@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F0A222C-A02F-4141-BF17-F819A3F08B6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Erp.Recursos</RootNamespace>
+    <AssemblyName>Core.Erp.Recursos</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prueba|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Prueba\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cl_Resource_Menu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource_Menu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource_Menu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource_Msg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource_Msg.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource_Menu.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Menu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource_Msg.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource_Msg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cus.Erp.Reports.Fj-Servindustrias\Cus.Erp.Reports.FJ.csproj">
+      <Project>{d8a4daa8-dd69-4a94-b743-61f2114f47dc}</Project>
+      <Name>Cus.Erp.Reports.FJ</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="edehsa_logo128.png" />
+    <Content Include="edehsa_logo32.png" />
+    <Content Include="edehsa_logo64.png" />
+    <Content Include="Resources\admin.ico" />
+    <Content Include="Resources\admin_128x128.png" />
+    <Content Include="Resources\admin_32x32.png" />
+    <Content Include="Resources\admin_64x64.png" />
+    <Content Include="Resources\agregar_mail_128x128.png" />
+    <Content Include="Resources\agregar_mail_32x32.png" />
+    <Content Include="Resources\agregar_mail_64x64.png" />
+    <Content Include="Resources\anular1_128x128.png" />
+    <Content Include="Resources\anular1_32x32.png" />
+    <Content Include="Resources\anular1_64x64.png" />
+    <Content Include="Resources\anular2_128x128.png" />
+    <Content Include="Resources\anular2_32.x32png.png" />
+    <Content Include="Resources\anular2_64x64.png" />
+    <Content Include="Resources\anular_user_32x32.png" />
+    <Content Include="Resources\anular_user_64x64.png" />
+    <Content Include="Resources\aplicacion.ico" />
+    <Content Include="Resources\applications128x128.png" />
+    <Content Include="Resources\applications_32x32.png" />
+    <Content Include="Resources\applications_64x64.png" />
+    <Content Include="Resources\Aprobado.png" />
+    <Content Include="Resources\Aprobado_sello.png" />
+    <Content Include="Resources\Banco.ico" />
+    <Content Include="Resources\Banco_32x32.png" />
+    <Content Include="Resources\Banco_64x64.png" />
+    <Content Include="Resources\Bank_account_96x96.png" />
+    <Content Include="Resources\Benjigarner-Softdimension-Excel.ico" />
+    <Content Include="Resources\billetera1_106x108.png" />
+    <Content Include="Resources\billetera1_32x32.png" />
+    <Content Include="Resources\billetera1_64x64.png" />
+    <Content Include="Resources\billetera_money.ico" />
+    <Content Include="Resources\bolso_compra.ico" />
+    <Content Include="Resources\bolso_compra_128x128.png" />
+    <Content Include="Resources\bolso_compra_64x64.png" />
+    <Content Include="Resources\buscar1_128x128.png" />
+    <Content Include="Resources\buscar_doc_64x64.png" />
+    <Content Include="Resources\buscar_folder_128x128.png" />
+    <Content Include="Resources\buscar_folder_64x64.png" />
+    <Content Include="Resources\cancel_doc_128x128.png" />
+    <Content Include="Resources\cancel_doc_64x64.png" />
+    <Content Include="Resources\chard_64x64.png" />
+    <Content Include="Resources\chart.ico" />
+    <Content Include="Resources\chart_128x128.png" />
+    <Content Include="Resources\cheque_128x128.png" />
+    <Content Include="Resources\cheque_32x32.png" />
+    <Content Include="Resources\cheque_64x64.png" />
+    <Content Include="Resources\Column-Chart-icon.png" />
+    <Content Include="Resources\Column-Chart.ico" />
+    <Content Include="Resources\compras_128x128.png" />
+    <Content Include="Resources\compras_32x32.png" />
+    <Content Include="Resources\compras_64x64.png" />
+    <Content Include="Resources\Computer-icon.png" />
+    <Content Include="Resources\condig-system.ico" />
+    <Content Include="Resources\condig-system.png" />
+    <Content Include="Resources\configurar.ico" />
+    <Content Include="Resources\configurar_128x128.png" />
+    <Content Include="Resources\configurar_96x96.png" />
+    <Content Include="Resources\configurar_movil.ico" />
+    <Content Include="Resources\configurar_movil_128x128.png" />
+    <Content Include="Resources\contabilidad1_128x128.png" />
+    <Content Include="Resources\contabilidad1_64x64.png" />
+    <Content Include="Resources\contabilidad_128x128.png" />
+    <Content Include="Resources\contabilidad_32x32.png" />
+    <Content Include="Resources\contabilidad_64x64.png" />
+    <Content Include="Resources\Custom-Icon-Design-Pretty-Office-6-Custom-reports.ico" />
+    <Content Include="Resources\custom-reports-icon.png" />
+    <Content Include="Resources\cxc_1.png" />
+    <Content Include="Resources\cxc_1_128x128.png" />
+    <Content Include="Resources\cxc_1_64x64.png" />
+    <Content Include="Resources\cxc_2_128x128.png" />
+    <Content Include="Resources\cxc_2_64x64.png" />
+    <Content Include="Resources\cxc_3_128x128.png" />
+    <Content Include="Resources\cxc_3_32x32.png" />
+    <Content Include="Resources\cxc_3_64x64.png" />
+    <Content Include="Resources\cxp_1_64x64.png" />
+    <Content Include="Resources\data-icon.png" />
+    <Content Include="Resources\Deposito.ico" />
+    <Content Include="Resources\Deposito_128x128.png" />
+    <Content Include="Resources\Deposito_64x64.png" />
+    <Content Include="Resources\dinero.ico" />
+    <Content Include="Resources\dinero_128x128.png" />
+    <Content Include="Resources\disenio.ico" />
+    <Content Include="Resources\documento.ico" />
+    <Content Include="Resources\documento_128x128.png" />
+    <Content Include="Resources\documento_aplicacion.png" />
+    <Content Include="Resources\document_128x128.png" />
+    <Content Include="Resources\Download.png" />
+    <Content Include="Resources\downloads.ico" />
+    <Content Include="Resources\downloads1.ico" />
+    <Content Include="Resources\downloads1.png" />
+    <Content Include="Resources\editar1_128x128.png" />
+    <Content Include="Resources\editar1_64x64.png" />
+    <Content Include="Resources\editar2_64x64.png" />
+    <Content Include="Resources\editar3_128x128.png" />
+    <Content Include="Resources\editar3_64x64.png" />
+    <Content Include="Resources\editar6_128x128.png" />
+    <Content Include="Resources\editar6_64x64.png" />
+    <Content Include="Resources\editar_buscar_128x128.png" />
+    <Content Include="Resources\editar_buscar_64x64.png" />
+    <Content Include="Resources\edit_128x128.png" />
+    <Content Include="Resources\edit_64x64.png" />
+    <Content Include="Resources\empleado.ico" />
+    <Content Include="Resources\empleado_.ico" />
+    <Content Include="Resources\empleado_128x128.png" />
+    <Content Include="Resources\entrega.ico" />
+    <Content Include="Resources\entrega_48x48.png" />
+    <Content Include="Resources\Excel-icon.png" />
+    <Content Include="Resources\Fasticon-Database-Table-add.ico" />
+    <Content Include="Resources\Fasticon-Database-Table-colums.ico" />
+    <Content Include="Resources\Fasticon-Database-Table-down.ico" />
+    <Content Include="Resources\Fasticon-Database-Table-remove.ico" />
+    <Content Include="Resources\filter2_128x128.png" />
+    <Content Include="Resources\filter2_64x64.png" />
+    <Content Include="Resources\filter3_128x128.png" />
+    <Content Include="Resources\filter3_64x64.png" />
+    <Content Include="Resources\filter_1_28x128.ico" />
+    <Content Include="Resources\filter_2_128x128.ico" />
+    <Content Include="Resources\filter_peque3_128x128.ico" />
+    <Content Include="Resources\filtro1_128x128.png" />
+    <Content Include="Resources\filtro1_64x64.png" />
+    <Content Include="Resources\folder_downloads.ico" />
+    <Content Include="Resources\folder_downloads.png" />
+    <Content Include="Resources\formularios.ico" />
+    <Content Include="Resources\formularios_128x128.png" />
+    <Content Include="Resources\formularios_64x64.png" />
+    <Content Include="Resources\formulario_32x32.png" />
+    <Content Include="Resources\formulario_64x64.png" />
+    <Content Include="Resources\formulario_buscar.ico" />
+    <Content Include="Resources\formulario_buscar_32x32.png" />
+    <Content Include="Resources\formulario_edit %282%29.ico" />
+    <Content Include="Resources\formulario_edit.ico" />
+    <Content Include="Resources\formulario_edit_128x128.png" />
+    <Content Include="Resources\form_24x24.ico" />
+    <Content Include="Resources\form_80x80.png" />
+    <Content Include="Resources\form_edit_32x32.png" />
+    <Content Include="Resources\gnome-system-config.ico" />
+    <Content Include="Resources\gnome-system-config.png" />
+    <Content Include="Resources\gnome-system-config_32x32.png" />
+    <Content Include="Resources\gnome-system-config_64x64.png" />
+    <Content Include="Resources\gnome-system-monitor.ico" />
+    <Content Include="Resources\gnome-system-monitor.png" />
+    <Content Include="Resources\guardar3_128x128.png" />
+    <Content Include="Resources\guardar3_64x64.png" />
+    <Content Include="Resources\guardarcomo1_128x128.png" />
+    <Content Include="Resources\guardarcomo1_64x64.png" />
+    <Content Include="Resources\guardar_128x128.png" />
+    <Content Include="Resources\guardar_64x64.png" />
+    <Content Include="Resources\herramientas.png" />
+    <Content Include="Resources\herramientas_.ico" />
+    <Content Include="Resources\herramientas_s.ico" />
+    <Content Include="Resources\historial.ico" />
+    <Content Include="Resources\historial_128x128.png" />
+    <Content Include="Resources\Home-Server-icon.png" />
+    <Content Include="Resources\Ico-Edit-Clear_64.png" />
+    <Content Include="Resources\icon-reports.png" />
+    <Content Include="Resources\Icon1.ico" />
+    <Content Include="Resources\ico_anular3.png" />
+    <Content Include="Resources\Ico_Cancel_msg.ico" />
+    <Content Include="Resources\Ico_Chard_128x128.png" />
+    <Content Include="Resources\Ico_CodQR_64.ico" />
+    <Content Include="Resources\ico_guardar1.png" />
+    <Content Include="Resources\ico_guardar2.png" />
+    <Content Include="Resources\Ico_imprimir.png" />
+    <Content Include="Resources\Ico_Reporte.png" />
+    <Content Include="Resources\ico_sucursal.png" />
+    <Content Include="Resources\Image1.png" />
+    <Content Include="Resources\importacion.ico" />
+    <Content Include="Resources\importacion_128x128.png" />
+    <Content Include="Resources\Imprimir.ico" />
+    <Content Include="Resources\Imprimir_128x128.png" />
+    <Content Include="Resources\Imprimir_64x64.png" />
+    <Content Include="Resources\inicio_menu.ico" />
+    <Content Include="Resources\inicio_menu_128x128.png" />
+    <Content Include="Resources\insert1.png" />
+    <Content Include="Resources\Inventario1.png" />
+    <Content Include="Resources\inventario1_128x128.png" />
+    <Content Include="Resources\inventario1_32x32.png" />
+    <Content Include="Resources\inventario1_64x64.png" />
+    <Content Include="Resources\Inventario_128x128.png" />
+    <Content Include="Resources\Inventario_32x32.png" />
+    <Content Include="Resources\Inventario_64x64.png" />
+    <Content Include="Resources\invoice.ico" />
+    <Content Include="Resources\invoice_128x128.png" />
+    <Content Include="Resources\limpiar_64x64.png" />
+    <Content Include="Resources\login_128x128.png" />
+    <Content Include="Resources\login_225x225.png" />
+    <Content Include="Resources\login_64x64.png" />
+    <Content Include="Resources\LogoDesarrolloITCorp.png" />
+    <Content Include="Resources\logoItCorp.png" />
+    <Content Include="Resources\logoItCorp_32x32.png" />
+    <Content Include="Resources\mantenimiento.ico" />
+    <Content Include="Resources\Mantenimiento_128x128.png" />
+    <Content Include="Resources\Mantenimiento_32x32.png" />
+    <Content Include="Resources\menu_edit.ico" />
+    <Content Include="Resources\menu_edit_128x128.png" />
+    <Content Include="Resources\menu_edit_32x32.png" />
+    <Content Include="Resources\menu_edit_64x64.png" />
+    <Content Include="Resources\Moneda_pila.ico" />
+    <Content Include="Resources\Moneda_pila_128x128.png" />
+    <Content Include="Resources\Moneda_pila_32x32.png" />
+    <Content Include="Resources\Moneda_pila_64x64.png" />
+    <Content Include="Resources\money-wallet-icon.png" />
+    <Content Include="Resources\Money.ico" />
+    <Content Include="Resources\Money_128x128.png" />
+    <Content Include="Resources\new-folder-system.ico" />
+    <Content Include="Resources\new-folder-system.png" />
+    <Content Include="Resources\nueva_folder1.png" />
+    <Content Include="Resources\nuevo2_128x128.png" />
+    <Content Include="Resources\nuevo_64x64.png" />
+    <Content Include="Resources\Office-building.ico" />
+    <Content Include="Resources\ok.ico" />
+    <Content Include="Resources\ok_2_128x128.png" />
+    <Content Include="Resources\Ok_48x48.ico" />
+    <Content Include="Resources\pagar_.png" />
+    <Content Include="Resources\pagar_128x128.png" />
+    <Content Include="Resources\pagar_32x32.png" />
+    <Content Include="Resources\pagar_64x64.png" />
+    <Content Include="Resources\paypal_128x128.png" />
+    <Content Include="Resources\pay_pal.ico" />
+    <Content Include="Resources\preferences-system-session.ico" />
+    <Content Include="Resources\preferences-system-session.png" />
+    <Content Include="Resources\preferences-system-windows-actions.ico" />
+    <Content Include="Resources\preferences-system-windows-actions.png" />
+    <Content Include="Resources\printer_128x128.png" />
+    <Content Include="Resources\printok_128x128.png" />
+    <Content Include="Resources\Produccion_industrial_32x32.png" />
+    <Content Include="Resources\Produccion_industrial_64x64.png" />
+    <Content Include="Resources\Produccion_industrial_83x105.png" />
+    <Content Include="Resources\punto_venta.ico" />
+    <Content Include="Resources\punto_venta_128x128.png" />
+    <Content Include="Resources\purchase_order.ico" />
+    <Content Include="Resources\purchase_order_128x128.png" />
+    <Content Include="Resources\qrcode.ico" />
+    <Content Include="Resources\qrcode_128x128.png" />
+    <Content Include="Resources\qrcode_64x64.png" />
+    <Content Include="Resources\refresh_128x128.png" />
+    <Content Include="Resources\refresh_64x64.png" />
+    <Content Include="Resources\report-6.png" />
+    <Content Include="Resources\report_1.ico" />
+    <Content Include="Resources\report_grafico.ico" />
+    <Content Include="Resources\report_grafico_128x128.png" />
+    <Content Include="Resources\report_ventas.ico" />
+    <Content Include="Resources\report_ventas_128x128.png" />
+    <Content Include="Resources\salir_128x128.png" />
+    <Content Include="Resources\seguridadyaccesos.png" />
+    <Content Include="Resources\seguridadyaccesos_128x128.png" />
+    <Content Include="Resources\seguridadyaccesos_32x32.png" />
+    <Content Include="Resources\seguridadyaccesos_64x64.png" />
+    <Content Include="Resources\seguridad_128x128.png" />
+    <Content Include="Resources\seguridad_32x32.png" />
+    <Content Include="Resources\seguridad_64x64.png" />
+    <Content Include="Resources\services.ico" />
+    <Content Include="Resources\services.png" />
+    <Content Include="Resources\servicios-informaticos_150x105.png" />
+    <Content Include="Resources\servicios-informaticos_75x53.png" />
+    <Content Include="Resources\signo_dolar.ico" />
+    <Content Include="Resources\subir.png" />
+    <Content Include="Resources\system Preferences.ico" />
+    <Content Include="Resources\system Preferences.png" />
+    <Content Include="Resources\system-file-manager.ico" />
+    <Content Include="Resources\system-file-manager.png" />
+    <Content Include="Resources\system-lock-screen.ico" />
+    <Content Include="Resources\system-lock-screen.png" />
+    <Content Include="Resources\system-software-update.ico" />
+    <Content Include="Resources\system-software-update.png" />
+    <Content Include="Resources\table-add.png" />
+    <Content Include="Resources\table-colums.png" />
+    <Content Include="Resources\table-down.png" />
+    <Content Include="Resources\table-remove.png" />
+    <Content Include="Resources\text_documento.ico" />
+    <Content Include="Resources\text_documento_128x128.png" />
+    <Content Include="Resources\Toolbox-Red-icon.png" />
+    <Content Include="Resources\transaccion.ico" />
+    <Content Include="Resources\transaccion_128x128.png" />
+    <Content Include="Resources\trash-aqua-full-icon.png" />
+    <Content Include="Resources\update.ico" />
+    <Content Include="Resources\update.png" />
+    <Content Include="Resources\user_accounts_config.ico" />
+    <Content Include="Resources\user_accounts_config_128x128.png" />
+    <Content Include="Resources\user_accounts_config_32x32.png" />
+    <Content Include="Resources\user_accounts_config_64x64.png" />
+    <Content Include="Resources\ventas_icono.png" />
+    <Content Include="Resources\ventas_icono_32x32.png" />
+    <Content Include="Resources\ventas_icono_64x64.png" />
+    <Content Include="Resources\vzen-logo_136x32.png" />
+    <Content Include="Resources\vzen-logo_32x32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

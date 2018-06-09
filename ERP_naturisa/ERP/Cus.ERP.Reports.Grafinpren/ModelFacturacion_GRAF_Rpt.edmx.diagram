@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2d83f85294045759e13491a0a2fb6d8" Name="Diagrama1" ZoomLevel="60">
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwFAC_GRAF_Rpt001" Width="1.5" PointX="9.1938783643738731" PointY="28.601198716369083" />
+        <EntityTypeShape EntityType="DBERP_GRAFPRUEBASModel.vwFAC_GRAF_Rpt002" Width="1.5" PointX="5.8259963085064648" PointY="6.766986090115731" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

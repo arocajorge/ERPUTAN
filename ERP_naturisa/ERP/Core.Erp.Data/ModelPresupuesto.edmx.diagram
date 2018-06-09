@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a80c8fd0a654ac2aee4defdbb483f25" Name="Diagrama1">
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_estadoAprobacion" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_ordencompra_local" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_ordencompra_local_det" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_PedidoXPresupuesto" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_PedidoXPresupuesto_det" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_presupuesto" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_presupuesto_tipoRubro" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.pre_presupuestoData" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="DBERPModelPresupuesto.FK_pre_presupuesto_pre_presupuesto_tipoRubro" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.vwpre_PedidoXPresupuesto" Width="1.5" PointX="8.473305186477166" PointY="10.845839475675412" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.vwpre_PedidoXPresupuesto_det" Width="1.5" PointX="3.4450538416602896" PointY="30.277726902755781" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.vwpre_presupuesto_plancta" Width="1.5" PointX="10.117170407491349" PointY="27.75664217572503" />
+        <EntityTypeShape EntityType="DBERPModelPresupuesto.vwPre_PresupuestoxCta" Width="1.5" PointX="11.724861971905856" PointY="22.196495439017422" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelProduccion_Edehsa.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelProduccion_EdehsaStoreContainer">
+          <EntitySet Name="prd_motivo_traslado" EntityType="ModelProduccion_Edehsa.Store.prd_motivo_traslado" store:Type="Tables" Schema="Edehsa" />
+          <EntitySet Name="vwprd_Guia_Remision_Electronica" EntityType="ModelProduccion_Edehsa.Store.vwprd_Guia_Remision_Electronica" store:Type="Views" store:Schema="Edehsa" store:Name="vwprd_Guia_Remision_Electronica">
+            <DefiningQuery>SELECT 
+      [vwprd_Guia_Remision_Electronica].[IdEmpresa] AS [IdEmpresa], 
+      [vwprd_Guia_Remision_Electronica].[IdSucursal] AS [IdSucursal], 
+      [vwprd_Guia_Remision_Electronica].[IdBodega] AS [IdBodega], 
+      [vwprd_Guia_Remision_Electronica].[IdGuiaRemision] AS [IdGuiaRemision], 
+      [vwprd_Guia_Remision_Electronica].[CodGuiaRemision] AS [CodGuiaRemision], 
+      [vwprd_Guia_Remision_Electronica].[CodDocumentoTipo] AS [CodDocumentoTipo], 
+      [vwprd_Guia_Remision_Electronica].[Serie1] AS [Serie1], 
+      [vwprd_Guia_Remision_Electronica].[Serie2] AS [Serie2], 
+      [vwprd_Guia_Remision_Electronica].[NumGuia_Preimpresa] AS [NumGuia_Preimpresa], 
+      [vwprd_Guia_Remision_Electronica].[NUAutorizacion] AS [NUAutorizacion], 
+      [vwprd_Guia_Remision_Electronica].[Fecha_Autorizacion] AS [Fecha_Autorizacion], 
+      [vwprd_Guia_Remision_Electronica].[IdCliente] AS [IdCliente], 
+      [vwprd_Guia_Remision_Electronica].[IdVendedor] AS [IdVendedor], 
+      [vwprd_Guia_Remision_Electronica].[gi_fecha] AS [gi_fecha], 
+      [vwprd_Guia_Remision_Electronica].[gi_fech_venc] AS [gi_fech_venc], 
+      [vwprd_Guia_Remision_Electronica].[gi_Observacion] AS [gi_Observacion], 
+      [vwprd_Guia_Remision_Electronica].[gi_TotalKilos] AS [gi_TotalKilos], 
+      [vwprd_Guia_Remision_Electronica].[gi_plazo] AS [gi_plazo], 
+      [vwprd_Guia_Remision_Electronica].[gi_TotalQuintales] AS [gi_TotalQuintales], 
+      [vwprd_Guia_Remision_Electronica].[IdUsuario] AS [IdUsuario], 
+      [vwprd_Guia_Remision_Electronica].[IdUsuarioUltMod] AS [IdUsuarioUltMod], 
+      [vwprd_Guia_Remision_Electronica].[Fecha_Transac] AS [Fecha_Transac], 
+      [vwprd_Guia_Remision_Electronica].[Fecha_UltMod] AS [Fecha_UltMod], 
+      [vwprd_Guia_Remision_Electronica].[IdUsuarioUltAnu] AS [IdUsuarioUltAnu], 
+      [vwprd_Guia_Remision_Electronica].[nom_pc] AS [nom_pc], 
+      [vwprd_Guia_Remision_Electronica].[Fecha_UltAnu] AS [Fecha_UltAnu], 
+      [vwprd_Guia_Remision_Electronica].[ip] AS [ip], 
+      [vwprd_Guia_Remision_Electronica].[Estado] AS [Estado], 
+      [vwprd_Guia_Remision_Electronica].[MotiAnula] AS [MotiAnula], 
+      [vwprd_Guia_Remision_Electronica].[Impreso] AS [Impreso], 
+      [vwprd_Guia_Remision_Electronica].[IdPeriodo] AS [IdPeriodo], 
+      [vwprd_Guia_Remision_Electronica].[gi_flete] AS [gi_flete], 
+      [vwprd_Guia_Remision_Electronica].[gi_interes] AS [gi_interes], 
+      [vwprd_Guia_Remision_Electronica].[gi_seguro] AS [gi_seguro], 
+      [vwprd_Guia_Remision_Electronica].[gi_OtroValor1] AS [gi_OtroValor1], 
+      [vwprd_Guia_Remision_Electronica].[gi_OtroValor2] AS [gi_OtroValor2], 
+      [vwprd_Guia_Remision_Electronica].[gi_FechaIniTraslado] AS [gi_FechaIniTraslado], 
+      [vwprd_Guia_Remision_Electronica].[placa] AS [placa], 
+      [vwprd_Guia_Remision_Electronica].[gi_FechaFinTraslado] AS [gi_FechaFinTraslado], 
+      [vwprd_Guia_Remision_Electronica].[ruta] AS [ruta], 
+      [vwprd_Guia_Remision_Electronica].[Direccion_Origen] AS [Direccion_Origen], 
+      [vwprd_Guia_Remision_Electronica].[Direccion_Destino] AS [Direccion_Destino], 
+      [vwprd_Guia_Remision_Electronica].[idMotivo_traslado] AS [idMotivo_traslado], 
+      [vwprd_Guia_Remision_Electronica].[IdTransportista] AS [IdTransportista], 
+      [vwprd_Guia_Remision_Electronica].[Cedula_Transportista] AS [Cedula_Transportista], 
+      [vwprd_Guia_Remision_Electronica].[Nombre_Transportista] AS [Nombre_Transportista], 
+      [vwprd_Guia_Remision_Electronica].[IdProducto] AS [IdProducto], 
+      [vwprd_Guia_Remision_Electronica].[gi_cantidad] AS [gi_cantidad], 
+      [vwprd_Guia_Remision_Electronica].[gi_Precio] AS [gi_Precio], 
+      [vwprd_Guia_Remision_Electronica].[gi_PorDescUnitario] AS [gi_PorDescUnitario], 
+      [vwprd_Guia_Remision_Electronica].[gi_DescUnitario] AS [gi_DescUnitario], 
+      [vwprd_Guia_Remision_Electronica].[gi_PrecioFinal] AS [gi_PrecioFinal], 
+      [vwprd_Guia_Remision_Electronica].[gi_Subtotal] AS [gi_Subtotal], 
+      [vwprd_Guia_Remision_Electronica].[gi_iva] AS [gi_iva], 
+      [vwprd_Guia_Remision_Electronica].[gi_total] AS [gi_total], 
+      [vwprd_Guia_Remision_Electronica].[gi_costo] AS [gi_costo], 
+      [vwprd_Guia_Remision_Electronica].[gi_tieneIVA] AS [gi_tieneIVA], 
+      [vwprd_Guia_Remision_Electronica].[gi_detallexItems] AS [gi_detallexItems], 
+      [vwprd_Guia_Remision_Electronica].[gi_peso] AS [gi_peso], 
+      [vwprd_Guia_Remision_Electronica].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwprd_Guia_Remision_Electronica].[IdTipoPersona] AS [IdTipoPersona], 
+      [vwprd_Guia_Remision_Electronica].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwprd_Guia_Remision_Electronica].[pe_razonSocial] AS [pe_razonSocial], 
+      [vwprd_Guia_Remision_Electronica].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwprd_Guia_Remision_Electronica].[pe_apellido] AS [pe_apellido], 
+      [vwprd_Guia_Remision_Electronica].[pe_nombre] AS [pe_nombre], 
+      [vwprd_Guia_Remision_Electronica].[pe_direccion] AS [pe_direccion], 
+      [vwprd_Guia_Remision_Electronica].[pe_correo] AS [pe_correo], 
+      [vwprd_Guia_Remision_Electronica].[em_nombre] AS [em_nombre], 
+      [vwprd_Guia_Remision_Electronica].[RazonSocial] AS [RazonSocial], 
+      [vwprd_Guia_Remision_Electronica].[NombreComercial] AS [NombreComercial], 
+      [vwprd_Guia_Remision_Electronica].[em_direccion] AS [em_direccion], 
+      [vwprd_Guia_Remision_Electronica].[descripcion_motivo_traslado] AS [descripcion_motivo_traslado], 
+      [vwprd_Guia_Remision_Electronica].[em_ruc] AS [em_ruc], 
+      [vwprd_Guia_Remision_Electronica].[ObligadoAllevarConta] AS [ObligadoAllevarConta], 
+      [vwprd_Guia_Remision_Electronica].[ContribuyenteEspecial] AS [ContribuyenteEspecial], 
+      [vwprd_Guia_Remision_Electronica].[pr_codigo] AS [pr_codigo], 
+      [vwprd_Guia_Remision_Electronica].[pr_descripcion] AS [pr_descripcion], 
+      [vwprd_Guia_Remision_Electronica].[pr_descripcion_2] AS [pr_descripcion_2], 
+      [vwprd_Guia_Remision_Electronica].[unidad_medida_consumo] AS [unidad_medida_consumo], 
+      [vwprd_Guia_Remision_Electronica].[CodObra] AS [CodObra], 
+      [vwprd_Guia_Remision_Electronica].[descripcion_obra] AS [descripcion_obra], 
+      [vwprd_Guia_Remision_Electronica].[Su_Direccion] AS [Su_Direccion]
+      FROM [Edehsa].[vwprd_Guia_Remision_Electronica] AS [vwprd_Guia_Remision_Electronica]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwprd_Obra" EntityType="ModelProduccion_Edehsa.Store.vwprd_Obra" store:Type="Views" store:Schema="Edehsa" store:Name="vwprd_Obra">
+            <DefiningQuery>SELECT 
+      [vwprd_Obra].[IdEmpresa] AS [IdEmpresa], 
+      [vwprd_Obra].[CodObra] AS [CodObra], 
+      [vwprd_Obra].[Descripcion] AS [Descripcion], 
+      [vwprd_Obra].[Estado] AS [Estado], 
+      [vwprd_Obra].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwprd_Obra].[Fecha] AS [Fecha], 
+      [vwprd_Obra].[IdUsuario] AS [IdUsuario], 
+      [vwprd_Obra].[IdUsuarioAnu] AS [IdUsuarioAnu], 
+      [vwprd_Obra].[MotivoAnu] AS [MotivoAnu], 
+      [vwprd_Obra].[IdUsuarioUltModi] AS [IdUsuarioUltModi], 
+      [vwprd_Obra].[FechaAnu] AS [FechaAnu], 
+      [vwprd_Obra].[FechaTransac] AS [FechaTransac], 
+      [vwprd_Obra].[FechaUltModi] AS [FechaUltModi], 
+      [vwprd_Obra].[IdCliente] AS [IdCliente]
+      FROM [Edehsa].[vwprd_Obra] AS [vwprd_Obra]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="prd_motivo_traslado">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdMotivo_traslado" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdMotivo_traslado" Type="int" Nullable="false" />
+          <Property Name="codMotivo_traslado" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="descripcion_motivo_traslado" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="UsuarioModificacion" Type="varchar" MaxLength="50" />
+          <Property Name="UsuarioCreacion" Type="varchar" MaxLength="50" />
+          <Property Name="FechaAnulacion" Type="datetime" />
+          <Property Name="UsuarioAnulacion" Type="varchar" MaxLength="50" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwprd_Guia_Remision_Electronica' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwprd_Guia_Remision_Electronica">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdGuiaRemision" />
+            <PropertyRef Name="CodGuiaRemision" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="gi_fecha" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="nom_pc" />
+            <PropertyRef Name="ip" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="gi_flete" />
+            <PropertyRef Name="gi_interes" />
+            <PropertyRef Name="gi_seguro" />
+            <PropertyRef Name="gi_OtroValor1" />
+            <PropertyRef Name="gi_OtroValor2" />
+            <PropertyRef Name="gi_FechaIniTraslado" />
+            <PropertyRef Name="placa" />
+            <PropertyRef Name="gi_FechaFinTraslado" />
+            <PropertyRef Name="Direccion_Origen" />
+            <PropertyRef Name="Direccion_Destino" />
+            <PropertyRef Name="IdTransportista" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="gi_cantidad" />
+            <PropertyRef Name="gi_Precio" />
+            <PropertyRef Name="gi_PorDescUnitario" />
+            <PropertyRef Name="gi_DescUnitario" />
+            <PropertyRef Name="gi_PrecioFinal" />
+            <PropertyRef Name="gi_Subtotal" />
+            <PropertyRef Name="gi_iva" />
+            <PropertyRef Name="gi_total" />
+            <PropertyRef Name="gi_costo" />
+            <PropertyRef Name="gi_detallexItems" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="IdTipoPersona" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="em_direccion" />
+            <PropertyRef Name="descripcion_motivo_traslado" />
+            <PropertyRef Name="em_ruc" />
+            <PropertyRef Name="ObligadoAllevarConta" />
+            <PropertyRef Name="ContribuyenteEspecial" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="unidad_medida_consumo" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="descripcion_obra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdGuiaRemision" Type="numeric" Nullable="false" />
+          <Property Name="CodGuiaRemision" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CodDocumentoTipo" Type="varchar" MaxLength="20" />
+          <Property Name="Serie1" Type="varchar" MaxLength="3" />
+          <Property Name="Serie2" Type="varchar" MaxLength="3" />
+          <Property Name="NumGuia_Preimpresa" Type="varchar" MaxLength="20" />
+          <Property Name="NUAutorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_Autorizacion" Type="datetime" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="gi_fecha" Type="datetime" Nullable="false" />
+          <Property Name="gi_fech_venc" Type="datetime" />
+          <Property Name="gi_Observacion" Type="varchar" MaxLength="1000" />
+          <Property Name="gi_TotalKilos" Type="float" />
+          <Property Name="gi_plazo" Type="numeric" Precision="10" />
+          <Property Name="gi_TotalQuintales" Type="float" />
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_Transac" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltAnu" Type="varchar" MaxLength="20" />
+          <Property Name="nom_pc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Fecha_UltAnu" Type="datetime" />
+          <Property Name="ip" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="MotiAnula" Type="varchar" MaxLength="200" />
+          <Property Name="Impreso" Type="char" MaxLength="1" />
+          <Property Name="IdPeriodo" Type="int" />
+          <Property Name="gi_flete" Type="float" Nullable="false" />
+          <Property Name="gi_interes" Type="float" Nullable="false" />
+          <Property Name="gi_seguro" Type="float" Nullable="false" />
+          <Property Name="gi_OtroValor1" Type="float" Nullable="false" />
+          <Property Name="gi_OtroValor2" Type="float" Nullable="false" />
+          <Property Name="gi_FechaIniTraslado" Type="datetime" Nullable="false" />
+          <Property Name="placa" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="gi_FechaFinTraslado" Type="datetime" Nullable="false" />
+          <Property Name="ruta" Type="varchar" MaxLength="300" />
+          <Property Name="Direccion_Origen" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="Direccion_Destino" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="idMotivo_traslado" Type="int" />
+          <Property Name="IdTransportista" Type="numeric" Nullable="false" />
+          <Property Name="Cedula_Transportista" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre_Transportista" Type="varchar" MaxLength="500" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="gi_cantidad" Type="float" Nullable="false" />
+          <Property Name="gi_Precio" Type="float" Nullable="false" />
+          <Property Name="gi_PorDescUnitario" Type="float" Nullable="false" />
+          <Property Name="gi_DescUnitario" Type="float" Nullable="false" />
+          <Property Name="gi_PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="gi_Subtotal" Type="float" Nullable="false" />
+          <Property Name="gi_iva" Type="float" Nullable="false" />
+          <Property Name="gi_total" Type="float" Nullable="false" />
+          <Property Name="gi_costo" Type="float" Nullable="false" />
+          <Property Name="gi_tieneIVA" Type="char" MaxLength="1" />
+          <Property Name="gi_detallexItems" Type="nchar" Nullable="false" MaxLength="250" />
+          <Property Name="gi_peso" Type="float" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdTipoPersona" Type="int" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="pe_correo" Type="varchar" MaxLength="50" />
+          <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RazonSocial" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="NombreComercial" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="em_direccion" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="descripcion_motivo_traslado" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="em_ruc" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="ObligadoAllevarConta" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="ContribuyenteEspecial" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="pr_descripcion_2" Type="nvarchar" MaxLength="500" />
+          <Property Name="unidad_medida_consumo" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="descripcion_obra" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Su_Direccion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_EDEHSA_PRUEBA.Edehsa.vwprd_Obra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwprd_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="FechaTransac" />
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="CodObra" Type="int" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdUsuarioAnu" Type="varchar" MaxLength="20" />
+          <Property Name="MotivoAnu" Type="varchar" MaxLength="100" />
+          <Property Name="IdUsuarioUltModi" Type="varchar" MaxLength="20" />
+          <Property Name="FechaAnu" Type="datetime" />
+          <Property Name="FechaTransac" Type="datetime" Nullable="false" />
+          <Property Name="FechaUltModi" Type="datetime" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelProduccion_Edehsa" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesProduccion_Edehsa" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwprd_Obra" EntityType="ModelProduccion_Edehsa.vwprd_Obra" />
+          <EntitySet Name="prd_motivo_traslado" EntityType="ModelProduccion_Edehsa.prd_motivo_traslado" />
+          <EntitySet Name="vwprd_Guia_Remision_Electronica" EntityType="ModelProduccion_Edehsa.vwprd_Guia_Remision_Electronica" />
+        </EntityContainer>
+        <EntityType Name="vwprd_Obra">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="FechaTransac" />
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="CodObra" Type="Int32" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="IdCentroCosto" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuarioAnu" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="MotivoAnu" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuarioUltModi" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FechaAnu" Type="DateTime" Precision="3" />
+          <Property Name="FechaTransac" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaUltModi" Type="DateTime" Precision="3" />
+          <Property Name="IdCliente" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="prd_motivo_traslado">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdMotivo_traslado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdMotivo_traslado" Nullable="false" />
+          <Property Type="String" Name="codMotivo_traslado" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="descripcion_motivo_traslado" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="FechaModificacion" Precision="3" />
+          <Property Type="DateTime" Name="FechaCreacion" Precision="3" />
+          <Property Type="String" Name="UsuarioModificacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UsuarioCreacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaAnulacion" Precision="3" />
+          <Property Type="String" Name="UsuarioAnulacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwprd_Guia_Remision_Electronica">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdGuiaRemision" />
+            <PropertyRef Name="CodGuiaRemision" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="gi_fecha" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="nom_pc" />
+            <PropertyRef Name="ip" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="gi_flete" />
+            <PropertyRef Name="gi_interes" />
+            <PropertyRef Name="gi_seguro" />
+            <PropertyRef Name="gi_OtroValor1" />
+            <PropertyRef Name="gi_OtroValor2" />
+            <PropertyRef Name="gi_FechaIniTraslado" />
+            <PropertyRef Name="placa" />
+            <PropertyRef Name="gi_FechaFinTraslado" />
+            <PropertyRef Name="Direccion_Origen" />
+            <PropertyRef Name="Direccion_Destino" />
+            <PropertyRef Name="IdTransportista" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="gi_cantidad" />
+            <PropertyRef Name="gi_Precio" />
+            <PropertyRef Name="gi_PorDescUnitario" />
+            <PropertyRef Name="gi_DescUnitario" />
+            <PropertyRef Name="gi_PrecioFinal" />
+            <PropertyRef Name="gi_Subtotal" />
+            <PropertyRef Name="gi_iva" />
+            <PropertyRef Name="gi_total" />
+            <PropertyRef Name="gi_costo" />
+            <PropertyRef Name="gi_detallexItems" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="IdTipoPersona" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="em_direccion" />
+            <PropertyRef Name="descripcion_motivo_traslado" />
+            <PropertyRef Name="em_ruc" />
+            <PropertyRef Name="ObligadoAllevarConta" />
+            <PropertyRef Name="ContribuyenteEspecial" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="unidad_medida_consumo" />
+            <PropertyRef Name="CodObra" />
+            <PropertyRef Name="descripcion_obra" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdGuiaRemision" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodGuiaRemision" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodDocumentoTipo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Serie1" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Serie2" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumGuia_Preimpresa" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NUAutorizacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Autorizacion" Precision="3" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="DateTime" Name="gi_fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="gi_fech_venc" Precision="3" />
+          <Property Type="String" Name="gi_Observacion" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="gi_TotalKilos" />
+          <Property Type="Decimal" Name="gi_plazo" Precision="10" Scale="0" />
+          <Property Type="Double" Name="gi_TotalQuintales" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_pc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="ip" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MotiAnula" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Impreso" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" />
+          <Property Type="Double" Name="gi_flete" Nullable="false" />
+          <Property Type="Double" Name="gi_interes" Nullable="false" />
+          <Property Type="Double" Name="gi_seguro" Nullable="false" />
+          <Property Type="Double" Name="gi_OtroValor1" Nullable="false" />
+          <Property Type="Double" Name="gi_OtroValor2" Nullable="false" />
+          <Property Type="DateTime" Name="gi_FechaIniTraslado" Nullable="false" Precision="3" />
+          <Property Type="String" Name="placa" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="gi_FechaFinTraslado" Nullable="false" Precision="3" />
+          <Property Type="String" Name="ruta" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Direccion_Origen" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Direccion_Destino" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idMotivo_traslado" />
+          <Property Type="Decimal" Name="IdTransportista" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Cedula_Transportista" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre_Transportista" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="gi_cantidad" Nullable="false" />
+          <Property Type="Double" Name="gi_Precio" Nullable="false" />
+          <Property Type="Double" Name="gi_PorDescUnitario" Nullable="false" />
+          <Property Type="Double" Name="gi_DescUnitario" Nullable="false" />
+          <Property Type="Double" Name="gi_PrecioFinal" Nullable="false" />
+          <Property Type="Double" Name="gi_Subtotal" Nullable="false" />
+          <Property Type="Double" Name="gi_iva" Nullable="false" />
+          <Property Type="Double" Name="gi_total" Nullable="false" />
+          <Property Type="Double" Name="gi_costo" Nullable="false" />
+          <Property Type="String" Name="gi_tieneIVA" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="gi_detallexItems" Nullable="false" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="gi_peso" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoPersona" Nullable="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="descripcion_motivo_traslado" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ObligadoAllevarConta" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContribuyenteEspecial" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unidad_medida_consumo" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodObra" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="descripcion_obra" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelProduccion_EdehsaStoreContainer" CdmEntityContainer="EntitiesProduccion_Edehsa">
+          <EntitySetMapping Name="vwprd_Obra">
+            <EntityTypeMapping TypeName="ModelProduccion_Edehsa.vwprd_Obra">
+              <MappingFragment StoreEntitySet="vwprd_Obra">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdUsuarioAnu" ColumnName="IdUsuarioAnu" />
+                <ScalarProperty Name="MotivoAnu" ColumnName="MotivoAnu" />
+                <ScalarProperty Name="IdUsuarioUltModi" ColumnName="IdUsuarioUltModi" />
+                <ScalarProperty Name="FechaAnu" ColumnName="FechaAnu" />
+                <ScalarProperty Name="FechaTransac" ColumnName="FechaTransac" />
+                <ScalarProperty Name="FechaUltModi" ColumnName="FechaUltModi" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prd_motivo_traslado">
+            <EntityTypeMapping TypeName="ModelProduccion_Edehsa.prd_motivo_traslado">
+              <MappingFragment StoreEntitySet="prd_motivo_traslado">
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="UsuarioAnulacion" ColumnName="UsuarioAnulacion" />
+                <ScalarProperty Name="FechaAnulacion" ColumnName="FechaAnulacion" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="descripcion_motivo_traslado" ColumnName="descripcion_motivo_traslado" />
+                <ScalarProperty Name="codMotivo_traslado" ColumnName="codMotivo_traslado" />
+                <ScalarProperty Name="IdMotivo_traslado" ColumnName="IdMotivo_traslado" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwprd_Guia_Remision_Electronica">
+            <EntityTypeMapping TypeName="ModelProduccion_Edehsa.vwprd_Guia_Remision_Electronica">
+              <MappingFragment StoreEntitySet="vwprd_Guia_Remision_Electronica">
+                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
+                <ScalarProperty Name="descripcion_obra" ColumnName="descripcion_obra" />
+                <ScalarProperty Name="CodObra" ColumnName="CodObra" />
+                <ScalarProperty Name="unidad_medida_consumo" ColumnName="unidad_medida_consumo" />
+                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
+                <ScalarProperty Name="ObligadoAllevarConta" ColumnName="ObligadoAllevarConta" />
+                <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
+                <ScalarProperty Name="descripcion_motivo_traslado" ColumnName="descripcion_motivo_traslado" />
+                <ScalarProperty Name="em_direccion" ColumnName="em_direccion" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="gi_peso" ColumnName="gi_peso" />
+                <ScalarProperty Name="gi_detallexItems" ColumnName="gi_detallexItems" />
+                <ScalarProperty Name="gi_tieneIVA" ColumnName="gi_tieneIVA" />
+                <ScalarProperty Name="gi_costo" ColumnName="gi_costo" />
+                <ScalarProperty Name="gi_total" ColumnName="gi_total" />
+                <ScalarProperty Name="gi_iva" ColumnName="gi_iva" />
+                <ScalarProperty Name="gi_Subtotal" ColumnName="gi_Subtotal" />
+                <ScalarProperty Name="gi_PrecioFinal" ColumnName="gi_PrecioFinal" />
+                <ScalarProperty Name="gi_DescUnitario" ColumnName="gi_DescUnitario" />
+                <ScalarProperty Name="gi_PorDescUnitario" ColumnName="gi_PorDescUnitario" />
+                <ScalarProperty Name="gi_Precio" ColumnName="gi_Precio" />
+                <ScalarProperty Name="gi_cantidad" ColumnName="gi_cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Nombre_Transportista" ColumnName="Nombre_Transportista" />
+                <ScalarProperty Name="Cedula_Transportista" ColumnName="Cedula_Transportista" />
+                <ScalarProperty Name="IdTransportista" ColumnName="IdTransportista" />
+                <ScalarProperty Name="idMotivo_traslado" ColumnName="idMotivo_traslado" />
+                <ScalarProperty Name="Direccion_Destino" ColumnName="Direccion_Destino" />
+                <ScalarProperty Name="Direccion_Origen" ColumnName="Direccion_Origen" />
+                <ScalarProperty Name="ruta" ColumnName="ruta" />
+                <ScalarProperty Name="gi_FechaFinTraslado" ColumnName="gi_FechaFinTraslado" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="gi_FechaIniTraslado" ColumnName="gi_FechaIniTraslado" />
+                <ScalarProperty Name="gi_OtroValor2" ColumnName="gi_OtroValor2" />
+                <ScalarProperty Name="gi_OtroValor1" ColumnName="gi_OtroValor1" />
+                <ScalarProperty Name="gi_seguro" ColumnName="gi_seguro" />
+                <ScalarProperty Name="gi_interes" ColumnName="gi_interes" />
+                <ScalarProperty Name="gi_flete" ColumnName="gi_flete" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Impreso" ColumnName="Impreso" />
+                <ScalarProperty Name="MotiAnula" ColumnName="MotiAnula" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="gi_TotalQuintales" ColumnName="gi_TotalQuintales" />
+                <ScalarProperty Name="gi_plazo" ColumnName="gi_plazo" />
+                <ScalarProperty Name="gi_TotalKilos" ColumnName="gi_TotalKilos" />
+                <ScalarProperty Name="gi_Observacion" ColumnName="gi_Observacion" />
+                <ScalarProperty Name="gi_fech_venc" ColumnName="gi_fech_venc" />
+                <ScalarProperty Name="gi_fecha" ColumnName="gi_fecha" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Fecha_Autorizacion" ColumnName="Fecha_Autorizacion" />
+                <ScalarProperty Name="NUAutorizacion" ColumnName="NUAutorizacion" />
+                <ScalarProperty Name="NumGuia_Preimpresa" ColumnName="NumGuia_Preimpresa" />
+                <ScalarProperty Name="Serie2" ColumnName="Serie2" />
+                <ScalarProperty Name="Serie1" ColumnName="Serie1" />
+                <ScalarProperty Name="CodDocumentoTipo" ColumnName="CodDocumentoTipo" />
+                <ScalarProperty Name="CodGuiaRemision" ColumnName="CodGuiaRemision" />
+                <ScalarProperty Name="IdGuiaRemision" ColumnName="IdGuiaRemision" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

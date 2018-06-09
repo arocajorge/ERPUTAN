@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="468b768599c94dfda2e63ef178446a61" Name="Diagrama1" ZoomLevel="76">
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cancelacion_Intercompany" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cancelacion_Intercompany_det" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_Catalogo" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_CatalogoTipo" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_det" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_tipo" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_tipo_Param_conta_x_sucursal" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_tipo_x_anticipo" Width="1.5" PointX="3" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_tipo_x_cobros_Docxc" Width="1.5" PointX="3" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_Anticipo" Width="1.5" PointX="6" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_Anticipo_det" Width="1.5" PointX="8.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_caj_Caja_Movimiento" Width="1.5" PointX="5.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_ct_cbtecble" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_ct_cbtecble_x_Anulado" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_EstadoCobro" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_cobro_x_tarjeta" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_conciliacion" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_conciliacion_det" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_conciliacion_tipo" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_EstadoCobro" Width="1.5" PointX="6" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_Parametro" Width="1.5" PointX="3" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_Parametros_x_cheqProtesto" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBERPModelCXC.cxc_Rango_dias_x_Vencimiento" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cancelacion_Intercompany_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cancelacion_Intercompany_det_cxc_cancelacion_Intercompany" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_Catalogo_cxc_CatalogoTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_det_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_Anticipo_det_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_caj_Caja_Movimiento_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_ct_cbtecble_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_EstadoCobro_cxc_cobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_tipo_Param_conta_x_sucursal_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_tipo_x_anticipo_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_tipo_x_cobros_Docxc_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_Anticipo_det_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_Parametro_cxc_cobro_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_Anticipo_det_cxc_cobro_x_Anticipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_cobro_x_EstadoCobro_cxc_EstadoCobro" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_conciliacion_det_cxc_conciliacion" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_conciliacion_det_cxc_conciliacion_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBERPModelCXC.FK_cxc_Parametro_cxc_Parametro" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_anticipos_x_cruzar" Width="1.5" PointX="4.2540556845506909" PointY="4.1579517741491792" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cancelacion_Intercompany" Width="1.5" PointX="5.2766890941544853" PointY="26.96926831964835" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cancelacion_Intercompany_x_cxc_cobro_det" Width="1.5" PointX="6.997313163707644" PointY="25.607505869868913" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cartera_x_cobrar" Width="1.5" PointX="0.39243806916868229" PointY="17.466038518336621" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwCxc_Catalogo_IdAuto_numeric" Width="1.5" PointX="11.485435914008615" PointY="30.291205241480473" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro" Width="1.5" PointX="2.6344364819277248" PointY="10.194601182916482" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_det" Width="1.5" PointX="0.733016755773228" PointY="19.70835805857012" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_tipo_Param_conta_x_sucursal" Width="1.5" PointX="10.075046063435751" PointY="8.36865498515249" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_anticipo_total_respaldado" Width="1.5" PointX="0.95103437684058889" PointY="6.3672803819027175" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_Cobro_x_anticipo_x_cobros" Width="1.5" PointX="6.45740769545427" PointY="17.946963855040707" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_Anticipo_x_Persona" Width="1.5" PointX="0.060392992599118969" PointY="12.12251583306236" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_caj_Caja_Movimiento" Width="1.5" PointX="0.56851298761019153" PointY="10.319610838927147" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_cobro_det" Width="1.5" PointX="6.0990361003666358" PointY="31.001386776101491" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_documentos_x_cobrar" Width="1.5" PointX="7.30484517445082" PointY="1.3965227014368971" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_EstadoCobro" Width="1.5" PointX="6.7435853047033705" PointY="3.1412299737060581" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobro_x_movi_caja_x_cbtecble" Width="1.5" PointX="0.88715219911520937" PointY="0.991297424301178" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_conciliados" Width="1.5" PointX="10.651340441150284" PointY="30.256874560498108" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_Pendientes_x_conciliar" Width="1.5" PointX="0.55498970884596444" PointY="13.560950389858778" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_x_cheque_deposito" Width="1.5" PointX="6.0316507341487569" PointY="2.8484155697973517" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_x_vta_nota_x_RetFuente" Width="1.5" PointX="5.8612231564993147" PointY="8.5791073481455022" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_x_vta_nota_x_RetFuente_Sumatoria" Width="1.5" PointX="8.9058568984763031" PointY="8.18389414631943" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_x_vta_nota_x_RetIVA" Width="1.5" PointX="3.6238022072351548" PointY="1.83539737846488" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_cobros_x_vta_nota_x_RetIVA_Sumatoria" Width="1.5" PointX="8.4081193210594911" PointY="24.063835974812431" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_conciliacion" Width="1.5" PointX="1.918752501680866" PointY="2.9807908101849216" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_conciliacion_Det_Anticipo" Width="1.5" PointX="1.7517721102348398" PointY="5.9854809222675307" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_conciliacion_Det_Cobro" Width="1.5" PointX="1.4903096433218148" PointY="18.774866649310507" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_conciliacion_Det_CreDeb" Width="1.5" PointX="3.9285001568163285" PointY="3.3361440763511436" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_Detalle_Deposito" Width="1.5" PointX="3.842981325389343" PointY="31.221632659072817" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_EstadoCobro_Actual" Width="1.5" PointX="0.99071892769575065" PointY="3.7515600788181462" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwCXC_EstadoCta_x_Cliente" Width="1.5" PointX="4.0144395195014964" PointY="19.65811499378556" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_Parametros_x_cheqProtesto" Width="1.5" PointX="2.2979695267500215" PointY="31.649978816346255" />
+        <EntityTypeShape EntityType="DBERPModelCXC.vwcxc_total_cobros_x_Docu" Width="1.5" PointX="11.806179139672862" PointY="27.486599130316918" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

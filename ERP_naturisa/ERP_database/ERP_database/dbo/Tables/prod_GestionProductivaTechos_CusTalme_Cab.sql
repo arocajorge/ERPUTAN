@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[prod_GestionProductivaTechos_CusTalme_Cab] (
+    [IdEmpresa]               INT          NOT NULL,
+    [IdGestionProductiva]     DECIMAL (18) NOT NULL,
+    [IdProducto_MateriaPrima] DECIMAL (18) NULL,
+    [IdModeloProd]            INT          NULL,
+    [Fecha]                   DATE         NULL,
+    [HrsTurno]                TIME (0)     NULL,
+    [Tprep]                   TIME (0)     NULL,
+    [Despacho]                TIME (0)     NULL,
+    [Factor]                  FLOAT (53)   NULL,
+    [Num_Personas]            INT          NULL,
+    [Consumo]                 FLOAT (53)   NULL,
+    [Chatarra]                FLOAT (53)   NULL,
+    [IdTurno]                 INT          NULL,
+    [IdUsuario]               VARCHAR (20) NULL,
+    [Fecha_Transac]           DATETIME     NULL,
+    [IdUsuarioUltModi]        VARCHAR (20) NULL,
+    [Fecha_UltMod]            DATETIME     NULL,
+    [IdusuarioUltAnu]         VARCHAR (20) NULL,
+    [Fecha_UltAnu]            DATETIME     NULL,
+    [nom_pc]                  VARCHAR (50) NULL,
+    [ip]                      VARCHAR (30) NULL,
+    [Estado]                  CHAR (1)     NULL,
+    CONSTRAINT [PK_prod_GestionProductivaTechos_CusTalme_Cab] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdGestionProductiva] ASC)
+);
+

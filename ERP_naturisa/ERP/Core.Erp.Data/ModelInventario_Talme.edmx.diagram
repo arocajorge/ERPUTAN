@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7fe6ccce506d4ef28c65ea0655c71042" Name="Diagrama1" ZoomLevel="85" >
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt001" Width="3" PointX="11" PointY="6" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt002_Data" Width="4.5" PointX="9" PointY="18.875" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt003_Data_Uni_x_Prod" Width="3.75" PointX="0.5" PointY="9.875" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt003_Filtro_Cate" Width="3.25" PointX="1" PointY="0.875" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt003_Filtro_Empresa" Width="3.5" PointX="2.375" PointY="4.25" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt003_Filtro_Sucursal" Width="1.5" PointX="11.752200465533976" PointY="31.205985054004" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt004" Width="1.5" PointX="5.4902230452234964" PointY="31.026745914959697" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt004_Data_Uni_x_Prod" Width="1.5" PointX="10.295449503835034" PointY="0.22926105569548022" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt004_Filtro_Cate" Width="1.5" PointX="9.7767799728441886" PointY="28.750573708093992" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt004_Filtro_Empresa" Width="6" PointX="7.5" PointY="24" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt004_Filtro_sucursal" Width="1.5" PointX="4.6867865234086228" PointY="20.20891686724914" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt005_Data_Uni_x_Prod" Width="1.5" PointX="4.0618032627095477" PointY="8.0850364901521417" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt005_Filtro_Cate" Width="1.5" PointX="5.27388355381502" PointY="24.342228721986633" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt005_Filtro_Empresa" Width="1.5" PointX="7.7971758264103785" PointY="12.287733918189879" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt005_Filtro_sucursal" Width="1.5" PointX="6.43799732552748" PointY="31.290428667930154" />
+        <EntityTypeShape EntityType="DBERPModelInveTalme.tbINV_TAL_Rpt007" Width="1.5" PointX="7.2524737302458249" PointY="26.921155211944672" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

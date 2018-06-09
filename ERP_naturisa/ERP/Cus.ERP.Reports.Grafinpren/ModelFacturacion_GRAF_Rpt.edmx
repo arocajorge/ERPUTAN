@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBERP_GRAFPRUEBASModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DBERP_GRAFPRUEBASModelStoreContainer">
+          <EntitySet Name="vwFAC_GRAF_Rpt001" EntityType="DBERP_GRAFPRUEBASModel.Store.vwFAC_GRAF_Rpt001" store:Type="Views" store:Schema="Grafinpren" store:Name="vwFAC_GRAF_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwFAC_GRAF_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_GRAF_Rpt001].[IdBodega] AS [IdBodega], 
+      [vwFAC_GRAF_Rpt001].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_GRAF_Rpt001].[IdGuiaRemision] AS [IdGuiaRemision], 
+      [vwFAC_GRAF_Rpt001].[CodGuiaRemision] AS [CodGuiaRemision], 
+      [vwFAC_GRAF_Rpt001].[IdCliente] AS [IdCliente], 
+      [vwFAC_GRAF_Rpt001].[pe_razonSocial] AS [pe_razonSocial], 
+      [vwFAC_GRAF_Rpt001].[gi_Observacion] AS [gi_Observacion], 
+      [vwFAC_GRAF_Rpt001].[Secuencia] AS [Secuencia], 
+      [vwFAC_GRAF_Rpt001].[gi_cantidad] AS [gi_cantidad], 
+      [vwFAC_GRAF_Rpt001].[gi_Precio] AS [gi_Precio], 
+      [vwFAC_GRAF_Rpt001].[gi_PorDescUnitario] AS [gi_PorDescUnitario], 
+      [vwFAC_GRAF_Rpt001].[gi_DescUnitario] AS [gi_DescUnitario], 
+      [vwFAC_GRAF_Rpt001].[gi_PrecioFinal] AS [gi_PrecioFinal], 
+      [vwFAC_GRAF_Rpt001].[gi_Subtotal] AS [gi_Subtotal], 
+      [vwFAC_GRAF_Rpt001].[gi_iva] AS [gi_iva], 
+      [vwFAC_GRAF_Rpt001].[gi_total] AS [gi_total], 
+      [vwFAC_GRAF_Rpt001].[gi_detallexItems] AS [gi_detallexItems], 
+      [vwFAC_GRAF_Rpt001].[Nombre_Transportista] AS [Nombre_Transportista], 
+      [vwFAC_GRAF_Rpt001].[Nombre_Producto] AS [Nombre_Producto], 
+      [vwFAC_GRAF_Rpt001].[Numero_OP] AS [Numero_OP], 
+      [vwFAC_GRAF_Rpt001].[Nom_Maquina] AS [Nom_Maquina], 
+      [vwFAC_GRAF_Rpt001].[Num_Cotizacion] AS [Num_Cotizacion], 
+      [vwFAC_GRAF_Rpt001].[Direccion_Destino] AS [Direccion_Destino], 
+      [vwFAC_GRAF_Rpt001].[Direccion_Origen] AS [Direccion_Origen], 
+      [vwFAC_GRAF_Rpt001].[ruta] AS [ruta], 
+      [vwFAC_GRAF_Rpt001].[placa] AS [placa], 
+      [vwFAC_GRAF_Rpt001].[gi_FechaFinTraslado] AS [gi_FechaFinTraslado], 
+      [vwFAC_GRAF_Rpt001].[gi_FechaIniTraslado] AS [gi_FechaIniTraslado], 
+      [vwFAC_GRAF_Rpt001].[gi_fecha] AS [gi_fecha]
+      FROM [Grafinpren].[vwFAC_GRAF_Rpt001] AS [vwFAC_GRAF_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_GRAF_Rpt002" EntityType="DBERP_GRAFPRUEBASModel.Store.vwFAC_GRAF_Rpt002" store:Type="Views" store:Schema="Grafinpren" store:Name="vwFAC_GRAF_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwFAC_GRAF_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_GRAF_Rpt002].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_GRAF_Rpt002].[IdBodega] AS [IdBodega], 
+      [vwFAC_GRAF_Rpt002].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_GRAF_Rpt002].[numDocumento] AS [numDocumento], 
+      [vwFAC_GRAF_Rpt002].[IdCbteVta] AS [IdCbteVta], 
+      [vwFAC_GRAF_Rpt002].[IdCliente] AS [IdCliente], 
+      [vwFAC_GRAF_Rpt002].[nom_cliente] AS [nom_cliente], 
+      [vwFAC_GRAF_Rpt002].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_GRAF_Rpt002].[IdCalendario] AS [IdCalendario], 
+      [vwFAC_GRAF_Rpt002].[AnioFiscal] AS [AnioFiscal], 
+      [vwFAC_GRAF_Rpt002].[NombreMes] AS [NombreMes], 
+      [vwFAC_GRAF_Rpt002].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwFAC_GRAF_Rpt002].[IdProducto] AS [IdProducto], 
+      [vwFAC_GRAF_Rpt002].[nom_producto] AS [nom_producto], 
+      [vwFAC_GRAF_Rpt002].[vt_cantidad] AS [vt_cantidad], 
+      [vwFAC_GRAF_Rpt002].[vt_PrecioFinal] AS [vt_PrecioFinal], 
+      [vwFAC_GRAF_Rpt002].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_GRAF_Rpt002].[vt_iva] AS [vt_iva], 
+      [vwFAC_GRAF_Rpt002].[vt_total] AS [vt_total], 
+      [vwFAC_GRAF_Rpt002].[nom_sucursal] AS [nom_sucursal], 
+      [vwFAC_GRAF_Rpt002].[IdCategoria] AS [IdCategoria], 
+      [vwFAC_GRAF_Rpt002].[IdLinea] AS [IdLinea], 
+      [vwFAC_GRAF_Rpt002].[IdGrupo] AS [IdGrupo], 
+      [vwFAC_GRAF_Rpt002].[IdSubgrupo] AS [IdSubgrupo], 
+      [vwFAC_GRAF_Rpt002].[nom_categoria] AS [nom_categoria], 
+      [vwFAC_GRAF_Rpt002].[nom_linea] AS [nom_linea], 
+      [vwFAC_GRAF_Rpt002].[nom_grupo] AS [nom_grupo], 
+      [vwFAC_GRAF_Rpt002].[nom_subgrupo] AS [nom_subgrupo], 
+      [vwFAC_GRAF_Rpt002].[Idtipo_cliente] AS [Idtipo_cliente], 
+      [vwFAC_GRAF_Rpt002].[nom_tipo_cliente] AS [nom_tipo_cliente], 
+      [vwFAC_GRAF_Rpt002].[vt_Observacion] AS [vt_Observacion], 
+      [vwFAC_GRAF_Rpt002].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_GRAF_Rpt002].[nom_vendedor] AS [nom_vendedor], 
+      [vwFAC_GRAF_Rpt002].[num_op] AS [num_op], 
+      [vwFAC_GRAF_Rpt002].[fecha_op] AS [fecha_op], 
+      [vwFAC_GRAF_Rpt002].[num_cotizacion] AS [num_cotizacion], 
+      [vwFAC_GRAF_Rpt002].[fecha_cotizacion] AS [fecha_cotizacion], 
+      [vwFAC_GRAF_Rpt002].[porc_comision] AS [porc_comision], 
+      [vwFAC_GRAF_Rpt002].[IdEquipo] AS [IdEquipo], 
+      [vwFAC_GRAF_Rpt002].[nom_Equipo] AS [nom_Equipo], 
+      [vwFAC_GRAF_Rpt002].[IdMes] AS [IdMes], 
+      [vwFAC_GRAF_Rpt002].[Estado] AS [Estado], 
+      [vwFAC_GRAF_Rpt002].[Secuencia] AS [Secuencia]
+      FROM [Grafinpren].[vwFAC_GRAF_Rpt002] AS [vwFAC_GRAF_Rpt002]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.Grafinpren.vwFAC_GRAF_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_GRAF_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdGuiaRemision" />
+            <PropertyRef Name="CodGuiaRemision" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="gi_cantidad" />
+            <PropertyRef Name="gi_Precio" />
+            <PropertyRef Name="gi_PorDescUnitario" />
+            <PropertyRef Name="gi_DescUnitario" />
+            <PropertyRef Name="gi_PrecioFinal" />
+            <PropertyRef Name="gi_Subtotal" />
+            <PropertyRef Name="gi_iva" />
+            <PropertyRef Name="gi_total" />
+            <PropertyRef Name="gi_detallexItems" />
+            <PropertyRef Name="Nombre_Producto" />
+            <PropertyRef Name="Numero_OP" />
+            <PropertyRef Name="Nom_Maquina" />
+            <PropertyRef Name="Direccion_Destino" />
+            <PropertyRef Name="Direccion_Origen" />
+            <PropertyRef Name="placa" />
+            <PropertyRef Name="gi_FechaFinTraslado" />
+            <PropertyRef Name="gi_FechaIniTraslado" />
+            <PropertyRef Name="gi_fecha" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdGuiaRemision" Type="numeric" Nullable="false" />
+          <Property Name="CodGuiaRemision" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
+          <Property Name="gi_Observacion" Type="varchar" MaxLength="1000" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="gi_cantidad" Type="float" Nullable="false" />
+          <Property Name="gi_Precio" Type="float" Nullable="false" />
+          <Property Name="gi_PorDescUnitario" Type="float" Nullable="false" />
+          <Property Name="gi_DescUnitario" Type="float" Nullable="false" />
+          <Property Name="gi_PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="gi_Subtotal" Type="float" Nullable="false" />
+          <Property Name="gi_iva" Type="float" Nullable="false" />
+          <Property Name="gi_total" Type="float" Nullable="false" />
+          <Property Name="gi_detallexItems" Type="nchar" Nullable="false" MaxLength="250" />
+          <Property Name="Nombre_Transportista" Type="varchar" MaxLength="500" />
+          <Property Name="Nombre_Producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Numero_OP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nom_Maquina" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Num_Cotizacion" Type="numeric" />
+          <Property Name="Direccion_Destino" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="Direccion_Origen" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="ruta" Type="varchar" MaxLength="300" />
+          <Property Name="placa" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="gi_FechaFinTraslado" Type="datetime" Nullable="false" />
+          <Property Name="gi_FechaIniTraslado" Type="datetime" Nullable="false" />
+          <Property Name="gi_fecha" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_GRAF.Grafinpren.vwFAC_GRAF_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_GRAF_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_PrecioFinal" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="nom_tipo_cliente" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="70" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nom_cliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="30" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" Nullable="false" />
+          <Property Name="vt_iva" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCategoria" Type="varchar" MaxLength="25" />
+          <Property Name="IdLinea" Type="int" />
+          <Property Name="IdGrupo" Type="int" />
+          <Property Name="IdSubgrupo" Type="int" />
+          <Property Name="nom_categoria" Type="varchar" MaxLength="100" />
+          <Property Name="nom_linea" Type="varchar" MaxLength="150" />
+          <Property Name="nom_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="nom_subgrupo" Type="varchar" MaxLength="150" />
+          <Property Name="Idtipo_cliente" Type="int" Nullable="false" />
+          <Property Name="nom_tipo_cliente" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="nom_vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="num_op" Type="varchar" MaxLength="300" />
+          <Property Name="fecha_op" Type="date" />
+          <Property Name="num_cotizacion" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_cotizacion" Type="date" />
+          <Property Name="porc_comision" Type="float" />
+          <Property Name="IdEquipo" Type="float" />
+          <Property Name="nom_Equipo" Type="varchar" MaxLength="50" />
+          <Property Name="IdMes" Type="int" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBERP_GRAFPRUEBASModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesFacturacion_Rpt_GRAF" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwFAC_GRAF_Rpt001" EntityType="DBERP_GRAFPRUEBASModel.vwFAC_GRAF_Rpt001" />
+          <EntitySet Name="vwFAC_GRAF_Rpt002" EntityType="DBERP_GRAFPRUEBASModel.vwFAC_GRAF_Rpt002" />
+        </EntityContainer>
+        <EntityType Name="vwFAC_GRAF_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdGuiaRemision" />
+            <PropertyRef Name="CodGuiaRemision" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="gi_cantidad" />
+            <PropertyRef Name="gi_Precio" />
+            <PropertyRef Name="gi_PorDescUnitario" />
+            <PropertyRef Name="gi_DescUnitario" />
+            <PropertyRef Name="gi_PrecioFinal" />
+            <PropertyRef Name="gi_Subtotal" />
+            <PropertyRef Name="gi_iva" />
+            <PropertyRef Name="gi_total" />
+            <PropertyRef Name="gi_detallexItems" />
+            <PropertyRef Name="Nombre_Producto" />
+            <PropertyRef Name="Numero_OP" />
+            <PropertyRef Name="Nom_Maquina" />
+            <PropertyRef Name="Direccion_Destino" />
+            <PropertyRef Name="Direccion_Origen" />
+            <PropertyRef Name="placa" />
+            <PropertyRef Name="gi_FechaFinTraslado" />
+            <PropertyRef Name="gi_FechaIniTraslado" />
+            <PropertyRef Name="gi_fecha" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdGuiaRemision" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodGuiaRemision" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="gi_Observacion" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Double" Name="gi_cantidad" Nullable="false" />
+          <Property Type="Double" Name="gi_Precio" Nullable="false" />
+          <Property Type="Double" Name="gi_PorDescUnitario" Nullable="false" />
+          <Property Type="Double" Name="gi_DescUnitario" Nullable="false" />
+          <Property Type="Double" Name="gi_PrecioFinal" Nullable="false" />
+          <Property Type="Double" Name="gi_Subtotal" Nullable="false" />
+          <Property Type="Double" Name="gi_iva" Nullable="false" />
+          <Property Type="Double" Name="gi_total" Nullable="false" />
+          <Property Type="String" Name="gi_detallexItems" Nullable="false" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Nombre_Transportista" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre_Producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Numero_OP" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Maquina" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Num_Cotizacion" Precision="18" Scale="0" />
+          <Property Type="String" Name="Direccion_Destino" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Direccion_Origen" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ruta" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="placa" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="gi_FechaFinTraslado" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="gi_FechaIniTraslado" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="gi_fecha" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwFAC_GRAF_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_PrecioFinal" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="nom_tipo_cliente" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_cliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_PrecioFinal" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" Nullable="false" />
+          <Property Type="Double" Name="vt_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdCategoria" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdLinea" />
+          <Property Type="Int32" Name="IdGrupo" />
+          <Property Type="Int32" Name="IdSubgrupo" />
+          <Property Type="String" Name="nom_categoria" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_linea" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subgrupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Idtipo_cliente" Nullable="false" />
+          <Property Type="String" Name="nom_tipo_cliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="nom_vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="num_op" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha_op" Precision="0" />
+          <Property Type="String" Name="num_cotizacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha_cotizacion" Precision="0" />
+          <Property Type="Double" Name="porc_comision" />
+          <Property Type="Double" Name="IdEquipo" />
+          <Property Type="String" Name="nom_Equipo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMes" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBERP_GRAFPRUEBASModelStoreContainer" CdmEntityContainer="EntitiesFacturacion_Rpt_GRAF">
+          <EntitySetMapping Name="vwFAC_GRAF_Rpt001">
+            <EntityTypeMapping TypeName="DBERP_GRAFPRUEBASModel.vwFAC_GRAF_Rpt001">
+              <MappingFragment StoreEntitySet="vwFAC_GRAF_Rpt001">
+                <ScalarProperty Name="gi_fecha" ColumnName="gi_fecha" />
+                <ScalarProperty Name="gi_FechaIniTraslado" ColumnName="gi_FechaIniTraslado" />
+                <ScalarProperty Name="gi_FechaFinTraslado" ColumnName="gi_FechaFinTraslado" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="ruta" ColumnName="ruta" />
+                <ScalarProperty Name="Direccion_Origen" ColumnName="Direccion_Origen" />
+                <ScalarProperty Name="Direccion_Destino" ColumnName="Direccion_Destino" />
+                <ScalarProperty Name="Num_Cotizacion" ColumnName="Num_Cotizacion" />
+                <ScalarProperty Name="Nom_Maquina" ColumnName="Nom_Maquina" />
+                <ScalarProperty Name="Numero_OP" ColumnName="Numero_OP" />
+                <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+                <ScalarProperty Name="Nombre_Transportista" ColumnName="Nombre_Transportista" />
+                <ScalarProperty Name="gi_detallexItems" ColumnName="gi_detallexItems" />
+                <ScalarProperty Name="gi_total" ColumnName="gi_total" />
+                <ScalarProperty Name="gi_iva" ColumnName="gi_iva" />
+                <ScalarProperty Name="gi_Subtotal" ColumnName="gi_Subtotal" />
+                <ScalarProperty Name="gi_PrecioFinal" ColumnName="gi_PrecioFinal" />
+                <ScalarProperty Name="gi_DescUnitario" ColumnName="gi_DescUnitario" />
+                <ScalarProperty Name="gi_PorDescUnitario" ColumnName="gi_PorDescUnitario" />
+                <ScalarProperty Name="gi_Precio" ColumnName="gi_Precio" />
+                <ScalarProperty Name="gi_cantidad" ColumnName="gi_cantidad" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="gi_Observacion" ColumnName="gi_Observacion" />
+                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="CodGuiaRemision" ColumnName="CodGuiaRemision" />
+                <ScalarProperty Name="IdGuiaRemision" ColumnName="IdGuiaRemision" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_GRAF_Rpt002">
+            <EntityTypeMapping TypeName="DBERP_GRAFPRUEBASModel.vwFAC_GRAF_Rpt002">
+              <MappingFragment StoreEntitySet="vwFAC_GRAF_Rpt002">
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdMes" ColumnName="IdMes" />
+                <ScalarProperty Name="nom_Equipo" ColumnName="nom_Equipo" />
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+                <ScalarProperty Name="porc_comision" ColumnName="porc_comision" />
+                <ScalarProperty Name="fecha_cotizacion" ColumnName="fecha_cotizacion" />
+                <ScalarProperty Name="num_cotizacion" ColumnName="num_cotizacion" />
+                <ScalarProperty Name="fecha_op" ColumnName="fecha_op" />
+                <ScalarProperty Name="num_op" ColumnName="num_op" />
+                <ScalarProperty Name="nom_vendedor" ColumnName="nom_vendedor" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="nom_tipo_cliente" ColumnName="nom_tipo_cliente" />
+                <ScalarProperty Name="Idtipo_cliente" ColumnName="Idtipo_cliente" />
+                <ScalarProperty Name="nom_subgrupo" ColumnName="nom_subgrupo" />
+                <ScalarProperty Name="nom_grupo" ColumnName="nom_grupo" />
+                <ScalarProperty Name="nom_linea" ColumnName="nom_linea" />
+                <ScalarProperty Name="nom_categoria" ColumnName="nom_categoria" />
+                <ScalarProperty Name="IdSubgrupo" ColumnName="IdSubgrupo" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="vt_PrecioFinal" ColumnName="vt_PrecioFinal" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model_mobileSCI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model_mobileSCIStoreContainer">
+          <EntitySet Name="tbl_bodega" EntityType="Model_mobileSCI.Store.tbl_bodega" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_producto" EntityType="Model_mobileSCI.Store.tbl_producto" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_subcentro" EntityType="Model_mobileSCI.Store.tbl_subcentro" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_usuario" EntityType="Model_mobileSCI.Store.tbl_usuario" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_usuario_x_bodega" EntityType="Model_mobileSCI.Store.tbl_usuario_x_bodega" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_usuario_x_subcentro" EntityType="Model_mobileSCI.Store.tbl_usuario_x_subcentro" store:Type="Tables" Schema="mobileSCI" />
+          <AssociationSet Name="FK_tbl_usuario_x_bodega_tbl_usuario" Association="Model_mobileSCI.Store.FK_tbl_usuario_x_bodega_tbl_usuario">
+            <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+            <End Role="tbl_usuario_x_bodega" EntitySet="tbl_usuario_x_bodega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_usuario_x_subcentro_tbl_usuario" Association="Model_mobileSCI.Store.FK_tbl_usuario_x_subcentro_tbl_usuario">
+            <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+            <End Role="tbl_usuario_x_subcentro" EntitySet="tbl_usuario_x_subcentro" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_bodega">
+          <Key>
+            <PropertyRef Name="IdEmpresaSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdEmpresaSCI" Type="int" Nullable="false" />
+          <Property Name="IdSCI" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_producto">
+          <Key>
+            <PropertyRef Name="IdEmpresaSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdEmpresaSCI" Type="int" Nullable="false" />
+          <Property Name="IdSCI" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_subcentro">
+          <Key>
+            <PropertyRef Name="IdEmpresaSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdEmpresaSCI" Type="int" Nullable="false" />
+          <Property Name="IdSCI" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_usuario">
+          <Key>
+            <PropertyRef Name="IdUsuarioSCI" />
+          </Key>
+          <Property Name="IdUsuarioSCI" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="clave" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="nom_usuario" Type="varchar" MaxLength="300" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_usuario_x_bodega">
+          <Key>
+            <PropertyRef Name="IdUsuarioSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdUsuarioSCI" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSCI" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_usuario_x_subcentro">
+          <Key>
+            <PropertyRef Name="IdUsuarioSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdUsuarioSCI" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSCI" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_tbl_usuario_x_bodega_tbl_usuario">
+          <End Role="tbl_usuario" Type="Model_mobileSCI.Store.tbl_usuario" Multiplicity="1" />
+          <End Role="tbl_usuario_x_bodega" Type="Model_mobileSCI.Store.tbl_usuario_x_bodega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuario">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Principal>
+            <Dependent Role="tbl_usuario_x_bodega">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_usuario_x_subcentro_tbl_usuario">
+          <End Role="tbl_usuario" Type="Model_mobileSCI.Store.tbl_usuario" Multiplicity="1" />
+          <End Role="tbl_usuario_x_subcentro" Type="Model_mobileSCI.Store.tbl_usuario_x_subcentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuario">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Principal>
+            <Dependent Role="tbl_usuario_x_subcentro">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_mobileSCI" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities_mobileSCI" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_bodega" EntityType="Model_mobileSCI.tbl_bodega" />
+          <EntitySet Name="tbl_producto" EntityType="Model_mobileSCI.tbl_producto" />
+          <EntitySet Name="tbl_subcentro" EntityType="Model_mobileSCI.tbl_subcentro" />
+          <EntitySet Name="tbl_usuario" EntityType="Model_mobileSCI.tbl_usuario" />
+          <EntitySet Name="tbl_usuario_x_bodega" EntityType="Model_mobileSCI.tbl_usuario_x_bodega" />
+          <EntitySet Name="tbl_usuario_x_subcentro" EntityType="Model_mobileSCI.tbl_usuario_x_subcentro" />
+          <AssociationSet Name="FK_tbl_usuario_x_bodega_tbl_usuario" Association="Model_mobileSCI.FK_tbl_usuario_x_bodega_tbl_usuario">
+            <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+            <End Role="tbl_usuario_x_bodega" EntitySet="tbl_usuario_x_bodega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_usuario_x_subcentro_tbl_usuario" Association="Model_mobileSCI.FK_tbl_usuario_x_subcentro_tbl_usuario">
+            <End Role="tbl_usuario" EntitySet="tbl_usuario" />
+            <End Role="tbl_usuario_x_subcentro" EntitySet="tbl_usuario_x_subcentro" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_bodega">
+          <Key>
+            <PropertyRef Name="IdEmpresaSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdEmpresaSCI" Type="Int32" Nullable="false" />
+          <Property Name="IdSCI" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdSucursal" Type="Int32" Nullable="false" />
+          <Property Name="IdBodega" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_producto">
+          <Key>
+            <PropertyRef Name="IdEmpresaSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdEmpresaSCI" Type="Int32" Nullable="false" />
+          <Property Name="IdSCI" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdProducto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tbl_subcentro">
+          <Key>
+            <PropertyRef Name="IdEmpresaSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdEmpresaSCI" Type="Int32" Nullable="false" />
+          <Property Name="IdSCI" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_usuario">
+          <Key>
+            <PropertyRef Name="IdUsuarioSCI" />
+          </Key>
+          <Property Name="IdUsuarioSCI" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="clave" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="nom_usuario" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbl_usuario_x_bodega" Relationship="Model_mobileSCI.FK_tbl_usuario_x_bodega_tbl_usuario" FromRole="tbl_usuario" ToRole="tbl_usuario_x_bodega" />
+          <NavigationProperty Name="tbl_usuario_x_subcentro" Relationship="Model_mobileSCI.FK_tbl_usuario_x_subcentro_tbl_usuario" FromRole="tbl_usuario" ToRole="tbl_usuario_x_subcentro" />
+        </EntityType>
+        <EntityType Name="tbl_usuario_x_bodega">
+          <Key>
+            <PropertyRef Name="IdUsuarioSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdUsuarioSCI" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdSCI" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdSucursal" Type="Int32" Nullable="false" />
+          <Property Name="IdBodega" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_usuario" Relationship="Model_mobileSCI.FK_tbl_usuario_x_bodega_tbl_usuario" FromRole="tbl_usuario_x_bodega" ToRole="tbl_usuario" />
+        </EntityType>
+        <EntityType Name="tbl_usuario_x_subcentro">
+          <Key>
+            <PropertyRef Name="IdUsuarioSCI" />
+            <PropertyRef Name="IdSCI" />
+          </Key>
+          <Property Name="IdUsuarioSCI" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdSCI" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tbl_usuario" Relationship="Model_mobileSCI.FK_tbl_usuario_x_subcentro_tbl_usuario" FromRole="tbl_usuario_x_subcentro" ToRole="tbl_usuario" />
+        </EntityType>
+        <Association Name="FK_tbl_usuario_x_bodega_tbl_usuario">
+          <End Role="tbl_usuario" Type="Model_mobileSCI.tbl_usuario" Multiplicity="1" />
+          <End Role="tbl_usuario_x_bodega" Type="Model_mobileSCI.tbl_usuario_x_bodega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuario">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Principal>
+            <Dependent Role="tbl_usuario_x_bodega">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_usuario_x_subcentro_tbl_usuario">
+          <End Role="tbl_usuario" Type="Model_mobileSCI.tbl_usuario" Multiplicity="1" />
+          <End Role="tbl_usuario_x_subcentro" Type="Model_mobileSCI.tbl_usuario_x_subcentro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_usuario">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Principal>
+            <Dependent Role="tbl_usuario_x_subcentro">
+              <PropertyRef Name="IdUsuarioSCI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model_mobileSCIStoreContainer" CdmEntityContainer="Entities_mobileSCI">
+          <EntitySetMapping Name="tbl_bodega">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_bodega">
+              <MappingFragment StoreEntitySet="tbl_bodega">
+                <ScalarProperty Name="IdEmpresaSCI" ColumnName="IdEmpresaSCI" />
+                <ScalarProperty Name="IdSCI" ColumnName="IdSCI" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_producto">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_producto">
+              <MappingFragment StoreEntitySet="tbl_producto">
+                <ScalarProperty Name="IdEmpresaSCI" ColumnName="IdEmpresaSCI" />
+                <ScalarProperty Name="IdSCI" ColumnName="IdSCI" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_subcentro">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_subcentro">
+              <MappingFragment StoreEntitySet="tbl_subcentro">
+                <ScalarProperty Name="IdEmpresaSCI" ColumnName="IdEmpresaSCI" />
+                <ScalarProperty Name="IdSCI" ColumnName="IdSCI" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_usuario">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_usuario">
+              <MappingFragment StoreEntitySet="tbl_usuario">
+                <ScalarProperty Name="IdUsuarioSCI" ColumnName="IdUsuarioSCI" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="nom_usuario" ColumnName="nom_usuario" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_usuario_x_bodega">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_usuario_x_bodega">
+              <MappingFragment StoreEntitySet="tbl_usuario_x_bodega">
+                <ScalarProperty Name="IdUsuarioSCI" ColumnName="IdUsuarioSCI" />
+                <ScalarProperty Name="IdSCI" ColumnName="IdSCI" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_usuario_x_subcentro">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_usuario_x_subcentro">
+              <MappingFragment StoreEntitySet="tbl_usuario_x_subcentro">
+                <ScalarProperty Name="IdUsuarioSCI" ColumnName="IdUsuarioSCI" />
+                <ScalarProperty Name="IdSCI" ColumnName="IdSCI" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

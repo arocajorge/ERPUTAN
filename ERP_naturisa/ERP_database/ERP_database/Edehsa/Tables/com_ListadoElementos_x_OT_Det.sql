@@ -1,0 +1,27 @@
+﻿CREATE TABLE [Edehsa].[com_ListadoElementos_x_OT_Det] (
+    [IdEmpresa]                           INT          NOT NULL,
+    [IdListadoElementos_x_OT]             NUMERIC (18) NOT NULL,
+    [IdDetalle]                           INT          NOT NULL,
+    [CodObra]                             VARCHAR (20) NOT NULL,
+    [IdOrdenTaller]                       NUMERIC (18) NOT NULL,
+    [IdProducto]                          NUMERIC (18) NOT NULL,
+    [Unidades]                            FLOAT (53)   NOT NULL,
+    [Det_Kg]                              FLOAT (53)   NOT NULL,
+    [pr_largo]                            FLOAT (53)   NULL,
+    [largo_total]                         FLOAT (53)   NULL,
+    [largo_restante]                      FLOAT (53)   NULL,
+    [largo_pieza_entera]                  FLOAT (53)   NULL,
+    [cantidad_pieza_entera]               INT          NULL,
+    [largo_pieza_complementaria]          FLOAT (53)   NULL,
+    [cantidad_pieza_complementaria]       FLOAT (53)   NULL,
+    [cantidad_total_pieza_complementaria] FLOAT (53)   NULL,
+    [largo_despunte1]                     FLOAT (53)   NULL,
+    [cantidad_despunte1]                  FLOAT (53)   NULL,
+    [es_despunte_usable1]                 BIT          NULL,
+    [largo_despunte2]                     FLOAT (53)   NULL,
+    [cantidad_despunte2]                  FLOAT (53)   NULL,
+    [es_despunte_usable2]                 BIT          NULL,
+    [IdEstadoAprob]                       VARCHAR (25) NOT NULL,
+    CONSTRAINT [PK_com_ListadoElementos_x_OT_Det] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdListadoElementos_x_OT] ASC, [IdDetalle] ASC)
+);
+

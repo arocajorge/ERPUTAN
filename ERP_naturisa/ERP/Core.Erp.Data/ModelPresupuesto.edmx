@@ -1,0 +1,1108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBERPModelPresupuesto.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DBERPModelPresupuestoStoreContainer">
+          <EntitySet Name="pre_estadoAprobacion" EntityType="DBERPModelPresupuesto.Store.pre_estadoAprobacion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_ordencompra_local" EntityType="DBERPModelPresupuesto.Store.pre_ordencompra_local" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_ordencompra_local_det" EntityType="DBERPModelPresupuesto.Store.pre_ordencompra_local_det" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_PedidoXPresupuesto" EntityType="DBERPModelPresupuesto.Store.pre_PedidoXPresupuesto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_PedidoXPresupuesto_det" EntityType="DBERPModelPresupuesto.Store.pre_PedidoXPresupuesto_det" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_presupuesto" EntityType="DBERPModelPresupuesto.Store.pre_presupuesto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_presupuesto_tipoRubro" EntityType="DBERPModelPresupuesto.Store.pre_presupuesto_tipoRubro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="pre_presupuestoData" EntityType="DBERPModelPresupuesto.Store.pre_presupuestoData" store:Type="Tables" store:Schema="dbo" store:Name="pre_presupuestoData">
+            <DefiningQuery>SELECT 
+      [pre_presupuestoData].[IdEmpresa] AS [IdEmpresa], 
+      [pre_presupuestoData].[IdPresupuesto] AS [IdPresupuesto], 
+      [pre_presupuestoData].[IdAnio] AS [IdAnio], 
+      [pre_presupuestoData].[Secuencia] AS [Secuencia], 
+      [pre_presupuestoData].[CodigoPresupuesto] AS [CodigoPresupuesto], 
+      [pre_presupuestoData].[IdCtaCble] AS [IdCtaCble], 
+      [pre_presupuestoData].[IdCentroCosto] AS [IdCentroCosto], 
+      [pre_presupuestoData].[IdTipoRubro] AS [IdTipoRubro], 
+      [pre_presupuestoData].[CodRubro] AS [CodRubro], 
+      [pre_presupuestoData].[NombreRubro] AS [NombreRubro], 
+      [pre_presupuestoData].[Enero] AS [Enero], 
+      [pre_presupuestoData].[febrero] AS [febrero], 
+      [pre_presupuestoData].[Marzo] AS [Marzo], 
+      [pre_presupuestoData].[Abril] AS [Abril], 
+      [pre_presupuestoData].[Mayo] AS [Mayo], 
+      [pre_presupuestoData].[Junio] AS [Junio], 
+      [pre_presupuestoData].[Julio] AS [Julio], 
+      [pre_presupuestoData].[Agosto] AS [Agosto], 
+      [pre_presupuestoData].[Septiembre] AS [Septiembre], 
+      [pre_presupuestoData].[Octubre] AS [Octubre], 
+      [pre_presupuestoData].[Noviembre] AS [Noviembre], 
+      [pre_presupuestoData].[Diciembre] AS [Diciembre], 
+      [pre_presupuestoData].[Total] AS [Total]
+      FROM [dbo].[pre_presupuestoData] AS [pre_presupuestoData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwpre_PedidoXPresupuesto" EntityType="DBERPModelPresupuesto.Store.vwpre_PedidoXPresupuesto" store:Type="Views" store:Schema="dbo" store:Name="vwpre_PedidoXPresupuesto">
+            <DefiningQuery>SELECT 
+      [vwpre_PedidoXPresupuesto].[IdEmpresa] AS [IdEmpresa], 
+      [vwpre_PedidoXPresupuesto].[IdPedidoXPre] AS [IdPedidoXPre], 
+      [vwpre_PedidoXPresupuesto].[Departamento] AS [Departamento], 
+      [vwpre_PedidoXPresupuesto].[Fecha] AS [Fecha], 
+      [vwpre_PedidoXPresupuesto].[Observacion] AS [Observacion], 
+      [vwpre_PedidoXPresupuesto].[Proveedor1] AS [Proveedor1], 
+      [vwpre_PedidoXPresupuesto].[Proveedor2] AS [Proveedor2], 
+      [vwpre_PedidoXPresupuesto].[Proveedor3] AS [Proveedor3], 
+      [vwpre_PedidoXPresupuesto].[IdUsuario] AS [IdUsuario], 
+      [vwpre_PedidoXPresupuesto].[Estado] AS [Estado], 
+      [vwpre_PedidoXPresupuesto].[MotivoAnulacion] AS [MotivoAnulacion]
+      FROM [dbo].[vwpre_PedidoXPresupuesto] AS [vwpre_PedidoXPresupuesto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwpre_PedidoXPresupuesto_det" EntityType="DBERPModelPresupuesto.Store.vwpre_PedidoXPresupuesto_det" store:Type="Views" store:Schema="dbo" store:Name="vwpre_PedidoXPresupuesto_det">
+            <DefiningQuery>SELECT 
+      [vwpre_PedidoXPresupuesto_det].[IdEmpresa] AS [IdEmpresa], 
+      [vwpre_PedidoXPresupuesto_det].[IdPedidoXPre] AS [IdPedidoXPre], 
+      [vwpre_PedidoXPresupuesto_det].[IdDepartamento] AS [IdDepartamento], 
+      [vwpre_PedidoXPresupuesto_det].[Fecha] AS [Fecha], 
+      [vwpre_PedidoXPresupuesto_det].[Observacion] AS [Observacion], 
+      [vwpre_PedidoXPresupuesto_det].[IdProveedor1] AS [IdProveedor1], 
+      [vwpre_PedidoXPresupuesto_det].[IdProveedor2] AS [IdProveedor2], 
+      [vwpre_PedidoXPresupuesto_det].[IdProveedor3] AS [IdProveedor3], 
+      [vwpre_PedidoXPresupuesto_det].[IdUsuario] AS [IdUsuario], 
+      [vwpre_PedidoXPresupuesto_det].[Secuencia_reg] AS [Secuencia_reg], 
+      [vwpre_PedidoXPresupuesto_det].[IdPresupuesto_pre] AS [IdPresupuesto_pre], 
+      [vwpre_PedidoXPresupuesto_det].[IdAnio_pre] AS [IdAnio_pre], 
+      [vwpre_PedidoXPresupuesto_det].[Secuencia_pre] AS [Secuencia_pre], 
+      [vwpre_PedidoXPresupuesto_det].[Producto] AS [Producto], 
+      [vwpre_PedidoXPresupuesto_det].[Cant] AS [Cant], 
+      [vwpre_PedidoXPresupuesto_det].[CodEstadoAprobacion] AS [CodEstadoAprobacion], 
+      [vwpre_PedidoXPresupuesto_det].[Cotizado] AS [Cotizado], 
+      [vwpre_PedidoXPresupuesto_det].[NPresupuesto_pre] AS [NPresupuesto_pre]
+      FROM [dbo].[vwpre_PedidoXPresupuesto_det] AS [vwpre_PedidoXPresupuesto_det]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwpre_presupuesto_plancta" EntityType="DBERPModelPresupuesto.Store.vwpre_presupuesto_plancta" store:Type="Views" store:Schema="dbo" store:Name="vwpre_presupuesto_plancta">
+            <DefiningQuery>SELECT 
+      [vwpre_presupuesto_plancta].[IdPresupuesto] AS [IdPresupuesto], 
+      [vwpre_presupuesto_plancta].[IdAnio] AS [IdAnio], 
+      [vwpre_presupuesto_plancta].[IdCtaCble] AS [IdCtaCble], 
+      [vwpre_presupuesto_plancta].[Secuencia] AS [Secuencia], 
+      [vwpre_presupuesto_plancta].[CodigoPresupuesto] AS [CodigoPresupuesto], 
+      [vwpre_presupuesto_plancta].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwpre_presupuesto_plancta].[IdTipoRubro] AS [IdTipoRubro], 
+      [vwpre_presupuesto_plancta].[CodRubro] AS [CodRubro], 
+      [vwpre_presupuesto_plancta].[NombreRubro] AS [NombreRubro], 
+      [vwpre_presupuesto_plancta].[Enero] AS [Enero], 
+      [vwpre_presupuesto_plancta].[febrero] AS [febrero], 
+      [vwpre_presupuesto_plancta].[Marzo] AS [Marzo], 
+      [vwpre_presupuesto_plancta].[Abril] AS [Abril], 
+      [vwpre_presupuesto_plancta].[Mayo] AS [Mayo], 
+      [vwpre_presupuesto_plancta].[Junio] AS [Junio], 
+      [vwpre_presupuesto_plancta].[Julio] AS [Julio], 
+      [vwpre_presupuesto_plancta].[Agosto] AS [Agosto], 
+      [vwpre_presupuesto_plancta].[Septiembre] AS [Septiembre], 
+      [vwpre_presupuesto_plancta].[Octubre] AS [Octubre], 
+      [vwpre_presupuesto_plancta].[Noviembre] AS [Noviembre], 
+      [vwpre_presupuesto_plancta].[Diciembre] AS [Diciembre], 
+      [vwpre_presupuesto_plancta].[Total] AS [Total], 
+      [vwpre_presupuesto_plancta].[IdEmpresa] AS [IdEmpresa]
+      FROM [dbo].[vwpre_presupuesto_plancta] AS [vwpre_presupuesto_plancta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwPre_PresupuestoxCta" EntityType="DBERPModelPresupuesto.Store.vwPre_PresupuestoxCta" store:Type="Views" store:Schema="dbo" store:Name="vwPre_PresupuestoxCta">
+            <DefiningQuery>SELECT 
+      [vwPre_PresupuestoxCta].[IdEmpresa] AS [IdEmpresa], 
+      [vwPre_PresupuestoxCta].[IdCtaCble] AS [IdCtaCble], 
+      [vwPre_PresupuestoxCta].[IdPresupuesto] AS [IdPresupuesto], 
+      [vwPre_PresupuestoxCta].[IdAnio] AS [IdAnio], 
+      [vwPre_PresupuestoxCta].[Secuencia] AS [Secuencia], 
+      [vwPre_PresupuestoxCta].[CodigoPresupuesto] AS [CodigoPresupuesto], 
+      [vwPre_PresupuestoxCta].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwPre_PresupuestoxCta].[IdTipoRubro] AS [IdTipoRubro], 
+      [vwPre_PresupuestoxCta].[CodRubro] AS [CodRubro], 
+      [vwPre_PresupuestoxCta].[NombreRubro] AS [NombreRubro], 
+      [vwPre_PresupuestoxCta].[Enero] AS [Enero], 
+      [vwPre_PresupuestoxCta].[febrero] AS [febrero], 
+      [vwPre_PresupuestoxCta].[Marzo] AS [Marzo], 
+      [vwPre_PresupuestoxCta].[Abril] AS [Abril], 
+      [vwPre_PresupuestoxCta].[Mayo] AS [Mayo], 
+      [vwPre_PresupuestoxCta].[Junio] AS [Junio], 
+      [vwPre_PresupuestoxCta].[Julio] AS [Julio], 
+      [vwPre_PresupuestoxCta].[Agosto] AS [Agosto], 
+      [vwPre_PresupuestoxCta].[Septiembre] AS [Septiembre], 
+      [vwPre_PresupuestoxCta].[Octubre] AS [Octubre], 
+      [vwPre_PresupuestoxCta].[Noviembre] AS [Noviembre], 
+      [vwPre_PresupuestoxCta].[Diciembre] AS [Diciembre], 
+      [vwPre_PresupuestoxCta].[Total] AS [Total]
+      FROM [dbo].[vwPre_PresupuestoxCta] AS [vwPre_PresupuestoxCta]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_pre_presupuesto_pre_presupuesto_tipoRubro" Association="DBERPModelPresupuesto.Store.FK_pre_presupuesto_pre_presupuesto_tipoRubro">
+            <End Role="pre_presupuesto_tipoRubro" EntitySet="pre_presupuesto_tipoRubro" />
+            <End Role="pre_presupuesto" EntitySet="pre_presupuesto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="pre_estadoAprobacion">
+          <Key>
+            <PropertyRef Name="CodEstado" />
+          </Key>
+          <Property Name="CodEstado" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pre_ordencompra_local">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="oc_NumDocumento" Type="varchar" MaxLength="50" />
+          <Property Name="oc_fecha" Type="datetime" Nullable="false" />
+          <Property Name="oc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="CondicionPago" Type="varchar" MaxLength="150" />
+          <Property Name="FormaEnvio" Type="varchar" MaxLength="150" />
+          <Property Name="IdEstadoAprobacion" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="co_fecha_aprobacion" Type="datetime" />
+          <Property Name="IdUsuario_Aprueba" Type="varchar" MaxLength="20" />
+          <Property Name="IdUsuario_Reprue" Type="varchar" MaxLength="20" />
+          <Property Name="co_fechaReproba" Type="datetime" />
+          <Property Name="Fecha_Transac" Type="datetime" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltMod" Type="char" MaxLength="20" />
+          <Property Name="FechaHoraAnul" Type="datetime" />
+          <Property Name="IdUsuarioUltAnu" Type="char" MaxLength="20" />
+          <Property Name="EstadoRecepcion" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="500" />
+          <Property Name="IdTerminoPago" Type="varchar" MaxLength="15" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="pre_ordencompra_local_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia_reg_ped" Type="int" Nullable="false" />
+          <Property Name="IdPresupuesto_pre" Type="numeric" Nullable="false" />
+          <Property Name="IdAnio_pre" Type="int" Nullable="false" />
+          <Property Name="Secuencia_pre" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="do_Cantidad" Type="float" Nullable="false" />
+          <Property Name="do_precioCompra" Type="float" Nullable="false" />
+          <Property Name="do_porc_des" Type="float" Nullable="false" />
+          <Property Name="do_descuento" Type="float" Nullable="false" />
+          <Property Name="do_subtotal" Type="float" Nullable="false" />
+          <Property Name="do_iva" Type="float" Nullable="false" />
+          <Property Name="do_total" Type="float" Nullable="false" />
+          <Property Name="do_ManejaIva" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="do_observacion" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="do_NumDocumento" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pre_PedidoXPresupuesto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="numeric" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="100" />
+          <Property Name="IdProveedor1" Type="numeric" />
+          <Property Name="IdProveedor2" Type="numeric" />
+          <Property Name="IdProveedor3" Type="numeric" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_Transac" Type="datetime" />
+          <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltAnu" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_UltAnu" Type="datetime" />
+          <Property Name="nom_pc" Type="varchar" MaxLength="50" />
+          <Property Name="ip" Type="varchar" MaxLength="25" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="pre_PedidoXPresupuesto_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+            <PropertyRef Name="Secuencia_reg" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia_reg" Type="int" Nullable="false" />
+          <Property Name="IdPresupuesto_pre" Type="numeric" Nullable="false" />
+          <Property Name="IdAnio_pre" Type="int" Nullable="false" />
+          <Property Name="Secuencia_pre" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Cant" Type="float" Nullable="false" />
+          <Property Name="CodEstadoAprobacion" Type="varchar" MaxLength="3" />
+          <Property Name="Cotizado" Type="varchar" MaxLength="1" />
+          <Property Name="UltiFechaEstadoApro" Type="datetime" />
+          <Property Name="IdUsuarioEstadoApro" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="pre_presupuesto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPresupuesto" />
+            <PropertyRef Name="IdAnio" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPresupuesto" Type="numeric" Nullable="false" />
+          <Property Name="IdAnio" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="CodigoPresupuesto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdTipoRubro" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CodRubro" Type="varchar" MaxLength="25" />
+          <Property Name="NombreRubro" Type="varchar" MaxLength="50" />
+          <Property Name="Enero" Type="float" Nullable="false" />
+          <Property Name="febrero" Type="float" Nullable="false" />
+          <Property Name="Marzo" Type="float" Nullable="false" />
+          <Property Name="Abril" Type="float" Nullable="false" />
+          <Property Name="Mayo" Type="float" Nullable="false" />
+          <Property Name="Junio" Type="float" Nullable="false" />
+          <Property Name="Julio" Type="float" Nullable="false" />
+          <Property Name="Agosto" Type="float" Nullable="false" />
+          <Property Name="Septiembre" Type="float" Nullable="false" />
+          <Property Name="Octubre" Type="float" Nullable="false" />
+          <Property Name="Noviembre" Type="float" Nullable="false" />
+          <Property Name="Diciembre" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pre_presupuesto_tipoRubro">
+          <Key>
+            <PropertyRef Name="IdTipoRubro" />
+          </Key>
+          <Property Name="IdTipoRubro" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Tabla" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP.dbo.pre_presupuestoData' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="pre_presupuestoData">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPresupuesto" />
+            <PropertyRef Name="IdAnio" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="CodigoPresupuesto" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdTipoRubro" />
+            <PropertyRef Name="Enero" />
+            <PropertyRef Name="febrero" />
+            <PropertyRef Name="Marzo" />
+            <PropertyRef Name="Abril" />
+            <PropertyRef Name="Mayo" />
+            <PropertyRef Name="Junio" />
+            <PropertyRef Name="Julio" />
+            <PropertyRef Name="Agosto" />
+            <PropertyRef Name="Septiembre" />
+            <PropertyRef Name="Octubre" />
+            <PropertyRef Name="Noviembre" />
+            <PropertyRef Name="Diciembre" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPresupuesto" Type="numeric" Nullable="false" />
+          <Property Name="IdAnio" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="CodigoPresupuesto" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdTipoRubro" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="CodRubro" Type="varchar" MaxLength="25" />
+          <Property Name="NombreRubro" Type="varchar" MaxLength="50" />
+          <Property Name="Enero" Type="float" Nullable="false" />
+          <Property Name="febrero" Type="float" Nullable="false" />
+          <Property Name="Marzo" Type="float" Nullable="false" />
+          <Property Name="Abril" Type="float" Nullable="false" />
+          <Property Name="Mayo" Type="float" Nullable="false" />
+          <Property Name="Junio" Type="float" Nullable="false" />
+          <Property Name="Julio" Type="float" Nullable="false" />
+          <Property Name="Agosto" Type="float" Nullable="false" />
+          <Property Name="Septiembre" Type="float" Nullable="false" />
+          <Property Name="Octubre" Type="float" Nullable="false" />
+          <Property Name="Noviembre" Type="float" Nullable="false" />
+          <Property Name="Diciembre" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP.dbo.vwpre_PedidoXPresupuesto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwpre_PedidoXPresupuesto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+            <PropertyRef Name="Departamento" />
+            <PropertyRef Name="Fecha" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="numeric" Nullable="false" />
+          <Property Name="Departamento" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="100" />
+          <Property Name="Proveedor1" Type="varchar" MaxLength="100" />
+          <Property Name="Proveedor2" Type="varchar" MaxLength="100" />
+          <Property Name="Proveedor3" Type="varchar" MaxLength="100" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Estado" Type="char" MaxLength="1" />
+          <Property Name="MotivoAnulacion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP.dbo.vwpre_PedidoXPresupuesto_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwpre_PedidoXPresupuesto_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Secuencia_reg" />
+            <PropertyRef Name="IdPresupuesto_pre" />
+            <PropertyRef Name="IdAnio_pre" />
+            <PropertyRef Name="Secuencia_pre" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="Cant" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="numeric" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" MaxLength="100" />
+          <Property Name="IdProveedor1" Type="numeric" />
+          <Property Name="IdProveedor2" Type="numeric" />
+          <Property Name="IdProveedor3" Type="numeric" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Secuencia_reg" Type="int" Nullable="false" />
+          <Property Name="IdPresupuesto_pre" Type="numeric" Nullable="false" />
+          <Property Name="IdAnio_pre" Type="int" Nullable="false" />
+          <Property Name="Secuencia_pre" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Cant" Type="float" Nullable="false" />
+          <Property Name="CodEstadoAprobacion" Type="varchar" MaxLength="3" />
+          <Property Name="Cotizado" Type="varchar" MaxLength="1" />
+          <Property Name="NPresupuesto_pre" Type="varchar" MaxLength="346" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP.dbo.vwpre_presupuesto_plancta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwpre_presupuesto_plancta">
+          <Key>
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Name="IdPresupuesto" Type="numeric" />
+          <Property Name="IdAnio" Type="varchar" MaxLength="10" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Secuencia" Type="int" />
+          <Property Name="CodigoPresupuesto" Type="varchar" MaxLength="50" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdTipoRubro" Type="varchar" MaxLength="20" />
+          <Property Name="CodRubro" Type="varchar" MaxLength="25" />
+          <Property Name="NombreRubro" Type="varchar" MaxLength="50" />
+          <Property Name="Enero" Type="float" />
+          <Property Name="febrero" Type="float" />
+          <Property Name="Marzo" Type="float" />
+          <Property Name="Abril" Type="float" />
+          <Property Name="Mayo" Type="float" />
+          <Property Name="Junio" Type="float" />
+          <Property Name="Julio" Type="float" />
+          <Property Name="Agosto" Type="float" />
+          <Property Name="Septiembre" Type="float" />
+          <Property Name="Octubre" Type="float" />
+          <Property Name="Noviembre" Type="float" />
+          <Property Name="Diciembre" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP.dbo.vwPre_PresupuestoxCta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwPre_PresupuestoxCta">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdPresupuesto" Type="numeric" />
+          <Property Name="IdAnio" Type="varchar" MaxLength="10" />
+          <Property Name="Secuencia" Type="int" />
+          <Property Name="CodigoPresupuesto" Type="varchar" MaxLength="50" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdTipoRubro" Type="varchar" MaxLength="20" />
+          <Property Name="CodRubro" Type="varchar" MaxLength="25" />
+          <Property Name="NombreRubro" Type="varchar" MaxLength="50" />
+          <Property Name="Enero" Type="float" />
+          <Property Name="febrero" Type="float" />
+          <Property Name="Marzo" Type="float" />
+          <Property Name="Abril" Type="float" />
+          <Property Name="Mayo" Type="float" />
+          <Property Name="Junio" Type="float" />
+          <Property Name="Julio" Type="float" />
+          <Property Name="Agosto" Type="float" />
+          <Property Name="Septiembre" Type="float" />
+          <Property Name="Octubre" Type="float" />
+          <Property Name="Noviembre" Type="float" />
+          <Property Name="Diciembre" Type="float" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <Association Name="FK_pre_presupuesto_pre_presupuesto_tipoRubro">
+          <End Role="pre_presupuesto_tipoRubro" Type="DBERPModelPresupuesto.Store.pre_presupuesto_tipoRubro" Multiplicity="1" />
+          <End Role="pre_presupuesto" Type="DBERPModelPresupuesto.Store.pre_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pre_presupuesto_tipoRubro">
+              <PropertyRef Name="IdTipoRubro" />
+            </Principal>
+            <Dependent Role="pre_presupuesto">
+              <PropertyRef Name="IdTipoRubro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBERPModelPresupuesto" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesPresupuesto" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="pre_estadoAprobacion" EntityType="DBERPModelPresupuesto.pre_estadoAprobacion" />
+          <EntitySet Name="pre_ordencompra_local" EntityType="DBERPModelPresupuesto.pre_ordencompra_local" />
+          <EntitySet Name="pre_ordencompra_local_det" EntityType="DBERPModelPresupuesto.pre_ordencompra_local_det" />
+          <EntitySet Name="pre_PedidoXPresupuesto" EntityType="DBERPModelPresupuesto.pre_PedidoXPresupuesto" />
+          <EntitySet Name="pre_PedidoXPresupuesto_det" EntityType="DBERPModelPresupuesto.pre_PedidoXPresupuesto_det" />
+          <EntitySet Name="pre_presupuesto" EntityType="DBERPModelPresupuesto.pre_presupuesto" />
+          <EntitySet Name="pre_presupuesto_tipoRubro" EntityType="DBERPModelPresupuesto.pre_presupuesto_tipoRubro" />
+          <EntitySet Name="pre_presupuestoData" EntityType="DBERPModelPresupuesto.pre_presupuestoData" />
+          <AssociationSet Name="FK_pre_presupuesto_pre_presupuesto_tipoRubro" Association="DBERPModelPresupuesto.FK_pre_presupuesto_pre_presupuesto_tipoRubro">
+            <End Role="pre_presupuesto_tipoRubro" EntitySet="pre_presupuesto_tipoRubro" />
+            <End Role="pre_presupuesto" EntitySet="pre_presupuesto" />
+          </AssociationSet>
+          <EntitySet Name="vwpre_PedidoXPresupuesto" EntityType="DBERPModelPresupuesto.vwpre_PedidoXPresupuesto" />
+          <EntitySet Name="vwpre_PedidoXPresupuesto_det" EntityType="DBERPModelPresupuesto.vwpre_PedidoXPresupuesto_det" />
+          <EntitySet Name="vwpre_presupuesto_plancta" EntityType="DBERPModelPresupuesto.vwpre_presupuesto_plancta" />
+          <EntitySet Name="vwPre_PresupuestoxCta" EntityType="DBERPModelPresupuesto.vwPre_PresupuestoxCta" />
+        </EntityContainer>
+        <EntityType Name="pre_estadoAprobacion">
+          <Key>
+            <PropertyRef Name="CodEstado" />
+          </Key>
+          <Property Name="CodEstado" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="pre_ordencompra_local">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdSucursal" Type="Int32" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdProveedor" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="oc_NumDocumento" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="oc_fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="oc_observacion" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="CondicionPago" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="FormaEnvio" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="co_fecha_aprobacion" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuario_Aprueba" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuario_Reprue" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="co_fechaReproba" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Transac" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_UltMod" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioUltMod" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="FechaHoraAnul" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioUltAnu" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="EstadoRecepcion" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="MotivoAnulacion" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="IdTerminoPago" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuario" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="pre_ordencompra_local_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdSucursal" Type="Int32" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Secuencia" Type="Int32" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Secuencia_reg_ped" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupuesto_pre" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdAnio_pre" Type="Int32" Nullable="false" />
+          <Property Name="Secuencia_pre" Type="Int32" Nullable="false" />
+          <Property Name="Producto" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="do_Cantidad" Type="Double" Nullable="false" />
+          <Property Name="do_precioCompra" Type="Double" Nullable="false" />
+          <Property Name="do_porc_des" Type="Double" Nullable="false" />
+          <Property Name="do_descuento" Type="Double" Nullable="false" />
+          <Property Name="do_subtotal" Type="Double" Nullable="false" />
+          <Property Name="do_iva" Type="Double" Nullable="false" />
+          <Property Name="do_total" Type="Double" Nullable="false" />
+          <Property Name="do_ManejaIva" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="do_observacion" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="do_NumDocumento" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="pre_PedidoXPresupuesto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdDepartamento" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Observacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdProveedor1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IdProveedor2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IdProveedor3" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IdUsuario" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha_Transac" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioUltMod" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha_UltMod" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioUltAnu" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha_UltAnu" Type="DateTime" Precision="3" />
+          <Property Name="nom_pc" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ip" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="MotivoAnulacion" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="pre_PedidoXPresupuesto_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+            <PropertyRef Name="Secuencia_reg" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdPedidoXPre" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Secuencia_reg" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupuesto_pre" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdAnio_pre" Type="Int32" Nullable="false" />
+          <Property Name="Secuencia_pre" Type="Int32" Nullable="false" />
+          <Property Name="Producto" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="Cant" Type="Double" Nullable="false" />
+          <Property Name="CodEstadoAprobacion" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Cotizado" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="UltiFechaEstadoApro" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioEstadoApro" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="pre_presupuesto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPresupuesto" />
+            <PropertyRef Name="IdAnio" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupuesto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdAnio" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Secuencia" Type="Int32" Nullable="false" />
+          <Property Name="CodigoPresupuesto" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="IdCtaCble" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdTipoRubro" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CodRubro" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="NombreRubro" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Enero" Type="Double" Nullable="false" />
+          <Property Name="febrero" Type="Double" Nullable="false" />
+          <Property Name="Marzo" Type="Double" Nullable="false" />
+          <Property Name="Abril" Type="Double" Nullable="false" />
+          <Property Name="Mayo" Type="Double" Nullable="false" />
+          <Property Name="Junio" Type="Double" Nullable="false" />
+          <Property Name="Julio" Type="Double" Nullable="false" />
+          <Property Name="Agosto" Type="Double" Nullable="false" />
+          <Property Name="Septiembre" Type="Double" Nullable="false" />
+          <Property Name="Octubre" Type="Double" Nullable="false" />
+          <Property Name="Noviembre" Type="Double" Nullable="false" />
+          <Property Name="Diciembre" Type="Double" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="pre_presupuesto_tipoRubro" Relationship="DBERPModelPresupuesto.FK_pre_presupuesto_pre_presupuesto_tipoRubro" FromRole="pre_presupuesto" ToRole="pre_presupuesto_tipoRubro" />
+        </EntityType>
+        <EntityType Name="pre_presupuesto_tipoRubro">
+          <Key>
+            <PropertyRef Name="IdTipoRubro" />
+          </Key>
+          <Property Name="IdTipoRubro" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Tabla" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="pre_presupuesto" Relationship="DBERPModelPresupuesto.FK_pre_presupuesto_pre_presupuesto_tipoRubro" FromRole="pre_presupuesto_tipoRubro" ToRole="pre_presupuesto" />
+        </EntityType>
+        <EntityType Name="pre_presupuestoData">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPresupuesto" />
+            <PropertyRef Name="IdAnio" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="CodigoPresupuesto" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdTipoRubro" />
+            <PropertyRef Name="Enero" />
+            <PropertyRef Name="febrero" />
+            <PropertyRef Name="Marzo" />
+            <PropertyRef Name="Abril" />
+            <PropertyRef Name="Mayo" />
+            <PropertyRef Name="Junio" />
+            <PropertyRef Name="Julio" />
+            <PropertyRef Name="Agosto" />
+            <PropertyRef Name="Septiembre" />
+            <PropertyRef Name="Octubre" />
+            <PropertyRef Name="Noviembre" />
+            <PropertyRef Name="Diciembre" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupuesto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdAnio" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Secuencia" Type="Int32" Nullable="false" />
+          <Property Name="CodigoPresupuesto" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdCtaCble" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdTipoRubro" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CodRubro" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="NombreRubro" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Enero" Type="Double" Nullable="false" />
+          <Property Name="febrero" Type="Double" Nullable="false" />
+          <Property Name="Marzo" Type="Double" Nullable="false" />
+          <Property Name="Abril" Type="Double" Nullable="false" />
+          <Property Name="Mayo" Type="Double" Nullable="false" />
+          <Property Name="Junio" Type="Double" Nullable="false" />
+          <Property Name="Julio" Type="Double" Nullable="false" />
+          <Property Name="Agosto" Type="Double" Nullable="false" />
+          <Property Name="Septiembre" Type="Double" Nullable="false" />
+          <Property Name="Octubre" Type="Double" Nullable="false" />
+          <Property Name="Noviembre" Type="Double" Nullable="false" />
+          <Property Name="Diciembre" Type="Double" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_pre_presupuesto_pre_presupuesto_tipoRubro">
+          <End Role="pre_presupuesto_tipoRubro" Type="DBERPModelPresupuesto.pre_presupuesto_tipoRubro" Multiplicity="1" />
+          <End Role="pre_presupuesto" Type="DBERPModelPresupuesto.pre_presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pre_presupuesto_tipoRubro">
+              <PropertyRef Name="IdTipoRubro" />
+            </Principal>
+            <Dependent Role="pre_presupuesto">
+              <PropertyRef Name="IdTipoRubro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwpre_PedidoXPresupuesto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+            <PropertyRef Name="Departamento" />
+            <PropertyRef Name="Fecha" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPedidoXPre" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Departamento" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Proveedor1" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Proveedor2" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Proveedor3" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwpre_PedidoXPresupuesto_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPedidoXPre" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Secuencia_reg" />
+            <PropertyRef Name="IdPresupuesto_pre" />
+            <PropertyRef Name="IdAnio_pre" />
+            <PropertyRef Name="Secuencia_pre" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="Cant" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPedidoXPre" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdDepartamento" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor1" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor2" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor3" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Secuencia_reg" Nullable="false" />
+          <Property Type="Decimal" Name="IdPresupuesto_pre" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdAnio_pre" Nullable="false" />
+          <Property Type="Int32" Name="Secuencia_pre" Nullable="false" />
+          <Property Type="String" Name="Producto" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Cant" Nullable="false" />
+          <Property Type="String" Name="CodEstadoAprobacion" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cotizado" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NPresupuesto_pre" MaxLength="346" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwpre_presupuesto_plancta">
+          <Key>
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Type="Decimal" Name="IdPresupuesto" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdAnio" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Secuencia" />
+          <Property Type="String" Name="CodigoPresupuesto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoRubro" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodRubro" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreRubro" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Enero" />
+          <Property Type="Double" Name="febrero" />
+          <Property Type="Double" Name="Marzo" />
+          <Property Type="Double" Name="Abril" />
+          <Property Type="Double" Name="Mayo" />
+          <Property Type="Double" Name="Junio" />
+          <Property Type="Double" Name="Julio" />
+          <Property Type="Double" Name="Agosto" />
+          <Property Type="Double" Name="Septiembre" />
+          <Property Type="Double" Name="Octubre" />
+          <Property Type="Double" Name="Noviembre" />
+          <Property Type="Double" Name="Diciembre" />
+          <Property Type="Double" Name="Total" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwPre_PresupuestoxCta">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPresupuesto" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdAnio" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Secuencia" />
+          <Property Type="String" Name="CodigoPresupuesto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoRubro" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodRubro" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreRubro" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Enero" />
+          <Property Type="Double" Name="febrero" />
+          <Property Type="Double" Name="Marzo" />
+          <Property Type="Double" Name="Abril" />
+          <Property Type="Double" Name="Mayo" />
+          <Property Type="Double" Name="Junio" />
+          <Property Type="Double" Name="Julio" />
+          <Property Type="Double" Name="Agosto" />
+          <Property Type="Double" Name="Septiembre" />
+          <Property Type="Double" Name="Octubre" />
+          <Property Type="Double" Name="Noviembre" />
+          <Property Type="Double" Name="Diciembre" />
+          <Property Type="Double" Name="Total" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBERPModelPresupuestoStoreContainer" CdmEntityContainer="EntitiesPresupuesto">
+          <EntitySetMapping Name="pre_estadoAprobacion">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_estadoAprobacion">
+              <MappingFragment StoreEntitySet="pre_estadoAprobacion">
+                <ScalarProperty Name="CodEstado" ColumnName="CodEstado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_ordencompra_local">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_ordencompra_local">
+              <MappingFragment StoreEntitySet="pre_ordencompra_local">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="oc_NumDocumento" ColumnName="oc_NumDocumento" />
+                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
+                <ScalarProperty Name="oc_observacion" ColumnName="oc_observacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CondicionPago" ColumnName="CondicionPago" />
+                <ScalarProperty Name="FormaEnvio" ColumnName="FormaEnvio" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="co_fecha_aprobacion" ColumnName="co_fecha_aprobacion" />
+                <ScalarProperty Name="IdUsuario_Aprueba" ColumnName="IdUsuario_Aprueba" />
+                <ScalarProperty Name="IdUsuario_Reprue" ColumnName="IdUsuario_Reprue" />
+                <ScalarProperty Name="co_fechaReproba" ColumnName="co_fechaReproba" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="FechaHoraAnul" ColumnName="FechaHoraAnul" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="EstadoRecepcion" ColumnName="EstadoRecepcion" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_ordencompra_local_det">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_ordencompra_local_det">
+              <MappingFragment StoreEntitySet="pre_ordencompra_local_det">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdPedidoXPre" ColumnName="IdPedidoXPre" />
+                <ScalarProperty Name="Secuencia_reg_ped" ColumnName="Secuencia_reg_ped" />
+                <ScalarProperty Name="IdPresupuesto_pre" ColumnName="IdPresupuesto_pre" />
+                <ScalarProperty Name="IdAnio_pre" ColumnName="IdAnio_pre" />
+                <ScalarProperty Name="Secuencia_pre" ColumnName="Secuencia_pre" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="do_Cantidad" ColumnName="do_Cantidad" />
+                <ScalarProperty Name="do_precioCompra" ColumnName="do_precioCompra" />
+                <ScalarProperty Name="do_porc_des" ColumnName="do_porc_des" />
+                <ScalarProperty Name="do_descuento" ColumnName="do_descuento" />
+                <ScalarProperty Name="do_subtotal" ColumnName="do_subtotal" />
+                <ScalarProperty Name="do_iva" ColumnName="do_iva" />
+                <ScalarProperty Name="do_total" ColumnName="do_total" />
+                <ScalarProperty Name="do_ManejaIva" ColumnName="do_ManejaIva" />
+                <ScalarProperty Name="do_observacion" ColumnName="do_observacion" />
+                <ScalarProperty Name="do_NumDocumento" ColumnName="do_NumDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_PedidoXPresupuesto">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_PedidoXPresupuesto">
+              <MappingFragment StoreEntitySet="pre_PedidoXPresupuesto">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdPedidoXPre" ColumnName="IdPedidoXPre" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdProveedor1" ColumnName="IdProveedor1" />
+                <ScalarProperty Name="IdProveedor2" ColumnName="IdProveedor2" />
+                <ScalarProperty Name="IdProveedor3" ColumnName="IdProveedor3" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_PedidoXPresupuesto_det">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_PedidoXPresupuesto_det">
+              <MappingFragment StoreEntitySet="pre_PedidoXPresupuesto_det">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdPedidoXPre" ColumnName="IdPedidoXPre" />
+                <ScalarProperty Name="Secuencia_reg" ColumnName="Secuencia_reg" />
+                <ScalarProperty Name="IdPresupuesto_pre" ColumnName="IdPresupuesto_pre" />
+                <ScalarProperty Name="IdAnio_pre" ColumnName="IdAnio_pre" />
+                <ScalarProperty Name="Secuencia_pre" ColumnName="Secuencia_pre" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cant" ColumnName="Cant" />
+                <ScalarProperty Name="CodEstadoAprobacion" ColumnName="CodEstadoAprobacion" />
+                <ScalarProperty Name="Cotizado" ColumnName="Cotizado" />
+                <ScalarProperty Name="UltiFechaEstadoApro" ColumnName="UltiFechaEstadoApro" />
+                <ScalarProperty Name="IdUsuarioEstadoApro" ColumnName="IdUsuarioEstadoApro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_presupuesto">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_presupuesto">
+              <MappingFragment StoreEntitySet="pre_presupuesto">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdPresupuesto" ColumnName="IdPresupuesto" />
+                <ScalarProperty Name="IdAnio" ColumnName="IdAnio" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="CodigoPresupuesto" ColumnName="CodigoPresupuesto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdTipoRubro" ColumnName="IdTipoRubro" />
+                <ScalarProperty Name="CodRubro" ColumnName="CodRubro" />
+                <ScalarProperty Name="NombreRubro" ColumnName="NombreRubro" />
+                <ScalarProperty Name="Enero" ColumnName="Enero" />
+                <ScalarProperty Name="febrero" ColumnName="febrero" />
+                <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+                <ScalarProperty Name="Abril" ColumnName="Abril" />
+                <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+                <ScalarProperty Name="Junio" ColumnName="Junio" />
+                <ScalarProperty Name="Julio" ColumnName="Julio" />
+                <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+                <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+                <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+                <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+                <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_presupuesto_tipoRubro">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_presupuesto_tipoRubro">
+              <MappingFragment StoreEntitySet="pre_presupuesto_tipoRubro">
+                <ScalarProperty Name="IdTipoRubro" ColumnName="IdTipoRubro" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Tabla" ColumnName="Tabla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pre_presupuestoData">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.pre_presupuestoData">
+              <MappingFragment StoreEntitySet="pre_presupuestoData">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdPresupuesto" ColumnName="IdPresupuesto" />
+                <ScalarProperty Name="IdAnio" ColumnName="IdAnio" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="CodigoPresupuesto" ColumnName="CodigoPresupuesto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdTipoRubro" ColumnName="IdTipoRubro" />
+                <ScalarProperty Name="CodRubro" ColumnName="CodRubro" />
+                <ScalarProperty Name="NombreRubro" ColumnName="NombreRubro" />
+                <ScalarProperty Name="Enero" ColumnName="Enero" />
+                <ScalarProperty Name="febrero" ColumnName="febrero" />
+                <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+                <ScalarProperty Name="Abril" ColumnName="Abril" />
+                <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+                <ScalarProperty Name="Junio" ColumnName="Junio" />
+                <ScalarProperty Name="Julio" ColumnName="Julio" />
+                <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+                <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+                <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+                <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+                <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwpre_PedidoXPresupuesto">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.vwpre_PedidoXPresupuesto">
+              <MappingFragment StoreEntitySet="vwpre_PedidoXPresupuesto">
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Proveedor3" ColumnName="Proveedor3" />
+                <ScalarProperty Name="Proveedor2" ColumnName="Proveedor2" />
+                <ScalarProperty Name="Proveedor1" ColumnName="Proveedor1" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="IdPedidoXPre" ColumnName="IdPedidoXPre" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwpre_PedidoXPresupuesto_det">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.vwpre_PedidoXPresupuesto_det">
+              <MappingFragment StoreEntitySet="vwpre_PedidoXPresupuesto_det">
+                <ScalarProperty Name="NPresupuesto_pre" ColumnName="NPresupuesto_pre" />
+                <ScalarProperty Name="Cotizado" ColumnName="Cotizado" />
+                <ScalarProperty Name="CodEstadoAprobacion" ColumnName="CodEstadoAprobacion" />
+                <ScalarProperty Name="Cant" ColumnName="Cant" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Secuencia_pre" ColumnName="Secuencia_pre" />
+                <ScalarProperty Name="IdAnio_pre" ColumnName="IdAnio_pre" />
+                <ScalarProperty Name="IdPresupuesto_pre" ColumnName="IdPresupuesto_pre" />
+                <ScalarProperty Name="Secuencia_reg" ColumnName="Secuencia_reg" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdProveedor3" ColumnName="IdProveedor3" />
+                <ScalarProperty Name="IdProveedor2" ColumnName="IdProveedor2" />
+                <ScalarProperty Name="IdProveedor1" ColumnName="IdProveedor1" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdPedidoXPre" ColumnName="IdPedidoXPre" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwpre_presupuesto_plancta">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.vwpre_presupuesto_plancta">
+              <MappingFragment StoreEntitySet="vwpre_presupuesto_plancta">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+                <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+                <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+                <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+                <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+                <ScalarProperty Name="Julio" ColumnName="Julio" />
+                <ScalarProperty Name="Junio" ColumnName="Junio" />
+                <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+                <ScalarProperty Name="Abril" ColumnName="Abril" />
+                <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+                <ScalarProperty Name="febrero" ColumnName="febrero" />
+                <ScalarProperty Name="Enero" ColumnName="Enero" />
+                <ScalarProperty Name="NombreRubro" ColumnName="NombreRubro" />
+                <ScalarProperty Name="CodRubro" ColumnName="CodRubro" />
+                <ScalarProperty Name="IdTipoRubro" ColumnName="IdTipoRubro" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="CodigoPresupuesto" ColumnName="CodigoPresupuesto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdAnio" ColumnName="IdAnio" />
+                <ScalarProperty Name="IdPresupuesto" ColumnName="IdPresupuesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwPre_PresupuestoxCta">
+            <EntityTypeMapping TypeName="DBERPModelPresupuesto.vwPre_PresupuestoxCta">
+              <MappingFragment StoreEntitySet="vwPre_PresupuestoxCta">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+                <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+                <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+                <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+                <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+                <ScalarProperty Name="Julio" ColumnName="Julio" />
+                <ScalarProperty Name="Junio" ColumnName="Junio" />
+                <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+                <ScalarProperty Name="Abril" ColumnName="Abril" />
+                <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+                <ScalarProperty Name="febrero" ColumnName="febrero" />
+                <ScalarProperty Name="Enero" ColumnName="Enero" />
+                <ScalarProperty Name="NombreRubro" ColumnName="NombreRubro" />
+                <ScalarProperty Name="CodRubro" ColumnName="CodRubro" />
+                <ScalarProperty Name="IdTipoRubro" ColumnName="IdTipoRubro" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="CodigoPresupuesto" ColumnName="CodigoPresupuesto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdAnio" ColumnName="IdAnio" />
+                <ScalarProperty Name="IdPresupuesto" ColumnName="IdPresupuesto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

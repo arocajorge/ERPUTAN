@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[prd_PteGrua] (
+    [IdEmpresa]             INT           NOT NULL,
+    [IdSucursal]            INT           NOT NULL,
+    [IdPteGrua]             INT           NOT NULL,
+    [Idproducto]            VARCHAR (50)  NULL,
+    [IdOrdenTaller]         INT           NULL,
+    [Fecha]                 DATE          NULL,
+    [Origen]                VARCHAR (50)  NULL,
+    [Destino]               VARCHAR (50)  NULL,
+    [Codigo_Barra_producto] VARCHAR (50)  NULL,
+    [Descripcion_producto]  VARCHAR (100) NULL,
+    [Toneladas_Mover]       INT           NULL,
+    [Observacion]           VARCHAR (100) NULL,
+    [Fecha_Transac]         DATETIME      NULL,
+    [IdUsuarioUltMod]       NVARCHAR (20) NULL,
+    [Fecha_UltMod]          DATETIME      NULL,
+    [IdUsuarioUltAnu]       NVARCHAR (20) NULL,
+    [Fecha_UltAnu]          DATETIME      NULL,
+    [pr_motivoAnulacion]    NVARCHAR (50) NULL,
+    [nom_pc]                NVARCHAR (50) NULL,
+    [ip]                    NVARCHAR (25) NULL,
+    [Estado]                CHAR (1)      NULL,
+    CONSTRAINT [PK_prd_PteGrua] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdSucursal] ASC, [IdPteGrua] ASC)
+);
+

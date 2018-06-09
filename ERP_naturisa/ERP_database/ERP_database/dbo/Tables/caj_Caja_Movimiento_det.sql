@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[caj_Caja_Movimiento_det] (
+    [IdEmpresa]                      INT           NOT NULL,
+    [IdCbteCble]                     NUMERIC (18)  NOT NULL,
+    [IdTipocbte]                     INT           NOT NULL,
+    [Secuencia]                      INT           NOT NULL,
+    [IdCobro_tipo]                   VARCHAR (20)  NULL,
+    [cr_fecha]                       DATETIME      NOT NULL,
+    [cr_Valor]                       FLOAT (53)    NOT NULL,
+    [cr_Banco]                       VARCHAR (50)  NULL,
+    [cr_cuenta]                      VARCHAR (100) NULL,
+    [cr_NumDocumento]                VARCHAR (100) NULL,
+    [cr_fechaDocu]                   DATETIME      NULL,
+    [IdEmpresa_OP]                   INT           NULL,
+    [IdOrdenPago_OP]                 NUMERIC (18)  NULL,
+    [IdCentroCosto]                  VARCHAR (20)  NULL,
+    [IdCentroCosto_sub_centro_costo] VARCHAR (20)  NULL,
+    [IdTipoFlujo]                    NUMERIC (18)  NULL,
+    CONSTRAINT [PK_caj_Caja_Movimiento_det] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdCbteCble] ASC, [IdTipocbte] ASC, [Secuencia] ASC),
+    CONSTRAINT [FK_caj_Caja_Movimiento_det_ba_TipoFlujo] FOREIGN KEY ([IdEmpresa], [IdTipoFlujo]) REFERENCES [dbo].[ba_TipoFlujo] ([IdEmpresa], [IdTipoFlujo]),
+    CONSTRAINT [FK_caj_Caja_Movimiento_det_caj_Caja_Movimiento] FOREIGN KEY ([IdEmpresa], [IdCbteCble], [IdTipocbte]) REFERENCES [dbo].[caj_Caja_Movimiento] ([IdEmpresa], [IdCbteCble], [IdTipocbte]),
+    CONSTRAINT [FK_caj_Caja_Movimiento_det_cp_orden_pago] FOREIGN KEY ([IdEmpresa_OP], [IdOrdenPago_OP]) REFERENCES [dbo].[cp_orden_pago] ([IdEmpresa], [IdOrdenPago]),
+    CONSTRAINT [FK_caj_Caja_Movimiento_det_ct_centro_costo] FOREIGN KEY ([IdEmpresa], [IdCentroCosto]) REFERENCES [dbo].[ct_centro_costo] ([IdEmpresa], [IdCentroCosto]),
+    CONSTRAINT [FK_caj_Caja_Movimiento_det_ct_centro_costo_sub_centro_costo] FOREIGN KEY ([IdEmpresa], [IdCentroCosto], [IdCentroCosto_sub_centro_costo]) REFERENCES [dbo].[ct_centro_costo_sub_centro_costo] ([IdEmpresa], [IdCentroCosto], [IdCentroCosto_sub_centro_costo]),
+    CONSTRAINT [FK_caj_Caja_Movimiento_det_cxc_cobro_tipo] FOREIGN KEY ([IdCobro_tipo]) REFERENCES [dbo].[cxc_cobro_tipo] ([IdCobro_tipo])
+);
+

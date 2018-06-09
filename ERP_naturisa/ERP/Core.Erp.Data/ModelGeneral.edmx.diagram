@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f660ed69b6644cf4896859c77c30c2be" Name="Diagrama1" ZoomLevel="20">
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_Calendario" Width="1.5" PointX="1.0326618147234721" PointY="17.50093526463068" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_Catalogo" Width="1.5" PointX="5.9729667389639491" PointY="17.909198873634079" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_CatalogoTipo" Width="1.5" PointX="11.986501760774527" PointY="13.315441510321312" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_ciudad" Width="1.5" PointX="10.816165672063905" PointY="9.830225636172214" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_contacto" Width="1.5" PointX="0.013567501685380703" PointY="16.917300455699348" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_dia" Width="1.5" PointX="5.8941853930680939" PointY="2.6409254831452507" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_mes" Width="1.5" PointX="0.95353453650769526" PointY="31.839372470900123" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_moneda" Width="1.5" PointX="2.2622836801513486" PointY="17.399641596432609" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_pais" Width="1.5" PointX="0.86847620125323344" PointY="10.43227002510441" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_parametro" Width="1.5" PointX="3.94838665795903" PointY="25.353633475188925" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_parametro_tipo" Width="1.5" PointX="2.8617728570763825" PointY="17.785542347368573" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona" Width="1.5" PointX="11.345358285748102" PointY="25.252402421670222" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona_direccion" Width="1.5" PointX="4.5774389191425584" PointY="20.140195543011743" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona_direccion_tipo" Width="1.5" PointX="6.0183742074381437" PointY="19.988377327094032" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona_tipo" Width="1.5" PointX="9.23194335830954" PointY="14.744114495229029" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_rango_fecha_busqueda_x_periodo" Width="1.5" PointX="8.71994590606538" PointY="1.1337930714403246" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Datos_Sistema" Width="1.5" PointX="8.6846392511784281" PointY="10.479569723121621" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Registros_x_Talonario" Width="1.5" PointX="1.7012902990455228" PointY="4.8863475643500438" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Tipo" Width="1.5" PointX="1.8647158303599414" PointY="4.2535086144942369" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Tipo_Reporte_x_Empresa" Width="1.5" PointX="5.4143205254405364" PointY="13.124248898180317" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Tipo_x_Empresa" Width="1.5" PointX="0.80848222636081379" PointY="27.630568025461663" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Tipo_x_Empresa_Anulados" Width="1.5" PointX="2.2252654015204243" PointY="24.726463433693379" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Tipo_x_Secuencia_Talonario" Width="1.5" PointX="3.3074686840677021" PointY="4.660959678078517" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Grupo_empresarial_Cliente" Width="1.5" PointX="8.4889755512070728" PointY="24.321494814158182" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_iconos" Width="1.5" PointX="2.6144640662774741" PointY="22.574277828714941" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Log_Error_Vzen" Width="1.5" PointX="3.8541767205363966" PointY="14.178462348030164" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Mensajes_sys" Width="1.5" PointX="5.6479322806223911" PointY="3.5907060371668571" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_reporte" Width="1.5" PointX="11.108895694422021" PointY="11.895984461482607" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_reporte_Grupo" Width="1.5" PointX="0.32561346344911191" PointY="27.729450387754223" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_tarjeta" Width="1.5" PointX="6.16303654674582" PointY="29.668310939179879" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_tarjeta_parametro" Width="1.5" PointX="3.219818770522167" PointY="4.4008439948786258" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vw_EstadoCivil" Width="1.5" PointX="4.8235752996167056" PointY="29.429588972325245" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vw_NaturalezaPersona" Width="1.5" PointX="2.0473854290542124" PointY="6.2755224733965109" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vw_Persona" Width="1.5" PointX="4.0932920277553109" PointY="26.507145387356704" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vw_TipoDocumento" Width="1.5" PointX="6.0802088147402777" PointY="1.4487076259444969" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vw_usuario" Width="1.5" PointX="8.66116868176552" PointY="16.575935758918494" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwGe_tb_sis_Mensajes_sys_IdAuto_numeric" Width="1.5" PointX="4.1881728135925593" PointY="19.957555944080259" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwGe_tb_Tarjeta_tb_Parametro" Width="1.5" PointX="9.0400673845038142" PointY="19.412701943615779" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_Bodega_x_Sucursal_TreeList" Width="1.5" PointX="11.213453868037767" PointY="0.67891125412607156" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_Ciudad" Width="1.5" PointX="8.5709956812537254" PointY="8.980575655112311" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_contacto" Width="1.5" PointX="10.281906365548217" PointY="0.9460680936212037" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_persona_beneficiario" Width="1.5" PointX="1.2694522669862267" PointY="18.708737680087211" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_persona_beneficiario_por_Banco_Acreditacion" Width="1.5" PointX="1.1631896389476908" PointY="8.9160348516497923" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_sis_Documento_Tipo_x_Disenio_Report" Width="1.5" PointX="4.6390563792730939" PointY="4.487641664448959" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_transportista_x_tb_persona" Width="1.5" PointX="8.92428457966274" PointY="25.207679164226949" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_Ubicacion_Geografica" Width="1.5" PointX="7.0731751262551059" PointY="0.6963817033434202" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_Catalogo_tb_CatalogoTipo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_ciudad" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_pais" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_pais1" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_persona" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_parametro_tb_parametro_tipo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona_direccion_tipo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Documento_Tipo_Reporte_x_Empresa_tb_sis_Documento_Tipo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_reporte_tb_sis_reporte_Grupo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_tarjeta_parametro_tb_tarjeta" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Documento_Tipo_Talonario" Width="1.5" PointX="1.742315624720564" PointY="20.618421012823667" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwGe_tb_sis_Documento_Tipo_Talonario" Width="1.5" PointX="6.8433923026748893" PointY="0.084585413376142" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Impuesto" Width="1.5" PointX="4.40811409820249" PointY="31.402102917154366" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Documento_Tipo_Talonario_tb_sis_Documento_Tipo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Documento_Tipo_Talonario_tb_sis_Documento_Tipo_x_Empresa" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tbSys_Ge_Comparativo_Modulo_vs_Contas" Width="1.5" PointX="8.9313861974195525" PointY="9.9215733604140457" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_parroquia" Width="1.5" PointX="3.0316540799251079" PointY="5.4355826701203283" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_parroquia_tb_ciudad" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_empresa_x_Usuario" Width="1.5" PointX="1.0852592741536253" PointY="23.698004972049038" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Impuesto_Tipo" Width="1.5" PointX="2.774195497284734" PointY="21.038746694586589" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_Impuesto_x_ctacble" Width="1.5" PointX="2.1593477680158557" PointY="22.628497164057798" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Impuesto_tb_sis_Impuesto_Tipo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Impuesto_x_ctacble_tb_sis_Impuesto" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_modulo" Width="1.5" PointX="0.23963606368733387" PointY="18.180147239090942" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_bodega" Width="1.5" PointX="3.2747307081123491" PointY="3.5619091855184681" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_reporte_tb_modulo" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_reporte_x_formulario" Width="1.5" PointX="8.3255615031000048" PointY="27.319297222103597" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_reporte_x_formulario_tb_sis_reporte" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sis_formulario" Width="1.5" PointX="2.5301767096529604" PointY="11.129000937160571" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_formulario_tb_modulo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_reporte_x_formulario_tb_sis_formulario" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco_procesos_bancarios_tipo" Width="1.5" PointX="11.706720482421442" PointY="17.427140422829957" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco" Width="1.5" PointX="5.5658037558038735" PointY="6.400329384207879" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_banco" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco_procesos_bancarios_x_empresa" Width="1.5" PointX="4.2710287758479968" PointY="0.70975759658485538" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_tb_banco_procesos_bancarios" Width="1.5" PointX="7.1138353474036959" PointY="9.7380566493319609" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_transportista" Width="1.5" PointX="4.3297950254426318" PointY="17.531098806080919" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_empresa" Width="1.5" PointX="5.1360682403371056" PointY="19.593650156442845" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_empresa" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Documento_Tipo_x_Empresa_tb_empresa" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_tarjeta_parametro_tb_empresa" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_sis_Documento_Tipo_x_Empresa_Anulados" Width="1.5" PointX="1.1606703797172151" PointY="19.673149267059355" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco_estado_reg__resp_bancaria" Width="1.5" PointX="5.2995773001106352" PointY="20.284235457090769" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_banco_estado_reg__resp_bancaria_tb_banco" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sucursal" Width="1.5" PointX="9.6778814670061148" PointY="1.0199245219211675" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_bodega_tb_sucursal" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sucursal_tb_empresa" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_region" Width="1.5" PointX="10.223500012524193" PointY="17.101671137428688" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_provincia_tb_region" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_provincia" Width="1.5" PointX="6.8332760663858032" PointY="26.324224573711039" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_ciudad_tb_provincia" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_provincia" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_provincia_tb_pais" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

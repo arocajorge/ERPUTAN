@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelCuentasxCobrar_Natu_rpt.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelCuentasxCobrar_Natu_rptStoreContainer" />
+        <Function Name="spCXC_NATU_Rpt001" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Naturisa">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
+          <Parameter Name="Fecha_fin" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelCuentasxCobrar_Natu_rpt" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesCuentasxCobrar_Natu_rpt" p1:LazyLoadingEnabled="true" >
+          <FunctionImport Name="spCXC_NATU_Rpt001" ReturnType="Collection(ModelCuentasxCobrar_Natu_rpt.spCXC_NATU_Rpt001_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="spCXC_NATU_Rpt001_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="pe_Naturaleza" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="cod_parroquia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nom_parroquia" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Cod_Ciudad" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Descripcion_Ciudad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Cod_Provincia" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Descripcion_Prov" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="pe_sexo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="nom_sexo" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="IdEstadoCivil" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="nom_EstadoCivil" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="vt_fecha_vcto" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="vt_fecha_exigible" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="vt_plazo" Nullable="false" />
+          <Property Type="String" Name="vt_tipo_venta" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nom_TerminoPago" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Num_Coutas" Nullable="false" />
+          <Property Type="String" Name="num_factura" Nullable="true" MaxLength="28" />
+          <Property Type="Double" Name="Valor_operacion" Nullable="true" />
+          <Property Type="Double" Name="Saldo_operacion" Nullable="true" />
+          <Property Type="Int32" Name="Dias_morosidad" Nullable="true" />
+          <Property Type="Double" Name="Monto_morosidad" Nullable="true" />
+          <Property Type="Int32" Name="Monto_interes_mora" Nullable="false" />
+          <Property Type="Double" Name="x_vencer_0_30" Nullable="true" />
+          <Property Type="Double" Name="x_vencer_31_90" Nullable="true" />
+          <Property Type="Double" Name="x_vencer_91_180" Nullable="true" />
+          <Property Type="Double" Name="x_vencer_181_360" Nullable="true" />
+          <Property Type="Double" Name="x_vencer_mayor_360" Nullable="true" />
+          <Property Type="Double" Name="vencido_0_30" Nullable="true" />
+          <Property Type="Double" Name="vencido_31_90" Nullable="true" />
+          <Property Type="Double" Name="vencido_91_180" Nullable="true" />
+          <Property Type="Double" Name="vencido_181_360" Nullable="true" />
+          <Property Type="Double" Name="vencido_mayor_360" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelCuentasxCobrar_Natu_rptStoreContainer" CdmEntityContainer="EntitiesCuentasxCobrar_Natu_rpt" >
+          <FunctionImportMapping FunctionImportName="spCXC_NATU_Rpt001" FunctionName="ModelCuentasxCobrar_Natu_rpt.Store.spCXC_NATU_Rpt001">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelCuentasxCobrar_Natu_rpt.spCXC_NATU_Rpt001_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
+                <ScalarProperty Name="cod_parroquia" ColumnName="cod_parroquia" />
+                <ScalarProperty Name="nom_parroquia" ColumnName="nom_parroquia" />
+                <ScalarProperty Name="Cod_Ciudad" ColumnName="Cod_Ciudad" />
+                <ScalarProperty Name="Descripcion_Ciudad" ColumnName="Descripcion_Ciudad" />
+                <ScalarProperty Name="Cod_Provincia" ColumnName="Cod_Provincia" />
+                <ScalarProperty Name="Descripcion_Prov" ColumnName="Descripcion_Prov" />
+                <ScalarProperty Name="pe_sexo" ColumnName="pe_sexo" />
+                <ScalarProperty Name="nom_sexo" ColumnName="nom_sexo" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="nom_EstadoCivil" ColumnName="nom_EstadoCivil" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="vt_fecha_vcto" ColumnName="vt_fecha_vcto" />
+                <ScalarProperty Name="vt_fecha_exigible" ColumnName="vt_fecha_exigible" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="vt_tipo_venta" ColumnName="vt_tipo_venta" />
+                <ScalarProperty Name="nom_TerminoPago" ColumnName="nom_TerminoPago" />
+                <ScalarProperty Name="Num_Coutas" ColumnName="Num_Coutas" />
+                <ScalarProperty Name="num_factura" ColumnName="num_factura" />
+                <ScalarProperty Name="Valor_operacion" ColumnName="Valor_operacion" />
+                <ScalarProperty Name="Saldo_operacion" ColumnName="Saldo_operacion" />
+                <ScalarProperty Name="Dias_morosidad" ColumnName="Dias_morosidad" />
+                <ScalarProperty Name="Monto_morosidad" ColumnName="Monto_morosidad" />
+                <ScalarProperty Name="Monto_interes_mora" ColumnName="Monto_interes_mora" />
+                <ScalarProperty Name="x_vencer_0_30" ColumnName="x_vencer_0_30" />
+                <ScalarProperty Name="x_vencer_31_90" ColumnName="x_vencer_31_90" />
+                <ScalarProperty Name="x_vencer_91_180" ColumnName="x_vencer_91_180" />
+                <ScalarProperty Name="x_vencer_181_360" ColumnName="x_vencer_181_360" />
+                <ScalarProperty Name="x_vencer_mayor_360" ColumnName="x_vencer_mayor_360" />
+                <ScalarProperty Name="vencido_0_30" ColumnName="vencido_0_30" />
+                <ScalarProperty Name="vencido_31_90" ColumnName="vencido_31_90" />
+                <ScalarProperty Name="vencido_91_180" ColumnName="vencido_91_180" />
+                <ScalarProperty Name="vencido_181_360" ColumnName="vencido_181_360" />
+                <ScalarProperty Name="vencido_mayor_360" ColumnName="vencido_mayor_360" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

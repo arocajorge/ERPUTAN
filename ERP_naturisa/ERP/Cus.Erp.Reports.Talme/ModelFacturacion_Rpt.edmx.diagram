@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e85982952484ac18f16f0b84db9bddc" Name="Diagrama1" ZoomLevel="67">
+        <EntityTypeShape EntityType="DBERPModel.vwFAC_CUS_TAL_Rpt001" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="DBERPModel.vwFAC_CUS_TAL_Rpt002" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="DBERPModel.vwFAC_CUS_TAL_Rpt003" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="DBERPModel.vwFAC_CUS_TAL_Rpt006" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="DBERPModel.vwFAC_CUS_TAL_Rpt004" Width="1.5" PointX="11.855598483167402" PointY="2.3574310105095764" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

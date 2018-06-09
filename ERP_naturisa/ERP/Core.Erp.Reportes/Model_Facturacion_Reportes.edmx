@@ -1,0 +1,2435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model_Facturacion_Reportes.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model_Facturacion_ReportesStoreContainer">
+          <EntitySet Name="vwFAC_Rpt001" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt001].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt001].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt001].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_Rpt001].[numDocumento] AS [numDocumento], 
+      [vwFAC_Rpt001].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt001].[nombreCliente] AS [nombreCliente], 
+      [vwFAC_Rpt001].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_Rpt001].[IdCalendario] AS [IdCalendario], 
+      [vwFAC_Rpt001].[AnioFiscal] AS [AnioFiscal], 
+      [vwFAC_Rpt001].[NombreMes] AS [NombreMes], 
+      [vwFAC_Rpt001].[NombreCortoFecha] AS [NombreCortoFecha], 
+      [vwFAC_Rpt001].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt001].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt001].[vt_cantidad] AS [vt_cantidad], 
+      [vwFAC_Rpt001].[vt_PrecioFinal] AS [vt_PrecioFinal], 
+      [vwFAC_Rpt001].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_Rpt001].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt001].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt001].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt001].[IdCategoria] AS [IdCategoria], 
+      [vwFAC_Rpt001].[IdLinea] AS [IdLinea], 
+      [vwFAC_Rpt001].[IdGrupo] AS [IdGrupo], 
+      [vwFAC_Rpt001].[IdSubgrupo] AS [IdSubgrupo], 
+      [vwFAC_Rpt001].[ca_Categoria] AS [ca_Categoria], 
+      [vwFAC_Rpt001].[nom_linea] AS [nom_linea], 
+      [vwFAC_Rpt001].[nom_grupo] AS [nom_grupo], 
+      [vwFAC_Rpt001].[nom_subgrupo] AS [nom_subgrupo], 
+      [vwFAC_Rpt001].[Idtipo_cliente] AS [Idtipo_cliente], 
+      [vwFAC_Rpt001].[Descripcion_tip_cliente] AS [Descripcion_tip_cliente], 
+      [vwFAC_Rpt001].[vt_Observacion] AS [vt_Observacion], 
+      [vwFAC_Rpt001].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt001].[Vendedor] AS [Vendedor]
+      FROM [dbo].[vwFAC_Rpt001] AS [vwFAC_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt002" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt002" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt002].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt002].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt002].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwFAC_Rpt002].[vt_NunDocumento] AS [vt_NunDocumento], 
+      [vwFAC_Rpt002].[Referencia] AS [Referencia], 
+      [vwFAC_Rpt002].[IdComprobante] AS [IdComprobante], 
+      [vwFAC_Rpt002].[CodComprobante] AS [CodComprobante], 
+      [vwFAC_Rpt002].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt002].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt002].[nombreCliente] AS [nombreCliente], 
+      [vwFAC_Rpt002].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt002].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_Rpt002].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt002].[Saldo] AS [Saldo], 
+      [vwFAC_Rpt002].[TotalCobrado] AS [TotalCobrado], 
+      [vwFAC_Rpt002].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_Rpt002].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt002].[vt_fech_venc] AS [vt_fech_venc], 
+      [vwFAC_Rpt002].[dc_ValorRetFu] AS [dc_ValorRetFu], 
+      [vwFAC_Rpt002].[dc_ValorRetIva] AS [dc_ValorRetIva], 
+      [vwFAC_Rpt002].[vt_plazo] AS [vt_plazo], 
+      [vwFAC_Rpt002].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt002].[SubTotal_0] AS [SubTotal_0], 
+      [vwFAC_Rpt002].[SubTotal_Iva] AS [SubTotal_Iva], 
+      [vwFAC_Rpt002].[IdFormaPago] AS [IdFormaPago], 
+      [vwFAC_Rpt002].[nom_FormaPago] AS [nom_FormaPago]
+      FROM [dbo].[vwFAC_Rpt002] AS [vwFAC_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt003" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt003" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt003].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt003].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt003].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwFAC_Rpt003].[vt_NunDocumento] AS [vt_NunDocumento], 
+      [vwFAC_Rpt003].[Referencia] AS [Referencia], 
+      [vwFAC_Rpt003].[IdComprobante] AS [IdComprobante], 
+      [vwFAC_Rpt003].[CodComprobante] AS [CodComprobante], 
+      [vwFAC_Rpt003].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt003].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt003].[nombreCliente] AS [nombreCliente], 
+      [vwFAC_Rpt003].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_Rpt003].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt003].[Saldo] AS [Saldo], 
+      [vwFAC_Rpt003].[TotalCobrado] AS [TotalCobrado], 
+      [vwFAC_Rpt003].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_Rpt003].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt003].[vt_fech_venc] AS [vt_fech_venc], 
+      [vwFAC_Rpt003].[vt_plazo] AS [vt_plazo], 
+      [vwFAC_Rpt003].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt003].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt003].[sc_cantidad] AS [sc_cantidad], 
+      [vwFAC_Rpt003].[sc_precioFinal] AS [sc_precioFinal], 
+      [vwFAC_Rpt003].[IdUsuario] AS [IdUsuario]
+      FROM [dbo].[vwFAC_Rpt003] AS [vwFAC_Rpt003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt004" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt004" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt004">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt004].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt004].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt004].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt004].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_Rpt004].[numDocumento] AS [numDocumento], 
+      [vwFAC_Rpt004].[Referencia] AS [Referencia], 
+      [vwFAC_Rpt004].[IdComprobante] AS [IdComprobante], 
+      [vwFAC_Rpt004].[CodComprobante] AS [CodComprobante], 
+      [vwFAC_Rpt004].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt004].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt004].[nombreCliente] AS [nombreCliente], 
+      [vwFAC_Rpt004].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt004].[no_fecha] AS [no_fecha], 
+      [vwFAC_Rpt004].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt004].[Saldo] AS [Saldo], 
+      [vwFAC_Rpt004].[TotalCobrado] AS [TotalCobrado], 
+      [vwFAC_Rpt004].[SubTotal_0] AS [SubTotal_0], 
+      [vwFAC_Rpt004].[SubTotal_Iva] AS [SubTotal_Iva], 
+      [vwFAC_Rpt004].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt004].[total] AS [total], 
+      [vwFAC_Rpt004].[no_fecha_venc] AS [no_fecha_venc], 
+      [vwFAC_Rpt004].[IdTipoNota] AS [IdTipoNota], 
+      [vwFAC_Rpt004].[CodTipoNota] AS [CodTipoNota], 
+      [vwFAC_Rpt004].[No_Descripcion] AS [No_Descripcion], 
+      [vwFAC_Rpt004].[Plazo] AS [Plazo], 
+      [vwFAC_Rpt004].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt004].[em_nombre] AS [em_nombre], 
+      [vwFAC_Rpt004].[NaturalezaNota] AS [NaturalezaNota]
+      FROM [dbo].[vwFAC_Rpt004] AS [vwFAC_Rpt004]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt004_Detalle" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt004_Detalle" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt004_Detalle">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt004_Detalle].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt004_Detalle].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt004_Detalle].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt004_Detalle].[IdNota] AS [IdNota], 
+      [vwFAC_Rpt004_Detalle].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_Rpt004_Detalle].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt004_Detalle].[no_fecha] AS [no_fecha], 
+      [vwFAC_Rpt004_Detalle].[Saldo] AS [Saldo], 
+      [vwFAC_Rpt004_Detalle].[TotalCobrado] AS [TotalCobrado], 
+      [vwFAC_Rpt004_Detalle].[NaturalezaNota] AS [NaturalezaNota], 
+      [vwFAC_Rpt004_Detalle].[sc_subtotal] AS [sc_subtotal], 
+      [vwFAC_Rpt004_Detalle].[sc_iva] AS [sc_iva], 
+      [vwFAC_Rpt004_Detalle].[sc_total] AS [sc_total], 
+      [vwFAC_Rpt004_Detalle].[IdCod_Impuesto_Iva] AS [IdCod_Impuesto_Iva], 
+      [vwFAC_Rpt004_Detalle].[IdTipoNota] AS [IdTipoNota]
+      FROM [dbo].[vwFAC_Rpt004_Detalle] AS [vwFAC_Rpt004_Detalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt005" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt005" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt005">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt005].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt005].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt005].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt005].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_Rpt005].[numDocumento] AS [numDocumento], 
+      [vwFAC_Rpt005].[Referencia] AS [Referencia], 
+      [vwFAC_Rpt005].[IdComprobante] AS [IdComprobante], 
+      [vwFAC_Rpt005].[CodComprobante] AS [CodComprobante], 
+      [vwFAC_Rpt005].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt005].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt005].[nombreCliente] AS [nombreCliente], 
+      [vwFAC_Rpt005].[no_fecha] AS [no_fecha], 
+      [vwFAC_Rpt005].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt005].[Saldo] AS [Saldo], 
+      [vwFAC_Rpt005].[TotalCobrado] AS [TotalCobrado], 
+      [vwFAC_Rpt005].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_Rpt005].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt005].[no_fecha_venc] AS [no_fecha_venc], 
+      [vwFAC_Rpt005].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt005].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt005].[sc_cantidad] AS [sc_cantidad], 
+      [vwFAC_Rpt005].[sc_precioFinal] AS [sc_precioFinal], 
+      [vwFAC_Rpt005].[IdTipoNota] AS [IdTipoNota], 
+      [vwFAC_Rpt005].[CodTipoNota] AS [CodTipoNota], 
+      [vwFAC_Rpt005].[Plazo] AS [Plazo], 
+      [vwFAC_Rpt005].[IdUsuario] AS [IdUsuario]
+      FROM [dbo].[vwFAC_Rpt005] AS [vwFAC_Rpt005]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt006" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt006" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt006">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt006].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt006].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt006].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt006].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_Rpt006].[IdDevolucion] AS [IdDevolucion], 
+      [vwFAC_Rpt006].[CodDevolucion] AS [CodDevolucion], 
+      [vwFAC_Rpt006].[IdNota] AS [IdNota], 
+      [vwFAC_Rpt006].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt006].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt006].[IdCbteVta] AS [IdCbteVta], 
+      [vwFAC_Rpt006].[dv_fecha] AS [dv_fecha], 
+      [vwFAC_Rpt006].[Estado] AS [Estado], 
+      [vwFAC_Rpt006].[dv_Observacion] AS [dv_Observacion], 
+      [vwFAC_Rpt006].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt006].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt006].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwFAC_Rpt006].[dv_total] AS [dv_total], 
+      [vwFAC_Rpt006].[dv_iva] AS [dv_iva], 
+      [vwFAC_Rpt006].[dv_subtotal] AS [dv_subtotal], 
+      [vwFAC_Rpt006].[Ve_Vendedor] AS [Ve_Vendedor], 
+      [vwFAC_Rpt006].[vt_NumFactura] AS [vt_NumFactura]
+      FROM [dbo].[vwFAC_Rpt006] AS [vwFAC_Rpt006]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt007" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt007" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt007">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt007].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt007].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt007].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt007].[IdCbteVta] AS [IdCbteVta], 
+      [vwFAC_Rpt007].[CodCbteVta] AS [CodCbteVta], 
+      [vwFAC_Rpt007].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwFAC_Rpt007].[numComprobante] AS [numComprobante], 
+      [vwFAC_Rpt007].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt007].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt007].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_Rpt007].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt007].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_Rpt007].[Ve_Vendedor] AS [Ve_Vendedor], 
+      [vwFAC_Rpt007].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_Rpt007].[vt_fech_venc] AS [vt_fech_venc], 
+      [vwFAC_Rpt007].[vt_plazo] AS [vt_plazo], 
+      [vwFAC_Rpt007].[vt_tipo_venta] AS [vt_tipo_venta], 
+      [vwFAC_Rpt007].[vt_Observacion] AS [vt_Observacion], 
+      [vwFAC_Rpt007].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_Rpt007].[vt_anio] AS [vt_anio], 
+      [vwFAC_Rpt007].[vt_mes] AS [vt_mes], 
+      [vwFAC_Rpt007].[vt_Flete] AS [vt_Flete], 
+      [vwFAC_Rpt007].[vt_interes] AS [vt_interes], 
+      [vwFAC_Rpt007].[vt_cantidad] AS [vt_cantidad], 
+      [vwFAC_Rpt007].[vt_Precio] AS [vt_Precio], 
+      [vwFAC_Rpt007].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_Rpt007].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt007].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt007].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt007].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt007].[vt_autorizacion] AS [vt_autorizacion], 
+      [vwFAC_Rpt007].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt007].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt007].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwFAC_Rpt007].[pe_telefonoCasa] AS [pe_telefonoCasa]
+      FROM [dbo].[vwFAC_Rpt007] AS [vwFAC_Rpt007]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt008" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt008" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt008">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt008].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt008].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt008].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt008].[IdCbteVta] AS [IdCbteVta], 
+      [vwFAC_Rpt008].[CodCbteVta] AS [CodCbteVta], 
+      [vwFAC_Rpt008].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwFAC_Rpt008].[numComprobante] AS [numComprobante], 
+      [vwFAC_Rpt008].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt008].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt008].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_Rpt008].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt008].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_Rpt008].[Ve_Vendedor] AS [Ve_Vendedor], 
+      [vwFAC_Rpt008].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_Rpt008].[vt_fech_venc] AS [vt_fech_venc], 
+      [vwFAC_Rpt008].[vt_plazo] AS [vt_plazo], 
+      [vwFAC_Rpt008].[vt_tipo_venta] AS [vt_tipo_venta], 
+      [vwFAC_Rpt008].[vt_Observacion] AS [vt_Observacion], 
+      [vwFAC_Rpt008].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_Rpt008].[vt_anio] AS [vt_anio], 
+      [vwFAC_Rpt008].[vt_mes] AS [vt_mes], 
+      [vwFAC_Rpt008].[vt_Flete] AS [vt_Flete], 
+      [vwFAC_Rpt008].[vt_interes] AS [vt_interes], 
+      [vwFAC_Rpt008].[vt_cantidad] AS [vt_cantidad], 
+      [vwFAC_Rpt008].[vt_Precio] AS [vt_Precio], 
+      [vwFAC_Rpt008].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_Rpt008].[vt_iva] AS [vt_iva], 
+      [vwFAC_Rpt008].[vt_total] AS [vt_total], 
+      [vwFAC_Rpt008].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt008].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt008].[vt_autorizacion] AS [vt_autorizacion], 
+      [vwFAC_Rpt008].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt008].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt008].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwFAC_Rpt008].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwFAC_Rpt008].[vt_detallexItems] AS [vt_detallexItems], 
+      [vwFAC_Rpt008].[IdFormaPago] AS [IdFormaPago], 
+      [vwFAC_Rpt008].[nom_FormaPago] AS [nom_FormaPago]
+      FROM [dbo].[vwFAC_Rpt008] AS [vwFAC_Rpt008]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt009" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt009" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt009">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt009].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt009].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt009].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt009].[IdNota] AS [IdNota], 
+      [vwFAC_Rpt009].[Secuencia] AS [Secuencia], 
+      [vwFAC_Rpt009].[CodTipoNota] AS [CodTipoNota], 
+      [vwFAC_Rpt009].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_Rpt009].[numDocumento] AS [numDocumento], 
+      [vwFAC_Rpt009].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt009].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt009].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_Rpt009].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt009].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwFAC_Rpt009].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_Rpt009].[Ve_Vendedor] AS [Ve_Vendedor], 
+      [vwFAC_Rpt009].[no_fecha] AS [no_fecha], 
+      [vwFAC_Rpt009].[no_fecha_venc] AS [no_fecha_venc], 
+      [vwFAC_Rpt009].[Plazo] AS [Plazo], 
+      [vwFAC_Rpt009].[IdTipoNota] AS [IdTipoNota], 
+      [vwFAC_Rpt009].[sc_observacion] AS [sc_observacion], 
+      [vwFAC_Rpt009].[IdDevolucion] AS [IdDevolucion], 
+      [vwFAC_Rpt009].[interes] AS [interes], 
+      [vwFAC_Rpt009].[sc_cantidad] AS [sc_cantidad], 
+      [vwFAC_Rpt009].[sc_Precio] AS [sc_Precio], 
+      [vwFAC_Rpt009].[sc_subtotal] AS [sc_subtotal], 
+      [vwFAC_Rpt009].[sc_iva] AS [sc_iva], 
+      [vwFAC_Rpt009].[sc_total] AS [sc_total], 
+      [vwFAC_Rpt009].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt009].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt009].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwFAC_Rpt009].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt009].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt009].[valorFlete] AS [valorFlete], 
+      [vwFAC_Rpt009].[IdCaja] AS [IdCaja], 
+      [vwFAC_Rpt009].[Caja] AS [Caja]
+      FROM [dbo].[vwFAC_Rpt009] AS [vwFAC_Rpt009]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt010" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt010" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt010">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt010].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt010].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt010].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt010].[IdNota] AS [IdNota], 
+      [vwFAC_Rpt010].[Secuencia] AS [Secuencia], 
+      [vwFAC_Rpt010].[CodTipoNota] AS [CodTipoNota], 
+      [vwFAC_Rpt010].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwFAC_Rpt010].[numDocumento] AS [numDocumento], 
+      [vwFAC_Rpt010].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt010].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt010].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_Rpt010].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt010].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwFAC_Rpt010].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_Rpt010].[Ve_Vendedor] AS [Ve_Vendedor], 
+      [vwFAC_Rpt010].[no_fecha] AS [no_fecha], 
+      [vwFAC_Rpt010].[no_fecha_venc] AS [no_fecha_venc], 
+      [vwFAC_Rpt010].[Plazo] AS [Plazo], 
+      [vwFAC_Rpt010].[IdTipoNota] AS [IdTipoNota], 
+      [vwFAC_Rpt010].[sc_observacion] AS [sc_observacion], 
+      [vwFAC_Rpt010].[IdDevolucion] AS [IdDevolucion], 
+      [vwFAC_Rpt010].[interes] AS [interes], 
+      [vwFAC_Rpt010].[sc_cantidad] AS [sc_cantidad], 
+      [vwFAC_Rpt010].[sc_Precio] AS [sc_Precio], 
+      [vwFAC_Rpt010].[sc_subtotal] AS [sc_subtotal], 
+      [vwFAC_Rpt010].[sc_iva] AS [sc_iva], 
+      [vwFAC_Rpt010].[sc_total] AS [sc_total], 
+      [vwFAC_Rpt010].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt010].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt010].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwFAC_Rpt010].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt010].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt010].[valorFlete] AS [valorFlete], 
+      [vwFAC_Rpt010].[IdCaja] AS [IdCaja], 
+      [vwFAC_Rpt010].[Caja] AS [Caja]
+      FROM [dbo].[vwFAC_Rpt010] AS [vwFAC_Rpt010]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt011" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt011" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt011">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt011].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt011].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt011].[IdBodega] AS [IdBodega], 
+      [vwFAC_Rpt011].[IdDevolucion] AS [IdDevolucion], 
+      [vwFAC_Rpt011].[CodDevolucion] AS [CodDevolucion], 
+      [vwFAC_Rpt011].[IdNota] AS [IdNota], 
+      [vwFAC_Rpt011].[IdCbteVta] AS [IdCbteVta], 
+      [vwFAC_Rpt011].[numDocumento] AS [numDocumento], 
+      [vwFAC_Rpt011].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt011].[IdVendedor] AS [IdVendedor], 
+      [vwFAC_Rpt011].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_Rpt011].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_Rpt011].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwFAC_Rpt011].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_Rpt011].[Ve_Vendedor] AS [Ve_Vendedor], 
+      [vwFAC_Rpt011].[dv_fecha] AS [dv_fecha], 
+      [vwFAC_Rpt011].[dv_Observacion] AS [dv_Observacion], 
+      [vwFAC_Rpt011].[dv_interes] AS [dv_interes], 
+      [vwFAC_Rpt011].[dv_cantidad] AS [dv_cantidad], 
+      [vwFAC_Rpt011].[dv_valor] AS [dv_valor], 
+      [vwFAC_Rpt011].[dv_subtotal] AS [dv_subtotal], 
+      [vwFAC_Rpt011].[dv_iva] AS [dv_iva], 
+      [vwFAC_Rpt011].[dv_total] AS [dv_total], 
+      [vwFAC_Rpt011].[IdProducto] AS [IdProducto], 
+      [vwFAC_Rpt011].[nombreProducto] AS [nombreProducto], 
+      [vwFAC_Rpt011].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwFAC_Rpt011].[IdUsuario] AS [IdUsuario], 
+      [vwFAC_Rpt011].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwFAC_Rpt011].[valorFlete] AS [valorFlete]
+      FROM [dbo].[vwFAC_Rpt011] AS [vwFAC_Rpt011]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt012" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt012" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt012">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt012].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt012].[nom_empresa] AS [nom_empresa], 
+      [vwFAC_Rpt012].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt012].[nom_sucursal] AS [nom_sucursal], 
+      [vwFAC_Rpt012].[Documento] AS [Documento], 
+      [vwFAC_Rpt012].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt012].[nom_cliente] AS [nom_cliente], 
+      [vwFAC_Rpt012].[ced_ruc_cliente] AS [ced_ruc_cliente], 
+      [vwFAC_Rpt012].[Fecha] AS [Fecha], 
+      [vwFAC_Rpt012].[Observacion] AS [Observacion], 
+      [vwFAC_Rpt012].[Debito] AS [Debito], 
+      [vwFAC_Rpt012].[Credito] AS [Credito], 
+      [vwFAC_Rpt012].[Saldo] AS [Saldo]
+      FROM [dbo].[vwFAC_Rpt012] AS [vwFAC_Rpt012]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_Rpt013" EntityType="Model_Facturacion_Reportes.Store.vwFAC_Rpt013" store:Type="Views" store:Schema="dbo" store:Name="vwFAC_Rpt013">
+            <DefiningQuery>SELECT 
+      [vwFAC_Rpt013].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_Rpt013].[nom_empresa] AS [nom_empresa], 
+      [vwFAC_Rpt013].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_Rpt013].[nom_sucursal] AS [nom_sucursal], 
+      [vwFAC_Rpt013].[IdCliente] AS [IdCliente], 
+      [vwFAC_Rpt013].[nom_cliente] AS [nom_cliente], 
+      [vwFAC_Rpt013].[Cedula_Ruc] AS [Cedula_Ruc], 
+      [vwFAC_Rpt013].[fecha] AS [fecha], 
+      [vwFAC_Rpt013].[Documento] AS [Documento], 
+      [vwFAC_Rpt013].[Debito] AS [Debito], 
+      [vwFAC_Rpt013].[Credito] AS [Credito], 
+      [vwFAC_Rpt013].[Saldo] AS [Saldo], 
+      [vwFAC_Rpt013].[vt_Observacion] AS [vt_Observacion]
+      FROM [dbo].[vwFAC_Rpt013] AS [vwFAC_Rpt013]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_PrecioFinal" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="Descripcion_tip_cliente" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="70" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdCalendario" Type="int" Nullable="false" />
+          <Property Name="AnioFiscal" Type="int" />
+          <Property Name="NombreMes" Type="varchar" MaxLength="30" />
+          <Property Name="NombreCortoFecha" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" Nullable="false" />
+          <Property Name="vt_iva" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCategoria" Type="varchar" MaxLength="25" />
+          <Property Name="IdLinea" Type="int" />
+          <Property Name="IdGrupo" Type="int" />
+          <Property Name="IdSubgrupo" Type="int" />
+          <Property Name="ca_Categoria" Type="varchar" MaxLength="100" />
+          <Property Name="nom_linea" Type="varchar" MaxLength="150" />
+          <Property Name="nom_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="nom_subgrupo" Type="varchar" MaxLength="150" />
+          <Property Name="Idtipo_cliente" Type="int" Nullable="false" />
+          <Property Name="Descripcion_tip_cliente" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="Vendedor" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="IdComprobante" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="TotalCobrado" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="dc_ValorRetFu" />
+            <PropertyRef Name="dc_ValorRetIva" />
+            <PropertyRef Name="vt_plazo" />
+            
+            
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="vt_tipoDoc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_NunDocumento" Type="varchar" MaxLength="132" />
+          <Property Name="Referencia" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdComprobante" Type="numeric" Nullable="false" />
+          <Property Name="CodComprobante" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_total" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="TotalCobrado" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" />
+          <Property Name="vt_iva" Type="float" />
+          <Property Name="vt_fech_venc" Type="datetime" Nullable="false" />
+          <Property Name="dc_ValorRetFu" Type="float" Nullable="false" />
+          <Property Name="dc_ValorRetIva" Type="float" Nullable="false" />
+          <Property Name="vt_plazo" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="SubTotal_0" Type="float" Nullable="false" />
+          <Property Name="SubTotal_Iva" Type="float" Nullable="false" />
+          <Property Name="IdFormaPago" Type="varchar" MaxLength="2" />
+          <Property Name="nom_FormaPago" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="IdComprobante" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="TotalCobrado" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="vt_tipoDoc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_NunDocumento" Type="varchar" MaxLength="132" />
+          <Property Name="Referencia" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdComprobante" Type="numeric" Nullable="false" />
+          <Property Name="CodComprobante" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_total" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="TotalCobrado" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" />
+          <Property Name="vt_iva" Type="float" />
+          <Property Name="vt_fech_venc" Type="datetime" Nullable="false" />
+          <Property Name="vt_plazo" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="sc_cantidad" Type="float" />
+          <Property Name="sc_precioFinal" Type="float" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="CodTipoNota" />
+            <PropertyRef Name="No_Descripcion" />
+            <PropertyRef Name="em_nombre" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="52" />
+          <Property Name="Referencia" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdComprobante" Type="varchar" MaxLength="20" />
+          <Property Name="CodComprobante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="no_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_total" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="TotalCobrado" Type="float" />
+          <Property Name="SubTotal_0" Type="float" />
+          <Property Name="SubTotal_Iva" Type="float" />
+          <Property Name="vt_iva" Type="float" />
+          <Property Name="total" Type="float" />
+          <Property Name="no_fecha_venc" Type="datetime" />
+          <Property Name="IdTipoNota" Type="int" Nullable="false" />
+          <Property Name="CodTipoNota" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="No_Descripcion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Plazo" Type="int" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NaturalezaNota" Type="char" MaxLength="3" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt004_Detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt004_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="sc_subtotal" />
+            <PropertyRef Name="sc_iva" />
+            <PropertyRef Name="sc_total" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdNota" Type="numeric" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="varchar" MaxLength="20" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="no_fecha" Type="datetime" Nullable="false" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="TotalCobrado" Type="float" />
+          <Property Name="NaturalezaNota" Type="char" MaxLength="3" />
+          <Property Name="sc_subtotal" Type="float" Nullable="false" />
+          <Property Name="sc_iva" Type="float" Nullable="false" />
+          <Property Name="sc_total" Type="float" Nullable="false" />
+          <Property Name="IdCod_Impuesto_Iva" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdTipoNota" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="CodTipoNota" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="52" />
+          <Property Name="Referencia" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdComprobante" Type="varchar" MaxLength="20" />
+          <Property Name="CodComprobante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="no_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_total" Type="float" />
+          <Property Name="Saldo" Type="float" />
+          <Property Name="TotalCobrado" Type="float" />
+          <Property Name="vt_Subtotal" Type="float" />
+          <Property Name="vt_iva" Type="float" />
+          <Property Name="no_fecha_venc" Type="datetime" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="sc_cantidad" Type="float" />
+          <Property Name="sc_precioFinal" Type="float" />
+          <Property Name="IdTipoNota" Type="int" Nullable="false" />
+          <Property Name="CodTipoNota" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Plazo" Type="int" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt006">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="IdDevolucion" />
+            <PropertyRef Name="CodDevolucion" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="dv_fecha" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="dv_Observacion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="vt_NumFactura" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="IdDevolucion" Type="numeric" Nullable="false" />
+          <Property Name="CodDevolucion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdNota" Type="numeric" Nullable="false" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="dv_fecha" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="dv_Observacion" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="IdUsuario" Type="char" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="dv_total" Type="float" />
+          <Property Name="dv_iva" Type="float" />
+          <Property Name="dv_subtotal" Type="float" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="vt_NumFactura" Type="varchar" MaxLength="28" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt007">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="CodCbteVta" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="vt_tipo_venta" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="vt_anio" />
+            <PropertyRef Name="vt_mes" />
+            <PropertyRef Name="vt_Flete" />
+            <PropertyRef Name="vt_interes" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_Precio" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="CodCbteVta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_tipoDoc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="numComprobante" Type="varchar" MaxLength="129" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_fech_venc" Type="datetime" Nullable="false" />
+          <Property Name="vt_plazo" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="vt_tipo_venta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="vt_anio" Type="int" Nullable="false" />
+          <Property Name="vt_mes" Type="int" Nullable="false" />
+          <Property Name="vt_Flete" Type="float" Nullable="false" />
+          <Property Name="vt_interes" Type="float" Nullable="false" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_Precio" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" Nullable="false" />
+          <Property Name="vt_iva" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="vt_autorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="CodCbteVta" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="vt_tipo_venta" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="vt_anio" />
+            <PropertyRef Name="vt_mes" />
+            <PropertyRef Name="vt_Flete" />
+            <PropertyRef Name="vt_interes" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_Precio" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="nom_FormaPago" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="CodCbteVta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_tipoDoc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="numComprobante" Type="varchar" MaxLength="129" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="vt_fech_venc" Type="datetime" Nullable="false" />
+          <Property Name="vt_plazo" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="vt_tipo_venta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="vt_anio" Type="int" Nullable="false" />
+          <Property Name="vt_mes" Type="int" Nullable="false" />
+          <Property Name="vt_Flete" Type="float" Nullable="false" />
+          <Property Name="vt_interes" Type="float" Nullable="false" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_Precio" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" Nullable="false" />
+          <Property Name="vt_iva" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="vt_autorizacion" Type="varchar" MaxLength="50" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="vt_detallexItems" Type="nvarchar" MaxLength="250" />
+          <Property Name="IdFormaPago" Type="varchar" Nullable="false" MaxLength="2" />
+          <Property Name="nom_FormaPago" Type="varchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt009' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt009">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="CodTipoNota" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="sc_observacion" />
+            <PropertyRef Name="sc_cantidad" />
+            <PropertyRef Name="sc_Precio" />
+            <PropertyRef Name="sc_subtotal" />
+            <PropertyRef Name="sc_iva" />
+            <PropertyRef Name="sc_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="Caja" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdNota" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="CodTipoNota" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="49" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="no_fecha" Type="datetime" Nullable="false" />
+          <Property Name="no_fecha_venc" Type="datetime" />
+          <Property Name="Plazo" Type="int" />
+          <Property Name="IdTipoNota" Type="int" Nullable="false" />
+          <Property Name="sc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdDevolucion" Type="numeric" />
+          <Property Name="interes" Type="float" />
+          <Property Name="sc_cantidad" Type="float" Nullable="false" />
+          <Property Name="sc_Precio" Type="float" Nullable="false" />
+          <Property Name="sc_subtotal" Type="float" Nullable="false" />
+          <Property Name="sc_iva" Type="float" Nullable="false" />
+          <Property Name="sc_total" Type="float" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="valorFlete" Type="float" />
+          <Property Name="IdCaja" Type="int" Nullable="false" />
+          <Property Name="Caja" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt010' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt010">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="CodTipoNota" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="sc_observacion" />
+            <PropertyRef Name="sc_cantidad" />
+            <PropertyRef Name="sc_Precio" />
+            <PropertyRef Name="sc_subtotal" />
+            <PropertyRef Name="sc_iva" />
+            <PropertyRef Name="sc_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="Caja" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdNota" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="CodTipoNota" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="49" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="no_fecha" Type="datetime" Nullable="false" />
+          <Property Name="no_fecha_venc" Type="datetime" />
+          <Property Name="Plazo" Type="int" />
+          <Property Name="IdTipoNota" Type="int" Nullable="false" />
+          <Property Name="sc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdDevolucion" Type="numeric" />
+          <Property Name="interes" Type="float" />
+          <Property Name="sc_cantidad" Type="float" Nullable="false" />
+          <Property Name="sc_Precio" Type="float" Nullable="false" />
+          <Property Name="sc_subtotal" Type="float" Nullable="false" />
+          <Property Name="sc_iva" Type="float" Nullable="false" />
+          <Property Name="sc_total" Type="float" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="valorFlete" Type="float" />
+          <Property Name="IdCaja" Type="int" Nullable="false" />
+          <Property Name="Caja" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt011' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt011">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdDevolucion" />
+            <PropertyRef Name="CodDevolucion" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="dv_fecha" />
+            <PropertyRef Name="dv_Observacion" />
+            <PropertyRef Name="dv_interes" />
+            <PropertyRef Name="dv_cantidad" />
+            <PropertyRef Name="dv_valor" />
+            <PropertyRef Name="dv_subtotal" />
+            <PropertyRef Name="dv_iva" />
+            <PropertyRef Name="dv_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="valorFlete" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdDevolucion" Type="numeric" Nullable="false" />
+          <Property Name="CodDevolucion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdNota" Type="numeric" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="numDocumento" Type="varchar" MaxLength="49" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Ve_Vendedor" Type="nchar" MaxLength="200" />
+          <Property Name="dv_fecha" Type="datetime" Nullable="false" />
+          <Property Name="dv_Observacion" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="dv_interes" Type="float" Nullable="false" />
+          <Property Name="dv_cantidad" Type="float" Nullable="false" />
+          <Property Name="dv_valor" Type="float" Nullable="false" />
+          <Property Name="dv_subtotal" Type="float" Nullable="false" />
+          <Property Name="dv_iva" Type="float" Nullable="false" />
+          <Property Name="dv_total" Type="float" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nombreProducto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdUsuario" Type="char" MaxLength="20" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="valorFlete" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt012' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt012">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="ced_ruc_cliente" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Credito" />
+            <PropertyRef Name="Saldo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="Documento" Type="varchar" MaxLength="152" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nom_cliente" Type="varchar" Nullable="false" MaxLength="201" />
+          <Property Name="ced_ruc_cliente" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Debito" Type="float" />
+          <Property Name="Credito" Type="float" Nullable="false" />
+          <Property Name="Saldo" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwFAC_Rpt013' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_Rpt013">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="Cedula_Ruc" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="Credito" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="vt_Observacion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="nom_cliente" Type="varchar" Nullable="false" MaxLength="201" />
+          <Property Name="Cedula_Ruc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="Documento" Type="varchar" MaxLength="150" />
+          <Property Name="Debito" Type="float" />
+          <Property Name="Credito" Type="float" Nullable="false" />
+          <Property Name="Saldo" Type="int" Nullable="false" />
+          <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+        </EntityType>
+        <Function Name="spFAC_Rpt013" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdCliente" Type="numeric" Mode="In" />
+          <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_Facturacion_Reportes" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EntitiesFacturacion_Reportes" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spFAC_Rpt013" ReturnType="Collection(Model_Facturacion_Reportes.spFAC_Rpt013_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdCliente" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="vwFAC_Rpt003" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt003" />
+          <EntitySet Name="vwFAC_Rpt005" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt005" />
+          <EntitySet Name="vwFAC_Rpt006" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt006" />
+          <EntitySet Name="vwFAC_Rpt007" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt007" />
+          <EntitySet Name="vwFAC_Rpt009" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt009" />
+          <EntitySet Name="vwFAC_Rpt010" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt010" />
+          <EntitySet Name="vwFAC_Rpt011" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt011" />
+          <EntitySet Name="vwFAC_Rpt012" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt012" />
+          <EntitySet Name="vwFAC_Rpt013" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt013" />
+          <EntitySet Name="vwFAC_Rpt001" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt001" />
+          <EntitySet Name="vwFAC_Rpt004" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt004" />
+          <EntitySet Name="vwFAC_Rpt002" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt002" />
+          <EntitySet Name="vwFAC_Rpt004_Detalle" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt004_Detalle" />
+          <EntitySet Name="vwFAC_Rpt008" EntityType="Model_Facturacion_Reportes.vwFAC_Rpt008" />
+        </EntityContainer>
+        <ComplexType Name="spFAC_Rpt013_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_cliente" Nullable="false" MaxLength="201" />
+          <Property Type="String" Name="Cedula_Ruc" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Documento" Nullable="true" MaxLength="150" />
+          <Property Type="Double" Name="Debito" Nullable="true" />
+          <Property Type="Double" Name="Credito" Nullable="false" />
+          <Property Type="Int32" Name="Saldo" Nullable="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="1000" />
+          <Property Type="Double" Name="SaldoInicial" Nullable="true" />
+          <Property Type="Double" Name="SaldoFinal" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vwFAC_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="IdComprobante" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="TotalCobrado" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_NunDocumento" MaxLength="132" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdComprobante" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodComprobante" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreCliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="vt_total" />
+          <Property Type="Double" Name="Saldo" />
+          <Property Type="Double" Name="TotalCobrado" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" />
+          <Property Type="Double" Name="vt_iva" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="vt_plazo" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="sc_cantidad" />
+          <Property Type="Double" Name="sc_precioFinal" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="CodTipoNota" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="52" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdComprobante" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodComprobante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreCliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="no_fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="vt_total" />
+          <Property Type="Double" Name="Saldo" />
+          <Property Type="Double" Name="TotalCobrado" />
+          <Property Type="Double" Name="vt_Subtotal" />
+          <Property Type="Double" Name="vt_iva" />
+          <Property Type="DateTime" Name="no_fecha_venc" Precision="3" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="sc_cantidad" />
+          <Property Type="Double" Name="sc_precioFinal" />
+          <Property Type="Int32" Name="IdTipoNota" Nullable="false" />
+          <Property Type="String" Name="CodTipoNota" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Plazo" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt006">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="IdDevolucion" />
+            <PropertyRef Name="CodDevolucion" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="dv_fecha" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="dv_Observacion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="vt_NumFactura" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdDevolucion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodDevolucion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdNota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="dv_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="dv_Observacion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="dv_total" />
+          <Property Type="Double" Name="dv_iva" />
+          <Property Type="Double" Name="dv_subtotal" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="vt_NumFactura" Nullable="false" MaxLength="28" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt007">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="CodCbteVta" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="vt_tipo_venta" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="vt_anio" />
+            <PropertyRef Name="vt_mes" />
+            <PropertyRef Name="vt_Flete" />
+            <PropertyRef Name="vt_interes" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_Precio" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteVta" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numComprobante" MaxLength="129" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="vt_plazo" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="String" Name="vt_tipo_venta" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="vt_anio" Nullable="false" />
+          <Property Type="Int32" Name="vt_mes" Nullable="false" />
+          <Property Type="Double" Name="vt_Flete" Nullable="false" />
+          <Property Type="Double" Name="vt_interes" Nullable="false" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_Precio" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" Nullable="false" />
+          <Property Type="Double" Name="vt_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vt_autorizacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt009">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="CodTipoNota" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="sc_observacion" />
+            <PropertyRef Name="sc_cantidad" />
+            <PropertyRef Name="sc_Precio" />
+            <PropertyRef Name="sc_subtotal" />
+            <PropertyRef Name="sc_iva" />
+            <PropertyRef Name="sc_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="Caja" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdNota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="CodTipoNota" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="49" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="no_fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="no_fecha_venc" Precision="3" />
+          <Property Type="Int32" Name="Plazo" />
+          <Property Type="Int32" Name="IdTipoNota" Nullable="false" />
+          <Property Type="String" Name="sc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdDevolucion" Precision="18" Scale="0" />
+          <Property Type="Double" Name="interes" />
+          <Property Type="Double" Name="sc_cantidad" Nullable="false" />
+          <Property Type="Double" Name="sc_Precio" Nullable="false" />
+          <Property Type="Double" Name="sc_subtotal" Nullable="false" />
+          <Property Type="Double" Name="sc_iva" Nullable="false" />
+          <Property Type="Double" Name="sc_total" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="valorFlete" />
+          <Property Type="Int32" Name="IdCaja" Nullable="false" />
+          <Property Type="String" Name="Caja" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt010">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="CodTipoNota" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="sc_observacion" />
+            <PropertyRef Name="sc_cantidad" />
+            <PropertyRef Name="sc_Precio" />
+            <PropertyRef Name="sc_subtotal" />
+            <PropertyRef Name="sc_iva" />
+            <PropertyRef Name="sc_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCaja" />
+            <PropertyRef Name="Caja" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdNota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="CodTipoNota" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="49" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="no_fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="no_fecha_venc" Precision="3" />
+          <Property Type="Int32" Name="Plazo" />
+          <Property Type="Int32" Name="IdTipoNota" Nullable="false" />
+          <Property Type="String" Name="sc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdDevolucion" Precision="18" Scale="0" />
+          <Property Type="Double" Name="interes" />
+          <Property Type="Double" Name="sc_cantidad" Nullable="false" />
+          <Property Type="Double" Name="sc_Precio" Nullable="false" />
+          <Property Type="Double" Name="sc_subtotal" Nullable="false" />
+          <Property Type="Double" Name="sc_iva" Nullable="false" />
+          <Property Type="Double" Name="sc_total" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="valorFlete" />
+          <Property Type="Int32" Name="IdCaja" Nullable="false" />
+          <Property Type="String" Name="Caja" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt011">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdDevolucion" />
+            <PropertyRef Name="CodDevolucion" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="dv_fecha" />
+            <PropertyRef Name="dv_Observacion" />
+            <PropertyRef Name="dv_interes" />
+            <PropertyRef Name="dv_cantidad" />
+            <PropertyRef Name="dv_valor" />
+            <PropertyRef Name="dv_subtotal" />
+            <PropertyRef Name="dv_iva" />
+            <PropertyRef Name="dv_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="valorFlete" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdDevolucion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodDevolucion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdNota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="numDocumento" MaxLength="49" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="dv_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="dv_Observacion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dv_interes" Nullable="false" />
+          <Property Type="Double" Name="dv_cantidad" Nullable="false" />
+          <Property Type="Double" Name="dv_valor" Nullable="false" />
+          <Property Type="Double" Name="dv_subtotal" Nullable="false" />
+          <Property Type="Double" Name="dv_iva" Nullable="false" />
+          <Property Type="Double" Name="dv_total" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="valorFlete" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt012">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="ced_ruc_cliente" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Credito" />
+            <PropertyRef Name="Saldo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Documento" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_cliente" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ced_ruc_cliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Debito" />
+          <Property Type="Double" Name="Credito" Nullable="false" />
+          <Property Type="Int32" Name="Saldo" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt013">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nom_cliente" />
+            <PropertyRef Name="Cedula_Ruc" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="Credito" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="vt_Observacion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_cliente" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cedula_Ruc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Documento" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Debito" />
+          <Property Type="Double" Name="Credito" Nullable="false" />
+          <Property Type="Int32" Name="Saldo" Nullable="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="IdCalendario" />
+            <PropertyRef Name="NombreCortoFecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_PrecioFinal" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="Idtipo_cliente" />
+            <PropertyRef Name="Descripcion_tip_cliente" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreCliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="IdCalendario" Nullable="false" />
+          <Property Type="Int32" Name="AnioFiscal" />
+          <Property Type="String" Name="NombreMes" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCortoFecha" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_PrecioFinal" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" Nullable="false" />
+          <Property Type="Double" Name="vt_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdCategoria" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdLinea" />
+          <Property Type="Int32" Name="IdGrupo" />
+          <Property Type="Int32" Name="IdSubgrupo" />
+          <Property Type="String" Name="ca_Categoria" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_linea" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subgrupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Idtipo_cliente" Nullable="false" />
+          <Property Type="String" Name="Descripcion_tip_cliente" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="IdTipoNota" />
+            <PropertyRef Name="CodTipoNota" />
+            <PropertyRef Name="No_Descripcion" />
+            <PropertyRef Name="em_nombre" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numDocumento" MaxLength="52" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdComprobante" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodComprobante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreCliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="no_fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="vt_total" />
+          <Property Type="Double" Name="Saldo" />
+          <Property Type="Double" Name="TotalCobrado" />
+          <Property Type="Double" Name="SubTotal_0" />
+          <Property Type="Double" Name="SubTotal_Iva" />
+          <Property Type="Double" Name="vt_iva" />
+          <Property Type="Double" Name="total" />
+          <Property Type="DateTime" Name="no_fecha_venc" Precision="3" />
+          <Property Type="Int32" Name="IdTipoNota" Nullable="false" />
+          <Property Type="String" Name="CodTipoNota" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="No_Descripcion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Plazo" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NaturalezaNota" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="Referencia" />
+            <PropertyRef Name="IdComprobante" />
+            <PropertyRef Name="CodComprobante" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="nombreCliente" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="TotalCobrado" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="dc_ValorRetFu" />
+            <PropertyRef Name="dc_ValorRetIva" />
+            <PropertyRef Name="vt_plazo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_NunDocumento" MaxLength="132" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdComprobante" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodComprobante" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreCliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="vt_total" />
+          <Property Type="Double" Name="Saldo" />
+          <Property Type="Double" Name="TotalCobrado" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" />
+          <Property Type="Double" Name="vt_iva" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="dc_ValorRetFu" Nullable="false" />
+          <Property Type="Double" Name="dc_ValorRetIva" Nullable="false" />
+          <Property Type="Decimal" Name="vt_plazo" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="SubTotal_0" Nullable="false" />
+          <Property Type="Double" Name="SubTotal_Iva" Nullable="false" />
+          <Property Type="String" Name="IdFormaPago" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_FormaPago" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt004_Detalle">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdNota" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="no_fecha" />
+            <PropertyRef Name="sc_subtotal" />
+            <PropertyRef Name="sc_iva" />
+            <PropertyRef Name="sc_total" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+            <PropertyRef Name="IdTipoNota" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdNota" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTipoDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="no_fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="Saldo" />
+          <Property Type="Double" Name="TotalCobrado" />
+          <Property Type="String" Name="NaturalezaNota" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="sc_subtotal" Nullable="false" />
+          <Property Type="Double" Name="sc_iva" Nullable="false" />
+          <Property Type="Double" Name="sc_total" Nullable="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoNota" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="CodCbteVta" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="IdVendedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="vt_fech_venc" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="vt_tipo_venta" />
+            <PropertyRef Name="vt_Observacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="vt_anio" />
+            <PropertyRef Name="vt_mes" />
+            <PropertyRef Name="vt_Flete" />
+            <PropertyRef Name="vt_interes" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_Precio" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nombreProducto" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="nom_FormaPago" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodCbteVta" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="numComprobante" MaxLength="129" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdVendedor" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ve_Vendedor" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="vt_fech_venc" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="vt_plazo" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="String" Name="vt_tipo_venta" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="vt_anio" Nullable="false" />
+          <Property Type="Int32" Name="vt_mes" Nullable="false" />
+          <Property Type="Double" Name="vt_Flete" Nullable="false" />
+          <Property Type="Double" Name="vt_interes" Nullable="false" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_Precio" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" Nullable="false" />
+          <Property Type="Double" Name="vt_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nombreProducto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vt_autorizacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_detallexItems" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_FormaPago" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model_Facturacion_ReportesStoreContainer" CdmEntityContainer="EntitiesFacturacion_Reportes">
+          <FunctionImportMapping FunctionImportName="spFAC_Rpt013" FunctionName="Model_Facturacion_Reportes.Store.spFAC_Rpt013">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model_Facturacion_Reportes.spFAC_Rpt013_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="Cedula_Ruc" ColumnName="Cedula_Ruc" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Debito" ColumnName="Debito" />
+                <ScalarProperty Name="Credito" ColumnName="Credito" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="SaldoInicial" ColumnName="SaldoInicial" />
+                <ScalarProperty Name="SaldoFinal" ColumnName="SaldoFinal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwFAC_Rpt003">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt003">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt003">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="sc_precioFinal" ColumnName="sc_precioFinal" />
+                <ScalarProperty Name="sc_cantidad" ColumnName="sc_cantidad" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="CodComprobante" ColumnName="CodComprobante" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="vt_NunDocumento" ColumnName="vt_NunDocumento" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt005">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt005">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt005">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+                <ScalarProperty Name="CodTipoNota" ColumnName="CodTipoNota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="sc_precioFinal" ColumnName="sc_precioFinal" />
+                <ScalarProperty Name="sc_cantidad" ColumnName="sc_cantidad" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="no_fecha_venc" ColumnName="no_fecha_venc" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="no_fecha" ColumnName="no_fecha" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="CodComprobante" ColumnName="CodComprobante" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt006">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt006">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt006">
+                <ScalarProperty Name="vt_NumFactura" ColumnName="vt_NumFactura" />
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="dv_subtotal" ColumnName="dv_subtotal" />
+                <ScalarProperty Name="dv_iva" ColumnName="dv_iva" />
+                <ScalarProperty Name="dv_total" ColumnName="dv_total" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="dv_Observacion" ColumnName="dv_Observacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="dv_fecha" ColumnName="dv_fecha" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+                <ScalarProperty Name="CodDevolucion" ColumnName="CodDevolucion" />
+                <ScalarProperty Name="IdDevolucion" ColumnName="IdDevolucion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt007">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt007">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt007">
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="vt_autorizacion" ColumnName="vt_autorizacion" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="vt_Precio" ColumnName="vt_Precio" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="vt_interes" ColumnName="vt_interes" />
+                <ScalarProperty Name="vt_Flete" ColumnName="vt_Flete" />
+                <ScalarProperty Name="vt_mes" ColumnName="vt_mes" />
+                <ScalarProperty Name="vt_anio" ColumnName="vt_anio" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="vt_tipo_venta" ColumnName="vt_tipo_venta" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numComprobante" ColumnName="numComprobante" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="CodCbteVta" ColumnName="CodCbteVta" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt009">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt009">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt009">
+                <ScalarProperty Name="Caja" ColumnName="Caja" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+                <ScalarProperty Name="valorFlete" ColumnName="valorFlete" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="sc_total" ColumnName="sc_total" />
+                <ScalarProperty Name="sc_iva" ColumnName="sc_iva" />
+                <ScalarProperty Name="sc_subtotal" ColumnName="sc_subtotal" />
+                <ScalarProperty Name="sc_Precio" ColumnName="sc_Precio" />
+                <ScalarProperty Name="sc_cantidad" ColumnName="sc_cantidad" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="IdDevolucion" ColumnName="IdDevolucion" />
+                <ScalarProperty Name="sc_observacion" ColumnName="sc_observacion" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+                <ScalarProperty Name="no_fecha_venc" ColumnName="no_fecha_venc" />
+                <ScalarProperty Name="no_fecha" ColumnName="no_fecha" />
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="CodTipoNota" ColumnName="CodTipoNota" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt010">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt010">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt010">
+                <ScalarProperty Name="Caja" ColumnName="Caja" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
+                <ScalarProperty Name="valorFlete" ColumnName="valorFlete" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="sc_total" ColumnName="sc_total" />
+                <ScalarProperty Name="sc_iva" ColumnName="sc_iva" />
+                <ScalarProperty Name="sc_subtotal" ColumnName="sc_subtotal" />
+                <ScalarProperty Name="sc_Precio" ColumnName="sc_Precio" />
+                <ScalarProperty Name="sc_cantidad" ColumnName="sc_cantidad" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="IdDevolucion" ColumnName="IdDevolucion" />
+                <ScalarProperty Name="sc_observacion" ColumnName="sc_observacion" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+                <ScalarProperty Name="no_fecha_venc" ColumnName="no_fecha_venc" />
+                <ScalarProperty Name="no_fecha" ColumnName="no_fecha" />
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="CodTipoNota" ColumnName="CodTipoNota" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt011">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt011">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt011">
+                <ScalarProperty Name="valorFlete" ColumnName="valorFlete" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="dv_total" ColumnName="dv_total" />
+                <ScalarProperty Name="dv_iva" ColumnName="dv_iva" />
+                <ScalarProperty Name="dv_subtotal" ColumnName="dv_subtotal" />
+                <ScalarProperty Name="dv_valor" ColumnName="dv_valor" />
+                <ScalarProperty Name="dv_cantidad" ColumnName="dv_cantidad" />
+                <ScalarProperty Name="dv_interes" ColumnName="dv_interes" />
+                <ScalarProperty Name="dv_Observacion" ColumnName="dv_Observacion" />
+                <ScalarProperty Name="dv_fecha" ColumnName="dv_fecha" />
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+                <ScalarProperty Name="CodDevolucion" ColumnName="CodDevolucion" />
+                <ScalarProperty Name="IdDevolucion" ColumnName="IdDevolucion" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt012">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt012">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt012">
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Credito" ColumnName="Credito" />
+                <ScalarProperty Name="Debito" ColumnName="Debito" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="ced_ruc_cliente" ColumnName="ced_ruc_cliente" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt013">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt013">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt013">
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Credito" ColumnName="Credito" />
+                <ScalarProperty Name="Debito" ColumnName="Debito" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Cedula_Ruc" ColumnName="Cedula_Ruc" />
+                <ScalarProperty Name="nom_cliente" ColumnName="nom_cliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt001">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt001">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt001">
+                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="Descripcion_tip_cliente" ColumnName="Descripcion_tip_cliente" />
+                <ScalarProperty Name="Idtipo_cliente" ColumnName="Idtipo_cliente" />
+                <ScalarProperty Name="nom_subgrupo" ColumnName="nom_subgrupo" />
+                <ScalarProperty Name="nom_grupo" ColumnName="nom_grupo" />
+                <ScalarProperty Name="nom_linea" ColumnName="nom_linea" />
+                <ScalarProperty Name="ca_Categoria" ColumnName="ca_Categoria" />
+                <ScalarProperty Name="IdSubgrupo" ColumnName="IdSubgrupo" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="vt_PrecioFinal" ColumnName="vt_PrecioFinal" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreCortoFecha" ColumnName="NombreCortoFecha" />
+                <ScalarProperty Name="NombreMes" ColumnName="NombreMes" />
+                <ScalarProperty Name="AnioFiscal" ColumnName="AnioFiscal" />
+                <ScalarProperty Name="IdCalendario" ColumnName="IdCalendario" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt004">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt004">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt004">
+                <ScalarProperty Name="NaturalezaNota" ColumnName="NaturalezaNota" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+                <ScalarProperty Name="No_Descripcion" ColumnName="No_Descripcion" />
+                <ScalarProperty Name="CodTipoNota" ColumnName="CodTipoNota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="no_fecha_venc" ColumnName="no_fecha_venc" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="SubTotal_Iva" ColumnName="SubTotal_Iva" />
+                <ScalarProperty Name="SubTotal_0" ColumnName="SubTotal_0" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="no_fecha" ColumnName="no_fecha" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="CodComprobante" ColumnName="CodComprobante" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="numDocumento" ColumnName="numDocumento" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt002">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt002">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt002">
+                <ScalarProperty Name="nom_FormaPago" ColumnName="nom_FormaPago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="SubTotal_Iva" ColumnName="SubTotal_Iva" />
+                <ScalarProperty Name="SubTotal_0" ColumnName="SubTotal_0" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="dc_ValorRetIva" ColumnName="dc_ValorRetIva" />
+                <ScalarProperty Name="dc_ValorRetFu" ColumnName="dc_ValorRetFu" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="CodComprobante" ColumnName="CodComprobante" />
+                <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="vt_NunDocumento" ColumnName="vt_NunDocumento" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt004_Detalle">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt004_Detalle">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt004_Detalle">
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
+                <ScalarProperty Name="sc_total" ColumnName="sc_total" />
+                <ScalarProperty Name="sc_iva" ColumnName="sc_iva" />
+                <ScalarProperty Name="sc_subtotal" ColumnName="sc_subtotal" />
+                <ScalarProperty Name="NaturalezaNota" ColumnName="NaturalezaNota" />
+                <ScalarProperty Name="TotalCobrado" ColumnName="TotalCobrado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="no_fecha" ColumnName="no_fecha" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_Rpt008">
+            <EntityTypeMapping TypeName="Model_Facturacion_Reportes.vwFAC_Rpt008">
+              <MappingFragment StoreEntitySet="vwFAC_Rpt008">
+                <ScalarProperty Name="nom_FormaPago" ColumnName="nom_FormaPago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="vt_detallexItems" ColumnName="vt_detallexItems" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="vt_autorizacion" ColumnName="vt_autorizacion" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="vt_Precio" ColumnName="vt_Precio" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="vt_interes" ColumnName="vt_interes" />
+                <ScalarProperty Name="vt_Flete" ColumnName="vt_Flete" />
+                <ScalarProperty Name="vt_mes" ColumnName="vt_mes" />
+                <ScalarProperty Name="vt_anio" ColumnName="vt_anio" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="vt_Observacion" ColumnName="vt_Observacion" />
+                <ScalarProperty Name="vt_tipo_venta" ColumnName="vt_tipo_venta" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="vt_fech_venc" ColumnName="vt_fech_venc" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="Ve_Vendedor" ColumnName="Ve_Vendedor" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="numComprobante" ColumnName="numComprobante" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="CodCbteVta" ColumnName="CodCbteVta" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="false" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams />
+  </edmx:Designer>
+</edmx:Edmx>

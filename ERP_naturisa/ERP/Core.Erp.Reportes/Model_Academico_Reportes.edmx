@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBERPModel7.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DBERPModel7StoreContainer">
+          <EntitySet Name="vwACA_Rpt001" EntityType="DBERPModel7.Store.vwACA_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwACA_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwACA_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwACA_Rpt001].[IdEstudiante] AS [IdEstudiante], 
+      [vwACA_Rpt001].[IdPersonaEstudiante] AS [IdPersonaEstudiante], 
+      [vwACA_Rpt001].[cod_estudiante] AS [cod_estudiante], 
+      [vwACA_Rpt001].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwACA_Rpt001].[DescTipoDocumento] AS [DescTipoDocumento], 
+      [vwACA_Rpt001].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwACA_Rpt001].[pe_nombre] AS [pe_nombre], 
+      [vwACA_Rpt001].[pe_apellido] AS [pe_apellido], 
+      [vwACA_Rpt001].[IdPais_Nacionalidad] AS [IdPais_Nacionalidad], 
+      [vwACA_Rpt001].[Nacionalidad] AS [Nacionalidad], 
+      [vwACA_Rpt001].[lugar] AS [lugar], 
+      [vwACA_Rpt001].[barrio] AS [barrio], 
+      [vwACA_Rpt001].[pe_direccion] AS [pe_direccion], 
+      [vwACA_Rpt001].[pe_celular] AS [pe_celular], 
+      [vwACA_Rpt001].[pe_telefonoCasa] AS [pe_telefonoCasa], 
+      [vwACA_Rpt001].[pe_correo] AS [pe_correo], 
+      [vwACA_Rpt001].[pe_fechaNacimiento] AS [pe_fechaNacimiento], 
+      [vwACA_Rpt001].[pe_sexo] AS [pe_sexo], 
+      [vwACA_Rpt001].[descripcion_sexo] AS [descripcion_sexo], 
+      [vwACA_Rpt001].[IDGrupoSanguineo] AS [IDGrupoSanguineo], 
+      [vwACA_Rpt001].[DescGrupoSanguineo] AS [DescGrupoSanguineo], 
+      [vwACA_Rpt001].[Medica_contraIndic] AS [Medica_contraIndic], 
+      [vwACA_Rpt001].[Otras_Indicaciones_medicas] AS [Otras_Indicaciones_medicas], 
+      [vwACA_Rpt001].[Seguro_medico] AS [Seguro_medico], 
+      [vwACA_Rpt001].[IdFamiliarMadre] AS [IdFamiliarMadre], 
+      [vwACA_Rpt001].[CedulaMadre] AS [CedulaMadre], 
+      [vwACA_Rpt001].[ApellidoMadre] AS [ApellidoMadre], 
+      [vwACA_Rpt001].[NombreMadre] AS [NombreMadre], 
+      [vwACA_Rpt001].[IdPersonaMadre] AS [IdPersonaMadre], 
+      [vwACA_Rpt001].[IDParentescoMadre] AS [IDParentescoMadre], 
+      [vwACA_Rpt001].[DescParentescoMadre] AS [DescParentescoMadre], 
+      [vwACA_Rpt001].[empresa_direccionMadre] AS [empresa_direccionMadre], 
+      [vwACA_Rpt001].[empresa_donde_trabajaMadre] AS [empresa_donde_trabajaMadre], 
+      [vwACA_Rpt001].[empresa_telefonoMadre] AS [empresa_telefonoMadre], 
+      [vwACA_Rpt001].[idNivelEducativoMadre] AS [idNivelEducativoMadre], 
+      [vwACA_Rpt001].[DescNivelEducativoMadre] AS [DescNivelEducativoMadre], 
+      [vwACA_Rpt001].[TituloMadre] AS [TituloMadre], 
+      [vwACA_Rpt001].[IdFamiliarPadre] AS [IdFamiliarPadre], 
+      [vwACA_Rpt001].[CedulaPadre] AS [CedulaPadre], 
+      [vwACA_Rpt001].[ApellidoPadre] AS [ApellidoPadre], 
+      [vwACA_Rpt001].[NombrePadre] AS [NombrePadre], 
+      [vwACA_Rpt001].[IdPersonaPadre] AS [IdPersonaPadre], 
+      [vwACA_Rpt001].[IDParentescoPadre] AS [IDParentescoPadre], 
+      [vwACA_Rpt001].[DescParentescoPadre] AS [DescParentescoPadre], 
+      [vwACA_Rpt001].[empresa_direccionPadre] AS [empresa_direccionPadre], 
+      [vwACA_Rpt001].[empresa_donde_trabajaPadre] AS [empresa_donde_trabajaPadre], 
+      [vwACA_Rpt001].[empresa_telefonoPadre] AS [empresa_telefonoPadre], 
+      [vwACA_Rpt001].[idNivelEducativoPadre] AS [idNivelEducativoPadre], 
+      [vwACA_Rpt001].[DescNivelEducativoPadre] AS [DescNivelEducativoPadre], 
+      [vwACA_Rpt001].[TituloPadre] AS [TituloPadre], 
+      [vwACA_Rpt001].[IdFamiliarRepEco] AS [IdFamiliarRepEco], 
+      [vwACA_Rpt001].[CedulaRepEco] AS [CedulaRepEco], 
+      [vwACA_Rpt001].[ApellidoRepEco] AS [ApellidoRepEco], 
+      [vwACA_Rpt001].[NombreRepEco] AS [NombreRepEco], 
+      [vwACA_Rpt001].[IdPersonaRepEco] AS [IdPersonaRepEco], 
+      [vwACA_Rpt001].[IDParentescoRepEco] AS [IDParentescoRepEco], 
+      [vwACA_Rpt001].[DescParentescoRepEco] AS [DescParentescoRepEco], 
+      [vwACA_Rpt001].[empresa_direccionRepEco] AS [empresa_direccionRepEco], 
+      [vwACA_Rpt001].[empresa_donde_trabajaRepEco] AS [empresa_donde_trabajaRepEco], 
+      [vwACA_Rpt001].[empresa_telefonoRepEco] AS [empresa_telefonoRepEco], 
+      [vwACA_Rpt001].[idNivelEducativoRepEco] AS [idNivelEducativoRepEco], 
+      [vwACA_Rpt001].[DescNivelEducativoRepEco] AS [DescNivelEducativoRepEco], 
+      [vwACA_Rpt001].[TituloRepEco] AS [TituloRepEco]
+      FROM [dbo].[vwACA_Rpt001] AS [vwACA_Rpt001]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP.dbo.vwACA_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwACA_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEstudiante" />
+            <PropertyRef Name="IdPersonaEstudiante" />
+            <PropertyRef Name="cod_estudiante" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="IdPais_Nacionalidad" />
+            <PropertyRef Name="Nacionalidad" />
+            <PropertyRef Name="lugar" />
+            <PropertyRef Name="barrio" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="pe_sexo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdEstudiante" Type="numeric" Nullable="false" />
+          <Property Name="IdPersonaEstudiante" Type="numeric" Nullable="false" />
+          <Property Name="cod_estudiante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="DescTipoDocumento" Type="varchar" MaxLength="250" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdPais_Nacionalidad" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Nacionalidad" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lugar" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="barrio" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="pe_celular" Type="varchar" MaxLength="50" />
+          <Property Name="pe_telefonoCasa" Type="varchar" MaxLength="50" />
+          <Property Name="pe_correo" Type="varchar" MaxLength="50" />
+          <Property Name="pe_fechaNacimiento" Type="datetime" />
+          <Property Name="pe_sexo" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="descripcion_sexo" Type="varchar" MaxLength="250" />
+          <Property Name="IDGrupoSanguineo" Type="varchar" MaxLength="35" />
+          <Property Name="DescGrupoSanguineo" Type="varchar" MaxLength="250" />
+          <Property Name="Medica_contraIndic" Type="varchar(max)" />
+          <Property Name="Otras_Indicaciones_medicas" Type="varchar(max)" />
+          <Property Name="Seguro_medico" Type="varchar" MaxLength="50" />
+          <Property Name="IdFamiliarMadre" Type="numeric" />
+          <Property Name="CedulaMadre" Type="varchar" MaxLength="50" />
+          <Property Name="ApellidoMadre" Type="varchar" MaxLength="100" />
+          <Property Name="NombreMadre" Type="varchar" MaxLength="100" />
+          <Property Name="IdPersonaMadre" Type="numeric" />
+          <Property Name="IDParentescoMadre" Type="varchar" MaxLength="35" />
+          <Property Name="DescParentescoMadre" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_direccionMadre" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_donde_trabajaMadre" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_telefonoMadre" Type="varchar" MaxLength="50" />
+          <Property Name="idNivelEducativoMadre" Type="varchar" MaxLength="35" />
+          <Property Name="DescNivelEducativoMadre" Type="varchar" MaxLength="250" />
+          <Property Name="TituloMadre" Type="varchar" MaxLength="250" />
+          <Property Name="IdFamiliarPadre" Type="numeric" />
+          <Property Name="CedulaPadre" Type="varchar" MaxLength="50" />
+          <Property Name="ApellidoPadre" Type="varchar" MaxLength="100" />
+          <Property Name="NombrePadre" Type="varchar" MaxLength="100" />
+          <Property Name="IdPersonaPadre" Type="numeric" />
+          <Property Name="IDParentescoPadre" Type="varchar" MaxLength="35" />
+          <Property Name="DescParentescoPadre" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_direccionPadre" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_donde_trabajaPadre" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_telefonoPadre" Type="varchar" MaxLength="50" />
+          <Property Name="idNivelEducativoPadre" Type="varchar" MaxLength="35" />
+          <Property Name="DescNivelEducativoPadre" Type="varchar" MaxLength="250" />
+          <Property Name="TituloPadre" Type="varchar" MaxLength="250" />
+          <Property Name="IdFamiliarRepEco" Type="numeric" />
+          <Property Name="CedulaRepEco" Type="varchar" MaxLength="50" />
+          <Property Name="ApellidoRepEco" Type="varchar" MaxLength="100" />
+          <Property Name="NombreRepEco" Type="varchar" MaxLength="100" />
+          <Property Name="IdPersonaRepEco" Type="numeric" />
+          <Property Name="IDParentescoRepEco" Type="varchar" MaxLength="35" />
+          <Property Name="DescParentescoRepEco" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_direccionRepEco" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_donde_trabajaRepEco" Type="varchar" MaxLength="250" />
+          <Property Name="empresa_telefonoRepEco" Type="varchar" MaxLength="50" />
+          <Property Name="idNivelEducativoRepEco" Type="varchar" MaxLength="35" />
+          <Property Name="DescNivelEducativoRepEco" Type="varchar" MaxLength="250" />
+          <Property Name="TituloRepEco" Type="varchar" MaxLength="250" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBERPModel7" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities_Academico_Reporte" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwACA_Rpt001" EntityType="DBERPModel7.vwACA_Rpt001" />
+        </EntityContainer>
+        <EntityType Name="vwACA_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEstudiante" />
+            <PropertyRef Name="IdPersonaEstudiante" />
+            <PropertyRef Name="cod_estudiante" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="IdPais_Nacionalidad" />
+            <PropertyRef Name="Nacionalidad" />
+            <PropertyRef Name="lugar" />
+            <PropertyRef Name="barrio" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="pe_sexo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdEstudiante" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdPersonaEstudiante" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="cod_estudiante" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdTipoDocumento" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="DescTipoDocumento" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="pe_cedulaRuc" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="pe_nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="pe_apellido" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPais_Nacionalidad" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Nacionalidad" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lugar" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="barrio" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="pe_direccion" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="pe_celular" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="pe_telefonoCasa" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="pe_correo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="pe_fechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="pe_sexo" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="descripcion_sexo" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="IDGrupoSanguineo" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescGrupoSanguineo" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Medica_contraIndic" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Otras_Indicaciones_medicas" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Seguro_medico" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdFamiliarMadre" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CedulaMadre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoMadre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NombreMadre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPersonaMadre" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDParentescoMadre" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescParentescoMadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_direccionMadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_donde_trabajaMadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_telefonoMadre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="idNivelEducativoMadre" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescNivelEducativoMadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="TituloMadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="IdFamiliarPadre" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CedulaPadre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoPadre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NombrePadre" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPersonaPadre" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDParentescoPadre" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescParentescoPadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_direccionPadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_donde_trabajaPadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_telefonoPadre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="idNivelEducativoPadre" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescNivelEducativoPadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="TituloPadre" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="IdFamiliarRepEco" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CedulaRepEco" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoRepEco" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NombreRepEco" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPersonaRepEco" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IDParentescoRepEco" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescParentescoRepEco" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_direccionRepEco" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_donde_trabajaRepEco" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="empresa_telefonoRepEco" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="idNivelEducativoRepEco" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="DescNivelEducativoRepEco" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="TituloRepEco" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBERPModel7StoreContainer" CdmEntityContainer="Entities_Academico_Reporte">
+          <EntitySetMapping Name="vwACA_Rpt001">
+            <EntityTypeMapping TypeName="DBERPModel7.vwACA_Rpt001">
+              <MappingFragment StoreEntitySet="vwACA_Rpt001">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+                <ScalarProperty Name="IdPersonaEstudiante" ColumnName="IdPersonaEstudiante" />
+                <ScalarProperty Name="cod_estudiante" ColumnName="cod_estudiante" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="DescTipoDocumento" ColumnName="DescTipoDocumento" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="IdPais_Nacionalidad" ColumnName="IdPais_Nacionalidad" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="lugar" ColumnName="lugar" />
+                <ScalarProperty Name="barrio" ColumnName="barrio" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_celular" ColumnName="pe_celular" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="pe_fechaNacimiento" ColumnName="pe_fechaNacimiento" />
+                <ScalarProperty Name="pe_sexo" ColumnName="pe_sexo" />
+                <ScalarProperty Name="descripcion_sexo" ColumnName="descripcion_sexo" />
+                <ScalarProperty Name="IDGrupoSanguineo" ColumnName="IDGrupoSanguineo" />
+                <ScalarProperty Name="DescGrupoSanguineo" ColumnName="DescGrupoSanguineo" />
+                <ScalarProperty Name="Medica_contraIndic" ColumnName="Medica_contraIndic" />
+                <ScalarProperty Name="Otras_Indicaciones_medicas" ColumnName="Otras_Indicaciones_medicas" />
+                <ScalarProperty Name="Seguro_medico" ColumnName="Seguro_medico" />
+                <ScalarProperty Name="IdFamiliarMadre" ColumnName="IdFamiliarMadre" />
+                <ScalarProperty Name="CedulaMadre" ColumnName="CedulaMadre" />
+                <ScalarProperty Name="ApellidoMadre" ColumnName="ApellidoMadre" />
+                <ScalarProperty Name="NombreMadre" ColumnName="NombreMadre" />
+                <ScalarProperty Name="IdPersonaMadre" ColumnName="IdPersonaMadre" />
+                <ScalarProperty Name="IDParentescoMadre" ColumnName="IDParentescoMadre" />
+                <ScalarProperty Name="DescParentescoMadre" ColumnName="DescParentescoMadre" />
+                <ScalarProperty Name="empresa_direccionMadre" ColumnName="empresa_direccionMadre" />
+                <ScalarProperty Name="empresa_donde_trabajaMadre" ColumnName="empresa_donde_trabajaMadre" />
+                <ScalarProperty Name="empresa_telefonoMadre" ColumnName="empresa_telefonoMadre" />
+                <ScalarProperty Name="idNivelEducativoMadre" ColumnName="idNivelEducativoMadre" />
+                <ScalarProperty Name="DescNivelEducativoMadre" ColumnName="DescNivelEducativoMadre" />
+                <ScalarProperty Name="TituloMadre" ColumnName="TituloMadre" />
+                <ScalarProperty Name="IdFamiliarPadre" ColumnName="IdFamiliarPadre" />
+                <ScalarProperty Name="CedulaPadre" ColumnName="CedulaPadre" />
+                <ScalarProperty Name="ApellidoPadre" ColumnName="ApellidoPadre" />
+                <ScalarProperty Name="NombrePadre" ColumnName="NombrePadre" />
+                <ScalarProperty Name="IdPersonaPadre" ColumnName="IdPersonaPadre" />
+                <ScalarProperty Name="IDParentescoPadre" ColumnName="IDParentescoPadre" />
+                <ScalarProperty Name="DescParentescoPadre" ColumnName="DescParentescoPadre" />
+                <ScalarProperty Name="empresa_direccionPadre" ColumnName="empresa_direccionPadre" />
+                <ScalarProperty Name="empresa_donde_trabajaPadre" ColumnName="empresa_donde_trabajaPadre" />
+                <ScalarProperty Name="empresa_telefonoPadre" ColumnName="empresa_telefonoPadre" />
+                <ScalarProperty Name="idNivelEducativoPadre" ColumnName="idNivelEducativoPadre" />
+                <ScalarProperty Name="DescNivelEducativoPadre" ColumnName="DescNivelEducativoPadre" />
+                <ScalarProperty Name="TituloPadre" ColumnName="TituloPadre" />
+                <ScalarProperty Name="IdFamiliarRepEco" ColumnName="IdFamiliarRepEco" />
+                <ScalarProperty Name="CedulaRepEco" ColumnName="CedulaRepEco" />
+                <ScalarProperty Name="ApellidoRepEco" ColumnName="ApellidoRepEco" />
+                <ScalarProperty Name="NombreRepEco" ColumnName="NombreRepEco" />
+                <ScalarProperty Name="IdPersonaRepEco" ColumnName="IdPersonaRepEco" />
+                <ScalarProperty Name="IDParentescoRepEco" ColumnName="IDParentescoRepEco" />
+                <ScalarProperty Name="DescParentescoRepEco" ColumnName="DescParentescoRepEco" />
+                <ScalarProperty Name="empresa_direccionRepEco" ColumnName="empresa_direccionRepEco" />
+                <ScalarProperty Name="empresa_donde_trabajaRepEco" ColumnName="empresa_donde_trabajaRepEco" />
+                <ScalarProperty Name="empresa_telefonoRepEco" ColumnName="empresa_telefonoRepEco" />
+                <ScalarProperty Name="idNivelEducativoRepEco" ColumnName="idNivelEducativoRepEco" />
+                <ScalarProperty Name="DescNivelEducativoRepEco" ColumnName="DescNivelEducativoRepEco" />
+                <ScalarProperty Name="TituloRepEco" ColumnName="TituloRepEco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
