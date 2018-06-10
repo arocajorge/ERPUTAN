@@ -30,45 +30,53 @@
         {
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.tp_Bodegas = new DevExpress.XtraTab.XtraTabPage();
-            this.tp_subcentros = new DevExpress.XtraTab.XtraTabPage();
-            this.txt_usuario = new DevExpress.XtraEditors.TextEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_clave = new DevExpress.XtraEditors.TextEdit();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_nombre = new DevExpress.XtraEditors.TextEdit();
-            this.gridControlSubcentros = new DevExpress.XtraGrid.GridControl();
-            this.gridViewSubcentros = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.col_subcentro = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControlBodegas = new DevExpress.XtraGrid.GridControl();
-            this.gridViewBodegas = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.col_bodega = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_empresa = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_nombre = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_clave = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_usuario = new DevExpress.XtraEditors.TextEdit();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.tp_Bodegas = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControlBodegas = new DevExpress.XtraGrid.GridControl();
+            this.gridViewBodegas = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_bodega = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tp_subcentros = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControlSubcentros = new DevExpress.XtraGrid.GridControl();
+            this.gridViewSubcentros = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_subcentro = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.chk_bodegas = new System.Windows.Forms.CheckBox();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.chk_subcentros = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_empresa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_nombre.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_clave.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_usuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tp_Bodegas.SuspendLayout();
-            this.tp_subcentros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_usuario.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_clave.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_nombre.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSubcentros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewSubcentros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBodegas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewBodegas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_empresa.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            this.tp_subcentros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlSubcentros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewSubcentros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -149,184 +157,6 @@
             this.panelControl1.Size = new System.Drawing.Size(954, 96);
             this.panelControl1.TabIndex = 1;
             // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 125);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.tp_Bodegas;
-            this.xtraTabControl1.Size = new System.Drawing.Size(954, 458);
-            this.xtraTabControl1.TabIndex = 2;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tp_Bodegas,
-            this.tp_subcentros});
-            // 
-            // tp_Bodegas
-            // 
-            this.tp_Bodegas.Controls.Add(this.gridControlBodegas);
-            this.tp_Bodegas.Name = "tp_Bodegas";
-            this.tp_Bodegas.Size = new System.Drawing.Size(948, 430);
-            this.tp_Bodegas.Text = "Bodegas";
-            // 
-            // tp_subcentros
-            // 
-            this.tp_subcentros.Controls.Add(this.gridControlSubcentros);
-            this.tp_subcentros.Name = "tp_subcentros";
-            this.tp_subcentros.Size = new System.Drawing.Size(948, 430);
-            this.tp_subcentros.Text = "Subcentros";
-            // 
-            // txt_usuario
-            // 
-            this.txt_usuario.Location = new System.Drawing.Point(119, 10);
-            this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.Size = new System.Drawing.Size(286, 20);
-            this.txt_usuario.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Usuario";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(428, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Clave";
-            // 
-            // txt_clave
-            // 
-            this.txt_clave.Location = new System.Drawing.Point(520, 10);
-            this.txt_clave.Name = "txt_clave";
-            this.txt_clave.Size = new System.Drawing.Size(286, 20);
-            this.txt_clave.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Nombre";
-            // 
-            // txt_nombre
-            // 
-            this.txt_nombre.Location = new System.Drawing.Point(119, 36);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(687, 20);
-            this.txt_nombre.TabIndex = 12;
-            // 
-            // gridControlSubcentros
-            // 
-            this.gridControlSubcentros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlSubcentros.Location = new System.Drawing.Point(0, 0);
-            this.gridControlSubcentros.MainView = this.gridViewSubcentros;
-            this.gridControlSubcentros.Name = "gridControlSubcentros";
-            this.gridControlSubcentros.Size = new System.Drawing.Size(948, 430);
-            this.gridControlSubcentros.TabIndex = 3;
-            this.gridControlSubcentros.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewSubcentros});
-            // 
-            // gridViewSubcentros
-            // 
-            this.gridViewSubcentros.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.col_subcentro,
-            this.gridColumn6,
-            this.gridColumn7});
-            this.gridViewSubcentros.CustomizationFormBounds = new System.Drawing.Rectangle(796, 401, 216, 192);
-            this.gridViewSubcentros.GridControl = this.gridControlSubcentros;
-            this.gridViewSubcentros.Name = "gridViewSubcentros";
-            this.gridViewSubcentros.OptionsView.ShowAutoFilterRow = true;
-            this.gridViewSubcentros.OptionsView.ShowGroupPanel = false;
-            // 
-            // col_subcentro
-            // 
-            this.col_subcentro.Caption = "*";
-            this.col_subcentro.FieldName = "seleccionado";
-            this.col_subcentro.Name = "col_subcentro";
-            this.col_subcentro.Visible = true;
-            this.col_subcentro.VisibleIndex = 0;
-            this.col_subcentro.Width = 41;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Centro de costo";
-            this.gridColumn6.FieldName = "nom_centro";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.AllowEdit = false;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 1;
-            this.gridColumn6.Width = 262;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "Sub centro de costos";
-            this.gridColumn7.FieldName = "nom_subcentro";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.OptionsColumn.AllowEdit = false;
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 2;
-            this.gridColumn7.Width = 512;
-            // 
-            // gridControlBodegas
-            // 
-            this.gridControlBodegas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlBodegas.Location = new System.Drawing.Point(0, 0);
-            this.gridControlBodegas.MainView = this.gridViewBodegas;
-            this.gridControlBodegas.Name = "gridControlBodegas";
-            this.gridControlBodegas.Size = new System.Drawing.Size(948, 430);
-            this.gridControlBodegas.TabIndex = 3;
-            this.gridControlBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewBodegas});
-            // 
-            // gridViewBodegas
-            // 
-            this.gridViewBodegas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.col_bodega,
-            this.gridColumn4,
-            this.gridColumn5});
-            this.gridViewBodegas.CustomizationFormBounds = new System.Drawing.Rectangle(796, 401, 216, 192);
-            this.gridViewBodegas.GridControl = this.gridControlBodegas;
-            this.gridViewBodegas.Name = "gridViewBodegas";
-            this.gridViewBodegas.OptionsView.ShowAutoFilterRow = true;
-            this.gridViewBodegas.OptionsView.ShowGroupPanel = false;
-            // 
-            // col_bodega
-            // 
-            this.col_bodega.Caption = "*";
-            this.col_bodega.FieldName = "seleccionado";
-            this.col_bodega.Name = "col_bodega";
-            this.col_bodega.Visible = true;
-            this.col_bodega.VisibleIndex = 0;
-            this.col_bodega.Width = 41;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Sucursal";
-            this.gridColumn4.FieldName = "nom_sucursal";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 311;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Bodega";
-            this.gridColumn5.FieldName = "nom_bodega";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.AllowEdit = false;
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 420;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -378,6 +208,226 @@
             this.gridColumn2.VisibleIndex = 0;
             this.gridColumn2.Width = 660;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Nombre";
+            // 
+            // txt_nombre
+            // 
+            this.txt_nombre.Location = new System.Drawing.Point(119, 36);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Size = new System.Drawing.Size(687, 20);
+            this.txt_nombre.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(428, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Clave";
+            // 
+            // txt_clave
+            // 
+            this.txt_clave.Location = new System.Drawing.Point(520, 10);
+            this.txt_clave.Name = "txt_clave";
+            this.txt_clave.Size = new System.Drawing.Size(286, 20);
+            this.txt_clave.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Usuario";
+            // 
+            // txt_usuario
+            // 
+            this.txt_usuario.Location = new System.Drawing.Point(119, 10);
+            this.txt_usuario.Name = "txt_usuario";
+            this.txt_usuario.Size = new System.Drawing.Size(286, 20);
+            this.txt_usuario.TabIndex = 8;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 125);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.tp_Bodegas;
+            this.xtraTabControl1.Size = new System.Drawing.Size(954, 458);
+            this.xtraTabControl1.TabIndex = 2;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tp_Bodegas,
+            this.tp_subcentros});
+            // 
+            // tp_Bodegas
+            // 
+            this.tp_Bodegas.Controls.Add(this.gridControlBodegas);
+            this.tp_Bodegas.Controls.Add(this.panelControl2);
+            this.tp_Bodegas.Name = "tp_Bodegas";
+            this.tp_Bodegas.Size = new System.Drawing.Size(948, 430);
+            this.tp_Bodegas.Text = "Bodegas";
+            // 
+            // gridControlBodegas
+            // 
+            this.gridControlBodegas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlBodegas.Location = new System.Drawing.Point(0, 26);
+            this.gridControlBodegas.MainView = this.gridViewBodegas;
+            this.gridControlBodegas.Name = "gridControlBodegas";
+            this.gridControlBodegas.Size = new System.Drawing.Size(948, 404);
+            this.gridControlBodegas.TabIndex = 3;
+            this.gridControlBodegas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewBodegas});
+            // 
+            // gridViewBodegas
+            // 
+            this.gridViewBodegas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_bodega,
+            this.gridColumn4,
+            this.gridColumn5});
+            this.gridViewBodegas.CustomizationFormBounds = new System.Drawing.Rectangle(796, 401, 216, 192);
+            this.gridViewBodegas.GridControl = this.gridControlBodegas;
+            this.gridViewBodegas.Name = "gridViewBodegas";
+            this.gridViewBodegas.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewBodegas.OptionsView.ShowGroupPanel = false;
+            // 
+            // col_bodega
+            // 
+            this.col_bodega.Caption = "*";
+            this.col_bodega.FieldName = "seleccionado";
+            this.col_bodega.Name = "col_bodega";
+            this.col_bodega.Visible = true;
+            this.col_bodega.VisibleIndex = 0;
+            this.col_bodega.Width = 41;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Sucursal";
+            this.gridColumn4.FieldName = "nom_sucursal";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 311;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Bodega";
+            this.gridColumn5.FieldName = "nom_bodega";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 420;
+            // 
+            // tp_subcentros
+            // 
+            this.tp_subcentros.Controls.Add(this.gridControlSubcentros);
+            this.tp_subcentros.Controls.Add(this.panelControl3);
+            this.tp_subcentros.Name = "tp_subcentros";
+            this.tp_subcentros.Size = new System.Drawing.Size(948, 430);
+            this.tp_subcentros.Text = "Subcentros";
+            // 
+            // gridControlSubcentros
+            // 
+            this.gridControlSubcentros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlSubcentros.Location = new System.Drawing.Point(0, 26);
+            this.gridControlSubcentros.MainView = this.gridViewSubcentros;
+            this.gridControlSubcentros.Name = "gridControlSubcentros";
+            this.gridControlSubcentros.Size = new System.Drawing.Size(948, 404);
+            this.gridControlSubcentros.TabIndex = 3;
+            this.gridControlSubcentros.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewSubcentros});
+            // 
+            // gridViewSubcentros
+            // 
+            this.gridViewSubcentros.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_subcentro,
+            this.gridColumn6,
+            this.gridColumn7});
+            this.gridViewSubcentros.CustomizationFormBounds = new System.Drawing.Rectangle(796, 401, 216, 192);
+            this.gridViewSubcentros.GridControl = this.gridControlSubcentros;
+            this.gridViewSubcentros.Name = "gridViewSubcentros";
+            this.gridViewSubcentros.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewSubcentros.OptionsView.ShowGroupPanel = false;
+            // 
+            // col_subcentro
+            // 
+            this.col_subcentro.Caption = "*";
+            this.col_subcentro.FieldName = "seleccionado";
+            this.col_subcentro.Name = "col_subcentro";
+            this.col_subcentro.Visible = true;
+            this.col_subcentro.VisibleIndex = 0;
+            this.col_subcentro.Width = 41;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Centro de costo";
+            this.gridColumn6.FieldName = "nom_centro";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 1;
+            this.gridColumn6.Width = 262;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Sub centro de costos";
+            this.gridColumn7.FieldName = "nom_subcentro";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 2;
+            this.gridColumn7.Width = 512;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.chk_bodegas);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(948, 26);
+            this.panelControl2.TabIndex = 4;
+            // 
+            // chk_bodegas
+            // 
+            this.chk_bodegas.AutoSize = true;
+            this.chk_bodegas.Location = new System.Drawing.Point(27, 5);
+            this.chk_bodegas.Name = "chk_bodegas";
+            this.chk_bodegas.Size = new System.Drawing.Size(117, 17);
+            this.chk_bodegas.TabIndex = 0;
+            this.chk_bodegas.Text = "Seleccionar visibles";
+            this.chk_bodegas.UseVisualStyleBackColor = true;
+            this.chk_bodegas.CheckedChanged += new System.EventHandler(this.chk_bodegas_CheckedChanged);
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.chk_subcentros);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(0, 0);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(948, 26);
+            this.panelControl3.TabIndex = 5;
+            // 
+            // chk_subcentros
+            // 
+            this.chk_subcentros.AutoSize = true;
+            this.chk_subcentros.Location = new System.Drawing.Point(27, 5);
+            this.chk_subcentros.Name = "chk_subcentros";
+            this.chk_subcentros.Size = new System.Drawing.Size(117, 17);
+            this.chk_subcentros.TabIndex = 0;
+            this.chk_subcentros.Text = "Seleccionar visibles";
+            this.chk_subcentros.UseVisualStyleBackColor = true;
+            this.chk_subcentros.CheckedChanged += new System.EventHandler(this.chk_subcentros_CheckedChanged);
+            // 
             // frmApp_usuario_mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,19 +443,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_empresa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_nombre.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_clave.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_usuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tp_Bodegas.ResumeLayout(false);
-            this.tp_subcentros.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txt_usuario.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_clave.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_nombre.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSubcentros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewSubcentros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBodegas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewBodegas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_empresa.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            this.tp_subcentros.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlSubcentros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewSubcentros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -438,5 +494,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private System.Windows.Forms.CheckBox chk_bodegas;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private System.Windows.Forms.CheckBox chk_subcentros;
     }
 }

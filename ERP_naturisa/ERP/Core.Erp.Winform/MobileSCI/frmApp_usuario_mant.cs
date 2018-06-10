@@ -465,5 +465,21 @@ namespace Core.Erp.Winform.MobileSCI
                 MessageBox.Show(NameMetodo + " " + param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void chk_bodegas_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < gridViewBodegas.RowCount; i++)
+            {
+                gridViewBodegas.SetRowCellValue(i, col_bodega, chk_bodegas.Checked);
+            }
+        }
+
+        private void chk_subcentros_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < gridViewSubcentros.RowCount; i++)
+            {
+                gridViewSubcentros.SetRowCellValue(i, col_subcentro, chk_subcentros.Checked);
+            }
+        }
     }
 }
