@@ -2065,5 +2065,6 @@
     <Build Include="mobileSCI\Tables\tbl_usuario.sql" />
     <Build Include="Security\mobileSCI.sql" />
     <Build Include="mobileSCI\Views\vw_oc_x_aprobar.sql" />
+    <Build Include="mobileSCI\Views\vw_stock.sql" />
   </ItemGroup>
 </Project>
