@@ -2068,5 +2068,6 @@
     <Build Include="mobileSCI\Views\vw_stock.sql" />
     <Build Include="mobileSCI\Tables\tbl_movimientos_det.sql" />
     <Build Include="mobileSCI\Tables\tbl_movimientos.sql" />
+    <Build Include="mobileSCI\Tables\tbl_sincronizacion_turno.sql" />
   </ItemGroup>
 </Project>
