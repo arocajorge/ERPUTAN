@@ -4,7 +4,7 @@ SELECT        ISNULL(ROW_NUMBER() OVER (ORDER BY dbo.com_ordencompra_local_det.I
 dbo.com_ordencompra_local_det.IdOrdenCompra, dbo.com_ordencompra_local_det.Secuencia, dbo.com_ordencompra_local_det.IdProducto, dbo.com_ordencompra_local_det.IdUnidadMedida, dbo.com_ordencompra_local.IdProveedor, 
 isnull(SUM(dbo.com_ordencompra_local_det.do_Cantidad), 0) AS cant_oc, ISNULL(SUM(dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion), 0) AS cant_in, isnull(SUM(dbo.com_ordencompra_local_det.do_Cantidad) 
 - ISNULL(SUM(dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion), 0), 0) AS saldo, dbo.in_Producto.pr_descripcion, dbo.in_Producto.pr_codigo, dbo.in_UnidadMedida.Descripcion, dbo.tb_persona.pe_nombreCompleto, 
-dbo.com_ordencompra_local.oc_fecha, dbo.com_ordencompra_local.oc_observacion
+dbo.com_ordencompra_local.oc_fecha, dbo.com_ordencompra_local.oc_observacion, dbo.in_Producto.IdUnidadMedida_Consumo
 FROM            dbo.tb_persona INNER JOIN
                          dbo.cp_proveedor INNER JOIN
                          dbo.com_ordencompra_local INNER JOIN
@@ -21,9 +21,9 @@ FROM            dbo.tb_persona INNER JOIN
                          dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi ON 
                          dbo.com_ordencompra_local_det.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa_oc AND dbo.com_ordencompra_local_det.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal_oc AND 
                          dbo.com_ordencompra_local_det.IdOrdenCompra = dbo.in_Ing_Egr_Inven_det.IdOrdenCompra AND dbo.com_ordencompra_local_det.Secuencia = dbo.in_Ing_Egr_Inven_det.Secuencia_oc
-WHERE        (dbo.com_ordencompra_local.IdEstadoAprobacion_cat = 'APRO') AND (dbo.com_ordencompra_local.IdEstado_cierre <> 'CER') AND (dbo.com_ordencompra_local.Estado = 'A')
-AND (dbo.com_ordencompra_local.oc_fecha between DATEADD(MONTH,-3,GETDATE()) AND GETDATE())
+WHERE        (dbo.com_ordencompra_local.IdEstadoAprobacion_cat = 'APRO') AND (dbo.com_ordencompra_local.IdEstado_cierre <> 'CER') AND (dbo.com_ordencompra_local.Estado = 'A') AND 
+                         (dbo.com_ordencompra_local.oc_fecha BETWEEN DATEADD(MONTH, - 3, GETDATE()) AND GETDATE())
 GROUP BY dbo.com_ordencompra_local_det.IdEmpresa, dbo.com_ordencompra_local_det.IdSucursal, dbo.com_ordencompra_local_det.IdOrdenCompra, dbo.com_ordencompra_local_det.Secuencia, 
                          dbo.com_ordencompra_local_det.IdProducto, dbo.com_ordencompra_local_det.IdUnidadMedida, dbo.com_ordencompra_local.IdProveedor, dbo.in_Producto.pr_descripcion, dbo.in_Producto.pr_codigo, 
-                         dbo.in_UnidadMedida.Descripcion, dbo.tb_persona.pe_nombreCompleto, dbo.com_ordencompra_local.oc_fecha, dbo.com_ordencompra_local.oc_observacion
+                         dbo.in_UnidadMedida.Descripcion, dbo.tb_persona.pe_nombreCompleto, dbo.com_ordencompra_local.oc_fecha, dbo.com_ordencompra_local.oc_observacion, dbo.in_Producto.IdUnidadMedida_Consumo
 HAVING        (ROUND(SUM(dbo.com_ordencompra_local_det.do_Cantidad) - ISNULL(SUM(dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion), 0), 2) > 0)
