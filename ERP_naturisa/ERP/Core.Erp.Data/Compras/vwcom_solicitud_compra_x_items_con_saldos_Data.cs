@@ -53,8 +53,8 @@ namespace Core.Erp.Data.Compras
                         && q.fecha >= FechaIni
                         && q.IdSucursal >= IdSucursalIni && q.IdSucursal <= IdSucursalFin
                         && q.IdComprador >= IdCompradorIni && q.IdComprador <= IdCompradorFin
-                        && q.IdEstadoAprobacion.Contains(IdEstadoAprobacion)
-                        && q.IdEstadoPreAprobacion.Contains(IdEstadoPreAprobacion)
+                        && q.IdEstadoAprobacion == IdEstadoAprobacion
+                        && q.IdEstadoPreAprobacion == IdEstadoPreAprobacion
                        select q;
 
 

@@ -39,13 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbComprador = new Core.Erp.Winform.Controles.UCCom_Comprador();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbEstAproSC = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEstado_3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.gridControlConsulta = new DevExpress.XtraGrid.GridControl();
             this.gridViewConsulta = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -111,6 +105,8 @@
             this.colIco2_insertar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.colSaldo_cant_SolCom = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.col_Precio_minimo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colStock = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colcant_solicitada = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colcant_ing_SolCom = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -119,9 +115,16 @@
             this.coldo_porc_des = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coldo_descuento = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coldo_subtotal = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colIdCodImpuesto_Iva = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.cmb_impuesto = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldo_iva = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coldo_total = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.coldo_observacion = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colIdMotivo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.cmbMotivo_grid = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
@@ -138,24 +141,11 @@
             this.colNomsub_centro_costo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.cmb_sub_centro_grid = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colReferencia = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colcant_ing_SolCom_AUX = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colIdCodImpuesto_Iva = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.cmbImpuesto_Iva = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colnom_impuesto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colporcentaje = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdCod_Impuesto_cmb = new DevExpress.XtraGrid.Columns.GridColumn();
             this.imageListAgregarEdit = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cmb_Estado_OC = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbEstPreAproSC = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.cmbSucursal = new Core.Erp.Winform.Controles.UCGe_Sucursal_combo();
             this.splitContainerDetalle = new System.Windows.Forms.SplitContainer();
@@ -164,10 +154,7 @@
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.colStock = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstAproSC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlConsulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewConsulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_EstadoAproSC)).BeginInit();
@@ -183,21 +170,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_impuesto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMotivo_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_centro_costo_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_sub_centro_grid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbImpuesto_Iva)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstPreAproSC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerDetalle)).BeginInit();
             this.splitContainerDetalle.Panel1.SuspendLayout();
             this.splitContainerDetalle.Panel2.SuspendLayout();
@@ -221,9 +206,11 @@
             this.groupBox2.Controls.Add(this.dtpFechaFin);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(13, 33);
+            this.groupBox2.Location = new System.Drawing.Point(17, 41);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(351, 49);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(468, 60);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Periodo:";
@@ -231,126 +218,76 @@
             // dtpFechaIni
             // 
             this.dtpFechaIni.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIni.Location = new System.Drawing.Point(53, 21);
+            this.dtpFechaIni.Location = new System.Drawing.Point(71, 26);
+            this.dtpFechaIni.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaIni.Name = "dtpFechaIni";
-            this.dtpFechaIni.Size = new System.Drawing.Size(109, 20);
+            this.dtpFechaIni.Size = new System.Drawing.Size(144, 22);
             this.dtpFechaIni.TabIndex = 14;
             // 
             // dtpFechaFin
             // 
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaFin.Location = new System.Drawing.Point(239, 19);
+            this.dtpFechaFin.Location = new System.Drawing.Point(319, 23);
+            this.dtpFechaFin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(89, 20);
+            this.dtpFechaFin.Size = new System.Drawing.Size(117, 22);
             this.dtpFechaFin.TabIndex = 15;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(185, 24);
+            this.label4.Location = new System.Drawing.Point(247, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.Size = new System.Drawing.Size(49, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Hasta:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 24);
+            this.label3.Location = new System.Drawing.Point(8, 30);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 12;
             this.label3.Text = "Desde:";
             // 
             // cmbComprador
             // 
-            this.cmbComprador.Location = new System.Drawing.Point(580, 16);
+            this.cmbComprador.Location = new System.Drawing.Point(621, 5);
+            this.cmbComprador.Margin = new System.Windows.Forms.Padding(5);
             this.cmbComprador.Name = "cmbComprador";
-            this.cmbComprador.Size = new System.Drawing.Size(337, 26);
+            this.cmbComprador.Size = new System.Drawing.Size(449, 32);
             this.cmbComprador.TabIndex = 17;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(577, 2);
+            this.label7.Location = new System.Drawing.Point(530, 12);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.Size = new System.Drawing.Size(82, 17);
             this.label7.TabIndex = 16;
             this.label7.Text = "Comprador:";
-            // 
-            // cmbEstAproSC
-            // 
-            this.cmbEstAproSC.Location = new System.Drawing.Point(388, 19);
-            this.cmbEstAproSC.Name = "cmbEstAproSC";
-            this.cmbEstAproSC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbEstAproSC.Properties.DisplayMember = "descripcion";
-            this.cmbEstAproSC.Properties.ValueMember = "Id";
-            this.cmbEstAproSC.Properties.View = this.searchLookUpEdit2View;
-            this.cmbEstAproSC.Size = new System.Drawing.Size(186, 20);
-            this.cmbEstAproSC.TabIndex = 15;
-            // 
-            // searchLookUpEdit2View
-            // 
-            this.searchLookUpEdit2View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.coldescripcion,
-            this.colEstado_3,
-            this.colId});
-            this.searchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit2View.Name = "searchLookUpEdit2View";
-            this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.Caption = "Descripción";
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 0;
-            this.coldescripcion.Width = 754;
-            // 
-            // colEstado_3
-            // 
-            this.colEstado_3.Caption = "Estado";
-            this.colEstado_3.FieldName = "Estado";
-            this.colEstado_3.Name = "colEstado_3";
-            this.colEstado_3.Visible = true;
-            this.colEstado_3.VisibleIndex = 2;
-            this.colEstado_3.Width = 214;
-            // 
-            // colId
-            // 
-            this.colId.Caption = "Código";
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
-            this.colId.Visible = true;
-            this.colId.VisibleIndex = 1;
-            this.colId.Width = 212;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 10);
+            this.label2.Location = new System.Drawing.Point(13, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 14;
             this.label2.Text = "Sucursal:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Estado Aprobacion";
             // 
             // gridControlConsulta
             // 
             this.gridControlConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlConsulta.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlConsulta.Location = new System.Drawing.Point(0, 0);
             this.gridControlConsulta.MainView = this.gridViewConsulta;
+            this.gridControlConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlConsulta.Name = "gridControlConsulta";
             this.gridControlConsulta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbProveedor_grid,
@@ -366,8 +303,8 @@
             this.cmb_EstadoAproSC,
             this.cmb_EstadoPreAprob,
             this.cmb_OrdenCompra,
-            this.cmbImpuesto_Iva});
-            this.gridControlConsulta.Size = new System.Drawing.Size(1122, 304);
+            this.cmb_impuesto});
+            this.gridControlConsulta.Size = new System.Drawing.Size(1564, 489);
             this.gridControlConsulta.TabIndex = 0;
             this.gridControlConsulta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewConsulta});
@@ -377,8 +314,10 @@
             this.gridViewConsulta.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand1,
             this.gridBand2,
+            this.gridBand5,
             this.gridBand4,
-            this.gridBand3});
+            this.gridBand3,
+            this.gridBand6});
             this.gridViewConsulta.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.colcmb_Estado_AproSC,
             this.colcmb_Estado_PreApro,
@@ -436,7 +375,9 @@
             this.colcant_solicitada,
             this.coldo_total,
             this.colIdCodImpuesto_Iva,
-            this.colStock});
+            this.colStock,
+            this.col_Precio_minimo});
+            this.gridViewConsulta.CustomizationFormBounds = new System.Drawing.Rectangle(954, 399, 222, 214);
             this.gridViewConsulta.GridControl = this.gridControlConsulta;
             this.gridViewConsulta.GroupCount = 1;
             this.gridViewConsulta.Name = "gridViewConsulta";
@@ -445,6 +386,7 @@
             this.gridViewConsulta.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewConsulta.OptionsView.ShowAutoFilterRow = true;
             this.gridViewConsulta.OptionsView.ShowFooter = true;
+            this.gridViewConsulta.OptionsView.ShowGroupPanel = false;
             this.gridViewConsulta.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colReferencia, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridViewConsulta.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewConsulta_RowClick);
@@ -493,7 +435,8 @@
             this.gridBand1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.OptionsBand.AllowMove = false;
-            this.gridBand1.Width = 405;
+            this.gridBand1.OptionsBand.FixedWidth = true;
+            this.gridBand1.Width = 264;
             // 
             // colChecked_Estado
             // 
@@ -502,7 +445,7 @@
             this.colChecked_Estado.Name = "colChecked_Estado";
             this.colChecked_Estado.OptionsColumn.AllowEdit = false;
             this.colChecked_Estado.Visible = true;
-            this.colChecked_Estado.Width = 60;
+            this.colChecked_Estado.Width = 41;
             // 
             // colIdSolicitudCompra
             // 
@@ -511,7 +454,7 @@
             this.colIdSolicitudCompra.Name = "colIdSolicitudCompra";
             this.colIdSolicitudCompra.OptionsColumn.AllowEdit = false;
             this.colIdSolicitudCompra.Visible = true;
-            this.colIdSolicitudCompra.Width = 63;
+            this.colIdSolicitudCompra.Width = 40;
             // 
             // colcmb_Estado_AproSC
             // 
@@ -520,6 +463,7 @@
             this.colcmb_Estado_AproSC.FieldName = "IdEstadoAprobacion";
             this.colcmb_Estado_AproSC.Name = "colcmb_Estado_AproSC";
             this.colcmb_Estado_AproSC.Visible = true;
+            this.colcmb_Estado_AproSC.Width = 48;
             // 
             // cmb_EstadoAproSC
             // 
@@ -553,7 +497,7 @@
             this.colcmb_Estado_PreApro.Name = "colcmb_Estado_PreApro";
             this.colcmb_Estado_PreApro.OptionsColumn.ReadOnly = true;
             this.colcmb_Estado_PreApro.Visible = true;
-            this.colcmb_Estado_PreApro.Width = 86;
+            this.colcmb_Estado_PreApro.Width = 55;
             // 
             // cmb_EstadoPreAprob
             // 
@@ -681,7 +625,7 @@
             this.colSolicitante.FieldName = "Solicitante";
             this.colSolicitante.Name = "colSolicitante";
             this.colSolicitante.Visible = true;
-            this.colSolicitante.Width = 121;
+            this.colSolicitante.Width = 80;
             // 
             // coldepartamento
             // 
@@ -778,19 +722,22 @@
             this.gridBand2.Columns.Add(this.colIco1_editar);
             this.gridBand2.Columns.Add(this.colIco2_insertar);
             this.gridBand2.Columns.Add(this.colSaldo_cant_SolCom);
-            this.gridBand2.Columns.Add(this.colcant_solicitada);
+            this.gridBand2.Columns.Add(this.col_Precio_minimo);
             this.gridBand2.Columns.Add(this.colStock);
+            this.gridBand2.Columns.Add(this.colcant_solicitada);
             this.gridBand2.Columns.Add(this.colcant_ing_SolCom);
             this.gridBand2.Columns.Add(this.col_do_precioCompra);
             this.gridBand2.Columns.Add(this.coldo_porc_des);
             this.gridBand2.Columns.Add(this.coldo_descuento);
             this.gridBand2.Columns.Add(this.coldo_subtotal);
+            this.gridBand2.Columns.Add(this.colIdCodImpuesto_Iva);
             this.gridBand2.Columns.Add(this.coldo_iva);
             this.gridBand2.Columns.Add(this.coldo_total);
             this.gridBand2.Columns.Add(this.coldo_observacion);
             this.gridBand2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 1326;
+            this.gridBand2.OptionsBand.FixedWidth = true;
+            this.gridBand2.Width = 782;
             // 
             // colcmbProveedor_grid
             // 
@@ -799,7 +746,7 @@
             this.colcmbProveedor_grid.FieldName = "IdProveedor";
             this.colcmbProveedor_grid.Name = "colcmbProveedor_grid";
             this.colcmbProveedor_grid.Visible = true;
-            this.colcmbProveedor_grid.Width = 147;
+            this.colcmbProveedor_grid.Width = 91;
             // 
             // cmbProveedor_grid
             // 
@@ -855,6 +802,7 @@
             this.colIdUnidadMedida.FieldName = "IdUnidadMedida";
             this.colIdUnidadMedida.Name = "colIdUnidadMedida";
             this.colIdUnidadMedida.Visible = true;
+            this.colIdUnidadMedida.Width = 45;
             // 
             // cmbUniMedida_grid
             // 
@@ -909,7 +857,7 @@
             this.colNomProducto.Name = "colNomProducto";
             this.colNomProducto.OptionsColumn.AllowEdit = false;
             this.colNomProducto.Visible = true;
-            this.colNomProducto.Width = 170;
+            this.colNomProducto.Width = 105;
             // 
             // colIdPunto_cargo_grid
             // 
@@ -919,8 +867,7 @@
             this.colIdPunto_cargo_grid.Name = "colIdPunto_cargo_grid";
             this.colIdPunto_cargo_grid.OptionsColumn.AllowEdit = false;
             this.colIdPunto_cargo_grid.OptionsColumn.ReadOnly = true;
-            this.colIdPunto_cargo_grid.Visible = true;
-            this.colIdPunto_cargo_grid.Width = 118;
+            this.colIdPunto_cargo_grid.Width = 73;
             // 
             // cmbIdPunto_cargo_grid
             // 
@@ -981,7 +928,7 @@
             this.colIco1_editar.OptionsColumn.ReadOnly = true;
             this.colIco1_editar.OptionsColumn.ShowCaption = false;
             this.colIco1_editar.Visible = true;
-            this.colIco1_editar.Width = 44;
+            this.colIco1_editar.Width = 26;
             // 
             // repositoryItemPictureEdit2
             // 
@@ -998,7 +945,7 @@
             this.colIco2_insertar.OptionsColumn.ReadOnly = true;
             this.colIco2_insertar.OptionsColumn.ShowCaption = false;
             this.colIco2_insertar.Visible = true;
-            this.colIco2_insertar.Width = 45;
+            this.colIco2_insertar.Width = 26;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -1012,6 +959,21 @@
             this.colSaldo_cant_SolCom.OptionsColumn.AllowEdit = false;
             this.colSaldo_cant_SolCom.Width = 38;
             // 
+            // col_Precio_minimo
+            // 
+            this.col_Precio_minimo.Caption = "Precio min.";
+            this.col_Precio_minimo.FieldName = "precio_minimo";
+            this.col_Precio_minimo.Name = "col_Precio_minimo";
+            this.col_Precio_minimo.OptionsColumn.AllowEdit = false;
+            this.col_Precio_minimo.Width = 54;
+            // 
+            // colStock
+            // 
+            this.colStock.Caption = "Stock";
+            this.colStock.FieldName = "Stock";
+            this.colStock.Name = "colStock";
+            this.colStock.Width = 54;
+            // 
             // colcant_solicitada
             // 
             this.colcant_solicitada.Caption = "Cant. Solicitada";
@@ -1020,7 +982,7 @@
             this.colcant_solicitada.Name = "colcant_solicitada";
             this.colcant_solicitada.OptionsColumn.AllowEdit = false;
             this.colcant_solicitada.Visible = true;
-            this.colcant_solicitada.Width = 85;
+            this.colcant_solicitada.Width = 52;
             // 
             // repositoryItemTextEdit1
             // 
@@ -1036,7 +998,7 @@
             this.colcant_ing_SolCom.FieldName = "cant_ing_SolCom";
             this.colcant_ing_SolCom.Name = "colcant_ing_SolCom";
             this.colcant_ing_SolCom.Visible = true;
-            this.colcant_ing_SolCom.Width = 80;
+            this.colcant_ing_SolCom.Width = 48;
             // 
             // repositoryItemTextEdit2
             // 
@@ -1052,7 +1014,7 @@
             this.col_do_precioCompra.FieldName = "do_precioCompra";
             this.col_do_precioCompra.Name = "col_do_precioCompra";
             this.col_do_precioCompra.Visible = true;
-            this.col_do_precioCompra.Width = 72;
+            this.col_do_precioCompra.Width = 44;
             // 
             // coldo_porc_des
             // 
@@ -1061,7 +1023,7 @@
             this.coldo_porc_des.FieldName = "do_porc_des";
             this.coldo_porc_des.Name = "coldo_porc_des";
             this.coldo_porc_des.Visible = true;
-            this.coldo_porc_des.Width = 73;
+            this.coldo_porc_des.Width = 44;
             // 
             // coldo_descuento
             // 
@@ -1070,7 +1032,7 @@
             this.coldo_descuento.Name = "coldo_descuento";
             this.coldo_descuento.OptionsColumn.AllowEdit = false;
             this.coldo_descuento.Visible = true;
-            this.coldo_descuento.Width = 80;
+            this.coldo_descuento.Width = 48;
             // 
             // coldo_subtotal
             // 
@@ -1079,7 +1041,64 @@
             this.coldo_subtotal.Name = "coldo_subtotal";
             this.coldo_subtotal.OptionsColumn.AllowEdit = false;
             this.coldo_subtotal.Visible = true;
-            this.coldo_subtotal.Width = 97;
+            this.coldo_subtotal.Width = 59;
+            // 
+            // colIdCodImpuesto_Iva
+            // 
+            this.colIdCodImpuesto_Iva.Caption = "%Iva";
+            this.colIdCodImpuesto_Iva.ColumnEdit = this.cmb_impuesto;
+            this.colIdCodImpuesto_Iva.FieldName = "IdCod_Impuesto_Iva";
+            this.colIdCodImpuesto_Iva.Name = "colIdCodImpuesto_Iva";
+            this.colIdCodImpuesto_Iva.Visible = true;
+            // 
+            // cmb_impuesto
+            // 
+            this.cmb_impuesto.AutoHeight = false;
+            this.cmb_impuesto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_impuesto.DisplayMember = "nom_impuesto";
+            this.cmb_impuesto.Name = "cmb_impuesto";
+            this.cmb_impuesto.ValueMember = "IdCod_Impuesto";
+            this.cmb_impuesto.View = this.repositoryItemSearchLookUpEdit1View;
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6});
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "ID";
+            this.gridColumn4.FieldName = "IdCod_Impuesto";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 317;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Impuesto";
+            this.gridColumn5.FieldName = "nom_impuesto";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 0;
+            this.gridColumn5.Width = 1084;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Porcentaje";
+            this.gridColumn6.FieldName = "porcentaje";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 1;
+            this.gridColumn6.Width = 333;
             // 
             // coldo_iva
             // 
@@ -1088,7 +1107,7 @@
             this.coldo_iva.Name = "coldo_iva";
             this.coldo_iva.OptionsColumn.AllowEdit = false;
             this.coldo_iva.Visible = true;
-            this.coldo_iva.Width = 89;
+            this.coldo_iva.Width = 54;
             // 
             // coldo_total
             // 
@@ -1098,7 +1117,7 @@
             this.coldo_total.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.coldo_total.Visible = true;
-            this.coldo_total.Width = 62;
+            this.coldo_total.Width = 65;
             // 
             // coldo_observacion
             // 
@@ -1106,6 +1125,12 @@
             this.coldo_observacion.FieldName = "do_observacion";
             this.coldo_observacion.Name = "coldo_observacion";
             this.coldo_observacion.Width = 99;
+            // 
+            // gridBand5
+            // 
+            this.gridBand5.Caption = "Histórico";
+            this.gridBand5.Name = "gridBand5";
+            this.gridBand5.Visible = false;
             // 
             // gridBand4
             // 
@@ -1249,64 +1274,17 @@
             this.colReferencia.Visible = true;
             this.colReferencia.Width = 104;
             // 
+            // gridBand6
+            // 
+            this.gridBand6.Caption = "gridBand6";
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.Visible = false;
+            // 
             // colcant_ing_SolCom_AUX
             // 
             this.colcant_ing_SolCom_AUX.FieldName = "cant_ing_SolCom_AUX";
             this.colcant_ing_SolCom_AUX.Name = "colcant_ing_SolCom_AUX";
             this.colcant_ing_SolCom_AUX.Width = 120;
-            // 
-            // colIdCodImpuesto_Iva
-            // 
-            this.colIdCodImpuesto_Iva.Caption = "%Iva";
-            this.colIdCodImpuesto_Iva.Name = "colIdCodImpuesto_Iva";
-            this.colIdCodImpuesto_Iva.Visible = true;
-            // 
-            // cmbImpuesto_Iva
-            // 
-            this.cmbImpuesto_Iva.AutoHeight = false;
-            this.cmbImpuesto_Iva.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbImpuesto_Iva.DisplayMember = "nom_impuesto";
-            this.cmbImpuesto_Iva.Name = "cmbImpuesto_Iva";
-            this.cmbImpuesto_Iva.ValueMember = "IdCod_Impuesto";
-            this.cmbImpuesto_Iva.View = this.repositoryItemSearchLookUpEdit1View;
-            // 
-            // repositoryItemSearchLookUpEdit1View
-            // 
-            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colnom_impuesto,
-            this.colporcentaje,
-            this.colIdCod_Impuesto_cmb});
-            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
-            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // colnom_impuesto
-            // 
-            this.colnom_impuesto.Caption = "Impuesto";
-            this.colnom_impuesto.FieldName = "nom_impuesto";
-            this.colnom_impuesto.Name = "colnom_impuesto";
-            this.colnom_impuesto.Visible = true;
-            this.colnom_impuesto.VisibleIndex = 0;
-            this.colnom_impuesto.Width = 459;
-            // 
-            // colporcentaje
-            // 
-            this.colporcentaje.Caption = "porcentaje";
-            this.colporcentaje.FieldName = "porcentaje";
-            this.colporcentaje.Name = "colporcentaje";
-            this.colporcentaje.Visible = true;
-            this.colporcentaje.VisibleIndex = 1;
-            this.colporcentaje.Width = 198;
-            // 
-            // colIdCod_Impuesto_cmb
-            // 
-            this.colIdCod_Impuesto_cmb.Caption = "IdCod_Impuesto";
-            this.colIdCod_Impuesto_cmb.Name = "colIdCod_Impuesto_cmb";
-            this.colIdCod_Impuesto_cmb.Visible = true;
-            this.colIdCod_Impuesto_cmb.VisibleIndex = 2;
-            this.colIdCod_Impuesto_cmb.Width = 199;
             // 
             // imageListAgregarEdit
             // 
@@ -1319,6 +1297,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1329,130 +1308,49 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainerDetalle);
-            this.splitContainer1.Size = new System.Drawing.Size(1122, 433);
-            this.splitContainer1.SplitterDistance = 96;
+            this.splitContainer1.Size = new System.Drawing.Size(1564, 690);
+            this.splitContainer1.SplitterDistance = 152;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 19;
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.cmb_Estado_OC);
-            this.panelControl1.Controls.Add(this.label5);
-            this.panelControl1.Controls.Add(this.label6);
-            this.panelControl1.Controls.Add(this.cmbEstPreAproSC);
             this.panelControl1.Controls.Add(this.cmbComprador);
             this.panelControl1.Controls.Add(this.label7);
             this.panelControl1.Controls.Add(this.btnBuscar);
-            this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Controls.Add(this.cmbSucursal);
-            this.panelControl1.Controls.Add(this.cmbEstAproSC);
             this.panelControl1.Controls.Add(this.groupBox2);
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1122, 96);
+            this.panelControl1.Size = new System.Drawing.Size(1564, 152);
             this.panelControl1.TabIndex = 1;
-            // 
-            // cmb_Estado_OC
-            // 
-            this.cmb_Estado_OC.FormattingEnabled = true;
-            this.cmb_Estado_OC.Items.AddRange(new object[] {
-            "Sin Orden de Compra",
-            "Con Orden de Compra",
-            "Todas"});
-            this.cmb_Estado_OC.Location = new System.Drawing.Point(580, 67);
-            this.cmb_Estado_OC.Name = "cmb_Estado_OC";
-            this.cmb_Estado_OC.Size = new System.Drawing.Size(121, 21);
-            this.cmb_Estado_OC.TabIndex = 24;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(577, 51);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 13);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Estado/Orden de Compra";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(385, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(113, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Estado PreAprobacion";
-            // 
-            // cmbEstPreAproSC
-            // 
-            this.cmbEstPreAproSC.Location = new System.Drawing.Point(388, 67);
-            this.cmbEstPreAproSC.Name = "cmbEstPreAproSC";
-            this.cmbEstPreAproSC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbEstPreAproSC.Properties.DisplayMember = "descripcion";
-            this.cmbEstPreAproSC.Properties.ValueMember = "Id";
-            this.cmbEstPreAproSC.Properties.View = this.gridView6;
-            this.cmbEstPreAproSC.Size = new System.Drawing.Size(186, 20);
-            this.cmbEstPreAproSC.TabIndex = 22;
-            // 
-            // gridView6
-            // 
-            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3});
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Descripción";
-            this.gridColumn1.FieldName = "descripcion";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 754;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Estado";
-            this.gridColumn2.FieldName = "Estado";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 2;
-            this.gridColumn2.Width = 214;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Código";
-            this.gridColumn3.FieldName = "Id";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 212;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(736, 49);
+            this.btnBuscar.Location = new System.Drawing.Point(621, 46);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(114, 38);
+            this.btnBuscar.Size = new System.Drawing.Size(152, 47);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // cmbSucursal
             // 
-            this.cmbSucursal.Location = new System.Drawing.Point(66, 5);
+            this.cmbSucursal.Location = new System.Drawing.Point(88, 6);
+            this.cmbSucursal.Margin = new System.Windows.Forms.Padding(5);
             this.cmbSucursal.Name = "cmbSucursal";
-            this.cmbSucursal.Size = new System.Drawing.Size(298, 22);
+            this.cmbSucursal.Size = new System.Drawing.Size(397, 27);
             this.cmbSucursal.TabIndex = 19;
             // 
             // splitContainerDetalle
             // 
             this.splitContainerDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerDetalle.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerDetalle.Name = "splitContainerDetalle";
             this.splitContainerDetalle.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1463,8 +1361,9 @@
             // splitContainerDetalle.Panel2
             // 
             this.splitContainerDetalle.Panel2.Controls.Add(this.gridControlConsulta);
-            this.splitContainerDetalle.Size = new System.Drawing.Size(1122, 333);
-            this.splitContainerDetalle.SplitterDistance = 25;
+            this.splitContainerDetalle.Size = new System.Drawing.Size(1564, 533);
+            this.splitContainerDetalle.SplitterDistance = 39;
+            this.splitContainerDetalle.SplitterWidth = 5;
             this.splitContainerDetalle.TabIndex = 2;
             // 
             // toolStripMenuGrid
@@ -1473,7 +1372,7 @@
             this.toolStripButtonImprimir});
             this.toolStripMenuGrid.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenuGrid.Name = "toolStripMenuGrid";
-            this.toolStripMenuGrid.Size = new System.Drawing.Size(1122, 25);
+            this.toolStripMenuGrid.Size = new System.Drawing.Size(1564, 27);
             this.toolStripMenuGrid.TabIndex = 0;
             this.toolStripMenuGrid.Text = "toolStrip1";
             // 
@@ -1482,7 +1381,7 @@
             this.toolStripButtonImprimir.Image = global::Core.Erp.Winform.Properties.Resources.imprimir;
             this.toolStripButtonImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonImprimir.Name = "toolStripButtonImprimir";
-            this.toolStripButtonImprimir.Size = new System.Drawing.Size(98, 22);
+            this.toolStripButtonImprimir.Size = new System.Drawing.Size(118, 24);
             this.toolStripButtonImprimir.Text = "Imprimir Grid";
             this.toolStripButtonImprimir.Click += new System.EventHandler(this.btnImprimirGrid_Click);
             // 
@@ -1513,8 +1412,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1122, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1564, 36);
             this.ucGe_Menu.TabIndex = 20;
             this.ucGe_Menu.Visible_bntAnular = false;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -1548,43 +1448,36 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 462);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 726);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1122, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1564, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 22;
             // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.splitContainer1);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 29);
+            this.panelMain.Location = new System.Drawing.Point(0, 36);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1122, 433);
+            this.panelMain.Size = new System.Drawing.Size(1564, 690);
             this.panelMain.TabIndex = 23;
-            // 
-            // colStock
-            // 
-            this.colStock.Caption = "Stock";
-            this.colStock.FieldName = "Stock";
-            this.colStock.Name = "colStock";
-            this.colStock.Visible = true;
-            this.colStock.Width = 89;
             // 
             // FrmCom_Aprob_Gene_Orden_Compra_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 488);
+            this.ClientSize = new System.Drawing.Size(1564, 758);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.ucGe_Menu);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCom_Aprob_Gene_Orden_Compra_Mant";
             this.Text = "Mantenimiento / Aprobación y Generación de Ordenes de Compras";
             this.Load += new System.EventHandler(this.FrmCom_Aprob_Gene_Orden_Compra_Mant_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstAproSC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlConsulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewConsulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_EstadoAproSC)).EndInit();
@@ -1600,13 +1493,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_impuesto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMotivo_grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_centro_costo_grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_sub_centro_grid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbImpuesto_Iva)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1614,8 +1507,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstPreAproSC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             this.splitContainerDetalle.Panel1.ResumeLayout(false);
             this.splitContainerDetalle.Panel1.PerformLayout();
             this.splitContainerDetalle.Panel2.ResumeLayout(false);
@@ -1635,14 +1526,8 @@
         private System.Windows.Forms.DateTimePicker dtpFechaFin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbEstAproSC;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit2View;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private DevExpress.XtraGrid.GridControl gridControlConsulta;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colEstado_3;
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbProveedor_grid;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colIdProveedor_grid;
@@ -1739,30 +1624,25 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_EstadoPreAprob;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colcmb_OrdenCompra;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_OrdenCompra;
-        private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbEstPreAproSC;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private System.Windows.Forms.SplitContainer splitContainerDetalle;
         private System.Windows.Forms.ToolStrip toolStripMenuGrid;
         private System.Windows.Forms.ToolStripButton toolStripButtonImprimir;
         private Controles.UCGe_BarraEstadoInferior_Forms ucGe_BarraEstadoInferior_Forms1;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.ComboBox cmb_Estado_OC;
-        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldo_total;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colIdCodImpuesto_Iva;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colStock;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coldo_total;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn col_Precio_minimo;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colIdCodImpuesto_Iva;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbImpuesto_Iva;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_impuesto;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
-        private DevExpress.XtraGrid.Columns.GridColumn colnom_impuesto;
-        private DevExpress.XtraGrid.Columns.GridColumn colporcentaje;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdCod_Impuesto_cmb;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colStock;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

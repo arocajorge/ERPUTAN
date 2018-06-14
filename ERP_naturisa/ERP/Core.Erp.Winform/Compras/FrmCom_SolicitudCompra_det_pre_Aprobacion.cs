@@ -161,7 +161,7 @@ namespace Core.Erp.Winform.Compras
 
                     foreach (var item in BindList_DetSolCom)
                     {
-                        if(item.Checked==true)
+                        if(item.Checked==true || item.Checked_REPRO == true)
                         {
                             com_solicitud_compra_det_pre_aprobacion_Info info = new com_solicitud_compra_det_pre_aprobacion_Info();
 
@@ -211,7 +211,7 @@ namespace Core.Erp.Winform.Compras
                 string mensaje = "";
                 listSolicitudxItems = new List<vwcom_solicitud_compra_x_items_con_saldos_Info>();
                 bus_solicitudxItems = new vwcom_solicitud_compra_x_items_con_saldos_Bus();
-                listSolicitudxItems = bus_solicitudxItems.Get_List_SoliComxItemSaldos(param.IdEmpresa, dtpFecha_desde.Value, dtpFecha_Hasta.Value, Convert.ToString(cmbEstadoAprobacion.EditValue), Convert.ToString(cmbEstadoPreAprobacion.EditValue), ucGe_Sucursal_combo1.get_SucursalInfo().IdSucursal, 0);
+                listSolicitudxItems = bus_solicitudxItems.Get_List_SoliComxItemSaldos(param.IdEmpresa, dtpFecha_desde.Value, dtpFecha_Hasta.Value, "PEN_SOL", "PEN_SOL", ucGe_Sucursal_combo1.get_SucursalInfo().IdSucursal, 0);
 
                 if (listSolicitudxItems.Count > 0)
                 {
@@ -268,12 +268,6 @@ namespace Core.Erp.Winform.Compras
                 List<cp_proveedor_Info> listProveedor = new List<cp_proveedor_Info>();
                 listProveedor = bus_proveedor.Get_List_proveedor(param.IdEmpresa);
                 cmbProveedor_grid.DataSource = listProveedor;
-
-                cmbEstadoAprobacion.Properties.DataSource = listEstadoAprob;
-                cmbEstadoAprobacion.EditValue = "TODOS";
-
-                cmbEstadoPreAprobacion.Properties.DataSource = listEstadoAprob;
-                cmbEstadoPreAprobacion.EditValue = "PEN_SOL";
 
                 ucGe_Sucursal_combo1.set_SucursalInfo(param.IdSucursal);
 
@@ -393,17 +387,36 @@ namespace Core.Erp.Winform.Compras
 
                     if (e.HitInfo.Column.FieldName == "Checked")
                     {
-                        if ((Boolean)gridViewSolicitud_det_pre_Aprobacion.GetFocusedRowCellValue(colChecked)) //verdadero
+                        if ((Boolean)gridViewSolicitud_det_pre_Aprobacion.GetFocusedRowCellValue(colChecked_apro)) //verdadero
                         {
-                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colChecked, false);
-                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colIdEstadoAprobacion, row.IdEstadoAprobacion_AUX);
+                            
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colChecked_apro, false);
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colIdEstadoAprobacion, row.IdEstadoAprobacion_AUX);                            
 
                             return;
                         }
                         else //false
                         {
-                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colChecked, true);
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(col_checked_repro, false);
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colChecked_apro, true);
                             gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colIdEstadoAprobacion, "APR_SOL");
+                        }
+                    }
+
+                    if (e.HitInfo.Column.FieldName == "Checked_REPRO")
+                    {
+                        if ((Boolean)gridViewSolicitud_det_pre_Aprobacion.GetFocusedRowCellValue(col_checked_repro)) //verdadero
+                        {                            
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(col_checked_repro, false);
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colIdEstadoAprobacion, row.IdEstadoAprobacion_AUX);                            
+                            return;
+                        }
+                        else //false
+                        {
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colChecked_apro, false);
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(col_checked_repro, true);
+                            gridViewSolicitud_det_pre_Aprobacion.SetFocusedRowCellValue(colIdEstadoAprobacion, "REP_SOL");
+                            
                         }
                     }
                 }

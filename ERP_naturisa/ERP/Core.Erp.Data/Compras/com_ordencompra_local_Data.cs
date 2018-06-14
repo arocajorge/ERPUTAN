@@ -947,8 +947,18 @@ namespace Core.Erp.Data.Compras
                         contact.IdUsuarioUltAnu = Info.IdUsuarioUltAnu;
                         contact.MotivoAnulacion = Info.MotivoAnulacion;
                         contact.oc_observacion = Info.oc_observacion;
-
                         context.SaveChanges();
+
+                        var lst_solicitudes = context.com_ordencompra_local_det_x_com_solicitud_compra_det.Where(q => q.ocd_IdEmpresa == Info.IdEmpresa && q.ocd_IdSucursal == Info.IdSucursal && q.ocd_IdOrdenCompra == Info.IdOrdenCompra).ToList();
+                        foreach (var item in lst_solicitudes)
+                        {
+                            var entity_sol = context.com_solicitud_compra_det_aprobacion.Where(q => q.IdEmpresa == item.scd_IdEmpresa && q.IdSucursal_SC == item.scd_IdSucursal && q.IdSolicitudCompra == item.scd_IdSolicitudCompra).FirstOrDefault();
+                            if(entity_sol != null)
+                                entity_sol.IdEstadoAprobacion = "PEN_SOL";
+                        }
+                        context.SaveChanges();
+
+                        context.Database.ExecuteSqlCommand("DELETE com_ordencompra_local_det_x_com_solicitud_compra_det where ocd_IdEmpresa = "+Info.IdEmpresa+" and ocd_IdSucursal = "+Info.IdSucursal+" and ocd_IdOrdenCompra = "+Info.IdOrdenCompra);
 
                         msg = "Se ha procedido a anular el registro de Orden Compra #: " + Info.IdOrdenCompra.ToString() + " exitosamente";
                     }

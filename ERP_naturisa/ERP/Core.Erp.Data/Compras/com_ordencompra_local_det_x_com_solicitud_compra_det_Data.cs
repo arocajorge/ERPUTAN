@@ -110,33 +110,26 @@ namespace Core.Erp.Data.Compras
       {
           try
           {
-              List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> List = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
+              List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> List;
 
-              EntitiesCompras oEntities = new EntitiesCompras();
-
-
-              var select = from q in oEntities.com_ordencompra_local_det_x_com_solicitud_compra_det
-                           where q.ocd_IdEmpresa == IdEmpresa 
-                           select q;
-
-              foreach (var item in select)
+              using (EntitiesCompras oEntities = new EntitiesCompras())
               {
-                  com_ordencompra_local_det_x_com_solicitud_compra_det_Info info = new com_ordencompra_local_det_x_com_solicitud_compra_det_Info();
+                  List = (from q in oEntities.com_ordencompra_local_det_x_com_solicitud_compra_det
+                          where q.ocd_IdEmpresa == IdEmpresa
+                          select new com_ordencompra_local_det_x_com_solicitud_compra_det_Info
+                          {
+                              ocd_IdEmpresa = q.ocd_IdEmpresa,
+                              ocd_IdSucursal = q.ocd_IdSucursal,
+                              ocd_IdOrdenCompra = q.ocd_IdOrdenCompra,
+                              ocd_Secuencia = q.ocd_Secuencia,
 
-                  info.ocd_IdEmpresa = item.ocd_IdEmpresa;
-                  info.ocd_IdSucursal = item.ocd_IdSucursal;
-                  info.ocd_IdOrdenCompra = item.ocd_IdOrdenCompra;
-                  info.ocd_Secuencia = item.ocd_Secuencia;
+                              scd_IdEmpresa = q.scd_IdEmpresa,
+                              scd_IdSucursal = q.scd_IdSucursal,
+                              scd_IdSolicitudCompra = q.scd_IdSolicitudCompra,
+                              scd_Secuencia = q.scd_Secuencia,
 
-                  info.scd_IdEmpresa = item.scd_IdEmpresa;
-                  info.scd_IdSucursal = item.scd_IdSucursal;
-                  info.scd_IdSolicitudCompra = item.scd_IdSolicitudCompra;
-                  info.scd_Secuencia = item.scd_Secuencia;
-
-                  info.observacion = item.observacion;
-
-
-                  List.Add(info);
+                              observacion = q.observacion,
+                          }).ToList();
               }
               return List;
 

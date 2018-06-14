@@ -55,14 +55,14 @@
             this.consultarToolStripMenuItem});
             this.MenuAcciones.Name = "MenuAcciones";
             this.MenuAcciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuAcciones.Size = new System.Drawing.Size(126, 70);
+            this.MenuAcciones.Size = new System.Drawing.Size(143, 76);
             this.MenuAcciones.Text = "Acciones";
             // 
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
@@ -70,7 +70,7 @@
             // 
             this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -78,7 +78,7 @@
             // 
             this.consultarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarToolStripMenuItem.Image")));
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
@@ -93,22 +93,20 @@
             // 
             // cmb_Acciones
             // 
-            this.cmb_Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Acciones.ImageIndex = 1;
             this.cmb_Acciones.ImageList = this.imageList;
-            this.cmb_Acciones.Location = new System.Drawing.Point(356, -3);
+            this.cmb_Acciones.Location = new System.Drawing.Point(368, -2);
+            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Acciones.Name = "cmb_Acciones";
             this.cmb_Acciones.ShowArrowButton = false;
-            this.cmb_Acciones.Size = new System.Drawing.Size(36, 26);
+            this.cmb_Acciones.Size = new System.Drawing.Size(48, 32);
             this.cmb_Acciones.TabIndex = 111;
             this.cmb_Acciones.Click += new System.EventHandler(this.cmb_Acciones_Click);
             // 
             // cmb_Departamento
             // 
-            this.cmb_Departamento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Departamento.Location = new System.Drawing.Point(3, 3);
+            this.cmb_Departamento.Location = new System.Drawing.Point(4, 4);
+            this.cmb_Departamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Departamento.Name = "cmb_Departamento";
             this.cmb_Departamento.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.cmb_Departamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -116,7 +114,7 @@
             this.cmb_Departamento.Properties.DisplayMember = "nom_departamento";
             this.cmb_Departamento.Properties.ValueMember = "IdDepartamento";
             this.cmb_Departamento.Properties.View = this.gridView1;
-            this.cmb_Departamento.Size = new System.Drawing.Size(347, 20);
+            this.cmb_Departamento.Size = new System.Drawing.Size(356, 22);
             this.cmb_Departamento.TabIndex = 110;
             this.cmb_Departamento.EditValueChanged += new System.EventHandler(this.cmb_Departamento_EditValueChanged);
             this.cmb_Departamento.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_Departamento_Validating);
@@ -158,12 +156,13 @@
             // 
             // UCCom_Departamento_cmb
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_Acciones);
             this.Controls.Add(this.cmb_Departamento);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCCom_Departamento_cmb";
-            this.Size = new System.Drawing.Size(395, 28);
+            this.Size = new System.Drawing.Size(426, 34);
             this.Load += new System.EventHandler(this.UCCom_Departamento_cmb_Load);
             this.MenuAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Departamento.Properties)).EndInit();

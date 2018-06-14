@@ -30,19 +30,9 @@
         {
             this.ucGe_Menu_Superior_Mant = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.gbFiltroBusqueda = new System.Windows.Forms.GroupBox();
-            this.cmbEstadoPreAprobacion = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label2 = new System.Windows.Forms.Label();
             this.ucGe_Sucursal_combo1 = new Core.Erp.Winform.Controles.UCGe_Sucursal_combo();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.cmbEstadoAprobacion = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coldescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblestadoAprob = new System.Windows.Forms.Label();
             this.dtpFecha_Hasta = new System.Windows.Forms.DateTimePicker();
             this.lblFHasta = new System.Windows.Forms.Label();
             this.lblFdesde = new System.Windows.Forms.Label();
@@ -63,7 +53,7 @@
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coldescripcion_cmb = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdCatalogocompra = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colChecked = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colChecked_apro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colnom_Sucursal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfecha = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,19 +74,16 @@
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_checked_repro = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gbFiltroBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoPreAprobacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoAprobacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSolicitud_det_pre_Aprobacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSolicitud_det_pre_Aprobacion)).BeginInit();
@@ -135,8 +122,9 @@
             this.ucGe_Menu_Superior_Mant.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Superior_Mant.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Superior_Mant.Name = "ucGe_Menu_Superior_Mant";
-            this.ucGe_Menu_Superior_Mant.Size = new System.Drawing.Size(1091, 29);
+            this.ucGe_Menu_Superior_Mant.Size = new System.Drawing.Size(1455, 36);
             this.ucGe_Menu_Superior_Mant.TabIndex = 0;
             this.ucGe_Menu_Superior_Mant.Visible_bntAnular = false;
             this.ucGe_Menu_Superior_Mant.Visible_bntAprobar = true;
@@ -167,212 +155,123 @@
             // 
             // gbFiltroBusqueda
             // 
-            this.gbFiltroBusqueda.Controls.Add(this.cmbEstadoPreAprobacion);
-            this.gbFiltroBusqueda.Controls.Add(this.label2);
             this.gbFiltroBusqueda.Controls.Add(this.ucGe_Sucursal_combo1);
             this.gbFiltroBusqueda.Controls.Add(this.label1);
             this.gbFiltroBusqueda.Controls.Add(this.btnBuscar);
-            this.gbFiltroBusqueda.Controls.Add(this.cmbEstadoAprobacion);
-            this.gbFiltroBusqueda.Controls.Add(this.lblestadoAprob);
             this.gbFiltroBusqueda.Controls.Add(this.dtpFecha_Hasta);
             this.gbFiltroBusqueda.Controls.Add(this.lblFHasta);
             this.gbFiltroBusqueda.Controls.Add(this.lblFdesde);
             this.gbFiltroBusqueda.Controls.Add(this.dtpFecha_desde);
             this.gbFiltroBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbFiltroBusqueda.Location = new System.Drawing.Point(0, 29);
+            this.gbFiltroBusqueda.Location = new System.Drawing.Point(0, 36);
+            this.gbFiltroBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.gbFiltroBusqueda.Name = "gbFiltroBusqueda";
-            this.gbFiltroBusqueda.Size = new System.Drawing.Size(1091, 118);
+            this.gbFiltroBusqueda.Padding = new System.Windows.Forms.Padding(4);
+            this.gbFiltroBusqueda.Size = new System.Drawing.Size(1455, 99);
             this.gbFiltroBusqueda.TabIndex = 1;
             this.gbFiltroBusqueda.TabStop = false;
             this.gbFiltroBusqueda.Text = "Filtro de Busqueda";
             // 
-            // cmbEstadoPreAprobacion
-            // 
-            this.cmbEstadoPreAprobacion.Location = new System.Drawing.Point(150, 73);
-            this.cmbEstadoPreAprobacion.Name = "cmbEstadoPreAprobacion";
-            this.cmbEstadoPreAprobacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbEstadoPreAprobacion.Properties.DisplayMember = "descripcion";
-            this.cmbEstadoPreAprobacion.Properties.ValueMember = "IdCatalogocompra";
-            this.cmbEstadoPreAprobacion.Properties.View = this.gridView3;
-            this.cmbEstadoPreAprobacion.Size = new System.Drawing.Size(367, 20);
-            this.cmbEstadoPreAprobacion.TabIndex = 10;
-            // 
-            // gridView3
-            // 
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn17,
-            this.gridColumn18});
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "codigo";
-            this.gridColumn17.FieldName = "IdCatalogocompra";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 0;
-            this.gridColumn17.Width = 118;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "Descripcion";
-            this.gridColumn18.FieldName = "descripcion";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 1;
-            this.gridColumn18.Width = 1062;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Estado de Pre Aprobacion:";
-            // 
             // ucGe_Sucursal_combo1
             // 
-            this.ucGe_Sucursal_combo1.Location = new System.Drawing.Point(150, 19);
+            this.ucGe_Sucursal_combo1.Location = new System.Drawing.Point(200, 23);
+            this.ucGe_Sucursal_combo1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Sucursal_combo1.Name = "ucGe_Sucursal_combo1";
-            this.ucGe_Sucursal_combo1.Size = new System.Drawing.Size(367, 22);
+            this.ucGe_Sucursal_combo1.Size = new System.Drawing.Size(489, 27);
             this.ucGe_Sucursal_combo1.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 28);
+            this.label1.Location = new System.Drawing.Point(24, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Sucursal";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(735, 14);
+            this.btnBuscar.Location = new System.Drawing.Point(980, 17);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(113, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(151, 39);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // cmbEstadoAprobacion
-            // 
-            this.cmbEstadoAprobacion.Location = new System.Drawing.Point(150, 47);
-            this.cmbEstadoAprobacion.Name = "cmbEstadoAprobacion";
-            this.cmbEstadoAprobacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbEstadoAprobacion.Properties.DisplayMember = "descripcion";
-            this.cmbEstadoAprobacion.Properties.ValueMember = "IdCatalogocompra";
-            this.cmbEstadoAprobacion.Properties.View = this.searchLookUpEdit1View;
-            this.cmbEstadoAprobacion.Size = new System.Drawing.Size(367, 20);
-            this.cmbEstadoAprobacion.TabIndex = 1;
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.Id,
-            this.coldescripcion});
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // Id
-            // 
-            this.Id.Caption = "codigo";
-            this.Id.FieldName = "IdCatalogocompra";
-            this.Id.Name = "Id";
-            this.Id.Visible = true;
-            this.Id.VisibleIndex = 0;
-            this.Id.Width = 118;
-            // 
-            // coldescripcion
-            // 
-            this.coldescripcion.Caption = "Descripcion";
-            this.coldescripcion.FieldName = "descripcion";
-            this.coldescripcion.Name = "coldescripcion";
-            this.coldescripcion.Visible = true;
-            this.coldescripcion.VisibleIndex = 1;
-            this.coldescripcion.Width = 1062;
-            // 
-            // lblestadoAprob
-            // 
-            this.lblestadoAprob.AutoSize = true;
-            this.lblestadoAprob.Location = new System.Drawing.Point(18, 49);
-            this.lblestadoAprob.Name = "lblestadoAprob";
-            this.lblestadoAprob.Size = new System.Drawing.Size(115, 13);
-            this.lblestadoAprob.TabIndex = 4;
-            this.lblestadoAprob.Text = "Estado de Aprobacion:";
-            // 
             // dtpFecha_Hasta
             // 
             this.dtpFecha_Hasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha_Hasta.Location = new System.Drawing.Point(592, 44);
+            this.dtpFecha_Hasta.Location = new System.Drawing.Point(789, 54);
+            this.dtpFecha_Hasta.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecha_Hasta.Name = "dtpFecha_Hasta";
-            this.dtpFecha_Hasta.Size = new System.Drawing.Size(116, 20);
+            this.dtpFecha_Hasta.Size = new System.Drawing.Size(153, 22);
             this.dtpFecha_Hasta.TabIndex = 3;
             // 
             // lblFHasta
             // 
             this.lblFHasta.AutoSize = true;
-            this.lblFHasta.Location = new System.Drawing.Point(545, 49);
+            this.lblFHasta.Location = new System.Drawing.Point(727, 60);
+            this.lblFHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFHasta.Name = "lblFHasta";
-            this.lblFHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblFHasta.Size = new System.Drawing.Size(49, 17);
             this.lblFHasta.TabIndex = 3;
             this.lblFHasta.Text = "Hasta:";
             // 
             // lblFdesde
             // 
             this.lblFdesde.AutoSize = true;
-            this.lblFdesde.Location = new System.Drawing.Point(545, 18);
+            this.lblFdesde.Location = new System.Drawing.Point(727, 22);
+            this.lblFdesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFdesde.Name = "lblFdesde";
-            this.lblFdesde.Size = new System.Drawing.Size(41, 13);
+            this.lblFdesde.Size = new System.Drawing.Size(53, 17);
             this.lblFdesde.TabIndex = 2;
             this.lblFdesde.Text = "Desde:";
             // 
             // dtpFecha_desde
             // 
             this.dtpFecha_desde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha_desde.Location = new System.Drawing.Point(592, 18);
+            this.dtpFecha_desde.Location = new System.Drawing.Point(789, 22);
+            this.dtpFecha_desde.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecha_desde.Name = "dtpFecha_desde";
-            this.dtpFecha_desde.Size = new System.Drawing.Size(116, 20);
+            this.dtpFecha_desde.Size = new System.Drawing.Size(153, 22);
             this.dtpFecha_desde.TabIndex = 2;
             // 
             // ucGe_BarraEstadoInferior_Forms1
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 439);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 540);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1091, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1455, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.gridControlSolicitud_det_pre_Aprobacion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 147);
+            this.panel1.Location = new System.Drawing.Point(0, 135);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1091, 292);
+            this.panel1.Size = new System.Drawing.Size(1455, 405);
             this.panel1.TabIndex = 3;
             // 
             // gridControlSolicitud_det_pre_Aprobacion
             // 
             this.gridControlSolicitud_det_pre_Aprobacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlSolicitud_det_pre_Aprobacion.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlSolicitud_det_pre_Aprobacion.Location = new System.Drawing.Point(0, 0);
             this.gridControlSolicitud_det_pre_Aprobacion.MainView = this.gridViewSolicitud_det_pre_Aprobacion;
+            this.gridControlSolicitud_det_pre_Aprobacion.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlSolicitud_det_pre_Aprobacion.Name = "gridControlSolicitud_det_pre_Aprobacion";
             this.gridControlSolicitud_det_pre_Aprobacion.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_Estado_Aprobacion_grid,
             this.cmbIdPunto_cargo_grid,
             this.cmbProveedor_grid});
-            this.gridControlSolicitud_det_pre_Aprobacion.Size = new System.Drawing.Size(1091, 292);
+            this.gridControlSolicitud_det_pre_Aprobacion.Size = new System.Drawing.Size(1455, 405);
             this.gridControlSolicitud_det_pre_Aprobacion.TabIndex = 0;
             this.gridControlSolicitud_det_pre_Aprobacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSolicitud_det_pre_Aprobacion});
@@ -388,7 +287,7 @@
             this.colNomProducto,
             this.coldo_Cantidad,
             this.colIdEstadoAprobacion,
-            this.colChecked,
+            this.colChecked_apro,
             this.colnom_Sucursal,
             this.colfecha,
             this.gridColumn1,
@@ -404,7 +303,8 @@
             this.gridColumn19,
             this.gridColumn20,
             this.gridColumn23,
-            this.gridColumn24});
+            this.gridColumn24,
+            this.col_checked_repro});
             this.gridViewSolicitud_det_pre_Aprobacion.GridControl = this.gridControlSolicitud_det_pre_Aprobacion;
             this.gridViewSolicitud_det_pre_Aprobacion.Name = "gridViewSolicitud_det_pre_Aprobacion";
             this.gridViewSolicitud_det_pre_Aprobacion.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -431,8 +331,8 @@
             this.colIdSolicitudCompra.OptionsColumn.AllowEdit = false;
             this.colIdSolicitudCompra.OptionsColumn.ReadOnly = true;
             this.colIdSolicitudCompra.Visible = true;
-            this.colIdSolicitudCompra.VisibleIndex = 2;
-            this.colIdSolicitudCompra.Width = 54;
+            this.colIdSolicitudCompra.VisibleIndex = 3;
+            this.colIdSolicitudCompra.Width = 64;
             // 
             // colSecuencia
             // 
@@ -452,8 +352,8 @@
             this.colNomProducto.OptionsColumn.AllowEdit = false;
             this.colNomProducto.OptionsColumn.ReadOnly = true;
             this.colNomProducto.Visible = true;
-            this.colNomProducto.VisibleIndex = 6;
-            this.colNomProducto.Width = 253;
+            this.colNomProducto.VisibleIndex = 7;
+            this.colNomProducto.Width = 305;
             // 
             // coldo_Cantidad
             // 
@@ -462,7 +362,7 @@
             this.coldo_Cantidad.Name = "coldo_Cantidad";
             this.coldo_Cantidad.Visible = true;
             this.coldo_Cantidad.VisibleIndex = 9;
-            this.coldo_Cantidad.Width = 92;
+            this.coldo_Cantidad.Width = 111;
             // 
             // colIdEstadoAprobacion
             // 
@@ -471,7 +371,8 @@
             this.colIdEstadoAprobacion.FieldName = "IdEstadoPreAprobacion";
             this.colIdEstadoAprobacion.Name = "colIdEstadoAprobacion";
             this.colIdEstadoAprobacion.Visible = true;
-            this.colIdEstadoAprobacion.VisibleIndex = 1;
+            this.colIdEstadoAprobacion.VisibleIndex = 2;
+            this.colIdEstadoAprobacion.Width = 90;
             // 
             // cmb_Estado_Aprobacion_grid
             // 
@@ -509,15 +410,15 @@
             this.colIdCatalogocompra.VisibleIndex = 1;
             this.colIdCatalogocompra.Width = 252;
             // 
-            // colChecked
+            // colChecked_apro
             // 
-            this.colChecked.Caption = "*";
-            this.colChecked.FieldName = "Checked";
-            this.colChecked.Name = "colChecked";
-            this.colChecked.OptionsColumn.AllowEdit = false;
-            this.colChecked.Visible = true;
-            this.colChecked.VisibleIndex = 0;
-            this.colChecked.Width = 29;
+            this.colChecked_apro.Caption = "A";
+            this.colChecked_apro.FieldName = "Checked";
+            this.colChecked_apro.Name = "colChecked_apro";
+            this.colChecked_apro.OptionsColumn.AllowEdit = false;
+            this.colChecked_apro.Visible = true;
+            this.colChecked_apro.VisibleIndex = 0;
+            this.colChecked_apro.Width = 33;
             // 
             // colnom_Sucursal
             // 
@@ -544,8 +445,8 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 7;
-            this.gridColumn1.Width = 98;
+            this.gridColumn1.VisibleIndex = 8;
+            this.gridColumn1.Width = 118;
             // 
             // gridColumn2
             // 
@@ -563,8 +464,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 133;
+            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.Width = 159;
             // 
             // gridColumn4
             // 
@@ -573,8 +474,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 121;
+            this.gridColumn4.VisibleIndex = 5;
+            this.gridColumn4.Width = 145;
             // 
             // gridColumn5
             // 
@@ -616,9 +517,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.OptionsColumn.ReadOnly = true;
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 10;
-            this.gridColumn9.Width = 157;
+            this.gridColumn9.Width = 198;
             // 
             // cmbIdPunto_cargo_grid
             // 
@@ -696,6 +595,34 @@
             this.gridColumn20.FieldName = "Nomsub_centro_costo";
             this.gridColumn20.Name = "gridColumn20";
             // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "Stock";
+            this.gridColumn23.FieldName = "Stock";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.OptionsColumn.AllowEdit = false;
+            this.gridColumn23.Width = 87;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.Caption = "Código";
+            this.gridColumn24.FieldName = "cod_producto";
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.OptionsColumn.AllowEdit = false;
+            this.gridColumn24.Visible = true;
+            this.gridColumn24.VisibleIndex = 6;
+            this.gridColumn24.Width = 90;
+            // 
+            // col_checked_repro
+            // 
+            this.col_checked_repro.Caption = "R";
+            this.col_checked_repro.FieldName = "Checked_REPRO";
+            this.col_checked_repro.Name = "col_checked_repro";
+            this.col_checked_repro.OptionsColumn.AllowEdit = false;
+            this.col_checked_repro.Visible = true;
+            this.col_checked_repro.VisibleIndex = 1;
+            this.col_checked_repro.Width = 37;
+            // 
             // gridColumn11
             // 
             this.gridColumn11.Caption = "Codigo";
@@ -744,43 +671,21 @@
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 2;
             // 
-            // gridColumn23
-            // 
-            this.gridColumn23.Caption = "Stock";
-            this.gridColumn23.FieldName = "Stock";
-            this.gridColumn23.Name = "gridColumn23";
-            this.gridColumn23.OptionsColumn.AllowEdit = false;
-            this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 8;
-            this.gridColumn23.Width = 73;
-            // 
-            // gridColumn24
-            // 
-            this.gridColumn24.Caption = "Código";
-            this.gridColumn24.FieldName = "cod_producto";
-            this.gridColumn24.Name = "gridColumn24";
-            this.gridColumn24.OptionsColumn.AllowEdit = false;
-            this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 5;
-            // 
             // FrmCom_SolicitudCompra_det_pre_Aprobacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1091, 465);
+            this.ClientSize = new System.Drawing.Size(1455, 572);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.gbFiltroBusqueda);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCom_SolicitudCompra_det_pre_Aprobacion";
             this.Text = "FrmCom_SolicitudCompra_det_pre_Aprobacion";
             this.Load += new System.EventHandler(this.FrmCom_SolicitudCompra_det_pre_Aprobacion_Load);
             this.gbFiltroBusqueda.ResumeLayout(false);
             this.gbFiltroBusqueda.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoPreAprobacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoAprobacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSolicitud_det_pre_Aprobacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSolicitud_det_pre_Aprobacion)).EndInit();
@@ -800,11 +705,6 @@
         private System.Windows.Forms.GroupBox gbFiltroBusqueda;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscar;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbEstadoAprobacion;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private DevExpress.XtraGrid.Columns.GridColumn Id;
-        private DevExpress.XtraGrid.Columns.GridColumn coldescripcion;
-        private System.Windows.Forms.Label lblestadoAprob;
         private System.Windows.Forms.DateTimePicker dtpFecha_Hasta;
         private System.Windows.Forms.Label lblFHasta;
         private System.Windows.Forms.Label lblFdesde;
@@ -826,11 +726,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbEstadoPreAprobacion;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
-        private System.Windows.Forms.Label label2;
         private Controles.UCGe_Sucursal_combo ucGe_Sucursal_combo1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
@@ -843,7 +738,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNomProducto;
         private DevExpress.XtraGrid.Columns.GridColumn coldo_Cantidad;
         private DevExpress.XtraGrid.Columns.GridColumn colIdEstadoAprobacion;
-        private DevExpress.XtraGrid.Columns.GridColumn colChecked;
+        private DevExpress.XtraGrid.Columns.GridColumn colChecked_apro;
         private DevExpress.XtraGrid.Columns.GridColumn colnom_Sucursal;
         private DevExpress.XtraGrid.Columns.GridColumn colfecha;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -860,5 +755,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private DevExpress.XtraGrid.Columns.GridColumn col_checked_repro;
     }
 }

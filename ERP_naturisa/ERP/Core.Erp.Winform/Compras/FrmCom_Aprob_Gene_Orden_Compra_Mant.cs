@@ -18,6 +18,7 @@ using Core.Erp.Business.Inventario;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Winform.Inventario;
 using Core.Erp.Reportes.Compras;
+using DevExpress.XtraPrinting;
 
 namespace Core.Erp.Winform.Compras
 {
@@ -60,10 +61,7 @@ namespace Core.Erp.Winform.Compras
         List<ct_Centro_costo_Info> listCentroCosto;
         BindingList<ct_centro_costo_sub_centro_costo_Info> BindListaSubCentro;
         //Variables
-        int IdSucursal = 0;
-        
-        string IdEstadoAprobacion = "";
-        string IdEstadoPreAprobacion = "";
+        int IdSucursal = 0;        
         string validaMotivo = "";
         decimal IdComprador = 0;
         
@@ -260,29 +258,11 @@ namespace Core.Erp.Winform.Compras
 
 
                 listImpuestoIva  = BusImpuesto.Get_List_impuesto_para_Compras("IVA");
-                cmbImpuesto_Iva.DataSource = listImpuestoIva;
+                cmb_impuesto.DataSource = listImpuestoIva;
                 
                 // carga combo Estado Aprobacion
                 bus_solicitid = new com_solicitud_compra_Bus();
-                listSolicitud = bus_solicitid.Get_List_solicitud_compra_EstadoApro_SC();
-
-                com_solicitud_compra_Info todosEst = new com_solicitud_compra_Info();
-                todosEst.Id = "TODOS";
-                todosEst.descripcion = "TODOS";
-                listSolicitud.Add(todosEst);
-
-                cmbEstAproSC.Properties.DataSource = listSolicitud;
-                cmbEstPreAproSC.Properties.DataSource = listSolicitud;
-          
-                com_solicitud_compra_Info infoSoliComp = new com_solicitud_compra_Info();
-                infoSoliComp = listSolicitud.FirstOrDefault(q => q.Id == "PEN_SOL");
-                cmbEstAproSC.EditValue = infoSoliComp.Id;
-
-                cmbEstPreAproSC.EditValue = "TODOS";
-
-
-
-                
+                listSolicitud = bus_solicitid.Get_List_solicitud_compra_EstadoApro_SC();               
 
                 cp_proveedor_Bus BusProve = new cp_proveedor_Bus();
 
@@ -346,19 +326,12 @@ namespace Core.Erp.Winform.Compras
             {
 
                 IdSucursal = cmbSucursal.get_SucursalInfo().IdSucursal;
-                IdEstadoAprobacion = cmbEstAproSC.EditValue.ToString();
-
-                IdEstadoPreAprobacion = cmbEstPreAproSC.EditValue.ToString();
-
-
-
-                IdComprador = (cmbComprador.get_CompradorInfo() == null) ? 0 : cmbComprador.get_CompradorInfo().IdComprador;
-            
+                IdComprador = (cmbComprador.get_CompradorInfo() == null) ? 0 : cmbComprador.get_CompradorInfo().IdComprador;           
                 
                                 
                 listSolicitudxItems = new List<vwcom_solicitud_compra_x_items_con_saldos_Info>();
                 bus_solicitudxItems = new vwcom_solicitud_compra_x_items_con_saldos_Bus();
-                listSolicitudxItems = bus_solicitudxItems.Get_List_SoliComxItemSaldos(param.IdEmpresa, dtpFechaIni.Value, dtpFechaFin.Value, IdEstadoAprobacion,IdEstadoPreAprobacion, IdSucursal, IdComprador);
+                listSolicitudxItems = bus_solicitudxItems.Get_List_SoliComxItemSaldos(param.IdEmpresa, dtpFechaIni.Value, dtpFechaFin.Value, "PEN_SOL", "APR_SOL", IdSucursal, IdComprador);
 
                 if (listSolicitudxItems.Count()==0)
                 {
@@ -379,7 +352,21 @@ namespace Core.Erp.Winform.Compras
                         item.Ico2 = (Bitmap)imageListAgregarEdit.Images[1];                     
                     }
                    
-                }        
+                }
+
+                List<vwcom_solicitud_compra_x_items_con_saldos_Info> lst_temp = new List<vwcom_solicitud_compra_x_items_con_saldos_Info>();
+                lst_temp = new List<vwcom_solicitud_compra_x_items_con_saldos_Info>(ListaBind.Where(q => q.Checked == true));
+
+                foreach (var item in lst_temp)
+                {
+                    vwcom_solicitud_compra_x_items_con_saldos_Info info = listSolicitudxItems.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdSolicitudCompra == item.IdSolicitudCompra && q.Secuencia == item.Secuencia);
+                    if (info != null)
+                    {
+                        listSolicitudxItems.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdSolicitudCompra == item.IdSolicitudCompra && q.Secuencia == item.Secuencia).Checked = true;
+                        listSolicitudxItems.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdSolicitudCompra == item.IdSolicitudCompra && q.Secuencia == item.Secuencia).Checked_Estado = true;
+                        listSolicitudxItems.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdSolicitudCompra == item.IdSolicitudCompra && q.Secuencia == item.Secuencia).IdEstadoAprobacion = item.IdEstadoAprobacion;
+                    }
+                }
                 
                 ListaBind = new BindingList<vwcom_solicitud_compra_x_items_con_saldos_Info>(listSolicitudxItems);                                                    
                 gridControlConsulta.DataSource = ListaBind;
@@ -408,12 +395,8 @@ namespace Core.Erp.Winform.Compras
                 carga_combos();
             
                 IdSucursal = 0;
-              //  IdEstadoAprobacion = "TODOS";
-                IdEstadoAprobacion = "PEN_SOL";
                 carga_grid();
 
-               // cmbEstAproSC.EditValue = "TODOS";
-                cmbEstAproSC.EditValue = "PEN_SOL";
 
                 // consultar tabla intermedia com_ordencompra_local_det_x_com_solicitud_compra_det 
                 busOCxSCDet = new com_ordencompra_local_det_x_com_solicitud_compra_det_Bus();  
@@ -803,27 +786,31 @@ namespace Core.Erp.Winform.Compras
         void calculos( BindingList<vwcom_solicitud_compra_x_items_con_saldos_Info> ListaBind)
         {
             try
-            {               
+            {
                 foreach (var item in ListaBind)
-                {                   
+                {
                     item.do_descuento = Math.Round(((item.cant_ing_SolCom * item.do_precioCompra) * (item.do_porc_des / 100)), 2);
                     item.do_subtotal = Math.Round(((item.cant_ing_SolCom * item.do_precioCompra) - item.do_descuento), 2);
                     
-                    //if (item.Paga_Iva== true)
-                    //{                                             
-                       item.do_iva = Math.Round(item.do_subtotal*(param.iva.porcentaje / 100), 2);
-                       item.do_total = Math.Round((item.do_subtotal + item.do_iva), 2);
-                    //}
-                    //else
-                    //{
-                    //    item.do_iva = 0;
-                    //    item.do_total = item.do_subtotal;                                           
-                    //}                                    
-                }                           
+                    tb_sis_impuesto_Info info_impuesto = listImpuestoIva.FirstOrDefault(q => q.IdCod_Impuesto == item.IdCod_Impuesto_Iva);
+                    if (info_impuesto != null)
+                    {
+                        item.IdCod_Impuesto_Iva = info_impuesto.IdCod_Impuesto;
+                        item.do_iva = Math.Round(item.do_subtotal * (info_impuesto.porcentaje / 100), 2);
+                        item.do_total = Math.Round((item.do_subtotal + item.do_iva), 2);
+                        item.do_por_iva = info_impuesto.porcentaje;
+                    }else
+                    {
+                        item.IdCod_Impuesto_Iva = param.iva.IdCod_Impuesto;
+                        item.do_iva = Math.Round(item.do_subtotal * (param.iva.porcentaje / 100), 2);
+                        item.do_total = Math.Round((item.do_subtotal + item.do_iva), 2);
+                        item.do_por_iva = param.iva.porcentaje;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                
+
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -935,9 +922,10 @@ namespace Core.Erp.Winform.Compras
                         infoSoliApro.IdComprador = item.IdComprador;
                         infoSoliApro.IdPersona_Solicita = item.IdPersona_Solicita;
                         infoSoliApro.IdDepartamento = item.IdDepartamento;
-
                         infoSoliApro.IdEstadoPreAprobacion = item.IdEstadoPreAprobacion;
-                        
+
+                        infoSoliApro.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
+                        infoSoliApro.do_por_iva = item.do_por_iva;
 
                         //verificar si tiene orden compra asociada
                         List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> listSolicitud = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
@@ -1218,7 +1206,10 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                gridViewConsulta.ShowPrintPreview();
+
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"\\presupuesto.xlsx";
+
+                gridViewConsulta.ExportToXlsx(path, new XlsxExportOptions(TextExportMode.Text));
             }
             catch (Exception ex)
             {
@@ -1239,10 +1230,7 @@ namespace Core.Erp.Winform.Compras
                 gridControlConsulta.DataSource = ListaBind;
 
                 IdSucursal = 0;
-                IdEstadoAprobacion = "PEN_SOL";
                 carga_grid();
-
-                cmbEstAproSC.EditValue = "PEN_SOL";
 
                 busOCxSCDet = new com_ordencompra_local_det_x_com_solicitud_compra_det_Bus();  
             }

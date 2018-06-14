@@ -43,6 +43,7 @@ namespace Core.Erp.Reportes.ActivoFijo
                 List<XACTF_Rpt012_Info> lstRpt = new List<XACTF_Rpt012_Info>();
                 using (Entities_ActivoFijo_Reportes listado = new Entities_ActivoFijo_Reportes())
                 {
+                    listado.SetCommandTimeOut(3000);
                     var select = from q in listado.spACTF_Rpt012(IdEmpresa, FechaCorte,IdUsuario) 
                                  where q.IdActivoFijoTipo >= IdActivoFijoIni && q.IdActivoFijoTipo <=IdActivoFijoFin
                                  && q.IdCategoria_Af>=IdCategoriaIni && q.IdCategoria_Af<=IdCategoriaFin

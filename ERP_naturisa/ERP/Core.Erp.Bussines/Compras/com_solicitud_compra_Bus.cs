@@ -82,7 +82,7 @@ namespace Core.Erp.Business.Compras
                       infoDetApr.IdProveedor_SC = null;
                       infoDetApr.IdUsuarioAprueba = param.IdUsuario;
                       infoDetApr.FechaHoraAprobacion = param.Fecha_Transac;
-                      infoDetApr.do_observacion = "El item: " + item.NomProducto + ", con ID: " + item.IdProducto + " y cantidad: " + item.do_Cantidad + ", fue grabado con estado : " + infoDetApr.IdEstadoAprobacion + "";
+                      infoDetApr.do_observacion = "";
                   
                       listDetApr.Add(infoDetApr);
 

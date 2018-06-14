@@ -40,7 +40,7 @@ namespace Core.Erp.Info.Compras
         public string do_observacion { get; set; }
         public Boolean Paga_Iva { get; set; }
         public string Graba_Estado { get; set; }
-
+        public double do_por_iva { get; set; }
        //campos de la vista vwcom_solicitud_compra_x_items_con_saldos
        public DateTime fecha { get; set; }
        public string Solicitante { get; set; }

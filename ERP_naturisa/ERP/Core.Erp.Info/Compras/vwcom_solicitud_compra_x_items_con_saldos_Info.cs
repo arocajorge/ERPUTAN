@@ -47,8 +47,8 @@ namespace Core.Erp.Info.Compras
       public decimal ? ocd_IdOrdenCompra { get; set; }
       public Boolean Tiene_OC { get; set; }
       public string Nom_Centro_costo { get; set; }
-
-
+      public double do_por_iva { get; set; }
+      public bool Checked_REPRO { get; set; }
         public Boolean Checked { get; set; }
         public Boolean Checked_Estado { get; set; }
         

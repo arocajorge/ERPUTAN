@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCCom_Solicitante_cmb));
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.gridSEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_Acciones = new DevExpress.XtraEditors.DropDownButton();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -58,13 +58,13 @@
             // 
             // cmb_Acciones
             // 
-            this.cmb_Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Acciones.ImageIndex = 1;
             this.cmb_Acciones.ImageList = this.imageList;
-            this.cmb_Acciones.Location = new System.Drawing.Point(323, 1);
+            this.cmb_Acciones.Location = new System.Drawing.Point(314, 0);
+            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Acciones.Name = "cmb_Acciones";
             this.cmb_Acciones.ShowArrowButton = false;
-            this.cmb_Acciones.Size = new System.Drawing.Size(36, 26);
+            this.cmb_Acciones.Size = new System.Drawing.Size(48, 32);
             this.cmb_Acciones.TabIndex = 109;
             this.cmb_Acciones.Click += new System.EventHandler(this.cmb_Acciones_Click);
             // 
@@ -79,10 +79,8 @@
             // 
             // cmb_Solicitante
             // 
-            this.cmb_Solicitante.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Solicitante.Location = new System.Drawing.Point(3, 4);
+            this.cmb_Solicitante.Location = new System.Drawing.Point(4, 5);
+            this.cmb_Solicitante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Solicitante.Name = "cmb_Solicitante";
             this.cmb_Solicitante.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.cmb_Solicitante.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -90,7 +88,7 @@
             this.cmb_Solicitante.Properties.DisplayMember = "nom_solicitante";
             this.cmb_Solicitante.Properties.ValueMember = "IdSolicitante";
             this.cmb_Solicitante.Properties.View = this.gridView1;
-            this.cmb_Solicitante.Size = new System.Drawing.Size(314, 20);
+            this.cmb_Solicitante.Size = new System.Drawing.Size(302, 22);
             this.cmb_Solicitante.TabIndex = 108;
             this.cmb_Solicitante.EditValueChanged += new System.EventHandler(this.cmb_Solicitante_EditValueChanged_1);
             // 
@@ -101,14 +99,14 @@
             this.colDescripcioncom,
             this.gridSEstado});
             this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.gridSEstado;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = "*ANULADO*";
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.gridSEstado;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = "*ANULADO*";
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition2});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -140,14 +138,14 @@
             this.consultarToolStripMenuItem});
             this.MenuAcciones.Name = "MenuAcciones";
             this.MenuAcciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuAcciones.Size = new System.Drawing.Size(126, 70);
+            this.MenuAcciones.Size = new System.Drawing.Size(143, 76);
             this.MenuAcciones.Text = "Acciones";
             // 
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
@@ -155,7 +153,7 @@
             // 
             this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -163,18 +161,19 @@
             // 
             this.consultarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarToolStripMenuItem.Image")));
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
             // UCCom_Solicitante_cmb
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_Acciones);
             this.Controls.Add(this.cmb_Solicitante);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCCom_Solicitante_cmb";
-            this.Size = new System.Drawing.Size(362, 30);
+            this.Size = new System.Drawing.Size(374, 37);
             this.Load += new System.EventHandler(this.UCCom_Solicitante_cmb_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Solicitante.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
