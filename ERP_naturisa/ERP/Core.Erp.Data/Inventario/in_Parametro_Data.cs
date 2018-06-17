@@ -69,7 +69,8 @@ namespace Core.Erp.Data.Inventario
                         addressG.P_se_valida_parametrizacion_x_producto = (info.P_se_valida_parametrizacion_x_producto == null) ? false : Convert.ToBoolean(info.P_se_valida_parametrizacion_x_producto);
 
                         addressG.P_IdCtaCble_transitoria_transf_inven = (info.P_IdCtaCble_transitoria_transf_inven == null) ? null : Convert.ToString(info.P_IdCtaCble_transitoria_transf_inven);
-
+                        addressG.IdMovi_inven_tipo_mobile_ing = info.IdMovi_inven_tipo_mobile_ing;
+                        addressG.IdMovi_inven_tipo_mobile_egr = info.IdMovi_inven_tipo_mobile_egr;
                         context.in_parametro.Add(addressG);
                         context.SaveChanges();
                     }
@@ -119,7 +120,8 @@ namespace Core.Erp.Data.Inventario
                         contact.P_Fecha_para_contabilizacion_ingr_egr = info.P_Fecha_para_contabilizacion_ingr_egr;
                         contact.P_se_valida_parametrizacion_x_producto = (info.P_se_valida_parametrizacion_x_producto == null) ? false : Convert.ToBoolean(info.P_se_valida_parametrizacion_x_producto);
 
-
+                        contact.IdMovi_inven_tipo_mobile_ing = info.IdMovi_inven_tipo_mobile_ing;
+                        contact.IdMovi_inven_tipo_mobile_egr = info.IdMovi_inven_tipo_mobile_egr;
                         contact.P_IdCtaCble_transitoria_transf_inven = (info.P_IdCtaCble_transitoria_transf_inven == null) ? null : Convert.ToString(info.P_IdCtaCble_transitoria_transf_inven);
 
 
@@ -188,7 +190,8 @@ namespace Core.Erp.Data.Inventario
                     Cbt.P_Fecha_para_contabilizacion_ingr_egr = item.P_Fecha_para_contabilizacion_ingr_egr;
                     Cbt.P_se_valida_parametrizacion_x_producto = item.P_se_valida_parametrizacion_x_producto;
                     Cbt.P_IdCtaCble_transitoria_transf_inven = item.P_IdCtaCble_transitoria_transf_inven;
-                    
+                    Cbt.IdMovi_inven_tipo_mobile_ing = item.IdMovi_inven_tipo_mobile_ing;
+                    Cbt.IdMovi_inven_tipo_mobile_egr = item.IdMovi_inven_tipo_mobile_egr;
 
                 }
                 return (Cbt);

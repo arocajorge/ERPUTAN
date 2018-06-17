@@ -31,5 +31,8 @@ namespace Core.Erp.Data
         public DbSet<tbl_usuario> tbl_usuario { get; set; }
         public DbSet<tbl_usuario_x_bodega> tbl_usuario_x_bodega { get; set; }
         public DbSet<tbl_usuario_x_subcentro> tbl_usuario_x_subcentro { get; set; }
+        public DbSet<tbl_movimientos_det> tbl_movimientos_det { get; set; }
+        public DbSet<vw_movimientos_det> vw_movimientos_det { get; set; }
+        public DbSet<tbl_movimientos_det_apro> tbl_movimientos_det_apro { get; set; }
     }
 }

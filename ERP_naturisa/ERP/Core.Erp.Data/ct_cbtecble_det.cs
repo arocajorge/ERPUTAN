@@ -31,9 +31,9 @@ namespace Core.Erp.Data
     
         public virtual ct_cbtecble ct_cbtecble { get; set; }
         public virtual ct_centro_costo ct_centro_costo { get; set; }
-        public virtual ct_centro_costo_sub_centro_costo ct_centro_costo_sub_centro_costo { get; set; }
         public virtual ct_punto_cargo ct_punto_cargo { get; set; }
         public virtual ct_punto_cargo_grupo ct_punto_cargo_grupo { get; set; }
         public virtual ct_plancta ct_plancta { get; set; }
+        public virtual ct_centro_costo_sub_centro_costo ct_centro_costo_sub_centro_costo { get; set; }
     }
 }

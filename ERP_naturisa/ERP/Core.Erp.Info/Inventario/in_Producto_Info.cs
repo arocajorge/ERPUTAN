@@ -170,7 +170,7 @@ namespace Core.Erp.Info.Inventario
          #endregion
 
         public string IdCentroCosto { get; set; }
-
+        public string mobile_cod_produccion { get; set; }
 
         
 

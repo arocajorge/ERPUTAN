@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCIn_TipoMoviInv_Cmb));
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.colSestado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_Acciones = new DevExpress.XtraEditors.DropDownButton();
             this.MenuAcciones = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -138,14 +138,14 @@
             this.colDescripcion,
             this.colSestado});
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.colSestado;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = "**ANULADO**";
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colSestado;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "**ANULADO**";
             this.searchLookUpEdit1View.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition1});
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
@@ -186,7 +186,6 @@
         #endregion
 
         private DevExpress.XtraEditors.DropDownButton cmb_Acciones;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbCatalogo;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colIdTipoCatalogo;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcion;
@@ -196,5 +195,6 @@
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
+        public DevExpress.XtraEditors.SearchLookUpEdit cmbCatalogo;
     }
 }

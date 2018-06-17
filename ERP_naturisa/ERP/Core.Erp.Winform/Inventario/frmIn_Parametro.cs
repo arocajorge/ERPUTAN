@@ -216,7 +216,8 @@ namespace Core.Erp.Winform.Inventario
                     cmb_dev_inven_x_ing.set_TipoMoviInvInfo(Convert.ToInt32(info.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing));
                     cmb_dev_inven_x_egr.set_TipoMoviInvInfo(Convert.ToInt32(info.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg));
 
-                
+                    cmb_egreso_app.cmbCatalogo.EditValue = info.IdMovi_inven_tipo_mobile_egr;
+                    cmb_ingreso_app.cmbCatalogo.EditValue = info.IdMovi_inven_tipo_mobile_ing;
                 }
 
 
@@ -301,7 +302,15 @@ namespace Core.Erp.Winform.Inventario
                 info.P_IdCtaCble_transitoria_transf_inven = cmb_PlanCta.get_PlanCtaInfo().IdCtaCble;
                 //info.P_Al_Conta_CtaCosto_Buscar_en =(ein_TipoContabilizacion_Cta_Inven_Costo) Enum.Parse(typeof(ein_TipoContabilizacion_Cta_Inven_Costo), cmb_al_conta_cta_costo_buscar_en.Get_CatalogosInfo().IdCatalogo);
                 //info.P_Al_Conta_CtaInven_Buscar_en = (ein_TipoContabilizacion_Cta_Inven_Costo)Enum.Parse(typeof(ein_TipoContabilizacion_Cta_Inven_Costo), cmb_al_conta_cta_inv_buscar_en.Get_CatalogosInfo().IdCatalogo);
+                if (cmb_egreso_app.cmbCatalogo.EditValue == null)
+                    info.IdMovi_inven_tipo_mobile_egr = null;
+                else
+                    info.IdMovi_inven_tipo_mobile_egr = cmb_egreso_app.get_TipoMoviInvInfo().IdMovi_inven_tipo;
 
+                if (cmb_ingreso_app.cmbCatalogo.EditValue == null)
+                    info.IdMovi_inven_tipo_mobile_ing = null;
+                else
+                    info.IdMovi_inven_tipo_mobile_ing = cmb_ingreso_app.get_TipoMoviInvInfo().IdMovi_inven_tipo;
 
                 info.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing = cmb_dev_inven_x_ing.get_TipoMoviInvInfo().IdMovi_inven_tipo;
                 info.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg = cmb_dev_inven_x_egr.get_TipoMoviInvInfo().IdMovi_inven_tipo;
@@ -334,7 +343,8 @@ namespace Core.Erp.Winform.Inventario
                 cmb_tipo_movi_inven_egr_x_ajus_fisico.cargar_TipoMotivo(0, 0, "-", "");
                 cmb_tipo_movi_inven_ing_x_ajus.cargar_TipoMotivo(0, 0, "+", "");
                 cmb_tipo_movi_inven_egr_x_ajus.cargar_TipoMotivo(0, 0, "-", "");
-
+                cmb_egreso_app.cargar_TipoMotivo(0, 0, "-", "");
+                cmb_ingreso_app.cargar_TipoMotivo(0, 0, "+", "");
                 cmb_dev_inven_x_ing.cargar_TipoMotivo(0, 0, "-", "");
                 cmb_dev_inven_x_egr.cargar_TipoMotivo(0, 0, "+", "");
 

@@ -20,12 +20,12 @@ namespace Core.Erp.Data
             this.ct_cbtecble_det = new HashSet<ct_cbtecble_det>();
             this.ct_cbtecble_Plantilla_det = new HashSet<ct_cbtecble_Plantilla_det>();
             this.ct_centro_costo = new HashSet<ct_centro_costo>();
-            this.ct_centro_costo_sub_centro_costo = new HashSet<ct_centro_costo_sub_centro_costo>();
             this.ct_GrupoEmpresarial_plancta_x_ct_plancta = new HashSet<ct_GrupoEmpresarial_plancta_x_ct_plancta>();
             this.ct_plancta1 = new HashSet<ct_plancta>();
             this.ct_punto_cargo_grupo = new HashSet<ct_punto_cargo_grupo>();
             this.ct_saldoxCuentas = new HashSet<ct_saldoxCuentas>();
             this.ct_saldoxCuentas_Movi = new HashSet<ct_saldoxCuentas_Movi>();
+            this.ct_centro_costo_sub_centro_costo = new HashSet<ct_centro_costo_sub_centro_costo>();
         }
     
         public int IdEmpresa { get; set; }
@@ -56,7 +56,6 @@ namespace Core.Erp.Data
         public virtual ICollection<ct_cbtecble_det> ct_cbtecble_det { get; set; }
         public virtual ICollection<ct_cbtecble_Plantilla_det> ct_cbtecble_Plantilla_det { get; set; }
         public virtual ICollection<ct_centro_costo> ct_centro_costo { get; set; }
-        public virtual ICollection<ct_centro_costo_sub_centro_costo> ct_centro_costo_sub_centro_costo { get; set; }
         public virtual ct_grupo_x_Tipo_Gasto ct_grupo_x_Tipo_Gasto { get; set; }
         public virtual ct_grupocble ct_grupocble { get; set; }
         public virtual ICollection<ct_GrupoEmpresarial_plancta_x_ct_plancta> ct_GrupoEmpresarial_plancta_x_ct_plancta { get; set; }
@@ -67,5 +66,6 @@ namespace Core.Erp.Data
         public virtual ICollection<ct_punto_cargo_grupo> ct_punto_cargo_grupo { get; set; }
         public virtual ICollection<ct_saldoxCuentas> ct_saldoxCuentas { get; set; }
         public virtual ICollection<ct_saldoxCuentas_Movi> ct_saldoxCuentas_Movi { get; set; }
+        public virtual ICollection<ct_centro_costo_sub_centro_costo> ct_centro_costo_sub_centro_costo { get; set; }
     }
 }

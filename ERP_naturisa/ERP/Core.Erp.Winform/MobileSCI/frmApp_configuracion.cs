@@ -51,7 +51,7 @@ namespace Core.Erp.Winform.MobileSCI
             blst_producto = new BindingList<tbl_producto_Info>();
             if (cmb_empresa.EditValue != null)
             {
-                blst_bodega = new BindingList<tbl_bodega_Info>(bus_bodega.get_list(Convert.ToInt32(cmb_empresa.EditValue), true));
+                blst_bodega = new BindingList<tbl_bodega_Info>(bus_bodega.get_list(Convert.ToInt32(cmb_empresa.EditValue), true));                
                 blst_subcentro = new BindingList<tbl_subcentro_Info>(bus_subcentro.get_list(Convert.ToInt32(cmb_empresa.EditValue), true));
                 blst_producto = new BindingList<tbl_producto_Info>(bus_producto.get_list(Convert.ToInt32(cmb_empresa.EditValue), true));
             }
@@ -71,81 +71,66 @@ namespace Core.Erp.Winform.MobileSCI
         }
         private bool guardar()
         {
-            chk_bodegas.Focus();
-            chk_subcentros.Focus();
-
-            #region Validar
-            if (cmb_empresa.EditValue == null)
+            try
             {
-                MessageBox.Show("Seleccione la empresa", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return false;
+                splashScreenManager1.ShowWaitForm();
+                chk_bodegas.Focus();
+                chk_subcentros.Focus();
+
+                #region Validar
+                if (cmb_empresa.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione la empresa", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    return false;
+                }
+                #endregion
+
+                int IdEmpresa = Convert.ToInt32(cmb_empresa.EditValue);
+
+                #region bodegas
+                bool result = bus_bodega.eliminarDB(IdEmpresa);
+                if (!result)
+                    return false;
+
+                result = bus_bodega.guardarDB(IdEmpresa, blst_bodega.Where(q => q.seleccionado == true).ToList());
+                if (!result)
+                    return false;
+                #endregion
+
+                #region subcentros
+                result = bus_subcentro.eliminarDB(IdEmpresa);
+                if (!result)
+                    return false;
+
+                result = bus_subcentro.guardarDB(IdEmpresa, blst_subcentro.Where(q => q.seleccionado == true).ToList());
+                if (!result)
+                    return false;
+                #endregion
+
+                #region productos
+                result = bus_producto.eliminarDB(IdEmpresa);
+                if (!result)
+                    return false;
+
+                result = bus_producto.guardarDB(IdEmpresa, blst_producto.Where(q => q.seleccionado == true).ToList());
+                if (!result)
+                    return false;
+                #endregion
+                splashScreenManager1.CloseWaitForm();
+
+                MessageBox.Show("Actualización exitosa", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                cargar_configuracion_x_empresa();
+                
+                return true;                
             }
-            #endregion
-
-            int IdEmpresa = Convert.ToInt32(cmb_empresa.EditValue);
-
-            #region bodegas
-            List<tbl_bodega_Info> lst_bodega = (from q in blst_bodega
-                                                where q.seleccionado == true
-                                                select new tbl_bodega_Info
-                                                {
-                                                    IdEmpresaSCI = IdEmpresa,
-                                                    IdEmpresa = IdEmpresa,
-                                                    IdSucursal = q.IdSucursal,
-                                                    IdBodega = q.IdBodega
-                                                }).ToList();
-
-            bool result = bus_bodega.eliminarDB(IdEmpresa);
-            if (!result)
+            catch (Exception)
+            {
+                if (splashScreenManager1.IsSplashFormVisible)
+                {
+                    splashScreenManager1.CloseWaitForm();
+                }
                 return false;
-
-            result = bus_bodega.guardarDB(lst_bodega);
-            if (!result)
-                return false;
-            #endregion
-
-            #region subcentros
-            List<tbl_subcentro_Info> lst_subcentro = (from q in blst_subcentro
-                                                      where q.seleccionado == true
-                                                      select new tbl_subcentro_Info
-                                                      {
-                                                          IdEmpresaSCI = IdEmpresa,
-                                                          IdEmpresa = IdEmpresa,
-                                                          IdCentroCosto = q.IdCentroCosto,
-                                                          IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo
-                                                      }).ToList();
-
-            result = bus_subcentro.eliminarDB(IdEmpresa);
-            if (!result)
-                return false;
-
-            result = bus_subcentro.guardarDB(lst_subcentro);
-            if (!result)
-                return false;
-            #endregion
-
-            #region productos
-            List<tbl_producto_Info> lst_producto = (from q in blst_producto
-                                                    where q.seleccionado == true
-                                                    select new tbl_producto_Info
-                                                    {
-                                                        IdEmpresaSCI = IdEmpresa,
-                                                        IdEmpresa = IdEmpresa,
-                                                        IdProducto = q.IdProducto
-                                                    }).ToList();
-
-            result = bus_producto.eliminarDB(IdEmpresa);
-            if (!result)
-                return false;
-
-            result = bus_producto.guardarDB(lst_producto);
-            if (!result)
-                return false;
-            #endregion
-
-            MessageBox.Show("Actualización exitosa", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            cargar_configuracion_x_empresa();
-            return true;
+            }            
         }
 
         private void chk_bodegas_CheckedChanged(object sender, EventArgs e)

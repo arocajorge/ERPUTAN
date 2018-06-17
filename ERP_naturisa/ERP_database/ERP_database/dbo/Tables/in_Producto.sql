@@ -59,6 +59,7 @@
     [Aparece_modu_Compras]    BIT             NOT NULL,
     [Aparece_modu_Inventario] BIT             NOT NULL,
     [Aparece_modu_Activo_F]   BIT             NOT NULL,
+    [mobile_cod_produccion]   VARCHAR (100)   NULL,
     CONSTRAINT [PK_in_Producto] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdProducto] ASC),
     CONSTRAINT [FK_in_Producto_fa_motivo_venta] FOREIGN KEY ([IdEmpresa], [IdMotivo_Vta]) REFERENCES [dbo].[fa_motivo_venta] ([IdEmpresa], [IdMotivo_Vta]),
     CONSTRAINT [FK_in_Producto_in_Marca] FOREIGN KEY ([IdEmpresa], [IdMarca]) REFERENCES [dbo].[in_Marca] ([IdEmpresa], [IdMarca]),
@@ -69,6 +70,8 @@
     CONSTRAINT [FK_in_Producto_in_UnidadMedida1] FOREIGN KEY ([IdUnidadMedida_Consumo]) REFERENCES [dbo].[in_UnidadMedida] ([IdUnidadMedida]),
     CONSTRAINT [FK_in_Producto_tb_empresa] FOREIGN KEY ([IdEmpresa]) REFERENCES [dbo].[tb_empresa] ([IdEmpresa])
 );
+
+
 
 
 GO

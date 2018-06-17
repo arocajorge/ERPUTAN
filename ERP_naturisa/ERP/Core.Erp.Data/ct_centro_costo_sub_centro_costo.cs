@@ -26,9 +26,10 @@ namespace Core.Erp.Data
         public string Centro_costo { get; set; }
         public string pc_Estado { get; set; }
         public string IdCtaCble { get; set; }
+        public string mobile_cod_produccion { get; set; }
     
-        public virtual ct_centro_costo ct_centro_costo { get; set; }
         public virtual ICollection<ct_cbtecble_det> ct_cbtecble_det { get; set; }
+        public virtual ct_centro_costo ct_centro_costo { get; set; }
         public virtual ct_plancta ct_plancta { get; set; }
     }
 }

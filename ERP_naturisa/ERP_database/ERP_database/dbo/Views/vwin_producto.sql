@@ -3,11 +3,11 @@ CREATE VIEW dbo.vwin_producto
 AS
 SELECT        mar.Descripcion, tip.tp_descripcion, cat.ca_Categoria, pr.IdEmpresa, pr.IdProducto, pr.pr_codigo, pr.pr_codigo_barra, pr.IdProductoTipo, pr.IdPresentacion, pr.IdCategoria, pr.pr_descripcion, pr.pr_observacion, 
                          pr.IdUnidadMedida, pr.pr_precio_publico, pr.pr_precio_mayor, pr.pr_precio_minimo, pr.pr_precio_puerta, ISNULL(dbo.vwin_Producto_Stock_x_producto.Stock, 0) AS pr_stock, 0 AS pr_pedidos, pr.pr_ManejaIva, 
-                         pr.pr_ManejaSeries, pr.pr_costo_fob, pr.pr_costo_CIF, pr.pr_costo_promedio, pr.IdMarca, pr.pr_DiasMaritimo, pr.pr_DiasAereo, pr.pr_DiasTerrestre, pr.pr_largo, pr.pr_alto, pr.pr_profundidad, pr.pr_peso, 
-                         pr.pr_imagenPeque, pr.pr_imagen_Grande, pr.pr_partidaArancel, pr.pr_porcentajeArancel, pr.pr_Por_descuento, pr.pr_stock_maximo, pr.pr_stock_minimo, pr.IdUsuario, pr.Fecha_Transac, pr.IdUsuarioUltMod, 
-                         pr.Fecha_UltMod, pr.IdUsuarioUltAnu, pr.Fecha_UltAnu, pr.pr_motivoAnulacion, pr.nom_pc, pr.ip, pr.Estado, pr.pr_descripcion_2, pr.AnchoEspecifico, pr.PesoEspecifico, pr.IdLinea, pr.IdGrupo, pr.IdSubGrupo, 
-                         pr.ManejaKardex, pr.IdNaturaleza, pr.IdMotivo_Vta, pr.IdUnidadMedida_Consumo, dbo.in_linea.nom_linea, dbo.in_grupo.nom_grupo, dbo.in_subgrupo.nom_subgrupo, pr.IdCod_Impuesto_Iva, 
-                         pr.IdCod_Impuesto_Ice, pr.Aparece_modu_Ventas, pr.Aparece_modu_Compras, pr.Aparece_modu_Inventario, pr.Aparece_modu_Activo_F, tip.tp_ManejaInven
+                         pr.pr_ManejaSeries, pr.pr_costo_fob, pr.pr_costo_CIF, pr.pr_costo_promedio, pr.IdMarca, pr.pr_DiasMaritimo, pr.pr_DiasAereo, pr.pr_DiasTerrestre, pr.pr_largo, pr.pr_alto, pr.pr_profundidad, pr.pr_peso, pr.pr_imagenPeque, 
+                         pr.pr_imagen_Grande, pr.pr_partidaArancel, pr.pr_porcentajeArancel, pr.pr_Por_descuento, pr.pr_stock_maximo, pr.pr_stock_minimo, pr.IdUsuario, pr.Fecha_Transac, pr.IdUsuarioUltMod, pr.Fecha_UltMod, pr.IdUsuarioUltAnu, 
+                         pr.Fecha_UltAnu, pr.pr_motivoAnulacion, pr.nom_pc, pr.ip, pr.Estado, pr.pr_descripcion_2, pr.AnchoEspecifico, pr.PesoEspecifico, pr.IdLinea, pr.IdGrupo, pr.IdSubGrupo, pr.ManejaKardex, pr.IdNaturaleza, pr.IdMotivo_Vta, 
+                         pr.IdUnidadMedida_Consumo, dbo.in_linea.nom_linea, dbo.in_grupo.nom_grupo, dbo.in_subgrupo.nom_subgrupo, pr.IdCod_Impuesto_Iva, pr.IdCod_Impuesto_Ice, pr.Aparece_modu_Ventas, pr.Aparece_modu_Compras, 
+                         pr.Aparece_modu_Inventario, pr.Aparece_modu_Activo_F, tip.tp_ManejaInven
 FROM            dbo.in_subgrupo INNER JOIN
                          dbo.in_categorias AS cat INNER JOIN
                          dbo.in_linea ON cat.IdEmpresa = dbo.in_linea.IdEmpresa AND cat.IdCategoria = dbo.in_linea.IdCategoria INNER JOIN
@@ -219,26 +219,6 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "pr"
-            Begin Extent = 
-               Top = 1
-               Left = 123
-               Bottom = 304
-               Right = 357
-            End
-            DisplayFlags = 280
-            TopColumn = 50
-         End
-         Begin Table = "tip"
-            Begin Extent = 
-               Top = 231
-               Left = 967
-               Bottom = 417
-               Right = 1176
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
          Begin Table = "cat"
             Begin Extent = 
                Top = 0
@@ -269,6 +249,26 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "pr"
+            Begin Extent = 
+               Top = 1
+               Left = 123
+               Bottom = 304
+               Right = 357
+            End
+            DisplayFlags = 280
+            TopColumn = 50
+         End
+         Begin Table = "tip"
+            Begin Extent = 
+               Top = 231
+               Left = 967
+               Bottom = 417
+               Right = 1176
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
          Begin Table = "vwin_Producto_Stock_x_producto"
             Begin Extent = 
                Top = 383
@@ -277,4 +277,6 @@ Begin DesignProperties =
                Right = 917
             End
           ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_producto';
+
+
 

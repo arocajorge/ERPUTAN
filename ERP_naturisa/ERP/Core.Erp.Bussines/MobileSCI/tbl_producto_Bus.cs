@@ -36,11 +36,11 @@ namespace Core.Erp.Business.MobileSCI
             }
         }
 
-        public bool guardarDB(List<tbl_producto_Info> Lista)
+        public bool guardarDB(int IdEmpresa, List<tbl_producto_Info> Lista)
         {
             try
             {
-                return odata.guardarDB(Lista);
+                return odata.guardarDB(IdEmpresa, Lista);
             }
             catch (Exception)
             {

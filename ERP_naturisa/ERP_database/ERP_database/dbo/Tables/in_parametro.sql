@@ -34,6 +34,8 @@
     [P_Al_Conta_CtaInven_Buscar_en]          VARCHAR (15) NULL,
     [P_Al_Conta_CtaCosto_Buscar_en]          VARCHAR (15) NULL,
     [P_IdCtaCble_transitoria_transf_inven]   VARCHAR (20) NULL,
+    [IdMovi_inven_tipo_mobile_ing]           INT          NULL,
+    [IdMovi_inven_tipo_mobile_egr]           INT          NULL,
     CONSTRAINT [PK_in_parametro] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC),
     CONSTRAINT [FK_in_parametro_ct_centro_costo] FOREIGN KEY ([IdEmpresa], [IdCentro_Costo_Costo]) REFERENCES [dbo].[ct_centro_costo] ([IdEmpresa], [IdCentroCosto]),
     CONSTRAINT [FK_in_parametro_ct_centro_costo1] FOREIGN KEY ([IdEmpresa], [IdCentro_Costo_Inventario]) REFERENCES [dbo].[ct_centro_costo] ([IdEmpresa], [IdCentroCosto]),
@@ -51,6 +53,10 @@
     CONSTRAINT [FK_in_parametro_in_movi_inven_tipo4] FOREIGN KEY ([IdEmpresa], [IdMovi_inven_tipo_ingresoAjuste]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo]),
     CONSTRAINT [FK_in_parametro_in_movi_inven_tipo5] FOREIGN KEY ([IdEmpresa], [IdMovi_inven_tipo_egresoAjuste]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo]),
     CONSTRAINT [FK_in_parametro_in_movi_inven_tipo6] FOREIGN KEY ([IdEmpresa], [IdMovi_Inven_tipo_x_Dev_Inv_x_Ing]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo]),
-    CONSTRAINT [FK_in_parametro_in_movi_inven_tipo7] FOREIGN KEY ([IdEmpresa], [IdMovi_Inven_tipo_x_Dev_Inv_x_Erg]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo])
+    CONSTRAINT [FK_in_parametro_in_movi_inven_tipo7] FOREIGN KEY ([IdEmpresa], [IdMovi_Inven_tipo_x_Dev_Inv_x_Erg]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo]),
+    CONSTRAINT [FK_in_parametro_in_movi_inven_tipo8] FOREIGN KEY ([IdEmpresa], [IdMovi_inven_tipo_mobile_ing]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo]),
+    CONSTRAINT [FK_in_parametro_in_movi_inven_tipo9] FOREIGN KEY ([IdEmpresa], [IdMovi_inven_tipo_mobile_egr]) REFERENCES [dbo].[in_movi_inven_tipo] ([IdEmpresa], [IdMovi_inven_tipo])
 );
+
+
 

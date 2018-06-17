@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="DBERPModelConta.ct_cbtecble_tipo" Width="1.5" PointX="3.96814095972485" PointY="15.68484000101911" />
         <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo" Width="1.5" PointX="2.3296967569411251" PointY="20.479128713011335" />
         <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_nivel" Width="1.5" PointX="2.4217074170809738" PointY="24.437862333114193" />
-        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_sub_centro_costo" Width="1.5" PointX="10.246674432534107" PointY="20.668795744268593" />
         <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo" Width="1.5" PointX="1.5427945840837407" PointY="11.332580869706618" />
         <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial" Width="1.5" PointX="3.312603125028593" PointY="2.3876359324844723" />
         <EntityTypeShape EntityType="DBERPModelConta.ct_GrupoEmpresarial_grupocble" Width="1.5" PointX="2.4910644080913924" PointY="2.2247443060505874" />
@@ -52,7 +51,6 @@
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_ct_cbtecble_tipo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_ct_centro_costo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_ct_centro_costo_nivel" />
-        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_centro_costo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_x_ct_plancta_ct_GrupoEmpresarial" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_ct_GrupoEmpresarial_grupocble" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_ct_GrupoEmpresarial_plancta" />
@@ -90,7 +88,6 @@
         <EntityTypeShape EntityType="DBERPModelConta.vwct_cbtecble_det" Width="1.5" PointX="7.9265923834995338" PointY="9.9605914400706954" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_cbtecble" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_centro_costo" />
-        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_centro_costo_sub_centro_costo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_punto_cargo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_punto_cargo_grupo" />
         <EntityTypeShape EntityType="DBERPModelConta.ct_anio_fiscal_x_cuenta_utilidad" Width="1.5" PointX="9.73395914292613" PointY="29.424230023019124" />
@@ -102,7 +99,6 @@
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_plancta" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_Plantilla_det_ct_plancta" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_ct_plancta" />
-        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_plancta" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_grupo_x_Tipo_Gasto" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_plancta_ct_grupocble" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_GrupoEmpresarial_plancta_x_ct_plancta_ct_plancta" />
@@ -112,6 +108,10 @@
         <AssociationConnector Association="DBERPModelConta.FK_ct_punto_cargo_grupo_ct_plancta" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_ct_plancta" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_saldoxCuentas_Movi_ct_plancta" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_centro_costo_sub_centro_costo" Width="1.5" PointX="11.071025283574604" PointY="22.564687158244052" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_centro_costo_sub_centro_costo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_centro_costo" />
+        <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_plancta" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

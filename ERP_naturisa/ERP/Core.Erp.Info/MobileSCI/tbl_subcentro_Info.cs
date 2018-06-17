@@ -17,5 +17,6 @@ namespace Core.Erp.Info.MobileSCI
         public bool seleccionado { get; set; }
         public string nom_centro { get; set; }
         public string nom_subcentro { get; set; }
+        public string mobile_cod_produccion { get; set; }
     }
 }

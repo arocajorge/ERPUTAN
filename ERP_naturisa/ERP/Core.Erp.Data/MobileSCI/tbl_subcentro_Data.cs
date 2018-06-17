@@ -27,7 +27,8 @@ namespace Core.Erp.Data.MobileSCI
                                                                                  IdCentroCosto = b.IdCentroCosto,
                                                                                  IdCentroCosto_sub_centro_costo = b.IdCentroCosto_sub_centro_costo,
                                                                                  nom_Centro_costo = s.Centro_costo,
-                                                                                 NomSubCentroCosto = b.Centro_costo
+                                                                                 NomSubCentroCosto = b.Centro_costo,
+                                                                                 mobile_cod_produccion = b.mobile_cod_produccion
                                                                              }).ToList();
                 Context_g.Dispose();
                 Entities_mobileSCI context_m = new Entities_mobileSCI();
@@ -58,7 +59,8 @@ namespace Core.Erp.Data.MobileSCI
                                  IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
                                  nom_centro = q.nom_Centro_costo,
                                  nom_subcentro = q.NomSubCentroCosto,
-                                 seleccionado = p == null ? false : true
+                                 seleccionado = p == null ? false : true,
+                                 mobile_cod_produccion = q.mobile_cod_produccion
                              }).ToList();
                 }else
                     Lista = (from q in lst_filtro
@@ -74,7 +76,8 @@ namespace Core.Erp.Data.MobileSCI
                                  IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
                                  nom_centro = p.nom_Centro_costo,
                                  nom_subcentro = p.NomSubCentroCosto,
-                                 seleccionado = true
+                                 seleccionado = true,
+                                 mobile_cod_produccion = p.mobile_cod_produccion
                              }).ToList();
                 context_m.Dispose();
                 return Lista;
@@ -100,32 +103,37 @@ namespace Core.Erp.Data.MobileSCI
                 throw;
             }
         }
-        public bool guardarDB(List<tbl_subcentro_Info> Lista)
+        public bool guardarDB(int IdEmpresa, List<tbl_subcentro_Info> Lista)
         {
             try
             {
                 int IdSCI = 1;
-                using (Entities_mobileSCI Context = new Entities_mobileSCI())
+                Entities_mobileSCI Context = new Entities_mobileSCI();
+                EntitiesDBConta Context_c = new EntitiesDBConta();
+
+                foreach (var item in Lista)
                 {
-                    foreach (var item in Lista)
+                    tbl_subcentro Entity = new tbl_subcentro
                     {
-                        tbl_subcentro Entity = new tbl_subcentro
-                        {
-                            IdEmpresaSCI = item.IdEmpresaSCI,
-                            IdSCI = IdSCI++,
-                            IdEmpresa = item.IdEmpresa,
-                            IdCentroCosto = item.IdCentroCosto,
-                            IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
-                        };
-                        Context.tbl_subcentro.Add(Entity);
-                    }
-                    Context.SaveChanges();
+                        IdEmpresaSCI = IdEmpresa,
+                        IdSCI = IdSCI++,
+                        IdEmpresa = IdEmpresa,
+                        IdCentroCosto = item.IdCentroCosto,
+                        IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                    };
+                    Context.tbl_subcentro.Add(Entity);
+
+                    Context_c.ct_centro_costo_sub_centro_costo.Where(q => q.IdEmpresa == Entity.IdEmpresa && q.IdCentroCosto == item.IdCentroCosto && q.IdCentroCosto_sub_centro_costo == item.IdCentroCosto_sub_centro_costo).FirstOrDefault().mobile_cod_produccion = item.mobile_cod_produccion;
                 }
+                Context.SaveChanges();
+                Context_c.SaveChanges();
+
+                Context.Dispose();
+                Context_c.Dispose();
                 return true;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

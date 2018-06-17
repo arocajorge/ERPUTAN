@@ -96,6 +96,11 @@
             this.cmb_dev_inven_x_ing = new Core.Erp.Winform.Controles.UCIn_TipoMoviInv_Cmb();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.xtraTabPage_mobile = new DevExpress.XtraTab.XtraTabPage();
+            this.cmb_ingreso_app = new Core.Erp.Winform.Controles.UCIn_TipoMoviInv_Cmb();
+            this.cmb_egreso_app = new Core.Erp.Winform.Controles.UCIn_TipoMoviInv_Cmb();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -115,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckAjust.Properties)).BeginInit();
             this.xtraTabPage_ajus_inven.SuspendLayout();
             this.xtraTabPage_dev_inven.SuspendLayout();
+            this.xtraTabPage_mobile.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucGe_Menu
@@ -145,7 +151,7 @@
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1205, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1219, 29);
             this.ucGe_Menu.TabIndex = 0;
             this.ucGe_Menu.Visible_bntAnular = false;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -180,9 +186,9 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 462);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 525);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1205, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1219, 26);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 1;
             // 
             // panelControl1
@@ -191,7 +197,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 29);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1205, 433);
+            this.panelControl1.Size = new System.Drawing.Size(1219, 496);
             this.panelControl1.TabIndex = 2;
             // 
             // xtraTabControl1
@@ -200,14 +206,15 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage_param_gen;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1201, 429);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1215, 492);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_param_gen,
             this.xtraTabPage_trans_inve,
             this.xtraTabPage_ajus_fisi,
             this.xtraTabPage_ajus_inven,
-            this.xtraTabPage_dev_inven});
+            this.xtraTabPage_dev_inven,
+            this.xtraTabPage_mobile});
             // 
             // xtraTabPage_param_gen
             // 
@@ -215,7 +222,7 @@
             this.xtraTabPage_param_gen.Controls.Add(this.groupBox3);
             this.xtraTabPage_param_gen.Controls.Add(this.groupBox);
             this.xtraTabPage_param_gen.Name = "xtraTabPage_param_gen";
-            this.xtraTabPage_param_gen.Size = new System.Drawing.Size(1195, 401);
+            this.xtraTabPage_param_gen.Size = new System.Drawing.Size(1209, 464);
             this.xtraTabPage_param_gen.Text = "Parametros Generales";
             // 
             // groupBox1
@@ -236,6 +243,7 @@
             this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(479, 51);
             this.ucIn_Sucursal_Bodega1.TabIndex = 23;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.Normal;
+            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = false;
             // 
             // groupBox3
             // 
@@ -589,7 +597,7 @@
             this.xtraTabPage_trans_inve.Controls.Add(this.label4);
             this.xtraTabPage_trans_inve.Controls.Add(this.label7);
             this.xtraTabPage_trans_inve.Name = "xtraTabPage_trans_inve";
-            this.xtraTabPage_trans_inve.Size = new System.Drawing.Size(1195, 401);
+            this.xtraTabPage_trans_inve.Size = new System.Drawing.Size(1209, 464);
             this.xtraTabPage_trans_inve.Text = "Transferencia de Inventarios";
             // 
             // label8
@@ -681,7 +689,7 @@
             this.xtraTabPage_ajus_fisi.Controls.Add(this.label5);
             this.xtraTabPage_ajus_fisi.Controls.Add(this.label1);
             this.xtraTabPage_ajus_fisi.Name = "xtraTabPage_ajus_fisi";
-            this.xtraTabPage_ajus_fisi.Size = new System.Drawing.Size(1195, 401);
+            this.xtraTabPage_ajus_fisi.Size = new System.Drawing.Size(1209, 464);
             this.xtraTabPage_ajus_fisi.Text = "Ajuste Físico";
             // 
             // cmb_tipo_movi_inven_ing_x_ajus_fisico
@@ -733,7 +741,7 @@
             this.xtraTabPage_ajus_inven.Controls.Add(this.label9);
             this.xtraTabPage_ajus_inven.Controls.Add(this.label16);
             this.xtraTabPage_ajus_inven.Name = "xtraTabPage_ajus_inven";
-            this.xtraTabPage_ajus_inven.Size = new System.Drawing.Size(1195, 401);
+            this.xtraTabPage_ajus_inven.Size = new System.Drawing.Size(1209, 464);
             this.xtraTabPage_ajus_inven.Text = "Ajuste Inventario";
             // 
             // cmb_tipo_movi_inven_ing_x_ajus
@@ -742,7 +750,7 @@
             this.cmb_tipo_movi_inven_ing_x_ajus.Name = "cmb_tipo_movi_inven_ing_x_ajus";
             this.cmb_tipo_movi_inven_ing_x_ajus.Size = new System.Drawing.Size(303, 33);
             this.cmb_tipo_movi_inven_ing_x_ajus.TabIndex = 30;
-            this.cmb_tipo_movi_inven_ing_x_ajus.Visible_buton_Acciones = true;
+            this.cmb_tipo_movi_inven_ing_x_ajus.Visible_buton_Acciones = false;
             // 
             // cmb_tipo_movi_inven_egr_x_ajus
             // 
@@ -750,7 +758,7 @@
             this.cmb_tipo_movi_inven_egr_x_ajus.Name = "cmb_tipo_movi_inven_egr_x_ajus";
             this.cmb_tipo_movi_inven_egr_x_ajus.Size = new System.Drawing.Size(303, 33);
             this.cmb_tipo_movi_inven_egr_x_ajus.TabIndex = 29;
-            this.cmb_tipo_movi_inven_egr_x_ajus.Visible_buton_Acciones = true;
+            this.cmb_tipo_movi_inven_egr_x_ajus.Visible_buton_Acciones = false;
             // 
             // label9
             // 
@@ -777,7 +785,7 @@
             this.xtraTabPage_dev_inven.Controls.Add(this.label10);
             this.xtraTabPage_dev_inven.Controls.Add(this.label11);
             this.xtraTabPage_dev_inven.Name = "xtraTabPage_dev_inven";
-            this.xtraTabPage_dev_inven.Size = new System.Drawing.Size(1195, 401);
+            this.xtraTabPage_dev_inven.Size = new System.Drawing.Size(1209, 464);
             this.xtraTabPage_dev_inven.Text = "Devolucion de Inventario";
             // 
             // cmb_dev_inven_x_egr
@@ -814,11 +822,55 @@
             this.label11.TabIndex = 31;
             this.label11.Text = "Tipo de Movimiento de Inventario  por devolucion de Ingresos";
             // 
+            // xtraTabPage_mobile
+            // 
+            this.xtraTabPage_mobile.Controls.Add(this.label12);
+            this.xtraTabPage_mobile.Controls.Add(this.label13);
+            this.xtraTabPage_mobile.Controls.Add(this.cmb_ingreso_app);
+            this.xtraTabPage_mobile.Controls.Add(this.cmb_egreso_app);
+            this.xtraTabPage_mobile.Name = "xtraTabPage_mobile";
+            this.xtraTabPage_mobile.Size = new System.Drawing.Size(1209, 464);
+            this.xtraTabPage_mobile.Text = "Mobile";
+            // 
+            // cmb_ingreso_app
+            // 
+            this.cmb_ingreso_app.Location = new System.Drawing.Point(80, 105);
+            this.cmb_ingreso_app.Name = "cmb_ingreso_app";
+            this.cmb_ingreso_app.Size = new System.Drawing.Size(303, 33);
+            this.cmb_ingreso_app.TabIndex = 28;
+            this.cmb_ingreso_app.Visible_buton_Acciones = false;
+            // 
+            // cmb_egreso_app
+            // 
+            this.cmb_egreso_app.Location = new System.Drawing.Point(80, 42);
+            this.cmb_egreso_app.Name = "cmb_egreso_app";
+            this.cmb_egreso_app.Size = new System.Drawing.Size(303, 33);
+            this.cmb_egreso_app.TabIndex = 27;
+            this.cmb_egreso_app.Visible_buton_Acciones = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(77, 89);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(263, 13);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Tipo de Movimiento de Inventario para Ingreso de app";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(77, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(266, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Tipo de Movimiento de Inventario para Egresos de app";
+            // 
             // FrmIn_Parametro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 488);
+            this.ClientSize = new System.Drawing.Size(1219, 551);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.ucGe_Menu);
@@ -852,6 +904,8 @@
             this.xtraTabPage_ajus_inven.PerformLayout();
             this.xtraTabPage_dev_inven.ResumeLayout(false);
             this.xtraTabPage_dev_inven.PerformLayout();
+            this.xtraTabPage_mobile.ResumeLayout(false);
+            this.xtraTabPage_mobile.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -926,6 +980,11 @@
         private Controles.UCIn_TipoMoviInv_Cmb cmb_dev_inven_x_ing;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage_mobile;
+        private Controles.UCIn_TipoMoviInv_Cmb cmb_ingreso_app;
+        private Controles.UCIn_TipoMoviInv_Cmb cmb_egreso_app;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
 
     }
 }

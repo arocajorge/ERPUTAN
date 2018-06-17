@@ -17,5 +17,6 @@ namespace Core.Erp.Info.MobileSCI
         public string nom_producto { get; set; }
         public string nom_categoria { get; set; }
         public string nom_linea { get; set; }
+        public string mobile_cod_produccion { get; set; }
     }
 }

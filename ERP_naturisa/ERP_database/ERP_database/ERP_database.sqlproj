@@ -88,6 +88,7 @@
     <Folder Include="mobileSCI\" />
     <Folder Include="mobileSCI\Tables\" />
     <Folder Include="mobileSCI\Views\" />
+    <Folder Include="mobileSCI\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\tbSys_Ge_Comparativo_Modulo_vs_Contas.sql" />
@@ -2069,5 +2070,9 @@
     <Build Include="mobileSCI\Tables\tbl_movimientos_det.sql" />
     <Build Include="mobileSCI\Tables\tbl_movimientos.sql" />
     <Build Include="mobileSCI\Tables\tbl_sincronizacion_turno.sql" />
+    <Build Include="mobileSCI\Views\vw_movimientos_det.sql" />
+    <Build Include="mobileSCI\Stored Procedures\sp_revisar_estados_oc.sql" />
+    <Build Include="mobileSCI\Tables\tbl_movimientos_det_apro.sql" />
+    <Build Include="dbo\Stored Procedures\spINV_aprobacion_movimiento.sql" />
   </ItemGroup>
 </Project>

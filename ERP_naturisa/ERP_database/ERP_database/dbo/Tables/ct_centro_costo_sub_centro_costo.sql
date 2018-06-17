@@ -6,8 +6,11 @@
     [Centro_costo]                   VARCHAR (200) NOT NULL,
     [pc_Estado]                      CHAR (1)      NOT NULL,
     [IdCtaCble]                      VARCHAR (20)  NULL,
+    [mobile_cod_produccion]          VARCHAR (100) NULL,
     CONSTRAINT [PK_ct_centro_costo_sub_centro_costo] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdCentroCosto] ASC, [IdCentroCosto_sub_centro_costo] ASC),
     CONSTRAINT [FK_ct_centro_costo_sub_centro_costo_ct_centro_costo] FOREIGN KEY ([IdEmpresa], [IdCentroCosto]) REFERENCES [dbo].[ct_centro_costo] ([IdEmpresa], [IdCentroCosto]),
     CONSTRAINT [FK_ct_centro_costo_sub_centro_costo_ct_plancta] FOREIGN KEY ([IdEmpresa], [IdCtaCble]) REFERENCES [dbo].[ct_plancta] ([IdEmpresa], [IdCtaCble])
 );
+
+
 

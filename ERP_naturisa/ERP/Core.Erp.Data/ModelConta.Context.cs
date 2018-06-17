@@ -37,7 +37,6 @@ namespace Core.Erp.Data
         public DbSet<ct_cbtecble_tipo> ct_cbtecble_tipo { get; set; }
         public DbSet<ct_centro_costo> ct_centro_costo { get; set; }
         public DbSet<ct_centro_costo_nivel> ct_centro_costo_nivel { get; set; }
-        public DbSet<ct_centro_costo_sub_centro_costo> ct_centro_costo_sub_centro_costo { get; set; }
         public DbSet<ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo> ct_centro_costo_sub_centro_costo_x_Af_Activo_fijo { get; set; }
         public DbSet<ct_GrupoEmpresarial> ct_GrupoEmpresarial { get; set; }
         public DbSet<ct_GrupoEmpresarial_grupocble> ct_GrupoEmpresarial_grupocble { get; set; }
@@ -88,6 +87,7 @@ namespace Core.Erp.Data
         public DbSet<ct_anio_fiscal_x_cuenta_utilidad> ct_anio_fiscal_x_cuenta_utilidad { get; set; }
         public DbSet<vwct_plancta_nivel> vwct_plancta_nivel { get; set; }
         public DbSet<ct_plancta> ct_plancta { get; set; }
+        public DbSet<ct_centro_costo_sub_centro_costo> ct_centro_costo_sub_centro_costo { get; set; }
     
         public virtual int spCON_Saldo_Inicial_x_cta_cble(Nullable<int> i_IdEmpresa, Nullable<System.DateTime> i_FechaCorte, string i_IdCentroCosto)
         {

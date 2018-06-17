@@ -29,7 +29,8 @@ namespace Core.Erp.Data.MobileSCI
                                                                                 IdProducto = p.IdProducto,
                                                                                 pr_descripcion = p.pr_descripcion,
                                                                                 nom_Categoria = c.ca_Categoria,
-                                                                                nom_Linea = l.nom_linea
+                                                                                nom_Linea = l.nom_linea,
+                                                                                mobile_cod_produccion = p.mobile_cod_produccion
                                                                             }).ToList();
                 Context_g.Dispose();
                 Entities_mobileSCI context_m = new Entities_mobileSCI();
@@ -59,8 +60,8 @@ namespace Core.Erp.Data.MobileSCI
                                  nom_producto = q.pr_descripcion,
                                  seleccionado = p == null ? false : true,
                                  nom_categoria = q.nom_Categoria,
-                                 nom_linea = q.nom_Linea
-
+                                 nom_linea = q.nom_Linea,
+                                 mobile_cod_produccion = q.mobile_cod_produccion
                              }).ToList();
                 }else
                     Lista = (from q in lst_filtro
@@ -76,7 +77,8 @@ namespace Core.Erp.Data.MobileSCI
                                  nom_producto = p.pr_descripcion,
                                  seleccionado = true,
                                  nom_categoria = p.nom_Categoria,
-                                 nom_linea = p.nom_Linea
+                                 nom_linea = p.nom_Linea,
+                                 mobile_cod_produccion = p.mobile_cod_produccion
                              }).ToList();
 
                 context_m.Dispose();
@@ -103,26 +105,32 @@ namespace Core.Erp.Data.MobileSCI
                 throw;
             }
         }
-        public bool guardarDB(List<tbl_producto_Info> Lista)
+        public bool guardarDB(int IdEmpresa, List<tbl_producto_Info> Lista)
         {
             try
             {
                 int IdSCI = 1;
-                using (Entities_mobileSCI Context = new Entities_mobileSCI())
+                Entities_mobileSCI Context = new Entities_mobileSCI();
+                EntitiesInventario Context_i = new EntitiesInventario();
+
+                foreach (var item in Lista)
                 {
-                    foreach (var item in Lista)
+                    tbl_producto Entity = new tbl_producto
                     {
-                        tbl_producto Entity = new tbl_producto
-                        {
-                            IdEmpresaSCI = item.IdEmpresaSCI,
-                            IdSCI = IdSCI++,
-                            IdEmpresa = item.IdEmpresa,
-                            IdProducto = item.IdProducto
-                        };
-                        Context.tbl_producto.Add(Entity);
-                    }
-                    Context.SaveChanges();
+                        IdEmpresaSCI = IdEmpresa,
+                        IdSCI = IdSCI++,
+                        IdEmpresa = IdEmpresa,
+                        IdProducto = item.IdProducto
+                    };
+                    Context.tbl_producto.Add(Entity);
+                    Context_i.in_Producto.Where(q => q.IdEmpresa == Entity.IdEmpresa && q.IdProducto == Entity.IdProducto).FirstOrDefault().mobile_cod_produccion = item.mobile_cod_produccion;
                 }
+                Context.SaveChanges();
+                Context_i.SaveChanges();
+
+                Context_i.Dispose();
+                Context.Dispose();
+
                 return true;
             }
             catch (Exception)

@@ -2213,6 +2213,7 @@
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="MobileSCI\tbl_bodega_Data.cs" />
+    <Compile Include="MobileSCI\tbl_movimientos_det_Data.cs" />
     <Compile Include="MobileSCI\tbl_producto_Data.cs" />
     <Compile Include="MobileSCI\tbl_subcentro_Data.cs" />
     <Compile Include="MobileSCI\tbl_usuario_Data.cs" />
@@ -3685,6 +3686,12 @@
       <DependentUpon>ModelInventario_Talme.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_bodega.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_movimientos_det.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_movimientos_det_apro.cs">
       <DependentUpon>Model_mobileSCI.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_producto.cs">
@@ -5533,6 +5540,9 @@
     </Compile>
     <Compile Include="vw_EstadoCivil.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_movimientos_det.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
     </Compile>
     <Compile Include="vw_NaturalezaPersona.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>

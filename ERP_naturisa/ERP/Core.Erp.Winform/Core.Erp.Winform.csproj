@@ -4467,6 +4467,12 @@
     <Compile Include="Inventario_Fj\FrmIn_Orden_servicio_x_Activo_fijo_Mantenimiento.Designer.cs">
       <DependentUpon>FrmIn_Orden_servicio_x_Activo_fijo_Mantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="MobileSCI\frmApp_aprobaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileSCI\frmApp_aprobaciones.Designer.cs">
+      <DependentUpon>frmApp_aprobaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="MobileSCI\frmApp_configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -8345,6 +8351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario_Fj\FrmIn_Orden_servicio_x_Activo_fijo_Mantenimiento.resx">
       <DependentUpon>FrmIn_Orden_servicio_x_Activo_fijo_Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MobileSCI\frmApp_aprobaciones.resx">
+      <DependentUpon>frmApp_aprobaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MobileSCI\frmApp_configuracion.resx">
       <DependentUpon>frmApp_configuracion.cs</DependentUpon>

@@ -4,14 +4,50 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model_mobileSCI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model_mobileSCI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="Model_mobileSCIStoreContainer">
           <EntitySet Name="tbl_bodega" EntityType="Model_mobileSCI.Store.tbl_bodega" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_movimientos_det" EntityType="Model_mobileSCI.Store.tbl_movimientos_det" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="tbl_movimientos_det_apro" EntityType="Model_mobileSCI.Store.tbl_movimientos_det_apro" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_producto" EntityType="Model_mobileSCI.Store.tbl_producto" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_subcentro" EntityType="Model_mobileSCI.Store.tbl_subcentro" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_usuario" EntityType="Model_mobileSCI.Store.tbl_usuario" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_usuario_x_bodega" EntityType="Model_mobileSCI.Store.tbl_usuario_x_bodega" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_usuario_x_subcentro" EntityType="Model_mobileSCI.Store.tbl_usuario_x_subcentro" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="vw_movimientos_det" EntityType="Model_mobileSCI.Store.vw_movimientos_det" store:Type="Views" store:Schema="mobileSCI" store:Name="vw_movimientos_det">
+            <DefiningQuery>SELECT 
+      [vw_movimientos_det].[IdSincronizacion] AS [IdSincronizacion], 
+      [vw_movimientos_det].[IdSecuencia] AS [IdSecuencia], 
+      [vw_movimientos_det].[IdUsuarioSCI] AS [IdUsuarioSCI], 
+      [vw_movimientos_det].[IdEmpresa] AS [IdEmpresa], 
+      [vw_movimientos_det].[IdSucursal] AS [IdSucursal], 
+      [vw_movimientos_det].[IdBodega] AS [IdBodega], 
+      [vw_movimientos_det].[IdProducto] AS [IdProducto], 
+      [vw_movimientos_det].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vw_movimientos_det].[IdCentroCosto] AS [IdCentroCosto], 
+      [vw_movimientos_det].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vw_movimientos_det].[Fecha] AS [Fecha], 
+      [vw_movimientos_det].[cantidad] AS [cantidad], 
+      [vw_movimientos_det].[IdEmpresa_oc] AS [IdEmpresa_oc], 
+      [vw_movimientos_det].[IdSucursal_oc] AS [IdSucursal_oc], 
+      [vw_movimientos_det].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vw_movimientos_det].[secuencia_oc] AS [secuencia_oc], 
+      [vw_movimientos_det].[pr_descripcion] AS [pr_descripcion], 
+      [vw_movimientos_det].[nom_unidad_medida] AS [nom_unidad_medida], 
+      [vw_movimientos_det].[Aprobado] AS [Aprobado], 
+      [vw_movimientos_det].[Estado] AS [Estado], 
+      [vw_movimientos_det].[Su_Descripcion] AS [Su_Descripcion], 
+      [vw_movimientos_det].[bo_Descripcion] AS [bo_Descripcion], 
+      [vw_movimientos_det].[nom_centro] AS [nom_centro], 
+      [vw_movimientos_det].[nom_subcentro] AS [nom_subcentro], 
+      [vw_movimientos_det].[Fecha_sincronizacion] AS [Fecha_sincronizacion], 
+      [vw_movimientos_det].[do_precioFinal] AS [do_precioFinal]
+      FROM [mobileSCI].[vw_movimientos_det] AS [vw_movimientos_det]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbl_movimientos_det_apro_tbl_movimientos_det" Association="Model_mobileSCI.Store.FK_tbl_movimientos_det_apro_tbl_movimientos_det">
+            <End Role="tbl_movimientos_det" EntitySet="tbl_movimientos_det" />
+            <End Role="tbl_movimientos_det_apro" EntitySet="tbl_movimientos_det_apro" />
+          </AssociationSet>
           <AssociationSet Name="FK_tbl_usuario_x_bodega_tbl_usuario" Association="Model_mobileSCI.Store.FK_tbl_usuario_x_bodega_tbl_usuario">
             <End Role="tbl_usuario" EntitySet="tbl_usuario" />
             <End Role="tbl_usuario_x_bodega" EntitySet="tbl_usuario_x_bodega" />
@@ -31,6 +67,42 @@
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdSucursal" Type="int" Nullable="false" />
           <Property Name="IdBodega" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_movimientos_det">
+          <Key>
+            <PropertyRef Name="IdSincronizacion" />
+            <PropertyRef Name="IdSecuencia" />
+          </Key>
+          <Property Name="IdSincronizacion" Type="numeric" Nullable="false" />
+          <Property Name="IdSecuencia" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="IdEmpresa_oc" Type="int" />
+          <Property Name="IdSucursal_oc" Type="int" />
+          <Property Name="IdOrdenCompra" Type="numeric" />
+          <Property Name="secuencia_oc" Type="int" />
+          <Property Name="Aprobado" Type="bit" Nullable="false" />
+          <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tbl_movimientos_det_apro">
+          <Key>
+            <PropertyRef Name="IdAprobacion" />
+          </Key>
+          <Property Name="IdAprobacion" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdSincronizacion" Type="numeric" Nullable="false" />
+          <Property Name="IdSecuencia" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbl_producto">
           <Key>
@@ -84,6 +156,71 @@
           <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.mobileSCI.vw_movimientos_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vw_movimientos_det">
+          <Key>
+            <PropertyRef Name="IdSincronizacion" />
+            <PropertyRef Name="IdSecuencia" />
+            <PropertyRef Name="IdUsuarioSCI" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="nom_unidad_medida" />
+            <PropertyRef Name="Aprobado" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Fecha_sincronizacion" />
+            <PropertyRef Name="do_precioFinal" />
+          </Key>
+          <Property Name="IdSincronizacion" Type="numeric" Nullable="false" />
+          <Property Name="IdSecuencia" Type="int" Nullable="false" />
+          <Property Name="IdUsuarioSCI" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="IdEmpresa_oc" Type="int" />
+          <Property Name="IdSucursal_oc" Type="int" />
+          <Property Name="IdOrdenCompra" Type="numeric" />
+          <Property Name="secuencia_oc" Type="int" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="nom_unidad_medida" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Aprobado" Type="bit" Nullable="false" />
+          <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="nom_centro" Type="varchar" MaxLength="250" />
+          <Property Name="nom_subcentro" Type="varchar" MaxLength="200" />
+          <Property Name="Fecha_sincronizacion" Type="datetime" Nullable="false" />
+          <Property Name="do_precioFinal" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tbl_movimientos_det_apro_tbl_movimientos_det">
+          <End Role="tbl_movimientos_det" Type="Model_mobileSCI.Store.tbl_movimientos_det" Multiplicity="1" />
+          <End Role="tbl_movimientos_det_apro" Type="Model_mobileSCI.Store.tbl_movimientos_det_apro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_movimientos_det">
+              <PropertyRef Name="IdSincronizacion" />
+              <PropertyRef Name="IdSecuencia" />
+            </Principal>
+            <Dependent Role="tbl_movimientos_det_apro">
+              <PropertyRef Name="IdSincronizacion" />
+              <PropertyRef Name="IdSecuencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tbl_usuario_x_bodega_tbl_usuario">
           <End Role="tbl_usuario" Type="Model_mobileSCI.Store.tbl_usuario" Multiplicity="1" />
           <End Role="tbl_usuario_x_bodega" Type="Model_mobileSCI.Store.tbl_usuario_x_bodega" Multiplicity="*" />
@@ -108,8 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model_mobileSCI" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -127,6 +263,13 @@
           <AssociationSet Name="FK_tbl_usuario_x_subcentro_tbl_usuario" Association="Model_mobileSCI.FK_tbl_usuario_x_subcentro_tbl_usuario">
             <End Role="tbl_usuario" EntitySet="tbl_usuario" />
             <End Role="tbl_usuario_x_subcentro" EntitySet="tbl_usuario_x_subcentro" />
+          </AssociationSet>
+          <EntitySet Name="tbl_movimientos_det" EntityType="Model_mobileSCI.tbl_movimientos_det" />
+          <EntitySet Name="vw_movimientos_det" EntityType="Model_mobileSCI.vw_movimientos_det" />
+          <EntitySet Name="tbl_movimientos_det_apro" EntityType="Model_mobileSCI.tbl_movimientos_det_apro" />
+          <AssociationSet Name="FK_tbl_movimientos_det_apro_tbl_movimientos_det" Association="Model_mobileSCI.FK_tbl_movimientos_det_apro_tbl_movimientos_det">
+            <End Role="tbl_movimientos_det" EntitySet="tbl_movimientos_det" />
+            <End Role="tbl_movimientos_det_apro" EntitySet="tbl_movimientos_det_apro" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="tbl_bodega">
@@ -220,6 +363,106 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbl_movimientos_det">
+          <Key>
+            <PropertyRef Name="IdSincronizacion" />
+            <PropertyRef Name="IdSecuencia" />
+          </Key>
+          <Property Type="Decimal" Name="IdSincronizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSecuencia" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_oc" />
+          <Property Type="Int32" Name="IdSucursal_oc" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia_oc" />
+          <Property Type="Boolean" Name="Aprobado" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_movimientos_det_apro" Relationship="Model_mobileSCI.FK_tbl_movimientos_det_apro_tbl_movimientos_det" FromRole="tbl_movimientos_det" ToRole="tbl_movimientos_det_apro" />
+        </EntityType>
+        <EntityType Name="vw_movimientos_det">
+          <Key>
+            <PropertyRef Name="IdSincronizacion" />
+            <PropertyRef Name="IdSecuencia" />
+            <PropertyRef Name="IdUsuarioSCI" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="nom_unidad_medida" />
+            <PropertyRef Name="Aprobado" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Fecha_sincronizacion" />
+            <PropertyRef Name="do_precioFinal" />
+          </Key>
+          <Property Type="Decimal" Name="IdSincronizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSecuencia" Nullable="false" />
+          <Property Type="String" Name="IdUsuarioSCI" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa_oc" />
+          <Property Type="Int32" Name="IdSucursal_oc" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia_oc" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_unidad_medida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Aprobado" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_centro" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subcentro" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_sincronizacion" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="do_precioFinal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_movimientos_det_apro">
+          <Key>
+            <PropertyRef Name="IdAprobacion" />
+          </Key>
+          <Property Type="Decimal" Name="IdAprobacion" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="IdSincronizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSecuencia" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <NavigationProperty Name="tbl_movimientos_det" Relationship="Model_mobileSCI.FK_tbl_movimientos_det_apro_tbl_movimientos_det" FromRole="tbl_movimientos_det_apro" ToRole="tbl_movimientos_det" />
+        </EntityType>
+        <Association Name="FK_tbl_movimientos_det_apro_tbl_movimientos_det">
+          <End Type="Model_mobileSCI.tbl_movimientos_det" Role="tbl_movimientos_det" Multiplicity="1" />
+          <End Type="Model_mobileSCI.tbl_movimientos_det_apro" Role="tbl_movimientos_det_apro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_movimientos_det">
+              <PropertyRef Name="IdSincronizacion" />
+              <PropertyRef Name="IdSecuencia" />
+            </Principal>
+            <Dependent Role="tbl_movimientos_det_apro">
+              <PropertyRef Name="IdSincronizacion" />
+              <PropertyRef Name="IdSecuencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -287,6 +530,75 @@
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
                 <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
                 <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_movimientos_det">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_movimientos_det">
+              <MappingFragment StoreEntitySet="tbl_movimientos_det">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Aprobado" ColumnName="Aprobado" />
+                <ScalarProperty Name="secuencia_oc" ColumnName="secuencia_oc" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSecuencia" ColumnName="IdSecuencia" />
+                <ScalarProperty Name="IdSincronizacion" ColumnName="IdSincronizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_movimientos_det">
+            <EntityTypeMapping TypeName="Model_mobileSCI.vw_movimientos_det">
+              <MappingFragment StoreEntitySet="vw_movimientos_det">
+                <ScalarProperty Name="do_precioFinal" ColumnName="do_precioFinal" />
+                <ScalarProperty Name="Fecha_sincronizacion" ColumnName="Fecha_sincronizacion" />
+                <ScalarProperty Name="nom_subcentro" ColumnName="nom_subcentro" />
+                <ScalarProperty Name="nom_centro" ColumnName="nom_centro" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Aprobado" ColumnName="Aprobado" />
+                <ScalarProperty Name="nom_unidad_medida" ColumnName="nom_unidad_medida" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="secuencia_oc" ColumnName="secuencia_oc" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdUsuarioSCI" ColumnName="IdUsuarioSCI" />
+                <ScalarProperty Name="IdSecuencia" ColumnName="IdSecuencia" />
+                <ScalarProperty Name="IdSincronizacion" ColumnName="IdSincronizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_movimientos_det_apro">
+            <EntityTypeMapping TypeName="Model_mobileSCI.tbl_movimientos_det_apro">
+              <MappingFragment StoreEntitySet="tbl_movimientos_det_apro">
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSecuencia" ColumnName="IdSecuencia" />
+                <ScalarProperty Name="IdSincronizacion" ColumnName="IdSincronizacion" />
+                <ScalarProperty Name="IdAprobacion" ColumnName="IdAprobacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

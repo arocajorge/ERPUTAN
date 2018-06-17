@@ -100,7 +100,7 @@ namespace Core.Erp.Data.MobileSCI
                 throw;
             }
         }
-        public bool guardarDB(List<tbl_bodega_Info> Lista)
+        public bool guardarDB(int IdEmpresa, List<tbl_bodega_Info> Lista)
         {
             try
             {
@@ -111,9 +111,9 @@ namespace Core.Erp.Data.MobileSCI
                     {
                         tbl_bodega Entity = new tbl_bodega
                         {
-                            IdEmpresaSCI = item.IdEmpresaSCI,
+                            IdEmpresaSCI = IdEmpresa,
                             IdSCI = IdSCI++,
-                            IdEmpresa = item.IdEmpresa,
+                            IdEmpresa = IdEmpresa,
                             IdSucursal = item.IdSucursal,
                             IdBodega = item.IdBodega,
                         };

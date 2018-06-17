@@ -60,7 +60,8 @@ namespace Core.Erp.Info.Inventario
         public Boolean ? P_Grabar_Items_x_Cada_Movi_Inven { get; set; }
         public string P_Fecha_para_contabilizacion_ingr_egr { get; set; }
         public Nullable<bool> P_se_valida_parametrizacion_x_producto { get; set; }
-
+        public Nullable<int> IdMovi_inven_tipo_mobile_ing { get; set; }
+        public Nullable<int> IdMovi_inven_tipo_mobile_egr { get; set; }
         public string P_IdCtaCble_transitoria_transf_inven { get; set; }
 
         public in_Parametro_Info() { }

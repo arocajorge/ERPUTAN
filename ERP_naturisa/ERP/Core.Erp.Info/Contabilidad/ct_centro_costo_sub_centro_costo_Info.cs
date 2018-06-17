@@ -21,6 +21,7 @@ namespace Core.Erp.Info.Contabilidad
         public string nom_cuenta{ get; set; }
         public string pc_clave_corta { get; set; }
         public string nom_Centro_costo { get; set; }
+        public string mobile_cod_produccion { get; set; }
 
         public ct_centro_costo_sub_centro_costo_Info() { }
 

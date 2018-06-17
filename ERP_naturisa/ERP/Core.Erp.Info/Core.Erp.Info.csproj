@@ -803,6 +803,7 @@
     <Compile Include="Log_Exception\Logger.cs" />
     <Compile Include="Log_Exception\LoggingManager.cs" />
     <Compile Include="MobileSCI\tbl_bodega_Info.cs" />
+    <Compile Include="MobileSCI\tbl_movimientos_det_Info.cs" />
     <Compile Include="MobileSCI\tbl_producto_Info.cs" />
     <Compile Include="MobileSCI\tbl_subcentro_Info.cs" />
     <Compile Include="MobileSCI\tbl_usuario_Info.cs" />
