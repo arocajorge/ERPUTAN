@@ -5541,6 +5541,9 @@
     <Compile Include="vw_EstadoCivil.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>
     </Compile>
+    <Compile Include="vw_movimientos_csv.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
+    </Compile>
     <Compile Include="vw_movimientos_det.cs">
       <DependentUpon>Model_mobileSCI.tt</DependentUpon>
     </Compile>

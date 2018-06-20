@@ -14,6 +14,31 @@
           <EntitySet Name="tbl_usuario" EntityType="Model_mobileSCI.Store.tbl_usuario" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_usuario_x_bodega" EntityType="Model_mobileSCI.Store.tbl_usuario_x_bodega" store:Type="Tables" Schema="mobileSCI" />
           <EntitySet Name="tbl_usuario_x_subcentro" EntityType="Model_mobileSCI.Store.tbl_usuario_x_subcentro" store:Type="Tables" Schema="mobileSCI" />
+          <EntitySet Name="vw_movimientos_csv" EntityType="Model_mobileSCI.Store.vw_movimientos_csv" store:Type="Views" store:Schema="mobileSCI" store:Name="vw_movimientos_csv">
+            <DefiningQuery>SELECT 
+      [vw_movimientos_csv].[IdSincronizacion] AS [IdSincronizacion], 
+      [vw_movimientos_csv].[IdSecuencia] AS [IdSecuencia], 
+      [vw_movimientos_csv].[IdEmpresa] AS [IdEmpresa], 
+      [vw_movimientos_csv].[IdSucursal] AS [IdSucursal], 
+      [vw_movimientos_csv].[IdBodega] AS [IdBodega], 
+      [vw_movimientos_csv].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vw_movimientos_csv].[IdNumMovi] AS [IdNumMovi], 
+      [vw_movimientos_csv].[Secuencia] AS [Secuencia], 
+      [vw_movimientos_csv].[IdCentroCosto] AS [IdCentroCosto], 
+      [vw_movimientos_csv].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vw_movimientos_csv].[NomCentroCosto] AS [NomCentroCosto], 
+      [vw_movimientos_csv].[NomSubCentro] AS [NomSubCentro], 
+      [vw_movimientos_csv].[CodProduccionSC] AS [CodProduccionSC], 
+      [vw_movimientos_csv].[pr_descripcion] AS [pr_descripcion], 
+      [vw_movimientos_csv].[CodProduccionPro] AS [CodProduccionPro], 
+      [vw_movimientos_csv].[Su_Descripcion] AS [Su_Descripcion], 
+      [vw_movimientos_csv].[bo_Descripcion] AS [bo_Descripcion], 
+      [vw_movimientos_csv].[Cantidad] AS [Cantidad], 
+      [vw_movimientos_csv].[IdProducto] AS [IdProducto], 
+      [vw_movimientos_csv].[Fecha] AS [Fecha], 
+      [vw_movimientos_csv].[IdUnidadMedida] AS [IdUnidadMedida]
+      FROM [mobileSCI].[vw_movimientos_csv] AS [vw_movimientos_csv]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_movimientos_det" EntityType="Model_mobileSCI.Store.vw_movimientos_det" store:Type="Views" store:Schema="mobileSCI" store:Name="vw_movimientos_det">
             <DefiningQuery>SELECT 
       [vw_movimientos_det].[IdSincronizacion] AS [IdSincronizacion], 
@@ -157,6 +182,51 @@
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
         <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.mobileSCI.vw_movimientos_csv' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vw_movimientos_csv">
+          <Key>
+            <PropertyRef Name="IdSincronizacion" />
+            <PropertyRef Name="IdSecuencia" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="NomCentroCosto" />
+            <PropertyRef Name="NomSubCentro" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdUnidadMedida" />
+          </Key>
+          <Property Name="IdSincronizacion" Type="numeric" Nullable="false" />
+          <Property Name="IdSecuencia" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="NomCentroCosto" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="NomSubCentro" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="CodProduccionSC" Type="varchar" MaxLength="100" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="CodProduccionPro" Type="varchar" MaxLength="100" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="Cantidad" Type="float" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
       advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.mobileSCI.vw_movimientos_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vw_movimientos_det">
@@ -271,6 +341,7 @@
             <End Role="tbl_movimientos_det" EntitySet="tbl_movimientos_det" />
             <End Role="tbl_movimientos_det_apro" EntitySet="tbl_movimientos_det_apro" />
           </AssociationSet>
+          <EntitySet Name="vw_movimientos_csv" EntityType="Model_mobileSCI.vw_movimientos_csv" />
         </EntityContainer>
         <EntityType Name="tbl_bodega">
           <Key>
@@ -463,6 +534,48 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vw_movimientos_csv">
+          <Key>
+            <PropertyRef Name="IdSincronizacion" />
+            <PropertyRef Name="IdSecuencia" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="NomCentroCosto" />
+            <PropertyRef Name="NomSubCentro" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdUnidadMedida" />
+          </Key>
+          <Property Type="Decimal" Name="IdSincronizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSecuencia" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NomCentroCosto" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NomSubCentro" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodProduccionSC" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodProduccionPro" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -599,6 +712,33 @@
                 <ScalarProperty Name="IdSecuencia" ColumnName="IdSecuencia" />
                 <ScalarProperty Name="IdSincronizacion" ColumnName="IdSincronizacion" />
                 <ScalarProperty Name="IdAprobacion" ColumnName="IdAprobacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_movimientos_csv">
+            <EntityTypeMapping TypeName="Model_mobileSCI.vw_movimientos_csv">
+              <MappingFragment StoreEntitySet="vw_movimientos_csv">
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="CodProduccionPro" ColumnName="CodProduccionPro" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="CodProduccionSC" ColumnName="CodProduccionSC" />
+                <ScalarProperty Name="NomSubCentro" ColumnName="NomSubCentro" />
+                <ScalarProperty Name="NomCentroCosto" ColumnName="NomCentroCosto" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSecuencia" ColumnName="IdSecuencia" />
+                <ScalarProperty Name="IdSincronizacion" ColumnName="IdSincronizacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

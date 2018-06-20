@@ -33,5 +33,12 @@ namespace Core.Erp.Info.MobileSCI
 
         public bool Checked_A { get; set; }
         public bool Checked_R { get; set; }
+
+        //Campos csv
+        public int IdMovi_inven_tipo { get; set; }
+        public decimal IdNumMovi { get; set; }
+        public int Secuencia { get; set; }
+        public string CodProduccionSC { get; set; }
+        public string CodProduccionPro { get; set; }
     }
 }

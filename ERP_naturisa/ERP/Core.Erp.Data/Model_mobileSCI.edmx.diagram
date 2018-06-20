@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="Model_mobileSCI.vw_movimientos_det" Width="1.5" PointX="10.453416527460057" PointY="24.831738796472429" />
         <EntityTypeShape EntityType="Model_mobileSCI.tbl_movimientos_det_apro" Width="1.5" PointX="0.24399021651781638" PointY="29.769934414778806" />
         <AssociationConnector Association="Model_mobileSCI.FK_tbl_movimientos_det_apro_tbl_movimientos_det" />
+        <EntityTypeShape EntityType="Model_mobileSCI.vw_movimientos_csv" Width="1.5" PointX="2.149393922718891" PointY="29.102376310668131" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

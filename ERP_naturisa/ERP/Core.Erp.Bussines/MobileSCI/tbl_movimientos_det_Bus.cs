@@ -23,6 +23,18 @@ namespace Core.Erp.Business.MobileSCI
                 throw;
             }
         }
+        public List<tbl_movimientos_det_Info> get_list_csv(int IdEmpresa, int IdSucursal, int IdBodega, DateTime Fecha_ini, DateTime Fecha_fin)
+        {
+            try
+            {
+                return odata.get_list_csv(IdEmpresa, IdSucursal, IdBodega, Fecha_ini, Fecha_fin);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public bool Modificar_estado(List<tbl_movimientos_det_Info> Lista, string Estado)
         {

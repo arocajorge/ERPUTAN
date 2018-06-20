@@ -4479,6 +4479,12 @@
     <Compile Include="MobileSCI\frmApp_configuracion.Designer.cs">
       <DependentUpon>frmApp_configuracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="MobileSCI\frmApp_Generacion_csv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileSCI\frmApp_Generacion_csv.Designer.cs">
+      <DependentUpon>frmApp_Generacion_csv.cs</DependentUpon>
+    </Compile>
     <Compile Include="MobileSCI\frmApp_usuario_cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -8357,6 +8363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MobileSCI\frmApp_configuracion.resx">
       <DependentUpon>frmApp_configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MobileSCI\frmApp_Generacion_csv.resx">
+      <DependentUpon>frmApp_Generacion_csv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MobileSCI\frmApp_usuario_cons.resx">
       <DependentUpon>frmApp_usuario_cons.cs</DependentUpon>

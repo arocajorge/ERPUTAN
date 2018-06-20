@@ -315,5 +315,59 @@ namespace Core.Erp.Data.MobileSCI
                 throw;   
             }
         }
+
+        public List<tbl_movimientos_det_Info> get_list_csv(int IdEmpresa, int IdSucursal, int IdBodega, DateTime Fecha_ini, DateTime Fecha_fin)
+        {
+            try
+            {
+                List<tbl_movimientos_det_Info> Lista;
+                int IdSucursal_ini = IdSucursal;
+                int IdSucursal_fin = IdSucursal == 0 ? 9999 : IdSucursal;
+                int IdBodega_ini = IdBodega;
+                int IdBodega_fin = IdBodega == 0 ? 9999 : IdBodega;
+                Fecha_ini = Fecha_ini.Date;
+                Fecha_fin = Fecha_fin.Date;
+                using (Entities_mobileSCI Context = new Entities_mobileSCI())
+                {
+                    Lista = (from q in Context.vw_movimientos_csv
+                             where q.IdEmpresa == IdEmpresa
+                             && IdSucursal_ini <= q.IdSucursal && q.IdSucursal <= IdSucursal_fin
+                             && IdBodega_ini <= q.IdBodega && q.IdBodega <= IdBodega_fin
+                             && Fecha_ini <= q.Fecha && q.Fecha <= Fecha_fin
+                             select new tbl_movimientos_det_Info
+                             {
+                                 Checked_A = true,
+                                 IdSincronizacion = q.IdSincronizacion,
+                                 IdSecuencia = q.IdSecuencia,
+                                 IdEmpresa = q.IdEmpresa,
+                                 IdSucursal = q.IdSucursal,
+                                 IdBodega = q.IdBodega,
+                                 IdMovi_inven_tipo = q.IdMovi_inven_tipo,
+                                 IdNumMovi = q.IdNumMovi,
+                                 Secuencia = q.Secuencia,
+                                 IdCentroCosto = q.IdCentroCosto,
+                                 IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                 nom_centro = q.NomCentroCosto,
+                                 nom_subcentro = q.NomSubCentro,
+                                 CodProduccionSC = q.CodProduccionSC,
+                                 pr_descripcion = q.pr_descripcion,
+                                 CodProduccionPro = q.CodProduccionPro,
+                                 Su_Descripcion = q.Su_Descripcion,
+                                 bo_Descripcion = q.bo_Descripcion,
+                                 cantidad = q.Cantidad,
+                                 IdProducto = q.IdProducto,
+                                 Fecha = q.Fecha,
+                                 IdUnidadMedida = q.IdUnidadMedida,
+                             }).ToList();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -34,5 +34,6 @@ namespace Core.Erp.Data
         public DbSet<tbl_movimientos_det> tbl_movimientos_det { get; set; }
         public DbSet<vw_movimientos_det> vw_movimientos_det { get; set; }
         public DbSet<tbl_movimientos_det_apro> tbl_movimientos_det_apro { get; set; }
+        public DbSet<vw_movimientos_csv> vw_movimientos_csv { get; set; }
     }
 }
