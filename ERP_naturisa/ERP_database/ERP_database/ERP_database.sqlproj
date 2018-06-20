@@ -2074,5 +2074,6 @@
     <Build Include="mobileSCI\Stored Procedures\sp_revisar_estados_oc.sql" />
     <Build Include="mobileSCI\Tables\tbl_movimientos_det_apro.sql" />
     <Build Include="dbo\Stored Procedures\spINV_aprobacion_movimiento.sql" />
+    <Build Include="mobileSCI\Views\vw_movimientos_csv.sql" />
   </ItemGroup>
 </Project>
