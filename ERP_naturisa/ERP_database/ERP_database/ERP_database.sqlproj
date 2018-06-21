@@ -2077,5 +2077,7 @@
     <Build Include="mobileSCI\Views\vw_movimientos_csv.sql" />
     <Build Include="mobileSCI\Tables\tbl_oc_x_aprobar.sql" />
     <Build Include="mobileSCI\Stored Procedures\sp_oc_x_aprobar.sql" />
+    <Build Include="mobileSCI\Tables\tbl_stock.sql" />
+    <Build Include="mobileSCI\Stored Procedures\sp_stock.sql" />
   </ItemGroup>
 </Project>
