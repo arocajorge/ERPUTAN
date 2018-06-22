@@ -1,5 +1,4 @@
-﻿
---EXEC spINV_aprobacion_movimiento 1,12,18,36,7
+﻿--EXEC spINV_aprobacion_movimiento 1,2,18,2,15
 CREATE PROCEDURE [dbo].[spINV_aprobacion_movimiento]
 (
 @IdEmpresa int,
@@ -12,7 +11,6 @@ AS
 BEGIN
 
 BEGIN --VARIABLES
-PRINT 'VARIABLES'
 DECLARE @IdNumMovi_apro numeric,
 @Genera_Diario_Contable varchar(1),
 @Cuenta_costo_de varchar(30),
@@ -57,20 +55,22 @@ IF(@signo = '-')
 			) costo_prom on det.IdEmpresa = costo_prom.IdEmpresa and costo_prom.IdSucursal = det.IdSucursal and det.IdBodega = costo_prom.IdBodega and det.IdProducto = costo_prom.IdProducto
 			AND det.IdEmpresa = @IdEmpresa and det.IdSucursal = @IdSucursal and det.IdMovi_inven_tipo = @IdMovi_inven_tipo and det.IdNumMovi = @IdNumMovi
 		) C where in_Ing_Egr_Inven_det.IdEmpresa = c.IdEmpresa and in_Ing_Egr_Inven_det.IdSucursal = C.IdSucursal and in_Ing_Egr_Inven_det.IdMovi_inven_tipo = c.IdMovi_inven_tipo and in_Ing_Egr_Inven_det.IdNumMovi = c.IdNumMovi and in_Ing_Egr_Inven_det.Secuencia = c.Secuencia
+		and in_Ing_Egr_Inven_det.IdEmpresa = @IdEmpresa and in_Ing_Egr_Inven_det.IdSucursal = @IdSucursal and in_Ing_Egr_Inven_det.IdBodega = @IdBodega and in_Ing_Egr_Inven_det.IdMovi_inven_tipo = @IdMovi_inven_tipo and in_Ing_Egr_Inven_det.IdNumMovi = @IdNumMovi
 	END
 END
 
 BEGIN --CONVERSION DE UNIDAD DE MEDIDA
 PRINT 'CONVERSION DE UNIDAD DE MEDIDA'
-update in_Ing_Egr_Inven_det set mv_costo = C.costo_convertido, dm_cantidad = C.cantidad_convertida
+update in_Ing_Egr_Inven_det set mv_costo = C.costo_convertido, dm_cantidad = C.cantidad_convertida, IdUnidadMedida = C.IdUnidadMedida_equiva
 FROM(
-SELECT        det.IdEmpresa, det.IdSucursal, det.IdMovi_inven_tipo, det.IdNumMovi, det.Secuencia, 
-equiv.valor_equiv * det.mv_costo_sinConversion costo_convertido, equiv.valor_equiv * det.dm_cantidad_sinConversion as cantidad_convertida
+SELECT        det.IdEmpresa, det.IdSucursal, det.IdMovi_inven_tipo, det.IdNumMovi, det.Secuencia, equiv.IdUnidadMedida_equiva ,
+det.mv_costo_sinConversion / equiv.valor_equiv  costo_convertido, equiv.valor_equiv * det.dm_cantidad_sinConversion as cantidad_convertida
 FROM            in_Ing_Egr_Inven_det AS det INNER JOIN
             in_Producto AS p ON det.IdEmpresa = p.IdEmpresa AND det.IdProducto = p.IdProducto INNER JOIN
             in_UnidadMedida_Equiv_conversion AS equiv ON det.IdUnidadMedida_sinConversion = equiv.IdUnidadMedida AND p.IdUnidadMedida_Consumo = equiv.IdUnidadMedida_equiva
 			WHERE det.IdEmpresa = @IdEmpresa and det.IdSucursal = @IdSucursal and det.IdBodega = @IdBodega and IdMovi_inven_tipo = @IdMovi_inven_tipo and IdNumMovi = @IdNumMovi
 ) C where in_Ing_Egr_Inven_det.IdEmpresa = c.IdEmpresa and in_Ing_Egr_Inven_det.IdSucursal = C.IdSucursal and in_Ing_Egr_Inven_det.IdMovi_inven_tipo = c.IdMovi_inven_tipo and in_Ing_Egr_Inven_det.IdNumMovi = c.IdNumMovi and in_Ing_Egr_Inven_det.Secuencia = c.Secuencia
+and in_Ing_Egr_Inven_det.IdEmpresa = @IdEmpresa and in_Ing_Egr_Inven_det.IdSucursal = @IdSucursal and in_Ing_Egr_Inven_det.IdBodega = @IdBodega and in_Ing_Egr_Inven_det.IdMovi_inven_tipo = @IdMovi_inven_tipo and in_Ing_Egr_Inven_det.IdNumMovi = @IdNumMovi
 END
 
 BEGIN --GENERAR IN_MOVI_INVE
@@ -161,6 +161,7 @@ and in_Ing_Egr_Inven_det.Secuencia = A.Secuencia
 END
 
 BEGIN --SI ES INGRESO REGISTRO COSTO HISTORICO
+PRINT 'INGRESO PRODUCTO EN BODEGA'
 IF(@signo = '+')
 	BEGIN
 	INSERT INTO [dbo].[in_producto_x_tb_bodega]
@@ -187,6 +188,7 @@ IF(@signo = '+')
 			AND in_Ing_Egr_Inven_det.IdMovi_inven_tipo = @IdMovi_inven_tipo AND in_Ing_Egr_Inven_det.IdNumMovi = @IdNumMovi
 			GROUP BY in_Ing_Egr_Inven_det.IdEmpresa, in_Ing_Egr_Inven_det.IdSucursal, in_Ing_Egr_Inven_det.IdBodega, in_Ing_Egr_Inven_det.IdProducto
 
+PRINT 'SI ES INGRESO REGISTRO COSTO HISTORICO'
 		INSERT INTO [dbo].[in_producto_x_tb_bodega_Costo_Historico]
 				([IdEmpresa]           ,[IdSucursal]           ,[IdBodega]           ,[IdProducto]			     ,[IdFecha]
 				,[Secuencia]           ,[fecha]                ,[costo]              ,[Stock_a_la_fecha]          ,[Observacion]
