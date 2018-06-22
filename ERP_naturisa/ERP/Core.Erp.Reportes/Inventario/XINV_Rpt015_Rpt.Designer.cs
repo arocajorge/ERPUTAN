@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -121,7 +122,7 @@
             this.xrTableCell32 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow8 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell42 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -228,7 +229,7 @@
             // xrTableCell18
             // 
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "mv_costo_sinConversion", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "mv_costo", "{0:n2}")});
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 5, 0, 0, 100F);
             this.xrTableCell18.StylePriority.UsePadding = false;
