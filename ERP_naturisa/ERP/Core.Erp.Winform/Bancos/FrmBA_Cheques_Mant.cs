@@ -615,8 +615,9 @@ namespace Core.Erp.Winform.Bancos
 
                 Obj_DetalleAprob = new BindingList<vwcp_orden_pago_con_cancelacion_Info>();
 
-                BindingDetalleCaja = new BindingList<vwba_Banco_Movimiento_det_cancelado_Info>
+                /*BindingDetalleCaja = new BindingList<vwba_Banco_Movimiento_det_cancelado_Info>
                 (BusBancoDetallado.Get_List_Cancelada(param.IdEmpresa, Info_CbteBan.IdCbteCble, Info_CbteBan.IdTipocbte, ref MensajeError));
+                 * */
 
                 this.gridAprobacionOrdenPago.DataSource = BindingDetalleCaja;
                 this.txt_Ncomprobante.Text = Info_CbteBan.IdCbteCble.ToString();
@@ -1104,17 +1105,19 @@ namespace Core.Erp.Winform.Bancos
                             if (CbteBan_B.AnularDB(Info_CbteBan, ref MensajeError))
                             {
                                 GetDetalle_Grid();
+                                /*
                                 if (BusOrdenPagoCancelacion.ModificarDB(ListOrdenPagoCancelacion))
                                 {
 
                                     MessageBox.Show("Comprobante bancario #: " + Info_CbteBan.IdCbteCble + " Anulado correctamente, Con el Tipo de Comprobante de Anulacion #" + IdTipoCbteRev + " y el Comprobante de Anulacion #: " + IdCbteCbleRev);
                                 }
+                                
                                 else
                                 {
                                     MessageBox.Show("No se pudo Eliminar los pagos relacionados a esta Comprobante bancario...", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     respuesta = false;
                                 }
-
+                                */
 
                                 lblCbt_TipoAnulacion.Visible = true;
                                 lblCbt_TipoAnulacion.Text = "**ANULADO**   Cbt.Cble. de Anu.: " + IdCbteCbleRev.ToString() + " Tipo Cbt.Cble de Anu.: " + IdTipoCbteRev.ToString();

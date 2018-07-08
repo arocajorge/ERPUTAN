@@ -762,6 +762,8 @@ namespace Core.Erp.Data.Bancos
                         contact.IdTipoCbte_Anulacion = info.IdTipoCbte_Anulacion;
                         contact.cb_Observacion = "**ANULADO** " + contact.cb_Observacion;
                         context.SaveChanges();
+
+                        context.Database.ExecuteSqlCommand("DELETE cp_orden_pago_cancelaciones WHERE IdEmpresa_pago = "+info.IdEmpresa+" AND IdTipoCbte_pago = "+info.IdTipocbte+" AND IdCbteCble_pago = "+info.IdCbteCble);
                     }
                 }
                 return true;
@@ -965,7 +967,7 @@ namespace Core.Erp.Data.Bancos
                     try
                     {
                         EntitiesBanco db = new EntitiesBanco();
-
+                        
                         db.SetCommandTimeOut(3000);
 
                         var select_ = from T in db.vwba_Banco_Movimiento_det_cancelado
@@ -1016,6 +1018,7 @@ namespace Core.Erp.Data.Bancos
                             dat.Secuencia = item.Secuencia;
                             Listado.Add(dat);
                         }
+                         
                     }
                     catch (Exception ex)
                     {
