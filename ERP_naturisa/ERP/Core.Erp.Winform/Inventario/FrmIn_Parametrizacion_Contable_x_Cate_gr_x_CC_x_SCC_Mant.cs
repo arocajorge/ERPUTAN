@@ -246,9 +246,9 @@ namespace Core.Erp.Winform.Inventario
                 if (InfoContaCC.IdEmpresa != 0)
                 {
                     ucin_cat_lin_gr_sgr.set_item_Catgoria(InfoContaCC.IdCategoria);
-                    ucin_cat_lin_gr_sgr.set_item_Linea(InfoContaCC.IdLinea);
-                    ucin_cat_lin_gr_sgr.set_item_Grupo(InfoContaCC.IdGrupo);
-                    ucin_cat_lin_gr_sgr.set_item_SubGrupo(InfoContaCC.IdSubgrupo);
+                    ucin_cat_lin_gr_sgr.set_item_Linea(Convert.ToInt32(InfoContaCC.IdLinea));
+                    ucin_cat_lin_gr_sgr.set_item_Grupo(Convert.ToInt32(InfoContaCC.IdGrupo));
+                    ucin_cat_lin_gr_sgr.set_item_SubGrupo(Convert.ToInt32(InfoContaCC.IdSubgrupo));
 
                     ucct_cc_scc.Set_Info_Centro_costo(InfoContaCC.IdCentroCosto);
                     ucct_cc_scc.Set_Info_Centro_costo_sub_centro_costo(InfoContaCC.IdSub_centro_costo);

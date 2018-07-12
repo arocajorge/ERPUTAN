@@ -1195,6 +1195,19 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public bool ContabilizacionData(int IdEmpresa, int IdSucursal, int IdBodega, int IdMovi_inven_tipo, decimal IdNumMovi, string IdUsuario, ref string mensaje)
+        {
+            try
+            {
+                return moviD.ContabilizacionData(IdEmpresa, IdSucursal, IdBodega, IdMovi_inven_tipo, IdNumMovi, IdUsuario, ref mensaje);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ContabilizacionData", ex.Message), ex) { EntityType = typeof(in_movi_inve_Bus) };
+            }
+        }
+
         public in_movi_inve_Bus() { }
     }
 }

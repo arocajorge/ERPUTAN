@@ -32,14 +32,14 @@ namespace Core.Erp.Winform.Inventario
 
         in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Bus Bus_SubG = new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Bus();
         BindingList<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> List_SubG = new BindingList<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>();
-
+        List<ct_Plancta_Info> ListInfoPlanCta = new List<ct_Plancta_Info>();
 
         private void Cargar_Combos()
         {
             try
             {
                 ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
-                List<ct_Plancta_Info> ListInfoPlanCta = new List<ct_Plancta_Info>();
+                
                 ListInfoPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
                 cmb_ctaCble.DataSource = ListInfoPlanCta;
 
@@ -81,10 +81,27 @@ namespace Core.Erp.Winform.Inventario
 
                 if (e.Column == colIdCtaCble)
                 {
-                    if (MessageBox.Show("¿Esta seguro que desea actualizar la cuenta contable?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!string.IsNullOrEmpty(row.IdCtaCble))
                     {
-                        Bus_SubG.ActualizarDB(row);
-                    }                    
+                        var cta = ListInfoPlanCta.Where(q => q.IdCtaCble == row.IdCtaCble).FirstOrDefault();
+                        if (cta != null && cta.pc_EsMovimiento == "N")
+                        {
+                            MessageBox.Show("La cuenta seleccionada no está parametrizada como cuenta de movimiento, por favor corrija", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                            
+                        }
+                        else
+                            if (MessageBox.Show("¿Esta seguro que desea actualizar la cuenta contable?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                Bus_SubG.ActualizarDB(row);
+                            }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("¿Esta seguro que desea actualizar la cuenta contable?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            Bus_SubG.ActualizarDB(row);
+                        }
+                    }
+                    Buscar();
                 }
             }
             catch (Exception ex)
@@ -179,7 +196,7 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                List_SubG = new BindingList<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>(Bus_SubG.Get_List_Info_in_subgrupo_no_parametrizados(param.IdEmpresa));
+                List_SubG = new BindingList<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>(Bus_SubG.Get_List_Info_in_subgrupo_no_parametrizados(param.IdEmpresa,ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde,ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta));
                         if (List_SubG.Count == 0) MessageBox.Show("No existen relaciones no parametrizadas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                 
                 gridControlParam_conta_cate.DataSource = List_SubG;
             }
@@ -229,7 +246,7 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC_x_detalle_ing_egr frm = new FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC_x_detalle_ing_egr();
-                frm.Set_parametros(param.IdEmpresa, info.IdCategoria, info.IdLinea, info.IdGrupo, info.IdSubgrupo, info.IdCentroCosto, info.IdSub_centro_costo);
+                frm.Set_parametros(param.IdEmpresa, info.IdCategoria, Convert.ToInt32(info.IdLinea), Convert.ToInt32(info.IdGrupo), Convert.ToInt32(info.IdSubgrupo), info.IdCentroCosto, info.IdSub_centro_costo);
                 frm.ShowDialog();
             }
             catch (Exception ex)

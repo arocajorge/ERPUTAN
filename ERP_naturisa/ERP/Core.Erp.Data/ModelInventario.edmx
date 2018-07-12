@@ -402,7 +402,11 @@
       [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[do_precioCompra] AS [do_precioCompra], 
       [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo], 
       [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[pr_codigo] AS [pr_codigo], 
-      [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[Referencia] AS [Referencia]
+      [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[Referencia] AS [Referencia], 
+      [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[cod_producto] AS [cod_producto], 
+      [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[nom_producto] AS [nom_producto], 
+      [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[obs_OCompra] AS [obs_OCompra], 
+      [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia].[IdOrdenCompra] AS [IdOrdenCompra]
       FROM [dbo].[vwin_Guia_x_traspaso_bodega_det_sin_Transferencia] AS [vwin_Guia_x_traspaso_bodega_det_sin_Transferencia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det" EntityType="DBERPModelInventario.Store.vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det" store:Type="Views" store:Schema="dbo" store:Name="vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det">
@@ -1977,24 +1981,6 @@
       [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble].[IdCtaCble] AS [IdCtaCble]
       FROM [dbo].[vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble] AS [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados" EntityType="DBERPModelInventario.Store.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados" store:Type="Views" store:Schema="dbo" store:Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados">
-            <DefiningQuery>SELECT 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdRow] AS [IdRow], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdEmpresa] AS [IdEmpresa], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdCategoria] AS [IdCategoria], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[ca_Categoria] AS [ca_Categoria], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdLinea] AS [IdLinea], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[nom_linea] AS [nom_linea], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdGrupo] AS [IdGrupo], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[nom_grupo] AS [nom_grupo], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdSubGrupo] AS [IdSubGrupo], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[nom_subgrupo] AS [nom_subgrupo], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdCentroCosto] AS [IdCentroCosto], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[nom_Centro] AS [nom_Centro], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
-      [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados].[nom_Subcentro] AS [nom_Subcentro]
-      FROM [dbo].[vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados] AS [vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det" EntityType="DBERPModelInventario.Store.vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det" store:Type="Views" store:Schema="dbo" store:Name="vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det">
             <DefiningQuery>SELECT 
       [vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det].[IdEmpresa_trans] AS [IdEmpresa_trans], 
@@ -2594,8 +2580,8 @@
           <Property Name="StockFisico" Type="float" Nullable="false" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.in_AjusteFisico_tmp' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.in_AjusteFisico_tmp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="in_AjusteFisico_tmp">
           <Key>
@@ -4060,8 +4046,8 @@
           <Property Name="CodigoZN" Type="varchar" MaxLength="50" />
           <Property Name="IdCtaCbleZona" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ajuste_fisico_x_relacion_inven_x_cbteCble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ajuste_fisico_x_relacion_inven_x_cbteCble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ajuste_fisico_x_relacion_inven_x_cbteCble">
           <Key>
@@ -4094,8 +4080,8 @@
           <Property Name="tm_descripcion" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="tc_TipoCbte" Type="char" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_ajusteFisico' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_ajusteFisico' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_ajusteFisico">
           <Key>
@@ -4128,8 +4114,8 @@
           <Property Name="Nombre_Estado" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="IdEstadoAprobacion" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Cate_Lin_Grup_SubGrup' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Cate_Lin_Grup_SubGrup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Cate_Lin_Grup_SubGrup">
           <Key>
@@ -4153,8 +4139,8 @@
           <Property Name="nom_grupo" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="nom_subgrupo" Type="varchar" Nullable="false" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_categoria_lin_gr_subgr' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_categoria_lin_gr_subgr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_categoria_lin_gr_subgr">
           <Key>
@@ -4177,8 +4163,8 @@
           <Property Name="IdSubGrupo" Type="int" />
           <Property Name="IdNivel" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_DespachoMateriales' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_DespachoMateriales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_DespachoMateriales">
           <Key>
@@ -4243,8 +4229,8 @@
           <Property Name="Cantidad" Type="float" Nullable="false" />
           <Property Name="pr_codigo_barra" Type="nvarchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_devolucion_inven' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_devolucion_inven' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_devolucion_inven">
           <Key>
@@ -4280,8 +4266,8 @@
           <Property Name="MotivoAnulacion" Type="varchar" MaxLength="300" />
           <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_devolucion_inven_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_devolucion_inven_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_devolucion_inven_det">
           <Key>
@@ -4320,8 +4306,8 @@
           <Property Name="cantidad_egresada" Type="float" Nullable="false" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_devolucion_inven_det_cantidad_devuelta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_devolucion_inven_det_cantidad_devuelta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_devolucion_inven_det_cantidad_devuelta">
           <Key>
@@ -4342,8 +4328,8 @@
           <Property Name="Secuencia_movi_inv" Type="int" Nullable="false" />
           <Property Name="cantidad_devuelta" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_GeneracionCompraCidersus' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_GeneracionCompraCidersus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_GeneracionCompraCidersus">
           <Key>
@@ -4472,8 +4458,8 @@
           <Property Name="pr_stock_minimo" Type="float" Nullable="false" />
           <Property Name="pr_stock_maximo" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_guia_x_traspaso_bodega' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_guia_x_traspaso_bodega' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_guia_x_traspaso_bodega">
           <Key>
@@ -4528,8 +4514,8 @@
           <Property Name="direc_empresa" Type="varchar" Nullable="false" MaxLength="300" />
           <Property Name="Placa" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Guia_x_traspaso_bodega_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Guia_x_traspaso_bodega_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Guia_x_traspaso_bodega_det">
           <Key>
@@ -4557,8 +4543,8 @@
           <Property Name="nom_proveedor" Type="varchar" MaxLength="250" />
           <Property Name="Referencia" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Guia_x_traspaso_bodega_det_sin_Transferencia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Guia_x_traspaso_bodega_det_sin_Transferencia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Guia_x_traspaso_bodega_det_sin_Transferencia">
           <Key>
@@ -4571,6 +4557,10 @@
             <PropertyRef Name="IdUnidadMedida" />
             <PropertyRef Name="do_precioCompra" />
             <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="obs_OCompra" />
+            <PropertyRef Name="IdOrdenCompra" />
           </Key>
           <Property Name="IdRow" Type="bigint" Nullable="false" />
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
@@ -4592,9 +4582,13 @@
           <Property Name="IdPunto_cargo_grupo" Type="int" />
           <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="Referencia" Type="varchar" MaxLength="50" />
+          <Property Name="cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="obs_OCompra" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det">
           <Key>
@@ -4635,8 +4629,8 @@
           <Property Name="obs_OCompra" Type="varchar" Nullable="false" MaxLength="1000" />
           <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_in_Guia_x_traspaso_bodega_x_in_transferencia_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_in_Guia_x_traspaso_bodega_x_in_transferencia_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_in_Guia_x_traspaso_bodega_x_in_transferencia_det">
           <Key>
@@ -4670,8 +4664,8 @@
           <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
           <Property Name="dt_cantidad" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_in_Producto_x_tb_bodega_x_UnidadMedida' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_in_Producto_x_tb_bodega_x_UnidadMedida' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_in_Producto_x_tb_bodega_x_UnidadMedida">
           <Key>
@@ -4824,8 +4818,8 @@
           <Property Name="Aparece_modu_Inventario" Type="bit" Nullable="false" />
           <Property Name="Aparece_modu_Activo_F" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven">
           <Key>
@@ -4885,8 +4879,8 @@
           <Property Name="IdEstado_cierre" Type="varchar" MaxLength="25" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_det">
           <Key>
@@ -4975,8 +4969,8 @@
           <Property Name="nom_subgrupo" Type="varchar" MaxLength="150" />
           <Property Name="mv_costo_sinConversion" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwIn_Ing_Egr_Inven_det_x_Cbte_Cble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwIn_Ing_Egr_Inven_det_x_Cbte_Cble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwIn_Ing_Egr_Inven_det_x_Cbte_Cble">
           <Key>
@@ -5016,8 +5010,8 @@
           <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det">
           <Key>
@@ -5120,8 +5114,8 @@
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
           <Property Name="Fecha_Ing_Bod" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det_x_cp_Aprobacion_Ing_Bod_x_OC_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det_x_cp_Aprobacion_Ing_Bod_x_OC_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det_x_cp_Aprobacion_Ing_Bod_x_OC_det">
           <Key>
@@ -5216,8 +5210,8 @@
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
           <Property Name="IdPunto_cargo_grupo" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_estado_aprob' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_estado_aprob' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_det_x_estado_aprob">
           <Key>
@@ -5237,8 +5231,8 @@
           <Property Name="IdSucursal_oc" Type="int" />
           <Property Name="IdOrdenCompra" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_Producto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_x_Producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_det_x_Producto">
           <Key>
@@ -5296,8 +5290,8 @@
           <Property Name="pr_stock" Type="float" Nullable="false" />
           <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_para_devolucion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_para_devolucion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_para_devolucion">
           <Key>
@@ -5325,8 +5319,8 @@
           <Property Name="tm_descripcion" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_x_in_movi_inve' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_x_in_movi_inve' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_x_in_movi_inve">
           <Key>
@@ -5355,8 +5349,8 @@
           <Property Name="cm_fecha" Type="datetime" Nullable="false" />
           <Property Name="Genera_Movi_Inven" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Motivo_traslado_bodega' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Motivo_traslado_bodega' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Motivo_traslado_bodega">
           <Key>
@@ -5370,8 +5364,8 @@
           <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve">
           <Key>
@@ -5435,8 +5429,8 @@
           <Property Name="MotivoAnulacion" Type="varchar" MaxLength="100" />
           <Property Name="IdMotivo_Inv" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_detalle">
           <Key>
@@ -5502,8 +5496,8 @@
           <Property Name="mv_costo_sinConversion" Type="float" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_para_stock_a_la_fecha' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_para_stock_a_la_fecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_detalle_para_stock_a_la_fecha">
           <Key>
@@ -5527,8 +5521,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="dm_cantidad" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_Contabilizar_x_ctacbles' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_Contabilizar_x_ctacbles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_detalle_x_Contabilizar_x_ctacbles">
           <Key>
@@ -5602,8 +5596,8 @@
           <Property Name="es_Inven_o_Consumo_det" Type="varchar" MaxLength="15" />
           <Property Name="Fecha_Transac" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_item_disponibles' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_item_disponibles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_detalle_x_item_disponibles">
           <Key>
@@ -5622,8 +5616,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="cm_fecha" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_Producto_CusCider_Saldos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_Producto_CusCider_Saldos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_detalle_x_Producto_CusCider_Saldos">
           <Key>
@@ -5686,8 +5680,8 @@
           <Property Name="NumDocumentoRelacionadoProveedor" Type="varchar" MaxLength="25" />
           <Property Name="NumFacturaProveedor" Type="varchar" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos">
           <Key>
@@ -5735,8 +5729,8 @@
           <Property Name="pr_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
           <Property Name="ocd_IdOrdenCompra" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_fecha_costeo_recomendada_x_sucursal' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_fecha_costeo_recomendada_x_sucursal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_fecha_costeo_recomendada_x_sucursal">
           <Key>
@@ -5749,8 +5743,8 @@
           <Property Name="fecha_sin_costear" Type="datetime" />
           <Property Name="Costeado" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_cbteCble_Datos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_cbteCble_Datos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_x_cbteCble_Datos">
           <Key>
@@ -5808,8 +5802,8 @@
           <Property Name="IdNumMovi_inv" Type="numeric" Nullable="false" />
           <Property Name="tm_descripcion" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_com_ordencompra_local' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_com_ordencompra_local' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_x_com_ordencompra_local">
           <Key>
@@ -5831,8 +5825,8 @@
           <Property Name="ocd_IdSucursal" Type="int" Nullable="false" />
           <Property Name="ocd_IdOrdenCompra" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_despachar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_despachar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_x_despachar">
           <Key>
@@ -5868,8 +5862,8 @@
           <Property Name="nom_EstadoDespacho" Type="varchar" MaxLength="100" />
           <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_estado_contabilizacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_estado_contabilizacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_x_estado_contabilizacion">
           <Key>
@@ -5902,8 +5896,8 @@
           <Property Name="IdCbteCble" Type="numeric" />
           <Property Name="Estado_contabilizacion" Type="varchar" Nullable="false" MaxLength="16" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_Ing_Ordencompra_local' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_movi_inve_x_Ing_Ordencompra_local' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_movi_inve_x_Ing_Ordencompra_local">
           <Key>
@@ -5934,8 +5928,8 @@
           <Property Name="cm_fecha" Type="datetime" Nullable="false" />
           <Property Name="cm_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Movi_Inven_x_Ing_x_OC' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Movi_Inven_x_Ing_x_OC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Movi_Inven_x_Ing_x_OC">
           <Key>
@@ -5976,8 +5970,8 @@
           <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_MoviemientoInvetarioXImportacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_MoviemientoInvetarioXImportacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_MoviemientoInvetarioXImportacion">
           <Key>
@@ -5997,8 +5991,8 @@
           <Property Name="di_cantidad_Solicitada" Type="float" />
           <Property Name="SaldoxIngresar" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prd_CidersusConsultaProductosCortados' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prd_CidersusConsultaProductosCortados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prd_CidersusConsultaProductosCortados">
           <Key>
@@ -6040,8 +6034,8 @@
           <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="pr_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prd_ConsultaKardex' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prd_ConsultaKardex' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prd_ConsultaKardex">
           <Key>
@@ -6083,8 +6077,8 @@
           <Property Name="cm_fecha" Type="datetime" Nullable="false" />
           <Property Name="Fecha_Transac" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prd_ConsultaPiezasMover' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prd_ConsultaPiezasMover' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prd_ConsultaPiezasMover">
           <Key>
@@ -6110,8 +6104,8 @@
           <Property Name="DescripcionPieza" Type="varchar" MaxLength="200" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prd_EgresoInventario_x_Produccion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prd_EgresoInventario_x_Produccion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prd_EgresoInventario_x_Produccion">
           <Key>
@@ -6155,8 +6149,8 @@
           <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="pr_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prd_EtasProcesoProductivo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prd_EtasProcesoProductivo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prd_EtasProcesoProductivo">
           <Key>
@@ -6172,8 +6166,8 @@
           <Property Name="NombreEtapa" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="ProcesoProductivo" Type="varchar" Nullable="false" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prd_GruposTrabajosPorPProductivos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prd_GruposTrabajosPorPProductivos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prd_GruposTrabajosPorPProductivos">
           <Key>
@@ -6197,8 +6191,8 @@
           <Property Name="NombreSubgrupo" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="GrupoTrabajo" Type="varchar" Nullable="false" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_PrecargaItemsOrdenCompra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_PrecargaItemsOrdenCompra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_PrecargaItemsOrdenCompra">
           <Key>
@@ -6251,8 +6245,8 @@
           <Property Name="NumeroOT" Type="int" Nullable="false" />
           <Property Name="CodOrdenTaller" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_PrecargaItemsOrdenCompra_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_PrecargaItemsOrdenCompra_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_PrecargaItemsOrdenCompra_det">
           <Key>
@@ -6298,8 +6292,8 @@
           <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_presupuesto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_presupuesto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_presupuesto">
           <Key>
@@ -6369,8 +6363,8 @@
           <Property Name="IdUsuario_Solicitante" Type="varchar" MaxLength="20" />
           <Property Name="IdUsuario_Emicion" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_presupuesto_detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_presupuesto_detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_presupuesto_detalle">
           <Key>
@@ -6414,8 +6408,8 @@
           <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="dp_observacion" Type="varchar" Nullable="false" MaxLength="200" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto">
           <Key>
@@ -6545,8 +6539,8 @@
           <Property Name="Aparece_modu_Activo_F" Type="bit" Nullable="false" />
           <Property Name="tp_ManejaInven" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Producto_a_Cortar_CusCider' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Producto_a_Cortar_CusCider' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Producto_a_Cortar_CusCider">
           <Key>
@@ -6663,8 +6657,8 @@
           <Property Name="ot_IdOrdenTaller" Type="numeric" />
           <Property Name="IdUnidadMedida_Consumo" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Producto_Stock_x_Bodega' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Producto_Stock_x_Bodega' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Producto_Stock_x_Bodega">
           <Key>
@@ -6679,8 +6673,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="Stock" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Producto_Stock_x_producto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Producto_Stock_x_producto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Producto_Stock_x_producto">
           <Key>
@@ -6691,8 +6685,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="Stock" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Producto_Stock_x_Sucursal' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Producto_Stock_x_Sucursal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Producto_Stock_x_Sucursal">
           <Key>
@@ -6705,8 +6699,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="Stock" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto_Ult_Costo_Hist_x_Bod' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto_Ult_Costo_Hist_x_Bod' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto_Ult_Costo_Hist_x_Bod">
           <Key>
@@ -6722,8 +6716,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="costo" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto_Ult_Costo_Hist_x_Sucu' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto_Ult_Costo_Hist_x_Sucu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto_Ult_Costo_Hist_x_Sucu">
           <Key>
@@ -6736,8 +6730,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="costo" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Producto_x_Proveedor' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Producto_x_Proveedor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Producto_x_Proveedor">
           <Key>
@@ -6754,8 +6748,8 @@
           <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto_x_sucursal' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto_x_sucursal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto_x_sucursal">
           <Key>
@@ -6846,8 +6840,8 @@
           <Property Name="Aparece_modu_Inventario" Type="bit" Nullable="false" />
           <Property Name="Aparece_modu_Activo_F" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto_x_tb_bodega' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto_x_tb_bodega' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto_x_tb_bodega">
           <Key>
@@ -6951,8 +6945,8 @@
           <Property Name="nom_Categoria" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="nom_linea" Type="varchar" Nullable="false" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto_x_tb_bodega_Costo_Historico' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto_x_tb_bodega_Costo_Historico' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto_x_tb_bodega_Costo_Historico">
           <Key>
@@ -6989,8 +6983,8 @@
           <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="fecha_trans" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_producto_x_tb_bodega_x_Ctas_cbles' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_producto_x_tb_bodega_x_Ctas_cbles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_producto_x_tb_bodega_x_Ctas_cbles">
           <Key>
@@ -7030,8 +7024,8 @@
           <Property Name="IdGrupo" Type="int" Nullable="false" />
           <Property Name="nom_grupo" Type="varchar" Nullable="false" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_prt_transferencia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_prt_transferencia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_prt_transferencia">
           <Key>
@@ -7090,8 +7084,8 @@
           <Property Name="IdCtaCble_Dev0" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_Vta" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_ReimpresionCodigoBarra_cusCider' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_ReimpresionCodigoBarra_cusCider' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_ReimpresionCodigoBarra_cusCider">
           <Key>
@@ -7144,8 +7138,8 @@
           <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
           <Property Name="pr_peso" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_ReimpresionCodigoBarraProductoTerminado_CusCider' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_ReimpresionCodigoBarraProductoTerminado_CusCider' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_ReimpresionCodigoBarraProductoTerminado_CusCider">
           <Key>
@@ -7171,8 +7165,8 @@
           <Property Name="em_logo" Type="image" />
           <Property Name="CodObra" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble">
           <Key>
@@ -7207,41 +7201,8 @@
           <Property Name="nom_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-        <EntityType Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCategoria" />
-            <PropertyRef Name="ca_Categoria" />
-            <PropertyRef Name="IdLinea" />
-            <PropertyRef Name="nom_linea" />
-            <PropertyRef Name="IdGrupo" />
-            <PropertyRef Name="nom_grupo" />
-            <PropertyRef Name="IdSubGrupo" />
-            <PropertyRef Name="nom_subgrupo" />
-            <PropertyRef Name="nom_Centro" />
-            <PropertyRef Name="nom_Subcentro" />
-          </Key>
-          <Property Name="IdRow" Type="bigint" Nullable="false" />
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="IdCategoria" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="ca_Categoria" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="IdLinea" Type="int" Nullable="false" />
-          <Property Name="nom_linea" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="IdGrupo" Type="int" Nullable="false" />
-          <Property Name="nom_grupo" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="IdSubGrupo" Type="int" Nullable="false" />
-          <Property Name="nom_subgrupo" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
-          <Property Name="nom_Centro" Type="varchar" Nullable="false" MaxLength="250" />
-          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
-          <Property Name="nom_Subcentro" Type="varchar" Nullable="false" MaxLength="200" />
-        </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det">
           <Key>
@@ -7275,8 +7236,8 @@
           <Property Name="IdGuia_guia" Type="numeric" Nullable="false" />
           <Property Name="Secuencia_guia" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Transferencia_Detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Transferencia_Detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Transferencia_Detalle">
           <Key>
@@ -7310,8 +7271,8 @@
           <Property Name="IdGuia_guia" Type="numeric" />
           <Property Name="Secuencia_guia" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Transferencia_sin_guia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Transferencia_sin_guia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Transferencia_sin_guia">
           <Key>
@@ -7340,8 +7301,8 @@
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
           <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_transferencia_x_in_movi_inve_agrupada_para_recosteo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_transferencia_x_in_movi_inve_agrupada_para_recosteo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_transferencia_x_in_movi_inve_agrupada_para_recosteo">
           <Key>
@@ -7361,8 +7322,8 @@
           <Property Name="nom_bodega" Type="nchar" Nullable="false" MaxLength="100" />
           <Property Name="tr_fecha" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Transferencia_x_Ing_Egr_Inven' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Transferencia_x_Ing_Egr_Inven' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Transferencia_x_Ing_Egr_Inven">
           <Key>
@@ -7399,8 +7360,8 @@
           <Property Name="IdMotivo_Inv_Destino" Type="int" />
           <Property Name="Codigo" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Transferencias' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Transferencias' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Transferencias">
           <Key>
@@ -7449,8 +7410,8 @@
           <Property Name="IdEstadoAproba_ing" Type="varchar" MaxLength="15" />
           <Property Name="IdEstadoAproba_egr" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_UnidadMedida' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_UnidadMedida' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_UnidadMedida">
           <Key>
@@ -7463,8 +7424,8 @@
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_UnidadMedida_Equivalencia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_UnidadMedida_Equivalencia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_UnidadMedida_Equivalencia">
           <Key>
@@ -7483,8 +7444,8 @@
           <Property Name="cod_alterno_Padre" Type="varchar" MaxLength="25" />
           <Property Name="Descripcion_Padre" Type="varchar" Nullable="false" MaxLength="500" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_VistaParaContabilizarInventario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_VistaParaContabilizarInventario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_VistaParaContabilizarInventario">
           <Key>
@@ -7541,8 +7502,8 @@
           <Property Name="IdCtaCble_Inven_Motivo" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_Costo_Motivo" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwin_Zona_vs_ct_Centro_Costo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Zona_vs_ct_Centro_Costo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Zona_vs_ct_Centro_Costo">
           <Key>
@@ -7560,8 +7521,8 @@
           <Property Name="CodigoZN" Type="varchar" MaxLength="50" />
           <Property Name="IdCtaCbleZona" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwinprd_EtasProcesoProductivo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwinprd_EtasProcesoProductivo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwinprd_EtasProcesoProductivo">
           <Key>
@@ -7577,8 +7538,8 @@
           <Property Name="NombreEtapa" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="ProcesoProductivo" Type="varchar" Nullable="false" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwinprd_GruposTrabajosPorPProductivos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwinprd_GruposTrabajosPorPProductivos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwinprd_GruposTrabajosPorPProductivos">
           <Key>
@@ -8925,6 +8886,11 @@
           <Parameter Name="IdBodega" Type="int" Mode="In" />
           <Parameter Name="IdNumMovi" Type="numeric" Mode="In" />
         </Function>
+        <Function Name="spINV_relaciones_no_parametrizadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
+          <Parameter Name="Fecha_fin" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="spSys_Inv_Recosteo_Inventario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpresa" Type="int" Mode="In" />
           <Parameter Name="IdSucursal" Type="int" Mode="In" />
@@ -9222,7 +9188,6 @@
           <EntitySet Name="vwin_Ing_Egr_Inven_det_x_Producto" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_x_Producto" />
           <EntitySet Name="vwin_MoviemientoInvetarioXImportacion" EntityType="DBERPModelInventario.vwin_MoviemientoInvetarioXImportacion" />
           <EntitySet Name="vwin_Transferencia_Detalle" EntityType="DBERPModelInventario.vwin_Transferencia_Detalle" />
-          <EntitySet Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados" EntityType="DBERPModelInventario.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados" />
           <AssociationSet Name="FK_in_Motivo_Inven_in_Catalogo" Association="DBERPModelInventario.FK_in_Motivo_Inven_in_Catalogo">
             <End Role="in_Catalogo" EntitySet="in_Catalogo" />
             <End Role="in_Motivo_Inven" EntitySet="in_Motivo_Inven" />
@@ -9510,6 +9475,11 @@
             <Parameter Name="IdMovi_inven_tipo" Mode="In" Type="Int32" />
             <Parameter Name="IdBodega" Mode="In" Type="Int32" />
             <Parameter Name="IdNumMovi" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spINV_relaciones_no_parametrizadas" ReturnType="Collection(DBERPModelInventario.spINV_relaciones_no_parametrizadas_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
@@ -13436,36 +13406,6 @@
           <Property Type="Decimal" Name="IdGuia_guia" Precision="18" Scale="0" />
           <Property Type="Int32" Name="Secuencia_guia" />
         </EntityType>
-        <EntityType Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCategoria" />
-            <PropertyRef Name="ca_Categoria" />
-            <PropertyRef Name="IdLinea" />
-            <PropertyRef Name="nom_linea" />
-            <PropertyRef Name="IdGrupo" />
-            <PropertyRef Name="nom_grupo" />
-            <PropertyRef Name="IdSubGrupo" />
-            <PropertyRef Name="nom_subgrupo" />
-            <PropertyRef Name="nom_Centro" />
-            <PropertyRef Name="nom_Subcentro" />
-          </Key>
-          <Property Type="Int64" Name="IdRow" Nullable="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ca_Categoria" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdLinea" Nullable="false" />
-          <Property Type="String" Name="nom_linea" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdGrupo" Nullable="false" />
-          <Property Type="String" Name="nom_grupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSubGrupo" Nullable="false" />
-          <Property Type="String" Name="nom_subgrupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Centro" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Subcentro" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
         <Association Name="FK_in_Motivo_Inven_in_Catalogo">
           <End Type="DBERPModelInventario.in_Catalogo" Role="in_Catalogo" Multiplicity="0..1" />
           <End Type="DBERPModelInventario.in_Motivo_Inven" Role="in_Motivo_Inven" Multiplicity="*" />
@@ -15238,6 +15178,10 @@
             <PropertyRef Name="IdUnidadMedida" />
             <PropertyRef Name="do_precioCompra" />
             <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="obs_OCompra" />
+            <PropertyRef Name="IdOrdenCompra" />
           </Key>
           <Property Type="Int64" Name="IdRow" Nullable="false" />
           <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
@@ -15259,6 +15203,10 @@
           <Property Type="Int32" Name="IdPunto_cargo_grupo" />
           <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Referencia" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="obs_OCompra" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="in_parametro">
           <Key>
@@ -15858,6 +15806,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="spINV_relaciones_no_parametrizadas_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCategoria" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="ca_Categoria" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdLinea" Nullable="true" />
+          <Property Type="String" Name="nom_linea" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="IdGrupo" Nullable="true" />
+          <Property Type="String" Name="nom_grupo" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="IdSubGrupo" Nullable="true" />
+          <Property Type="String" Name="nom_subgrupo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Centro_costo" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NomSubcentro" Nullable="false" MaxLength="200" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -18391,26 +18354,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados">
-            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados">
-              <MappingFragment StoreEntitySet="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados">
-                <ScalarProperty Name="nom_Subcentro" ColumnName="nom_Subcentro" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
-                <ScalarProperty Name="nom_Centro" ColumnName="nom_Centro" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="nom_subgrupo" ColumnName="nom_subgrupo" />
-                <ScalarProperty Name="IdSubGrupo" ColumnName="IdSubGrupo" />
-                <ScalarProperty Name="nom_grupo" ColumnName="nom_grupo" />
-                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
-                <ScalarProperty Name="nom_linea" ColumnName="nom_linea" />
-                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
-                <ScalarProperty Name="ca_Categoria" ColumnName="ca_Categoria" />
-                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwin_movi_inve_x_cbteCble_Datos">
             <EntityTypeMapping TypeName="DBERPModelInventario.vwin_movi_inve_x_cbteCble_Datos">
               <MappingFragment StoreEntitySet="vwin_movi_inve_x_cbteCble_Datos">
@@ -19493,6 +19436,10 @@
           <EntitySetMapping Name="vwin_Guia_x_traspaso_bodega_det_sin_Transferencia">
             <EntityTypeMapping TypeName="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_det_sin_Transferencia">
               <MappingFragment StoreEntitySet="vwin_Guia_x_traspaso_bodega_det_sin_Transferencia">
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="obs_OCompra" ColumnName="obs_OCompra" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
                 <ScalarProperty Name="Referencia" ColumnName="Referencia" />
                 <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
                 <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
@@ -19628,6 +19575,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spINV_aprobacion_movimiento" FunctionName="DBERPModelInventario.Store.spINV_aprobacion_movimiento" />
+          <FunctionImportMapping FunctionImportName="spINV_relaciones_no_parametrizadas" FunctionName="DBERPModelInventario.Store.spINV_relaciones_no_parametrizadas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelInventario.spINV_relaciones_no_parametrizadas_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="ca_Categoria" ColumnName="ca_Categoria" />
+                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+                <ScalarProperty Name="nom_linea" ColumnName="nom_linea" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="nom_grupo" ColumnName="nom_grupo" />
+                <ScalarProperty Name="IdSubGrupo" ColumnName="IdSubGrupo" />
+                <ScalarProperty Name="nom_subgrupo" ColumnName="nom_subgrupo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="NomSubcentro" ColumnName="NomSubcentro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

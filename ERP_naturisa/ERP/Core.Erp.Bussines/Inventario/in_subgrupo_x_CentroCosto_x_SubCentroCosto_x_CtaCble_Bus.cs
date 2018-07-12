@@ -31,11 +31,11 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
-        public List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Get_List_Info_in_subgrupo_no_parametrizados(int IdEmpresa)
+        public List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Get_List_Info_in_subgrupo_no_parametrizados(int IdEmpresa, DateTime Fecha_ini, DateTime Fecha_fin)
         {
             try
             {
-                return Odata.Get_List_Info_in_subgrupo_no_parametrizados(IdEmpresa);
+                return Odata.Get_List_Info_in_subgrupo_no_parametrizados(IdEmpresa,Fecha_ini,Fecha_fin);
             }
             catch (Exception ex)
             {

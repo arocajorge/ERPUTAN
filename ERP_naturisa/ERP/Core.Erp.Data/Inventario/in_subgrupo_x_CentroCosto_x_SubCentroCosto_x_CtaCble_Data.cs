@@ -23,35 +23,28 @@ namespace Core.Erp.Data.Inventario
                {
                    List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Listdat_ = new List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>();
 
-                   EntitiesInventario OEUser = new EntitiesInventario();
-
-                   var select_ = from TI in OEUser.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble
-                                 where TI.IdEmpresa == IdEmpresa
-                                 select TI;
-
-                   foreach (var item in select_)
+                   using (EntitiesInventario OEUser = new EntitiesInventario())
                    {
-                       in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info dat_ = new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info();
-                       dat_.IdEmpresa = item.IdEmpresa;
-                       dat_.IdCategoria = item.IdCategoria;
-                       dat_.nom_categoria = "[" + item.IdCategoria + "] " + item.nom_categoria;
-                       dat_.IdLinea = item.IdLinea;
-                       dat_.nom_linea = "[" + item.IdLinea.ToString() + "] " + item.nom_linea;
-                       dat_.IdGrupo = item.IdGrupo;
-                       dat_.nom_grupo = "[" + item.IdGrupo.ToString() + "] " + item.nom_grupo;
-                       dat_.IdSubgrupo = item.IdSubgrupo;
-                       dat_.nom_subgrupo = "[" + item.IdSubgrupo.ToString() + "] " + item.nom_subgrupo;
-
-                       dat_.IdCentroCosto = item.IdCentroCosto;
-                       dat_.nom_centro_costo = "[" + item.IdCentroCosto + "] " + item.nom_centro_costo;
-                       dat_.IdSub_centro_costo = item.IdSub_centro_costo;
-                       dat_.nom_sub_centro_costo = "[" + item.IdSub_centro_costo + "] " + item.nom_sub_centro_costo;
-
-                       dat_.IdCtaCble = item.IdCtaCble;
-
-                       Listdat_.Add(dat_);
+                       Listdat_ = (from TI in OEUser.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble
+                                   where TI.IdEmpresa == IdEmpresa
+                                   select new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
+                                   {
+                                       IdEmpresa = TI.IdEmpresa,
+                                       IdCategoria = TI.IdCategoria,
+                                       nom_categoria = TI.nom_categoria,
+                                       IdLinea = TI.IdLinea,
+                                       nom_linea =  TI.nom_linea,
+                                       IdGrupo = TI.IdGrupo,
+                                       nom_grupo =  TI.nom_grupo,
+                                       IdSubgrupo = TI.IdSubgrupo,
+                                       nom_subgrupo =  TI.nom_subgrupo,
+                                       IdCentroCosto = TI.IdCentroCosto,
+                                       nom_centro_costo = TI.nom_centro_costo,
+                                       IdSub_centro_costo = TI.IdSub_centro_costo,
+                                       nom_sub_centro_costo = TI.nom_sub_centro_costo,
+                                       IdCtaCble = TI.IdCtaCble,
+                                   }).ToList();
                    }
-
 
                    return Listdat_;
 
@@ -78,44 +71,38 @@ namespace Core.Erp.Data.Inventario
            }
        }
 
-       public List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Get_List_Info_in_subgrupo_no_parametrizados(int IdEmpresa)
+       public List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Get_List_Info_in_subgrupo_no_parametrizados(int IdEmpresa, DateTime Fecha_ini, DateTime Fecha_fin)
        {
            try
            {
                try
                {
-                   List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Listdat_ = new List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>();
-
-                   EntitiesInventario OEUser = new EntitiesInventario();
-
-                   var select_ = from TI in OEUser.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados
-                                 where TI.IdEmpresa == IdEmpresa
-                                 select TI;
-
-                   foreach (var item in select_)
+                   List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Listdat_;
+                   Fecha_ini = Fecha_ini.Date;
+                   Fecha_fin = Fecha_fin.Date;
+                   using (EntitiesInventario Context = new EntitiesInventario())
                    {
-                       in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info dat_ = new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info();
-                       dat_.IdEmpresa = item.IdEmpresa;
-                       dat_.IdCategoria = item.IdCategoria;
-                       dat_.nom_categoria = "[" + item.IdCategoria + "] " + item.ca_Categoria;
-                       dat_.IdLinea = item.IdLinea;
-                       dat_.nom_linea = "[" + item.IdLinea.ToString() + "] " + item.nom_linea;
-                       dat_.IdGrupo = item.IdGrupo;
-                       dat_.nom_grupo = "[" + item.IdGrupo.ToString() + "] " + item.nom_grupo;
-                       dat_.IdSubgrupo = item.IdSubGrupo;
-                       dat_.nom_subgrupo = "[" + item.IdSubGrupo.ToString() + "] " + item.nom_subgrupo;
+                       Listdat_ = (from q in Context.spINV_relaciones_no_parametrizadas(IdEmpresa, Fecha_ini, Fecha_fin)
+                                   select new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
+                                   {
+                                       IdEmpresa = q.IdEmpresa,
+                                       IdCategoria = q.IdCategoria,
+                                       nom_categoria = q.ca_Categoria,
+                                       IdLinea = q.IdLinea,
+                                       nom_linea =  q.nom_linea,
+                                       IdGrupo = q.IdGrupo,
+                                       nom_grupo =  q.nom_grupo,
+                                       IdSubgrupo = q.IdSubGrupo,
+                                       nom_subgrupo =  q.nom_subgrupo,
 
-                       dat_.IdCentroCosto = item.IdCentroCosto;
-                       dat_.nom_centro_costo = "[" + item.IdCentroCosto + "] " + item.nom_Centro;
-                       dat_.IdSub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                       dat_.nom_sub_centro_costo = "[" + item.IdCentroCosto_sub_centro_costo + "] " + item.nom_Subcentro;
+                                       IdCentroCosto = q.IdCentroCosto,
+                                       nom_centro_costo =  q.Centro_costo,
+                                       IdSub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                       nom_sub_centro_costo =  q.NomSubcentro,
 
-                       dat_.IdCtaCble = null;
-
-                       Listdat_.Add(dat_);
+                                       IdCtaCble = null,
+                                   }).ToList();
                    }
-
-
                    return Listdat_;
 
                }
@@ -238,9 +225,9 @@ namespace Core.Erp.Data.Inventario
 
                            objSubGrupo.IdEmpresa = info.IdEmpresa;
                            objSubGrupo.IdCategoria = info.IdCategoria;
-                           objSubGrupo.IdLinea = info.IdLinea;
-                           objSubGrupo.IdGrupo = info.IdGrupo;
-                           objSubGrupo.IdSubgrupo = info.IdSubgrupo;
+                           objSubGrupo.IdLinea = Convert.ToInt32(info.IdLinea);
+                           objSubGrupo.IdGrupo = Convert.ToInt32(info.IdGrupo);
+                           objSubGrupo.IdSubgrupo = Convert.ToInt32(info.IdSubgrupo);
                            objSubGrupo.IdCentroCosto = info.IdCentroCosto;
                            objSubGrupo.IdSub_centro_costo = info.IdSub_centro_costo;
                            objSubGrupo.IdCtaCble = info.IdCtaCble;

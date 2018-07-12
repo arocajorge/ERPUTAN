@@ -3486,6 +3486,9 @@
     <Compile Include="spFa_pre_facturacion_det_egr_x_bod_Result.cs">
       <DependentUpon>Facturacion_FJ.tt</DependentUpon>
     </Compile>
+    <Compile Include="spINV_relaciones_no_parametrizadas_Result.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
     <Compile Include="spROL_Archivo_MTE_Result.cs">
       <DependentUpon>ModelRoles.tt</DependentUpon>
     </Compile>
@@ -5038,9 +5041,6 @@
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.cs">
-      <DependentUpon>ModelInventario.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_Transferencias.cs">

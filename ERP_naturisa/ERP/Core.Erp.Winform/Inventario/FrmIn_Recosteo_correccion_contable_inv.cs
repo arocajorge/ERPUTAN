@@ -406,8 +406,16 @@ namespace Core.Erp.Winform.Inventario
                 string mensaje_error = "";
                 foreach (var item in lst_movi_inven.Where(q => q.Checked == true).ToList())
                 {                    
+                    /*
                     info_movi_inven = bus_movi_inven.Get_Info_Movi_inven(item.IdEmpresa, item.IdSucursal, item.IdBodega, item.IdMovi_inven_tipo, item.IdNumMovi);
                     if (!bus_movi_inven.Contabilizar(info_movi_inven, ref mensaje_cbte, ref mensaje_error))
+                    {
+                        MessageBox.Show("Sucursal: " + item.nom_sucursal.Trim() + "\nBodega: " + item.nom_bodega.Trim() + "\nTipo movimiento: " + item.tipo_movi_inven + "\n# Movi: " + item.IdNumMovi.ToString() + "\n" + mensaje_error, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        Buscar_movimientos_para_contabilizar();
+                        return false;
+                    }
+                     */
+                    if (!bus_movi_inven.ContabilizacionData(item.IdEmpresa, item.IdSucursal, item.IdBodega, item.IdMovi_inven_tipo, item.IdNumMovi, param.IdUsuario, ref mensaje_error))
                     {
                         MessageBox.Show("Sucursal: " + item.nom_sucursal.Trim() + "\nBodega: " + item.nom_bodega.Trim() + "\nTipo movimiento: " + item.tipo_movi_inven + "\n# Movi: " + item.IdNumMovi.ToString() + "\n" + mensaje_error, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         Buscar_movimientos_para_contabilizar();

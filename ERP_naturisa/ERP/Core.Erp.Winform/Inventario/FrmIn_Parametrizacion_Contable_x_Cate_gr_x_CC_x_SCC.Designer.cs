@@ -46,8 +46,8 @@
             this.colpc_Cuenta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCuentaPadre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_Mostrar_relaciones_no_parametrizadas = new System.Windows.Forms.ToolStripButton();
             this.btnMostrar_movimientos = new System.Windows.Forms.ToolStripButton();
+            this.btn_Mostrar_relaciones_no_parametrizadas = new System.Windows.Forms.ToolStripButton();
             this.ucGe_Menu_Mantenimiento_x_usuario1 = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlParam_conta_cate)).BeginInit();
@@ -61,9 +61,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 422);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 519);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1201, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1601, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
             // 
             // panel1
@@ -73,19 +74,22 @@
             this.panel1.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1201, 422);
+            this.panel1.Size = new System.Drawing.Size(1601, 519);
             this.panel1.TabIndex = 2;
             // 
             // gridControlParam_conta_cate
             // 
             this.gridControlParam_conta_cate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlParam_conta_cate.Location = new System.Drawing.Point(0, 172);
+            this.gridControlParam_conta_cate.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlParam_conta_cate.Location = new System.Drawing.Point(0, 208);
             this.gridControlParam_conta_cate.MainView = this.gridViewParam_Conta_Cate_;
+            this.gridControlParam_conta_cate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlParam_conta_cate.Name = "gridControlParam_conta_cate";
             this.gridControlParam_conta_cate.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_ctaCble});
-            this.gridControlParam_conta_cate.Size = new System.Drawing.Size(1201, 250);
+            this.gridControlParam_conta_cate.Size = new System.Drawing.Size(1601, 311);
             this.gridControlParam_conta_cate.TabIndex = 0;
             this.gridControlParam_conta_cate.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewParam_Conta_Cate_});
@@ -242,29 +246,29 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnMostrar_movimientos,
             this.btn_Mostrar_relaciones_no_parametrizadas});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 147);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 181);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1201, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1601, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btn_Mostrar_relaciones_no_parametrizadas
-            // 
-            this.btn_Mostrar_relaciones_no_parametrizadas.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_docu_16x16;
-            this.btn_Mostrar_relaciones_no_parametrizadas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Mostrar_relaciones_no_parametrizadas.Name = "btn_Mostrar_relaciones_no_parametrizadas";
-            this.btn_Mostrar_relaciones_no_parametrizadas.Size = new System.Drawing.Size(224, 22);
-            this.btn_Mostrar_relaciones_no_parametrizadas.Text = "Mostrar relaciones no parametrizadas";
-            this.btn_Mostrar_relaciones_no_parametrizadas.Click += new System.EventHandler(this.btn_Mostrar_relaciones_no_parametrizadas_Click);
             // 
             // btnMostrar_movimientos
             // 
             this.btnMostrar_movimientos.Image = global::Core.Erp.Winform.Properties.Resources.buscar;
             this.btnMostrar_movimientos.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMostrar_movimientos.Name = "btnMostrar_movimientos";
-            this.btnMostrar_movimientos.Size = new System.Drawing.Size(144, 22);
+            this.btnMostrar_movimientos.Size = new System.Drawing.Size(174, 24);
             this.btnMostrar_movimientos.Text = "Mostrar movimientos ";
             this.btnMostrar_movimientos.Click += new System.EventHandler(this.btnMostrar_movimientos_Click);
+            // 
+            // btn_Mostrar_relaciones_no_parametrizadas
+            // 
+            this.btn_Mostrar_relaciones_no_parametrizadas.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_docu_16x16;
+            this.btn_Mostrar_relaciones_no_parametrizadas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_Mostrar_relaciones_no_parametrizadas.Name = "btn_Mostrar_relaciones_no_parametrizadas";
+            this.btn_Mostrar_relaciones_no_parametrizadas.Size = new System.Drawing.Size(279, 24);
+            this.btn_Mostrar_relaciones_no_parametrizadas.Text = "Mostrar relaciones no parametrizadas";
+            this.btn_Mostrar_relaciones_no_parametrizadas.Click += new System.EventHandler(this.btn_Mostrar_relaciones_no_parametrizadas_Click);
             // 
             // ucGe_Menu_Mantenimiento_x_usuario1
             // 
@@ -291,15 +295,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2016, 10, 22, 11, 23, 36, 799);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2016, 12, 22, 11, 23, 36, 799);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 6, 12, 10, 13, 40, 743);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 8, 12, 10, 13, 40, 743);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1201, 147);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1601, 181);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 1;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = false;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -319,9 +324,10 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_fechas = false;
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_fechas = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_Grupo_Cancelaciones = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_Grupo_Diseño_Reporte = false;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_Grupo_filtro = false;
@@ -338,11 +344,12 @@
             // 
             // FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 448);
+            this.ClientSize = new System.Drawing.Size(1601, 551);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC";
             this.Text = "FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC";
             this.Load += new System.EventHandler(this.FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC_Load);

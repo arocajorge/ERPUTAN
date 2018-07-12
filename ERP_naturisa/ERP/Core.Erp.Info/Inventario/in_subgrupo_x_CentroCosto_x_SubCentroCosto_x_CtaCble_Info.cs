@@ -13,11 +13,11 @@ namespace Core.Erp.Info.Inventario
         public int IdEmpresa { get; set; }
         public string IdCategoria { get; set; }
         public string nom_categoria { get; set; }
-        public int IdLinea { get; set; }
+        public int? IdLinea { get; set; }
         public string nom_linea { get; set; }
-        public int IdGrupo { get; set; }
+        public int? IdGrupo { get; set; }
         public string nom_grupo { get; set; }
-        public int IdSubgrupo { get; set; }
+        public int? IdSubgrupo { get; set; }
         public string nom_subgrupo { get; set; }
         public string IdCentroCosto { get; set; }
         public string nom_centro_costo { get; set; }

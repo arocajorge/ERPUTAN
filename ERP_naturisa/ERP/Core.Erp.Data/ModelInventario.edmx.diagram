@@ -142,7 +142,6 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_x_Producto" Width="1.5" PointX="11.346556640857159" PointY="9.6490239694942836" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_MoviemientoInvetarioXImportacion" Width="1.5" PointX="5.1858004411616365" PointY="13.399522921722161" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencia_Detalle" Width="1.5" PointX="2.67694590737901" PointY="11.581757223038821" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_no_parametrizados" Width="1.5" PointX="2.6884543833734722" PointY="26.182823148641187" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Motivo_Inven_in_Catalogo" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Motivo_Inven_in_Catalogo1" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_cbteCble_Datos" Width="1.5" PointX="2.9223022567677788" PointY="24.232770603258523" />

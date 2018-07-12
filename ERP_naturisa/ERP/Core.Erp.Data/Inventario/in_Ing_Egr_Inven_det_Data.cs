@@ -977,6 +977,7 @@ namespace Core.Erp.Data.Inventario
 
                       info.IdBodega = item.IdBodega;
                       info.nom_bodega = "[" + item.IdBodega.ToString() + "] " + item.nom_bodega;
+                      info.Fecha_registro = item.cm_fecha;
 
                       Lista.Add(info);
                   }

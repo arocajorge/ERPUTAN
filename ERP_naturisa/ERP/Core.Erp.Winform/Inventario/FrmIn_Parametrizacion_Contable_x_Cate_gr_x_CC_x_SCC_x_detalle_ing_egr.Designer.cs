@@ -41,6 +41,7 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ing_egr_det)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ing_egr_det)).BeginInit();
@@ -50,9 +51,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 396);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 487);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1045, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1393, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
             // 
             // toolStrip1
@@ -61,7 +63,7 @@
             this.btnSalir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1045, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1393, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -70,17 +72,19 @@
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.salir_32x32;
             this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(49, 22);
+            this.btnSalir.Size = new System.Drawing.Size(58, 24);
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // gridControl_ing_egr_det
             // 
             this.gridControl_ing_egr_det.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl_ing_egr_det.Location = new System.Drawing.Point(0, 25);
+            this.gridControl_ing_egr_det.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControl_ing_egr_det.Location = new System.Drawing.Point(0, 27);
             this.gridControl_ing_egr_det.MainView = this.gridView_ing_egr_det;
+            this.gridControl_ing_egr_det.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_ing_egr_det.Name = "gridControl_ing_egr_det";
-            this.gridControl_ing_egr_det.Size = new System.Drawing.Size(1045, 371);
+            this.gridControl_ing_egr_det.Size = new System.Drawing.Size(1393, 460);
             this.gridControl_ing_egr_det.TabIndex = 2;
             this.gridControl_ing_egr_det.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_ing_egr_det});
@@ -95,7 +99,8 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn9});
             this.gridView_ing_egr_det.GridControl = this.gridControl_ing_egr_det;
             this.gridView_ing_egr_det.Name = "gridView_ing_egr_det";
             this.gridView_ing_egr_det.OptionsBehavior.ReadOnly = true;
@@ -109,7 +114,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
-            this.gridColumn1.Width = 89;
+            this.gridColumn1.Width = 140;
             // 
             // gridColumn2
             // 
@@ -118,7 +123,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 108;
+            this.gridColumn2.Width = 169;
             // 
             // gridColumn3
             // 
@@ -127,7 +132,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 134;
+            this.gridColumn3.Width = 210;
             // 
             // gridColumn4
             // 
@@ -135,8 +140,8 @@
             this.gridColumn4.FieldName = "Centro_costo";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
-            this.gridColumn4.Width = 152;
+            this.gridColumn4.VisibleIndex = 7;
+            this.gridColumn4.Width = 267;
             // 
             // gridColumn5
             // 
@@ -144,8 +149,8 @@
             this.gridColumn5.FieldName = "NomSubCentroCosto";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 7;
-            this.gridColumn5.Width = 182;
+            this.gridColumn5.VisibleIndex = 8;
+            this.gridColumn5.Width = 324;
             // 
             // gridColumn6
             // 
@@ -153,8 +158,8 @@
             this.gridColumn6.FieldName = "dm_cantidad";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 94;
+            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.Width = 85;
             // 
             // gridColumn7
             // 
@@ -163,7 +168,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 2;
-            this.gridColumn7.Width = 125;
+            this.gridColumn7.Width = 196;
             // 
             // gridColumn8
             // 
@@ -172,16 +177,28 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 3;
-            this.gridColumn8.Width = 143;
+            this.gridColumn8.Width = 225;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Fecha";
+            this.gridColumn9.DisplayFormat.FormatString = "d";
+            this.gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn9.FieldName = "Fecha_registro";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 5;
+            this.gridColumn9.Width = 118;
             // 
             // FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC_x_detalle_ing_egr
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 422);
+            this.ClientSize = new System.Drawing.Size(1393, 519);
             this.Controls.Add(this.gridControl_ing_egr_det);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC_x_detalle_ing_egr";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalles por relación cuenta/centro";
@@ -210,5 +227,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }

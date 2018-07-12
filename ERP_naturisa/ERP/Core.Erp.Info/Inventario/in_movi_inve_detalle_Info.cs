@@ -126,5 +126,8 @@ namespace Core.Erp.Info.Inventario
         public string Bodega { get; set; }
 
         public string Sucursal { get; set; }
+
+        public string IdCtaCbleCosto { get; set; }
+        public string IdCtaCbleInv { get; set; }
     }
 }
