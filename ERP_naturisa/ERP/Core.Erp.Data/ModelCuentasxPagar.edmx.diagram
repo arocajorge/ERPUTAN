@@ -167,6 +167,7 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_x_Pagos_saldo" Width="1.5" PointX="4.33871284515537" PointY="12.568758210432138" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_x_pagar" Width="1.5" PointX="6.6496644814729988" PointY="6.6271680475339148" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_parametros" Width="1.5" PointX="5.8880194639265628" PointY="24.427963938763348" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_consulta" Width="1.5" PointX="7.6547004597516271" PointY="7.8448093570046167" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

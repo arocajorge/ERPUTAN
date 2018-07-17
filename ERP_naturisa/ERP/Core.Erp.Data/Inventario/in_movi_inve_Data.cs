@@ -644,7 +644,35 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(ex.ToString());
             }
         }
-        
+
+        private decimal get_id(int IdEmpresa, int IdSucursal, int IdBodega, int IdMovi_inven_tipo)
+        {
+            try
+            {
+                decimal ID = 1;
+
+                using (EntitiesInventario Context = new EntitiesInventario())
+                {
+                    var lst = from q in Context.in_movi_inve
+                              where q.IdEmpresa == IdEmpresa
+                              && q.IdSucursal == IdSucursal
+                              && q.IdBodega == IdBodega
+                              && q.IdMovi_inven_tipo == IdMovi_inven_tipo
+                              select q;
+
+                    if (lst.Count() > 0)
+                        ID = lst.Max(q => q.IdNumMovi) + 1;
+                }
+
+                return ID;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public decimal Get_IdMovInv(int IdEmpresa, int IdSucursal, int IdBodega, string codMovi)
         {
             try
@@ -1444,7 +1472,7 @@ item.Centro_costo.Trim() : "",
                             IdCbteCble_ct = diario.IdCbteCble,
                             secuencia_ct = secuencia++,
                             Secuencial_reg = secuencia_reg++,
-                            observacion = "la cta se tomo de:" + (movimiento.cm_tipo == "-" ? "X_BODEGA" : "X_MOTIVO_INV")
+                            observacion = "la cta se tomo de:" + (movimiento.cm_tipo == "+" ? "X_BODEGA" : "X_MOTIVO_INV")
                         });
                         //Haber
                         db_ct.ct_cbtecble_det.Add(new ct_cbtecble_det
@@ -1473,7 +1501,7 @@ item.Centro_costo.Trim() : "",
                             IdCbteCble_ct = diario.IdCbteCble,
                             secuencia_ct = secuencia++,
                             Secuencial_reg = secuencia_reg++,
-                            observacion = "la cta se tomo de:" + (movimiento.cm_tipo == "+" ? "X_BODEGA" : "X_MOTIVO_INV")
+                            observacion = "la cta se tomo de:" + (movimiento.cm_tipo == "-" ? "X_BODEGA" : "X_MOTIVO_INV")
                         });
                     }
                     diario.cb_Valor = Math.Abs(Math.Round(total,2,MidpointRounding.AwayFromZero));
@@ -1513,6 +1541,162 @@ item.Centro_costo.Trim() : "",
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
                 mensaje = ex.ToString() + " " + ex.Message;
                 throw new Exception(ex.ToString());
+            }
+        }
+
+        public Boolean AprobarData(int IdEmpresa, int IdSucursal, int IdMoviInven_tipo, decimal IdNumMovi,string signo,string IdUsuario, ref string mensaje)
+        {
+            EntitiesInventario db_inv = new EntitiesInventario();
+            try
+            {
+                #region Variables
+                int secuencia = 1;
+                decimal IdNumMovi_inv = 0;
+                Dictionary<decimal, int> lst_secuencia = new Dictionary<decimal, int>();
+                in_producto_x_tb_bodega_Costo_Historico costo_historico = new in_producto_x_tb_bodega_Costo_Historico();
+                int secuencia_historico = 1;
+                #endregion
+
+                #region Obtengo detalle de movimiento
+                var info_ing = db_inv.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMoviInven_tipo && q.IdNumMovi == IdNumMovi).FirstOrDefault();
+                if (info_ing == null)
+                {
+                    mensaje = "El movimiento # " + IdNumMovi + " no existe";
+                    return false;
+                }
+                int IdFecha = Convert.ToInt32(info_ing.cm_fecha.ToString("yyyyMMdd"));
+                var e_motivo = db_inv.in_Motivo_Inven.Where(q => q.IdEmpresa == info_ing.IdEmpresa && q.IdMotivo_Inv == info_ing.IdMotivo_Inv).FirstOrDefault();
+                if(e_motivo == null)
+                {
+                    mensaje = "El movimiento # " + IdNumMovi + " no tiene motivo para saber si debe o no mover inventario";
+                    return false;
+                }
+
+                var e_ingegr = db_inv.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMoviInven_tipo && q.IdNumMovi == IdNumMovi && q.IdEstadoAproba == "PEND" && q.IdNumMovi_inv == null).ToList();
+                if (e_ingegr.Count == 0)
+                {
+                    mensaje = "El movimiento # " + IdNumMovi + " no tiene detalles sin aprobación";
+                    return false;
+                }
+                #endregion
+                
+                
+                var bodegas = e_ingegr.GroupBy(q => q.IdBodega).Select(q=>q.Key).ToList();
+                foreach (var i_IdBodega in bodegas)
+                {
+                    secuencia++;
+                    #region Cabecera
+                    if (e_motivo.Genera_Movi_Inven == "S")
+                    {
+                        db_inv.in_movi_inve.Add(new in_movi_inve
+                        {
+                            IdEmpresa = IdEmpresa,
+                            IdSucursal = IdSucursal,
+                            IdBodega = i_IdBodega,
+                            IdMovi_inven_tipo = IdMoviInven_tipo,
+                            IdNumMovi = IdNumMovi_inv = get_id(IdEmpresa, IdSucursal, i_IdBodega, IdMoviInven_tipo),
+                            CodMoviInven = info_ing.CodMoviInven,
+                            cm_tipo = info_ing.signo,
+                            cm_observacion = info_ing.cm_observacion,
+                            cm_fecha = info_ing.cm_fecha,
+                            cm_anio = info_ing.cm_fecha.Year,
+                            cm_mes = info_ing.cm_fecha.Month,
+                            Estado = "A",
+                            IdMotivo_Inv = info_ing.IdMotivo_Inv,
+                            IdUsuario = IdUsuario,
+                            Fecha_Transac = DateTime.Now
+                        });
+                    }
+	                #endregion
+                    #region Detalle
+                    foreach (var det in e_ingegr.Where(q => q.IdBodega == i_IdBodega).ToList())
+                    {
+                        if (e_motivo.Genera_Movi_Inven == "S")
+                        {
+                            if (info_ing.signo == "-")
+                            {
+                                costo_historico = db_inv.in_producto_x_tb_bodega_Costo_Historico.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == i_IdBodega && q.IdProducto == det.IdProducto).OrderByDescending(q => q.fecha).FirstOrDefault();
+                                det.mv_costo = costo_historico == null ? 0 : costo_historico.costo;
+                            }
+                            else
+                            {
+                                if (info_ing.signo == "+")
+                                {
+                                    if (lst_secuencia.Where(q => q.Key == det.IdProducto).Count() > 0)
+                                    {
+                                        secuencia_historico = lst_secuencia.Max(q => q.Value) + 1;
+                                    }
+                                    else
+                                    {
+                                        var secuencia_h = db_inv.in_producto_x_tb_bodega_Costo_Historico.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == i_IdBodega && q.IdProducto == det.IdProducto && q.IdFecha == IdFecha).ToList();
+                                        if (secuencia_h.Count > 0)
+                                            secuencia_historico = secuencia_h.Max(q => q.Secuencia) + 1;
+                                    }                                    
+                                    db_inv.in_producto_x_tb_bodega_Costo_Historico.Add(new in_producto_x_tb_bodega_Costo_Historico
+                                    {
+                                        IdEmpresa = IdEmpresa,
+                                        IdSucursal = IdSucursal,
+                                        IdBodega = i_IdBodega,
+                                        IdProducto = det.IdProducto,
+                                        IdFecha = IdFecha,
+                                        Secuencia = secuencia_historico,
+                                        fecha = info_ing.cm_fecha,
+                                        costo = det.mv_costo,
+                                        Stock_a_la_fecha = 0,
+                                        Observacion = "NO VALIDO",
+                                        fecha_trans = DateTime.Now
+                                    });
+                                    lst_secuencia.Add(det.IdProducto, secuencia_historico);
+                                }
+                            }
+                            db_inv.in_movi_inve_detalle.Add(new in_movi_inve_detalle
+                            {
+                                IdEmpresa = IdEmpresa,
+                                IdSucursal = IdSucursal,
+                                IdBodega = i_IdBodega,
+                                IdMovi_inven_tipo = IdMoviInven_tipo,
+                                IdNumMovi = IdNumMovi_inv,
+                                Secuencia = secuencia,
+                                mv_tipo_movi = info_ing.signo,
+                                IdProducto = det.IdProducto,
+
+                                dm_cantidad = det.dm_cantidad,
+                                dm_cantidad_sinConversion = det.dm_cantidad_sinConversion,
+                                mv_costo = det.mv_costo,
+                                mv_costo_sinConversion = det.mv_costo_sinConversion,
+                                IdUnidadMedida = det.IdUnidadMedida,
+                                IdUnidadMedida_sinConversion = det.IdUnidadMedida_sinConversion,
+
+                                IdCentroCosto = det.IdCentroCosto,
+                                IdCentroCosto_sub_centro_costo = det.IdCentroCosto_sub_centro_costo,
+                                IdPunto_cargo = det.IdPunto_cargo,
+                                IdPunto_cargo_grupo = det.IdPunto_cargo_grupo,
+                                Costeado = false,
+                                dm_stock_actu = 0,
+                                dm_stock_ante = 0,
+                                dm_observacion = ""
+                            });
+                            det.IdEmpresa_inv = IdEmpresa;
+                            det.IdSucursal_inv = IdSucursal;
+                            det.IdBodega_inv = i_IdBodega;
+                            det.IdMovi_inven_tipo_inv = IdMoviInven_tipo;
+                            det.IdNumMovi_inv = IdNumMovi_inv;
+                            det.secuencia_inv = secuencia++;
+                        }
+                        det.IdEstadoAproba = "APRO";
+                    }
+                    #endregion
+                    db_inv.SaveChanges();
+                    if (e_motivo.Genera_Movi_Inven == "S")
+                        ContabilizacionData(IdEmpresa, IdSucursal, i_IdBodega, IdMoviInven_tipo, IdNumMovi_inv, IdUsuario, ref mensaje);
+                }
+                db_inv.Dispose();
+                return true;
+            }
+            catch (Exception)
+            {
+                db_inv.Dispose();
+                throw;
             }
         }
     }

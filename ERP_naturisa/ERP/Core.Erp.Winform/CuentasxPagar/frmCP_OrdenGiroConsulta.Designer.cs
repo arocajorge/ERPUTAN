@@ -33,7 +33,6 @@
             this.gridControlOG = new DevExpress.XtraGrid.GridControl();
             this.UltraGrid_OrdenGiro = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdCbteCble_Ogiro = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltc_TipoCbte = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_fechaOg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_factura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_FechaFactura = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,15 +42,10 @@
             this.colco_subtotal_siniva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_baseImponible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdCtaCble_CXP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdEmpresa_ret = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdRetencion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colre_serie = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colre_NumRetencion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado_Cancelacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSaldo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colco_valorpagar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_valoriva = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal_Retencion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_tipo_flujo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -105,7 +99,6 @@
             // 
             this.UltraGrid_OrdenGiro.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIdCbteCble_Ogiro,
-            this.coltc_TipoCbte,
             this.colco_fechaOg,
             this.colco_factura,
             this.colco_FechaFactura,
@@ -115,15 +108,10 @@
             this.colco_subtotal_siniva,
             this.colco_baseImponible,
             this.colEstado,
-            this.colIdCtaCble_CXP,
-            this.colIdEmpresa_ret,
-            this.colIdRetencion,
-            this.colre_serie,
             this.colre_NumRetencion,
             this.colEstado_Cancelacion,
             this.colTotal,
             this.colSaldo,
-            this.colco_valorpagar,
             this.colco_valoriva,
             this.colTotal_Retencion,
             this.col_tipo_flujo,
@@ -159,15 +147,6 @@
             this.colIdCbteCble_Ogiro.Visible = true;
             this.colIdCbteCble_Ogiro.VisibleIndex = 0;
             this.colIdCbteCble_Ogiro.Width = 70;
-            // 
-            // coltc_TipoCbte
-            // 
-            this.coltc_TipoCbte.Caption = "Tipo Comp. CxP";
-            this.coltc_TipoCbte.FieldName = "tc_TipoCbte";
-            this.coltc_TipoCbte.Name = "coltc_TipoCbte";
-            this.coltc_TipoCbte.OptionsColumn.AllowEdit = false;
-            this.coltc_TipoCbte.OptionsColumn.ReadOnly = true;
-            this.coltc_TipoCbte.Width = 87;
             // 
             // colco_fechaOg
             // 
@@ -263,30 +242,6 @@
             this.colEstado.OptionsColumn.ReadOnly = true;
             this.colEstado.Width = 84;
             // 
-            // colIdCtaCble_CXP
-            // 
-            this.colIdCtaCble_CXP.FieldName = "IdCtaCble_CXP";
-            this.colIdCtaCble_CXP.Name = "colIdCtaCble_CXP";
-            this.colIdCtaCble_CXP.OptionsColumn.ReadOnly = true;
-            // 
-            // colIdEmpresa_ret
-            // 
-            this.colIdEmpresa_ret.FieldName = "IdEmpresa_ret";
-            this.colIdEmpresa_ret.Name = "colIdEmpresa_ret";
-            this.colIdEmpresa_ret.OptionsColumn.ReadOnly = true;
-            // 
-            // colIdRetencion
-            // 
-            this.colIdRetencion.FieldName = "IdRetencion";
-            this.colIdRetencion.Name = "colIdRetencion";
-            this.colIdRetencion.OptionsColumn.ReadOnly = true;
-            // 
-            // colre_serie
-            // 
-            this.colre_serie.FieldName = "re_serie";
-            this.colre_serie.Name = "colre_serie";
-            this.colre_serie.OptionsColumn.ReadOnly = true;
-            // 
             // colre_NumRetencion
             // 
             this.colre_NumRetencion.FieldName = "re_NumRetencion";
@@ -326,16 +281,6 @@
             this.colSaldo.Visible = true;
             this.colSaldo.VisibleIndex = 6;
             this.colSaldo.Width = 98;
-            // 
-            // colco_valorpagar
-            // 
-            this.colco_valorpagar.Caption = "Valor a pagar";
-            this.colco_valorpagar.DisplayFormat.FormatString = "n2";
-            this.colco_valorpagar.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colco_valorpagar.FieldName = "co_valorpagar";
-            this.colco_valorpagar.Name = "colco_valorpagar";
-            this.colco_valorpagar.OptionsColumn.ReadOnly = true;
-            this.colco_valorpagar.Width = 113;
             // 
             // colco_valoriva
             // 
@@ -437,8 +382,6 @@
             this.col_tiene_ingresos.ColumnEdit = this.cmb_tiene_ingresos;
             this.col_tiene_ingresos.FieldName = "Tiene_ingresos";
             this.col_tiene_ingresos.Name = "col_tiene_ingresos";
-            this.col_tiene_ingresos.Visible = true;
-            this.col_tiene_ingresos.VisibleIndex = 10;
             this.col_tiene_ingresos.Width = 65;
             // 
             // cmb_tiene_ingresos
@@ -468,8 +411,6 @@
             this.gridColumn6.ColumnEdit = this.cmb_tiene_ingresos;
             this.gridColumn6.FieldName = "En_conciliacion";
             this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 11;
             this.gridColumn6.Width = 61;
             // 
             // gridColumn7
@@ -480,7 +421,7 @@
             this.gridColumn7.ImageIndex = 1;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 12;
+            this.gridColumn7.VisibleIndex = 10;
             this.gridColumn7.Width = 88;
             // 
             // cmb_imprimir
@@ -522,8 +463,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2017, 12, 29, 12, 2, 53, 868);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 2, 28, 12, 2, 53, 868);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 6, 16, 9, 51, 51, 875);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 8, 16, 9, 51, 51, 875);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -622,7 +563,6 @@
         private DevExpress.XtraGrid.GridControl gridControlOG;
         private DevExpress.XtraGrid.Views.Grid.GridView UltraGrid_OrdenGiro;
         private DevExpress.XtraGrid.Columns.GridColumn colIdCbteCble_Ogiro;
-        private DevExpress.XtraGrid.Columns.GridColumn coltc_TipoCbte;
         private DevExpress.XtraGrid.Columns.GridColumn colNomProveedor;
         private DevExpress.XtraGrid.Columns.GridColumn colco_factura;
         private DevExpress.XtraGrid.Columns.GridColumn colco_FechaFactura;
@@ -632,15 +572,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colco_baseImponible;
         private DevExpress.XtraGrid.Columns.GridColumn colco_fechaOg;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdCtaCble_CXP;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdEmpresa_ret;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdRetencion;
-        private DevExpress.XtraGrid.Columns.GridColumn colre_serie;
         private DevExpress.XtraGrid.Columns.GridColumn colre_NumRetencion;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado_Cancelacion;
         private DevExpress.XtraGrid.Columns.GridColumn colTotal;
         private DevExpress.XtraGrid.Columns.GridColumn colSaldo;
-        private DevExpress.XtraGrid.Columns.GridColumn colco_valorpagar;
         private DevExpress.XtraGrid.Columns.GridColumn colco_valoriva;
         private DevExpress.XtraGrid.Columns.GridColumn colTotal_Retencion;
         private DevExpress.XtraGrid.Columns.GridColumn col_tipo_flujo;

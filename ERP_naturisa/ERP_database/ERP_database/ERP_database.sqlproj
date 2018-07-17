@@ -2079,5 +2079,6 @@
     <Build Include="mobileSCI\Stored Procedures\sp_oc_x_aprobar.sql" />
     <Build Include="mobileSCI\Tables\tbl_stock.sql" />
     <Build Include="mobileSCI\Stored Procedures\sp_stock.sql" />
+    <Build Include="dbo\Stored Procedures\spINV_relaciones_no_parametrizadas.sql" />
   </ItemGroup>
 </Project>

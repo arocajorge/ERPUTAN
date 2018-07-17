@@ -281,6 +281,7 @@ namespace Core.Erp.Business.Inventario
 
         }
 
+       
         
         public List<in_movi_inve_Info> Get_list_Movi_inven_x_despachar(int IdEmpresa, int IdSucursal, int IdBodega)
         {
@@ -1195,6 +1196,18 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public Boolean AprobarData(int IdEmpresa, int IdSucursal, int IdMoviInven_tipo, decimal IdNumMovi,string signo,string IdUsuario, ref string mensaje)
+        {
+            try
+            {
+                return moviD.AprobarData(IdEmpresa, IdSucursal, IdMoviInven_tipo, IdNumMovi, signo, IdUsuario, ref mensaje);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ContabilizacionData", ex.Message), ex) { EntityType = typeof(in_movi_inve_Bus) };
+            }
+        }
         public bool ContabilizacionData(int IdEmpresa, int IdSucursal, int IdBodega, int IdMovi_inven_tipo, decimal IdNumMovi, string IdUsuario, ref string mensaje)
         {
             try

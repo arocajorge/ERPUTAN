@@ -376,7 +376,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
             try
             {
-
+                /*
                 if (e.Column.Name == colTotal_Retencion.Name)
                 {
 
@@ -389,7 +389,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     frm.Set_Info_Retencion(InfoRetencion);
                     frm.ShowDialog();
                 }
-
+                */
 
             }
             catch (Exception ex)

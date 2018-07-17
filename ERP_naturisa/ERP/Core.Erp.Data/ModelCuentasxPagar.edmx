@@ -810,6 +810,32 @@
       [vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC].[IdOrdenCompra] AS [IdOrdenCompra]
       FROM [dbo].[vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC] AS [vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwcp_orden_giro_consulta" EntityType="ModelCuentasxPagar.Store.vwcp_orden_giro_consulta" store:Type="Views" store:Schema="dbo" store:Name="vwcp_orden_giro_consulta">
+            <DefiningQuery>SELECT 
+      [vwcp_orden_giro_consulta].[IdEmpresa] AS [IdEmpresa], 
+      [vwcp_orden_giro_consulta].[IdTipoCbte_Ogiro] AS [IdTipoCbte_Ogiro], 
+      [vwcp_orden_giro_consulta].[IdCbteCble_Ogiro] AS [IdCbteCble_Ogiro], 
+      [vwcp_orden_giro_consulta].[IdProveedor] AS [IdProveedor], 
+      [vwcp_orden_giro_consulta].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwcp_orden_giro_consulta].[co_fechaOg] AS [co_fechaOg], 
+      [vwcp_orden_giro_consulta].[co_factura] AS [co_factura], 
+      [vwcp_orden_giro_consulta].[co_FechaFactura] AS [co_FechaFactura], 
+      [vwcp_orden_giro_consulta].[co_observacion] AS [co_observacion], 
+      [vwcp_orden_giro_consulta].[co_total] AS [co_total], 
+      [vwcp_orden_giro_consulta].[IdTipoFlujo] AS [IdTipoFlujo], 
+      [vwcp_orden_giro_consulta].[NumRetencion] AS [NumRetencion], 
+      [vwcp_orden_giro_consulta].[co_subtotal_iva] AS [co_subtotal_iva], 
+      [vwcp_orden_giro_consulta].[co_subtotal_siniva] AS [co_subtotal_siniva], 
+      [vwcp_orden_giro_consulta].[co_baseImponible] AS [co_baseImponible], 
+      [vwcp_orden_giro_consulta].[co_valoriva] AS [co_valoriva], 
+      [vwcp_orden_giro_consulta].[re_valor_retencion] AS [re_valor_retencion], 
+      [vwcp_orden_giro_consulta].[MontoAplicado] AS [MontoAplicado], 
+      [vwcp_orden_giro_consulta].[saldo] AS [saldo], 
+      [vwcp_orden_giro_consulta].[IdClaseProveedor] AS [IdClaseProveedor], 
+      [vwcp_orden_giro_consulta].[descripcion_clas_prove] AS [descripcion_clas_prove], 
+      [vwcp_orden_giro_consulta].[Estado] AS [Estado]
+      FROM [dbo].[vwcp_orden_giro_consulta] AS [vwcp_orden_giro_consulta]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwcp_Orden_Giro_Pendiente_Conciliar" EntityType="ModelCuentasxPagar.Store.vwcp_Orden_Giro_Pendiente_Conciliar" store:Type="Views" store:Schema="dbo" store:Name="vwcp_Orden_Giro_Pendiente_Conciliar">
             <DefiningQuery>SELECT 
       [vwcp_Orden_Giro_Pendiente_Conciliar].[IdEmpresa] AS [IdEmpresa], 
@@ -4323,6 +4349,55 @@
           <Property Name="IdOrdenCompra" Type="numeric" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_consulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcp_orden_giro_consulta">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="co_fechaOg" />
+            <PropertyRef Name="co_factura" />
+            <PropertyRef Name="co_FechaFactura" />
+            <PropertyRef Name="co_observacion" />
+            <PropertyRef Name="co_total" />
+            <PropertyRef Name="co_subtotal_iva" />
+            <PropertyRef Name="co_subtotal_siniva" />
+            <PropertyRef Name="co_baseImponible" />
+            <PropertyRef Name="co_valoriva" />
+            <PropertyRef Name="re_valor_retencion" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="IdClaseProveedor" />
+            <PropertyRef Name="descripcion_clas_prove" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdTipoCbte_Ogiro" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble_Ogiro" Type="numeric" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="co_fechaOg" Type="datetime" Nullable="false" />
+          <Property Name="co_factura" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="co_FechaFactura" Type="datetime" Nullable="false" />
+          <Property Name="co_observacion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="co_total" Type="float" Nullable="false" />
+          <Property Name="IdTipoFlujo" Type="numeric" />
+          <Property Name="NumRetencion" Type="varchar" MaxLength="20" />
+          <Property Name="co_subtotal_iva" Type="float" Nullable="false" />
+          <Property Name="co_subtotal_siniva" Type="float" Nullable="false" />
+          <Property Name="co_baseImponible" Type="float" Nullable="false" />
+          <Property Name="co_valoriva" Type="float" Nullable="false" />
+          <Property Name="re_valor_retencion" Type="float" Nullable="false" />
+          <Property Name="MontoAplicado" Type="float" Nullable="false" />
+          <Property Name="saldo" Type="float" Nullable="false" />
+          <Property Name="IdClaseProveedor" Type="int" Nullable="false" />
+          <Property Name="descripcion_clas_prove" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Pendiente_Conciliar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Orden_Giro_Pendiente_Conciliar">
@@ -4693,6 +4768,7 @@
             <PropertyRef Name="co_valorpagar" />
             <PropertyRef Name="Total_Pagado" />
             <PropertyRef Name="nom_tipo_Documento" />
+            
             <PropertyRef Name="CodTipoCbte" />
             <PropertyRef Name="tc_TipoCbte" />
             <PropertyRef Name="IdTipo_op" />
@@ -4721,7 +4797,7 @@
           <Property Name="Total_Pagado" Type="float" Nullable="false" />
           <Property Name="Saldo_OG" Type="float" />
           <Property Name="nom_tipo_Documento" Type="varchar" Nullable="false" MaxLength="250" />
-          <Property Name="nom_proveedor" Type="varchar" MaxLength="100" />
+          <Property Name="nom_proveedor" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="CodTipoCbte" Type="char" Nullable="false" MaxLength="10" />
           <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
           <Property Name="IdTipo_op" Type="varchar" Nullable="false" MaxLength="20" />
@@ -7000,6 +7076,7 @@
             <Parameter Name="IdUsuario" Mode="In" Type="String" />
             <Parameter Name="mostrar_saldo_0" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <EntitySet Name="vwcp_orden_giro_consulta" EntityType="ModelCuentasxPagar.vwcp_orden_giro_consulta" />
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -11518,7 +11595,7 @@
           <Property Type="Double" Name="Total_Pagado" Nullable="false" />
           <Property Type="Double" Name="Saldo_OG" />
           <Property Type="String" Name="nom_tipo_Documento" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_proveedor" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_proveedor" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Type="String" Name="CodTipoCbte" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -11606,6 +11683,52 @@
           <Property Type="Decimal" Name="IdCbteCble_cxp" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Int32" Name="IdBanco" Nullable="true" />
         </ComplexType>
+        <EntityType Name="vwcp_orden_giro_consulta">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="co_fechaOg" />
+            <PropertyRef Name="co_factura" />
+            <PropertyRef Name="co_FechaFactura" />
+            <PropertyRef Name="co_observacion" />
+            <PropertyRef Name="co_total" />
+            <PropertyRef Name="co_subtotal_iva" />
+            <PropertyRef Name="co_subtotal_siniva" />
+            <PropertyRef Name="co_baseImponible" />
+            <PropertyRef Name="co_valoriva" />
+            <PropertyRef Name="re_valor_retencion" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="saldo" />
+            <PropertyRef Name="IdClaseProveedor" />
+            <PropertyRef Name="descripcion_clas_prove" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="co_fechaOg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="co_factura" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="co_FechaFactura" Nullable="false" Precision="3" />
+          <Property Type="String" Name="co_observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="co_total" Nullable="false" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="String" Name="NumRetencion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="co_subtotal_iva" Nullable="false" />
+          <Property Type="Double" Name="co_subtotal_siniva" Nullable="false" />
+          <Property Type="Double" Name="co_baseImponible" Nullable="false" />
+          <Property Type="Double" Name="co_valoriva" Nullable="false" />
+          <Property Type="Double" Name="re_valor_retencion" Nullable="false" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="Double" Name="saldo" Nullable="false" />
+          <Property Type="Int32" Name="IdClaseProveedor" Nullable="false" />
+          <Property Type="String" Name="descripcion_clas_prove" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -14570,6 +14693,34 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vwcp_orden_giro_consulta">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_giro_consulta">
+              <MappingFragment StoreEntitySet="vwcp_orden_giro_consulta">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="descripcion_clas_prove" ColumnName="descripcion_clas_prove" />
+                <ScalarProperty Name="IdClaseProveedor" ColumnName="IdClaseProveedor" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="re_valor_retencion" ColumnName="re_valor_retencion" />
+                <ScalarProperty Name="co_valoriva" ColumnName="co_valoriva" />
+                <ScalarProperty Name="co_baseImponible" ColumnName="co_baseImponible" />
+                <ScalarProperty Name="co_subtotal_siniva" ColumnName="co_subtotal_siniva" />
+                <ScalarProperty Name="co_subtotal_iva" ColumnName="co_subtotal_iva" />
+                <ScalarProperty Name="NumRetencion" ColumnName="NumRetencion" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="co_total" ColumnName="co_total" />
+                <ScalarProperty Name="co_observacion" ColumnName="co_observacion" />
+                <ScalarProperty Name="co_FechaFactura" ColumnName="co_FechaFactura" />
+                <ScalarProperty Name="co_factura" ColumnName="co_factura" />
+                <ScalarProperty Name="co_fechaOg" ColumnName="co_fechaOg" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
+                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

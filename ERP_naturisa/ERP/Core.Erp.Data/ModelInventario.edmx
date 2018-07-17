@@ -592,6 +592,20 @@
       [vwin_Ing_Egr_Inven].[Descripcion] AS [Descripcion]
       FROM [dbo].[vwin_Ing_Egr_Inven] AS [vwin_Ing_Egr_Inven]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion" EntityType="DBERPModelInventario.Store.vwin_Ing_Egr_Inven_aprobacion_x_transaccion" store:Type="Views" store:Schema="dbo" store:Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion">
+            <DefiningQuery>SELECT 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[IdEmpresa] AS [IdEmpresa], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[IdSucursal] AS [IdSucursal], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[IdNumMovi] AS [IdNumMovi], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[signo] AS [signo], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[cm_observacion] AS [cm_observacion], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[cm_fecha] AS [cm_fecha], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[tm_descripcion] AS [tm_descripcion], 
+      [vwin_Ing_Egr_Inven_aprobacion_x_transaccion].[CodMoviInven] AS [CodMoviInven]
+      FROM [dbo].[vwin_Ing_Egr_Inven_aprobacion_x_transaccion] AS [vwin_Ing_Egr_Inven_aprobacion_x_transaccion]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwin_Ing_Egr_Inven_det" EntityType="DBERPModelInventario.Store.vwin_Ing_Egr_Inven_det" store:Type="Views" store:Schema="dbo" store:Name="vwin_Ing_Egr_Inven_det">
             <DefiningQuery>SELECT 
       [vwin_Ing_Egr_Inven_det].[Secuencia] AS [Secuencia], 
@@ -4880,6 +4894,32 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_aprobacion_x_transaccion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="signo" />
+            <PropertyRef Name="cm_observacion" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="CodMoviInven" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="signo" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cm_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="cm_fecha" Type="datetime" Nullable="false" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="tm_descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_Ing_Egr_Inven_det">
@@ -7175,30 +7215,30 @@
             <PropertyRef Name="IdCategoria" />
             <PropertyRef Name="nom_categoria" />
             <PropertyRef Name="IdLinea" />
-            <PropertyRef Name="nom_linea" />
             <PropertyRef Name="IdGrupo" />
-            <PropertyRef Name="nom_grupo" />
             <PropertyRef Name="IdSubgrupo" />
-            <PropertyRef Name="nom_subgrupo" />
             <PropertyRef Name="IdCentroCosto" />
             <PropertyRef Name="nom_centro_costo" />
             <PropertyRef Name="IdSub_centro_costo" />
             <PropertyRef Name="nom_sub_centro_costo" />
+            <PropertyRef Name="nom_linea" />
+            <PropertyRef Name="nom_grupo" />
+            <PropertyRef Name="nom_subgrupo" />
           </Key>
           <Property Name="IdRow" Type="bigint" Nullable="false" />
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdCategoria" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="nom_categoria" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="nom_categoria" Type="varchar" Nullable="false" MaxLength="128" />
           <Property Name="IdLinea" Type="int" Nullable="false" />
-          <Property Name="nom_linea" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="nom_linea" Type="varchar" MaxLength="163" Nullable="false" />
           <Property Name="IdGrupo" Type="int" Nullable="false" />
-          <Property Name="nom_grupo" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="nom_grupo" Type="varchar" MaxLength="163" Nullable="false" />
           <Property Name="IdSubgrupo" Type="int" Nullable="false" />
-          <Property Name="nom_subgrupo" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="nom_subgrupo" Type="varchar" MaxLength="163" Nullable="false" />
           <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="nom_centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="nom_centro_costo" Type="varchar" Nullable="false" MaxLength="273" />
           <Property Name="IdSub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="nom_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="nom_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="223" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -9481,6 +9521,7 @@
             <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
             <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_aprobacion_x_transaccion" />
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
           <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="23" />
@@ -12755,17 +12796,17 @@
           <Property Type="Int64" Name="IdRow" Nullable="false" />
           <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
           <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_categoria" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_categoria" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="IdLinea" Nullable="false" />
-          <Property Type="String" Name="nom_linea" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_linea" Nullable="false" MaxLength="163" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="IdGrupo" Nullable="false" />
-          <Property Type="String" Name="nom_grupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_grupo" Nullable="false" MaxLength="163" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="IdSubgrupo" Nullable="false" />
-          <Property Type="String" Name="nom_subgrupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subgrupo" Nullable="false" MaxLength="163" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_centro_costo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_centro_costo" Nullable="false" MaxLength="273" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdSub_centro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_sub_centro_costo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sub_centro_costo" Nullable="false" MaxLength="223" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vwin_Transferencia_sin_guia">
@@ -15821,6 +15862,29 @@
           <Property Type="String" Name="IdCentroCosto_sub_centro_costo" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="NomSubcentro" Nullable="false" MaxLength="200" />
         </ComplexType>
+        <EntityType Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="signo" />
+            <PropertyRef Name="cm_observacion" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="CodMoviInven" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="signo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="cm_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="tm_descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -19594,6 +19658,22 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion">
+            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_Ing_Egr_Inven_aprobacion_x_transaccion">
+              <MappingFragment StoreEntitySet="vwin_Ing_Egr_Inven_aprobacion_x_transaccion">
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="tm_descripcion" ColumnName="tm_descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="cm_observacion" ColumnName="cm_observacion" />
+                <ScalarProperty Name="signo" ColumnName="signo" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

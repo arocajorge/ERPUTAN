@@ -170,6 +170,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public Nullable<decimal> IdCuota { get; set; }
         public Nullable<int> Secuencia { get; set; }
         public Nullable<double> Valor_cuota { get; set; }
+        
         public cp_orden_giro_Info()
         {
         

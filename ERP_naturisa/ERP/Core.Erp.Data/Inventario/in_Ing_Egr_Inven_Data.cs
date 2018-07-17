@@ -597,6 +597,43 @@ namespace Core.Erp.Data.Inventario
           }
       }
 
+      public List<in_Ing_Egr_Inven_Info> Get_List_aprobacion_x_transaccion(int IdEmpresa, string Tipo_ing_egr, DateTime Fecha_ini, DateTime Fecha_fin)
+      {
+          try
+          {
+              List<in_Ing_Egr_Inven_Info> Lista;
+              Fecha_ini = Fecha_ini.Date;
+              Fecha_fin = Fecha_fin.Date;
+              using (EntitiesInventario Context = new EntitiesInventario())
+              {
+                  Lista = (from q in Context.vwin_Ing_Egr_Inven_aprobacion_x_transaccion
+                           where q.IdEmpresa == IdEmpresa
+                           && Fecha_ini <= q.cm_fecha && q.cm_fecha <= Fecha_fin
+                           && q.signo == Tipo_ing_egr
+                           select new in_Ing_Egr_Inven_Info
+                           {
+                               IdEmpresa = q.IdEmpresa,
+                               IdSucursal = q.IdSucursal,
+                               IdMovi_inven_tipo = q.IdMovi_inven_tipo,
+                               IdNumMovi = q.IdNumMovi,
+                               signo = q.signo,
+                               cm_observacion = q.cm_observacion,
+                               cm_fecha = q.cm_fecha,
+                               nom_sucursal = q.Su_Descripcion,
+                               nom_tipo_inv = q.tm_descripcion,
+                               CodMoviInven = q.CodMoviInven,
+                           }).ToList();
+              }
+
+              return Lista;
+          }
+          catch (Exception)
+          {
+              
+              throw;
+          }
+      }
+
       public List<in_Ing_Egr_Inven_Info> Get_List_Ing_Egr_Inven(int IdEmpresa, int IdSucursal, int IdBodega, int IdTipoMovi, string Tipo_ing_egr)
       {
           try
@@ -874,5 +911,7 @@ namespace Core.Erp.Data.Inventario
               throw new Exception(ex.ToString());
           }
       }
+
+      
   }
 }

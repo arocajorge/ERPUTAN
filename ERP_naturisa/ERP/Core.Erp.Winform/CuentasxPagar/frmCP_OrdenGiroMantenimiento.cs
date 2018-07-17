@@ -1955,7 +1955,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             try
             {
                
-                Info_OrdenGiro = info;
+                Info_OrdenGiro = ordenGiro_B.Get_Info_orden_giro(info.IdEmpresa,info.IdTipoCbte_Ogiro,info.IdCbteCble_Ogiro);
 
                              
             }

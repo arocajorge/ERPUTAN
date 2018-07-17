@@ -4259,6 +4259,9 @@
     <Compile Include="vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcp_orden_giro_consulta.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcp_Orden_Giro_Pendiente_Conciliar.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
@@ -4863,6 +4866,9 @@
       <DependentUpon>ModelProduccion_cidersus.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_Ing_Egr_Inven.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwin_Ing_Egr_Inven_aprobacion_x_transaccion.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_Ing_Egr_Inven_det.cs">

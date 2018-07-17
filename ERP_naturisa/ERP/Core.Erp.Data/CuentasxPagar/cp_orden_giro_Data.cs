@@ -15,15 +15,50 @@ namespace Core.Erp.Data.CuentasxPagar
     
         public List<cp_orden_giro_Info> 
             
+            
+
             Get_List_orden_giro(int IdEmpresa, DateTime F_inicio, DateTime F_fin)
         {
             try
             {
                 F_inicio = F_inicio.Date;
                 F_fin = F_fin.Date;
-                List<cp_orden_giro_Info> lM = new List<cp_orden_giro_Info>();
-                EntitiesCuentasxPagar Base = new EntitiesCuentasxPagar();
+                List<cp_orden_giro_Info> lM;
+                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                {
+                    lM = (from q in db.vwcp_orden_giro_consulta
+                          where q.IdEmpresa == IdEmpresa
+                          && F_inicio <= q.co_fechaOg && q.co_fechaOg <= F_fin
+                          select new cp_orden_giro_Info
+                          {
+                              IdEmpresa = q.IdEmpresa,
+                              IdTipoCbte_Ogiro = q.IdTipoCbte_Ogiro,
+                              IdCbteCble_Ogiro = q.IdCbteCble_Ogiro,
+                              co_factura = q.co_factura,
+                              co_fechaOg = q.co_fechaOg,
+                              co_FechaFactura = q.co_FechaFactura,
+                              co_observacion = q.co_observacion,
+                              co_subtotal_iva = q.co_subtotal_iva,
+                              co_subtotal_siniva = q.co_subtotal_siniva,
+                              co_valoriva = q.co_valoriva,
+                              co_baseImponible = q.co_baseImponible,
+                              Estado = q.Estado,
+                              Total_Retencion = q.re_valor_retencion,
+                              saldo = q.saldo,
+                              co_total = q.co_total,
+                              re_NumRetencion = q.NumRetencion,
+                              IdTipoFlujo = q.IdTipoFlujo,
+                              InfoProveedor = new cp_proveedor_Info
+                              {
+                                  pr_nombre = q.pe_nombreCompleto,
+                                  descripcion_clas_prove = q.descripcion_clas_prove
+                              },
+                              Estado_Cancelacion = q.saldo <= 0 ? "PAGADO" : "PENDIENTE"
+                          }).ToList();
+                }
 
+                #region Consulta anterior
+                /*
                 var select_ = (from T in Base.vwcp_orden_giro_x_Pagos_saldo
                                join P in Base.cp_proveedor on new { T.IdProveedor, T.IdEmpresa } equals new { P.IdProveedor, P.IdEmpresa }
                                join C in Base.cp_proveedor_clase on new { P.IdEmpresa, P.IdClaseProveedor } equals new { C.IdEmpresa, C.IdClaseProveedor}
@@ -216,6 +251,9 @@ namespace Core.Erp.Data.CuentasxPagar
 
                     lM.Add(dat);
                 }
+                 * */
+                #endregion
+                
                 return (lM);
             }
             catch (Exception ex)

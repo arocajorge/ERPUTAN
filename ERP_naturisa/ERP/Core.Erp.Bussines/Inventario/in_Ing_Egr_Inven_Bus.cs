@@ -94,6 +94,19 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+       public List<in_Ing_Egr_Inven_Info> Get_List_aprobacion_x_transaccion(int IdEmpresa, string Tipo_ing_egr, DateTime Fecha_ini, DateTime Fecha_fin)
+        {
+            try
+            {
+                return odata.Get_List_aprobacion_x_transaccion(IdEmpresa, Tipo_ing_egr,Fecha_ini,Fecha_fin);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
        private void ProcesoRecosteoInventario(in_Ing_Egr_Inven_Info info)
        {
            try

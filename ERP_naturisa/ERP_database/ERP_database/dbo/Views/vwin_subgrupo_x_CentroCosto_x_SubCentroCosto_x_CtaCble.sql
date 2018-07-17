@@ -1,28 +1,26 @@
-﻿CREATE view [dbo].[vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble]
-as
-SELECT        isnull(ROW_NUMBER() OVER (ORDER BY in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa), 0) AS IdRow, 
-in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa, in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCategoria, 
-in_categorias.ca_Categoria AS nom_categoria, in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdLinea, in_linea.nom_linea, 
-in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdGrupo, in_grupo.nom_grupo, in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSubgrupo, 
-in_subgrupo.nom_subgrupo, in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCentroCosto, ct_centro_costo.Centro_costo AS nom_centro_costo, 
-in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSub_centro_costo, ct_centro_costo_sub_centro_costo.Centro_costo AS nom_sub_centro_costo, 
+﻿CREATE VIEW [dbo].[vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble]
+AS
+SELECT isnull(ROW_NUMBER() OVER (ORDER BY in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa), 0) AS IdRow, in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa, 
+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCategoria, '['+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCategoria+'] '+ in_categorias.ca_Categoria AS nom_categoria, 
+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdLinea, '['+cast(in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdLinea as varchar(10))+'] '+in_linea.nom_linea nom_linea, 
+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdGrupo, '['+ cast(in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdGrupo as varchar(10))+'] '+in_grupo.nom_grupo nom_grupo, 
+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSubgrupo, '['+cast(in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSubgrupo as varchar(10))+'] '+in_subgrupo.nom_subgrupo nom_subgrupo, 
+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCentroCosto, '['+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCentroCosto+'] '+ct_centro_costo.Centro_costo AS nom_centro_costo, 
+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSub_centro_costo, '['+in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSub_centro_costo+'] '+ct_centro_costo_sub_centro_costo.Centro_costo AS nom_sub_centro_costo, 
+
 in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCtaCble
-FROM            in_subgrupo INNER JOIN
-                         in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble ON in_subgrupo.IdEmpresa = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa AND
-                          in_subgrupo.IdCategoria = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCategoria AND 
-                         in_subgrupo.IdLinea = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdLinea AND 
-                         in_subgrupo.IdGrupo = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdGrupo AND 
-                         in_subgrupo.IdSubgrupo = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSubgrupo INNER JOIN
-                         in_grupo INNER JOIN
-                         in_linea ON in_grupo.IdEmpresa = in_linea.IdEmpresa AND in_grupo.IdCategoria = in_linea.IdCategoria AND in_grupo.IdLinea = in_linea.IdLinea INNER JOIN
-                         in_categorias ON in_linea.IdEmpresa = in_categorias.IdEmpresa AND in_linea.IdCategoria = in_categorias.IdCategoria ON 
-                         in_subgrupo.IdEmpresa = in_grupo.IdEmpresa AND in_subgrupo.IdCategoria = in_grupo.IdCategoria AND in_subgrupo.IdLinea = in_grupo.IdLinea AND 
-                         in_subgrupo.IdGrupo = in_grupo.IdGrupo INNER JOIN
-                         ct_centro_costo_sub_centro_costo ON in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa = ct_centro_costo_sub_centro_costo.IdEmpresa AND 
-                         in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCentroCosto = ct_centro_costo_sub_centro_costo.IdCentroCosto AND 
-                         in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSub_centro_costo = ct_centro_costo_sub_centro_costo.IdCentroCosto_sub_centro_costo INNER JOIN
-                         ct_centro_costo ON ct_centro_costo_sub_centro_costo.IdEmpresa = ct_centro_costo.IdEmpresa AND 
-                         ct_centro_costo_sub_centro_costo.IdCentroCosto = ct_centro_costo.IdCentroCosto
+FROM     in_subgrupo INNER JOIN
+                  in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble ON in_subgrupo.IdEmpresa = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa AND 
+                  in_subgrupo.IdCategoria = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCategoria AND in_subgrupo.IdLinea = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdLinea AND 
+                  in_subgrupo.IdGrupo = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdGrupo AND in_subgrupo.IdSubgrupo = in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSubgrupo INNER JOIN
+                  in_grupo INNER JOIN
+                  in_linea ON in_grupo.IdEmpresa = in_linea.IdEmpresa AND in_grupo.IdCategoria = in_linea.IdCategoria AND in_grupo.IdLinea = in_linea.IdLinea INNER JOIN
+                  in_categorias ON in_linea.IdEmpresa = in_categorias.IdEmpresa AND in_linea.IdCategoria = in_categorias.IdCategoria ON in_subgrupo.IdEmpresa = in_grupo.IdEmpresa AND in_subgrupo.IdCategoria = in_grupo.IdCategoria AND 
+                  in_subgrupo.IdLinea = in_grupo.IdLinea AND in_subgrupo.IdGrupo = in_grupo.IdGrupo INNER JOIN
+                  ct_centro_costo_sub_centro_costo ON in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdEmpresa = ct_centro_costo_sub_centro_costo.IdEmpresa AND 
+                  in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdCentroCosto = ct_centro_costo_sub_centro_costo.IdCentroCosto AND 
+                  in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble.IdSub_centro_costo = ct_centro_costo_sub_centro_costo.IdCentroCosto_sub_centro_costo INNER JOIN
+                  ct_centro_costo ON ct_centro_costo_sub_centro_costo.IdEmpresa = ct_centro_costo.IdEmpresa AND ct_centro_costo_sub_centro_costo.IdCentroCosto = ct_centro_costo.IdCentroCosto
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble';
 

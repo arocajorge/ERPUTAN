@@ -30,32 +30,41 @@
         {
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.de_Fecha_fin = new DevExpress.XtraEditors.DateEdit();
+            this.de_Fecha_ini = new DevExpress.XtraEditors.DateEdit();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbTipoMovInv = new Core.Erp.Winform.Controles.UCIn_TipoMoviInv_Cmb();
             this.opt_egreso = new System.Windows.Forms.RadioButton();
             this.opt_ingreso = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmb_Sucursal_Bodega = new Core.Erp.Winform.Controles.UCIn_Sucursal_Bodega();
             this.gridControlAprobación = new DevExpress.XtraGrid.GridControl();
             this.gridViewAprobacion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCheck = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chk_Aprobacion = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ProgressBar_recosteo = new DevExpress.XtraEditors.ProgressBarControl();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAprobación)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAprobacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobacion)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProgressBar_recosteo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -85,8 +94,9 @@
             this.ucGe_Menu_Superior_Mant1.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant1.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
-            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1009, 28);
+            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1345, 34);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 0;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAnular = false;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAprobar = true;
@@ -105,12 +115,14 @@
             this.ucGe_Menu_Superior_Mant1.Visible_btn_Imprimir_Reten = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnAceptar = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnAprobarGuardarSalir = true;
+            this.ucGe_Menu_Superior_Mant1.Visible_btnContabilizar = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnEstadosOC = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnGuardar = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnImpFrm = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnImpLote = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnImpRep = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnImprimirSoporte = false;
+            this.ucGe_Menu_Superior_Mant1.Visible_btnModificar = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnproductos = false;
             this.ucGe_Menu_Superior_Mant1.event_btnAprobarGuardarSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAprobarGuardarSalir_Click(this.ucGe_Menu_Superior_Mant1_event_btnAprobarGuardarSalir_Click);
             this.ucGe_Menu_Superior_Mant1.event_btnlimpiar_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnlimpiar_Click(this.ucGe_Menu_Superior_Mant1_event_btnlimpiar_Click);
@@ -119,20 +131,93 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chk_seleccionar_visibles);
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.cmb_Sucursal_Bodega);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 34);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1009, 146);
+            this.panel1.Size = new System.Drawing.Size(1345, 125);
             this.panel1.TabIndex = 1;
+            // 
+            // chk_seleccionar_visibles
+            // 
+            this.chk_seleccionar_visibles.AutoSize = true;
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(23, 97);
+            this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
+            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
+            this.chk_seleccionar_visibles.TabIndex = 8;
+            this.chk_seleccionar_visibles.Text = "Seleccionar visibles";
+            this.chk_seleccionar_visibles.UseVisualStyleBackColor = true;
+            this.chk_seleccionar_visibles.CheckedChanged += new System.EventHandler(this.chk_seleccionar_visibles_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labelControl2);
+            this.groupBox2.Controls.Add(this.labelControl1);
+            this.groupBox2.Controls.Add(this.de_Fecha_fin);
+            this.groupBox2.Controls.Add(this.de_Fecha_ini);
+            this.groupBox2.Location = new System.Drawing.Point(13, 12);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(277, 76);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Fechas";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(25, 48);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(37, 16);
+            this.labelControl2.TabIndex = 8;
+            this.labelControl2.Text = "Hasta:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(25, 17);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(40, 16);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = "Desde:";
+            // 
+            // de_Fecha_fin
+            // 
+            this.de_Fecha_fin.EditValue = null;
+            this.de_Fecha_fin.Location = new System.Drawing.Point(96, 44);
+            this.de_Fecha_fin.Margin = new System.Windows.Forms.Padding(4);
+            this.de_Fecha_fin.Name = "de_Fecha_fin";
+            this.de_Fecha_fin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.de_Fecha_fin.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.de_Fecha_fin.Size = new System.Drawing.Size(156, 22);
+            this.de_Fecha_fin.TabIndex = 7;
+            // 
+            // de_Fecha_ini
+            // 
+            this.de_Fecha_ini.EditValue = null;
+            this.de_Fecha_ini.Location = new System.Drawing.Point(96, 14);
+            this.de_Fecha_ini.Margin = new System.Windows.Forms.Padding(4);
+            this.de_Fecha_ini.Name = "de_Fecha_ini";
+            this.de_Fecha_ini.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.de_Fecha_ini.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.de_Fecha_ini.Size = new System.Drawing.Size(156, 22);
+            this.de_Fecha_ini.TabIndex = 6;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(481, 34);
+            this.btnBuscar.Location = new System.Drawing.Point(582, 41);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(100, 28);
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -140,31 +225,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmbTipoMovInv);
             this.groupBox1.Controls.Add(this.opt_egreso);
             this.groupBox1.Controls.Add(this.opt_ingreso);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 65);
+            this.groupBox1.Location = new System.Drawing.Point(318, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 75);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(229, 60);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Movimiento:";
             // 
-            // cmbTipoMovInv
-            // 
-            this.cmbTipoMovInv.Location = new System.Drawing.Point(70, 39);
-            this.cmbTipoMovInv.Name = "cmbTipoMovInv";
-            this.cmbTipoMovInv.Size = new System.Drawing.Size(319, 28);
-            this.cmbTipoMovInv.TabIndex = 6;
-            this.cmbTipoMovInv.Visible_buton_Acciones = true;
-            // 
             // opt_egreso
             // 
             this.opt_egreso.AutoSize = true;
-            this.opt_egreso.Location = new System.Drawing.Point(83, 19);
+            this.opt_egreso.Checked = true;
+            this.opt_egreso.Location = new System.Drawing.Point(111, 23);
+            this.opt_egreso.Margin = new System.Windows.Forms.Padding(4);
             this.opt_egreso.Name = "opt_egreso";
-            this.opt_egreso.Size = new System.Drawing.Size(58, 17);
+            this.opt_egreso.Size = new System.Drawing.Size(74, 21);
             this.opt_egreso.TabIndex = 5;
             this.opt_egreso.TabStop = true;
             this.opt_egreso.Text = "Egreso";
@@ -174,42 +253,26 @@
             // opt_ingreso
             // 
             this.opt_ingreso.AutoSize = true;
-            this.opt_ingreso.Location = new System.Drawing.Point(6, 19);
+            this.opt_ingreso.Location = new System.Drawing.Point(8, 23);
+            this.opt_ingreso.Margin = new System.Windows.Forms.Padding(4);
             this.opt_ingreso.Name = "opt_ingreso";
-            this.opt_ingreso.Size = new System.Drawing.Size(60, 17);
+            this.opt_ingreso.Size = new System.Drawing.Size(76, 21);
             this.opt_ingreso.TabIndex = 4;
-            this.opt_ingreso.TabStop = true;
             this.opt_ingreso.Text = "Ingreso";
             this.opt_ingreso.UseVisualStyleBackColor = true;
             this.opt_ingreso.CheckedChanged += new System.EventHandler(this.opt_ingreso_CheckedChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Concepto:";
-            // 
-            // cmb_Sucursal_Bodega
-            // 
-            this.cmb_Sucursal_Bodega.Location = new System.Drawing.Point(12, 11);
-            this.cmb_Sucursal_Bodega.Name = "cmb_Sucursal_Bodega";
-            this.cmb_Sucursal_Bodega.Size = new System.Drawing.Size(462, 53);
-            this.cmb_Sucursal_Bodega.TabIndex = 0;
-            this.cmb_Sucursal_Bodega.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.todos;
-            this.cmb_Sucursal_Bodega.Event_cmb_bodega1_EditValueChanged += new Core.Erp.Winform.Controles.UCIn_Sucursal_Bodega.delegate_cmb_bodega1_EditValueChanged(this.cmb_Sucursal_Bodega_Event_cmb_bodega1_EditValueChanged);
-            // 
             // gridControlAprobación
             // 
             this.gridControlAprobación.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlAprobación.Location = new System.Drawing.Point(0, 174);
+            this.gridControlAprobación.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gridControlAprobación.Location = new System.Drawing.Point(0, 159);
             this.gridControlAprobación.MainView = this.gridViewAprobacion;
+            this.gridControlAprobación.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlAprobación.Name = "gridControlAprobación";
             this.gridControlAprobación.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chk_Aprobacion});
-            this.gridControlAprobación.Size = new System.Drawing.Size(1009, 243);
+            this.gridControlAprobación.Size = new System.Drawing.Size(1345, 322);
             this.gridControlAprobación.TabIndex = 2;
             this.gridControlAprobación.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAprobacion});
@@ -221,17 +284,14 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
-            this.colEstado,
             this.colCheck,
             this.gridColumn7,
-            this.gridColumn8,
-            this.gridColumn9,
-            this.gridColumn5});
+            this.gridColumn8});
             this.gridViewAprobacion.GridControl = this.gridControlAprobación;
             this.gridViewAprobacion.Name = "gridViewAprobacion";
             this.gridViewAprobacion.OptionsView.ShowAutoFilterRow = true;
             this.gridViewAprobacion.OptionsView.ShowGroupPanel = false;
-            this.gridViewAprobacion.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewAprobacion_CellValueChanged);
+            this.gridViewAprobacion.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewAprobacion_CellValueChanging);
             // 
             // gridColumn1
             // 
@@ -241,7 +301,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 3;
-            this.gridColumn1.Width = 104;
+            this.gridColumn1.Width = 111;
             // 
             // gridColumn2
             // 
@@ -250,8 +310,8 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 6;
-            this.gridColumn2.Width = 485;
+            this.gridColumn2.VisibleIndex = 5;
+            this.gridColumn2.Width = 529;
             // 
             // gridColumn3
             // 
@@ -261,7 +321,7 @@
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 4;
-            this.gridColumn3.Width = 104;
+            this.gridColumn3.Width = 111;
             // 
             // gridColumn4
             // 
@@ -269,16 +329,9 @@
             this.gridColumn4.FieldName = "cm_fecha";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.Width = 97;
-            // 
-            // colEstado
-            // 
-            this.colEstado.Caption = "Estado";
-            this.colEstado.FieldName = "IdEstadoAproba";
-            this.colEstado.Name = "colEstado";
-            this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 7;
-            this.colEstado.Width = 123;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 6;
+            this.gridColumn4.Width = 104;
             // 
             // colCheck
             // 
@@ -288,7 +341,7 @@
             this.colCheck.Name = "colCheck";
             this.colCheck.Visible = true;
             this.colCheck.VisibleIndex = 0;
-            this.colCheck.Width = 20;
+            this.colCheck.Width = 27;
             // 
             // chk_Aprobacion
             // 
@@ -298,9 +351,12 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "IdMovi_inven_tipo";
-            this.gridColumn7.FieldName = "IdMovi_inven_tipo";
+            this.gridColumn7.Caption = "Tipo";
+            this.gridColumn7.FieldName = "nom_tipo_inv";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 2;
+            this.gridColumn7.Width = 221;
             // 
             // gridColumn8
             // 
@@ -310,54 +366,67 @@
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;
-            this.gridColumn8.Width = 94;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "Bodega";
-            this.gridColumn9.FieldName = "nom_bodega";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.OptionsColumn.AllowEdit = false;
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 2;
-            this.gridColumn9.Width = 119;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Fecha registro";
-            this.gridColumn5.DisplayFormat.FormatString = "\"dd/MM/yyyy hh:mm tt\"";
-            this.gridColumn5.FieldName = "Fecha_registro";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
-            this.gridColumn5.Width = 131;
+            this.gridColumn8.Width = 224;
             // 
             // ucGe_BarraEstadoInferior_Forms1
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 417);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 513);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1009, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1345, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.ProgressBar_recosteo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 481);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1345, 32);
+            this.panel3.TabIndex = 4;
+            // 
+            // ProgressBar_recosteo
+            // 
+            this.ProgressBar_recosteo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProgressBar_recosteo.Location = new System.Drawing.Point(7, 4);
+            this.ProgressBar_recosteo.Margin = new System.Windows.Forms.Padding(4);
+            this.ProgressBar_recosteo.Name = "ProgressBar_recosteo";
+            this.ProgressBar_recosteo.Size = new System.Drawing.Size(1329, 23);
+            this.ProgressBar_recosteo.TabIndex = 0;
             // 
             // FrmIn_Aprobacion_Ing_Egr_x_transaccion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 443);
+            this.ClientSize = new System.Drawing.Size(1345, 545);
             this.Controls.Add(this.gridControlAprobación);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Aprobacion_Ing_Egr_x_transaccion";
             this.Text = "Aprobación de ingresos - egresos";
+            this.Load += new System.EventHandler(this.FrmIn_Aprobacion_Ing_Egr_x_transaccion_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAprobación)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAprobacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobacion)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProgressBar_recosteo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,24 +437,26 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraGrid.GridControl gridControlAprobación;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewAprobacion;
-        private Controles.UCIn_Sucursal_Bodega cmb_Sucursal_Bodega;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn colEstado;
         private DevExpress.XtraGrid.Columns.GridColumn colCheck;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Controles.UCIn_TipoMoviInv_Cmb cmbTipoMovInv;
         private System.Windows.Forms.RadioButton opt_egreso;
         private System.Windows.Forms.RadioButton opt_ingreso;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chk_Aprobacion;
         private Controles.UCGe_BarraEstadoInferior_Forms ucGe_BarraEstadoInferior_Forms1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.DateEdit de_Fecha_fin;
+        private DevExpress.XtraEditors.DateEdit de_Fecha_ini;
+        private System.Windows.Forms.CheckBox chk_seleccionar_visibles;
+        private System.Windows.Forms.Panel panel3;
+        private DevExpress.XtraEditors.ProgressBarControl ProgressBar_recosteo;
     }
 }

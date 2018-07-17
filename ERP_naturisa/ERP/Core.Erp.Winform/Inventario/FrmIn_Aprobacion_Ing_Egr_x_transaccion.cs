@@ -26,6 +26,7 @@ namespace Core.Erp.Winform.Inventario
         List<in_Ing_Egr_Inven_det_Info> list_aprobar = new List<in_Ing_Egr_Inven_det_Info>();
         in_Ing_Egr_Inven_Info Info_validar = new in_Ing_Egr_Inven_Info();
         vwin_Ingr_Egr_Inven_det_Bus bus_IngEgrDet = new vwin_Ingr_Egr_Inven_det_Bus();
+        in_movi_inve_Bus bus_movi = new in_movi_inve_Bus();
 
         int IdSucursal = 0;
         int IdBodega = 0;
@@ -108,8 +109,6 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                opt_egreso.Focus();
-
                 if (blist_ing_egr.Where(q=>q.Checked==true).Count()==0)
                 {
                     MessageBox.Show("Debe seleccionar una transacción para aprobar", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -129,28 +128,32 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                Get_trans_checked();
+                string mensaje = string.Empty;
+                ProgressBar_recosteo.EditValue = 0;
+                ProgressBar_recosteo.Properties.Minimum = 1;
+                ProgressBar_recosteo.Properties.Maximum = blist_ing_egr.Where(q => q.Checked == true).ToList().Count;
+                ProgressBar_recosteo.Properties.Step = 1;
+                ProgressBar_recosteo.Properties.PercentView = true;
 
-                var itemTipMov = cmbTipoMovInv.get_TipoMoviInvInfo();
-
-                if (itemTipMov != null)
+                foreach (var item in blist_ing_egr.Where(q => q.Checked == true).ToList())
                 {
-                    tipo = itemTipMov.cm_tipo_movi;
+                    if (!bus_movi.AprobarData(item.IdEmpresa, item.IdSucursal, item.IdMovi_inven_tipo, item.IdNumMovi, item.signo, param.IdUsuario, ref mensaje))                    
+                    {
+                        MessageBox.Show("Error al Actualizar Estados, " + mensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Buscar();
+                        return false;
+                    }
+                    ProgressBar_recosteo.PerformStep();
+                    ProgressBar_recosteo.Update();
+                    Application.DoEvents();
                 }
-                string mensaje = "";
-                if (bus_IngEgrDet.Modificar_Estado_IngEgr_Det(list_aprobar, tipo, ref mensaje))
-                {
-                    MessageBox.Show(mensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-                else
-                {
-                    MessageBox.Show("Error al Actualizar Estados, " + mensaje, param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return false;
-                }
+                MessageBox.Show("Registros aprobados exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Buscar();
                 return true;
             }
             catch (Exception ex)
             {
+                Buscar();
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -162,7 +165,7 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 blist_ing_egr = new BindingList<in_Ing_Egr_Inven_Info>();
-                cmb_Sucursal_Bodega.InicializarSucursal();
+                gridControlAprobación.DataSource = blist_ing_egr;
             }
             catch (Exception ex)
             {
@@ -176,11 +179,8 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 Get_signo();
-                IdSucursal = cmb_Sucursal_Bodega.get_sucursal() == null ? 0 : cmb_Sucursal_Bodega.get_sucursal().IdSucursal;
-                IdBodega = cmb_Sucursal_Bodega.get_bodega() == null ? 0 : cmb_Sucursal_Bodega.get_bodega().IdBodega;
-                IdTipoMovi = cmbTipoMovInv.get_TipoMoviInvInfo() == null ? 0 : cmbTipoMovInv.get_TipoMoviInvInfo().IdMovi_inven_tipo;
-
-                blist_ing_egr = new BindingList<in_Ing_Egr_Inven_Info>(bus_ingr_egr.Get_List_Ing_Egr_Inven(param.IdEmpresa,IdSucursal,IdBodega,IdTipoMovi,Signo).Where(q=>q.Estado=="A").ToList());
+                
+                blist_ing_egr = new BindingList<in_Ing_Egr_Inven_Info>(bus_ingr_egr.Get_List_aprobacion_x_transaccion(param.IdEmpresa,Signo, de_Fecha_ini.DateTime.Date, de_Fecha_fin.DateTime.Date));
                 gridControlAprobación.DataSource = blist_ing_egr;
               
                 if (blist_ing_egr.Count==0)
@@ -213,8 +213,6 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 Get_signo();
-                cmbTipoMovInv.Inicializar_Catalogos();
-                cmbTipoMovInv.cargar_TipoMotivo(IdSucursal, IdBodega, Signo, "");
             }
             catch (Exception ex)
             {
@@ -228,8 +226,6 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 Get_signo();
-                cmbTipoMovInv.Inicializar_Catalogos();
-                cmbTipoMovInv.cargar_TipoMotivo(IdSucursal, IdBodega, Signo, "");
             }
             catch (Exception ex)
             {
@@ -242,8 +238,6 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                cmbTipoMovInv.Inicializar_Catalogos();
-                cmbTipoMovInv.cargar_TipoMotivo(IdSucursal, IdBodega, Signo, "");
             }
             catch (Exception ex)
             {
@@ -271,103 +265,6 @@ namespace Core.Erp.Winform.Inventario
             }
         }
 
-        private void Get_trans_checked()
-        {
-            try
-            {
-                cmbTipoMovInv.Focus();
-                list_aprobar = new List<in_Ing_Egr_Inven_det_Info>();
-                list_validar = new List<in_Ing_Egr_Inven_Info>(blist_ing_egr.Where(q => q.Checked == true).ToList());
-                //validación para el caso de que dos personas aprueben el mismo desde dos máquinas distintas.
-                Buscar();
-                foreach (var item in list_validar)
-                {
-                    Info_validar = blist_ing_egr.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdMovi_inven_tipo == item.IdMovi_inven_tipo && q.IdNumMovi == item.IdNumMovi);
-
-                    if (Info_validar != null)
-                    {
-                        blist_ing_egr.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdMovi_inven_tipo == item.IdMovi_inven_tipo && q.IdNumMovi == item.IdNumMovi).Checked = true;
-                        blist_ing_egr.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdMovi_inven_tipo == item.IdMovi_inven_tipo && q.IdNumMovi == item.IdNumMovi).IdEstadoAproba = "APRO";
-                    }
-                }
-                gridControlAprobación.DataSource = blist_ing_egr;
-
-                foreach (var cabecera in blist_ing_egr)
-                {
-                    if (cabecera.Checked == true)
-                    {
-                        List<in_Ing_Egr_Inven_det_Info> lista = new List<in_Ing_Egr_Inven_det_Info>();
-                        lista = bus_ingr_egr_det.Get_List_Ing_Egr_Inven_det_x_Num_Movimiento(cabecera.IdEmpresa,cabecera.IdSucursal,cabecera.IdMovi_inven_tipo, cabecera.IdNumMovi);
-
-                        foreach (var item in lista)
-                        {
-                            in_Ing_Egr_Inven_det_Info info = new in_Ing_Egr_Inven_det_Info();
-                            info.IdEmpresa = item.IdEmpresa;
-                            info.IdSucursal = item.IdSucursal;
-                            info.IdNumMovi = item.IdNumMovi;
-                            info.Secuencia = item.Secuencia;
-                            info.IdBodega = item.IdBodega;
-                            info.IdProducto = item.IdProducto;
-                            info.IdMovi_inven_tipo = item.IdMovi_inven_tipo;
-                            info.dm_cantidad = item.dm_cantidad;
-                            info.dm_stock_ante = item.dm_stock_ante;
-                            info.dm_stock_actu = item.dm_stock_actu;
-                            info.dm_observacion = item.dm_observacion;
-                            info.dm_precio = item.dm_precio;
-                            info.mv_costo = item.mv_costo;
-                            info.dm_peso = item.dm_peso;
-                            info.IdCentroCosto = item.IdCentroCosto;
-                            info.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                            info.IdPunto_cargo = item.IdPunto_cargo;
-                            info.IdUnidadMedida = item.IdUnidadMedida;
-                            info.IdEstadoAproba = Cl_Enumeradores.eEstadoAprobacion_Ing_Egr.APRO.ToString();
-                            info.Motivo_Aprobacion = "APROBADO POR SISTEMAS";
-                            info.IdMotivo_Inv = item.IdMotivo_Inv;
-
-                            info.IdUnidadMedida_sinConversion = item.IdUnidadMedida_sinConversion;
-                            info.dm_cantidad_sinConversion = item.dm_cantidad_sinConversion;
-                            info.Checked = true;
-                            info.do_subtotal = item.mv_costo * item.dm_cantidad;
-
-                            list_aprobar.Add(info);
-                        }
-                    }                
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void gridViewAprobacion_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-            try
-            {
-                in_Ing_Egr_Inven_Info row = new in_Ing_Egr_Inven_Info();
-                row = (in_Ing_Egr_Inven_Info)gridViewAprobacion.GetRow(e.RowHandle);
-                if (row!=null)
-                {
-                    if (e.Column == colCheck)
-                    {
-                        if (row.Checked)
-                        {
-                            gridViewAprobacion.SetRowCellValue(e.RowHandle, colEstado, "APRO");
-                        }
-                        else
-                            gridViewAprobacion.SetRowCellValue(e.RowHandle, colEstado, "PEND");
-                    }    
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void chk_Aprobacion_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
             try
@@ -378,6 +275,36 @@ namespace Core.Erp.Winform.Inventario
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmIn_Aprobacion_Ing_Egr_x_transaccion_Load(object sender, EventArgs e)
+        {
+            de_Fecha_ini.DateTime = DateTime.Now.Date.AddMonths(-1);
+            de_Fecha_fin.DateTime = DateTime.Now.Date;
+        }
+
+        private void chk_seleccionar_visibles_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < gridViewAprobacion.RowCount; i++)
+            {
+                gridViewAprobacion.SetRowCellValue(i, colCheck, chk_seleccionar_visibles.Checked);
+            }
+        }
+
+        private void gridViewAprobacion_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                if (e.Column == colCheck)
+                {
+                    gridViewAprobacion.SetRowCellValue(e.RowHandle, colCheck, e.Value);
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }

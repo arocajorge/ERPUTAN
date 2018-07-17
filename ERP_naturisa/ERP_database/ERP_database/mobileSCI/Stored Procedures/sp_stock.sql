@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE mobileSCI.sp_stock
+﻿
+CREATE PROCEDURE [mobileSCI].[sp_stock]
 (
 @IdUsuario varchar(50)
 )
@@ -42,10 +43,14 @@ FROM     in_Ing_Egr_Inven_det INNER JOIN
 WHERE  (in_Motivo_Inven.Genera_Movi_Inven = 'S') AND (in_movi_inven_tipo.Genera_Movi_Inven = 1) AND (in_Ing_Egr_Inven.Estado = 'A')
 GROUP BY in_Ing_Egr_Inven_det.IdEmpresa, in_Ing_Egr_Inven_det.IdSucursal, in_Ing_Egr_Inven_det.IdBodega, in_Ing_Egr_Inven_det.IdProducto
 union all
-SELECT IdEmpresa, IdSucursal, IdBodega, IdProducto, SUM(cantidad) AS CANTIDAD
-FROM     mobileSCI.tbl_movimientos_det
-WHERE  (Aprobado = 0) AND (Estado = 'A')
-GROUP BY IdEmpresa, IdSucursal, IdBodega, IdProducto
+SELECT mobileSCI.tbl_movimientos_det.IdEmpresa, mobileSCI.tbl_movimientos_det.IdSucursal, mobileSCI.tbl_movimientos_det.IdBodega, mobileSCI.tbl_movimientos_det.IdProducto, SUM(mobileSCI.tbl_movimientos_det.cantidad * in_UnidadMedida_Equiv_conversion.valor_equiv) 
+                  AS CANTIDAD
+FROM     mobileSCI.tbl_movimientos_det INNER JOIN
+                  in_Producto ON mobileSCI.tbl_movimientos_det.IdEmpresa = in_Producto.IdEmpresa AND mobileSCI.tbl_movimientos_det.IdProducto = in_Producto.IdProducto INNER JOIN
+                  in_UnidadMedida_Equiv_conversion ON in_Producto.IdUnidadMedida_Consumo = in_UnidadMedida_Equiv_conversion.IdUnidadMedida_equiva AND 
+                  mobileSCI.tbl_movimientos_det.IdUnidadMedida = in_UnidadMedida_Equiv_conversion.IdUnidadMedida
+WHERE  (mobileSCI.tbl_movimientos_det.Aprobado = 0) AND (mobileSCI.tbl_movimientos_det.Estado = 'A')
+GROUP BY mobileSCI.tbl_movimientos_det.IdEmpresa, mobileSCI.tbl_movimientos_det.IdSucursal, mobileSCI.tbl_movimientos_det.IdBodega, mobileSCI.tbl_movimientos_det.IdProducto
 ) F
 group by F.IdEmpresa, F.IdSucursal, F.IdBodega, F.IdProducto 
 ) A
