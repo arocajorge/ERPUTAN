@@ -2080,5 +2080,7 @@
     <Build Include="mobileSCI\Tables\tbl_stock.sql" />
     <Build Include="mobileSCI\Stored Procedures\sp_stock.sql" />
     <Build Include="dbo\Stored Procedures\spINV_relaciones_no_parametrizadas.sql" />
+    <Build Include="dbo\Views\vwin_Ing_Egr_Inven_aprobacion_x_transaccion.sql" />
+    <Build Include="dbo\Views\vwcp_orden_giro_consulta.sql" />
   </ItemGroup>
 </Project>
