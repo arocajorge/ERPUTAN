@@ -12,8 +12,8 @@ namespace Core.Erp.Data.CuentasxPagar
     public class cp_orden_giro_Data
     {
         string mensaje = "";
-    
-        public List<cp_orden_giro_Info> 
+
+        public List<cp_orden_giro_consulta_Info> 
             
             
 
@@ -23,13 +23,13 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 F_inicio = F_inicio.Date;
                 F_fin = F_fin.Date;
-                List<cp_orden_giro_Info> lM;
+                List<cp_orden_giro_consulta_Info> lM;
                 using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
                 {
                     lM = (from q in db.vwcp_orden_giro_consulta
                           where q.IdEmpresa == IdEmpresa
                           && F_inicio <= q.co_fechaOg && q.co_fechaOg <= F_fin
-                          select new cp_orden_giro_Info
+                          select new cp_orden_giro_consulta_Info
                           {
                               IdEmpresa = q.IdEmpresa,
                               IdTipoCbte_Ogiro = q.IdTipoCbte_Ogiro,
@@ -48,11 +48,9 @@ namespace Core.Erp.Data.CuentasxPagar
                               co_total = q.co_total,
                               re_NumRetencion = q.NumRetencion,
                               IdTipoFlujo = q.IdTipoFlujo,
-                              InfoProveedor = new cp_proveedor_Info
-                              {
-                                  pr_nombre = q.pe_nombreCompleto,
-                                  descripcion_clas_prove = q.descripcion_clas_prove
-                              },
+
+                              pr_nombre = q.pe_nombreCompleto,
+                              descripcion_clas_prove = q.descripcion_clas_prove,
                               Estado_Cancelacion = q.saldo <= 0 ? "PAGADO" : "PENDIENTE"
                           }).ToList();
                 }

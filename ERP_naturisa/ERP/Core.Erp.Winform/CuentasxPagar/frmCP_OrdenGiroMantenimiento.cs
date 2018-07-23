@@ -1964,6 +1964,22 @@ namespace Core.Erp.Winform.CuentasxPagar
             MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void set_ordenGiro(cp_orden_giro_consulta_Info info)
+        {
+            try
+            {
+
+                Info_OrdenGiro = ordenGiro_B.Get_Info_orden_giro(info.IdEmpresa, info.IdTipoCbte_Ogiro, info.IdCbteCble_Ogiro);
+
+
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         void setRetencion(decimal IdCbteCble_Ogiro, int IdTipoCbte_Ogiro)
         {
 

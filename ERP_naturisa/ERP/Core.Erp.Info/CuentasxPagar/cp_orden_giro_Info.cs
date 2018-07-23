@@ -190,7 +190,48 @@ namespace Core.Erp.Info.CuentasxPagar
         }
     }
 
+    public class cp_orden_giro_consulta_Info
+    {
 
+        public int IdEmpresa { get; set; }
 
+        public int IdTipoCbte_Ogiro { get; set; }
+
+        public decimal IdCbteCble_Ogiro { get; set; }
+
+        public string co_factura { get; set; }
+
+        public DateTime co_fechaOg { get; set; }
+
+        public DateTime co_FechaFactura { get; set; }
+
+        public string co_observacion { get; set; }
+
+        public double co_subtotal_iva { get; set; }
+
+        public double co_subtotal_siniva { get; set; }
+
+        public double co_valoriva { get; set; }
+
+        public double co_baseImponible { get; set; }
+
+        public string Estado { get; set; }
+
+        public double Total_Retencion { get; set; }
+
+        public double saldo { get; set; }
+
+        public double co_total { get; set; }
+
+        public string re_NumRetencion { get; set; }
+
+        public decimal? IdTipoFlujo { get; set; }
+
+        public string descripcion_clas_prove { get; set; }
+
+        public string pr_nombre { get; set; }
+
+        public string Estado_Cancelacion { get; set; }
+    }
 }
 

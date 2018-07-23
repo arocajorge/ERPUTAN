@@ -209,7 +209,7 @@ namespace Core.Erp.Business.CuentasxPagar
             }
         }
 
-        public List<cp_orden_giro_Info> Get_List_orden_giro(int IdEmpresa, DateTime F_inicio, DateTime F_fin)
+        public List<cp_orden_giro_consulta_Info> Get_List_orden_giro(int IdEmpresa, DateTime F_inicio, DateTime F_fin)
         {
             try
             {

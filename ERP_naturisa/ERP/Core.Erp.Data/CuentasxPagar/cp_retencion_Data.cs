@@ -565,7 +565,7 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 List<vwcp_orden_giro_sin_retenciones_Info> lista = new List<vwcp_orden_giro_sin_retenciones_Info>();
                 EntitiesCuentasxPagar db = new EntitiesCuentasxPagar();
-
+                db.SetCommandTimeOut(3000);
                 var consulta = from q in db.vwcp_orden_giro_sin_retenciones
                                where q.IdEmpresa == IdEmpresa && q.co_fechaOg >= FechaDesde && q.co_fechaOg <= FechaHasta
                                && q.Estado=="A"
