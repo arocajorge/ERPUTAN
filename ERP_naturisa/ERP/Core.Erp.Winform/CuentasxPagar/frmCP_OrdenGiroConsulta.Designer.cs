@@ -182,7 +182,7 @@
             // colNomProveedor
             // 
             this.colNomProveedor.Caption = "Proveedor";
-            this.colNomProveedor.FieldName = "InfoProveedor.pr_nombre";
+            this.colNomProveedor.FieldName = "pr_nombre";
             this.colNomProveedor.Name = "colNomProveedor";
             this.colNomProveedor.OptionsColumn.AllowEdit = false;
             this.colNomProveedor.OptionsColumn.ReadOnly = true;
@@ -373,7 +373,7 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Clase proveedor";
-            this.gridColumn5.FieldName = "InfoProveedor.descripcion_clas_prove";
+            this.gridColumn5.FieldName = "descripcion_clas_prove";
             this.gridColumn5.Name = "gridColumn5";
             // 
             // col_tiene_ingresos
@@ -463,8 +463,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 6, 16, 9, 51, 51, 875);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 8, 16, 9, 51, 51, 875);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 7, 3, 17, 12, 13, 918);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 9, 3, 17, 12, 13, 918);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;

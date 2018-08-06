@@ -26,6 +26,7 @@ namespace Core.Erp.Data.CuentasxPagar
                 List<cp_orden_giro_consulta_Info> lM;
                 using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
                 {
+                    db.SetCommandTimeOut(3000);
                     lM = (from q in db.vwcp_orden_giro_consulta
                           where q.IdEmpresa == IdEmpresa
                           && F_inicio <= q.co_fechaOg && q.co_fechaOg <= F_fin
@@ -277,7 +278,7 @@ namespace Core.Erp.Data.CuentasxPagar
                 {
                     select_ = from T in Base.vwcp_orden_giro_x_pagar
                               where T.IdEmpresa == IdEmpresa
-                              && T.Saldo_OG > 0
+                              && T.Saldo_OG != 0
                               && T.Estado == "A"
                               && T.en_conci_caja == false
                               orderby T.IdCbteCble_Ogiro descending
@@ -286,7 +287,7 @@ namespace Core.Erp.Data.CuentasxPagar
                 else
                     select_ = from T in Base.vwcp_orden_giro_x_pagar                            
                                where T.IdEmpresa == IdEmpresa  
-                               && T.Saldo_OG>0    
+                               && T.Saldo_OG != 0    
                                && T.Estado=="A"
                                orderby T.IdCbteCble_Ogiro descending
                               select T;

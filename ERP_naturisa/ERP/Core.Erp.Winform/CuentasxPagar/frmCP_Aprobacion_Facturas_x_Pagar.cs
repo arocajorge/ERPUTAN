@@ -496,9 +496,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     if (Convert.ToDouble(gridView_Factura_x_Pagar.GetFocusedRowCellValue(colValor_a_Pagar)) < 0)
                     {
+                        /*
                         MessageBox.Show("No se permiten valores negativos", "Sistemas");
                         gridView_Factura_x_Pagar.SetFocusedRowCellValue(colValor_a_Pagar, 0);
                         return;
+                         * */
                     }
                     else
                     {
@@ -614,7 +616,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cp_orden_giro_Info row1 = new cp_orden_giro_Info();
                 row1 = (cp_orden_giro_Info)gridView_Factura_x_Pagar.GetRow(RowHandle);
 
-
+                if (row1 == null)
+                {
+                    return;
+                }
                 if (row1.Saldo_OG_AUX == 0)
                 {
                     MessageBox.Show("No hay saldo para Asignar", "Sistemas");
