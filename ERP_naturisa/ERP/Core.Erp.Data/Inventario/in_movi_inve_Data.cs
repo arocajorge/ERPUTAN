@@ -1294,6 +1294,9 @@ item.Centro_costo.Trim() : "",
             EntitiesGeneral db_gen = new EntitiesGeneral();
             try
             {
+                if (db_inv.in_movi_inve_x_ct_cbteCble.Where(q=>q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdMovi_inven_tipo == IdMovi_inven_tipo && q.IdNumMovi == IdNumMovi).Count() > 0)
+                    return true;
+
                 #region Variables
                 ct_Cbtecble_Data odata_ct = new ct_Cbtecble_Data();
                 int secuencia = 1;
@@ -1517,7 +1520,7 @@ item.Centro_costo.Trim() : "",
                         IdTipoCbte = diario.IdTipoCbte,
                         IdCbteCble = diario.IdCbteCble,
                         IdEmpresa_ct = diario.IdEmpresa,
-                        Observacion = "Contabilización " + DateTime.Now.ToString()
+                        Observacion = "Contabilización " + DateTime.Now.ToString()+ " Usuario: "+IdUsuario
                     });
                     #endregion
                 
