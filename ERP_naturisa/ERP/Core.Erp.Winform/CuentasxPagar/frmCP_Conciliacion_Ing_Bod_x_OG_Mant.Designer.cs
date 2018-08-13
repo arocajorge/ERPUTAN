@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -95,9 +96,13 @@
             this.columCheck = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource();
-            this.bindingSource2 = new System.Windows.Forms.BindingSource();
-            this.bindingSource3 = new System.Windows.Forms.BindingSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnImprimirIngresos = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btn_imprimir_facturas = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -125,6 +130,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -134,14 +141,16 @@
             this.panelControl1.Controls.Add(this.ucGe_Menu);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1158, 505);
+            this.panelControl1.Size = new System.Drawing.Size(1351, 622);
             this.panelControl1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(2, 31);
+            this.splitContainer1.Location = new System.Drawing.Point(2, 38);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -152,14 +161,16 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupControl2);
-            this.splitContainer1.Size = new System.Drawing.Size(1154, 446);
-            this.splitContainer1.SplitterDistance = 291;
+            this.splitContainer1.Size = new System.Drawing.Size(1347, 550);
+            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 2;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -182,13 +193,15 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1154, 291);
-            this.splitContainer2.SplitterDistance = 115;
+            this.splitContainer2.Size = new System.Drawing.Size(1347, 358);
+            this.splitContainer2.SplitterDistance = 141;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
             // txt_total_factura
             // 
-            this.txt_total_factura.Location = new System.Drawing.Point(810, 82);
+            this.txt_total_factura.Location = new System.Drawing.Point(945, 101);
+            this.txt_total_factura.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_total_factura.Name = "txt_total_factura";
             this.txt_total_factura.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_total_factura.Properties.Appearance.Options.UseFont = true;
@@ -200,21 +213,23 @@
             this.txt_total_factura.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_total_factura.Properties.MaxLength = 200;
             this.txt_total_factura.Properties.ReadOnly = true;
-            this.txt_total_factura.Size = new System.Drawing.Size(144, 20);
+            this.txt_total_factura.Size = new System.Drawing.Size(168, 24);
             this.txt_total_factura.TabIndex = 22;
             // 
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(708, 85);
+            this.labelControl6.Location = new System.Drawing.Point(826, 105);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(92, 13);
+            this.labelControl6.Size = new System.Drawing.Size(118, 17);
             this.labelControl6.TabIndex = 21;
             this.labelControl6.Text = "TOTAL FACTURA";
             // 
             // txt_total_ingresos
             // 
-            this.txt_total_ingresos.Location = new System.Drawing.Point(810, 56);
+            this.txt_total_ingresos.Location = new System.Drawing.Point(945, 69);
+            this.txt_total_ingresos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_total_ingresos.Name = "txt_total_ingresos";
             this.txt_total_ingresos.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_total_ingresos.Properties.Appearance.Options.UseFont = true;
@@ -226,23 +241,25 @@
             this.txt_total_ingresos.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_total_ingresos.Properties.MaxLength = 200;
             this.txt_total_ingresos.Properties.ReadOnly = true;
-            this.txt_total_ingresos.Size = new System.Drawing.Size(144, 20);
+            this.txt_total_ingresos.Size = new System.Drawing.Size(168, 24);
             this.txt_total_ingresos.TabIndex = 20;
             // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(708, 59);
+            this.labelControl5.Location = new System.Drawing.Point(826, 73);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(95, 13);
+            this.labelControl5.Size = new System.Drawing.Size(127, 17);
             this.labelControl5.TabIndex = 19;
             this.labelControl5.Text = "TOTAL INGRESOS";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(575, 54);
+            this.btnBuscar.Location = new System.Drawing.Point(671, 66);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(117, 28);
             this.btnBuscar.TabIndex = 18;
             this.btnBuscar.Text = "Buscar Items";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -251,86 +268,98 @@
             // dtpFechaConciliacion
             // 
             this.dtpFechaConciliacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaConciliacion.Location = new System.Drawing.Point(575, 19);
+            this.dtpFechaConciliacion.Location = new System.Drawing.Point(671, 23);
+            this.dtpFechaConciliacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpFechaConciliacion.Name = "dtpFechaConciliacion";
-            this.dtpFechaConciliacion.Size = new System.Drawing.Size(97, 21);
+            this.dtpFechaConciliacion.Size = new System.Drawing.Size(112, 23);
             this.dtpFechaConciliacion.TabIndex = 7;
             // 
             // cmbProveedor
             // 
-            this.cmbProveedor.Location = new System.Drawing.Point(145, 54);
+            this.cmbProveedor.Location = new System.Drawing.Point(169, 66);
+            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmbProveedor.Name = "cmbProveedor";
-            this.cmbProveedor.Size = new System.Drawing.Size(403, 26);
+            this.cmbProveedor.Size = new System.Drawing.Size(470, 32);
             this.cmbProveedor.TabIndex = 6;
             this.cmbProveedor.event_cmb_proveedor_EditValueChanged += new Core.Erp.Winform.Controles.UCCp_Proveedor.delegate_cmb_proveedor_EditValueChanged(this.cmbProveedor_event_cmb_proveedor_EditValueChanged);
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(148, 86);
+            this.txtObservacion.Location = new System.Drawing.Point(173, 106);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Properties.MaxLength = 200;
-            this.txtObservacion.Size = new System.Drawing.Size(527, 20);
+            this.txtObservacion.Size = new System.Drawing.Size(615, 22);
             this.txtObservacion.TabIndex = 5;
             // 
             // txtIdConciliacion
             // 
-            this.txtIdConciliacion.Location = new System.Drawing.Point(148, 24);
+            this.txtIdConciliacion.Location = new System.Drawing.Point(173, 30);
+            this.txtIdConciliacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIdConciliacion.Name = "txtIdConciliacion";
             this.txtIdConciliacion.Properties.ReadOnly = true;
-            this.txtIdConciliacion.Size = new System.Drawing.Size(100, 20);
+            this.txtIdConciliacion.Size = new System.Drawing.Size(117, 22);
             this.txtIdConciliacion.TabIndex = 4;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(58, 89);
+            this.labelControl4.Location = new System.Drawing.Point(68, 110);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(64, 13);
+            this.labelControl4.Size = new System.Drawing.Size(75, 16);
             this.labelControl4.TabIndex = 3;
             this.labelControl4.Text = "Observación:";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(58, 59);
+            this.labelControl3.Location = new System.Drawing.Point(68, 73);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(54, 13);
+            this.labelControl3.Size = new System.Drawing.Size(63, 16);
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "Proveedor:";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(478, 25);
+            this.labelControl2.Location = new System.Drawing.Point(558, 31);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(91, 13);
+            this.labelControl2.Size = new System.Drawing.Size(110, 16);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Fecha Conciliación:";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(58, 27);
+            this.labelControl1.Location = new System.Drawing.Point(68, 33);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(72, 13);
+            this.labelControl1.Size = new System.Drawing.Size(87, 16);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Id Conciliación:";
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.gridIngresoBodega);
+            this.groupControl1.Controls.Add(this.toolStrip1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1154, 172);
+            this.groupControl1.Size = new System.Drawing.Size(1347, 212);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Ingreso Bodega (Orden de Compra)";
             // 
             // gridIngresoBodega
             // 
             this.gridIngresoBodega.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridIngresoBodega.Location = new System.Drawing.Point(2, 21);
+            this.gridIngresoBodega.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridIngresoBodega.Location = new System.Drawing.Point(2, 51);
             this.gridIngresoBodega.MainView = this.gridViewIngresoBodega;
+            this.gridIngresoBodega.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridIngresoBodega.Name = "gridIngresoBodega";
             this.gridIngresoBodega.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridIngresoBodega.Size = new System.Drawing.Size(1150, 149);
+            this.gridIngresoBodega.Size = new System.Drawing.Size(1343, 159);
             this.gridIngresoBodega.TabIndex = 0;
             this.gridIngresoBodega.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewIngresoBodega});
@@ -547,22 +576,26 @@
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.gridFacturaProveedor);
+            this.groupControl2.Controls.Add(this.toolStrip2);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1154, 151);
+            this.groupControl2.Size = new System.Drawing.Size(1347, 187);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Orden Giro (Facturas Proveedor)";
             // 
             // gridFacturaProveedor
             // 
             this.gridFacturaProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridFacturaProveedor.Location = new System.Drawing.Point(2, 21);
+            this.gridFacturaProveedor.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridFacturaProveedor.Location = new System.Drawing.Point(2, 51);
             this.gridFacturaProveedor.MainView = this.gridViewFacturaProveedor;
+            this.gridFacturaProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridFacturaProveedor.Name = "gridFacturaProveedor";
             this.gridFacturaProveedor.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.columCheck});
-            this.gridFacturaProveedor.Size = new System.Drawing.Size(1150, 128);
+            this.gridFacturaProveedor.Size = new System.Drawing.Size(1343, 134);
             this.gridFacturaProveedor.TabIndex = 0;
             this.gridFacturaProveedor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewFacturaProveedor});
@@ -752,9 +785,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(2, 477);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(2, 588);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1154, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1347, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 1;
             // 
             // ucGe_Menu
@@ -784,8 +818,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(2, 2);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1154, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1347, 36);
             this.ucGe_Menu.TabIndex = 0;
             this.ucGe_Menu.Visible_bntAnular = false;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -814,12 +849,51 @@
             this.ucGe_Menu.Visible_btnModificar = false;
             this.ucGe_Menu.Visible_btnproductos = false;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnImprimirIngresos});
+            this.toolStrip1.Location = new System.Drawing.Point(2, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1343, 27);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnImprimirIngresos
+            // 
+            this.btnImprimirIngresos.Image = global::Core.Erp.Winform.Properties.Resources.imprimir_32x32;
+            this.btnImprimirIngresos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImprimirIngresos.Name = "btnImprimirIngresos";
+            this.btnImprimirIngresos.Size = new System.Drawing.Size(86, 24);
+            this.btnImprimirIngresos.Text = "Imprimir";
+            this.btnImprimirIngresos.Click += new System.EventHandler(this.btnImprimirIngresos_Click);
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_imprimir_facturas});
+            this.toolStrip2.Location = new System.Drawing.Point(2, 24);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(1343, 27);
+            this.toolStrip2.TabIndex = 2;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // btn_imprimir_facturas
+            // 
+            this.btn_imprimir_facturas.Image = global::Core.Erp.Winform.Properties.Resources.imprimir_32x32;
+            this.btn_imprimir_facturas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_imprimir_facturas.Name = "btn_imprimir_facturas";
+            this.btn_imprimir_facturas.Size = new System.Drawing.Size(86, 24);
+            this.btn_imprimir_facturas.Text = "Imprimir";
+            this.btn_imprimir_facturas.Click += new System.EventHandler(this.btn_imprimir_facturas_Click);
+            // 
             // frmCP_Conciliacion_Ing_Bod_x_OG_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 505);
+            this.ClientSize = new System.Drawing.Size(1351, 622);
             this.Controls.Add(this.panelControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCP_Conciliacion_Ing_Bod_x_OG_Mant";
             this.Text = "frmCP_Conciliacion_Ing_Bod_x_OG_Mant";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCP_Conciliacion_Ing_Bod_x_OG_Mant_FormClosing);
@@ -841,17 +915,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtIdConciliacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridIngresoBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewIngresoBodega)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFacturaProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFacturaProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.columCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource3)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -928,5 +1008,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit txt_total_factura;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btnImprimirIngresos;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton btn_imprimir_facturas;
     }
 }

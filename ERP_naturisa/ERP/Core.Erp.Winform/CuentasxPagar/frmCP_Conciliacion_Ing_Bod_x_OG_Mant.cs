@@ -769,5 +769,15 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnImprimirIngresos_Click(object sender, EventArgs e)
+        {
+            gridIngresoBodega.ShowPrintPreview();
+        }
+
+        private void btn_imprimir_facturas_Click(object sender, EventArgs e)
+        {
+            gridFacturaProveedor.ShowPrintPreview();
+        }
     }
 }
