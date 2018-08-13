@@ -1,5 +1,5 @@
 ﻿
---exec [dbo].[spSys_Inv_Recosteo_Inventario] 1,1,2,'01/12/2016',10
+--exec [dbo].[spSys_Inv_Recosteo_Inventario] 1,2,2,'01/07/2018',10
 
 CREATE proc [dbo].[spSys_Inv_Recosteo_Inventario] 
 (
@@ -11,6 +11,7 @@ CREATE proc [dbo].[spSys_Inv_Recosteo_Inventario]
 )
 AS
 BEGIN
+
 
  SET NOCOUNT ON;
 
