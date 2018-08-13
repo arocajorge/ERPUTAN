@@ -46,7 +46,7 @@ END
 
 update [cp_orden_pago_con_cancelacion_data] 
 set 
- Nom_Beneficiario=ben.pe_apellido+' '+ben.pe_nombre
+ Nom_Beneficiario=ben.Nombre
 ,Girar_Cheque_a=ben.pr_girar_cheque_a
 ,IdCtaCble=ben.IdCtaCble
 ,Nom_Beneficiario_2=ben.Nombre

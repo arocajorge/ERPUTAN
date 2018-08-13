@@ -262,36 +262,7 @@ where exists(
 								and IdMovi_inven_tipo_inv = @C2_IdMovi_inven_tipo
 								and IdNumMovi_inv = @C2_IdNumMovi
 								and secuencia_inv = @C2_Secuencia
-						/*
-						UPDATE in_movi_inve_detalle set mv_costo = @W_Ult_Costo_promedio
-						from(
-								SELECT        Egr.IdEmpresa AS IdEmpresa_egr, Egr.IdSucursal AS IdSucursal_egr, Egr.IdBodega AS IdBodega_egr, Egr.IdMovi_inven_tipo AS IdMovi_inven_tipo_egr, Egr.IdNumMovi AS IdNumMovi_egr, 
-											Egr.Secuencia AS Secuencia_egr, Egr.IdProducto AS IdProducto_egr, Egr.dm_cantidad AS dm_cantidad_egr, Ing.IdEmpresa AS IdEmpresa_ing, Ing.IdSucursal AS IdSucursal_ing, Ing.IdBodega AS IdBodega_ing, 
-											Ing.IdMovi_inven_tipo AS IdMovi_inven_tipo_ing, Ing.IdNumMovi AS IdNumMovi_ing, Ing.Secuencia AS Secuencia_ing, Ing.IdProducto AS IdProducto_ing, Ing.dm_cantidad AS dm_cantidad_ing, 
-											in_transferencia.IdEmpresa, in_transferencia.IdSucursalOrigen, in_transferencia.IdBodegaOrigen, in_transferencia.IdTransferencia
-								FROM            in_movi_inve_detalle AS Ing INNER JOIN
-											in_transferencia INNER JOIN
-											in_Ing_Egr_Inven_det AS in_Ing_Egr_Inven_det_1 ON in_transferencia.IdEmpresa_Ing_Egr_Inven_Destino = in_Ing_Egr_Inven_det_1.IdEmpresa AND 
-											in_transferencia.IdSucursal_Ing_Egr_Inven_Destino = in_Ing_Egr_Inven_det_1.IdSucursal AND in_transferencia.IdMovi_inven_tipo_SucuDest = in_Ing_Egr_Inven_det_1.IdMovi_inven_tipo AND 
-											in_transferencia.IdNumMovi_Ing_Egr_Inven_Destino = in_Ing_Egr_Inven_det_1.IdNumMovi INNER JOIN
-											in_Ing_Egr_Inven_det ON in_transferencia.IdEmpresa_Ing_Egr_Inven_Origen = in_Ing_Egr_Inven_det.IdEmpresa AND in_transferencia.IdSucursal_Ing_Egr_Inven_Origen = in_Ing_Egr_Inven_det.IdSucursal AND 
-											in_transferencia.IdMovi_inven_tipo_SucuOrig = in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND in_transferencia.IdNumMovi_Ing_Egr_Inven_Origen = in_Ing_Egr_Inven_det.IdNumMovi INNER JOIN
-											in_movi_inve_detalle AS Egr ON in_Ing_Egr_Inven_det.IdEmpresa_inv = Egr.IdEmpresa AND in_Ing_Egr_Inven_det.IdSucursal_inv = Egr.IdSucursal AND in_Ing_Egr_Inven_det.IdBodega_inv = Egr.IdBodega AND 
-											in_Ing_Egr_Inven_det.IdMovi_inven_tipo_inv = Egr.IdMovi_inven_tipo AND in_Ing_Egr_Inven_det.IdNumMovi_inv = Egr.IdNumMovi AND in_Ing_Egr_Inven_det.secuencia_inv = Egr.Secuencia ON 
-											Ing.IdEmpresa = in_Ing_Egr_Inven_det_1.IdEmpresa_inv AND Ing.IdSucursal = in_Ing_Egr_Inven_det_1.IdSucursal_inv AND Ing.IdBodega = in_Ing_Egr_Inven_det_1.IdBodega_inv AND 
-											Ing.IdMovi_inven_tipo = in_Ing_Egr_Inven_det_1.IdMovi_inven_tipo_inv AND Ing.IdNumMovi = in_Ing_Egr_Inven_det_1.IdNumMovi_inv AND Ing.Secuencia = in_Ing_Egr_Inven_det_1.secuencia_inv AND 
-											Ing.Secuencia = Egr.Secuencia AND Ing.IdProducto = Egr.IdProducto AND Ing.IdEmpresa = Egr.IdEmpresa
-								WHERE		Egr.IdEmpresa = @C2_IdEmpresa and Egr.IdSucursal = @C2_IdSucursal and Egr.IdBodega = @C2_IdBodega and egr.IdMovi_inven_tipo = @C2_IdMovi_inven_tipo
-											and egr.IdNumMovi = @C2_IdNumMovi and egr.Secuencia = @C2_Secuencia and egr.IdProducto = @C2_IdProducto
-								) A
-								WHERE A.IdEmpresa_ing = in_movi_inve_detalle.IdEmpresa
-								AND A.IdSucursal_ing = in_movi_inve_detalle.IdSucursal
-								AND A.IdBodega_ing = in_movi_inve_detalle.IdBodega
-								AND A.IdMovi_inven_tipo_ing = in_movi_inve_detalle.IdMovi_inven_tipo
-								AND A.IdNumMovi_ing = in_movi_inve_detalle.IdNumMovi
-								AND A.Secuencia_ing = in_movi_inve_detalle.Secuencia
-								AND A.IdProducto_ing = in_movi_inve_detalle.IdProducto
-								*/
+						
 					END
 				FETCH NEXT FROM Movi_Inven_x_product_cursor 
 					into @C2_IdEmpresa		,@C2_IdSucursal			,@C2_IdBodega	,@C2_cm_fecha		,@C2_IdProducto 
@@ -309,8 +280,9 @@ where exists(
 
 UPDATE in_movi_inve_detalle set mv_costo = a.costo_egreso 
 FROM(
-SELECT in_transferencia.IdEmpresa, in_transferencia.IdTransferencia, in_transferencia.tr_fecha, in_transferencia.IdSucursalOrigen, in_transferencia.IdBodegaOrigen, in_transferencia.IdMovi_inven_tipo_SucuOrig, in_transferencia.IdNumMovi_Ing_Egr_Inven_Origen, ingreso.mv_costo AS costo_ingreso, 
-                  egreso.mv_costo AS costo_egreso, 				  
+SELECT in_transferencia.IdEmpresa, in_transferencia.IdTransferencia, in_transferencia.tr_fecha, in_transferencia.IdSucursalOrigen, in_transferencia.IdBodegaOrigen, in_transferencia.IdMovi_inven_tipo_SucuOrig, in_transferencia.IdNumMovi_Ing_Egr_Inven_Origen,
+				ingreso.mv_costo AS costo_ingreso, 
+                egreso.mv_costo AS costo_egreso,
 egreso.IdEmpresa_inv IdEmpresa_egr, egreso.IdSucursal_inv IdSucursal_egr, egreso.IdBodega_inv IdBodega_egr, egreso.IdMovi_inven_tipo_inv IdMovi_inven_tipo_egr, egreso.IdNumMovi_inv IdNumMovi_inv_egr, egreso.secuencia_inv secuencia_egr, 
 ingreso.IdEmpresa_inv AS IdEmpresa_ing, ingreso.IdSucursal_inv AS IdSucursal_ing, ingreso.IdBodega_inv AS IdBodega_ing, ingreso.IdMovi_inven_tipo_inv AS IdMovi_inven_tipo_ing, ingreso.IdNumMovi_inv AS IdNumMovi_ing, ingreso.secuencia_inv AS secuencia_ing
 FROM     in_transferencia INNER JOIN
@@ -318,7 +290,7 @@ FROM     in_transferencia INNER JOIN
                   in_transferencia.IdNumMovi_Ing_Egr_Inven_Origen = egreso.IdNumMovi INNER JOIN
                   in_Ing_Egr_Inven_det AS ingreso ON in_transferencia.IdEmpresa_Ing_Egr_Inven_Destino = ingreso.IdEmpresa AND in_transferencia.IdSucursal_Ing_Egr_Inven_Destino = ingreso.IdSucursal AND 
                   in_transferencia.IdMovi_inven_tipo_SucuDest = ingreso.IdMovi_inven_tipo AND in_transferencia.IdNumMovi_Ing_Egr_Inven_Destino = ingreso.IdNumMovi AND egreso.Secuencia = ingreso.Secuencia
-WHERE  round(egreso.mv_costo - ingreso.mv_costo,2) != 0 and in_transferencia.tr_fecha between @Fecha_ini and @Fecha_fin
+WHERE  in_transferencia.tr_fecha between @Fecha_ini and GETDATE()
 and in_transferencia.IdEmpresa = @IdEmpresa
 and in_transferencia.IdSucursalOrigen = @IdSucursal
 and in_transferencia.IdBodegaOrigen = @IdBodega
@@ -331,21 +303,29 @@ and in_movi_inve_detalle.IdMovi_inven_tipo = a.IdMovi_inven_tipo_ing
 and in_movi_inve_detalle.IdNumMovi = a.IdNumMovi_ing
 and in_movi_inve_detalle.Secuencia = a.secuencia_ing
 
-/*
-SELECT        IdEmpresa, IdSucursal, IdBodega, IdProducto, IdFecha, Secuencia, fecha, costo, Stock_a_la_fecha, Observacion, fecha_trans
-FROM            in_producto_x_tb_bodega_Costo_Historico
-WHERE IdEmpresa = @IdEmpresa
-AND IdSucursal = @IdSucursal
-AND IdBodega = @IdBodega
-*/
-/*
-SELECT det.IdEmpresa,det.IdSucursal,det.IdBodega,det.IdProducto,cab.cm_fecha, det.dm_cantidad, det.mv_costo FROM in_movi_inve cab inner join in_movi_inve_detalle det
-on cab.IdEmpresa = det.IdEmpresa and cab.IdSucursal = det.IdSucursal and cab.IdBodega = det.IdBodega
-and cab.IdMovi_inven_tipo = det.IdMovi_inven_tipo and cab.IdNumMovi = det.IdNumMovi
-WHERE det.IdEmpresa = @IdEmpresa
-and det.IdSucursal = @IdSucursal
-and det.IdBodega = @IdBodega
-and cab.cm_fecha >= @Fecha_ini
-order by det.IdEmpresa,det.IdSucursal,det.IdBodega,det.IdProducto,cab.cm_fecha , det.dm_cantidad desc
-*/
+
+UPDATE in_Ing_Egr_Inven_det set mv_costo = a.costo_egreso 
+FROM(
+SELECT in_transferencia.IdEmpresa, in_transferencia.IdTransferencia, in_transferencia.tr_fecha, in_transferencia.IdSucursalOrigen, in_transferencia.IdBodegaOrigen, in_transferencia.IdMovi_inven_tipo_SucuOrig, in_transferencia.IdNumMovi_Ing_Egr_Inven_Origen,
+				ingreso.mv_costo AS costo_ingreso, 
+                egreso.mv_costo AS costo_egreso,
+egreso.IdEmpresa_inv IdEmpresa_egr, egreso.IdSucursal_inv IdSucursal_egr, egreso.IdBodega_inv IdBodega_egr, egreso.IdMovi_inven_tipo_inv IdMovi_inven_tipo_egr, egreso.IdNumMovi_inv IdNumMovi_inv_egr, egreso.secuencia_inv secuencia_egr, 
+ingreso.IdEmpresa AS IdEmpresa_ing, ingreso.IdSucursal AS IdSucursal_ing, ingreso.IdBodega_inv AS IdBodega_ing, ingreso.IdMovi_inven_tipo AS IdMovi_inven_tipo_ing, ingreso.IdNumMovi AS IdNumMovi_ing, ingreso.Secuencia AS secuencia_ing
+FROM     in_transferencia INNER JOIN
+                  in_Ing_Egr_Inven_det AS egreso ON in_transferencia.IdEmpresa = egreso.IdEmpresa AND in_transferencia.IdSucursalOrigen = egreso.IdSucursal AND in_transferencia.IdMovi_inven_tipo_SucuOrig = egreso.IdMovi_inven_tipo AND 
+                  in_transferencia.IdNumMovi_Ing_Egr_Inven_Origen = egreso.IdNumMovi INNER JOIN
+                  in_Ing_Egr_Inven_det AS ingreso ON in_transferencia.IdEmpresa_Ing_Egr_Inven_Destino = ingreso.IdEmpresa AND in_transferencia.IdSucursal_Ing_Egr_Inven_Destino = ingreso.IdSucursal AND 
+                  in_transferencia.IdMovi_inven_tipo_SucuDest = ingreso.IdMovi_inven_tipo AND in_transferencia.IdNumMovi_Ing_Egr_Inven_Destino = ingreso.IdNumMovi AND egreso.Secuencia = ingreso.Secuencia
+WHERE  in_transferencia.tr_fecha between @Fecha_ini and GETDATE()
+and in_transferencia.IdEmpresa = @IdEmpresa
+and in_transferencia.IdSucursalOrigen = @IdSucursal
+and in_transferencia.IdBodegaOrigen = @IdBodega
+and in_transferencia.Estado = 'A'
+) A
+where in_Ing_Egr_Inven_det.IdEmpresa = a.IdEmpresa_ing
+and in_Ing_Egr_Inven_det.IdSucursal = a.IdSucursal_ing
+and in_Ing_Egr_Inven_det.IdMovi_inven_tipo = a.IdMovi_inven_tipo_ing
+and in_Ing_Egr_Inven_det.IdNumMovi = a.IdNumMovi_ing
+and in_Ing_Egr_Inven_det.Secuencia = a.secuencia_ing
+
 END

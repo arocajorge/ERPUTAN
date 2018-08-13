@@ -1,13 +1,21 @@
-﻿CREATE VIEW dbo.vwcp_orden_giro_total_saldo
+﻿CREATE VIEW [dbo].[vwcp_orden_giro_total_saldo]
 AS
-SELECT        dbo.cp_orden_giro.IdEmpresa, dbo.cp_orden_giro.IdCbteCble_Ogiro, dbo.cp_orden_giro.IdTipoCbte_Ogiro, dbo.cp_orden_giro.IdOrden_giro_Tipo, dbo.cp_orden_giro.IdProveedor, dbo.cp_orden_giro.co_fechaOg, 
-                         dbo.cp_orden_giro.co_serie, dbo.cp_orden_giro.co_factura, dbo.cp_orden_giro.co_FechaFactura, dbo.cp_orden_giro.co_FechaContabilizacion, dbo.cp_orden_giro.co_FechaFactura_vct, 
-                         dbo.cp_orden_giro.co_observacion, dbo.cp_orden_giro.co_total, dbo.cp_orden_giro.co_valorpagar, ISNULL(dbo.vwcp_orden_giro_total_pagodo.TotalPagado, 0) AS TotalPagado, 
-                         dbo.cp_orden_giro.co_valorpagar - ISNULL(dbo.vwcp_orden_giro_total_pagodo.TotalPagado, 0) AS SaldoOG, dbo.cp_orden_giro.Tipodoc_a_Modificar, dbo.cp_orden_giro.estable_a_Modificar, 
-                         dbo.cp_orden_giro.ptoEmi_a_Modificar, dbo.cp_orden_giro.num_docu_Modificar, dbo.cp_orden_giro.aut_doc_Modificar
-FROM            dbo.cp_orden_giro LEFT OUTER JOIN
-                         dbo.vwcp_orden_giro_total_pagodo ON dbo.cp_orden_giro.IdEmpresa = dbo.vwcp_orden_giro_total_pagodo.IdEmpresa_cxp AND 
-                         dbo.cp_orden_giro.IdTipoCbte_Ogiro = dbo.vwcp_orden_giro_total_pagodo.IdTipoCbte_cxp AND dbo.cp_orden_giro.IdCbteCble_Ogiro = dbo.vwcp_orden_giro_total_pagodo.IdCbteCble_cxp
+SELECT     dbo.cp_orden_giro.IdEmpresa, dbo.cp_orden_giro.IdCbteCble_Ogiro, dbo.cp_orden_giro.IdTipoCbte_Ogiro, dbo.cp_orden_giro.IdOrden_giro_Tipo, 
+                      dbo.cp_orden_giro.IdProveedor, dbo.cp_orden_giro.co_fechaOg, dbo.cp_orden_giro.co_serie, dbo.cp_orden_giro.co_factura, dbo.cp_orden_giro.co_FechaFactura, 
+                      dbo.cp_orden_giro.co_FechaContabilizacion, dbo.cp_orden_giro.co_FechaFactura_vct, dbo.cp_orden_giro.co_observacion, dbo.cp_orden_giro.co_total, 
+                      dbo.cp_orden_giro.co_total - ISNULL(ret.re_valor_retencion, 0) AS co_valorpagar, ISNULL(dbo.vwcp_orden_giro_total_pagodo.TotalPagado, 0) AS TotalPagado, 
+                      ROUND(dbo.cp_orden_giro.co_total - ISNULL(ret.re_valor_retencion, 0) - ISNULL(dbo.vwcp_orden_giro_total_pagodo.TotalPagado, 0),2) AS SaldoOG, 
+                      dbo.cp_orden_giro.Tipodoc_a_Modificar, dbo.cp_orden_giro.estable_a_Modificar, dbo.cp_orden_giro.ptoEmi_a_Modificar, dbo.cp_orden_giro.num_docu_Modificar, 
+                      dbo.cp_orden_giro.aut_doc_Modificar
+FROM         dbo.cp_orden_giro LEFT OUTER JOIN
+                      dbo.vwcp_orden_giro_total_pagodo ON dbo.cp_orden_giro.IdEmpresa = dbo.vwcp_orden_giro_total_pagodo.IdEmpresa_cxp AND 
+                      dbo.cp_orden_giro.IdTipoCbte_Ogiro = dbo.vwcp_orden_giro_total_pagodo.IdTipoCbte_cxp AND 
+                      dbo.cp_orden_giro.IdCbteCble_Ogiro = dbo.vwcp_orden_giro_total_pagodo.IdCbteCble_cxp LEFT OUTER JOIN
+                          (SELECT     cab.IdEmpresa_Ogiro, cab.IdTipoCbte_Ogiro, cab.IdCbteCble_Ogiro, SUM(det.re_valor_retencion) AS re_valor_retencion
+                            FROM          dbo.cp_retencion AS cab INNER JOIN
+                                                   dbo.cp_retencion_det AS det ON cab.IdEmpresa = det.IdEmpresa AND cab.IdRetencion = det.IdRetencion
+                            GROUP BY cab.IdEmpresa_Ogiro, cab.IdTipoCbte_Ogiro, cab.IdCbteCble_Ogiro) AS ret ON dbo.cp_orden_giro.IdEmpresa = ret.IdEmpresa_Ogiro AND 
+                      dbo.cp_orden_giro.IdTipoCbte_Ogiro = ret.IdTipoCbte_Ogiro AND dbo.cp_orden_giro.IdCbteCble_Ogiro = ret.IdCbteCble_Ogiro
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcp_orden_giro_total_saldo';
 
