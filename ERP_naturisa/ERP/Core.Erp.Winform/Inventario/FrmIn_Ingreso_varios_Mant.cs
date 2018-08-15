@@ -273,8 +273,9 @@ namespace Core.Erp.Winform.Inventario
                 int IdEmpresa = 0;
                 int IdSucursal = 0;
                 int IdBodega = 0;
-                int IdMovi_inven_tipo = 0;
+                int IdMovi_inven_tipo = Info_ing_egr_Inven_.IdMovi_inven_tipo;
                 decimal IdNumMovi = 0;
+                
                 com_parametro_Info info_Comparam = new com_parametro_Info();
                 com_parametro_Bus bus_Comparam = new com_parametro_Bus();
                 info_Comparam = bus_Comparam.Get_Info_parametro(param.IdEmpresa);
@@ -288,7 +289,7 @@ namespace Core.Erp.Winform.Inventario
                         IdSucursal = Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue);
                         IdBodega = Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_bodega.EditValue);
                         IdNumMovi = Convert.ToDecimal(txtNumIngreso.Text);
-                        IdMovi_inven_tipo = Convert.ToInt32(info_Comparam.IdMovi_inven_tipo_OC);
+                        IdMovi_inven_tipo = Info_ing_egr_Inven_.IdMovi_inven_tipo == 0 ? Convert.ToInt32(info_Comparam.IdMovi_inven_tipo_OC) : Info_ing_egr_Inven_.IdMovi_inven_tipo;
 
                         reporte_personalizado.PIdEmpresa.Value = IdEmpresa;
                         reporte_personalizado.PIdSucursal.Value = IdSucursal;

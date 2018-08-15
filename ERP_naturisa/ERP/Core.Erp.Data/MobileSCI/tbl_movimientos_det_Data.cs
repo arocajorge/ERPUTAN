@@ -109,13 +109,15 @@ namespace Core.Erp.Data.MobileSCI
                 #region Ingresos
                 var lst_mov_agrupada = (from q in Lista
                                         where q.cantidad > 0
-                                        group new { q.IdEmpresa, q.IdSucursal, q.IdBodega, q.Fecha } by new { q.IdEmpresa, q.IdSucursal, q.IdBodega, q.Fecha } into g
+                                        group new { q.IdEmpresa, q.IdSucursal, q.IdBodega, q.Fecha, q.IdSucursal_oc, q.IdOrdenCompra } by new { q.IdEmpresa, q.IdSucursal, q.IdBodega, q.Fecha, q.IdSucursal_oc, q.IdOrdenCompra } into g
                                         select new tbl_movimientos_det_Info
                                         {
                                             IdEmpresa = g.Key.IdEmpresa,
                                             IdSucursal = g.Key.IdSucursal,
                                             IdBodega = g.Key.IdBodega,
-                                            Fecha = g.Key.Fecha
+                                            Fecha = g.Key.Fecha,
+                                            IdSucursal_oc = g.Key.IdSucursal_oc,
+                                            IdOrdenCompra = g.Key.IdOrdenCompra,                                            
                                         }).ToList();
                 
                 foreach (var item in lst_mov_agrupada)
@@ -139,7 +141,7 @@ namespace Core.Erp.Data.MobileSCI
                     #endregion
                     #region Detalle
                     int sec = 1;
-                    foreach (var mov in Lista.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdBodega == item.IdBodega && q.Fecha == item.Fecha && q.cantidad > 0).ToList())
+                    foreach (var mov in Lista.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdSucursal == item.IdSucursal && q.IdBodega == item.IdBodega && q.Fecha == item.Fecha && q.IdSucursal_oc == item.IdSucursal_oc && q.IdOrdenCompra == item.IdOrdenCompra && q.cantidad > 0).ToList())
                     {
                         in_Ing_Egr_Inven_det Entity_det = new in_Ing_Egr_Inven_det
                         {
