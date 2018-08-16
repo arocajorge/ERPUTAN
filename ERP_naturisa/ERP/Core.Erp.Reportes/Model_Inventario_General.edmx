@@ -74,7 +74,9 @@
       [vwINV_Rpt002].[dm_cantidad_sinConversion] AS [dm_cantidad_sinConversion], 
       [vwINV_Rpt002].[IdUnidadMedida_sinConversion] AS [IdUnidadMedida_sinConversion], 
       [vwINV_Rpt002].[UnidadMedida_sinConversion] AS [UnidadMedida_sinConversion], 
-      [vwINV_Rpt002].[mv_costo_sinConversion] AS [mv_costo_sinConversion]
+      [vwINV_Rpt002].[mv_costo_sinConversion] AS [mv_costo_sinConversion], 
+      [vwINV_Rpt002].[NomCentroCosto] AS [NomCentroCosto], 
+      [vwINV_Rpt002].[NomSubcentroCosto] AS [NomSubcentroCosto]
       FROM [dbo].[vwINV_Rpt002] AS [vwINV_Rpt002]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwINV_Rpt003" EntityType="DBERPModel.Store.vwINV_Rpt003" store:Type="Views" store:Schema="dbo" store:Name="vwINV_Rpt003">
@@ -599,8 +601,8 @@
       FROM [dbo].[vwINV_Rpt028] AS [vwINV_Rpt028]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt001">
           <Key>
@@ -658,31 +660,20 @@
           <Property Name="UnidadMedida_sinConversion" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="signo" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt002">
           <Key>
+            <PropertyRef Name="IdFila" />
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="IdSucursal" />
             <PropertyRef Name="IdNumMovi" />
             <PropertyRef Name="IdMovi_inven_tipo" />
             <PropertyRef Name="CodMoviInven" />
             <PropertyRef Name="Tipo_Movimiento" />
-            <PropertyRef Name="cod_producto" />
-            <PropertyRef Name="nom_producto" />
             <PropertyRef Name="observacion" />
             <PropertyRef Name="fecha" />
-            <PropertyRef Name="IdProducto" />
-            <PropertyRef Name="cantidad" />
-            <PropertyRef Name="stock_ant" />
-            <PropertyRef Name="stock_act" />
-            <PropertyRef Name="observacion_det" />
-            <PropertyRef Name="IdUnidadMedida" />
-            <PropertyRef Name="dm_cantidad_sinConversion" />
-            <PropertyRef Name="IdUnidadMedida_sinConversion" />
-            <PropertyRef Name="UnidadMedida_sinConversion" />
-            <PropertyRef Name="IdFila" />
           </Key>
           <Property Name="IdFila" Type="bigint" Nullable="false" />
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
@@ -693,34 +684,36 @@
           <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="Tipo_Movimiento" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Empresa" Type="nvarchar" MaxLength="50" />
-          <Property Name="cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
-          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="cod_producto" Type="nvarchar" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" MaxLength="500" />
           <Property Name="nom_sucursal" Type="nchar" MaxLength="60" />
           <Property Name="nom_bodega" Type="nchar" MaxLength="100" />
           <Property Name="UnidadMedida" Type="varchar" MaxLength="500" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1000" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
-          <Property Name="IdProducto" Type="numeric" Nullable="false" />
-          <Property Name="cantidad" Type="float" Nullable="false" />
-          <Property Name="stock_ant" Type="float" Nullable="false" />
-          <Property Name="stock_act" Type="float" Nullable="false" />
-          <Property Name="observacion_det" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdProducto" Type="numeric" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="stock_ant" Type="float" />
+          <Property Name="stock_act" Type="float" />
+          <Property Name="observacion_det" Type="nvarchar" MaxLength="1000" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
           <Property Name="IdEstadoAproba" Type="varchar" MaxLength="15" />
           <Property Name="IdPunto_cargo" Type="int" />
-          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdUnidadMedida" Type="varchar" MaxLength="25" />
           <Property Name="IdEstadoDespacho_cat" Type="varchar" MaxLength="15" />
           <Property Name="Fecha_despacho" Type="datetime" />
           <Property Name="Fecha_registro" Type="datetime" />
           <Property Name="Fecha_ingreso" Type="datetime" />
-          <Property Name="dm_cantidad_sinConversion" Type="float" Nullable="false" />
-          <Property Name="IdUnidadMedida_sinConversion" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="UnidadMedida_sinConversion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="dm_cantidad_sinConversion" Type="float" />
+          <Property Name="IdUnidadMedida_sinConversion" Type="varchar" MaxLength="25" />
+          <Property Name="UnidadMedida_sinConversion" Type="varchar" MaxLength="500" />
           <Property Name="mv_costo_sinConversion" Type="float" />
+          <Property Name="NomCentroCosto" Type="varchar" MaxLength="250" />
+          <Property Name="NomSubcentroCosto" Type="varchar" MaxLength="200" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt003">
           <Key>
@@ -798,8 +791,8 @@
           <Property Name="mv_costo_sinConversion" Type="float" />
           <Property Name="nom_unidad_medida_sinConversion" Type="varchar" Nullable="false" MaxLength="500" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt004">
           <Key>
@@ -836,8 +829,8 @@
           <Property Name="Cant_x_Recivir_inv" Type="float" Nullable="false" />
           <Property Name="EstadoPago" Type="varchar" Nullable="false" MaxLength="2" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt005' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt005">
           <Key>
@@ -877,8 +870,8 @@
           <Property Name="IdUnidadMedida_sinConversion" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="signo" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt006' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt006">
           <Key>
@@ -911,8 +904,8 @@
           <Property Name="dm_stock_ante" Type="float" Nullable="false" />
           <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt007' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt007">
           <Key>
@@ -979,8 +972,8 @@
           <Property Name="costo" Type="float" Nullable="false" />
           <Property Name="Total_costo" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt010' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt010' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt010">
           <Key>
@@ -1026,8 +1019,8 @@
           <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt011' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt011">
           <Key>
@@ -1073,8 +1066,8 @@
           <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt012' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt012">
           <Key>
@@ -1143,8 +1136,8 @@
           <Property Name="total_costo" Type="float" Nullable="false" />
           <Property Name="total_precio" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt013' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt013' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt013">
           <Key>
@@ -1202,8 +1195,8 @@
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
           <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt015' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt015' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt015">
           <Key>
@@ -1269,8 +1262,8 @@
           <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="cm_descripcionCorta" Type="varchar" Nullable="false" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt016' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt016' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt016">
           <Key>
@@ -1320,8 +1313,8 @@
           <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="nom_CentroCosto" Type="varchar" Nullable="false" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt017' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt017' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt017">
           <Key>
@@ -1368,8 +1361,8 @@
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="Codigo" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt019' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt019' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt019">
           <Key>
@@ -1428,8 +1421,8 @@
           <Property Name="IdMotivo_Inv" Type="int" />
           <Property Name="Desc_mov_inv" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt022' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt022' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt022">
           <Key>
@@ -1481,8 +1474,8 @@
           <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
           <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt023' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt023' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt023">
           <Key>
@@ -1512,8 +1505,8 @@
           <Property Name="Secuencia_movi_inv" Type="int" Nullable="false" />
           <Property Name="observacion" Type="varchar" MaxLength="300" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt024' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt024' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt024">
           <Key>
@@ -1567,8 +1560,8 @@
           <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
           <Property Name="dm_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt025' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt025' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt025">
           <Key>
@@ -1618,8 +1611,8 @@
           <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="signo" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_Rpt028' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwINV_Rpt028' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwINV_Rpt028">
           <Key>
@@ -1844,7 +1837,6 @@
             <Parameter Name="fecha_corte" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="vwINV_Rpt015" EntityType="DBERPModel.vwINV_Rpt015" />
-          <EntitySet Name="vwINV_Rpt002" EntityType="DBERPModel.vwINV_Rpt002" />
           <FunctionImport Name="spINV_Rpt009" ReturnType="Collection(DBERPModel.spINV_Rpt009_Result)">
             <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
             <Parameter Name="IdSucursal_ini" Mode="In" Type="Int32" />
@@ -1858,6 +1850,7 @@
           <EntitySet Name="vwINV_Rpt013" EntityType="DBERPModel.vwINV_Rpt013" />
           <EntitySet Name="vwINV_Rpt017" EntityType="DBERPModel.vwINV_Rpt017" />
           <EntitySet Name="vwINV_Rpt023" EntityType="DBERPModel.vwINV_Rpt023" />
+          <EntitySet Name="vwINV_Rpt002" EntityType="DBERPModel.vwINV_Rpt002" />
         </EntityContainer>
         <EntityType Name="vwINV_Rpt004">
           <Key>
@@ -2833,64 +2826,6 @@
           <Property Type="String" Name="Codigo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="cm_descripcionCorta" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="vwINV_Rpt002">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="IdNumMovi" />
-            <PropertyRef Name="IdMovi_inven_tipo" />
-            <PropertyRef Name="CodMoviInven" />
-            <PropertyRef Name="Tipo_Movimiento" />
-            <PropertyRef Name="cod_producto" />
-            <PropertyRef Name="nom_producto" />
-            <PropertyRef Name="observacion" />
-            <PropertyRef Name="fecha" />
-            <PropertyRef Name="IdProducto" />
-            <PropertyRef Name="cantidad" />
-            <PropertyRef Name="stock_ant" />
-            <PropertyRef Name="stock_act" />
-            <PropertyRef Name="observacion_det" />
-            <PropertyRef Name="IdUnidadMedida" />
-            <PropertyRef Name="dm_cantidad_sinConversion" />
-            <PropertyRef Name="IdUnidadMedida_sinConversion" />
-            <PropertyRef Name="UnidadMedida_sinConversion" />
-            <PropertyRef Name="IdFila" />
-          </Key>
-          <Property Type="Int64" Name="IdFila" Nullable="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdBodega" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
-          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Tipo_Movimiento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Empresa" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="nom_sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="nom_bodega" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="UnidadMedida" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Double" Name="cantidad" Nullable="false" />
-          <Property Type="Double" Name="stock_ant" Nullable="false" />
-          <Property Type="Double" Name="stock_act" Nullable="false" />
-          <Property Type="String" Name="observacion_det" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstadoAproba" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstadoDespacho_cat" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_despacho" Precision="3" />
-          <Property Type="DateTime" Name="Fecha_registro" Precision="3" />
-          <Property Type="DateTime" Name="Fecha_ingreso" Precision="3" />
-          <Property Type="Double" Name="dm_cantidad_sinConversion" Nullable="false" />
-          <Property Type="String" Name="IdUnidadMedida_sinConversion" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="UnidadMedida_sinConversion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="mv_costo_sinConversion" />
-        </EntityType>
         <ComplexType Name="spINV_Rpt009_Result">
           <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
           <Property Type="Int32" Name="IdSucursal" Nullable="false" />
@@ -3038,6 +2973,55 @@
           <Property Type="String" Name="tm_descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Secuencia_movi_inv" Nullable="false" />
           <Property Type="String" Name="observacion" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_Rpt002">
+          <Key>
+            <PropertyRef Name="IdFila" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="Tipo_Movimiento" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Type="Int64" Name="IdFila" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBodega" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo_Movimiento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Empresa" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cod_producto" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="UnidadMedida" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cantidad" />
+          <Property Type="Double" Name="stock_ant" />
+          <Property Type="Double" Name="stock_act" />
+          <Property Type="String" Name="observacion_det" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoAproba" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoDespacho_cat" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_despacho" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_registro" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_ingreso" Precision="3" />
+          <Property Type="Double" Name="dm_cantidad_sinConversion" />
+          <Property Type="String" Name="IdUnidadMedida_sinConversion" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UnidadMedida_sinConversion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="mv_costo_sinConversion" />
+          <Property Type="String" Name="NomCentroCosto" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NomSubcentroCosto" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3748,46 +3732,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwINV_Rpt002">
-            <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt002">
-              <MappingFragment StoreEntitySet="vwINV_Rpt002">
-                <ScalarProperty Name="mv_costo_sinConversion" ColumnName="mv_costo_sinConversion" />
-                <ScalarProperty Name="UnidadMedida_sinConversion" ColumnName="UnidadMedida_sinConversion" />
-                <ScalarProperty Name="IdUnidadMedida_sinConversion" ColumnName="IdUnidadMedida_sinConversion" />
-                <ScalarProperty Name="dm_cantidad_sinConversion" ColumnName="dm_cantidad_sinConversion" />
-                <ScalarProperty Name="Fecha_ingreso" ColumnName="Fecha_ingreso" />
-                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
-                <ScalarProperty Name="Fecha_despacho" ColumnName="Fecha_despacho" />
-                <ScalarProperty Name="IdEstadoDespacho_cat" ColumnName="IdEstadoDespacho_cat" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="IdEstadoAproba" ColumnName="IdEstadoAproba" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
-                <ScalarProperty Name="stock_act" ColumnName="stock_act" />
-                <ScalarProperty Name="stock_ant" ColumnName="stock_ant" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="observacion" ColumnName="observacion" />
-                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
-                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
-                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
-                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
-                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
-                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-                <ScalarProperty Name="Tipo_Movimiento" ColumnName="Tipo_Movimiento" />
-                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
-                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
-                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
-                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdFila" ColumnName="IdFila" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spINV_Rpt009" FunctionName="DBERPModel.Store.spINV_Rpt009">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBERPModel.spINV_Rpt009_Result">
@@ -3897,6 +3841,48 @@
                 <ScalarProperty Name="cod_Dev_Inven" ColumnName="cod_Dev_Inven" />
                 <ScalarProperty Name="IdDev_Inven" ColumnName="IdDev_Inven" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_Rpt002">
+            <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt002">
+              <MappingFragment StoreEntitySet="vwINV_Rpt002">
+                <ScalarProperty Name="NomSubcentroCosto" ColumnName="NomSubcentroCosto" />
+                <ScalarProperty Name="NomCentroCosto" ColumnName="NomCentroCosto" />
+                <ScalarProperty Name="mv_costo_sinConversion" ColumnName="mv_costo_sinConversion" />
+                <ScalarProperty Name="UnidadMedida_sinConversion" ColumnName="UnidadMedida_sinConversion" />
+                <ScalarProperty Name="IdUnidadMedida_sinConversion" ColumnName="IdUnidadMedida_sinConversion" />
+                <ScalarProperty Name="dm_cantidad_sinConversion" ColumnName="dm_cantidad_sinConversion" />
+                <ScalarProperty Name="Fecha_ingreso" ColumnName="Fecha_ingreso" />
+                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+                <ScalarProperty Name="Fecha_despacho" ColumnName="Fecha_despacho" />
+                <ScalarProperty Name="IdEstadoDespacho_cat" ColumnName="IdEstadoDespacho_cat" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdEstadoAproba" ColumnName="IdEstadoAproba" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
+                <ScalarProperty Name="stock_act" ColumnName="stock_act" />
+                <ScalarProperty Name="stock_ant" ColumnName="stock_ant" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Tipo_Movimiento" ColumnName="Tipo_Movimiento" />
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdFila" ColumnName="IdFila" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

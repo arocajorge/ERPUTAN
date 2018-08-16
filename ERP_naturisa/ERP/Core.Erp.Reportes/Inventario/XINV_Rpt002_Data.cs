@@ -48,8 +48,6 @@ namespace Core.Erp.Reportes.Inventario
                         itemInfo.nom_sucursal = item.nom_sucursal;
                         itemInfo.observacion = item.observacion;
                         itemInfo.observacion_det = item.observacion_det;
-                        itemInfo.stock_act = item.stock_act;
-                        itemInfo.stock_ant = item.stock_ant;
                         itemInfo.Tipo_Movimiento = item.Tipo_Movimiento;
                         itemInfo.UnidadMedida = item.UnidadMedida;
                         itemInfo.Logo = infoEmp.em_logo_Image;
@@ -61,7 +59,8 @@ namespace Core.Erp.Reportes.Inventario
                         itemInfo.IdUnidadMedida_sinConversion = item.IdUnidadMedida_sinConversion;
                         itemInfo.UnidadMedida_sinConversion = item.UnidadMedida_sinConversion;
                         itemInfo.mv_costo_sinConversion = itemInfo.mv_costo_sinConversion;
-
+                        itemInfo.NomCentroCosto = item.NomCentroCosto;
+                        itemInfo.NomSubcentroCosto = item.NomSubcentroCosto;
                         listadedatos.Add(itemInfo);
                     }
                 }

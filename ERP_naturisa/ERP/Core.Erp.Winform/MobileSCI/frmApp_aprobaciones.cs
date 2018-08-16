@@ -238,7 +238,7 @@ namespace Core.Erp.Winform.MobileSCI
                 splashScreenManager1.ShowWaitForm();
 
                 bus_det.Modificar_estado(blst_aprobacion.Where(q => q.Checked_R == true).ToList(), "I");
-                bus_det.Aprobar(param.IdEmpresa, blst_aprobacion.Where(q => q.Checked_A == true).ToList());
+                bus_det.Aprobar(param.IdEmpresa, blst_aprobacion.Where(q => q.Checked_A == true).ToList(),param.IdUsuario);
                 if (splashScreenManager1.IsSplashFormVisible)
                 {
                     splashScreenManager1.CloseWaitForm();

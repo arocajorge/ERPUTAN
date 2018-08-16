@@ -16,8 +16,8 @@ namespace Core.Erp.Reportes.Inventario
         public string CodMoviInven { get; set; }
         public string observacion { get; set; }
         public  DateTime fecha{ get; set; }
-        public decimal IdProducto { get; set; }
-        public double cantidad	 { get; set; }
+        public decimal? IdProducto { get; set; }
+        public double? cantidad	 { get; set; }
         public double stock_ant { get; set; }
         public double stock_act { get; set; }
         public string observacion_det { get; set; }
@@ -35,13 +35,12 @@ namespace Core.Erp.Reportes.Inventario
         public Nullable<System.DateTime> Fecha_registro { get; set; }
         public Nullable<System.DateTime> Fecha_ingreso { get; set; }
         public Image Logo { get; set; }
-        public double dm_cantidad_sinConversion { get; set; }
+        public double? dm_cantidad_sinConversion { get; set; }
         public string IdUnidadMedida_sinConversion { get; set; }
         public string UnidadMedida_sinConversion { get; set; }
         public Nullable<double> mv_costo_sinConversion { get; set; }
-        public XINV_Rpt002_Info()
-        {
-        }
+        public string NomCentroCosto { get; set; }
+        public string NomSubcentroCosto { get; set; }
 
     }
 }

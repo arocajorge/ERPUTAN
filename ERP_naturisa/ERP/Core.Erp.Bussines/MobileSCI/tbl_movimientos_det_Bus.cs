@@ -49,11 +49,11 @@ namespace Core.Erp.Business.MobileSCI
             }
         }
 
-        public bool Aprobar(int IdEmpresa, List<tbl_movimientos_det_Info> Lista)
+        public bool Aprobar(int IdEmpresa, List<tbl_movimientos_det_Info> Lista, string IdUsuario)
         {
             try
             {
-                return odata.Aprobar(IdEmpresa, Lista);
+                return odata.Aprobar(IdEmpresa, Lista, IdUsuario);
             }
             catch (Exception)
             {

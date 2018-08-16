@@ -88,7 +88,7 @@ namespace Core.Erp.Data.MobileSCI
             }
         }
 
-        public bool Aprobar(int IdEmpresa, List<tbl_movimientos_det_Info> Lista)
+        public bool Aprobar(int IdEmpresa, List<tbl_movimientos_det_Info> Lista, string IdUsuario)
         {
             Entities_mobileSCI db_mobile = new Entities_mobileSCI();
             EntitiesInventario db_inv = new EntitiesInventario();
@@ -135,7 +135,9 @@ namespace Core.Erp.Data.MobileSCI
                         cm_observacion = "Aprobación móvil "+DateTime.Now.ToString("dd/MM/yyyy"),
                         cm_fecha = item.Fecha,
                         Estado = "A",
-                        IdMotivo_Inv = Entity_motivo_ing.IdMotivo_Inv
+                        IdMotivo_Inv = Entity_motivo_ing.IdMotivo_Inv,
+                        IdUsuario = IdUsuario,
+                        Fecha_Transac = DateTime.Now
                     };
                     db_inv.in_Ing_Egr_Inven.Add(Entity_cab);
                     #endregion
@@ -164,7 +166,7 @@ namespace Core.Erp.Data.MobileSCI
                             IdEstadoAproba = "PEND",
                             IdUnidadMedida = mov.IdUnidadMedida,
                             IdEmpresa_oc = mov.IdEmpresa_oc,
-                            IdSucursal_inv = mov.IdSucursal_oc,
+                            IdSucursal_oc = mov.IdSucursal_oc,
                             IdOrdenCompra = mov.IdOrdenCompra,
                             Secuencia_oc = mov.secuencia_oc,
                             Motivo_Aprobacion = "Aprobación movil",
