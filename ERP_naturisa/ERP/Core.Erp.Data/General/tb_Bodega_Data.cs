@@ -315,6 +315,7 @@ namespace Core.Erp.Data.General
 
                         contact.bo_Descripcion = info.bo_Descripcion;
                         contact.cod_punto_emision = info.cod_punto_emision;
+                        contact.cod_bodega = info.cod_bodega;
                         contact.bo_EsBodega = info.bo_esBodega;
                         contact.bo_manejaFacturacion = info.bo_manejaFacturacion;
                         contact.IdUsuarioUltMod = info.IdUsuarioUltMod;
@@ -423,6 +424,7 @@ namespace Core.Erp.Data.General
                     address.IdEmpresa = info.IdEmpresa;
                     address.IdSucursal = info.IdSucursal; 
                     address.IdBodega = idpv;
+                    address.cod_bodega = info.cod_bodega;
                     address.bo_Descripcion = info.bo_Descripcion;
                     address.cod_punto_emision = info.cod_punto_emision;
                     address.IdCentroCosto = info.IdCentroCosto;

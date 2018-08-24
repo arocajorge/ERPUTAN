@@ -27,12 +27,9 @@ namespace Core.Erp.Winform.Inventario
         in_Ing_Egr_Inven_Info Info_validar = new in_Ing_Egr_Inven_Info();
         vwin_Ingr_Egr_Inven_det_Bus bus_IngEgrDet = new vwin_Ingr_Egr_Inven_det_Bus();
         in_movi_inve_Bus bus_movi = new in_movi_inve_Bus();
+        tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
 
-        int IdSucursal = 0;
-        int IdBodega = 0;
         string Signo = "";
-        int IdTipoMovi = 0;
-        string tipo = "";
         #endregion
 
         public FrmIn_Aprobacion_Ing_Egr_x_transaccion()
@@ -179,14 +176,28 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 Get_signo();
-                
-                blist_ing_egr = new BindingList<in_Ing_Egr_Inven_Info>(bus_ingr_egr.Get_List_aprobacion_x_transaccion(param.IdEmpresa,Signo, de_Fecha_ini.DateTime.Date, de_Fecha_fin.DateTime.Date));
+                int IdSucursal = cmb_sucursal.EditValue == null ? 0 : Convert.ToInt32(cmb_sucursal.EditValue);
+                blist_ing_egr = new BindingList<in_Ing_Egr_Inven_Info>(bus_ingr_egr.Get_List_aprobacion_x_transaccion(param.IdEmpresa,IdSucursal, Signo, de_Fecha_ini.DateTime.Date, de_Fecha_fin.DateTime.Date));
                 gridControlAprobación.DataSource = blist_ing_egr;
               
                 if (blist_ing_egr.Count==0)
                 {
                     MessageBox.Show("No existen movimientos pendientes por aprobar", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cargar_combos()
+        {
+            try
+            {
+                var lst_sucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
+                cmb_sucursal.Properties.DataSource = lst_sucursal;
             }
             catch (Exception ex)
             {
@@ -282,6 +293,7 @@ namespace Core.Erp.Winform.Inventario
         {
             de_Fecha_ini.DateTime = DateTime.Now.Date.AddMonths(-1);
             de_Fecha_fin.DateTime = DateTime.Now.Date;
+            cargar_combos();
         }
 
         private void chk_seleccionar_visibles_CheckedChanged(object sender, EventArgs e)

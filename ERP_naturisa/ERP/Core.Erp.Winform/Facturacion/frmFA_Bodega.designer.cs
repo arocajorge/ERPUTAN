@@ -53,6 +53,7 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
+            this.txt_cod_bodega = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,14 +64,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.chk_manejaFacturacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoAproba.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cod_bodega.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_id_sucursal
             // 
             this.lbl_id_sucursal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_id_sucursal.Location = new System.Drawing.Point(295, 19);
+            this.lbl_id_sucursal.Location = new System.Drawing.Point(393, 23);
+            this.lbl_id_sucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_id_sucursal.Name = "lbl_id_sucursal";
-            this.lbl_id_sucursal.Size = new System.Drawing.Size(63, 23);
+            this.lbl_id_sucursal.Size = new System.Drawing.Size(83, 28);
             this.lbl_id_sucursal.TabIndex = 1;
             this.lbl_id_sucursal.Text = "0";
             this.lbl_id_sucursal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,32 +82,36 @@
             // lbl_id_bodega
             // 
             this.lbl_id_bodega.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_id_bodega.Location = new System.Drawing.Point(189, 19);
+            this.lbl_id_bodega.Location = new System.Drawing.Point(252, 23);
+            this.lbl_id_bodega.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_id_bodega.Name = "lbl_id_bodega";
-            this.lbl_id_bodega.Size = new System.Drawing.Size(100, 23);
+            this.lbl_id_bodega.Size = new System.Drawing.Size(133, 28);
             this.lbl_id_bodega.TabIndex = 0;
             this.lbl_id_bodega.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 62);
+            this.label2.Location = new System.Drawing.Point(24, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.Size = new System.Drawing.Size(150, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre de la Bodega:";
             // 
             // lbl_title_id_bodega
             // 
             this.lbl_title_id_bodega.AutoSize = true;
-            this.lbl_title_id_bodega.Location = new System.Drawing.Point(18, 23);
+            this.lbl_title_id_bodega.Location = new System.Drawing.Point(24, 28);
+            this.lbl_title_id_bodega.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_title_id_bodega.Name = "lbl_title_id_bodega";
-            this.lbl_title_id_bodega.Size = new System.Drawing.Size(59, 13);
+            this.lbl_title_id_bodega.Size = new System.Drawing.Size(76, 17);
             this.lbl_title_id_bodega.TabIndex = 0;
             this.lbl_title_id_bodega.Text = "Id Bodega:";
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txt_cod_bodega);
             this.panelControl1.Controls.Add(this.groupBox1);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.ucCon_CentroCosto_ctas_Movi);
@@ -121,9 +128,10 @@
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Controls.Add(this.cmbEstadoAproba);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 25);
+            this.panelControl1.Location = new System.Drawing.Point(0, 31);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(655, 298);
+            this.panelControl1.Size = new System.Drawing.Size(873, 367);
             this.panelControl1.TabIndex = 2;
             // 
             // groupBox1
@@ -132,48 +140,55 @@
             this.groupBox1.Controls.Add(this.labelControl4);
             this.groupBox1.Controls.Add(this.cmb_ctacble_Inv);
             this.groupBox1.Controls.Add(this.cmb_ctacble_costo);
-            this.groupBox1.Location = new System.Drawing.Point(21, 203);
+            this.groupBox1.Location = new System.Drawing.Point(28, 250);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(599, 88);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(799, 108);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cuentas Contables";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(19, 66);
+            this.labelControl5.Location = new System.Drawing.Point(25, 81);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(80, 13);
+            this.labelControl5.Size = new System.Drawing.Size(93, 16);
             this.labelControl5.TabIndex = 19;
             this.labelControl5.Text = "Cta Cble. Costo:";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(19, 34);
+            this.labelControl4.Location = new System.Drawing.Point(25, 42);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(102, 13);
+            this.labelControl4.Size = new System.Drawing.Size(118, 16);
             this.labelControl4.TabIndex = 18;
             this.labelControl4.Text = "Cta Cble. Inventario:";
             // 
             // cmb_ctacble_Inv
             // 
-            this.cmb_ctacble_Inv.Location = new System.Drawing.Point(143, 18);
+            this.cmb_ctacble_Inv.Location = new System.Drawing.Point(191, 22);
+            this.cmb_ctacble_Inv.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmb_ctacble_Inv.Name = "cmb_ctacble_Inv";
-            this.cmb_ctacble_Inv.Size = new System.Drawing.Size(438, 29);
+            this.cmb_ctacble_Inv.Size = new System.Drawing.Size(584, 36);
             this.cmb_ctacble_Inv.TabIndex = 17;
             // 
             // cmb_ctacble_costo
             // 
-            this.cmb_ctacble_costo.Location = new System.Drawing.Point(143, 50);
+            this.cmb_ctacble_costo.Location = new System.Drawing.Point(191, 62);
+            this.cmb_ctacble_costo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmb_ctacble_costo.Name = "cmb_ctacble_costo";
-            this.cmb_ctacble_costo.Size = new System.Drawing.Size(438, 29);
+            this.cmb_ctacble_costo.Size = new System.Drawing.Size(584, 36);
             this.cmb_ctacble_costo.TabIndex = 15;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(21, 168);
+            this.labelControl3.Location = new System.Drawing.Point(28, 207);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(162, 13);
+            this.labelControl3.Size = new System.Drawing.Size(190, 16);
             this.labelControl3.TabIndex = 13;
             this.labelControl3.Text = "Estado de Aprobación Inventario:";
             // 
@@ -181,70 +196,79 @@
             // 
             this.ucCon_CentroCosto_ctas_Movi.IdCentroCostoPadre = null;
             this.ucCon_CentroCosto_ctas_Movi.InfoCentroCosto = null;
-            this.ucCon_CentroCosto_ctas_Movi.Location = new System.Drawing.Point(185, 127);
+            this.ucCon_CentroCosto_ctas_Movi.Location = new System.Drawing.Point(247, 156);
+            this.ucCon_CentroCosto_ctas_Movi.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucCon_CentroCosto_ctas_Movi.Name = "ucCon_CentroCosto_ctas_Movi";
-            this.ucCon_CentroCosto_ctas_Movi.Size = new System.Drawing.Size(297, 30);
+            this.ucCon_CentroCosto_ctas_Movi.Size = new System.Drawing.Size(396, 37);
             this.ucCon_CentroCosto_ctas_Movi.TabIndex = 12;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(21, 130);
+            this.labelControl2.Location = new System.Drawing.Point(28, 160);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(68, 13);
+            this.labelControl2.Size = new System.Drawing.Size(79, 16);
             this.labelControl2.TabIndex = 11;
             this.labelControl2.Text = "Centro Costo:";
             // 
             // txtPuntoEmi
             // 
-            this.txtPuntoEmi.Location = new System.Drawing.Point(189, 92);
+            this.txtPuntoEmi.Location = new System.Drawing.Point(252, 113);
+            this.txtPuntoEmi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPuntoEmi.Name = "txtPuntoEmi";
             this.txtPuntoEmi.Properties.MaxLength = 3;
-            this.txtPuntoEmi.Size = new System.Drawing.Size(100, 20);
+            this.txtPuntoEmi.Size = new System.Drawing.Size(133, 22);
             this.txtPuntoEmi.TabIndex = 10;
             this.txtPuntoEmi.Validating += new System.ComponentModel.CancelEventHandler(this.txtPuntoEmi_Validating);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 95);
+            this.labelControl1.Location = new System.Drawing.Point(28, 117);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(70, 13);
+            this.labelControl1.Size = new System.Drawing.Size(85, 16);
             this.labelControl1.TabIndex = 9;
             this.labelControl1.Text = "Punto Emisión:";
             // 
             // txt_bodega
             // 
-            this.txt_bodega.Location = new System.Drawing.Point(189, 59);
+            this.txt_bodega.Location = new System.Drawing.Point(252, 73);
+            this.txt_bodega.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_bodega.Name = "txt_bodega";
-            this.txt_bodega.Size = new System.Drawing.Size(304, 20);
+            this.txt_bodega.Size = new System.Drawing.Size(405, 22);
             this.txt_bodega.TabIndex = 8;
             // 
             // chk_estado
             // 
-            this.chk_estado.Location = new System.Drawing.Point(527, 139);
+            this.chk_estado.Location = new System.Drawing.Point(703, 171);
+            this.chk_estado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chk_estado.Name = "chk_estado";
             this.chk_estado.Properties.Caption = "Activo";
-            this.chk_estado.Size = new System.Drawing.Size(75, 19);
+            this.chk_estado.Size = new System.Drawing.Size(100, 21);
             this.chk_estado.TabIndex = 7;
             // 
             // chk_bodega
             // 
-            this.chk_bodega.Location = new System.Drawing.Point(527, 114);
+            this.chk_bodega.Location = new System.Drawing.Point(703, 140);
+            this.chk_bodega.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chk_bodega.Name = "chk_bodega";
             this.chk_bodega.Properties.Caption = "Bodega";
-            this.chk_bodega.Size = new System.Drawing.Size(75, 19);
+            this.chk_bodega.Size = new System.Drawing.Size(100, 21);
             this.chk_bodega.TabIndex = 6;
             // 
             // chk_manejaFacturacion
             // 
-            this.chk_manejaFacturacion.Location = new System.Drawing.Point(527, 89);
+            this.chk_manejaFacturacion.Location = new System.Drawing.Point(703, 110);
+            this.chk_manejaFacturacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chk_manejaFacturacion.Name = "chk_manejaFacturacion";
             this.chk_manejaFacturacion.Properties.Caption = "Maneja Facturación";
-            this.chk_manejaFacturacion.Size = new System.Drawing.Size(121, 19);
+            this.chk_manejaFacturacion.Size = new System.Drawing.Size(161, 21);
             this.chk_manejaFacturacion.TabIndex = 5;
             // 
             // cmbEstadoAproba
             // 
-            this.cmbEstadoAproba.Location = new System.Drawing.Point(189, 165);
+            this.cmbEstadoAproba.Location = new System.Drawing.Point(252, 203);
+            this.cmbEstadoAproba.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbEstadoAproba.Name = "cmbEstadoAproba";
             this.cmbEstadoAproba.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -253,7 +277,7 @@
             this.cmbEstadoAproba.Properties.PopupSizeable = false;
             this.cmbEstadoAproba.Properties.ValueMember = "IdEstadoAproba";
             this.cmbEstadoAproba.Properties.View = this.searchLookUpEdit1View;
-            this.cmbEstadoAproba.Size = new System.Drawing.Size(169, 20);
+            this.cmbEstadoAproba.Size = new System.Drawing.Size(225, 22);
             this.cmbEstadoAproba.TabIndex = 14;
             // 
             // searchLookUpEdit1View
@@ -319,8 +343,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(655, 25);
+            this.ucGe_Menu.Size = new System.Drawing.Size(873, 31);
             this.ucGe_Menu.TabIndex = 0;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -349,13 +374,21 @@
             this.ucGe_Menu.Visible_btnModificar = false;
             this.ucGe_Menu.Visible_btnproductos = false;
             // 
+            // txt_cod_bodega
+            // 
+            this.txt_cod_bodega.Location = new System.Drawing.Point(497, 26);
+            this.txt_cod_bodega.Name = "txt_cod_bodega";
+            this.txt_cod_bodega.Size = new System.Drawing.Size(160, 22);
+            this.txt_cod_bodega.TabIndex = 17;
+            // 
             // frmFa_Bodega
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 323);
+            this.ClientSize = new System.Drawing.Size(873, 398);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ucGe_Menu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmFa_Bodega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -374,6 +407,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chk_manejaFacturacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEstadoAproba.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cod_bodega.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +439,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private Controles.UCCon_Plan_de_Cuenta_x_Movimiento cmb_ctacble_Inv;
         private Controles.UCCon_Plan_de_Cuenta_x_Movimiento cmb_ctacble_costo;
+        private DevExpress.XtraEditors.TextEdit txt_cod_bodega;
     }
 }

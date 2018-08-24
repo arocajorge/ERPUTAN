@@ -53,6 +53,11 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ProgressBar_recosteo = new DevExpress.XtraEditors.ProgressBarControl();
+            this.cmb_sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties.VistaTimeProperties)).BeginInit();
@@ -65,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobacion)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressBar_recosteo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -131,6 +138,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelControl3);
+            this.panel1.Controls.Add(this.cmb_sucursal);
             this.panel1.Controls.Add(this.chk_seleccionar_visibles);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.btnBuscar);
@@ -139,13 +148,13 @@
             this.panel1.Location = new System.Drawing.Point(0, 34);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1345, 125);
+            this.panel1.Size = new System.Drawing.Size(1345, 149);
             this.panel1.TabIndex = 1;
             // 
             // chk_seleccionar_visibles
             // 
             this.chk_seleccionar_visibles.AutoSize = true;
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(23, 97);
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(33, 122);
             this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
             this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
             this.chk_seleccionar_visibles.TabIndex = 8;
@@ -159,7 +168,7 @@
             this.groupBox2.Controls.Add(this.labelControl1);
             this.groupBox2.Controls.Add(this.de_Fecha_fin);
             this.groupBox2.Controls.Add(this.de_Fecha_ini);
-            this.groupBox2.Location = new System.Drawing.Point(13, 12);
+            this.groupBox2.Location = new System.Drawing.Point(23, 37);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -214,7 +223,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(582, 41);
+            this.btnBuscar.Location = new System.Drawing.Point(582, 73);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 28);
@@ -227,7 +236,7 @@
             // 
             this.groupBox1.Controls.Add(this.opt_egreso);
             this.groupBox1.Controls.Add(this.opt_ingreso);
-            this.groupBox1.Location = new System.Drawing.Point(318, 18);
+            this.groupBox1.Location = new System.Drawing.Point(328, 43);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -266,13 +275,13 @@
             // 
             this.gridControlAprobación.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlAprobación.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlAprobación.Location = new System.Drawing.Point(0, 159);
+            this.gridControlAprobación.Location = new System.Drawing.Point(0, 183);
             this.gridControlAprobación.MainView = this.gridViewAprobacion;
             this.gridControlAprobación.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlAprobación.Name = "gridControlAprobación";
             this.gridControlAprobación.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chk_Aprobacion});
-            this.gridControlAprobación.Size = new System.Drawing.Size(1345, 322);
+            this.gridControlAprobación.Size = new System.Drawing.Size(1345, 298);
             this.gridControlAprobación.TabIndex = 2;
             this.gridControlAprobación.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAprobacion});
@@ -398,6 +407,55 @@
             this.ProgressBar_recosteo.Size = new System.Drawing.Size(1329, 23);
             this.ProgressBar_recosteo.TabIndex = 0;
             // 
+            // cmb_sucursal
+            // 
+            this.cmb_sucursal.Location = new System.Drawing.Point(119, 8);
+            this.cmb_sucursal.Name = "cmb_sucursal";
+            this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
+            this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
+            this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
+            this.cmb_sucursal.Size = new System.Drawing.Size(438, 22);
+            this.cmb_sucursal.TabIndex = 9;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn5,
+            this.gridColumn6});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "ID";
+            this.gridColumn5.FieldName = "IdSucursal";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 1;
+            this.gridColumn5.Width = 193;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Sucursal";
+            this.gridColumn6.FieldName = "Su_Descripcion";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn6.Width = 1541;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(23, 11);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(54, 16);
+            this.labelControl3.TabIndex = 10;
+            this.labelControl3.Text = "Sucursal:";
+            // 
             // FrmIn_Aprobacion_Ing_Egr_x_transaccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,6 +485,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobacion)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProgressBar_recosteo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,5 +518,10 @@
         private System.Windows.Forms.CheckBox chk_seleccionar_visibles;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.ProgressBarControl ProgressBar_recosteo;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmb_sucursal;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

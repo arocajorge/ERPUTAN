@@ -597,7 +597,7 @@ namespace Core.Erp.Data.Inventario
           }
       }
 
-      public List<in_Ing_Egr_Inven_Info> Get_List_aprobacion_x_transaccion(int IdEmpresa, string Tipo_ing_egr, DateTime Fecha_ini, DateTime Fecha_fin)
+      public List<in_Ing_Egr_Inven_Info> Get_List_aprobacion_x_transaccion(int IdEmpresa, int IdSucursal, string Tipo_ing_egr, DateTime Fecha_ini, DateTime Fecha_fin)
       {
           try
           {
@@ -610,6 +610,7 @@ namespace Core.Erp.Data.Inventario
                            where q.IdEmpresa == IdEmpresa
                            && Fecha_ini <= q.cm_fecha && q.cm_fecha <= Fecha_fin
                            && q.signo == Tipo_ing_egr
+                           && q.IdSucursal == IdSucursal
                            select new in_Ing_Egr_Inven_Info
                            {
                                IdEmpresa = q.IdEmpresa,

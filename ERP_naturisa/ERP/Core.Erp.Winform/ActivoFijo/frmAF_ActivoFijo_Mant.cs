@@ -1,29 +1,22 @@
-﻿using System;
+﻿using Core.Erp.Business.ActivoFijo;
+using Core.Erp.Business.Contabilidad;
+using Core.Erp.Business.CuentasxPagar;
+using Core.Erp.Business.General;
+using Core.Erp.Business.Inventario;
+using Core.Erp.Business.Roles;
+using Core.Erp.Info.ActivoFijo;
+using Core.Erp.Info.Contabilidad;
+using Core.Erp.Info.CuentasxPagar;
+using Core.Erp.Info.General;
+using Core.Erp.Info.Inventario;
+using Core.Erp.Info.Roles;
+using Core.Erp.Reportes.ActivoFijo;
+using Core.Erp.Winform.General;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Core.Erp.Business.General;
-using Core.Erp.Info.General;
-using Core.Erp.Info.Contabilidad;
-using Core.Erp.Business.Contabilidad;
-using Core.Erp.Business.ActivoFijo;
-using Core.Erp.Info.ActivoFijo;
-using Core.Erp.Info.Roles;
-using Core.Erp.Business.Roles;
-using Core.Erp.Winform.Controles;
-using Core.Erp.Winform.General;
-using Core.Erp.Recursos.Properties;
-using Core.Erp.Business.CuentasxPagar;
-using Core.Erp.Info.CuentasxPagar;
-using Core.Erp.Info.Roles;
-using Core.Erp.Business.Roles;
-using Core.Erp.Reportes.ActivoFijo;
-using Core.Erp.Info.Inventario;
-using Core.Erp.Business.Inventario;
 
 namespace Core.Erp.Winform.ActivoFijo
 {
@@ -708,21 +701,21 @@ namespace Core.Erp.Winform.ActivoFijo
                     return false;
                 }
 
-                if (this.ucGe_Sucursal_combo1.get_SucursalInfo().IdSucursal == null)
+                if (ucGe_Sucursal_combo1.get_SucursalInfo() == null || this.ucGe_Sucursal_combo1.get_SucursalInfo().IdSucursal == 0)
                 {
                     MessageBox.Show("Por favor escoja la sucursal donde se encuentra el Activo Fijo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.ucGe_Sucursal_combo1.Focus();
                     return false;
                 }
 
-                if (ucaF_Activo_fijo_Tipo_cmb.get_Info().IdActivoFijoTipo == null)
+                if (ucaF_Activo_fijo_Tipo_cmb.get_Info() == null || ucaF_Activo_fijo_Tipo_cmb.get_Info().IdActivoFijoTipo == 0)
                 {
                     MessageBox.Show("Por favor escoja el Tipo de Activo Fijo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.ucaF_Activo_fijo_Tipo_cmb.Focus();
                     return false;
                 }
 
-                if (ucaF_Activo_Categoria_cmb.get_info().IdCategoriaAF == null)
+                if (ucaF_Activo_Categoria_cmb.get_info() == null || ucaF_Activo_Categoria_cmb.get_info().IdCategoriaAF == 0)
                 {
                     MessageBox.Show("Por favor escoja la Categoria", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.ucaF_Activo_fijo_Tipo_cmb.Focus();

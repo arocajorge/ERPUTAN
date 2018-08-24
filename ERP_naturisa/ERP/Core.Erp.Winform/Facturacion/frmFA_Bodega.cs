@@ -270,6 +270,7 @@ namespace Core.Erp.Winform.Facturacion
                 this.txtPuntoEmi.EditValue = info_bodega.cod_punto_emision;
                 ucCon_CentroCosto_ctas_Movi.set_item(info_bodega.IdCentroCosto);
                 cmbEstadoAproba.EditValue = info_bodega.IdEstadoAproba_x_Ing_Egr_Inven;
+                this.txt_cod_bodega.Text = info_bodega.cod_bodega;
                 if (!chk_estado.Checked) 
                 {
                     ucGe_Menu.Visible_btnGuardar = false;
@@ -304,7 +305,7 @@ namespace Core.Erp.Winform.Facturacion
                 info.bo_esBodega = (this.chk_bodega.Checked == true) ? "S" : "N";
                 info.cod_punto_emision = Convert.ToString(this.txtPuntoEmi.EditValue);
                 info.IdCentroCosto = ucCon_CentroCosto_ctas_Movi.get_item();
-
+                info.cod_bodega = txt_cod_bodega.Text;
                 info.Estado = (this.chk_estado.Checked == true) ? true : false;
                 info.IdUsuario = param.IdUsuario;
                 info.IdUsuarioUltMod = param.IdUsuario;
