@@ -563,6 +563,13 @@ namespace Core.Erp.Data.CuentasxPagar
                         //contact.IdCbteCble_Anulacion = info.IdCbteCble_Anulacion;
                         //contact.IdTipoCbte_Anulacion = info.IdTipoCbte_Anulacion;
                         contact.cn_tipoLocacion = info.cn_tipoLocacion;
+
+                        var lst = context.cp_orden_pago_cancelaciones.Where(q => q.IdEmpresa_pago == info.IdEmpresa && q.IdTipoCbte_pago == info.IdTipoCbte_Nota && q.IdCbteCble_pago == info.IdCbteCble_Nota);
+                        foreach (var item in lst)
+                        {
+                            context.cp_orden_pago_cancelaciones.Remove(item);    
+                        }
+                        
                         context.SaveChanges();
                     }
                 }
