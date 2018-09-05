@@ -2082,5 +2082,14 @@
     <Build Include="dbo\Stored Procedures\spINV_relaciones_no_parametrizadas.sql" />
     <Build Include="dbo\Views\vwin_Ing_Egr_Inven_aprobacion_x_transaccion.sql" />
     <Build Include="dbo\Views\vwcp_orden_giro_consulta.sql" />
+    <Build Include="mobileSCI\Tables\tbl_consumo_semanal.sql" />
+    <Build Include="dbo\Tables\XXXAUDITORIARRHH.sql" />
+    <Build Include="dbo\Views\XXXTOTAL_X_MOVI.sql" />
+    <Build Include="dbo\Views\XXXAUDITORIANCNDFAC.sql" />
+    <Build Include="dbo\Views\XXXAUDITORIAFACTURAS.sql" />
+    <Build Include="dbo\Views\XXXAUDITORIADIARIOS.sql" />
+    <Build Include="dbo\Views\XXXAUDITORIACHEQUES.sql" />
+    <Build Include="mobileSCI\Stored Procedures\sp_get_consumo_semanal.sql" />
+    <Build Include="dbo\Stored Procedures\XXXAUDITORIACOBRANZA.sql" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,10 @@
     [IdUnidadMedida_Consumo] VARCHAR (25)   NOT NULL,
     [Stock]                  FLOAT (53)     NOT NULL,
     [NomUnidadMedida]        VARCHAR (500)  NOT NULL,
+    [CodProdProducto]        VARCHAR (50)   NULL,
+    [CodProdSubcentro]       VARCHAR (50)   NULL,
     CONSTRAINT [PK_tbl_stock] PRIMARY KEY CLUSTERED ([IdRow] ASC)
 );
+
+
 

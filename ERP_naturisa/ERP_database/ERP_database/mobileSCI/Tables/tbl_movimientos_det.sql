@@ -16,9 +16,12 @@
     [secuencia_oc]                   INT          NULL,
     [Aprobado]                       BIT          NOT NULL,
     [Estado]                         VARCHAR (1)  NOT NULL,
+    [Peso]                           FLOAT NOT NULL,
     CONSTRAINT [PK_tbl_movimientos_det] PRIMARY KEY CLUSTERED ([IdSincronizacion] ASC, [IdSecuencia] ASC),
     CONSTRAINT [FK_tbl_movimientos_det_tbl_movimientos] FOREIGN KEY ([IdSincronizacion]) REFERENCES [mobileSCI].[tbl_movimientos] ([IdSincronizacion])
 );
+
+
 
 
 

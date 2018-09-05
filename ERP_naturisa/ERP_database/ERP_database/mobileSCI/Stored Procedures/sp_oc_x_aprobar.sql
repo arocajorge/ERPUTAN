@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [mobileSCI].[sp_oc_x_aprobar]
+﻿
+CREATE PROCEDURE [mobileSCI].[sp_oc_x_aprobar]
 AS
 BEGIN
 
@@ -36,7 +37,7 @@ inner join in_UnidadMedida as uni on uni.IdUnidadMedida = det.IdUnidadMedida
 inner join cp_proveedor as pr on pr.IdEmpresa = cab.IdEmpresa and pr.IdProveedor = cab.IdProveedor
 inner join tb_persona as per on per.IdPersona = pr.IdPersona
 inner join mobileSCI.tbl_producto as bod on bod.IdEmpresa = det.IdEmpresa and bod.IdProducto = det.IdProducto
-where cab.IdEstado_cierre <> 'CERR' AND CAB.oc_fecha BETWEEN DATEADD(MONTH,-3, GETDATE()) AND GETDATE()
+where cab.IdEstado_cierre <> 'CERR' AND CAB.oc_fecha BETWEEN DATEADD(MONTH,-3, GETDATE()) AND GETDATE() AND CAB.IdEstadoAprobacion_cat = 'APRO'
 
 update [mobileSCI].[tbl_oc_x_aprobar] set cant_in = A.cantidad
 from(

@@ -1,52 +1,40 @@
-﻿CREATE VIEW [Naturisa].[vwINV_NAT_Rpt004]
+﻿CREATE VIEW Naturisa.vwINV_NAT_Rpt004
 AS
-SELECT        dbo.in_Ing_Egr_Inven.IdEmpresa, dbo.in_Ing_Egr_Inven.IdSucursal, dbo.in_Ing_Egr_Inven.IdBodega, dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo, 
-                         dbo.in_Ing_Egr_Inven.IdNumMovi, mov_inv.cm_tipo, dbo.in_Ing_Egr_Inven.cm_observacion, dbo.in_Ing_Egr_Inven.cm_fecha, dbo.in_Ing_Egr_Inven.Estado, 
-                         suc.Su_Descripcion, bod.bo_Descripcion, minv_tip.tm_descripcion, prod.IdProducto, prod.pr_codigo, prod.pr_descripcion, dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion dm_cantidad, 
-                         dbo.in_Ing_Egr_Inven_det.mv_costo, dbo.in_Ing_Egr_Inven_det.dm_cantidad * dbo.in_Ing_Egr_Inven_det.mv_costo AS SubTotal, 
-                         dbo.in_Ing_Egr_Inven_det.dm_precio, dbo.in_Ing_Egr_Inven_det.dm_observacion, dbo.in_Ing_Egr_Inven_det.dm_peso, dbo.tb_empresa.em_nombre, 
-                         dbo.tb_empresa.em_ruc, dbo.tb_empresa.em_telefonos, dbo.tb_empresa.em_direccion, dbo.tb_empresa.em_logo, dbo.cp_proveedor.IdProveedor, 
-                         dbo.cp_proveedor.pr_nombre, dbo.com_ordencompra_local_det.do_ManejaIva, dbo.com_ordencompra_local.IdOrdenCompra, 
-                         dbo.in_Ing_Egr_Inven_det.IdUnidadMedida, uniSin.Descripcion AS nom_unidad, dbo.in_Motivo_Inven.IdMotivo_Inv, dbo.in_Motivo_Inven.Desc_mov_inv, 
-                         dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion, dbo.in_Ing_Egr_Inven_det.IdUnidadMedida_sinConversion, 
-                         uniSin.Descripcion AS nom_unidad_sinConversion, dbo.in_Ing_Egr_Inven_det.mv_costo_sinConversion, 
+SELECT        dbo.in_Ing_Egr_Inven.IdEmpresa, dbo.in_Ing_Egr_Inven.IdSucursal, dbo.in_Ing_Egr_Inven.IdBodega, dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven.IdNumMovi, mov_inv.cm_tipo, 
+                         dbo.in_Ing_Egr_Inven.cm_observacion, dbo.in_Ing_Egr_Inven.cm_fecha, dbo.in_Ing_Egr_Inven.Estado, suc.Su_Descripcion, bod.bo_Descripcion, minv_tip.tm_descripcion, prod.IdProducto, prod.pr_codigo, prod.pr_descripcion, 
+                         dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion AS dm_cantidad, dbo.in_Ing_Egr_Inven_det.mv_costo, dbo.in_Ing_Egr_Inven_det.dm_cantidad * dbo.in_Ing_Egr_Inven_det.mv_costo AS SubTotal, 
+                         dbo.in_Ing_Egr_Inven_det.dm_precio, dbo.in_Ing_Egr_Inven_det.dm_observacion, dbo.in_Ing_Egr_Inven_det.dm_peso, dbo.tb_empresa.em_nombre, dbo.tb_empresa.em_ruc, dbo.tb_empresa.em_telefonos, 
+                         dbo.tb_empresa.em_direccion, dbo.tb_empresa.em_logo, dbo.cp_proveedor.IdProveedor, dbo.cp_proveedor.pr_nombre, dbo.com_ordencompra_local_det.do_ManejaIva, dbo.com_ordencompra_local.IdOrdenCompra, 
+                         dbo.in_Ing_Egr_Inven_det.IdUnidadMedida, uniSin.Descripcion AS nom_unidad, dbo.in_Motivo_Inven.IdMotivo_Inv, dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion, 
+                         dbo.in_Ing_Egr_Inven_det.IdUnidadMedida_sinConversion, uniSin.Descripcion AS nom_unidad_sinConversion, dbo.in_Ing_Egr_Inven_det.mv_costo_sinConversion, 
                          dbo.in_Ing_Egr_Inven_det.dm_cantidad_sinConversion * dbo.in_Ing_Egr_Inven_det.mv_costo_sinConversion AS SubTotal_sinConversion
 FROM            dbo.com_ordencompra_local INNER JOIN
-                         dbo.com_ordencompra_local_det ON dbo.com_ordencompra_local.IdEmpresa = dbo.com_ordencompra_local_det.IdEmpresa AND 
-                         dbo.com_ordencompra_local.IdSucursal = dbo.com_ordencompra_local_det.IdSucursal AND 
+                         dbo.com_ordencompra_local_det ON dbo.com_ordencompra_local.IdEmpresa = dbo.com_ordencompra_local_det.IdEmpresa AND dbo.com_ordencompra_local.IdSucursal = dbo.com_ordencompra_local_det.IdSucursal AND 
                          dbo.com_ordencompra_local.IdOrdenCompra = dbo.com_ordencompra_local_det.IdOrdenCompra INNER JOIN
-                         dbo.cp_proveedor ON dbo.com_ordencompra_local.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND 
-                         dbo.com_ordencompra_local.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
-                         dbo.in_Ing_Egr_Inven_det ON dbo.com_ordencompra_local_det.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa_oc AND 
-                         dbo.com_ordencompra_local_det.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal_oc AND 
-                         dbo.com_ordencompra_local_det.IdOrdenCompra = dbo.in_Ing_Egr_Inven_det.IdOrdenCompra AND 
-                         dbo.com_ordencompra_local_det.Secuencia = dbo.in_Ing_Egr_Inven_det.Secuencia_oc INNER JOIN
-                         dbo.in_Ing_Egr_Inven ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa AND 
-                         dbo.in_Ing_Egr_Inven.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal AND dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi INNER JOIN
-                         dbo.tb_bodega AS bod ON dbo.in_Ing_Egr_Inven.IdEmpresa = bod.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = bod.IdSucursal AND 
-                         dbo.in_Ing_Egr_Inven.IdBodega = bod.IdBodega INNER JOIN
+                         dbo.cp_proveedor ON dbo.com_ordencompra_local.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.com_ordencompra_local.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
+                         dbo.in_Ing_Egr_Inven_det ON dbo.com_ordencompra_local_det.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa_oc AND dbo.com_ordencompra_local_det.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal_oc AND 
+                         dbo.com_ordencompra_local_det.IdOrdenCompra = dbo.in_Ing_Egr_Inven_det.IdOrdenCompra AND dbo.com_ordencompra_local_det.Secuencia = dbo.in_Ing_Egr_Inven_det.Secuencia_oc INNER JOIN
+                         dbo.in_Ing_Egr_Inven ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal AND 
+                         dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi AND dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo INNER JOIN
+                         dbo.tb_bodega AS bod ON dbo.in_Ing_Egr_Inven.IdEmpresa = bod.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = bod.IdSucursal AND dbo.in_Ing_Egr_Inven.IdBodega = bod.IdBodega INNER JOIN
                          dbo.in_UnidadMedida AS uniMed ON dbo.in_Ing_Egr_Inven_det.IdUnidadMedida = uniMed.IdUnidadMedida INNER JOIN
                          dbo.in_UnidadMedida AS uniSin ON dbo.in_Ing_Egr_Inven_det.IdUnidadMedida_sinConversion = uniSin.IdUnidadMedida INNER JOIN
                          dbo.tb_sucursal AS suc ON bod.IdEmpresa = suc.IdEmpresa AND bod.IdSucursal = suc.IdSucursal INNER JOIN
                          dbo.tb_empresa ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.tb_empresa.IdEmpresa INNER JOIN
                          dbo.in_Producto AS prod ON dbo.in_Ing_Egr_Inven_det.IdEmpresa = prod.IdEmpresa AND dbo.in_Ing_Egr_Inven_det.IdProducto = prod.IdProducto INNER JOIN
-                         dbo.in_movi_inven_tipo AS minv_tip ON dbo.in_Ing_Egr_Inven.IdEmpresa = minv_tip.IdEmpresa AND 
-                         dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = minv_tip.IdMovi_inven_tipo LEFT OUTER JOIN
-                         dbo.in_movi_inve_detalle AS mov_inv_det ON mov_inv_det.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa_inv AND 
-                         mov_inv_det.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal_inv AND mov_inv_det.IdBodega = dbo.in_Ing_Egr_Inven_det.IdBodega_inv AND 
-                         mov_inv_det.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo_inv AND mov_inv_det.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi_inv AND 
-                         mov_inv_det.Secuencia = dbo.in_Ing_Egr_Inven_det.secuencia_inv LEFT OUTER JOIN
-                         dbo.in_movi_inve AS mov_inv ON mov_inv.IdEmpresa = mov_inv_det.IdEmpresa AND mov_inv.IdSucursal = mov_inv_det.IdSucursal AND 
-                         mov_inv.IdBodega = mov_inv_det.IdBodega AND mov_inv.IdMovi_inven_tipo = mov_inv_det.IdMovi_inven_tipo AND 
-                         mov_inv.IdNumMovi = mov_inv_det.IdNumMovi LEFT OUTER JOIN
-                         dbo.in_Motivo_Inven ON dbo.in_Motivo_Inven.IdMotivo_Inv = dbo.in_Ing_Egr_Inven.IdMotivo_Inv AND 
-                         dbo.in_Motivo_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven.IdEmpresa
+                         dbo.in_movi_inven_tipo AS minv_tip ON dbo.in_Ing_Egr_Inven.IdEmpresa = minv_tip.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = minv_tip.IdMovi_inven_tipo LEFT OUTER JOIN
+                         dbo.in_movi_inve_detalle AS mov_inv_det ON mov_inv_det.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa_inv AND mov_inv_det.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal_inv AND 
+                         mov_inv_det.IdBodega = dbo.in_Ing_Egr_Inven_det.IdBodega_inv AND mov_inv_det.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo_inv AND 
+                         mov_inv_det.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi_inv AND mov_inv_det.Secuencia = dbo.in_Ing_Egr_Inven_det.secuencia_inv LEFT OUTER JOIN
+                         dbo.in_movi_inve AS mov_inv ON mov_inv.IdEmpresa = mov_inv_det.IdEmpresa AND mov_inv.IdSucursal = mov_inv_det.IdSucursal AND mov_inv.IdBodega = mov_inv_det.IdBodega AND 
+                         mov_inv.IdMovi_inven_tipo = mov_inv_det.IdMovi_inven_tipo AND mov_inv.IdNumMovi = mov_inv_det.IdNumMovi LEFT OUTER JOIN
+                         dbo.in_Motivo_Inven ON dbo.in_Motivo_Inven.IdMotivo_Inv = dbo.in_Ing_Egr_Inven.IdMotivo_Inv AND dbo.in_Motivo_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven.IdEmpresa
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwINV_NAT_Rpt004';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'48
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'ght = 248
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -63,10 +51,10 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'48
          End
          Begin Table = "suc"
             Begin Extent = 
-               Top = 270
-               Left = 534
-               Bottom = 400
-               Right = 764
+               Top = 225
+               Left = 1672
+               Bottom = 355
+               Right = 1902
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -160,13 +148,15 @@ End
 ', @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwINV_NAT_Rpt004';
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+         Configuration = "(H (1[89] 4[3] 2[3] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -234,30 +224,30 @@ Begin DesignProperties =
       Begin Tables = 
          Begin Table = "com_ordencompra_local"
             Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 136
-               Right = 255
+               Top = 0
+               Left = 1425
+               Bottom = 130
+               Right = 1642
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "com_ordencompra_local_det"
             Begin Extent = 
-               Top = 6
-               Left = 293
-               Bottom = 136
-               Right = 556
+               Top = 7
+               Left = 1039
+               Bottom = 137
+               Right = 1302
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "cp_proveedor"
             Begin Extent = 
-               Top = 6
-               Left = 594
-               Bottom = 136
-               Right = 826
+               Top = 0
+               Left = 1719
+               Bottom = 130
+               Right = 1951
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -274,20 +264,20 @@ Begin DesignProperties =
          End
          Begin Table = "in_Ing_Egr_Inven"
             Begin Extent = 
-               Top = 138
-               Left = 339
-               Bottom = 268
-               Right = 602
+               Top = 130
+               Left = 729
+               Bottom = 260
+               Right = 992
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "bod"
             Begin Extent = 
-               Top = 138
-               Left = 640
-               Bottom = 268
-               Right = 901
+               Top = 226
+               Left = 1298
+               Bottom = 356
+               Right = 1559
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -297,5 +287,7 @@ Begin DesignProperties =
                Top = 270
                Left = 38
                Bottom = 400
-               Right = 2', @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwINV_NAT_Rpt004';
+               Ri', @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwINV_NAT_Rpt004';
+
+
 

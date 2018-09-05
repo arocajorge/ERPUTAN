@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE [mobileSCI].[sp_stock]
+﻿CREATE PROCEDURE [mobileSCI].[sp_stock]
 (
 @IdUsuario varchar(50)
 )
@@ -16,10 +15,11 @@ INSERT INTO [mobileSCI].[tbl_stock]
            ,[NomProducto]
            ,[IdUnidadMedida_Consumo]
            ,[Stock]
-           ,[NomUnidadMedida])
+           ,[NomUnidadMedida]
+		   ,[CodProdProducto])
 
 SELECT in_producto_x_tb_bodega.IdEmpresa, in_producto_x_tb_bodega.IdSucursal, in_producto_x_tb_bodega.IdBodega, in_producto_x_tb_bodega.IdProducto, in_Producto.pr_codigo, in_Producto.pr_descripcion, 
-                  in_Producto.IdUnidadMedida_Consumo, 0, in_UnidadMedida.Descripcion
+                  in_Producto.IdUnidadMedida_Consumo, 0, in_UnidadMedida.Descripcion, in_Producto.mobile_cod_produccion
 FROM     mobileSCI.tbl_producto INNER JOIN
                   in_Producto ON mobileSCI.tbl_producto.IdEmpresa = in_Producto.IdEmpresa AND mobileSCI.tbl_producto.IdProducto = in_Producto.IdProducto INNER JOIN
                   in_producto_x_tb_bodega ON in_Producto.IdEmpresa = in_producto_x_tb_bodega.IdEmpresa AND in_Producto.IdProducto = in_producto_x_tb_bodega.IdProducto AND in_Producto.IdEmpresa = in_producto_x_tb_bodega.IdEmpresa AND 
