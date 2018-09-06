@@ -1555,7 +1555,7 @@ item.Centro_costo.Trim() : "",
                 #region Variables
                 int secuencia = 1;
                 decimal IdNumMovi_inv = 0;
-                Dictionary<decimal, int> lst_secuencia = new Dictionary<decimal, int>();
+                List<SecuencialHistorico> lst_secuencia = new List<SecuencialHistorico>();
                 in_producto_x_tb_bodega_Costo_Historico costo_historico = new in_producto_x_tb_bodega_Costo_Historico();
                 int secuencia_historico = 1;
                 #endregion
@@ -1625,9 +1625,9 @@ item.Centro_costo.Trim() : "",
                             {
                                 if (info_ing.signo == "+")
                                 {
-                                    if (lst_secuencia.Where(q => q.Key == det.IdProducto).Count() > 0)
+                                    if (lst_secuencia.Where(q => q.IdProducto == det.IdProducto).Count() > 0)
                                     {
-                                        secuencia_historico = lst_secuencia.Max(q => q.Value) + 1;
+                                        secuencia_historico = lst_secuencia.Max(q => q.Secuencia) + 1;
                                     }
                                     else
                                     {
@@ -1649,7 +1649,7 @@ item.Centro_costo.Trim() : "",
                                         Observacion = "NO VALIDO",
                                         fecha_trans = DateTime.Now
                                     });
-                                    lst_secuencia.Add(det.IdProducto, secuencia_historico);
+                                    lst_secuencia.Add(new SecuencialHistorico { IdProducto = det.IdProducto, Secuencia = secuencia_historico });
                                 }
                             }
                             db_inv.in_movi_inve_detalle.Add(new in_movi_inve_detalle
@@ -1703,4 +1703,12 @@ item.Centro_costo.Trim() : "",
             }
         }
     }
+
+
+    public class SecuencialHistorico
+    {
+        public decimal IdProducto { get; set; }
+        public int Secuencia { get; set; }
+    }
 }
+

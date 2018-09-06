@@ -178,6 +178,7 @@ namespace Core.Erp.Winform.Inventario
                 Get_signo();
                 int IdSucursal = cmb_sucursal.EditValue == null ? 0 : Convert.ToInt32(cmb_sucursal.EditValue);
                 blist_ing_egr = new BindingList<in_Ing_Egr_Inven_Info>(bus_ingr_egr.Get_List_aprobacion_x_transaccion(param.IdEmpresa,IdSucursal, Signo, de_Fecha_ini.DateTime.Date, de_Fecha_fin.DateTime.Date));
+                gridControlAprobación.DataSource = null;
                 gridControlAprobación.DataSource = blist_ing_egr;
               
                 if (blist_ing_egr.Count==0)
