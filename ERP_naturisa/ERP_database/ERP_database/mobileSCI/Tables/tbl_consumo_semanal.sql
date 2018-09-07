@@ -14,6 +14,9 @@
     [VIERNES]                        FLOAT (53)     NOT NULL,
     [SABADO]                         FLOAT (53)     NOT NULL,
     [DOMINGO]                        FLOAT (53)     NOT NULL,
+    [TOTAL]                          FLOAT (53)     NOT NULL,
     CONSTRAINT [PK_tbl_consumo_semanal] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdSucursal] ASC, [IdBodega] ASC, [IdProducto] ASC, [IdCentroCosto] ASC, [IdCentroCosto_sub_centro_costo] ASC)
 );
+
+
 
