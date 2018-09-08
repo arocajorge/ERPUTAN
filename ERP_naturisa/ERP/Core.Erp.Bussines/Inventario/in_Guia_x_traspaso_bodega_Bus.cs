@@ -253,7 +253,7 @@ namespace Core.Erp.Business.Inventario
                    infoTalonario.es_Documento_electronico = Info_Guia.Es_electronica;
 
 
-                   if (busTalonario.Documento_talonario_esta_Usado(infoTalonario, ref msg, ref mensajeDocumentoDupli))
+                   if (Info_Guia.IdGuia == 0 && busTalonario.Documento_talonario_esta_Usado(infoTalonario, ref msg, ref mensajeDocumentoDupli))
                    {
                        //si esta en usado busco el siguiente
                        cod_estable = Bus_Sucu.Get_Cod_Establecimiento_x_Sucursal(Info_Guia.IdEmpresa, Convert.ToInt32(Info_Guia.IdSucursal_Partida));
