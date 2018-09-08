@@ -35,5 +35,6 @@ namespace Core.Erp.Data
         public decimal IdProducto { get; set; }
         public System.DateTime Fecha { get; set; }
         public string IdUnidadMedida { get; set; }
+        public double Peso { get; set; }
     }
 }

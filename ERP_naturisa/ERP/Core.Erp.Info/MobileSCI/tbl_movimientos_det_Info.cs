@@ -40,5 +40,7 @@ namespace Core.Erp.Info.MobileSCI
         public int Secuencia { get; set; }
         public string CodProduccionSC { get; set; }
         public string CodProduccionPro { get; set; }
+
+        public double Peso { get; set; }
     }
 }

@@ -36,6 +36,7 @@ namespace Core.Erp.Data
         public Nullable<int> secuencia_oc { get; set; }
         public bool Aprobado { get; set; }
         public string Estado { get; set; }
+        public double Peso { get; set; }
     
         public virtual ICollection<tbl_movimientos_det_apro> tbl_movimientos_det_apro { get; set; }
     }

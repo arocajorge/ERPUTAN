@@ -362,6 +362,7 @@ namespace Core.Erp.Data.MobileSCI
                                  IdProducto = q.IdProducto,
                                  Fecha = q.Fecha,
                                  IdUnidadMedida = q.IdUnidadMedida,
+                                 Peso = q.Peso
                              }).ToList();
                 }
 
