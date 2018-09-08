@@ -1,4 +1,6 @@
-﻿create procedure mobileSCI.sp_get_consumo_semanal
+﻿
+--[mobileSCI].[sp_get_consumo_semanal] 'josefinapp'
+CREATE procedure [mobileSCI].[sp_get_consumo_semanal]
 (
  @IdUsuario varchar(50)
  )
@@ -20,23 +22,28 @@ INSERT INTO [mobileSCI].[tbl_consumo_semanal]
            ,[JUEVES]
            ,[VIERNES]
            ,[SABADO]
-           ,[DOMINGO])
+           ,[DOMINGO]
+		   ,[TOTAL])
 
-SELECT        mobileSCI.tbl_usuario_x_bodega.IdEmpresa, mobileSCI.tbl_usuario_x_bodega.IdSucursal, mobileSCI.tbl_usuario_x_bodega.IdBodega, mobileSCI.tbl_producto.IdProducto, 
-				mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto, mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto_sub_centro_costo,in_Producto.pr_descripcion,ct_centro_costo_sub_centro_costo.Centro_costo,
-						 0,0,0,0,0,0,0
-FROM            mobileSCI.tbl_producto INNER JOIN
-                         mobileSCI.tbl_usuario_x_bodega ON mobileSCI.tbl_producto.IdEmpresa = mobileSCI.tbl_usuario_x_bodega.IdEmpresa INNER JOIN
-                         mobileSCI.tbl_usuario_x_subcentro ON mobileSCI.tbl_usuario_x_bodega.IdUsuarioSCI = mobileSCI.tbl_usuario_x_subcentro.IdUsuarioSCI AND 
-                         mobileSCI.tbl_usuario_x_bodega.IdSCI = mobileSCI.tbl_usuario_x_subcentro.IdSCI INNER JOIN
-                         ct_centro_costo_sub_centro_costo ON mobileSCI.tbl_usuario_x_subcentro.IdEmpresa = ct_centro_costo_sub_centro_costo.IdEmpresa AND 
-                         mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto = ct_centro_costo_sub_centro_costo.IdCentroCosto AND 
-                         mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto_sub_centro_costo = ct_centro_costo_sub_centro_costo.IdCentroCosto_sub_centro_costo INNER JOIN
-                         in_Producto ON mobileSCI.tbl_producto.IdEmpresa = in_Producto.IdEmpresa AND mobileSCI.tbl_producto.IdProducto = in_Producto.IdProducto AND mobileSCI.tbl_producto.IdEmpresa = in_Producto.IdEmpresa AND 
-                         mobileSCI.tbl_producto.IdProducto = in_Producto.IdProducto AND mobileSCI.tbl_producto.IdEmpresa = in_Producto.IdEmpresa AND mobileSCI.tbl_producto.IdProducto = in_Producto.IdProducto
+SELECT        mobileSCI.tbl_usuario_x_bodega.IdEmpresa, mobileSCI.tbl_usuario_x_bodega.IdSucursal, mobileSCI.tbl_usuario_x_bodega.IdBodega, mobileSCI.tbl_producto.IdProducto, mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto, 
+                         mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto_sub_centro_costo, in_Producto.pr_descripcion, ct_centro_costo_sub_centro_costo.Centro_costo, 0 AS Expr1, 0 AS Expr2, 0 AS Expr3, 0 AS Expr4, 0 AS Expr5, 0 AS Expr6, 
+                         0 AS Expr7, 0
+FROM            in_Producto INNER JOIN
+                         mobileSCI.tbl_producto INNER JOIN
+                         mobileSCI.tbl_usuario_x_bodega ON mobileSCI.tbl_producto.IdEmpresa = mobileSCI.tbl_usuario_x_bodega.IdEmpresa ON in_Producto.IdEmpresa = mobileSCI.tbl_producto.IdEmpresa AND 
+                         in_Producto.IdProducto = mobileSCI.tbl_producto.IdProducto AND in_Producto.IdEmpresa = mobileSCI.tbl_producto.IdEmpresa AND in_Producto.IdProducto = mobileSCI.tbl_producto.IdProducto AND 
+                         in_Producto.IdEmpresa = mobileSCI.tbl_producto.IdEmpresa AND in_Producto.IdProducto = mobileSCI.tbl_producto.IdProducto INNER JOIN
+                         ct_centro_costo_sub_centro_costo INNER JOIN
+                         mobileSCI.tbl_usuario_x_subcentro ON ct_centro_costo_sub_centro_costo.IdEmpresa = mobileSCI.tbl_usuario_x_subcentro.IdEmpresa AND 
+                         ct_centro_costo_sub_centro_costo.IdCentroCosto = mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto AND 
+                         ct_centro_costo_sub_centro_costo.IdCentroCosto_sub_centro_costo = mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto_sub_centro_costo ON 
+                         mobileSCI.tbl_usuario_x_bodega.IdEmpresa = mobileSCI.tbl_usuario_x_subcentro.IdEmpresa
 WHERE        (mobileSCI.tbl_usuario_x_subcentro.IdUsuarioSCI = @IdUsuario)
+GROUP BY mobileSCI.tbl_usuario_x_bodega.IdEmpresa, mobileSCI.tbl_usuario_x_bodega.IdSucursal, mobileSCI.tbl_usuario_x_bodega.IdBodega, mobileSCI.tbl_producto.IdProducto, mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto, 
+                         mobileSCI.tbl_usuario_x_subcentro.IdCentroCosto_sub_centro_costo, in_Producto.pr_descripcion, ct_centro_costo_sub_centro_costo.Centro_costo
 
 
+SET DATEFIRST 1;
 DECLARE @DIASEMANA INT, @FECHAINI DATETIME, @FECHAFIN DATETIME
 
 select @DIASEMANA =  DATEPART ( dw , getdate() ) 
@@ -94,5 +101,7 @@ from (
 WHERE [mobileSCI].[tbl_consumo_semanal].IdEmpresa = GRUPO.IdEmpresa and [mobileSCI].[tbl_consumo_semanal].IdSucursal = grupo.IdSucursal
 and [mobileSCI].[tbl_consumo_semanal].IdBodega = grupo.IdBodega and [mobileSCI].[tbl_consumo_semanal].IdProducto = grupo.IdProducto
 and [mobileSCI].[tbl_consumo_semanal].IdCentroCosto = grupo.IdCentroCosto and [mobileSCI].[tbl_consumo_semanal].IdCentroCosto_sub_centro_costo = grupo.IdCentroCosto_sub_centro_costo
+
+UPDATE [mobileSCI].[tbl_consumo_semanal] SET TOTAL = LUNES + MARTES + MIERCOLES + JUEVES + VIERNES + SABADO + DOMINGO
 
 select * from [mobileSCI].[tbl_consumo_semanal]
