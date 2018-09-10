@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [mobileSCI].[sp_stock]
+﻿
+CREATE PROCEDURE [mobileSCI].[sp_stock]
 (
 @IdUsuario varchar(50)
 )
@@ -49,7 +50,7 @@ FROM     mobileSCI.tbl_movimientos_det INNER JOIN
                   in_Producto ON mobileSCI.tbl_movimientos_det.IdEmpresa = in_Producto.IdEmpresa AND mobileSCI.tbl_movimientos_det.IdProducto = in_Producto.IdProducto INNER JOIN
                   in_UnidadMedida_Equiv_conversion ON in_Producto.IdUnidadMedida_Consumo = in_UnidadMedida_Equiv_conversion.IdUnidadMedida_equiva AND 
                   mobileSCI.tbl_movimientos_det.IdUnidadMedida = in_UnidadMedida_Equiv_conversion.IdUnidadMedida
-WHERE  (mobileSCI.tbl_movimientos_det.Aprobado = 0) AND (mobileSCI.tbl_movimientos_det.Estado = 'A')
+WHERE  (mobileSCI.tbl_movimientos_det.Aprobado = 0) AND (mobileSCI.tbl_movimientos_det.Estado <> 'I')
 GROUP BY mobileSCI.tbl_movimientos_det.IdEmpresa, mobileSCI.tbl_movimientos_det.IdSucursal, mobileSCI.tbl_movimientos_det.IdBodega, mobileSCI.tbl_movimientos_det.IdProducto
 ) F
 group by F.IdEmpresa, F.IdSucursal, F.IdBodega, F.IdProducto 

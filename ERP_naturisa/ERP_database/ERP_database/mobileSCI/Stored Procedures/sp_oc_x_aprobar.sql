@@ -1,5 +1,4 @@
-﻿
-CREATE PROCEDURE [mobileSCI].[sp_oc_x_aprobar]
+﻿CREATE PROCEDURE [mobileSCI].[sp_oc_x_aprobar]
 AS
 BEGIN
 
@@ -53,7 +52,7 @@ group by IdEmpresa_oc, IdSucursal_oc, IdOrdenCompra, Secuencia_oc
 UNION ALL
 select DET.IdEmpresa_oc, det.IdSucursal_oc, det.IdOrdenCompra, det.secuencia_oc, SUM(DET.cantidad)
 from mobileSCI.tbl_movimientos_det as det
-where det.Aprobado = 0 and det.Estado = 'A' AND DET.IdOrdenCompra IS NOT NULL
+where det.Aprobado = 0 and det.Estado <> 'I' AND DET.IdOrdenCompra IS NOT NULL
 GROUP BY DET.IdEmpresa_oc, det.IdSucursal_oc, det.IdOrdenCompra, det.secuencia_oc
 ) OC
 GROUP BY IdEmpresa_oc, IdSucursal_oc, IdOrdenCompra, Secuencia_oc

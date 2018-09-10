@@ -93,7 +93,8 @@ namespace Core.Erp.Winform.Inventario
                 infoLinea.abreviatura = txtAbreviatura.Text;
                 infoLinea.Observacion = txtObservacion.Text;
                 infoLinea.IdCategoria = Convert.ToString(cmbCategoria.EditValue);
-
+                infoLinea.MuestraObservacionAPP = chk_MuestraObservacionAPP.Checked;
+                infoLinea.MuestraPesoAPP = chk_MuestraPesoAPP.Checked;
                 infoLinea.IdUsuario = param.IdUsuario;
                 infoLinea.Fecha_Transac = param.Fecha_Transac;
                 infoLinea.nom_pc = param.nom_pc;
@@ -117,7 +118,8 @@ namespace Core.Erp.Winform.Inventario
                txtNombre.Text = _SetInfo.nom_linea;
                txtAbreviatura.Text = _SetInfo.abreviatura;
                txtObservacion.Text = _SetInfo.Observacion;
-
+               chk_MuestraPesoAPP.Checked = _SetInfo.MuestraPesoAPP;
+               chk_MuestraObservacionAPP.Checked = _SetInfo.MuestraObservacionAPP;
                cmbCategoria.EditValue = _SetInfo.IdCategoria;
 
                if (_SetInfo.Estado.TrimEnd() == "I")

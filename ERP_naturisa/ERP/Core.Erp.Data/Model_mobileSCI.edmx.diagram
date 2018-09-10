@@ -15,8 +15,8 @@
         <AssociationConnector Association="Model_mobileSCI.FK_tbl_usuario_x_subcentro_tbl_usuario" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model_mobileSCI.vw_movimientos_det" Width="1.5" PointX="10.453416527460057" PointY="24.831738796472429" />
         <EntityTypeShape EntityType="Model_mobileSCI.tbl_movimientos_det_apro" Width="1.5" PointX="0.24399021651781638" PointY="29.769934414778806" />
-        <EntityTypeShape EntityType="Model_mobileSCI.tbl_movimientos_det" Width="1.5" PointX="8.5990538450884877" PointY="8.9176362347405576" />
         <EntityTypeShape EntityType="Model_mobileSCI.vw_movimientos_csv" Width="1.5" PointX="8.4099239112855511" PointY="23.279291551224556" />
+        <EntityTypeShape EntityType="Model_mobileSCI.tbl_movimientos_det" Width="1.5" PointX="3.0151064093295048" PointY="0.01393364370518068" />
         <AssociationConnector Association="Model_mobileSCI.FK_tbl_movimientos_det_apro_tbl_movimientos_det" />
       </Diagram>
     </edmx:Diagrams>

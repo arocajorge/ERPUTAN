@@ -258,7 +258,7 @@ namespace Core.Erp.Winform.Inventario
                            else
                            {
                                ofrLinea = new FrmIn_Linea_Mant();
-                               
+
                                infoLinea = new in_linea_info();
                                infoLinea = listLinea.FirstOrDefault(q => q.IdEmpresa == _iCategoria.IdEmpresa && q.IdCategoria == _iCategoria.IdCategoria && q.IdLinea == _iCategoria.IdLinea);
 

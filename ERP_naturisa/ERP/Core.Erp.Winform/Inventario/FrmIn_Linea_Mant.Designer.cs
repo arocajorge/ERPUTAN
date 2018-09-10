@@ -48,15 +48,17 @@
             this.col_Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblAnulado = new System.Windows.Forms.Label();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
+            this.chk_MuestraObservacionAPP = new System.Windows.Forms.CheckBox();
+            this.chk_MuestraPesoAPP = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategoria.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 252);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 276);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(461, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(590, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -235,6 +237,9 @@
             this.ucGe_Menu.Enabled_btn_conciliacion_Auto = true;
             this.ucGe_Menu.Enabled_btn_DiseñoReporte = true;
             this.ucGe_Menu.Enabled_btn_Generar_XML = true;
+            this.ucGe_Menu.Enabled_btn_Imprimir_Cbte = true;
+            this.ucGe_Menu.Enabled_btn_Imprimir_Cheq = true;
+            this.ucGe_Menu.Enabled_btn_Imprimir_Reten = true;
             this.ucGe_Menu.Enabled_btnAceptar = true;
             this.ucGe_Menu.Enabled_btnAprobarGuardarSalir = true;
             this.ucGe_Menu.Enabled_btnEstadosOC = true;
@@ -246,7 +251,7 @@
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(461, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(590, 29);
             this.ucGe_Menu.TabIndex = 16;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -257,16 +262,22 @@
             this.ucGe_Menu.Visible_bntLimpiar = true;
             this.ucGe_Menu.Visible_bntReImprimir = false;
             this.ucGe_Menu.Visible_bntSalir = true;
+            this.ucGe_Menu.Visible_btn_Actualizar = false;
             this.ucGe_Menu.Visible_btn_conciliacion_Auto = false;
             this.ucGe_Menu.Visible_btn_Generar_XML = false;
+            this.ucGe_Menu.Visible_btn_Imprimir_Cbte = false;
+            this.ucGe_Menu.Visible_btn_Imprimir_Cheq = false;
+            this.ucGe_Menu.Visible_btn_Imprimir_Reten = false;
             this.ucGe_Menu.Visible_btnAceptar = false;
             this.ucGe_Menu.Visible_btnAprobarGuardarSalir = false;
+            this.ucGe_Menu.Visible_btnContabilizar = false;
             this.ucGe_Menu.Visible_btnEstadosOC = false;
             this.ucGe_Menu.Visible_btnGuardar = true;
             this.ucGe_Menu.Visible_btnImpFrm = false;
             this.ucGe_Menu.Visible_btnImpLote = false;
             this.ucGe_Menu.Visible_btnImpRep = false;
             this.ucGe_Menu.Visible_btnImprimirSoporte = false;
+            this.ucGe_Menu.Visible_btnModificar = false;
             this.ucGe_Menu.Visible_btnproductos = false;
             this.ucGe_Menu.event_btnGuardar_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnGuardar_Click(this.ucGe_Menu_event_btnGuardar_Click);
             this.ucGe_Menu.event_btnGuardar_y_Salir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnGuardar_y_Salir_Click(this.ucGe_Menu_event_btnGuardar_y_Salir_Click);
@@ -274,11 +285,33 @@
             this.ucGe_Menu.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.ucGe_Menu_event_btnAnular_Click);
             this.ucGe_Menu.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucGe_Menu_event_btnSalir_Click);
             // 
+            // chk_MuestraObservacionAPP
+            // 
+            this.chk_MuestraObservacionAPP.AutoSize = true;
+            this.chk_MuestraObservacionAPP.Location = new System.Drawing.Point(98, 230);
+            this.chk_MuestraObservacionAPP.Name = "chk_MuestraObservacionAPP";
+            this.chk_MuestraObservacionAPP.Size = new System.Drawing.Size(149, 17);
+            this.chk_MuestraObservacionAPP.TabIndex = 17;
+            this.chk_MuestraObservacionAPP.Text = "Muestra observación APP";
+            this.chk_MuestraObservacionAPP.UseVisualStyleBackColor = true;
+            // 
+            // chk_MuestraPesoAPP
+            // 
+            this.chk_MuestraPesoAPP.AutoSize = true;
+            this.chk_MuestraPesoAPP.Location = new System.Drawing.Point(270, 230);
+            this.chk_MuestraPesoAPP.Name = "chk_MuestraPesoAPP";
+            this.chk_MuestraPesoAPP.Size = new System.Drawing.Size(115, 17);
+            this.chk_MuestraPesoAPP.TabIndex = 18;
+            this.chk_MuestraPesoAPP.Text = "Muestra Peso APP";
+            this.chk_MuestraPesoAPP.UseVisualStyleBackColor = true;
+            // 
             // FrmIn_Linea_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 274);
+            this.ClientSize = new System.Drawing.Size(590, 298);
+            this.Controls.Add(this.chk_MuestraPesoAPP);
+            this.Controls.Add(this.chk_MuestraObservacionAPP);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.lblAnulado);
             this.Controls.Add(this.cmbCategoria);
@@ -328,5 +361,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_Estado;
         private System.Windows.Forms.Label lblAnulado;
         private Controles.UCGe_Menu_Superior_Mant ucGe_Menu;
+        private System.Windows.Forms.CheckBox chk_MuestraObservacionAPP;
+        private System.Windows.Forms.CheckBox chk_MuestraPesoAPP;
     }
 }

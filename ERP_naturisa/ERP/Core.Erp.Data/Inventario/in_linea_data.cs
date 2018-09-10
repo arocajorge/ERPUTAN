@@ -75,6 +75,8 @@ namespace Core.Erp.Data.Inventario
                   dat_.IdCategoria = item.IdCategoria;
                   dat_.Observacion = item.observacion;
                   dat_.nom_linea2 = "["+item.IdLinea.ToString()+"] "+item.nom_linea;
+                  dat_.MuestraObservacionAPP = item.MuestraObservacionAPP;
+                  dat_.MuestraPesoAPP = item.MuestraPesoAPP;
                   lM.Add(dat_);
               }
               return (lM);
@@ -115,7 +117,8 @@ namespace Core.Erp.Data.Inventario
                   dat_.Estado = item.Estado;
                   dat_.IdCategoria = item.IdCategoria;
                   dat_.Observacion = item.observacion;
-
+                  dat_.MuestraObservacionAPP = item.MuestraObservacionAPP;
+                  dat_.MuestraPesoAPP = item.MuestraPesoAPP;
                   lM.Add(dat_);
               }
               return (lM);
@@ -170,7 +173,8 @@ namespace Core.Erp.Data.Inventario
                       objLinea.Fecha_Transac = DateTime.Now;
                       objLinea.nom_pc = info.nom_pc;
                       objLinea.ip = info.ip;
-
+                      objLinea.MuestraObservacionAPP = info.MuestraObservacionAPP;
+                      objLinea.MuestraPesoAPP = info.MuestraPesoAPP;
                       context.in_linea.Add(objLinea);
                       context.SaveChanges();    
                   }
@@ -204,6 +208,8 @@ namespace Core.Erp.Data.Inventario
                       contact.observacion = info.Observacion;
                       contact.IdUsuarioUltMod = info.IdUsuarioUltMod;
                       contact.Fecha_UltMod = info.Fecha_UltMod;
+                      contact.MuestraObservacionAPP = info.MuestraObservacionAPP;
+                      contact.MuestraPesoAPP = info.MuestraPesoAPP;
                       context.SaveChanges();
                       msg = "Grabación ok..";
                   }

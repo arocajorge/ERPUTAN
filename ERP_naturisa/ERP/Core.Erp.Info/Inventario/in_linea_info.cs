@@ -26,6 +26,8 @@ namespace Core.Erp.Info.Inventario
         public string IdUsuarioUltAnu { get; set; }
         public DateTime Fecha_UltAnu { get; set; }
         public string Observacion { get; set; }
+        public bool MuestraObservacionAPP { get; set; }
+        public bool MuestraPesoAPP { get; set; }
 
       public  in_linea_info(){}
     }

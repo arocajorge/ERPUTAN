@@ -37,6 +37,7 @@ namespace Core.Erp.Data
         public bool Aprobado { get; set; }
         public string Estado { get; set; }
         public double Peso { get; set; }
+        public string Observacion { get; set; }
     
         public virtual ICollection<tbl_movimientos_det_apro> tbl_movimientos_det_apro { get; set; }
     }
