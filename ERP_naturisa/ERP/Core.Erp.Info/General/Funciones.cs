@@ -129,8 +129,12 @@ namespace Core.Erp.Info.General
             else
                 dec = " CON 00/100 ****";
 
-            res = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal(entero),false) + dec;
-            return res;
+            res = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal(entero),false);
+            var cadena = res.Substring(res.Length-2,2);
+            if (cadena =="UN")
+                res = res.Substring(0, res.Length - 2) + "UNO";
+            var retorno = res + dec;
+            return retorno;
         }
 
         static string NumeroALetras(decimal value,bool UsarUn)
@@ -189,13 +193,13 @@ namespace Core.Erp.Info.General
 
             else if (value == 90) Num2Text = "NOVENTA";
 
-            else if (value < 100) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 10) * 10)), false) + " Y " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 10)), false);
+            else if (value < 100) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 10) * 10)), true) + " Y " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 10)), true);
 
             else if (value == 100) Num2Text = "CIEN";
 
             else if (value < 200) Num2Text = "CIENTO " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 100)), false);
 
-            else if ((value == 200) || (value == 300) || (value == 400) || (value == 600) || (value == 800)) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value / 100)), false) + "CIENTOS";
+            else if ((value == 200) || (value == 300) || (value == 400) || (value == 600) || (value == 800)) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value / 100)), true) + "CIENTOS";
 
             else if (value == 500) Num2Text = "QUINIENTOS";
 
@@ -203,7 +207,7 @@ namespace Core.Erp.Info.General
 
             else if (value == 900) Num2Text = "NOVECIENTOS";
 
-            else if (value < 1000) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 100) * 100)), false) + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 100)), true);
+            else if (value < 1000) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 100) * 100)), true) + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 100)), true);
 
             else if (value == 1000) Num2Text = "UN MIL";
 
