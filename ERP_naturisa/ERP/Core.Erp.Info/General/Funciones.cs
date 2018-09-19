@@ -129,17 +129,17 @@ namespace Core.Erp.Info.General
             else
                 dec = " CON 00/100 ****";
 
-            res = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal(entero)) + dec;
+            res = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal(entero),false) + dec;
             return res;
         }
 
-        static string NumeroALetras(decimal value)
+        static string NumeroALetras(decimal value,bool UsarUn)
         {
             string Num2Text = "";
             value = Math.Truncate(value);
             if (value == 0) Num2Text = "CERO";
 
-            else if (value == 1) Num2Text = "UNO";
+            else if (value == 1) Num2Text = UsarUn ? "UN" : "UNO";
 
             else if (value == 2) Num2Text = "DOS";
 
@@ -169,11 +169,11 @@ namespace Core.Erp.Info.General
 
             else if (value == 15) Num2Text = "QUINCE";
 
-            else if (value < 20) Num2Text = "DIECI" + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 10)));
+            else if (value < 20) Num2Text = "DIECI" + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 10)),false);
 
             else if (value == 20) Num2Text = "VEINTE";
 
-            else if (value < 30) Num2Text = "VEINTI" + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 20)));
+            else if (value < 30) Num2Text = "VEINTI" + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 20)), false);
 
             else if (value == 30) Num2Text = "TREINTA";
 
@@ -189,13 +189,13 @@ namespace Core.Erp.Info.General
 
             else if (value == 90) Num2Text = "NOVENTA";
 
-            else if (value < 100) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 10) * 10))) + " Y " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 10)));
+            else if (value < 100) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 10) * 10)), false) + " Y " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 10)), false);
 
             else if (value == 100) Num2Text = "CIEN";
 
-            else if (value < 200) Num2Text = "CIENTO " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 100)));
+            else if (value < 200) Num2Text = "CIENTO " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - 100)), false);
 
-            else if ((value == 200) || (value == 300) || (value == 400) || (value == 600) || (value == 800)) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value / 100))) + "CIENTOS";
+            else if ((value == 200) || (value == 300) || (value == 400) || (value == 600) || (value == 800)) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value / 100)), false) + "CIENTOS";
 
             else if (value == 500) Num2Text = "QUINIENTOS";
 
@@ -203,41 +203,41 @@ namespace Core.Erp.Info.General
 
             else if (value == 900) Num2Text = "NOVECIENTOS";
 
-            else if (value < 1000) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 100) * 100))) + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 100)));
+            else if (value < 1000) Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 100) * 100)), false) + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 100)), true);
 
             else if (value == 1000) Num2Text = "UN MIL";
 
-            else if (value < 2000) Num2Text = "UN MIL " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 1000)));
+            else if (value < 2000) Num2Text = "UN MIL " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 1000)), false);
 
             else if (value < 1000000)
             {
-                Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 1000)))) + " MIL";
+                Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 1000))), true) + " MIL";
 
-                if ((value % 1000) > 0) Num2Text = Num2Text + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 1000)));
+                if ((value % 1000) > 0) Num2Text = Num2Text + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 1000)), false);
             }
 
 
 
             else if (value == 1000000) Num2Text = "UN MILLON";
 
-            else if (value < 2000000) Num2Text = "UN MILLON " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 1000000)));
+            else if (value < 2000000) Num2Text = "UN MILLON " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value % 1000000)), false);
 
             else if (value < 1000000000000)
             {
-                Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value / 1000000))) + " MILLONES ";
+                Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value / 1000000)), true) + " MILLONES ";
 
-                if ((value - Math.Truncate(value / 1000000) * 1000000) > 0) Num2Text = Num2Text + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - Math.Truncate(value / 1000000) * 1000000)));
+                if ((value - Math.Truncate(value / 1000000) * 1000000) > 0) Num2Text = Num2Text + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - Math.Truncate(value / 1000000) * 1000000)), false);
             }
 
             else if (value == 1000000000000) Num2Text = "UN BILLON";
 
-            else if (value < 2000000000000) Num2Text = "UN BILLON " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - Math.Truncate(value / 1000000000000) * 1000000000000)));
+            else if (value < 2000000000000) Num2Text = "UN BILLON " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - Math.Truncate(value / 1000000000000) * 1000000000000)), false);
 
             else
             {
-                Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 1000000000000)))) + " BILLONES";
+                Num2Text = Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((Math.Truncate(value / 1000000000000))), true) + " BILLONES";
 
-                if ((value - Math.Truncate(value / 1000000000000) * 1000000000000) > 0) Num2Text = Num2Text + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - Math.Truncate(value / 1000000000000) * 1000000000000)));
+                if ((value - Math.Truncate(value / 1000000000000) * 1000000000000) > 0) Num2Text = Num2Text + " " + Core.Erp.Info.General.Funciones.NumeroALetras(Convert.ToDecimal((value - Math.Truncate(value / 1000000000000) * 1000000000000)), false);
             }
             return Num2Text;
         }
