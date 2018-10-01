@@ -23,6 +23,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
 
               using (EntitiesCXP_Rpt_Naturisa OEnti = new EntitiesCXP_Rpt_Naturisa())
               {
+                  OEnti.SetCommandTimeOut(3000);
                   var select = from k in OEnti.vwCXP_NATU_Rpt011
                                where k.IdEmpresa == IdEmpresa
                                && k.IdTipoCbte == IdTipoCbte

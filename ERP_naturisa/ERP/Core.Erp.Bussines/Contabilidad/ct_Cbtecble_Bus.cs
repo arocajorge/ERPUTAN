@@ -121,8 +121,8 @@ namespace Core.Erp.Business.Contabilidad
         }
 
         public List<ct_Cbtecble_Info>Get_list_Cbtecble(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin,
-        decimal IdCbteCbleIni, decimal IdCbteCbleFin, string CodCbteCble, int IdTipoCbteIni,
-            int IdTipoCbteFin, string observacion, string IdUsuario, ref string MensajeError)
+        decimal IdCbteCbleIni, decimal IdCbteCbleFin,  int IdTipoCbteIni,
+            int IdTipoCbteFin,  ref string MensajeError)
         {
             try
             {
@@ -130,7 +130,7 @@ namespace Core.Erp.Business.Contabilidad
                 List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
 
                 lM = data.Get_list_Cbtecble(IdEmpresa, iFechaIni, iFechaFin, IdCbteCbleIni,
-                    IdCbteCbleFin, CodCbteCble, IdTipoCbteIni, IdTipoCbteFin, observacion, IdUsuario, ref MensajeError);
+                    IdCbteCbleFin,  IdTipoCbteIni, IdTipoCbteFin, ref MensajeError);
                 return lM;
             }
             catch (Exception ex)

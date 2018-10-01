@@ -1520,7 +1520,7 @@ item.Centro_costo.Trim() : "",
                         IdTipoCbte = diario.IdTipoCbte,
                         IdCbteCble = diario.IdCbteCble,
                         IdEmpresa_ct = diario.IdEmpresa,
-                        Observacion = "Contabilización " + DateTime.Now.ToString()+ " Usuario: "+IdUsuario
+                        Observacion = "Contabilización " + DateTime.Now.ToString()
                     });
                     #endregion
                 

@@ -225,25 +225,24 @@ namespace Core.Erp.Data.Contabilidad
 
                      if (lst.Count()== 0)
                      {
-                         var address_tabla = new ct_cbtecble_det();
-                         address_tabla.IdEmpresa = _CbteCbleInfo.IdEmpresa;
-                         address_tabla.IdTipoCbte = _CbteCbleInfo.IdTipoCbte;
-                         address_tabla.IdCbteCble = _CbteCbleInfo.IdCbteCble;
-                         address_tabla.IdCtaCble = _CbteCbleInfo.IdCtaCble;
-                         address_tabla.IdCentroCosto = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto)) ? null : _CbteCbleInfo.IdCentroCosto;
-                         address_tabla.IdCentroCosto_sub_centro_costo = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto_sub_centro_costo)) ? null : _CbteCbleInfo.IdCentroCosto_sub_centro_costo;
-                         address_tabla.secuencia = _CbteCbleInfo.secuencia;
-                         address_tabla.dc_Valor = _CbteCbleInfo.dc_Valor;
-                         address_tabla.dc_Observacion = (_CbteCbleInfo.dc_Observacion == null) ? "" : _CbteCbleInfo.dc_Observacion;
-                         address_tabla.IdPunto_cargo = _CbteCbleInfo.IdPunto_cargo;
-                         address_tabla.IdPunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo;
-                         address_tabla.dc_para_conciliar = _CbteCbleInfo.dc_para_conciliar;
+                         contexto.ct_cbtecble_det.Add(new ct_cbtecble_det
+                         {
+                             IdEmpresa = _CbteCbleInfo.IdEmpresa,
+                             IdTipoCbte = _CbteCbleInfo.IdTipoCbte,
+                             IdCbteCble = _CbteCbleInfo.IdCbteCble,
+                             IdCtaCble = _CbteCbleInfo.IdCtaCble,
+                             IdCentroCosto = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto)) ? null : _CbteCbleInfo.IdCentroCosto,
+                             IdCentroCosto_sub_centro_costo = (String.IsNullOrEmpty(_CbteCbleInfo.IdCentroCosto_sub_centro_costo)) ? null : _CbteCbleInfo.IdCentroCosto_sub_centro_costo,
+                             secuencia = _CbteCbleInfo.secuencia,
+                             dc_Valor = _CbteCbleInfo.dc_Valor,
+                             dc_Observacion = (_CbteCbleInfo.dc_Observacion == null) ? "" : _CbteCbleInfo.dc_Observacion,
+                             IdPunto_cargo = _CbteCbleInfo.IdPunto_cargo,
+                             IdPunto_cargo_grupo = _CbteCbleInfo.IdPunto_cargo_grupo,
+                             dc_para_conciliar = _CbteCbleInfo.dc_para_conciliar,
+                         });
 
-                         contexto.ct_cbtecble_det.Add(address_tabla);
-
-                         contexto.SaveChanges();
-                         contexto.Dispose();
-                     }                     
+                         contexto.SaveChanges();                         
+                     }
                  }
                  return true;
              }

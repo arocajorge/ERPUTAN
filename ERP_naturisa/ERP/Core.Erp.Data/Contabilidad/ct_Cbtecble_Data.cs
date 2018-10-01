@@ -401,7 +401,7 @@ namespace Core.Erp.Data.Contabilidad
             }
         }
 
-        public List<ct_Cbtecble_Info> Get_list_Cbtecble(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin, decimal IdCbteCbleIni, decimal IdCbteCbleFin, string CodCbteCble, int IdTipoCbteIni, int IdTipoCbteFin, string observacion, string IdUsuario, ref string MensajeError)
+        public List<ct_Cbtecble_Info> Get_list_Cbtecble(int IdEmpresa, DateTime iFechaIni, DateTime iFechaFin, decimal IdCbteCbleIni, decimal IdCbteCbleFin, int IdTipoCbteIni, int IdTipoCbteFin,  ref string MensajeError)
         {
             try
             {
@@ -420,8 +420,6 @@ namespace Core.Erp.Data.Contabilidad
                                      && cbtecble.cb_Fecha >= iFechaIni && cbtecble.cb_Fecha <= iFechaFin
                                      && cbtecble.IdTipoCbte >= IdTipoCbteIni && cbtecble.IdTipoCbte <= IdTipoCbteFin
                                      && cbtecble.IdCbteCble >= IdCbteCbleIni && cbtecble.IdCbteCble <= IdCbteCbleFin
-                                     && cbtecble.CodCbteCble.Contains(CodCbteCble) && cbtecble.cb_Observacion.Contains(observacion)
-                                     && cbtecble.IdUsuario.Contains(IdUsuario)
                                      select new
                                      {
                                          cbtecble.IdEmpresa,
@@ -981,9 +979,28 @@ namespace Core.Erp.Data.Contabilidad
                             address.cb_FechaTransac = DateTime.Now;
                             address.cb_Mayorizado = _CbteCbleInfo.Mayorizado;
                             address.cb_para_conciliar = false;
-                            
 
-                            context.ct_cbtecble.Add(address);
+
+                            context.ct_cbtecble.Add(new ct_cbtecble
+                            {
+                                IdEmpresa = _CbteCbleInfo.IdEmpresa,
+                                IdCbteCble = IdCbteCble = _CbteCbleInfo.IdCbteCble = Get_IdCbteCble(_CbteCbleInfo.IdEmpresa, _CbteCbleInfo.IdTipoCbte, ref MensajeError),
+                                IdTipoCbte = _CbteCbleInfo.IdTipoCbte,
+                                CodCbteCble = (_CbteCbleInfo.CodCbteCble == null || _CbteCbleInfo.CodCbteCble == "") ? IdCbteCble.ToString() : _CbteCbleInfo.CodCbteCble,
+                                IdPeriodo = _CbteCbleInfo.IdPeriodo,
+                                cb_Fecha = Convert.ToDateTime(_CbteCbleInfo.cb_Fecha.ToShortDateString()),
+                                cb_Valor = _CbteCbleInfo.cb_Valor,
+                                cb_Observacion = (_CbteCbleInfo.cb_Observacion == null) ? "" : _CbteCbleInfo.cb_Observacion,
+                                cb_Secuencia = Get_IdSecuencia(_CbteCbleInfo.IdEmpresa, ref MensajeError),
+                                cb_Estado = _CbteCbleInfo.Estado,
+                                cb_Anio = _CbteCbleInfo.cb_Fecha.Year,
+                                cb_mes = Convert.ToByte(_CbteCbleInfo.cb_Fecha.Month),
+                                IdUsuario = (_CbteCbleInfo.IdUsuario == null) ? "" : _CbteCbleInfo.IdUsuario,
+                                IdSucursal = _CbteCbleInfo.IdSucursal,
+                                cb_FechaTransac = DateTime.Now,
+                                cb_Mayorizado = _CbteCbleInfo.Mayorizado,
+                                cb_para_conciliar = false,
+                            });
 
                             context.SaveChanges();
 

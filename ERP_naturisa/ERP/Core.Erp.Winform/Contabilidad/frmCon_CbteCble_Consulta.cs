@@ -207,7 +207,7 @@ namespace Core.Erp.Winform.Contabilidad
                 ListInfoCbteCble = BusCbteCble.Get_list_Cbtecble(param.IdEmpresa
                     , ucGe_Menu_Mantenimiento_x_usuario.fecha_desde
                     , ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta
-                    , 1, 999999999999999, "", 0, 999, "", "", ref MensajeError);
+                    , 1, 999999999999999,  0, 999, ref MensajeError);
                 
                 griCbte.DataSource = ListInfoCbteCble;
                 griCbte.RefreshDataSource();

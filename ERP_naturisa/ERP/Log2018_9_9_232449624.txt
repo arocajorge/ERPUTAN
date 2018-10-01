@@ -1,9 +1,0 @@
-Category: Error, Message: System.InvalidOperationException: No connection string named 'EntitiesGeneral' could be found in the application config file.
-   en System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
-   en System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
-   en System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
-   en System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
-   en System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
-   en System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
-   en Core.Erp.Data.General.tb_sis_Mensajes_sys_Data.Get_List_Mensajes_sys() en c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Data\General\tb_sis_Mensajes_sys_Data.cs:línea 49
