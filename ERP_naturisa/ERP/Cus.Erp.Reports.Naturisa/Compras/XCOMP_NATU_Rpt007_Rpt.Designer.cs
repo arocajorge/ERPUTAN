@@ -94,6 +94,8 @@
             this.xrTableCell62 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell54 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -124,8 +126,7 @@
             this.PIdOrdenCompra = new DevExpress.XtraReports.Parameters.Parameter();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.PROVEEDOR = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell54 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.DESCUENTOTOTAL = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -851,6 +852,19 @@
             this.xrTable3.StylePriority.UseTextAlignment = false;
             this.xrTable3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
+            // xrTableRow2
+            // 
+            this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell54});
+            this.xrTableRow2.Name = "xrTableRow2";
+            this.xrTableRow2.Weight = 1D;
+            // 
+            // xrTableCell54
+            // 
+            this.xrTableCell54.Name = "xrTableCell54";
+            this.xrTableCell54.Text = " ";
+            this.xrTableCell54.Weight = 2.2631724210962947D;
+            // 
             // xrTableRow3
             // 
             this.xrTableRow3.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
@@ -936,7 +950,7 @@
             // xrTableCell48
             // 
             this.xrTableCell48.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "valor_descuento")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "DESCUENTOTOTAL")});
             this.xrTableCell48.Name = "xrTableCell48";
             this.xrTableCell48.StylePriority.UseTextAlignment = false;
             xrSummary2.FormatString = "{0:n2}";
@@ -1117,18 +1131,10 @@
             this.PROVEEDOR.Expression = "CONCAT(\'[\',[pr_codigo],\'] \',[nom_proveedor])";
             this.PROVEEDOR.Name = "PROVEEDOR";
             // 
-            // xrTableRow2
+            // DESCUENTOTOTAL
             // 
-            this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell54});
-            this.xrTableRow2.Name = "xrTableRow2";
-            this.xrTableRow2.Weight = 1D;
-            // 
-            // xrTableCell54
-            // 
-            this.xrTableCell54.Name = "xrTableCell54";
-            this.xrTableCell54.Text = " ";
-            this.xrTableCell54.Weight = 2.2631724210962947D;
+            this.DESCUENTOTOTAL.Expression = "[cantidad]*[valor_descuento]";
+            this.DESCUENTOTOTAL.Name = "DESCUENTOTOTAL";
             // 
             // XCOMP_NATU_Rpt007_Rpt
             // 
@@ -1139,7 +1145,8 @@
             this.ReportHeader,
             this.ReportFooter});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
-            this.PROVEEDOR});
+            this.PROVEEDOR,
+            this.DESCUENTOTOTAL});
             this.DataSource = this.bindingSource1;
             this.Margins = new System.Drawing.Printing.Margins(13, 31, 18, 24);
             this.PageHeight = 550;
@@ -1254,5 +1261,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow2;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell54;
+        private DevExpress.XtraReports.UI.CalculatedField DESCUENTOTOTAL;
     }
 }
