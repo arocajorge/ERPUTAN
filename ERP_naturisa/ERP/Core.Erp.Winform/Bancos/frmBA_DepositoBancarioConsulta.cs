@@ -19,7 +19,8 @@ namespace Core.Erp.Winform.Bancos
     public partial class frmBA_DespositoBancarioConsulta : Form
     {
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
-
+        List<ba_TipoFlujo_Info> lst_tipo_flujo = new List<ba_TipoFlujo_Info>();
+        ba_TipoFlujo_Bus bus_tipo_flujo = new ba_TipoFlujo_Bus();
         public frmBA_DespositoBancarioConsulta()
         {
             try
@@ -186,6 +187,7 @@ namespace Core.Erp.Winform.Bancos
             {
                 //dtp_desde.Value = dtp_desde.Value.AddDays(-30);
                 load_data();
+                cargar_combos();
             }
             catch (Exception ex)
             {
@@ -335,6 +337,63 @@ namespace Core.Erp.Winform.Bancos
             }
         }
 
+        private void cargar_combos()
+        {
+            try
+            {
+                lst_tipo_flujo = bus_tipo_flujo.Get_List_TipoFlujo(param.IdEmpresa);
+                cmb_tipo_flujo.DataSource = lst_tipo_flujo;
+            }
+            catch (Exception ex)
+            {
+                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
+            }
+        }
 
+        private void UltraGridCbteBanDep_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                ba_Cbte_Ban_Info row = (ba_Cbte_Ban_Info)UltraGridCbteBanDep.GetRow(e.RowHandle);
+                if (row == null) return;
+
+                if (e.Column == col_tipo_flujo)
+                {
+                    if (MessageBox.Show("¿Está seguro que desea modificar el tipo de flujo del Cbte # " + row.IdCbteCble.ToString() + "?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (e.Value == null)
+                            CbteBan_B.Modificar_tipo_flujo(row.IdEmpresa, row.IdTipocbte, row.IdCbteCble, null);
+                        else
+                            CbteBan_B.Modificar_tipo_flujo(row.IdEmpresa, row.IdTipocbte, row.IdCbteCble, Convert.ToDecimal(e.Value));
+                    }
+                    load_data();
+                }
+            }
+            catch (Exception ex)
+            {
+                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
+            }
+        }
+
+        private void UltraGridCbteBanDep_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                if (e.Column == col_tipo_flujo)
+                {
+                    UltraGridCbteBanDep.SetRowCellValue(e.RowHandle, col_tipo_flujo, e.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
+            }
+        }
     }
 }

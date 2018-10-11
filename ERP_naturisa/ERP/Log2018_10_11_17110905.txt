@@ -1,0 +1,32 @@
+Category: Error, Message: System.InvalidOperationException: No connection string named 'EntitiesGeneral' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Select[TSource,TResult](IQueryable`1 source, Expression`1 selector)
+   at Core.Erp.Data.General.tb_sis_Mensajes_sys_Data.Get_List_Mensajes_sys() in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Data\General\tb_sis_Mensajes_sys_Data.cs:line 49
+Category: Error, Message: System.InvalidOperationException: No connection string named 'EntitiesGeneral' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Core.Erp.Data.General.tb_Sucursal_Data.Get_List_Sucursal(Int32 IdEmpresa) in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Data\General\tb_Sucursal_Data.cs:line 22
+Category: Error, Message: Cargar_sucursal UCGe_Menu_Mantenimiento_x_usuario - Core.Erp.Info.Log_Exception.DalException ---> System.Exception: System.InvalidOperationException: No connection string named 'EntitiesGeneral' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Core.Erp.Data.General.tb_Sucursal_Data.Get_List_Sucursal(Int32 IdEmpresa) in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Data\General\tb_Sucursal_Data.cs:line 22
+   at Core.Erp.Data.General.tb_Sucursal_Data.Get_List_Sucursal(Int32 IdEmpresa) in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Data\General\tb_Sucursal_Data.cs:line 59
+   at Core.Erp.Business.General.tb_Sucursal_Bus.Get_List_Sucursal(Int32 idempresa) in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Bussines\General\tb_Sucursal_Bus.cs:line 52
+   --- End of inner exception stack trace ---
+   at Core.Erp.Business.General.tb_Sucursal_Bus.Get_List_Sucursal(Int32 idempresa) in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Bussines\General\tb_Sucursal_Bus.cs:line 58
+   at Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario.Cargar_sucursal() in c:\Users\AROCA\Desktop\Proyectos GitHub\ERPUTAN\ERP_naturisa\ERP\Core.Erp.Winform\Controles\UCGe_Menu_Mantenimiento_x_usuario.cs:line 885
