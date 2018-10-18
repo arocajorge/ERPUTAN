@@ -432,7 +432,7 @@ namespace Core.Erp.Winform.Compras
                 cmbEstadoAprob.EditValue = Info_OC.IdEstadoAprobacion_cat;
                 ucCom_Comprador1.set_CompradorInfo(Info_OC.IdComprador);
                 cmbDepartamento.set_DepartamentoInfo(Convert.ToDecimal(Info_OC.IdDepartamento));
-                dtpFechaEntrega.Value = Info_OC.oc_fechaVencimiento;
+                dtpFechaEntrega.Value = Info_OC.oc_fechaVencimiento == null ? DateTime.Now.Date : Convert.ToDateTime(Info_OC.oc_fechaVencimiento);
                 dTPFecha.Value = Convert.ToDateTime(Info_OC.oc_fecha);
                 if (Info_OC.Estado == "I")
                 {

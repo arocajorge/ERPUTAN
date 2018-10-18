@@ -47,7 +47,7 @@ namespace Core.Erp.Info.Compras
         public string IdEstado_cierre { get; set; }
 
 
-        public DateTime oc_fechaVencimiento { get; set; }
+        public DateTime? oc_fechaVencimiento { get; set; }
 
         public decimal? IdSolicitante { get; set; }
         public decimal IdComprador { get; set; }
@@ -111,5 +111,29 @@ namespace Core.Erp.Info.Compras
             listDetSoliciComp = new List<com_solicitud_compra_det_Info>();
         }
 
+
+        public string nom_punto_cargo { get; set; }
+    }
+
+    public class com_ordencompra_local_sin_guia_consulta
+    {
+
+        public int IdEmpresa { get; set; }
+
+        public int IdSucursal { get; set; }
+
+        public decimal IdOrdenCompra { get; set; }
+
+        public DateTime oc_fecha { get; set; }
+
+        public string oc_observacion { get; set; }
+
+        public string IdEstadoAprobacion_cat { get; set; }
+
+        public string Estado { get; set; }
+
+        public decimal IdProveedor { get; set; }
+
+        public string nom_proveedor { get; set; }
     }
 }

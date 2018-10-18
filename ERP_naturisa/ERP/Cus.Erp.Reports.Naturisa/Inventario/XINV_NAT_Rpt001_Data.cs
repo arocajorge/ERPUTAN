@@ -15,51 +15,49 @@ namespace Cus.Erp.Reports.Naturisa.Inventario
 
                 using (EntitiesInventario_Rpt_Natu guiaderemision = new EntitiesInventario_Rpt_Natu())
                 {
-                    var select = from h in guiaderemision.vwINV_NAT_Rpt001
-                                 where h.IdEmpresa == IdEmpresa
-                                 && h.IdGuia == IdGuia
-                                 select h;
-
-                    foreach (var item in select)
-                    {
-                        XINV_NAT_Rpt001_Info Info = new XINV_NAT_Rpt001_Info();
-                        Info.IdEmpresa = item.IdEmpresa;
-                        Info.IdGuia = item.IdGuia;
-                        Info.TipoDetalle = item.TipoDetalle;
-                        Info.secuencia = item.secuencia;
-                        Info.IdEmpresa_OC = item.IdEmpresa_OC;
-                        Info.IdSucursal_OC = item.IdSucursal_OC;
-                        Info.IdOrdenCompra_OC = item.IdOrdenCompra_OC;
-                        Info.Secuencia_OC = item.Secuencia_OC;
-                        Info.observacion = item.observacion;
-                        Info.IdProducto = item.IdProducto;
-                        Info.Cantidad_enviar = item.Cantidad_enviar;
-                        Info.nom_producto = item.nom_producto;
-                        Info.CantOC = item.CantOC;
-                        Info.Observacion_OC = item.Observacion_OC;
-                        Info.Num_Fact = item.Num_Fact;
-                        Info.IdProveedor = item.IdProveedor;
-                        Info.nom_proveedor = item.nom_proveedor;
-                        Info.NumGuia = item.NumGuia;
-                        Info.IdSucursal_Partida = item.IdSucursal_Partida;
-                        Info.Nom_Sucursal_Partida = item.Nom_Sucursal_Partida;
-                        Info.Direc_sucu_Partida = item.Direc_sucu_Partida;
-                        Info.IdSucursal_Llegada = item.IdSucursal_Llegada;
-                        Info.Nom_Sucursal_LLegada = item.Nom_Sucursal_LLegada;
-                        Info.Direc_sucu_Llegada = item.Direc_sucu_Llegada;
-                        Info.IdTransportista = item.IdTransportista;
-                        Info.nom_transportista = item.nom_transportista;
-                        Info.cedu_transportista = item.cedu_transportista;
-                        Info.Fecha = item.Fecha;
-                        Info.Fecha_Traslado = item.Fecha_Traslado;
-                        Info.Fecha_llegada = item.Fecha_llegada;
-                        Info.IdMotivo_Traslado = item.IdMotivo_Traslado;
-                        Info.Hora_Traslado = item.Hora_Traslado;
-                        Info.Hora_Llegada = item.Hora_Llegada;
-                        Info.nom_motivo = item.nom_motivo;
-                        Info.pr_codigo = item.pr_codigo;
-                        listadedatos.Add(Info);
-                    }
+                    listadedatos = (from h in guiaderemision.vwINV_NAT_Rpt001
+                                    where h.IdEmpresa == IdEmpresa
+                                    && h.IdGuia == IdGuia
+                                    select new XINV_NAT_Rpt001_Info
+                                    {
+                                        IdEmpresa = h.IdEmpresa,
+                                        IdGuia = h.IdGuia,
+                                        TipoDetalle = h.TipoDetalle,
+                                        secuencia = h.secuencia,
+                                        IdEmpresa_OC = h.IdEmpresa_OC,
+                                        IdSucursal_OC = h.IdSucursal_OC,
+                                        IdOrdenCompra_OC = h.IdOrdenCompra_OC,
+                                        Secuencia_OC = h.Secuencia_OC,
+                                        observacion = h.observacion,
+                                        IdProducto = h.IdProducto,
+                                        Cantidad_enviar = h.Cantidad_enviar,
+                                        nom_producto = h.nom_producto,
+                                        CantOC = h.CantOC,
+                                        Observacion_OC = h.Observacion_OC,
+                                        Num_Fact = h.Num_Fact,
+                                        IdProveedor = h.IdProveedor,
+                                        nom_proveedor = h.nom_proveedor,
+                                        NumGuia = h.NumGuia,
+                                        IdSucursal_Partida = h.IdSucursal_Partida,
+                                        Nom_Sucursal_Partida = h.Nom_Sucursal_Partida,
+                                        Direc_sucu_Partida = h.Direc_sucu_Partida,
+                                        IdSucursal_Llegada = h.IdSucursal_Llegada,
+                                        Nom_Sucursal_LLegada = h.Nom_Sucursal_LLegada,
+                                        Direc_sucu_Llegada = h.Direc_sucu_Llegada,
+                                        IdTransportista = h.IdTransportista,
+                                        nom_transportista = h.nom_transportista,
+                                        cedu_transportista = h.cedu_transportista,
+                                        Fecha = h.Fecha,
+                                        Fecha_Traslado = h.Fecha_Traslado,
+                                        Fecha_llegada = h.Fecha_llegada,
+                                        IdMotivo_Traslado = h.IdMotivo_Traslado,
+                                        Hora_Traslado = h.Hora_Traslado,
+                                        Hora_Llegada = h.Hora_Llegada,
+                                        nom_motivo = h.nom_motivo,
+                                        pr_codigo = h.pr_codigo,
+                                        placa = h.Placa
+                                    }).ToList();
+                    
                 }
                 return listadedatos;
             }

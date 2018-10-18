@@ -757,7 +757,7 @@ namespace Core.Erp.Winform.Compras_cidersus
 
                  ucCom_Comprador1.set_CompradorInfo(OCInfo.IdComprador);
                 
-                dtpFechaEntrega.Value = InfoCab.oc_fechaVencimiento;
+                dtpFechaEntrega.Value =  InfoCab.oc_fechaVencimiento == null ? DateTime.Now.Date : Convert.ToDateTime(InfoCab.oc_fechaVencimiento).Date;
                 if (InfoCab.Estado == "I")
                 {
                     set_Accion(Cl_Enumeradores.eTipo_action.consultar);

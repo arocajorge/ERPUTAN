@@ -229,10 +229,10 @@ FROM            cp_Aprobacion_Ing_Bod_x_OC INNER JOIN
 						and in_INV_Rpt027.IdSucursal=@IdSucursal_ini 
 						and in_INV_Rpt027.IdBodega=@IdBodega_ini
 						and in_INV_Rpt027.IdUsuario = @IdUsuario 
-						and cab.cm_fecha between @Fecha_ini and @Fecha_fin
+						and isnull(cab.cm_fecha,@Fecha_ini)  between @Fecha_ini and @Fecha_fin
 						AND @Mostrar_detallado = 1
-						and cab.Estado = 'A'
-						AND mot.Genera_Movi_Inven = 'S'
+						and isnull(cab.Estado,'A') = 'A'
+						AND ISNULL(mot.Genera_Movi_Inven,'S') = 'S'
 
 
 				UNION
@@ -260,17 +260,16 @@ FROM            cp_Aprobacion_Ing_Bod_x_OC INNER JOIN
 						in_INV_Rpt027.IdEmpresa = tb_bodega.IdEmpresa AND in_INV_Rpt027.IdSucursal = tb_bodega.IdSucursal AND in_INV_Rpt027.IdBodega = tb_bodega.IdBodega
 						inner join in_UnidadMedida on in_Producto.IdUnidadMedida_Consumo = in_UnidadMedida.IdUnidadMedida
 						WHERE NOT EXISTS(
-							SELECT cab.IdEmpresa FROM in_Ing_Egr_Inven cab inner join in_Ing_Egr_Inven_det det
-							on cab.IdEmpresa = det.IdEmpresa
-							and cab.IdSucursal = det.IdSucursal
-							and cab.IdBodega = det.IdBodega
-							and cab.IdMovi_inven_tipo = det.IdMovi_inven_tipo
-							and cab.IdNumMovi = det.IdNumMovi
+							SELECT cab.IdEmpresa FROM            in_Ing_Egr_Inven AS cab INNER JOIN
+                         in_Ing_Egr_Inven_det AS det ON cab.IdEmpresa = det.IdEmpresa AND cab.IdSucursal = det.IdSucursal AND cab.IdMovi_inven_tipo = det.IdMovi_inven_tipo AND cab.IdNumMovi = det.IdNumMovi INNER JOIN
+                         in_Motivo_Inven ON cab.IdEmpresa = in_Motivo_Inven.IdEmpresa AND cab.IdMotivo_Inv = in_Motivo_Inven.IdMotivo_Inv
 							where cab.cm_fecha between @Fecha_ini and @Fecha_fin
 							and det.IdEmpresa = in_INV_Rpt027.IdEmpresa
 							and det.IdSucursal = in_INV_Rpt027.IdSucursal
 							and det.IdBodega = in_INV_Rpt027.IdBodega
 							and det.IdProducto = in_INV_Rpt027.IdProducto
+							and det.IdEmpresa = @IdEmpresa and cab.Estado = 'A'
+							and in_Motivo_Inven.Genera_Movi_Inven = 'S'
 						)
 						and @IdUsuario =in_INV_Rpt027.IdUsuario and @Mostrar_detallado = 1
 						UNION						

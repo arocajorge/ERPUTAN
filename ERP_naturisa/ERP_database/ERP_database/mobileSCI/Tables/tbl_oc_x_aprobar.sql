@@ -17,6 +17,9 @@
     [oc_fecha]               DATETIME       NOT NULL,
     [oc_observacion]         VARCHAR (1000) NOT NULL,
     [IdUnidadMedida_Consumo] VARCHAR (25)   NOT NULL,
+    [NomSucursal]            VARCHAR (1000) NULL,
     CONSTRAINT [PK_tbl_oc_x_aprobar] PRIMARY KEY CLUSTERED ([IdRow] ASC)
 );
+
+
 

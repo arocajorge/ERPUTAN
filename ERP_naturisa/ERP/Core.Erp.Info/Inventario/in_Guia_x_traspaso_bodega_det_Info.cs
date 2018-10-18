@@ -54,5 +54,7 @@ namespace Core.Erp.Info.Inventario
 
 
       public in_Guia_x_traspaso_bodega_det_Info(){}
+
+      public string nom_punto_cargo { get; set; }
     }
 }

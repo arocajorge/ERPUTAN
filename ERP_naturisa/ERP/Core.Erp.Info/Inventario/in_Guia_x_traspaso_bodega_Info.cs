@@ -16,9 +16,9 @@ namespace Core.Erp.Info.Inventario
         public string Direc_sucu_Partida { get; set; }
         public string Direc_sucu_Llegada { get; set; }
         public decimal? IdTransportista { get; set; }
-        public DateTime Fecha { get; set; }
-        public DateTime Fecha_Traslado { get; set; }
-        public DateTime Fecha_llegada { get; set; }
+        public DateTime? Fecha { get; set; }
+        public DateTime? Fecha_Traslado { get; set; }
+        public DateTime? Fecha_llegada { get; set; }
         public string  IdMotivo_Traslado { get; set; }
         public string Estado { get; set; }
 
@@ -80,5 +80,9 @@ namespace Core.Erp.Info.Inventario
            Lista_Detalle_Transferencia = new List<in_Guia_x_traspaso_bodega_x_in_transferencia_det_Info>();
            Info_Talonario = new tb_sis_Documento_Tipo_Talonario_Info();
        }
+
+       public string NombreDestinatario { get; set; }
+
+       public string IdentificacionDestinatario { get; set; }
     }
 }

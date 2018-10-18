@@ -721,8 +721,8 @@ namespace Core.Erp.Winform.Compras_cidersus
                 ucCom_TerminoPagoCmb1.set_TermPagoInfo(OCInfo.IdTerminoPago);
 
                  ucCom_Comprador1.set_CompradorInfo(OCInfo.IdComprador);
-                
-                dtpFechaEntrega.Value = InfoCab.oc_fechaVencimiento;
+
+                 dtpFechaEntrega.Value = OCInfo.oc_fechaVencimiento == null ? DateTime.Now.Date : Convert.ToDateTime(OCInfo.oc_fechaVencimiento);
                 if (InfoCab.Estado == "I")
                 {
                     set_Accion(Cl_Enumeradores.eTipo_action.consultar);

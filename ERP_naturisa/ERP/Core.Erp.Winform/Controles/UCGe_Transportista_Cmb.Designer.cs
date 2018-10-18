@@ -58,14 +58,14 @@
             // 
             // cmb_Acciones
             // 
-            this.cmb_Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Acciones.ContextMenuStrip = this.MenuAcciones;
             this.cmb_Acciones.ImageIndex = 1;
             this.cmb_Acciones.ImageList = this.imageList1;
-            this.cmb_Acciones.Location = new System.Drawing.Point(275, 1);
+            this.cmb_Acciones.Location = new System.Drawing.Point(367, 1);
+            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Acciones.Name = "cmb_Acciones";
             this.cmb_Acciones.ShowArrowButton = false;
-            this.cmb_Acciones.Size = new System.Drawing.Size(36, 22);
+            this.cmb_Acciones.Size = new System.Drawing.Size(48, 27);
             this.cmb_Acciones.TabIndex = 60;
             this.cmb_Acciones.Click += new System.EventHandler(this.cmb_Acciones_Click);
             // 
@@ -78,14 +78,14 @@
             this.consultarToolStripMenuItem});
             this.MenuAcciones.Name = "MenuAcciones";
             this.MenuAcciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuAcciones.Size = new System.Drawing.Size(126, 70);
+            this.MenuAcciones.Size = new System.Drawing.Size(143, 76);
             this.MenuAcciones.Text = "Acciones";
             // 
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
@@ -93,7 +93,7 @@
             // 
             this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -101,7 +101,7 @@
             // 
             this.consultarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarToolStripMenuItem.Image")));
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
@@ -118,17 +118,15 @@
             // 
             // cmbTransportista
             // 
-            this.cmbTransportista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbTransportista.Location = new System.Drawing.Point(6, 4);
+            this.cmbTransportista.Location = new System.Drawing.Point(8, 5);
+            this.cmbTransportista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTransportista.Name = "cmbTransportista";
             this.cmbTransportista.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTransportista.Properties.DisplayMember = "Nombre";
             this.cmbTransportista.Properties.ValueMember = "IdTransportista";
             this.cmbTransportista.Properties.View = this.searchLookUpEdit1View;
-            this.cmbTransportista.Size = new System.Drawing.Size(263, 20);
+            this.cmbTransportista.Size = new System.Drawing.Size(351, 22);
             this.cmbTransportista.TabIndex = 59;
             this.cmbTransportista.EditValueChanged += new System.EventHandler(this.cmbTransportista_EditValueChanged);
             // 
@@ -169,12 +167,13 @@
             // 
             // UCGe_Transportista_Cmb
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_Acciones);
             this.Controls.Add(this.cmbTransportista);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCGe_Transportista_Cmb";
-            this.Size = new System.Drawing.Size(317, 27);
+            this.Size = new System.Drawing.Size(423, 33);
             this.Load += new System.EventHandler(this.UCGe_Transportista_Cmb_Load);
             this.MenuAcciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbTransportista.Properties)).EndInit();

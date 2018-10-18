@@ -86,41 +86,36 @@ namespace Core.Erp.Data.Compras
             }
         }
 
-        public List<com_ordencompra_local_Info> Get_List_ordencompra_local_sin_Guia_x_traspaso_bodega(int IdEmpresa, int IdSucursal, DateTime FechaIni, DateTime FechaFin)
+        public List<com_ordencompra_local_sin_guia_consulta> Get_List_ordencompra_local_sin_Guia_x_traspaso_bodega(int IdEmpresa, int IdSucursal, DateTime FechaIni, DateTime FechaFin)
         {
-            List<com_ordencompra_local_Info> Lst = new List<com_ordencompra_local_Info>();
+            List<com_ordencompra_local_sin_guia_consulta> Lst = new List<com_ordencompra_local_sin_guia_consulta>();
             EntitiesCompras OEComp = new EntitiesCompras();
             try
             {
                 FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
                 FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
 
-                 var Select = from q in OEComp.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega
-                                  where q.IdEmpresa == IdEmpresa
-                                  && q.oc_fecha <= FechaFin
-                                  && q.oc_fecha >= FechaIni
-                                  && q.IdSucursal == IdSucursal
-                                  && q.Saldo_x_Enviar>0
-                                  && q.Estado == "A"
-                                  select q;
+                Lst = (from q in OEComp.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega
+                              where q.IdEmpresa == IdEmpresa
+                              && q.oc_fecha <= FechaFin
+                              && q.oc_fecha >= FechaIni
+                              && q.IdSucursal == IdSucursal
+                              && q.Saldo_x_Enviar > 0
+                              && q.Estado == "A"
+                              select new com_ordencompra_local_sin_guia_consulta
+                              {
+                                  IdEmpresa = q.IdEmpresa,
+                                  IdSucursal = q.IdSucursal,
+                                  IdOrdenCompra = q.IdOrdenCompra,
+                                  oc_fecha = q.oc_fecha,
+                                  oc_observacion = q.oc_observacion,
+                                  IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
+                                  Estado = q.Estado,
+                                  IdProveedor = q.IdProveedor,
+                                  nom_proveedor = q.nom_proveedor,
+                              }).ToList();
                               
-                    foreach (var item in Select)
-                    {
-                        com_ordencompra_local_Info info = new com_ordencompra_local_Info();
-
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdSucursal = item.IdSucursal;
-                        info.IdOrdenCompra = item.IdOrdenCompra;
-                        info.oc_fecha = item.oc_fecha;
-                        info.oc_observacion = item.oc_observacion;
-                        info.IdEstadoAprobacion_cat = item.IdEstadoAprobacion_cat;
-                        info.Estado = item.Estado;
-                        info.IdProveedor = item.IdProveedor;
-                        info.nom_proveedor = item.nom_proveedor;
-                        info.Estado = item.Estado;
-                        
-                        Lst.Add(info);          
-                }
+                
                 return Lst;
             }
             catch (Exception ex)
@@ -140,34 +135,30 @@ namespace Core.Erp.Data.Compras
             List<com_ordencompra_local_Info> Lst = new List<com_ordencompra_local_Info>();
             EntitiesCompras OEComp = new EntitiesCompras();
             try
-            {              
-                var Select = from q in OEComp.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det 
-                             where q.IdEmpresa == IdEmpresa
-                             && q.IdOrdenCompra == IdOrdenCompra
-                             && q.IdSucursal == IdSucursal
-                             && q.Saldo_x_Enviar > 0
-                             select q;
+            {
+                Lst = (from q in OEComp.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det
+                       where q.IdEmpresa == IdEmpresa
+                       && q.IdOrdenCompra == IdOrdenCompra
+                       && q.IdSucursal == IdSucursal
+                       && q.Saldo_x_Enviar > 0
+                       select new com_ordencompra_local_Info
+                       {
+                           IdEmpresa = q.IdEmpresa,
+                           IdSucursal = q.IdSucursal,
+                           IdOrdenCompra = q.IdOrdenCompra,
+                           oc_fecha = q.oc_fecha,
+                           oc_observacion = q.co_observacion,
+                           IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
+                           Estado = q.Estado,
+                           IdProveedor = q.IdProveedor,
+                           nom_proveedor = q.nom_proveedor,
+                           do_Cantidad = q.Saldo_x_Enviar,
+                           nom_producto = q.nom_producto,
+                           IdProducto = q.IdProducto,
+                           Secuencia = q.Secuencia,
+                           nom_punto_cargo = q.nom_punto_cargo,
+                       }).ToList();
 
-                foreach (var item in Select)
-                {
-                    com_ordencompra_local_Info info = new com_ordencompra_local_Info();
-
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdSucursal = item.IdSucursal;
-                    info.IdOrdenCompra = item.IdOrdenCompra;
-                    info.oc_fecha = item.oc_fecha;
-                    info.oc_observacion = item.co_observacion;
-                    info.IdEstadoAprobacion_cat = item.IdEstadoAprobacion_cat;
-                    info.Estado = item.Estado;
-                    info.IdProveedor = item.IdProveedor;
-                    info.nom_proveedor = item.nom_proveedor;
-                    info.do_Cantidad = item.Saldo_x_Enviar;//aqui pongo el saldo pendiente x enviar
-                    info.nom_producto = item.nom_producto;
-                    info.IdProveedor = item.IdProducto;
-                    info.Secuencia = item.Secuencia;
-                    info.Estado = item.Estado;
-                    Lst.Add(info);
-                }
                 return Lst;
             }
             catch (Exception ex)
@@ -188,42 +179,38 @@ namespace Core.Erp.Data.Compras
             EntitiesCompras OEComp = new EntitiesCompras();
             try
             {
-                var Select = from q in OEComp.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul
-                             where q.IdEmpresa == IdEmpresa
-                             && q.IdGuia == IdGuia
-                             select q;
+                Lst = (from q in OEComp.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul
+                              where q.IdEmpresa == IdEmpresa
+                              && q.IdGuia == IdGuia
+                              select new com_ordencompra_local_Info
+                              {
+                                  IdEmpresa = q.IdEmpresa,
+                                  IdSucursal = q.IdSucursal,
+                                  IdOrdenCompra = q.IdOrdenCompra,
+                                  oc_fecha = q.oc_fecha,
+                                  oc_observacion = q.oc_observacion,
+                                  IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
+                                  Estado = q.Estado,
+                                  IdProveedor = q.IdProveedor,
+                                  nom_proveedor = q.nom_proveedor,
+                                  IdProducto = q.IdProducto,
+                                  cod_producto = q.cod_producto,
+                                  nom_producto = q.nom_producto,
+                                  do_Cantidad = q.do_Cantidad,
+                                  do_precioCompra = q.do_precioCompra,
+                                  do_subtotal = q.do_subtotal,
+                                  Su_Descripcion = q.Su_Descripcion,
+                                  oc_NumDocumento = q.oc_NumDocumento,
+                                  Secuencia = q.Secuencia,
+                                  Cantidad_enviar = q.Cantidad_enviar,
+                                  IdGuia = q.IdGuia,
+                                  oc_fechaVencimiento = q.oc_fechaVencimiento,
 
-                foreach (var item in Select)
-                {
-                    com_ordencompra_local_Info info = new com_ordencompra_local_Info();
+                                  observacion_det_gui = q.observacion_det_gui,
+                                  Referencia_guia = q.Referencia,
+                                  nom_punto_cargo = q.nom_punto_cargo,
+                              }).ToList();
 
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdSucursal = item.IdSucursal;
-                    info.IdOrdenCompra = item.IdOrdenCompra;
-                    info.oc_fecha = item.oc_fecha;
-                    info.oc_observacion = item.oc_observacion;
-                    info.IdEstadoAprobacion_cat = item.IdEstadoAprobacion_cat;                    
-                    info.Estado = item.Estado;
-                    info.IdProveedor = item.IdProveedor;
-                    info.nom_proveedor = item.nom_proveedor;
-                    info.IdProducto = item.IdProducto;
-                    info.cod_producto = item.cod_producto;
-                    info.nom_producto = item.nom_producto;
-                    info.do_Cantidad = item.do_Cantidad;
-                    info.do_precioCompra = item.do_precioCompra;
-                    info.do_subtotal = item.do_subtotal;
-                    info.Su_Descripcion = item.Su_Descripcion;
-                    info.oc_NumDocumento = item.oc_NumDocumento; 
-                    info.Secuencia = item.Secuencia;
-                    info.Cantidad_enviar = Convert.ToDouble(item.Cantidad_enviar);
-                    info.IdGuia = item.IdGuia;
-                    info.oc_fechaVencimiento = Convert.ToDateTime(item.oc_fechaVencimiento);
-
-                    info.observacion_det_gui = item.observacion_det_gui;
-                    info.Referencia_guia = item.Referencia;                    
-
-                    Lst.Add(info);
-                }
                 return Lst;
             }
             catch (Exception ex)

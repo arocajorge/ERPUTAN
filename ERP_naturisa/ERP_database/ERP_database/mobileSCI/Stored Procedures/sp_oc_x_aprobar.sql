@@ -21,12 +21,13 @@ INSERT INTO [mobileSCI].[tbl_oc_x_aprobar]
            ,[pe_nombreCompleto]
            ,[oc_fecha]
            ,[oc_observacion]
-           ,[IdUnidadMedida_Consumo])
+           ,[IdUnidadMedida_Consumo]
+		   ,[NomSucursal])
 		   
 select det.IdEmpresa, det.IdSucursal, det.IdOrdenCompra, det.Secuencia,
 det.IdProducto, det.IdUnidadMedida, cab.IdProveedor, det.do_Cantidad, 0, 0,
 pro.pr_descripcion,pro.pr_codigo, uni.Descripcion, per.pe_nombreCompleto, cab.oc_fecha,
-cab.oc_observacion, pro.IdUnidadMedida_Consumo
+cab.oc_observacion, pro.IdUnidadMedida_Consumo, tb_sucursal.Su_Descripcion
 from com_ordencompra_local_det det
 inner join com_ordencompra_local cab
 on cab.IdEmpresa = det.IdEmpresa and cab.IdSucursal = det.IdSucursal
@@ -36,6 +37,7 @@ inner join in_UnidadMedida as uni on uni.IdUnidadMedida = det.IdUnidadMedida
 inner join cp_proveedor as pr on pr.IdEmpresa = cab.IdEmpresa and pr.IdProveedor = cab.IdProveedor
 inner join tb_persona as per on per.IdPersona = pr.IdPersona
 inner join mobileSCI.tbl_producto as bod on bod.IdEmpresa = det.IdEmpresa and bod.IdProducto = det.IdProducto
+left join tb_sucursal on tb_sucursal.IdEmpresa = cab.IdEmpresa and tb_sucursal.IdSucursal = cab.IdSucursal
 where cab.IdEstado_cierre <> 'CERR' AND CAB.oc_fecha BETWEEN DATEADD(MONTH,-3, GETDATE()) AND GETDATE() AND CAB.IdEstadoAprobacion_cat = 'APRO'
 
 update [mobileSCI].[tbl_oc_x_aprobar] set cant_in = A.cantidad

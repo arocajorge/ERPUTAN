@@ -80,9 +80,9 @@ namespace Core.Erp.Data.Inventario
                       Address.IdMotivo_Traslado = info.IdMotivo_Traslado;
                       Address.IdTransportista = info.IdTransportista;
 
-                      Address.Fecha = Convert.ToDateTime(info.Fecha.ToShortDateString());
-                      Address.Fecha_Traslado = Convert.ToDateTime(info.Fecha_Traslado.ToShortDateString());
-                      Address.Fecha_llegada = Convert.ToDateTime(info.Fecha_llegada.ToShortDateString());
+                      Address.Fecha = Convert.ToDateTime(info.Fecha).Date;
+                      Address.Fecha_Traslado = Convert.ToDateTime(info.Fecha_Traslado).Date;
+                      Address.Fecha_llegada = Convert.ToDateTime(info.Fecha_llegada).Date;
                       Address.Estado = "A";
 
                       Address.IdUsuario = info.IdUsuario;
@@ -97,7 +97,10 @@ namespace Core.Erp.Data.Inventario
                       Address.IdPuntoEmision = info.IdPuntoEmision;
                       Address.NumDocumento_Guia = info.NumDocumento_Guia;
 
-
+                      Address.IdentificacionDestinatario = info.IdentificacionDestinatario;
+                      Address.NombreDestinatario = info.NombreDestinatario;
+                      Address.Direc_sucu_Llegada = info.Direc_sucu_Llegada;
+                      Address.Placa = info.Placa;
                       Context.in_Guia_x_traspaso_bodega.Add(Address);
                       Context.SaveChanges();
 
@@ -192,9 +195,9 @@ namespace Core.Erp.Data.Inventario
                           contact.Direc_sucu_Partida = info.Direc_sucu_Partida;
                           contact.Direc_sucu_Llegada = info.Direc_sucu_Llegada;
                           contact.IdTransportista = info.IdTransportista;
-                          contact.Fecha = Convert.ToDateTime(info.Fecha.ToShortDateString());
-                          contact.Fecha_Traslado = Convert.ToDateTime(info.Fecha_Traslado.ToShortDateString());
-                          contact.Fecha_llegada = Convert.ToDateTime(info.Fecha_llegada.ToShortDateString());
+                          contact.Fecha = Convert.ToDateTime(info.Fecha).Date;
+                          contact.Fecha_Traslado = Convert.ToDateTime(info.Fecha_Traslado).Date;
+                          contact.Fecha_llegada = Convert.ToDateTime(info.Fecha_llegada).Date;
                           contact.IdMotivo_Traslado = info.IdMotivo_Traslado;
 
                           contact.Hora_Llegada = info.Hora_Llegada;
@@ -208,6 +211,10 @@ namespace Core.Erp.Data.Inventario
                           contact.IdEstablecimiento = info.IdEstablecimiento;
                           contact.IdPuntoEmision = info.IdPuntoEmision;
                           contact.NumDocumento_Guia = info.NumDocumento_Guia;
+                          contact.Placa = info.Placa;
+                          contact.IdentificacionDestinatario = info.IdentificacionDestinatario;
+                          contact.NombreDestinatario = info.NombreDestinatario;
+                          contact.Direc_sucu_Llegada = info.Direc_sucu_Llegada;
 
                           context.SaveChanges();
 
@@ -362,46 +369,38 @@ namespace Core.Erp.Data.Inventario
              FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
              
              EntitiesInventario oEnti = new EntitiesInventario();
-             var Query = from q in oEnti.vwin_guia_x_traspaso_bodega
-                         where q.IdEmpresa == IdEmpresa
-                           && q.Fecha >= FechaIni
-                           && q.Fecha <= FechaFin
-                         
+             Lst = (from q in oEnti.vwin_guia_x_traspaso_bodega
+                          where q.IdEmpresa == IdEmpresa
+                            && q.Fecha >= FechaIni
+                            && q.Fecha <= FechaFin
+                          select new in_Guia_x_traspaso_bodega_Info
+                          {
+                              IdEmpresa = q.IdEmpresa,
+                              IdGuia = q.IdGuia,
+                              NumGuia = q.NumGuia,
+                              IdSucursal_Partida = q.IdSucursal_Partida,
+                              IdSucursal_Llegada = q.IdSucursal_Llegada,
+                              Direc_sucu_Partida = q.Direc_sucu_Partida,
+                              Direc_sucu_Llegada = q.Direc_sucu_Llegada,
+                              IdTransportista = q.IdTransportista,
+                              Fecha = q.Fecha,
+                              Fecha_Traslado = q.Fecha_Traslado,
+                              Fecha_llegada = q.Fecha_llegada,
+                              IdMotivo_Traslado = q.IdMotivo_Traslado,
+                              Estado = q.Estado,
+                              Su_Descripcion = q.Su_Descripcion,
+                              Su_Descripcion_Llegada = q.Su_Descripcion_Llegada,
+                              Hora_Llegada = q.Hora_Llegada,
+                              Hora_Traslado = q.Hora_Traslado,
+                              CodDocumentoTipo = q.CodDocumentoTipo,
+                              IdEstablecimiento = q.IdEstablecimiento,
+                              IdPuntoEmision = q.IdPuntoEmision,
+                              NumDocumento_Guia = q.NumDocumento_Guia,
+                              NombreDestinatario = q.NombreDestinatario,
+                              IdentificacionDestinatario = q.IdentificacionDestinatario,
+                              Placa = q.Placa
+                          }).ToList();
 
-                         select q;
-             foreach (var item in Query)
-             {
-                 in_Guia_x_traspaso_bodega_Info Obj = new in_Guia_x_traspaso_bodega_Info();
-                               
-                 Obj.IdEmpresa = item.IdEmpresa;
-                 Obj.IdGuia = item.IdGuia;              
-                 Obj.NumGuia = item.NumGuia;
-                 Obj.IdSucursal_Partida = item.IdSucursal_Partida;
-                 Obj.IdSucursal_Llegada = item.IdSucursal_Llegada;
-                 Obj.Direc_sucu_Partida = item.Direc_sucu_Partida;
-                 Obj.Direc_sucu_Llegada = item.Direc_sucu_Llegada;
-                 Obj.IdTransportista = item.IdTransportista;
-                 Obj.Fecha = Convert.ToDateTime(item.Fecha);
-                 Obj.Fecha_Traslado =Convert.ToDateTime(item.Fecha_Traslado);
-                 Obj.Fecha_llegada = Convert.ToDateTime(item.Fecha_llegada);
-                 Obj.IdMotivo_Traslado = item.IdMotivo_Traslado;
-                 Obj.Estado = item.Estado.TrimEnd();
-
-                 Obj.Su_Descripcion = item.Su_Descripcion;
-                 Obj.Su_Descripcion_Llegada = item.Su_Descripcion_Llegada;
-
-                Obj.Hora_Llegada=item.Hora_Llegada;
-                Obj.Hora_Traslado = item.Hora_Traslado;
-
-
-                Obj.CodDocumentoTipo = item.CodDocumentoTipo;
-                Obj.IdEstablecimiento = item.IdEstablecimiento;
-                Obj.IdPuntoEmision = item.IdPuntoEmision;
-                Obj.NumDocumento_Guia = item.NumDocumento_Guia;
-
-
-                 Lst.Add(Obj);
-             }
              return Lst;
          }
          catch (Exception ex)
@@ -462,55 +461,52 @@ namespace Core.Erp.Data.Inventario
      {
          try
          {
-             in_Guia_x_traspaso_bodega_Info Info_Guia = new in_Guia_x_traspaso_bodega_Info();
+             
              EntitiesInventario oEnti = new EntitiesInventario();
-             var Query = from q in oEnti.vwin_guia_x_traspaso_bodega
-                         where q.IdEmpresa == IdEmpresa
-                           && q.IdGuia == IdGuia
-                         select q;
-             foreach (var item in Query)
+             var item = oEnti.vwin_guia_x_traspaso_bodega.Where(q =>
+                         q.IdEmpresa == IdEmpresa
+                           && q.IdGuia == IdGuia).FirstOrDefault();
+
+             in_Guia_x_traspaso_bodega_Info Info_Guia = new in_Guia_x_traspaso_bodega_Info
              {
+                 IdEmpresa = item.IdEmpresa,
+                 IdGuia = item.IdGuia,
+                 NumGuia = item.NumGuia,
+                 IdSucursal_Partida = item.IdSucursal_Partida,
+                 IdSucursal_Llegada = item.IdSucursal_Llegada,
+                 Direc_sucu_Partida = item.Direc_sucu_Partida,
+                 Direc_sucu_Llegada = item.Direc_sucu_Llegada,
+                 IdTransportista = item.IdTransportista,
+                 Fecha = item.Fecha,
+                 Fecha_Traslado = item.Fecha_Traslado,
+                 Fecha_llegada = item.Fecha_llegada,
+                 IdMotivo_Traslado = item.IdMotivo_Traslado,
+                 Estado = item.Estado.TrimEnd(),
+                 Su_Descripcion = item.Su_Descripcion,
+                 Su_Descripcion_Llegada = item.Su_Descripcion_Llegada,
+                 Hora_Llegada = item.Hora_Llegada,
+                 Hora_Traslado = item.Hora_Traslado,
+                 CodDocumentoTipo = item.CodDocumentoTipo,
+                 IdEstablecimiento = item.IdEstablecimiento,
+                 IdPuntoEmision = item.IdPuntoEmision,
+                 NumDocumento_Guia = item.NumDocumento_Guia,
 
-                 Info_Guia.IdEmpresa = item.IdEmpresa;
-                 Info_Guia.IdGuia = item.IdGuia;              
-                 Info_Guia.NumGuia = item.NumGuia;
-                 Info_Guia.IdSucursal_Partida = item.IdSucursal_Partida;
-                 Info_Guia.IdSucursal_Llegada = item.IdSucursal_Llegada;
-                 Info_Guia.Direc_sucu_Partida = item.Direc_sucu_Partida;
-                 Info_Guia.Direc_sucu_Llegada = item.Direc_sucu_Llegada;
-                 Info_Guia.IdTransportista = item.IdTransportista;
-                 Info_Guia.Fecha = Convert.ToDateTime(item.Fecha);
-                 Info_Guia.Fecha_Traslado =Convert.ToDateTime(item.Fecha_Traslado);
-                 Info_Guia.Fecha_llegada = Convert.ToDateTime(item.Fecha_llegada);
-                 Info_Guia.IdMotivo_Traslado = item.IdMotivo_Traslado;
-                 Info_Guia.Estado = item.Estado.TrimEnd();
-                 Info_Guia.Su_Descripcion = item.Su_Descripcion;
-                 Info_Guia.Su_Descripcion_Llegada = item.Su_Descripcion_Llegada;
-                Info_Guia.Hora_Llegada=item.Hora_Llegada;
-                Info_Guia.Hora_Traslado = item.Hora_Traslado;
-                Info_Guia.CodDocumentoTipo = item.CodDocumentoTipo;
-                Info_Guia.IdEstablecimiento = item.IdEstablecimiento;
-                Info_Guia.IdPuntoEmision = item.IdPuntoEmision;
-                Info_Guia.NumDocumento_Guia = item.NumDocumento_Guia;
-
-                Info_Guia.ced_transportista= item.ced_transportista;
-                Info_Guia.nom_transportista= item.nom_transportista;
-                Info_Guia.nom_Motivo_Traslado= item.nom_Motivo_Traslado;
-                Info_Guia.cod_estable_llegada= item.cod_estable_llegada;
-                Info_Guia.cod_estable_partida= item.cod_estable_partida;
-                Info_Guia.razon_social_empresa= item.razon_social_empresa;
-                Info_Guia.nom_comercial_empresa= item.nom_comercial_empresa;
-                Info_Guia.contrib_especial_empresa= item.contrib_especial_empresa;
-                Info_Guia.obligado_conta_empresa= item.obligado_conta_empresa;
-                Info_Guia.ruc_empresa= item.ruc_empresa;
-                Info_Guia.nom_empresa= item.nom_empresa;
-                Info_Guia.direc_empresa= item.direc_empresa;
-                Info_Guia.Placa = item.Placa;
-
-
-
-             }
-
+                 ced_transportista = item.ced_transportista,
+                 nom_transportista = item.nom_transportista,
+                 nom_Motivo_Traslado = item.nom_Motivo_Traslado,
+                 cod_estable_llegada = item.cod_estable_llegada,
+                 cod_estable_partida = item.cod_estable_partida,
+                 razon_social_empresa = item.razon_social_empresa,
+                 nom_comercial_empresa = item.nom_comercial_empresa,
+                 contrib_especial_empresa = item.contrib_especial_empresa,
+                 obligado_conta_empresa = item.obligado_conta_empresa,
+                 ruc_empresa = item.ruc_empresa,
+                 nom_empresa = item.nom_empresa,
+                 direc_empresa = item.direc_empresa,
+                 Placa = item.Placa,
+                 NombreDestinatario = item.NombreDestinatario,
+                 IdentificacionDestinatario = item.IdentificacionDestinatario
+             };
              return Info_Guia;
          }
          catch (Exception ex)

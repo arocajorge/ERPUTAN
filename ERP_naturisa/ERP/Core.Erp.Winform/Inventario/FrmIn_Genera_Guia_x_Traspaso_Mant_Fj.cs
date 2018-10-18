@@ -303,15 +303,15 @@ namespace Core.Erp.Winform.Inventario
                 txtDirPuntoPart.Text = _SetInfo.Direc_sucu_Partida;
                 txtDirPuntoLlega.Text = _SetInfo.Direc_sucu_Llegada;
                 cmbTrasnportador.set_TransportistaInfo(Convert.ToDecimal(_SetInfo.IdTransportista));
-                dtpFecha.Value = _SetInfo.Fecha;
-                dtpFechaTras.Value = _SetInfo.Fecha_Traslado;
-                dtpFechaLlega.Value = _SetInfo.Fecha_llegada;
+//                dtpFecha.Value = _SetInfo.Fecha;
+  //              dtpFechaTras.Value = _SetInfo.Fecha_Traslado;
+    //            dtpFechaLlega.Value = _SetInfo.Fecha_llegada;
                 cmbMotivoTras.set_CatalogosInfo(_SetInfo.IdMotivo_Traslado);
 
 
-                DateTime FH_lle = new DateTime(_SetInfo.Fecha_Traslado.Year, _SetInfo.Fecha_Traslado.Month, _SetInfo.Fecha_Traslado.Day, 0, 0, 0);
-                DateTime FH_Tras = new DateTime(_SetInfo.Fecha_Traslado.Year, _SetInfo.Fecha_Traslado.Month, _SetInfo.Fecha_Traslado.Day, 0, 0, 0);
-
+      //          DateTime FH_lle = new DateTime(_SetInfo.Fecha_Traslado.Year, _SetInfo.Fecha_Traslado.Month, _SetInfo.Fecha_Traslado.Day, 0, 0, 0);
+        //        DateTime FH_Tras = new DateTime(_SetInfo.Fecha_Traslado.Year, _SetInfo.Fecha_Traslado.Month, _SetInfo.Fecha_Traslado.Day, 0, 0, 0);
+                /*
                 if (_SetInfo.Hora_Llegada == null)
                 {
                     timeHoraLlegada.EditValue = FH_lle;
@@ -339,7 +339,7 @@ namespace Core.Erp.Winform.Inventario
                 {
                     lblAnulado.Visible = false;
                 }
-
+                */
                 //consulta detalles
 
                  

@@ -42,6 +42,7 @@ namespace Cus.Erp.Reports.Naturisa.Inventario
         public Nullable<System.TimeSpan> Hora_Llegada { get; set; }
         public string nom_motivo { get; set; }
         public string pr_codigo { get; set; }
+        public string placa { get; set; }
         public XINV_NAT_Rpt001_Info()
 
         {

@@ -22,8 +22,8 @@ namespace Core.Erp.Winform.Compras
         com_ordencompra_local_Bus Bus_OCSinGuia = new com_ordencompra_local_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
 
-        
-        List<com_ordencompra_local_Info> LstOCSinGuia = new List<com_ordencompra_local_Info>();
+
+        List<com_ordencompra_local_sin_guia_consulta> LstOCSinGuia = new List<com_ordencompra_local_sin_guia_consulta>();
 
         public int IdSucursal { get; set; }
         public DateTime FechaIni { get; set; }

@@ -331,13 +331,14 @@ namespace Core.Erp.Winform.Inventario
                 Info_GuiaBodega.Fecha_Transac = param.Fecha_Transac;
                 Info_GuiaBodega.nom_pc = param.nom_pc;
                 Info_GuiaBodega.ip = param.ip;
-
+                Info_GuiaBodega.NombreDestinatario = txtDestinatario.Text;
+                Info_GuiaBodega.IdentificacionDestinatario = txtIdentifiacion.Text;
                 DateTime FechI = (DateTime)timeHoraLlegada.EditValue;
                 DateTime FechF = (DateTime)timeHoraTraslado.EditValue;
 
                 Info_GuiaBodega.Hora_Llegada = FechI.TimeOfDay;
                 Info_GuiaBodega.Hora_Traslado = FechF.TimeOfDay;
-
+                Info_GuiaBodega.Placa = txtPlaca.Text;
                 GetDetalle_OC();
                 GetDetalle_Sin_OC();
 
@@ -478,9 +479,19 @@ namespace Core.Erp.Winform.Inventario
                     MessageBox.Show("Seleccione el Punto de Partida", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-                if (cmbPuntoLlega.EditValue == null)
+                if (string.IsNullOrEmpty(txtDestinatario.Text))
                 {
-                    MessageBox.Show("Seleccione el Punto de Llegada", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Ingrese el nombre del destinatario", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                if (string.IsNullOrEmpty(txtIdentifiacion.Text))
+                {
+                    MessageBox.Show("Ingrese la identificación del destinatario", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                if (string.IsNullOrEmpty(txtDirPuntoLlega.Text))
+                {
+                    MessageBox.Show("Ingrese la dirección del destinatario", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
                 if (cmbTrasnportador.get_Transportistas() == null)
@@ -512,24 +523,6 @@ namespace Core.Erp.Winform.Inventario
                 {
                     MessageBox.Show("Seleccione la Fecha de Llegada", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
-                }
-
-
-
-                foreach (var item in ListBindDetSin_OC)
-                {
-                    /*if (item.IdProducto == 0)
-                    {
-                        MessageBox.Show("En la lista de productos sin OC hay un registro q no se asigno a un producto verfique antes de grabar", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
-                    }*/
-
-                    //if (item.IdProveedor == 0)
-                    //{
-                    //    MessageBox.Show("En la lista de productos sin OC hay un registro q no se asigno el proveedor verfique antes de grabar", "sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    return false;
-                    //}
-
                 }
 
                 return true;
@@ -731,14 +724,15 @@ namespace Core.Erp.Winform.Inventario
                 txtDirPuntoPart.Text = Info_GuiaBodega.Direc_sucu_Partida;
                 txtDirPuntoLlega.Text = Info_GuiaBodega.Direc_sucu_Llegada;
                 cmbTrasnportador.set_TransportistaInfo(Convert.ToDecimal(Info_GuiaBodega.IdTransportista));
-                dtpFecha.Value = Info_GuiaBodega.Fecha;
-                dtpFechaTras.Value = Info_GuiaBodega.Fecha_Traslado;
-                dtpFechaLlega.Value = Info_GuiaBodega.Fecha_llegada;
+                dtpFecha.Value = Convert.ToDateTime(Info_GuiaBodega.Fecha);
+                dtpFechaTras.Value = Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado);
+                dtpFechaLlega.Value = Convert.ToDateTime(Info_GuiaBodega.Fecha_llegada);
                 cmbMotivoTras.set_CatalogosInfo(Info_GuiaBodega.IdMotivo_Traslado);
-
-
-                DateTime FH_lle = new DateTime(Info_GuiaBodega.Fecha_Traslado.Year, Info_GuiaBodega.Fecha_Traslado.Month, Info_GuiaBodega.Fecha_Traslado.Day, 0, 0, 0);
-                DateTime FH_Tras = new DateTime(Info_GuiaBodega.Fecha_Traslado.Year, Info_GuiaBodega.Fecha_Traslado.Month, Info_GuiaBodega.Fecha_Traslado.Day, 0, 0, 0);
+                txtIdentifiacion.Text = Info_GuiaBodega.IdentificacionDestinatario;
+                txtDestinatario.Text = Info_GuiaBodega.NombreDestinatario;
+                txtPlaca.Text = Info_GuiaBodega.Placa;
+                DateTime FH_lle = new DateTime(Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Year, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Month, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Day, 0, 0, 0);
+                DateTime FH_Tras = new DateTime(Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Year, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Month, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Day, 0, 0, 0);
 
                 if (Info_GuiaBodega.Hora_Llegada == null)
                 {
@@ -746,7 +740,7 @@ namespace Core.Erp.Winform.Inventario
                 }
                 else
                 {
-                    timeHoraLlegada.EditValue = new DateTime(Info_GuiaBodega.Fecha_Traslado.Year, Info_GuiaBodega.Fecha_Traslado.Month, Info_GuiaBodega.Fecha_Traslado.Day, Info_GuiaBodega.Hora_Llegada.Value.Hours, Info_GuiaBodega.Hora_Llegada.Value.Minutes, Info_GuiaBodega.Hora_Llegada.Value.Seconds);
+                    timeHoraLlegada.EditValue = new DateTime(Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Year, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Month, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Day, Info_GuiaBodega.Hora_Llegada.Value.Hours, Info_GuiaBodega.Hora_Llegada.Value.Minutes, Info_GuiaBodega.Hora_Llegada.Value.Seconds);
                 }
 
                 if (Info_GuiaBodega.Hora_Traslado == null)
@@ -755,11 +749,11 @@ namespace Core.Erp.Winform.Inventario
                 }
                 else
                 {
-                    timeHoraTraslado.EditValue = new DateTime(Info_GuiaBodega.Fecha_Traslado.Year, Info_GuiaBodega.Fecha_Traslado.Month, Info_GuiaBodega.Fecha_Traslado.Day, Info_GuiaBodega.Hora_Traslado.Value.Hours, Info_GuiaBodega.Hora_Traslado.Value.Minutes, Info_GuiaBodega.Hora_Traslado.Value.Seconds);
+                    timeHoraTraslado.EditValue = new DateTime(Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Year, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Month, Convert.ToDateTime(Info_GuiaBodega.Fecha_Traslado).Day, Info_GuiaBodega.Hora_Traslado.Value.Hours, Info_GuiaBodega.Hora_Traslado.Value.Minutes, Info_GuiaBodega.Hora_Traslado.Value.Seconds);
                 }
 
 
-                if (Info_GuiaBodega.Estado.TrimEnd() == "I")
+                if (Info_GuiaBodega.Estado.Trim() == "I")
                 {
                     lblAnulado.Visible = true;
                 }
@@ -862,7 +856,15 @@ namespace Core.Erp.Winform.Inventario
                 if (cmbPuntoLlega.EditValue != null)
                 {
                     var itemLlegada = listSucursal.FirstOrDefault(q => q.IdSucursal == Convert.ToInt32(cmbPuntoLlega.EditValue));
-                    txtDirPuntoLlega.Text = itemLlegada.Su_Direccion;
+                    txtDirPuntoLlega.Text = itemLlegada.Su_Direccion.Trim();
+                    txtIdentifiacion.Text = param.InfoEmpresa.em_ruc.Trim();
+                    txtDestinatario.Text = itemLlegada.Su_Descripcion.Trim();
+                }
+                else
+                {
+                    txtDirPuntoLlega.Text = string.Empty;
+                    txtIdentifiacion.Text = string.Empty;
+                    txtDestinatario.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -936,7 +938,7 @@ namespace Core.Erp.Winform.Inventario
                             info.Cantidad_Saldo = item.do_Cantidad - item.Cantidad_enviar;
                             info.Cantidad_Saldo_Auxi = info.Cantidad_Saldo;
                             info.Cantidad_OC = item.do_Cantidad;
-
+                            info.nom_punto_cargo = item.nom_punto_cargo;    
                             
                             info.Check_OG = true;
 

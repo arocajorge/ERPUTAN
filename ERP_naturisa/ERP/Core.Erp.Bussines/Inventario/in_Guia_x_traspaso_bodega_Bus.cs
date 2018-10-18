@@ -203,7 +203,7 @@ namespace Core.Erp.Business.Inventario
                /*--- corrigiendo data */
 
                Info_Guia.Estado = (string.IsNullOrEmpty(Info_Guia.Estado) == true) ? "A" : Info_Guia.Estado;
-               Info_Guia.Fecha = Convert.ToDateTime(Info_Guia.Fecha.ToShortDateString());
+               Info_Guia.Fecha = Convert.ToDateTime(Info_Guia.Fecha).Date;
 
 
 
@@ -370,15 +370,15 @@ namespace Core.Erp.Business.Inventario
                  //      myObject.infoGuiaRemision.contribuyenteEspecial = Info_Guia.contrib_especial_empresa;
 
 
-                       myObject.infoGuiaRemision.fechaIniTransporte = Info_Guia.Fecha_Traslado.ToString(format);
-                       myObject.infoGuiaRemision.fechaFinTransporte = Info_Guia.Fecha_llegada.ToString(format);
+                       myObject.infoGuiaRemision.fechaIniTransporte = Convert.ToDateTime(Info_Guia.Fecha_Traslado).ToString(format);
+                       myObject.infoGuiaRemision.fechaFinTransporte = Convert.ToDateTime(Info_Guia.Fecha_llegada).ToString(format);
                       
                        
                        //datos del destinatario
-                       destinatari.identificacionDestinatario = Info_Guia.ruc_empresa;
-                       destinatari.razonSocialDestinatario =string.IsNullOrEmpty(Info_Guia.razon_social_empresa)?"": Info_Guia.razon_social_empresa.Trim();
-                       destinatari.dirDestinatario =string.IsNullOrEmpty(Info_Guia.direc_empresa)?"": Info_Guia.direc_empresa.Trim();
-                       destinatari.motivoTraslado =string.IsNullOrEmpty(Info_Guia.nom_Motivo_Traslado)?"": Info_Guia.nom_Motivo_Traslado.Trim();
+                       destinatari.identificacionDestinatario = Info_Guia.IdentificacionDestinatario;
+                       destinatari.razonSocialDestinatario = string.IsNullOrEmpty(Info_Guia.NombreDestinatario) ? "" : Info_Guia.NombreDestinatario.Trim();
+                       destinatari.dirDestinatario = string.IsNullOrEmpty(Info_Guia.Direc_sucu_Llegada) ? "" : Info_Guia.Direc_sucu_Llegada.Trim();
+                       destinatari.motivoTraslado = string.IsNullOrEmpty(Info_Guia.nom_Motivo_Traslado)?"": Info_Guia.nom_Motivo_Traslado.Trim();
                        //destinatari.ruta = "";
 
                     //destinatari.detalles.detalle

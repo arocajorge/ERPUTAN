@@ -9,8 +9,8 @@
         <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt003" Width="1.75" PointX="4.25" PointY="0.5" />
         <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt004" Width="1.75" PointX="6.125" PointY="0.5" />
         <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt005" Width="1.5" PointX="2.7086476342327184" PointY="9.43405899844787" />
-        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt001" Width="1.5" PointX="8.0720627550371269" PointY="18.540149816563424" />
         <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt006" Width="1.5" PointX="5.6658080526002719" PointY="22.899196635419131" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_NAT_Rpt001" Width="1.5" PointX="2.12269573943815" PointY="23.823364641435148" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

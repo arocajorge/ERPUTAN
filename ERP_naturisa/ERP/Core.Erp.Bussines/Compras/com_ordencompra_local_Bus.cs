@@ -54,7 +54,7 @@ namespace Core.Erp.Business.Compras
 
         }
 
-        public List<com_ordencompra_local_Info> Get_List_ordencompra_local_sin_Guia_x_traspaso_bodega(int IdEmpresa, int IdSucursal, DateTime FechaIni, DateTime FechaFin)
+        public List<com_ordencompra_local_sin_guia_consulta> Get_List_ordencompra_local_sin_Guia_x_traspaso_bodega(int IdEmpresa, int IdSucursal, DateTime FechaIni, DateTime FechaFin)
         {
             try
             {

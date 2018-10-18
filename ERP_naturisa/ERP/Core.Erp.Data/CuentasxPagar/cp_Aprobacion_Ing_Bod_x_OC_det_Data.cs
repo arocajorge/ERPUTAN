@@ -126,6 +126,8 @@ namespace Core.Erp.Data.CuentasxPagar
                List<cp_Aprobacion_Ing_Bod_x_OC_det_Info> Lst = new List<cp_Aprobacion_Ing_Bod_x_OC_det_Info>();
                EntitiesInventario oEnti = new EntitiesInventario();
 
+               oEnti.SetCommandTimeOut(3000);
+
                var Query = from q in oEnti.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det_x_cp_Aprobacion_Ing_Bod_x_OC_det
                            where q.IdEmpresa == IdEmpresa
                            && q.IdProveedor == IdProveedor

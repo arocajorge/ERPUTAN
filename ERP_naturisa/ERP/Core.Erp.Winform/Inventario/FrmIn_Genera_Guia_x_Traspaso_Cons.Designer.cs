@@ -49,6 +49,7 @@
             this.colFecha_Traslado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFecha_llegada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNumDocumento_Guia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGuiaCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGuiaCons)).BeginInit();
@@ -79,15 +80,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2017, 1, 24, 8, 48, 17, 820);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2017, 3, 24, 8, 48, 17, 820);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 9, 17, 11, 17, 9, 179);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 11, 17, 11, 17, 9, 180);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1029, 155);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1372, 191);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 0;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = false;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -107,6 +109,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_fechas = true;
@@ -123,9 +126,10 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 476);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 591);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1029, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1372, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -133,18 +137,21 @@
             // 
             this.panel1.Controls.Add(this.gridControlGuiaCons);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 155);
+            this.panel1.Location = new System.Drawing.Point(0, 191);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1029, 321);
+            this.panel1.Size = new System.Drawing.Size(1372, 400);
             this.panel1.TabIndex = 2;
             // 
             // gridControlGuiaCons
             // 
             this.gridControlGuiaCons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlGuiaCons.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlGuiaCons.Location = new System.Drawing.Point(0, 0);
             this.gridControlGuiaCons.MainView = this.gridViewGuiaCons;
+            this.gridControlGuiaCons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlGuiaCons.Name = "gridControlGuiaCons";
-            this.gridControlGuiaCons.Size = new System.Drawing.Size(1029, 321);
+            this.gridControlGuiaCons.Size = new System.Drawing.Size(1372, 400);
             this.gridControlGuiaCons.TabIndex = 0;
             this.gridControlGuiaCons.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGuiaCons});
@@ -167,7 +174,8 @@
             this.colEstado,
             this.colFecha_Traslado,
             this.colFecha_llegada,
-            this.colNumDocumento_Guia});
+            this.colNumDocumento_Guia,
+            this.gridColumn1});
             this.gridViewGuiaCons.GridControl = this.gridControlGuiaCons;
             this.gridViewGuiaCons.Name = "gridViewGuiaCons";
             this.gridViewGuiaCons.OptionsView.ShowAutoFilterRow = true;
@@ -192,7 +200,7 @@
             this.colIdGuia.OptionsColumn.AllowEdit = false;
             this.colIdGuia.Visible = true;
             this.colIdGuia.VisibleIndex = 0;
-            this.colIdGuia.Width = 48;
+            this.colIdGuia.Width = 74;
             // 
             // colNumGuia
             // 
@@ -216,7 +224,7 @@
             this.colSu_Descripcion.OptionsColumn.AllowEdit = false;
             this.colSu_Descripcion.Visible = true;
             this.colSu_Descripcion.VisibleIndex = 1;
-            this.colSu_Descripcion.Width = 178;
+            this.colSu_Descripcion.Width = 277;
             // 
             // colIdSucursal_Llegada
             // 
@@ -232,7 +240,7 @@
             this.colSu_Descripcion_Llegada.OptionsColumn.AllowEdit = false;
             this.colSu_Descripcion_Llegada.Visible = true;
             this.colSu_Descripcion_Llegada.VisibleIndex = 2;
-            this.colSu_Descripcion_Llegada.Width = 196;
+            this.colSu_Descripcion_Llegada.Width = 263;
             // 
             // colDirec_sucu_Partida
             // 
@@ -259,8 +267,8 @@
             this.colFecha.Name = "colFecha";
             this.colFecha.OptionsColumn.AllowEdit = false;
             this.colFecha.Visible = true;
-            this.colFecha.VisibleIndex = 3;
-            this.colFecha.Width = 123;
+            this.colFecha.VisibleIndex = 4;
+            this.colFecha.Width = 179;
             // 
             // colIdMotivo_Traslado
             // 
@@ -275,8 +283,8 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.OptionsColumn.AllowEdit = false;
             this.colEstado.Visible = true;
-            this.colEstado.VisibleIndex = 7;
-            this.colEstado.Width = 91;
+            this.colEstado.VisibleIndex = 6;
+            this.colEstado.Width = 141;
             // 
             // colFecha_Traslado
             // 
@@ -284,8 +292,6 @@
             this.colFecha_Traslado.FieldName = "Fecha_Traslado";
             this.colFecha_Traslado.Name = "colFecha_Traslado";
             this.colFecha_Traslado.OptionsColumn.AllowEdit = false;
-            this.colFecha_Traslado.Visible = true;
-            this.colFecha_Traslado.VisibleIndex = 4;
             this.colFecha_Traslado.Width = 120;
             // 
             // colFecha_llegada
@@ -294,8 +300,6 @@
             this.colFecha_llegada.FieldName = "Fecha_llegada";
             this.colFecha_llegada.Name = "colFecha_llegada";
             this.colFecha_llegada.OptionsColumn.AllowEdit = false;
-            this.colFecha_llegada.Visible = true;
-            this.colFecha_llegada.VisibleIndex = 5;
             this.colFecha_llegada.Width = 98;
             // 
             // colNumDocumento_Guia
@@ -304,17 +308,28 @@
             this.colNumDocumento_Guia.FieldName = "NumDocumento_Guia";
             this.colNumDocumento_Guia.Name = "colNumDocumento_Guia";
             this.colNumDocumento_Guia.Visible = true;
-            this.colNumDocumento_Guia.VisibleIndex = 6;
-            this.colNumDocumento_Guia.Width = 157;
+            this.colNumDocumento_Guia.VisibleIndex = 5;
+            this.colNumDocumento_Guia.Width = 228;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Destinatario";
+            this.gridColumn1.FieldName = "NombreDestinatario";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.Width = 192;
             // 
             // FrmIn_Genera_Guia_x_Traspaso_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 498);
+            this.ClientSize = new System.Drawing.Size(1372, 613);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_Genera_Guia_x_Traspaso_Cons";
             this.Text = "Consulta de Guías por Traspaso";
             this.Load += new System.EventHandler(this.FrmIn_Genera_Guia_x_Traspaso_Cons_Load);
@@ -349,5 +364,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFecha_Traslado;
         private DevExpress.XtraGrid.Columns.GridColumn colFecha_llegada;
         private DevExpress.XtraGrid.Columns.GridColumn colNumDocumento_Guia;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }
