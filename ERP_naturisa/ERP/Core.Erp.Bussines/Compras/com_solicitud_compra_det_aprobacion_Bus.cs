@@ -253,7 +253,7 @@ namespace Core.Erp.Business.Compras
                                        info.do_observacion = item.do_observacion;
                                        info.do_por_iva = item.do_por_iva;
                                        info.IdEstadoPreAprobacion = item.IdEstadoPreAprobacion;
-
+                                       info.pr_plazo = item.pr_plazo;
                                        listSolxItemSaldo.Add(info);
 
                                    }
@@ -292,12 +292,12 @@ namespace Core.Erp.Business.Compras
                                                infOrdCom.IdProveedor = item2.IdProveedor;
                                                infOrdCom.Tipo = "LOCAL";
                                                infOrdCom.IdTerminoPago = null;
-                                               infOrdCom.oc_plazo = 0;
+                                               infOrdCom.oc_plazo = item2.pr_plazo;
                                                infOrdCom.oc_fecha = Convert.ToDateTime(DateTime.Now.ToShortTimeString());
                                                infOrdCom.oc_flete = 0;
                                                infOrdCom.oc_observacion = item2.observacion;
                                                infOrdCom.Estado = "A";
-                                               infOrdCom.oc_fechaVencimiento = item2.fecha;
+                                               infOrdCom.oc_fechaVencimiento = Convert.ToDateTime(infOrdCom.oc_fecha).AddDays(item2.pr_plazo);
                                                com_parametro_Bus Bus_ParamCompra = new com_parametro_Bus();
                                                com_parametro_Info InfoComDev = new com_parametro_Info();
                                                InfoComDev = Bus_ParamCompra.Get_Info_parametro(item2.IdEmpresa);

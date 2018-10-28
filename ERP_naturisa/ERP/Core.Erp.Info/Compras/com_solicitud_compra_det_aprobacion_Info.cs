@@ -60,5 +60,7 @@ namespace Core.Erp.Info.Compras
       {
           
       }
+
+      public int pr_plazo { get; set; }
     }
 }

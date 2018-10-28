@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_Confirmacion_SC_para_OC));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ucGe_Sucursal = new Core.Erp.Winform.Controles.UCGe_Sucursal_combo();
-            this.chkSucursalConsolidada = new System.Windows.Forms.CheckBox();
             this.gridConfirmacionSC = new DevExpress.XtraGrid.GridControl();
             this.gridViewConfirmacionSC = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridConfirmacionSC)).BeginInit();
@@ -103,57 +100,38 @@
             this.panelControl1.Controls.Add(this.toolStrip1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(943, 465);
+            this.panelControl1.Size = new System.Drawing.Size(1257, 572);
             this.panelControl1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(2, 27);
+            this.splitContainer1.Location = new System.Drawing.Point(2, 29);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.ucGe_Sucursal);
-            this.splitContainer1.Panel1.Controls.Add(this.chkSucursalConsolidada);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gridConfirmacionSC);
-            this.splitContainer1.Size = new System.Drawing.Size(939, 436);
-            this.splitContainer1.SplitterDistance = 45;
+            this.splitContainer1.Size = new System.Drawing.Size(1253, 541);
+            this.splitContainer1.SplitterDistance = 55;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 4;
-            // 
-            // ucGe_Sucursal
-            // 
-            this.ucGe_Sucursal.Location = new System.Drawing.Point(318, 13);
-            this.ucGe_Sucursal.Name = "ucGe_Sucursal";
-            this.ucGe_Sucursal.Size = new System.Drawing.Size(298, 21);
-            this.ucGe_Sucursal.TabIndex = 1;
-            // 
-            // chkSucursalConsolidada
-            // 
-            this.chkSucursalConsolidada.AutoSize = true;
-            this.chkSucursalConsolidada.Checked = true;
-            this.chkSucursalConsolidada.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSucursalConsolidada.Location = new System.Drawing.Point(22, 17);
-            this.chkSucursalConsolidada.Name = "chkSucursalConsolidada";
-            this.chkSucursalConsolidada.Size = new System.Drawing.Size(290, 17);
-            this.chkSucursalConsolidada.TabIndex = 0;
-            this.chkSucursalConsolidada.Text = "Desea consolidar todas las solicitudes en esta Sucursal:";
-            this.chkSucursalConsolidada.UseVisualStyleBackColor = true;
             // 
             // gridConfirmacionSC
             // 
             this.gridConfirmacionSC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridConfirmacionSC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridConfirmacionSC.Location = new System.Drawing.Point(0, 0);
             this.gridConfirmacionSC.MainView = this.gridViewConfirmacionSC;
+            this.gridConfirmacionSC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridConfirmacionSC.Name = "gridConfirmacionSC";
             this.gridConfirmacionSC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_Sucursal});
-            this.gridConfirmacionSC.Size = new System.Drawing.Size(939, 387);
+            this.gridConfirmacionSC.Size = new System.Drawing.Size(1253, 481);
             this.gridConfirmacionSC.TabIndex = 3;
             this.gridConfirmacionSC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewConfirmacionSC});
@@ -513,7 +491,7 @@
             this.btnSalir});
             this.toolStrip1.Location = new System.Drawing.Point(2, 2);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(939, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1253, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -522,7 +500,7 @@
             this.btnAceptar.Image = global::Core.Erp.Winform.Properties.Resources._1388723697_1710;
             this.btnAceptar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(68, 22);
+            this.btnAceptar.Size = new System.Drawing.Size(81, 24);
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -531,7 +509,7 @@
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(49, 22);
+            this.btnSalir.Size = new System.Drawing.Size(58, 24);
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -559,18 +537,17 @@
             // 
             // FrmCom_Confirmacion_SC_para_OC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 465);
+            this.ClientSize = new System.Drawing.Size(1257, 572);
             this.Controls.Add(this.panelControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmCom_Confirmacion_SC_para_OC";
             this.Text = "FrmCom_Confirmacion_SC_para_OC";
             this.Load += new System.EventHandler(this.FrmCom_Confirmacion_SC_para_OC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -638,8 +615,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private Controles.UCGe_Sucursal_combo ucGe_Sucursal;
-        private System.Windows.Forms.CheckBox chkSucursalConsolidada;
         private DevExpress.XtraGrid.Columns.GridColumn colIdSucursal_SC;
     }
 }

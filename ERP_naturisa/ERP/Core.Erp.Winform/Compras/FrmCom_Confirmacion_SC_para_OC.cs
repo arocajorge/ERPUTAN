@@ -87,19 +87,6 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                int IdSucursal = 0;
-
-                if (chkSucursalConsolidada.Checked)
-                {
-                    IdSucursal = ucGe_Sucursal.get_SucursalInfo().IdSucursal;
-
-                    foreach (var item in lstSolCompra)
-                    {
-                            item.IdSucursal_x_OC = IdSucursal;
-                    }
-
-                }
-
                 return new List<com_solicitud_compra_det_aprobacion_Info>(lstSolCompra);
             }
             catch (Exception ex)

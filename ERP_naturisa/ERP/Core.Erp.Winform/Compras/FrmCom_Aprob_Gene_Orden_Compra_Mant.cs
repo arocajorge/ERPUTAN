@@ -658,10 +658,6 @@ namespace Core.Erp.Winform.Compras
                 
                     if (info.Saldo_cant_SolCom_AUX == 0)
                     {
-                        foreach (var item in ListaBind)
-                        {
-                            
-                        }
                     }
                     else
                     {                     
@@ -724,21 +720,6 @@ namespace Core.Erp.Winform.Compras
                             }
                         }
                     }
-                }
-
-                if (e.Column.Name == "colcmbEstAproSC_grid" || e.Column.Name == "colcmbProveedor_grid" || e.Column.Name == "colIdPunto_cargo_grid" || e.Column.Name == "colcant_ing_SolCom")
-                {
-                    if (e.Column.Name == "colcmbEstAproSC_grid")
-                    {
-                        foreach (var item in ListaBind)
-                        {
-                            if (item.IdProducto == info.IdProducto && item.Secuencia == info.Secuencia && item.IdSolicitudCompra == info.IdSolicitudCompra && item.IdSucursal == info.IdSucursal && (item.IdEstadoAprobacion == "PEN_SOL" || item.IdEstadoAprobacion == "REP_SOL"))
-                            {
-                                
-                            }
-                        }                   
-                    }                                                                           
-                                                     
                 }
 
  ct_centro_costo_sub_centro_costo_Bus busSubCen = new ct_centro_costo_sub_centro_costo_Bus();
@@ -899,7 +880,7 @@ namespace Core.Erp.Winform.Compras
 
                         cp_proveedor_Info InfoProvee_x_Fila=   (cp_proveedor_Info)listProveedor.FirstOrDefault(v => v.IdProveedor == item.IdProveedor);
                         infoSoliApro.Nom_Proveedor_SC = InfoProvee_x_Fila.pr_nombre;
-
+                        infoSoliApro.pr_plazo = InfoProvee_x_Fila.pr_plazo == null ? 0 : Convert.ToInt32(InfoProvee_x_Fila.pr_plazo);
                         if (listMotivo.Count >0) 
                         infoSoliApro.IdMotivo = listMotivo.First().IdMotivo;
                         infoSoliApro.IdUnidadMedida = item.IdUnidadMedida;
@@ -1126,7 +1107,8 @@ namespace Core.Erp.Winform.Compras
                             item.IdProducto = info.IdProducto;
                             item.NomProducto = info.pr_descripcion;
                             //item.Paga_Iva = info.pr_ManejaIva== "S" ? true : false;
-                          
+                            item.IdCod_Impuesto_Iva = info.IdCod_Impuesto_Iva;
+
                             item.Ico2 = null;
                             item.Ico1 = null;
                         }
@@ -1152,6 +1134,7 @@ namespace Core.Erp.Winform.Compras
                         {
                             item.IdProducto = info.IdProducto;
                             item.NomProducto = info.pr_descripcion;
+                            item.IdCod_Impuesto_Iva = info.IdCod_Impuesto_Iva;
                             item.Ico2 = null;
                             item.Ico1 = null;
                         }

@@ -52,7 +52,6 @@ namespace Core.Erp.Data.Compras
                         && q.fecha <= FechaFin
                         && q.fecha >= FechaIni
                         && q.IdSucursal >= IdSucursalIni && q.IdSucursal <= IdSucursalFin
-                        && q.IdComprador >= IdCompradorIni && q.IdComprador <= IdCompradorFin
                         && q.IdEstadoAprobacion == IdEstadoAprobacion
                         && q.IdEstadoPreAprobacion == IdEstadoPreAprobacion
                        select q;
@@ -139,7 +138,7 @@ namespace Core.Erp.Data.Compras
                        Obj.Referencia = "Sucursal : " + item.Sucursal + " con Solicitud #: " + item.IdSolicitudCompra + " , Fecha: " + item.fecha + " y Comprador: " + item.Comprador + " , Observación: " + item.observacion + "";
 
                        Obj.IdEstadoPreAprobacion = item.IdEstadoPreAprobacion;
-                       //Obj.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
+                       Obj.IdCod_Impuesto_Iva = item.IdCod_Impuesto_iva;
                   
                        Lst.Add(Obj);
                    }

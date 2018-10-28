@@ -99,12 +99,12 @@
         <AssociationConnector Association="DBERPModelCompras.FK_com_ListadoMateriales_com_ListadoMateriales1" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_AllListDetMateriales" Width="1.5" PointX="0.63050730928336607" PointY="25.674165797268117" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_det_aprobacion" Width="1.5" PointX="7.0923255845402942" PointY="1.9778353134066962" />
-        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_x_items_con_saldos" Width="1.5" PointX="2.0849904576712244" PointY="8.4892640600396625" />
         <EntityTypeShape EntityType="DBERPModelCompras.com_TerminoPago" Width="1.5" PointX="11.814596436831447" PointY="2.4987491380883142" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_com_TerminoPago" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega" Width="1.5" PointX="10.392754855748617" PointY="2.5339570355294074" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul" Width="1.5" PointX="9.6524631109332955" PointY="4.1733955909374147" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det" Width="1.5" PointX="1.2921593679544325" PointY="6.9492718609745019" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_solicitud_compra_x_items_con_saldos" Width="1.5" PointX="2.1883663694320088" PointY="1.3171525752717408" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

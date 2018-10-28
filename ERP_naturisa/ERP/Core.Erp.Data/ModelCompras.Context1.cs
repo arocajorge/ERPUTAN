@@ -23,6 +23,7 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -88,10 +89,10 @@ namespace Core.Erp.Data
         public DbSet<vwcom_ListadoMateriales_Detalle_SaldosReporte> vwcom_ListadoMateriales_Detalle_SaldosReporte { get; set; }
         public DbSet<vwcom_AllListDetMateriales> vwcom_AllListDetMateriales { get; set; }
         public DbSet<vwcom_solicitud_compra_det_aprobacion> vwcom_solicitud_compra_det_aprobacion { get; set; }
-        public DbSet<vwcom_solicitud_compra_x_items_con_saldos> vwcom_solicitud_compra_x_items_con_saldos { get; set; }
         public DbSet<com_TerminoPago> com_TerminoPago { get; set; }
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega { get; set; }
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul { get; set; }
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det { get; set; }
+        public DbSet<vwcom_solicitud_compra_x_items_con_saldos> vwcom_solicitud_compra_x_items_con_saldos { get; set; }
     }
 }
