@@ -12,18 +12,24 @@ namespace Core.Erp.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class fa_factura_x_fa_TerminoPago
+    public partial class fa_factura_det_subcentro
     {
         public int IdEmpresa { get; set; }
         public int IdSucursal { get; set; }
         public int IdBodega { get; set; }
         public decimal IdCbteVta { get; set; }
-        public string IdTerminoPago { get; set; }
         public int Secuencia { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public System.DateTime Fecha_vct { get; set; }
-        public int Dias_Plazo { get; set; }
-        public double Por_Distribucion { get; set; }
-        public double Valor { get; set; }
+        public double vt_cantidad { get; set; }
+        public double vt_Precio { get; set; }
+        public double vt_PorDescUnitario { get; set; }
+        public double vt_DescUnitario { get; set; }
+        public double vt_PrecioFinal { get; set; }
+        public double vt_Subtotal { get; set; }
+        public string IdCod_Impuesto_Iva { get; set; }
+        public double vt_por_iva { get; set; }
+        public double vt_iva { get; set; }
+        public double vt_total { get; set; }
+        public string IdCentroCosto { get; set; }
+        public string IdCentroCosto_sub_centro_costo { get; set; }
     }
 }

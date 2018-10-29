@@ -95,10 +95,33 @@ namespace Core.Erp.Data.Facturacion
                                 Info_sisDocTipoTalo.IdEmpresa = info.IdEmpresa;
                                 Info_sisDocTipoTalo.CodDocumentoTipo = info.vt_tipoDoc;
                                 Data_sisDocTipoTalo.Modificar_Estado_Usado(Info_sisDocTipoTalo, ref MensajeError);
+
+                                int secuencia = 1;
+                                foreach (var q in info.ListDetSubCentros)
+                                {
+                                    context.fa_factura_det_subcentro.Add(new fa_factura_det_subcentro
+                                    {
+                                        IdEmpresa = info.IdEmpresa,
+                                        IdSucursal = info.IdSucursal,
+                                        IdBodega = info.IdBodega,
+                                        IdCbteVta = IdCbt_vta,
+                                        Secuencia = secuencia++,
+                                        vt_cantidad = q.vt_cantidad,
+                                        vt_Precio = q.vt_Precio,
+                                        vt_PorDescUnitario = q.vt_PorDescUnitario,
+                                        vt_DescUnitario = q.vt_DescUnitario,
+                                        vt_PrecioFinal = q.vt_PrecioFinal,
+                                        vt_Subtotal = q.vt_Subtotal,
+                                        IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
+                                        vt_por_iva = q.vt_por_iva,
+                                        vt_iva = q.vt_iva,
+                                        vt_total = q.vt_total,
+                                        IdCentroCosto = q.IdCentroCosto,
+                                        IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                    });
+                                }
+                                context.SaveChanges();
                             }
-
-
-
 
                 }
                 catch (DbEntityValidationException ex_db)
@@ -428,7 +451,33 @@ namespace Core.Erp.Data.Facturacion
 
                         contact.IdPuntoVta = info.IdPuntoVta;
 
-                        context.SaveChanges();
+                        context.fa_factura_det_subcentro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal && q.IdBodega == info.IdBodega && q.IdCbteVta == info.IdCbteVta).ToList().ForEach(q=> context.fa_factura_det_subcentro.Remove(q));
+                        
+                        int secuencia = 1;
+                        foreach (var q in info.ListDetSubCentros)
+                        {
+                            context.fa_factura_det_subcentro.Add(new fa_factura_det_subcentro
+                            {
+                                IdEmpresa = info.IdEmpresa,
+                                IdSucursal = info.IdSucursal,
+                                IdBodega = info.IdBodega,
+                                IdCbteVta = info.IdCbteVta,
+                                Secuencia = secuencia++,
+                                vt_cantidad = q.vt_cantidad,
+                                vt_Precio = q.vt_Precio,
+                                vt_PorDescUnitario = q.vt_PorDescUnitario,
+                                vt_DescUnitario = q.vt_DescUnitario,
+                                vt_PrecioFinal = q.vt_PrecioFinal,
+                                vt_Subtotal = q.vt_Subtotal,
+                                IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
+                                vt_por_iva = q.vt_por_iva,
+                                vt_iva = q.vt_iva,
+                                vt_total = q.vt_total,
+                                IdCentroCosto = q.IdCentroCosto,
+                                IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                            });
+                        }
+                        context.SaveChanges();                        
                     }
                 }
                 return true;
@@ -1079,44 +1128,58 @@ namespace Core.Erp.Data.Facturacion
 
                 using (EntitiesFacturacion entity = new EntitiesFacturacion())
                 {
-                    var SQuerry = from q in entity.vwfa_ContabilizacionFactura_x_Item
-                                  where q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega
-                                  && q.IdCbteVta == IdFactura
-                                  select q;
-
-                    foreach (var item in SQuerry)
-                    {
-                            vwfa_ContabilizacionFactura_x_Item_Info Info= new vwfa_ContabilizacionFactura_x_Item_Info();
-                            Info.IdBodega = item.IdBodega;
-                            Info.IdCbteVta = item.IdCbteVta;
-                            Info.IdEmpresa = item.IdEmpresa;
-                            Info.IdSucursal = item.IdSucursal;
-                            Info.iva = item.iva;
-                            Info.IdCtaCble_DesIva = item.IdCtaCble_DesIva;
-                            Info.IdCtaCble_Des0 = item.IdCtaCble_Des0;
-                            Info.Subtotal = item.Subtotal;
-                            Info.Total = item.Total;
+                    lista = entity.vwfa_ContabilizacionFactura_x_Subcentro.Where(q => q.IdEmpresa == IdEmpresa
+                        && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdCbteVta == IdFactura).Select(q => new vwfa_ContabilizacionFactura_x_Item_Info
+                        {
+                             IdBodega = q.IdBodega,
+                             IdCbteVta = q.IdCbteVta,
+                             IdEmpresa = q.IdEmpresa,
+                             IdSucursal = q.IdSucursal,
+                             iva = q.iva,
+                             Subtotal = q.Subtotal,
+                             Total = q.Total,
                             
-                            Info.Descuento = item.Descuento;
-                            Info.IdCtaCble_Ven0 = item.IdCtaCble_Ven0;
-                            Info.IdCtaCble_VenIva = item.IdCtaCble_VenIva;
-                            Info.vt_tipo_venta = item.vt_tipo_venta;
-                            Info.vt_plazo = item.vt_plazo;
-                            Info.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
-                            Info.IdCod_Impuesto_Ice = item.IdCod_Impuesto_Ice;
-                            Info.IdPunto_Cargo = item.IdPunto_Cargo;
-                            Info.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
+                             Descuento = q.Descuento,
+                             IdCtaCble_Ven0 = q.IdCtaCble_Ven0,
+                             IdCtaCble_VenIva = q.IdCtaCble_VenIva,
+                             vt_tipo_venta = q.vt_tipo_venta,
+                             vt_plazo = q.vt_plazo,
+                             IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
 
-                            Info.IdCentroCosto = item.IdCentroCosto;
-                            Info.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                            Info.IdCtaCble_Imp_Iva = item.IdCtaCble_Imp_Iva;
-                            Info.IdCtaCble_Imp_Ice = item.IdCtaCble_Imp_Ice;
+                             IdCentroCosto = q.IdCentroCosto,
+                             IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                             IdCtaCble_Imp_Iva = q.IdCtaCble_Imp_Iva,
+                        }).ToList();
 
+                    if (lista.Count == 0)
+                    {
+                        lista = entity.vwfa_ContabilizacionFactura_x_Item.Where(q => q.IdEmpresa == IdEmpresa
+                            && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdCbteVta == IdFactura).Select(q => new vwfa_ContabilizacionFactura_x_Item_Info
+                            {
+                                IdBodega = q.IdBodega,
+                                IdCbteVta = q.IdCbteVta,
+                                IdEmpresa = q.IdEmpresa,
+                                IdSucursal = q.IdSucursal,
+                                iva = q.iva,
+                                IdCtaCble_DesIva = q.IdCtaCble_DesIva,
+                                IdCtaCble_Des0 = q.IdCtaCble_Des0,
+                                Subtotal = q.Subtotal,
+                                Total = q.Total,
 
+                                Descuento = q.Descuento,
+                                IdCtaCble_Ven0 = q.IdCtaCble_Ven0,
+                                IdCtaCble_VenIva = q.IdCtaCble_VenIva,
+                                vt_tipo_venta = q.vt_tipo_venta,
+                                vt_plazo = q.vt_plazo,
+                                IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
 
-                            lista.Add(Info);
+                                IdCentroCosto = q.IdCentroCosto,
+                                IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                IdCtaCble_Imp_Iva = q.IdCtaCble_Imp_Iva,
+                            }).ToList();    
                     }
-                    return lista;
+                
+                return lista;
                 }
             }
             catch (Exception ex)

@@ -65,6 +65,8 @@ namespace Core.Erp.Info.Facturacion
         public List<fa_factura_x_formaPago_Info> lista_formaPago_x_Factura { get; set; }
         public fa_factura_fj_Info Factura_Fj { get; set; }
 
+        public List<fa_factura_det_subcentro_Info> ListDetSubCentros { get; set; }
+
         //personalizacion de grafinpren -----
         public fa_factura_graf_Info Factura_Graf { get; set; }
         //personalizacion de grafinpren -----

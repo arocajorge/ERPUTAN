@@ -28,6 +28,8 @@ using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Winform.Contabilidad;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraEditors;
 
 
 namespace Core.Erp.Winform.Facturacion
@@ -67,7 +69,6 @@ namespace Core.Erp.Winform.Facturacion
         tb_sis_Documento_Tipo_Talonario_Bus BusDoc = new tb_sis_Documento_Tipo_Talonario_Bus();
         in_producto_Bus Bus_Producto = new in_producto_Bus();
         in_producto_x_tb_bodega_Bus Bus_Prod_x_bod = new in_producto_x_tb_bodega_Bus();
-        ct_punto_cargo_Bus Bus_Punto_Cargo = new ct_punto_cargo_Bus();
         fa_factura_x_formaPago_Bus Bus_FacxForPag = new fa_factura_x_formaPago_Bus();
         
         caj_Caja_Bus Bus_Caja = new caj_Caja_Bus();
@@ -110,18 +111,16 @@ namespace Core.Erp.Winform.Facturacion
 
         BindingList<fa_factura_x_fa_TerminoPago_Info> Binding_list_fac_form_pago = new BindingList<fa_factura_x_fa_TerminoPago_Info>();
         BindingList<fa_factura_det_info> Binding_List_Factura_det = new BindingList<fa_factura_det_info>();
-
-        ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-        ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-        List<ct_punto_cargo_Info> lst_punto_cargo = new List<ct_punto_cargo_Info>();
-        ct_punto_cargo_grupo_Bus bus_grupo_punto_cargo = new ct_punto_cargo_grupo_Bus();
-        ct_punto_cargo_grupo_Info info_grupo_punto_cargo = new ct_punto_cargo_grupo_Info();
-        List<ct_punto_cargo_grupo_Info> lst_grupo_punto_cargo = new List<ct_punto_cargo_grupo_Info>();
-
+        
         tb_sis_impuesto_Bus BusImp = new tb_sis_impuesto_Bus();
         List<tb_sis_impuesto_Info> listTipoImpu_x_Iva = new List<tb_sis_impuesto_Info>();
 
-
+        ct_Centro_costo_Bus bus_centro_costo = new ct_Centro_costo_Bus();
+        ct_centro_costo_sub_centro_costo_Bus bus_subcentro = new ct_centro_costo_sub_centro_costo_Bus();
+        List<ct_Centro_costo_Info> lst_centro_costo = new List<ct_Centro_costo_Info>();
+        List<ct_centro_costo_sub_centro_costo_Info> lst_subcentros = new List<ct_centro_costo_sub_centro_costo_Info>();
+        BindingList<fa_factura_det_subcentro_Info> BlstSubcentros = new BindingList<fa_factura_det_subcentro_Info>();
+        fa_factura_det_subcentro_Bus BusDetSubcentros = new fa_factura_det_subcentro_Bus();
         #endregion
 
         public frmFa_Factura_Mant()
@@ -226,6 +225,8 @@ namespace Core.Erp.Winform.Facturacion
                 Binding_List_Factura_det = new BindingList<fa_factura_det_info>(InfoFactura.DetFactura_List);
                 gridControl_Factura.DataSource = Binding_List_Factura_det;
 
+                BlstSubcentros = new BindingList<fa_factura_det_subcentro_Info>(BusDetSubcentros.GetList(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta));
+                gridControlSubcentros.DataSource = BlstSubcentros;
 
                 ucFa_FormaPago_x_Factura.Cargar_grid_x_Factura(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta);
                 
@@ -296,7 +297,6 @@ namespace Core.Erp.Winform.Facturacion
 
                     case Cl_Enumeradores.eTipo_action.grabar:
                         UCNumDoc.Set_Perfil_solo_lectura(false);
-                        tabControl2.Enabled = false;
                         xtraTabControl_cuerpo.Enabled = false;
                         ucFa_VendedorCmb.Enabled = true;
                         ucFa_ClienteCmb.Enabled = true;
@@ -419,7 +419,7 @@ namespace Core.Erp.Winform.Facturacion
 
                 InfoFactura.DetformaPago_list = Get_List_fact_x_Termino_pago();
                 InfoFactura.lista_formaPago_x_Factura = Get_List_fact_x_forma_pago();
-
+                InfoFactura.ListDetSubCentros = new List<fa_factura_det_subcentro_Info>(BlstSubcentros);
                 return InfoFactura;
 
             }
@@ -829,6 +829,7 @@ namespace Core.Erp.Winform.Facturacion
                     return false;
                 }
 
+
                 
 
 
@@ -856,6 +857,13 @@ namespace Core.Erp.Winform.Facturacion
                 {
                     return false;
                 }
+
+                if (BlstSubcentros.Count > 0 && Math.Round(BlstSubcentros.Sum(q => q.vt_total), 2, MidpointRounding.AwayFromZero) != Math.Round(Binding_List_Factura_det.Sum(q => q.vt_total), 2, MidpointRounding.AwayFromZero))
+                {
+                    MessageBox.Show("El total del detalle de la factura no es igual al detalle de subcentros", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
                 if (_Accion==Cl_Enumeradores.eTipo_action.grabar)
                 {
                     UCNumDoc.IdEstablecimiento = UCSucursal.get_sucursal().Su_CodigoEstablecimiento;
@@ -1239,11 +1247,6 @@ namespace Core.Erp.Winform.Facturacion
                 cmbCaja.EditValue = Info_Param_fact.IdCaja_Default_Factura;
                 //Cargar_Grid();
 
-                lst_grupo_punto_cargo = bus_grupo_punto_cargo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
-                cmb_Grupo_punto_cargo.DataSource = lst_grupo_punto_cargo;
-
-                lst_punto_cargo = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_Punto_Cargo.DataSource = lst_punto_cargo;
 
               
                 if (_Accion == 0) { _Accion = Cl_Enumeradores.eTipo_action.grabar; }
@@ -1269,11 +1272,7 @@ namespace Core.Erp.Winform.Facturacion
                 {
                     gridControl_Factura.DataSource = Binding_List_Factura_det;
                     load_Producto(param.IdEmpresa, UCSucursal.get_IdSucursal(), UCSucursal.get_IdBodega());    
-                }
-
-                
-                Lista_PuntoCargo = Bus_Punto_Cargo.Get_List_PuntoCargo(param.IdEmpresa);
-                cmb_Punto_Cargo.DataSource = Lista_PuntoCargo;
+                }                
             }
             catch (Exception ex)
             {
@@ -1809,7 +1808,6 @@ namespace Core.Erp.Winform.Facturacion
             {
                 if (ucFa_ClienteCmb.get_ClienteInfo() != null)
                 {
-                    tabControl2.Enabled = true;
                     xtraTabControl_cuerpo.Enabled = true;
                     string IdTipoCredito = "";
                     InfoCliente = ucFa_ClienteCmb.get_ClienteInfo();
@@ -1970,8 +1968,6 @@ namespace Core.Erp.Winform.Facturacion
 
                 gridView_Factura.SetFocusedRowCellValue(colCodigo_Producto, InfoProd.IdProducto);
                 gridView_Factura.SetFocusedRowCellValue(colPrecio, InfoProd.pr_precio_publico);
-                gridView_Factura.SetFocusedRowCellValue(colCosto, InfoProd.pr_costo_promedio);
-                gridView_Factura.SetFocusedRowCellValue(colStock, InfoProd.pr_stock);
                 gridView_Factura.SetFocusedRowCellValue(colIdCtaCble_Ven0, InfoProd.IdCtaCble_Ven0);
                 gridView_Factura.SetFocusedRowCellValue(colIdCtaCble_VenIva, InfoProd.IdCtaCble_VenIva);
                 gridView_Factura.SetFocusedRowCellValue(colDescuento, InfoProd.Porc_Descuento);
@@ -2072,52 +2068,24 @@ namespace Core.Erp.Winform.Facturacion
             }
         }
 
-        private void cmb_Punto_Cargo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                fa_factura_det_info row = (fa_factura_det_info)gridView_Factura.GetFocusedRow();
-                if (row != null)
-                {
-                    if (row.IdPunto_cargo_grupo != null)
-                    {
-                        frmCon_Punto_Cargo_Cons frm_cons = new frmCon_Punto_Cargo_Cons();
-
-                        GridViewInfo info = gridView_Factura.GetViewInfo() as GridViewInfo;
-                        GridCellInfo info_cell = info.GetGridCellInfo(rowHandle, ColIdPunto_Cargo);
-
-                        frm_cons.Cargar_grid_x_grupo((int)row.IdPunto_cargo_grupo);
-
-                        //frm_cons.Location = new Point(this.Right, gridControlDiario.Top);                        
-
-                        frm_cons.ShowDialog();
-                        info_punto_cargo = frm_cons.Get_Info();
-                        if (info_punto_cargo != null)
-                        {
-                            gridView_Factura.SetFocusedRowCellValue(ColIdPunto_Cargo, info_punto_cargo.IdPunto_cargo);
-                        }
-                        else
-                            gridView_Factura.SetFocusedRowCellValue(ColIdPunto_Cargo, null);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
-        }
 
 
         void cargar_combo()
         {
             try
             {
+                BlstSubcentros = new BindingList<fa_factura_det_subcentro_Info>();
+                gridControlSubcentros.DataSource = BlstSubcentros;
+
+                lst_centro_costo = bus_centro_costo.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                cmb_centro_costo.DataSource = lst_centro_costo;
+
+                lst_subcentros = bus_subcentro.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
+                cmb_subcentro_costo.DataSource = lst_subcentros;
                 
                 listTipoImpu_x_Iva = BusImp.Get_List_impuesto_para_Ventas("IVA");
                 cmbImp_Iva.DataSource = listTipoImpu_x_Iva;
+                cmb_impuesto_subcentros.DataSource = listTipoImpu_x_Iva;
 
                 
                     list_TerminoPago = new List<fa_TerminoPago_Info>();
@@ -2174,6 +2142,88 @@ namespace Core.Erp.Winform.Facturacion
                 MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
+        }
+        
+        private void gridViewSubcentros_ShownEditor(object sender, EventArgs e)
+        {
+            ColumnView view = (ColumnView)sender;
+            if (view.FocusedColumn.FieldName == "IdRegistro" && view.ActiveEditor is SearchLookUpEdit)
+            {
+                SearchLookUpEdit edit = (SearchLookUpEdit)view.ActiveEditor;
+                string CentroCosto = (string)view.GetFocusedRowCellValue("IdCentroCosto");
+                edit.Properties.DataSource = GetListaSubcentroFiltrada(CentroCosto);
+            }
+        }
+
+        private List<ct_centro_costo_sub_centro_costo_Info> GetListaSubcentroFiltrada(string IdCentroCosto)
+        {
+            try
+            {
+                return lst_subcentros.Where(q => q.IdCentroCosto == IdCentroCosto).ToList();
+            }
+            catch (Exception)
+            {
+                return new List<ct_centro_costo_sub_centro_costo_Info>();
+            }
+        }
+
+        private void gridViewSubcentros_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            try
+            {
+                fa_factura_det_subcentro_Info row = (fa_factura_det_subcentro_Info)gridViewSubcentros.GetRow(e.RowHandle);
+                if (row == null) return;
+                if (e.Column == ColCentroCosto)
+                {
+                    row.IdRegistro = null;
+                    row.IdCentroCosto_sub_centro_costo = null;
+                }
+                if (e.Column == ColSubcentro)
+                {
+                    var SubCentro = lst_subcentros.Where(q => q.IdRegistro == row.IdRegistro).FirstOrDefault();
+                    if (SubCentro != null)
+                        row.IdCentroCosto_sub_centro_costo = SubCentro.IdCentroCosto_sub_centro_costo;
+                    else
+                        row.IdCentroCosto_sub_centro_costo = null;
+                    
+                }
+                if (e.Column == ColPrecioSc || e.Column == ColCantidadSC || e.Column == ColPorDescuentoSc || e.Column == ColImpuestoSc)
+                {
+                    row.vt_DescUnitario = row.vt_Precio * (row.vt_PorDescUnitario / 100);
+                    row.vt_PrecioFinal = row.vt_Precio - row.vt_DescUnitario;
+                    row.vt_Subtotal = row.vt_cantidad * row.vt_PrecioFinal;
+
+                    row.IdCod_Impuesto_Iva = string.IsNullOrEmpty(row.IdCod_Impuesto_Iva) ? "IVA0" : row.IdCod_Impuesto_Iva;
+                    var impuesto = BusImp.Get_Info_impuesto(row.IdCod_Impuesto_Iva);
+                    if (impuesto != null)
+                        row.vt_por_iva = impuesto.porcentaje;
+                    row.vt_iva = row.vt_Subtotal * (row.vt_por_iva / 100);
+                    row.vt_total = row.vt_Subtotal + row.vt_iva;
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void gridViewSubcentros_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Delete)
+                {
+                    if (MessageBox.Show("¿Está seguro que desea eliminar este registro ?", "Elimina", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        gridViewSubcentros.DeleteSelectedRows();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
     }
 }

@@ -505,6 +505,7 @@
     <Compile Include="Facturacion\fa_Documento_Tipo_info.cs" />
     <Compile Include="Facturacion\fa_factura_det_info.cs" />
     <Compile Include="Facturacion\fa_factura_det_otros_campos_Info.cs" />
+    <Compile Include="Facturacion\fa_factura_det_subcentro_Info.cs" />
     <Compile Include="Facturacion\fa_factura_formaPago_Info.cs" />
     <Compile Include="Facturacion\fa_factura_Info.cs" />
     <Compile Include="Facturacion\fa_factura_TerminoPago_Distribucion_Info.cs" />

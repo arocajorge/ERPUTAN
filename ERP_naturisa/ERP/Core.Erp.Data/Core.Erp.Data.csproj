@@ -1396,6 +1396,7 @@
     <Compile Include="Facturacion\fa_devol_venta_det_Data.cs" />
     <Compile Include="Facturacion\fa_factura_det_Data.cs" />
     <Compile Include="Facturacion\fa_factura_det_otros_campos_Data.cs" />
+    <Compile Include="Facturacion\fa_factura_det_subcentro_Data.cs" />
     <Compile Include="Facturacion\fa_factura_formaPago_Data.cs" />
     <Compile Include="Facturacion\fa_factura_x_fa_cotizacion_Data.cs" />
     <Compile Include="Facturacion\fa_factura_x_fa_guia_remision_Data.cs" />
@@ -1549,6 +1550,9 @@
       <DependentUpon>ModelFacturacion.tt</DependentUpon>
     </Compile>
     <Compile Include="fa_factura_det_otros_campos.cs">
+      <DependentUpon>ModelFacturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fa_factura_det_subcentro.cs">
       <DependentUpon>ModelFacturacion.tt</DependentUpon>
     </Compile>
     <Compile Include="fa_factura_fj.cs">
@@ -4563,6 +4567,9 @@
       <DependentUpon>ModelFacturacion.tt</DependentUpon>
     </Compile>
     <Compile Include="vwfa_ContabilizacionFactura_x_Item.cs">
+      <DependentUpon>ModelFacturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwfa_ContabilizacionFactura_x_Subcentro.cs">
       <DependentUpon>ModelFacturacion.tt</DependentUpon>
     </Compile>
     <Compile Include="vwfa_ContabilizacionFactura_x_Sucursal.cs">

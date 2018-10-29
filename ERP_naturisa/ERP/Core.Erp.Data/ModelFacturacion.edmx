@@ -19,6 +19,7 @@
           <EntitySet Name="fa_factura" EntityType="DBERPModelFAC.Store.fa_factura" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="fa_factura_det" EntityType="DBERPModelFAC.Store.fa_factura_det" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="fa_factura_det_otros_campos" EntityType="DBERPModelFAC.Store.fa_factura_det_otros_campos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="fa_factura_det_subcentro" EntityType="DBERPModelFAC.Store.fa_factura_det_subcentro" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="fa_factura_x_ct_cbtecble" EntityType="DBERPModelFAC.Store.fa_factura_x_ct_cbtecble" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="fa_factura_x_fa_cotizacion" EntityType="DBERPModelFAC.Store.fa_factura_x_fa_cotizacion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="fa_factura_x_fa_guia_remision" EntityType="DBERPModelFAC.Store.fa_factura_x_fa_guia_remision" store:Type="Tables" Schema="dbo" />
@@ -289,6 +290,30 @@
       [vwfa_ContabilizacionFactura_x_Item].[IdPunto_Cargo] AS [IdPunto_Cargo], 
       [vwfa_ContabilizacionFactura_x_Item].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo]
       FROM [dbo].[vwfa_ContabilizacionFactura_x_Item] AS [vwfa_ContabilizacionFactura_x_Item]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwfa_ContabilizacionFactura_x_Subcentro" EntityType="DBERPModelFAC.Store.vwfa_ContabilizacionFactura_x_Subcentro" store:Type="Views" store:Schema="dbo" store:Name="vwfa_ContabilizacionFactura_x_Subcentro">
+            <DefiningQuery>SELECT 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdFila] AS [IdFila], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdEmpresa] AS [IdEmpresa], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdSucursal] AS [IdSucursal], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdBodega] AS [IdBodega], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCbteVta] AS [IdCbteVta], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[Subtotal] AS [Subtotal], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[Descuento] AS [Descuento], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[iva] AS [iva], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[Total] AS [Total], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCtaCble_Ven0] AS [IdCtaCble_Ven0], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCtaCble_VenIva] AS [IdCtaCble_VenIva], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[vt_tipo_venta] AS [vt_tipo_venta], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[vt_plazo] AS [vt_plazo], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCtaCble_DesIva] AS [IdCtaCble_DesIva], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCtaCble_Des0] AS [IdCtaCble_Des0], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[Secuencia] AS [Secuencia], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCod_Impuesto_Iva] AS [IdCod_Impuesto_Iva], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwfa_ContabilizacionFactura_x_Subcentro].[IdCtaCble_Imp_Iva] AS [IdCtaCble_Imp_Iva]
+      FROM [dbo].[vwfa_ContabilizacionFactura_x_Subcentro] AS [vwfa_ContabilizacionFactura_x_Subcentro]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwfa_ContabilizacionFactura_x_Sucursal" EntityType="DBERPModelFAC.Store.vwfa_ContabilizacionFactura_x_Sucursal" store:Type="Views" store:Schema="dbo" store:Name="vwfa_ContabilizacionFactura_x_Sucursal">
             <DefiningQuery>SELECT 
@@ -2091,6 +2116,32 @@
           <Property Name="IdPunto_Cargo" Type="int" />
           <Property Name="Precio_Iva" Type="float" />
         </EntityType>
+        <EntityType Name="fa_factura_det_subcentro">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_Precio" Type="float" Nullable="false" />
+          <Property Name="vt_PorDescUnitario" Type="float" Nullable="false" />
+          <Property Name="vt_DescUnitario" Type="float" Nullable="false" />
+          <Property Name="vt_PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" Nullable="false" />
+          <Property Name="IdCod_Impuesto_Iva" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="vt_por_iva" Type="float" Nullable="false" />
+          <Property Name="vt_iva" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="fa_factura_x_ct_cbtecble">
           <Key>
             <PropertyRef Name="vt_IdEmpresa" />
@@ -2370,8 +2421,8 @@
           <Property Name="od_Secuencia" Type="int" Nullable="false" />
           <Property Name="od_IdProducto" Type="numeric" Nullable="false" Precision="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.fa_guia_remision_x_prd_Despacho' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.fa_guia_remision_x_prd_Despacho' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="fa_guia_remision_x_prd_Despacho">
           <Key>
@@ -2922,8 +2973,8 @@
           <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="Cantidad" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_Catalogo_IdAuto_numeric' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_Catalogo_IdAuto_numeric' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_Catalogo_IdAuto_numeric">
           <Key>
@@ -2932,8 +2983,8 @@
           <Property Name="IdCatalogo" Type="varchar" MaxLength="4" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_cliente' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_cliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_cliente">
           <Key>
@@ -3042,8 +3093,8 @@
           <Property Name="IdParroquia" Type="varchar" MaxLength="25" />
           <Property Name="es_empresa_relacionada" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_cliente_vista_previa' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_cliente_vista_previa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_cliente_vista_previa">
           <Key>
@@ -3115,8 +3166,8 @@
           <Property Name="IdCtaCble_cxc_Credito" Type="varchar" MaxLength="20" />
           <Property Name="es_empresa_relacionada" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_clientes_contactos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_clientes_contactos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_clientes_contactos">
           <Key>
@@ -3180,8 +3231,8 @@
           <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
           <Property Name="pe_Naturaleza" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizacionFactura' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizacionFactura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizacionFactura">
           <Key>
@@ -3201,8 +3252,8 @@
           <Property Name="iva" Type="float" />
           <Property Name="Total" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizacionFactura_x_Costo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizacionFactura_x_Costo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizacionFactura_x_Costo">
           <Key>
@@ -3224,8 +3275,8 @@
           <Property Name="IdCentro_Costo_Costo" Type="varchar" MaxLength="20" />
           <Property Name="IdCentro_Costo_Inventario" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizacionFactura_x_Item' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizacionFactura_x_Item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizacionFactura_x_Item">
           <Key>
@@ -3265,8 +3316,44 @@
           <Property Name="IdPunto_Cargo" Type="int" />
           <Property Name="IdPunto_cargo_grupo" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizacionFactura_x_Sucursal' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizacionFactura_x_Subcentro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwfa_ContabilizacionFactura_x_Subcentro">
+          <Key>
+            <PropertyRef Name="IdFila" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="vt_tipo_venta" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+          </Key>
+          <Property Name="IdFila" Type="bigint" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="Subtotal" Type="float" />
+          <Property Name="Descuento" Type="float" />
+          <Property Name="iva" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="IdCtaCble_Ven0" Type="varchar" MaxLength="20" />
+          <Property Name="IdCtaCble_VenIva" Type="varchar" MaxLength="20" />
+          <Property Name="vt_tipo_venta" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_plazo" Type="numeric" Nullable="false" Precision="10" />
+          <Property Name="IdCtaCble_DesIva" Type="int" />
+          <Property Name="IdCtaCble_Des0" Type="int" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdCod_Impuesto_Iva" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdCtaCble_Imp_Iva" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizacionFactura_x_Sucursal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizacionFactura_x_Sucursal">
           <Key>
@@ -3284,8 +3371,8 @@
           <Property Name="iva" Type="float" />
           <Property Name="Total" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizarNotaCredDeb' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizarNotaCredDeb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizarNotaCredDeb">
           <Key>
@@ -3307,8 +3394,8 @@
           <Property Name="IdPunto_cargo_grupo" Type="int" />
           <Property Name="IdPunto_Cargo" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizarNotaCredDeb_x_Item' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizarNotaCredDeb_x_Item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizarNotaCredDeb_x_Item">
           <Key>
@@ -3340,8 +3427,8 @@
           <Property Name="IdCtaCble_Iva" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_Ice" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_ContabilizarNotaCredDeb_x_sucursal' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_ContabilizarNotaCredDeb_x_sucursal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_ContabilizarNotaCredDeb_x_sucursal">
           <Key>
@@ -3359,8 +3446,8 @@
           <Property Name="tOTAL" Type="float" />
           <Property Name="descuentototal" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_cotizacion_detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_cotizacion_detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_cotizacion_detalle">
           <Key>
@@ -3429,8 +3516,8 @@
           <Property Name="dc_detallexItems" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="CodCotizacion" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_creditos_debitos_con_saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_creditos_debitos_con_saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_creditos_debitos_con_saldo">
           <Key>
@@ -3474,8 +3561,8 @@
           <Property Name="IdTipoNota" Type="int" Nullable="false" />
           <Property Name="IdCaja" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_devolucion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_devolucion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_devolucion">
           <Key>
@@ -3535,8 +3622,8 @@
           <Property Name="vt_serie2" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="vt_serie1" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Documento_DeclaracionSRI' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Documento_DeclaracionSRI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Documento_DeclaracionSRI">
           <Key>
@@ -3564,8 +3651,8 @@
           <Property Name="vt_NumDocumento" Type="varchar" MaxLength="54" />
           <Property Name="Razon_Social" Type="varchar" Nullable="false" MaxLength="201" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Documento_DeclaracionSRI_DATA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Documento_DeclaracionSRI_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Documento_DeclaracionSRI_DATA">
           <Key>
@@ -3588,8 +3675,8 @@
           <Property Name="mes" Type="int" />
           <Property Name="Razon_Social" Type="varchar" Nullable="false" MaxLength="201" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_Documento_Tipo_x_Secuencia_Talonario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_Documento_Tipo_x_Secuencia_Talonario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_Documento_Tipo_x_Secuencia_Talonario">
           <Key>
@@ -3625,8 +3712,8 @@
           <Property Name="DocActual" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Documentos_Relacionados_NC_ND' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Documentos_Relacionados_NC_ND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Documentos_Relacionados_NC_ND">
           <Key>
@@ -3681,8 +3768,8 @@
           <Property Name="IdBodega_nt" Type="int" Nullable="false" />
           <Property Name="IdNota_nt" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Documentos_x_Relacionar_NC_ND' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Documentos_x_Relacionar_NC_ND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Documentos_x_Relacionar_NC_ND">
           <Key>
@@ -3727,8 +3814,8 @@
           <Property Name="NomCliente" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_factura' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_factura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_factura">
           <Key>
@@ -3816,8 +3903,8 @@
           <Property Name="vt_SubtotalIva" Type="float" />
           <Property Name="IdPuntoVta" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_factura_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_factura_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_factura_det">
           <Key>
@@ -3868,8 +3955,8 @@
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_Factura_Dev' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_Factura_Dev' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_Factura_Dev">
           <Key>
@@ -3962,8 +4049,8 @@
           <Property Name="dv_saldo" Type="float" Nullable="false" />
           <Property Name="IdCaja" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_factura_sri' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_factura_sri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_factura_sri">
           <Key>
@@ -4018,8 +4105,8 @@
           <Property Name="vt_Observacion" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="vt_fech_venc" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_factura_x_cbte_cble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_factura_x_cbte_cble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_factura_x_cbte_cble">
           <Key>
@@ -4054,8 +4141,8 @@
           <Property Name="cb_Valor" Type="float" />
           <Property Name="cb_Observacion" Type="varchar(max)" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Facturas_y_NotasDebito' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Facturas_y_NotasDebito' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Facturas_y_NotasDebito">
           <Key>
@@ -4083,8 +4170,8 @@
           <Property Name="Iva" Type="float" />
           <Property Name="Total" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_FacturasConDevolucionxItemConsulta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_FacturasConDevolucionxItemConsulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_FacturasConDevolucionxItemConsulta">
           <Key>
@@ -4125,8 +4212,8 @@
           <Property Name="dv_OtroValor1" Type="float" />
           <Property Name="dv_OtroValor2" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_FacturasConDevolucionxItemSaldos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_FacturasConDevolucionxItemSaldos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_FacturasConDevolucionxItemSaldos">
           <Key>
@@ -4166,8 +4253,8 @@
           <Property Name="dv_OtroValor1" Type="float" />
           <Property Name="dv_OtroValor2" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_FacturasxDevolucionxIdDevolucion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_FacturasxDevolucionxIdDevolucion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_FacturasxDevolucionxIdDevolucion">
           <Key>
@@ -4198,8 +4285,8 @@
           <Property Name="dv_flete" Type="float" Nullable="false" />
           <Property Name="dv_seguro" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_FacturasxDevolucionxItem' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_FacturasxDevolucionxItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_FacturasxDevolucionxItem">
           <Key>
@@ -4228,8 +4315,8 @@
           <Property Name="dv_flete" Type="float" Nullable="false" />
           <Property Name="dv_seguro" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Formas_Pago_x_Factura_DeclaracionSRI' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Formas_Pago_x_Factura_DeclaracionSRI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Formas_Pago_x_Factura_DeclaracionSRI">
           <Key>
@@ -4247,8 +4334,8 @@
           <Property Name="IdMes" Type="int" />
           <Property Name="IdFormaPago" Type="varchar" Nullable="false" MaxLength="2" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_Guia_Remision' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_Guia_Remision' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_Guia_Remision">
           <Key>
@@ -4345,8 +4432,8 @@
           <Property Name="Direccion_Destino" Type="varchar" Nullable="false" MaxLength="300" />
           <Property Name="placa" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_guia_remision_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_guia_remision_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_guia_remision_det">
           <Key>
@@ -4391,8 +4478,8 @@
           <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="pr_descripcion_2" Type="nvarchar" MaxLength="500" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_guia_remision_sin_factura' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_guia_remision_sin_factura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_guia_remision_sin_factura">
           <Key>
@@ -4470,8 +4557,8 @@
           <Property Name="Direccion_Destino" Type="varchar" Nullable="false" MaxLength="300" />
           <Property Name="idMotivo_traslado" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_movimientos_x_bodega_x_cat' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_movimientos_x_bodega_x_cat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_movimientos_x_bodega_x_cat">
           <Key>
@@ -4529,8 +4616,8 @@
           <Property Name="pr_peso" Type="float" Nullable="false" />
           <Property Name="pesototal" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_Nota_Credito' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_Nota_Credito' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_Nota_Credito">
           <Key>
@@ -4609,8 +4696,8 @@
           <Property Name="vt_subtotalIva" Type="float" />
           <Property Name="IdPuntoVta" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_notaCreDeb' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_notaCreDeb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_notaCreDeb">
           <Key>
@@ -4654,8 +4741,8 @@
           <Property Name="IdCaja" Type="int" Nullable="false" />
           <Property Name="IdPuntoVta" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_notaCreDeb_det_sri' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_notaCreDeb_det_sri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_notaCreDeb_det_sri">
           <Key>
@@ -4704,8 +4791,8 @@
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_notaCreDeb_sri' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_notaCreDeb_sri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_notaCreDeb_sri">
           <Key>
@@ -4767,8 +4854,8 @@
           <Property Name="nc_Motivo" Type="varchar" MaxLength="150" />
           <Property Name="tipo_doc_aplicado" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro">
           <Key>
@@ -4797,8 +4884,8 @@
           <Property Name="IdCobro_cbr" Type="numeric" />
           <Property Name="Valor_Aplicado" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC">
           <Key>
@@ -4842,8 +4929,8 @@
           <Property Name="vt_total" Type="float" />
           <Property Name="num_doc" Type="varchar" MaxLength="53" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_orden_Desp_det_x_fa_pedido_det_x_pedido' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_orden_Desp_det_x_fa_pedido_det_x_pedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_orden_Desp_det_x_fa_pedido_det_x_pedido">
           <Key>
@@ -4861,8 +4948,8 @@
           <Property Name="pe_Secuencia" Type="int" Nullable="false" />
           <Property Name="pe_IdProducto" Type="numeric" Nullable="false" Precision="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_orden_Desp_det_x_Pedido_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_orden_Desp_det_x_Pedido_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_orden_Desp_det_x_Pedido_det">
           <Key>
@@ -4913,8 +5000,8 @@
           <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="Tiene_guia" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_orden_Desp_sin_guiaRemi' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_orden_Desp_sin_guiaRemi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_orden_Desp_sin_guiaRemi">
           <Key>
@@ -4960,8 +5047,8 @@
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="od_DespAbierto" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_orden_despacho_detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_orden_despacho_detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_orden_despacho_detalle">
           <Key>
@@ -5045,8 +5132,8 @@
           <Property Name="CodOrdenDespacho" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="od_DespAbierto" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Pedido_det_x_orden_desp_conSaldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Pedido_det_x_orden_desp_conSaldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Pedido_det_x_orden_desp_conSaldo">
           <Key>
@@ -5069,8 +5156,8 @@
           <Property Name="pd_saldo" Type="float" />
           <Property Name="detelleSys" Type="varchar" Nullable="false" MaxLength="29" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_pedido_detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_pedido_detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_pedido_detalle">
           <Key>
@@ -5158,8 +5245,8 @@
           <Property Name="Tiene_Despacho" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="Esta_en_Base" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_pedido_x_fa_orden_Desp_det_x_fa_guia_remision_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_pedido_x_fa_orden_Desp_det_x_fa_guia_remision_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_pedido_x_fa_orden_Desp_det_x_fa_guia_remision_det">
           <Key>
@@ -5181,8 +5268,8 @@
           <Property Name="gi_cantidad_guia" Type="float" Nullable="false" />
           <Property Name="saldo_cantidad_pedido" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Producto_x_Pedidos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Producto_x_Pedidos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Producto_x_Pedidos">
           <Key>
@@ -5197,8 +5284,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="pr_Pedidos" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_PuntoVta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_PuntoVta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_PuntoVta">
           <Key>
@@ -5219,8 +5306,8 @@
           <Property Name="estado" Type="bit" Nullable="false" />
           <Property Name="IdBodega" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_TipoNota_x_Empresa' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_TipoNota_x_Empresa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_TipoNota_x_Empresa">
           <Key>
@@ -5245,8 +5332,8 @@
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Total_pedidos_x_cliente_No_despachados' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Total_pedidos_x_cliente_No_despachados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Total_pedidos_x_cliente_No_despachados">
           <Key>
@@ -5257,8 +5344,8 @@
           <Property Name="IdCliente" Type="numeric" Nullable="false" />
           <Property Name="dp_total" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwfa_venta_telefonica_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwfa_venta_telefonica_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwfa_venta_telefonica_det">
           <Key>
@@ -5282,8 +5369,8 @@
           <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="Viene_Base" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwFa_Ventas_x_cliente_x_periodo_BI' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwFa_Ventas_x_cliente_x_periodo_BI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwFa_Ventas_x_cliente_x_periodo_BI">
           <Key>
@@ -6593,6 +6680,8 @@
           </AssociationSet>
           <EntitySet Name="vwfa_ContabilizacionFactura_x_Item" EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Item" />
           <EntitySet Name="vwfa_PuntoVta" EntityType="DBERPModelFAC.vwfa_PuntoVta" />
+          <EntitySet Name="fa_factura_det_subcentro" EntityType="DBERPModelFAC.fa_factura_det_subcentro" />
+          <EntitySet Name="vwfa_ContabilizacionFactura_x_Subcentro" EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Subcentro" />
           </EntityContainer>
         <EntityType Name="fa_catalogo">
           <Key>
@@ -11083,6 +11172,65 @@
           <Property Type="Boolean" Name="estado" Nullable="false" />
           <Property Type="Int32" Name="IdBodega" />
         </EntityType>
+        <EntityType Name="fa_factura_det_subcentro">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_Precio" Nullable="false" />
+          <Property Type="Double" Name="vt_PorDescUnitario" Nullable="false" />
+          <Property Type="Double" Name="vt_DescUnitario" Nullable="false" />
+          <Property Type="Double" Name="vt_PrecioFinal" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" Nullable="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="vt_por_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwfa_ContabilizacionFactura_x_Subcentro">
+          <Key>
+            <PropertyRef Name="IdFila" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="vt_tipo_venta" />
+            <PropertyRef Name="vt_plazo" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+          </Key>
+          <Property Type="Int64" Name="IdFila" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Subtotal" />
+          <Property Type="Double" Name="Descuento" />
+          <Property Type="Double" Name="iva" />
+          <Property Type="Double" Name="Total" />
+          <Property Type="String" Name="IdCtaCble_Ven0" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble_VenIva" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_tipo_venta" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="vt_plazo" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Int32" Name="IdCtaCble_DesIva" />
+          <Property Type="Int32" Name="IdCtaCble_Des0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCble_Imp_Iva" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13685,6 +13833,55 @@
                 <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
                 <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fa_factura_det_subcentro">
+            <EntityTypeMapping TypeName="DBERPModelFAC.fa_factura_det_subcentro">
+              <MappingFragment StoreEntitySet="fa_factura_det_subcentro">
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="vt_por_iva" ColumnName="vt_por_iva" />
+                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="vt_PrecioFinal" ColumnName="vt_PrecioFinal" />
+                <ScalarProperty Name="vt_DescUnitario" ColumnName="vt_DescUnitario" />
+                <ScalarProperty Name="vt_PorDescUnitario" ColumnName="vt_PorDescUnitario" />
+                <ScalarProperty Name="vt_Precio" ColumnName="vt_Precio" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwfa_ContabilizacionFactura_x_Subcentro">
+            <EntityTypeMapping TypeName="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Subcentro">
+              <MappingFragment StoreEntitySet="vwfa_ContabilizacionFactura_x_Subcentro">
+                <ScalarProperty Name="IdCtaCble_Imp_Iva" ColumnName="IdCtaCble_Imp_Iva" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdCtaCble_Des0" ColumnName="IdCtaCble_Des0" />
+                <ScalarProperty Name="IdCtaCble_DesIva" ColumnName="IdCtaCble_DesIva" />
+                <ScalarProperty Name="vt_plazo" ColumnName="vt_plazo" />
+                <ScalarProperty Name="vt_tipo_venta" ColumnName="vt_tipo_venta" />
+                <ScalarProperty Name="IdCtaCble_VenIva" ColumnName="IdCtaCble_VenIva" />
+                <ScalarProperty Name="IdCtaCble_Ven0" ColumnName="IdCtaCble_Ven0" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="iva" ColumnName="iva" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdFila" ColumnName="IdFila" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

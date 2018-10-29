@@ -75,6 +75,7 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                         itemInfo.Descripcion = item.Descripcion;
                         itemInfo.nom_EstadoCierre = item.nom_EstadoCierre;
                         itemInfo.pr_codigo = item.pr_codigo;
+                        itemInfo.CodigoSucursal = item.CodigoSucursal;
                         listadatos.Add(itemInfo);
                     }
                 }

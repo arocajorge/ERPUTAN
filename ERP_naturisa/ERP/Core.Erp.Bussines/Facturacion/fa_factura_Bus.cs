@@ -678,9 +678,8 @@ namespace Core.Erp.Business.Facturacion
                 decimal idctctb = 0;
 
 
-                if (Data_facturas_x_cbtecble.Get_info_fa_factura_x_ct_cbtecble(param.IdEmpresa, Info.IdSucursal, Info.IdBodega, Info.IdCbteVta,Cl_Enumeradores.eMotivo_Diario_x_Vta.X_FACT ).vt_IdCbteVta != 0)
-                { return respuesta; }
-                else
+                var rel = Data_facturas_x_cbtecble.Get_info_fa_factura_x_ct_cbtecble(param.IdEmpresa, Info.IdSucursal, Info.IdBodega, Info.IdCbteVta, Cl_Enumeradores.eMotivo_Diario_x_Vta.X_FACT);
+
                 {
                     //contabilizo la factura x venta
                     if (Info.DetFactura_List.Count() == 0)
@@ -691,8 +690,18 @@ namespace Core.Erp.Business.Facturacion
                    }
 
                     _CbteCbleInfo =Get_CbteCbleInfo(Info);
-                    respuesta =Bus_CbteCble.GrabarDB(_CbteCbleInfo, ref idctctb, ref msg);
-                    if (respuesta)
+
+                    if (rel.vt_IdCbteVta != 0)
+                    {
+                        _CbteCbleInfo.IdEmpresa = rel.ct_IdEmpresa;
+                        _CbteCbleInfo.IdTipoCbte = rel.ct_IdTipoCbte;
+                        _CbteCbleInfo.IdCbteCble = rel.ct_IdCbteCble;
+                        respuesta =Bus_CbteCble.ModificarDB(_CbteCbleInfo, ref msg);    
+                    }
+                     else
+                        respuesta =Bus_CbteCble.GrabarDB(_CbteCbleInfo, ref idctctb, ref msg);
+
+                    if (respuesta && rel.vt_IdCbteVta == 0)
                     {
                         set_factura_x_ct_cbtecble(Info, _CbteCbleInfo,Cl_Enumeradores.eMotivo_Diario_x_Vta.X_FACT);
                     }

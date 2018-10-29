@@ -59,5 +59,6 @@ namespace Cus.Erp.Reports.Naturisa.Compras
         public string departamento { get; set; }
         public string nom_EstadoCierre { get; set; }
         public string pr_codigo { get; set; }
+        public string CodigoSucursal { get; set; }
     }
 }

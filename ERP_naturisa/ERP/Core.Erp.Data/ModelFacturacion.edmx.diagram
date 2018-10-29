@@ -167,6 +167,8 @@
         <AssociationConnector Association="DBERPModelFAC.FK_fa_factura_det_fa_factura" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Item" Width="1.5" PointX="10.67839285483509" PointY="13.6443397764323" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_PuntoVta" Width="1.5" PointX="5.7862708427879355" PointY="24.205796834177242" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_det_subcentro" Width="1.5" PointX="9.9196824309973426" PointY="19.112709426839235" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Subcentro" Width="1.5" PointX="9.6787994195142772" PointY="4.6782517156928085" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
