@@ -14,6 +14,8 @@ using DevExpress.XtraPrinting;
 
 using Core.Erp.Info.Inventario;
 using Core.Erp.Business.Inventario;
+using Cus.Erp.Reports.Naturisa.Compras;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Compras
 {
@@ -370,6 +372,30 @@ namespace Core.Erp.Winform.Compras
                 FrmCom_OrdenCompra_x_Guia_x_traspaso_Cons frm = new FrmCom_OrdenCompra_x_Guia_x_traspaso_Cons();
                 frm.Set_info_OC(Info_OC);
                 frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmb_imprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Info_OC = (com_ordencompra_local_Info)gridViewOrdenCompra.GetFocusedRow();
+                if (Info_OC == null)
+                    return;
+
+                XCOMP_NATU_Rpt007_Rpt Reporte_Natu = new XCOMP_NATU_Rpt007_Rpt();
+                Reporte_Natu.RequestParameters = false;
+                ReportPrintTool pt_Natu = new ReportPrintTool(Reporte_Natu);
+                pt_Natu.AutoShowParametersPanel = false;
+                Reporte_Natu.PIdEmpresa.Value = param.IdEmpresa;
+                Reporte_Natu.PIdSucursal.Value = Info_OC.IdSucursal;
+                Reporte_Natu.PIdOrdenCompra.Value = Info_OC.IdOrdenCompra;
+                Reporte_Natu.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

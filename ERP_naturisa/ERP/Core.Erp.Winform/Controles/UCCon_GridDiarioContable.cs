@@ -1141,6 +1141,30 @@ namespace Core.Erp.Winform.Controles
                     newRow.dc_Valor_D = Debe;
                     newRow.dc_Valor_H = Haber;
                     newRow.dc_Observacion = observacion;
+
+                    string IdCentroCosto = rowData.Count() >= 7 ? rowData[6] : string.Empty;
+                    string IdCentroCostoSubCentroCosto = rowData.Count() >= 8 ? rowData[7] : string.Empty;
+                    string IdRegistro = null;
+
+                    if (!string.IsNullOrEmpty(IdCentroCosto) && !string.IsNullOrEmpty(IdCentroCostoSubCentroCosto))
+                    {
+                        IdCentroCosto = IdCentroCosto.Trim();
+                        IdCentroCostoSubCentroCosto = IdCentroCostoSubCentroCosto.Trim();
+                        IdRegistro = IdCentroCosto + '-' + IdCentroCostoSubCentroCosto;
+
+                        if (Lista_SubCentroCombo.Where(q => q.IdRegistro == IdRegistro).Count() > 0)
+                        {
+                            newRow.IdCentroCosto = IdCentroCosto;
+                            newRow.IdCentroCosto_sub_centro_costo = IdCentroCostoSubCentroCosto;
+                            newRow.IdRegistro = IdRegistro;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No existe una combinación de [centro-subcentro] = ["+IdRegistro + "] revise el caso mencionado");
+                            return false;
+                        }
+                    }
+
                     if (info_cuenta != null)
                     {
                         if (Debe > 0)
@@ -1484,7 +1508,7 @@ namespace Core.Erp.Winform.Controles
                 string[] rowData = data.Split(new char[] { '\r', '\x09' });
 
                 //posicion de la ata pegada
-                // IdCbtaCble | pc_clave_corta | pc_cuenta | observacion | Debe | Haber
+                // IdCbtaCble | pc_clave_corta | pc_cuenta | observacion | Debe | Haber | Centro de costo | Sub centro de costo
 
                 ct_Cbtecble_det_Info newRow = new ct_Cbtecble_det_Info();
                 if (rowData.Count() >= 3) //return false;          
@@ -1518,21 +1542,26 @@ namespace Core.Erp.Winform.Controles
                     string observacion = Convert.ToString(rowData[3]);
                     double Debe = Convert.ToDouble(rowData[4] == "" ? "0" : rowData[4]);
                     double Haber = Convert.ToDouble(rowData[5] == "" ? "0" : rowData[5]);
-                    string CodigoPuntoCargo= Convert.ToString(rowData[6] == "" ? "0" : rowData[6]);
-                    info_punto_cargo = bus_punto_cargo.Get_info_punto_Cargo_con_subcentro(param.IdEmpresa, CodigoPuntoCargo);
-
+                    
                     newRow.IdCtaCble = info_cuenta.IdCtaCble;
                     newRow.dc_Valor_D = Debe;
                     newRow.dc_Valor_H = Haber;
                     newRow.dc_Observacion = observacion;
                     newRow.IdPunto_cargo = info_punto_cargo.IdPunto_cargo;
 
-                    newRow.IdPunto_cargo_grupo = info_punto_cargo.IdPunto_cargo_grupo;
-                    newRow.IdCentroCosto = info_punto_cargo.IdCentroCosto_Scc;
-                    newRow.IdCentroCosto_sub_centro_costo = info_punto_cargo.IdCentroCosto_sub_centro_costo_Scc;
-                    newRow.IdRegistro = info_punto_cargo.IdCentroCosto_Scc + '-' + info_punto_cargo.IdCentroCosto_sub_centro_costo_Scc.ToString();
+                    string IdCentroCosto = rowData[6];
+                    string IdCentroCostoSubCentroCosto = rowData[7];
+                    string IdRegistro = null;
 
-
+                    if (!string.IsNullOrEmpty(IdCentroCosto) && !string.IsNullOrEmpty(IdCentroCostoSubCentroCosto))
+                    {
+                        IdCentroCosto = IdCentroCosto.Trim();
+                        IdCentroCostoSubCentroCosto = IdCentroCostoSubCentroCosto.Trim();
+                        IdRegistro = IdCentroCosto + '-' + IdCentroCostoSubCentroCosto;
+                        newRow.IdCentroCosto = IdCentroCosto;
+                        newRow.IdCentroCosto_sub_centro_costo = IdCentroCostoSubCentroCosto;
+                        newRow.IdRegistro = IdRegistro;
+                    }
 
                     if (info_cuenta != null)
                     {

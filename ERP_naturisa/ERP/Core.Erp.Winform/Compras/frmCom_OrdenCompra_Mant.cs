@@ -736,6 +736,10 @@ namespace Core.Erp.Winform.Compras
                     if (respuesta)
                     {
                         MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Se_modifico_corrrectamente) + " la Orden de Compra " + Info_OC.IdOrdenCompra, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Desea_Imprimir), param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            Imprimir();
+                        }
                         LimpiarDatos();
                     }
                     else
@@ -1240,15 +1244,18 @@ namespace Core.Erp.Winform.Compras
                         int secuencia = Convert.ToInt32(gridViewOrdenCompra.GetFocusedRowCellValue(colSecuencia));
 
                         Porc_Descuento = Math.Round(Convert.ToDouble(gridViewOrdenCompra.GetFocusedRowCellValue(colPorc_Descuento)), 6);
-                        Descuento = Math.Round((Porc_Descuento * precio) / 100, 6);
+                        Descuento = Math.Round((fila_OC_det.do_porc_des * precio) / 100, 6);
 
+                        fila_OC_det.do_descuento = Descuento;
+
+                        /*
                         if (flag_por_descuento)
                         {
                             if (e.Column.Name == colPorc_Descuento.Name)
                             {
                                 Porc_Descuento = Math.Round(Convert.ToDouble(gridViewOrdenCompra.GetFocusedRowCellValue(colPorc_Descuento)), 6);
                                 Descuento = Math.Round((Porc_Descuento * precio) / 100, 6);
-                                gridViewOrdenCompra.SetFocusedRowCellValue(colDescuento, Descuento);
+                                gridViewOrdenCompra.SetFocusedRowCellValue(colDescuento, Descuento);        
                             }
                         }
                         else
@@ -1261,8 +1268,7 @@ namespace Core.Erp.Winform.Compras
                                     gridViewOrdenCompra.SetFocusedRowCellValue(colPorc_Descuento, Porc_Descuento);
                                 }
                             }
-
-
+                        */
                         PrecioFinal = (precio - Descuento);
                         subtotal = (PrecioFinal * cantidad);
                         Iva = 0;
