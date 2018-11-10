@@ -378,15 +378,19 @@ namespace Core.Erp.Data.Compras
 
         public List<com_ordencompra_local_Info> Get_List_ordencompra_local(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, string EstadoAprob, string Estado)
         {
-            List<com_ordencompra_local_Info> Lst = new List<com_ordencompra_local_Info>();
-            EntitiesCompras OEComp = new EntitiesCompras();
             try
             {
+                #region Antigua consulta
+            List<com_ordencompra_local_Info> Lst = new List<com_ordencompra_local_Info>();
+            EntitiesCompras OEComp = new EntitiesCompras();
+            
                 FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
                 FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
 
                 string Aprob_Estado = (EstadoAprob == "TODOS") ? "" : EstadoAprob;
                 OEComp.SetCommandTimeOut(10000);
+
+
                 var Select = from q in OEComp.vwcom_ordencompra_local
                                 where q.IdEmpresa == IdEmpresa
                                 && q.oc_fecha <= FechaFin
@@ -449,7 +453,56 @@ namespace Core.Erp.Data.Compras
                     OrdCompInfo.En_guia = item.En_guia;
                     Lst.Add(OrdCompInfo);
                 }
+             
                 return Lst;
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
+                                    "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString();
+                throw new Exception(ex.ToString());
+            }
+        }
+
+        public List<com_ordencompra_local_consulta> Get_List_ordencompra_local(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+        {
+            try
+            {
+                FechaIni = FechaIni.Date;
+                FechaFin = FechaFin.Date;
+                List<com_ordencompra_local_consulta> Lista;
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    Lista = db.vwcom_ordencompra_local_consulta.Where(q => q.IdEmpresa == IdEmpresa && FechaIni <= q.oc_fecha && q.oc_fecha <= FechaFin).Select(q => new com_ordencompra_local_consulta
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSucursal = q.IdSucursal,
+                        IdOrdenCompra = q.IdOrdenCompra,
+                        Codigo = q.Codigo,
+                        Su_Descripcion = q.Su_Descripcion,
+                        oc_fecha = q.oc_fecha,
+                        pe_nombreCompleto = q.pe_nombreCompleto,
+                        Total = q.Total,
+                        IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
+                        EstadoAprobacion = q.EstadoAprobacion,
+                        oc_observacion = q.oc_observacion,
+                        Descripcion = q.Descripcion,
+                        IdEstado_cierre = q.IdEstado_cierre,
+                        EstadoCierre = q.EstadoCierre,
+                        en_guia = q.en_guia,
+                        Estado = q.Estado,
+                        TerminoPago = q.TerminoPago,
+                        oc_plazo = q.oc_plazo,
+                    }).ToList();
+                }
+
+                return Lista;
             }
             catch (Exception ex)
             {

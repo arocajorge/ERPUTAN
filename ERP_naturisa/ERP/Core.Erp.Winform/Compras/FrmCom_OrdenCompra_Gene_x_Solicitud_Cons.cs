@@ -13,6 +13,7 @@ using Core.Erp.Business.Compras;
 using Core.Erp.Info.Compras;
 
 using Cus.Erp.Reports.Naturisa.Compras;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Compras
 {
@@ -20,7 +21,7 @@ namespace Core.Erp.Winform.Compras
     {
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus;
         BindingList<com_ordencompra_local_Info> ListaBind;
-        
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         public FrmCom_OrdenCompra_Gene_x_Solicitud_Cons()
         {
             InitializeComponent();
@@ -91,7 +92,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                MessageBox.Show("Se generó la Orden de Compra Exitosamente", "Sistemas");
+                MessageBox.Show("Ordenes de compra generadas exitósamente", param.Nombre_sistema);
                 Close();
             }
             catch (Exception ex)
@@ -110,23 +111,18 @@ namespace Core.Erp.Winform.Compras
 
                 if (list_OrdComp.Count != 0)
                 {
-                    MessageBox.Show("Se procederá a Imprimir todas las Ordenes de Compras", "Sistemas");
+                    MessageBox.Show("Se procederá a imprimir todas las Ordenes de Compras", param.Nombre_sistema);
 
                     foreach (var item in ListaBind)
                     {
-                        XCOMP_Rpt001_Rpt reporte = new XCOMP_Rpt001_Rpt();
-
-                        int IdEmpresa = 0;
-                        int IdSucursal = 0;
-                        decimal IdOrdenCompra = 0;
-
-                        IdEmpresa = item.IdEmpresa;
-                        IdSucursal = item.IdSucursal;
-                        IdOrdenCompra = item.IdOrdenCompra;
-
-                        reporte.set_parametros(IdEmpresa, IdSucursal, IdOrdenCompra);
-                        reporte.RequestParameters = true;
-                        reporte.ShowPreviewDialog();
+                        XCOMP_NATU_Rpt007_Rpt Reporte_Natu = new XCOMP_NATU_Rpt007_Rpt();
+                        Reporte_Natu.RequestParameters = false;
+                        ReportPrintTool pt_Natu = new ReportPrintTool(Reporte_Natu);
+                        pt_Natu.AutoShowParametersPanel = false;
+                        Reporte_Natu.PIdEmpresa.Value = param.IdEmpresa;
+                        Reporte_Natu.PIdSucursal.Value = item.IdSucursal;
+                        Reporte_Natu.PIdOrdenCompra.Value = item.IdOrdenCompra;
+                        Reporte_Natu.ShowPreviewDialog();
                     }
                 }
 
@@ -152,6 +148,30 @@ namespace Core.Erp.Winform.Compras
                 Log_Error_bus = new Business.General.tb_sis_Log_Error_Vzen_Bus();
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);    
+            }
+        }
+
+        private void cmb_imprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_ordencompra_local_Info Info_OC = (com_ordencompra_local_Info)gridViewOrdComp.GetFocusedRow();
+                if (Info_OC == null)
+                    return;
+
+                XCOMP_NATU_Rpt007_Rpt Reporte_Natu = new XCOMP_NATU_Rpt007_Rpt();
+                Reporte_Natu.RequestParameters = false;
+                ReportPrintTool pt_Natu = new ReportPrintTool(Reporte_Natu);
+                pt_Natu.AutoShowParametersPanel = false;
+                Reporte_Natu.PIdEmpresa.Value = param.IdEmpresa;
+                Reporte_Natu.PIdSucursal.Value = Info_OC.IdSucursal;
+                Reporte_Natu.PIdOrdenCompra.Value = Info_OC.IdOrdenCompra;
+                Reporte_Natu.ShowPreviewDialog();
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -223,7 +223,7 @@ namespace Core.Erp.Business.Compras
                                        info.IdPersona_Solicita = item.IdPersona_Solicita;
                                        info.IdDepartamento = item.IdDepartamento;
                                        info.IdProveedor = Convert.ToDecimal(item.IdProveedor_SC);
-
+                                       info.IdTerminoPago = item.IdTerminoPago;
                                        info.IdMotivo = item.IdMotivo;
                                        info.IdSolicitudCompra = item.IdSolicitudCompra;
                                        info.IdEstadoAprobacion = item.IdEstadoAprobacion;
@@ -291,7 +291,7 @@ namespace Core.Erp.Business.Compras
                                                infOrdCom.IdEmpresa = item2.IdEmpresa;
                                                infOrdCom.IdProveedor = item2.IdProveedor;
                                                infOrdCom.Tipo = "LOCAL";
-                                               infOrdCom.IdTerminoPago = null;
+                                               infOrdCom.IdTerminoPago = item2.IdTerminoPago;
                                                infOrdCom.oc_plazo = item2.pr_plazo;
                                                infOrdCom.oc_fecha = Convert.ToDateTime(DateTime.Now.ToShortTimeString());
                                                infOrdCom.oc_flete = 0;
@@ -339,7 +339,7 @@ namespace Core.Erp.Business.Compras
                                            infoDet_Oc.do_peso = 0;
                                            infoDet_Oc.do_precioCompra = item3.do_precioCompra;
                                            infoDet_Oc.do_porc_des = item3.do_porc_des;
-                                           infoDet_Oc.do_descuento = item3.do_descuento;
+                                           infoDet_Oc.do_descuento = item3.do_precioCompra * (item3.do_porc_des/100) ;
 
                                            infoDet_Oc.do_precioFinal = infoDet_Oc.do_precioCompra - (infoDet_Oc.do_precioCompra * (infoDet_Oc.do_porc_des / 100));
                                            infoDet_Oc.do_subtotal = infoDet_Oc.do_Cantidad * infoDet_Oc.do_precioFinal;

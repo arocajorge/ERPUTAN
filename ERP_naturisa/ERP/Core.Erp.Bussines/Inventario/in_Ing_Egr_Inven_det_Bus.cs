@@ -146,13 +146,23 @@ namespace Core.Erp.Business.Inventario
             }
             catch (Exception ex)
             {
-
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Consulta_IngEgrDet_x_OC_Agrupado", ex.Message), ex) { EntityType = typeof(in_Ing_Egr_Inven_det_Bus) };
-
-
             }
         
+        }
+
+        public bool ValidarOcTieneIngresos(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
+        {
+            try
+            {
+                return odata.ValidarOcTieneIngresos(IdEmpresa, IdSucursal, IdOrdenCompra);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ValidarOcTieneIngresos", ex.Message), ex) { EntityType = typeof(in_Ing_Egr_Inven_det_Bus) };
+            }
         }
 
         public List<in_Ing_Egr_Inven_det_Info> Get_List_Ing_Egr_Inven_det_x_OrdenCompra(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)

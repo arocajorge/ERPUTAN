@@ -417,6 +417,30 @@ namespace Core.Erp.Data.Inventario
           }
       }
 
+      public bool ValidarOcTieneIngresos(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
+      {
+          try
+          {
+              using (EntitiesInventario db = new EntitiesInventario())
+              {
+                  int cont = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa_oc == IdEmpresa && q.IdSucursal_oc == IdSucursal && q.IdOrdenCompra == IdOrdenCompra).Count();
+                  if (cont > 0)
+                      return true;
+                  else
+                      return false;
+              }
+          }
+          catch (Exception ex)
+          {
+              string arreglo = ToString();
+              tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+              tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+              oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+              mensaje = ex.ToString() + " " + ex.Message;
+              throw new Exception(ex.ToString());
+          }
+      }
+
       public List<in_Ing_Egr_Inven_det_Info> Get_List_Ing_Egr_Inven_det_x_OrdenCompra(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
       {
           try

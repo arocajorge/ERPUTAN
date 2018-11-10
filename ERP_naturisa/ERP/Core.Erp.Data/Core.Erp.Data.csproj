@@ -4134,6 +4134,9 @@
     <Compile Include="vwcom_ordencompra_local.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcom_ordencompra_local_consulta.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcom_ordencompra_local_con_cant_devolver.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>

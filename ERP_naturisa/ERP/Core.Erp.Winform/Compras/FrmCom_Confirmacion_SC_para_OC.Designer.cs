@@ -30,7 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_Confirmacion_SC_para_OC));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.tbCabeceraOC = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControlCabecera = new DevExpress.XtraGrid.GridControl();
+            this.gridViewCabecera = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tbDetalleOC = new DevExpress.XtraTab.XtraTabPage();
             this.gridConfirmacionSC = new DevExpress.XtraGrid.GridControl();
             this.gridViewConfirmacionSC = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,56 +86,107 @@
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColTerminoPago = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbTerminoPago = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.tbCabeceraOC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCabecera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCabecera)).BeginInit();
+            this.tbDetalleOC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridConfirmacionSC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewConfirmacionSC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTerminoPago)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.splitContainer1);
+            this.panelControl1.Controls.Add(this.xtraTabControl1);
             this.panelControl1.Controls.Add(this.toolStrip1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1257, 572);
             this.panelControl1.TabIndex = 0;
             // 
-            // splitContainer1
+            // xtraTabControl1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(2, 29);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(2, 29);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.tbCabeceraOC;
+            this.xtraTabControl1.Size = new System.Drawing.Size(1253, 541);
+            this.xtraTabControl1.TabIndex = 4;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tbCabeceraOC,
+            this.tbDetalleOC});
             // 
-            // splitContainer1.Panel2
+            // tbCabeceraOC
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.gridConfirmacionSC);
-            this.splitContainer1.Size = new System.Drawing.Size(1253, 541);
-            this.splitContainer1.SplitterDistance = 55;
-            this.splitContainer1.SplitterWidth = 5;
-            this.splitContainer1.TabIndex = 4;
+            this.tbCabeceraOC.Controls.Add(this.gridControlCabecera);
+            this.tbCabeceraOC.Name = "tbCabeceraOC";
+            this.tbCabeceraOC.Size = new System.Drawing.Size(1247, 510);
+            this.tbCabeceraOC.Text = "Cabeceras";
+            // 
+            // gridControlCabecera
+            // 
+            this.gridControlCabecera.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlCabecera.Location = new System.Drawing.Point(0, 0);
+            this.gridControlCabecera.MainView = this.gridViewCabecera;
+            this.gridControlCabecera.Name = "gridControlCabecera";
+            this.gridControlCabecera.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbTerminoPago});
+            this.gridControlCabecera.Size = new System.Drawing.Size(1247, 510);
+            this.gridControlCabecera.TabIndex = 0;
+            this.gridControlCabecera.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewCabecera});
+            // 
+            // gridViewCabecera
+            // 
+            this.gridViewCabecera.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn44,
+            this.ColTerminoPago,
+            this.gridColumn46,
+            this.gridColumn47});
+            this.gridViewCabecera.GridControl = this.gridControlCabecera;
+            this.gridViewCabecera.Name = "gridViewCabecera";
+            this.gridViewCabecera.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewCabecera.OptionsView.ShowGroupPanel = false;
+            this.gridViewCabecera.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewCabecera_CellValueChanged);
+            this.gridViewCabecera.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridViewCabecera_CellValueChanging);
+            // 
+            // tbDetalleOC
+            // 
+            this.tbDetalleOC.Controls.Add(this.gridConfirmacionSC);
+            this.tbDetalleOC.Name = "tbDetalleOC";
+            this.tbDetalleOC.Size = new System.Drawing.Size(1247, 510);
+            this.tbDetalleOC.Text = "Detalles";
             // 
             // gridConfirmacionSC
             // 
             this.gridConfirmacionSC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridConfirmacionSC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridConfirmacionSC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridConfirmacionSC.Location = new System.Drawing.Point(0, 0);
             this.gridConfirmacionSC.MainView = this.gridViewConfirmacionSC;
-            this.gridConfirmacionSC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridConfirmacionSC.Margin = new System.Windows.Forms.Padding(4);
             this.gridConfirmacionSC.Name = "gridConfirmacionSC";
             this.gridConfirmacionSC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_Sucursal});
-            this.gridConfirmacionSC.Size = new System.Drawing.Size(1253, 481);
+            this.gridConfirmacionSC.Size = new System.Drawing.Size(1247, 510);
             this.gridConfirmacionSC.TabIndex = 3;
             this.gridConfirmacionSC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewConfirmacionSC});
@@ -535,28 +590,120 @@
             this.gridColumn43.Visible = true;
             this.gridColumn43.VisibleIndex = 0;
             // 
+            // gridColumn44
+            // 
+            this.gridColumn44.Caption = "Proveedor";
+            this.gridColumn44.FieldName = "NomProveedor";
+            this.gridColumn44.Name = "gridColumn44";
+            this.gridColumn44.OptionsColumn.AllowEdit = false;
+            this.gridColumn44.Visible = true;
+            this.gridColumn44.VisibleIndex = 0;
+            this.gridColumn44.Width = 406;
+            // 
+            // ColTerminoPago
+            // 
+            this.ColTerminoPago.Caption = "Termino Pago";
+            this.ColTerminoPago.ColumnEdit = this.cmbTerminoPago;
+            this.ColTerminoPago.FieldName = "IdTerminoPago";
+            this.ColTerminoPago.Name = "ColTerminoPago";
+            this.ColTerminoPago.Visible = true;
+            this.ColTerminoPago.VisibleIndex = 1;
+            this.ColTerminoPago.Width = 212;
+            // 
+            // gridColumn46
+            // 
+            this.gridColumn46.Caption = "Plazo";
+            this.gridColumn46.FieldName = "Plazo";
+            this.gridColumn46.Name = "gridColumn46";
+            this.gridColumn46.Visible = true;
+            this.gridColumn46.VisibleIndex = 2;
+            this.gridColumn46.Width = 99;
+            // 
+            // gridColumn47
+            // 
+            this.gridColumn47.Caption = "Observacion";
+            this.gridColumn47.FieldName = "Observacion";
+            this.gridColumn47.Name = "gridColumn47";
+            this.gridColumn47.Visible = true;
+            this.gridColumn47.VisibleIndex = 3;
+            this.gridColumn47.Width = 512;
+            // 
+            // cmbTerminoPago
+            // 
+            this.cmbTerminoPago.AutoHeight = false;
+            this.cmbTerminoPago.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTerminoPago.DisplayMember = "Descripcion";
+            this.cmbTerminoPago.Name = "cmbTerminoPago";
+            this.cmbTerminoPago.ValueMember = "IdTerminoPago";
+            this.cmbTerminoPago.View = this.gridView1;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn48,
+            this.gridColumn49,
+            this.gridColumn50});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn48
+            // 
+            this.gridColumn48.Caption = "ID";
+            this.gridColumn48.FieldName = "IdTerminoPago";
+            this.gridColumn48.Name = "gridColumn48";
+            this.gridColumn48.Visible = true;
+            this.gridColumn48.VisibleIndex = 2;
+            this.gridColumn48.Width = 151;
+            // 
+            // gridColumn49
+            // 
+            this.gridColumn49.Caption = "Término pago";
+            this.gridColumn49.FieldName = "Descripcion";
+            this.gridColumn49.Name = "gridColumn49";
+            this.gridColumn49.Visible = true;
+            this.gridColumn49.VisibleIndex = 0;
+            this.gridColumn49.Width = 1446;
+            // 
+            // gridColumn50
+            // 
+            this.gridColumn50.Caption = "Dias";
+            this.gridColumn50.FieldName = "Dias";
+            this.gridColumn50.Name = "gridColumn50";
+            this.gridColumn50.Visible = true;
+            this.gridColumn50.VisibleIndex = 1;
+            this.gridColumn50.Width = 137;
+            // 
             // FrmCom_Confirmacion_SC_para_OC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1257, 572);
             this.Controls.Add(this.panelControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCom_Confirmacion_SC_para_OC";
             this.Text = "FrmCom_Confirmacion_SC_para_OC";
             this.Load += new System.EventHandler(this.FrmCom_Confirmacion_SC_para_OC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.tbCabeceraOC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlCabecera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewCabecera)).EndInit();
+            this.tbDetalleOC.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridConfirmacionSC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewConfirmacionSC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTerminoPago)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -614,7 +761,20 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private DevExpress.XtraGrid.Columns.GridColumn colIdSucursal_SC;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage tbCabeceraOC;
+        private DevExpress.XtraTab.XtraTabPage tbDetalleOC;
+        private DevExpress.XtraGrid.GridControl gridControlCabecera;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewCabecera;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
+        private DevExpress.XtraGrid.Columns.GridColumn ColTerminoPago;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbTerminoPago;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn48;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn49;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
     }
 }

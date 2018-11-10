@@ -114,7 +114,20 @@ namespace Core.Erp.Business.Compras
         {
             try
             {
-                return BusOC.Get_List_ordencompra_local(IdEmpresa ,FechaIni, FechaFin, EstadoAprob, Estado);
+                return BusOC.Get_List_ordencompra_local(IdEmpresa, FechaIni, FechaFin, EstadoAprob, Estado);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_ordencompra_local", ex.Message), ex) { EntityType = typeof(com_ordencompra_local_Bus) };
+            }
+        }
+
+        public List<com_ordencompra_local_consulta> Get_List_ordencompra_local(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+        {
+            try
+            {
+                return BusOC.Get_List_ordencompra_local(IdEmpresa ,FechaIni, FechaFin);
             }
             catch (Exception ex)
             {

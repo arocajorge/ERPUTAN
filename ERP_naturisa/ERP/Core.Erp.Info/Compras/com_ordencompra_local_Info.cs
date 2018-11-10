@@ -136,4 +136,26 @@ namespace Core.Erp.Info.Compras
 
         public string nom_proveedor { get; set; }
     }
+
+    public class com_ordencompra_local_consulta
+    {
+        public int IdEmpresa { get; set; }
+        public int IdSucursal { get; set; }
+        public decimal IdOrdenCompra { get; set; }
+        public string Codigo { get; set; }
+        public string Su_Descripcion { get; set; }
+        public System.DateTime oc_fecha { get; set; }
+        public string pe_nombreCompleto { get; set; }
+        public Nullable<double> Total { get; set; }
+        public string IdEstadoAprobacion_cat { get; set; }
+        public string EstadoAprobacion { get; set; }
+        public string oc_observacion { get; set; }
+        public string Descripcion { get; set; }
+        public string IdEstado_cierre { get; set; }
+        public string EstadoCierre { get; set; }
+        public string en_guia { get; set; }
+        public string Estado { get; set; }
+        public string TerminoPago { get; set; }
+        public int oc_plazo { get; set; }
+    }
 }

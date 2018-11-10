@@ -49,7 +49,7 @@ namespace Core.Erp.Info.Compras
        public int  IdDepartamento { get; set; }
        public decimal IdProveedor { get; set; }
        public int Secuencia { get; set; }
-
+       public string IdTerminoPago { get; set; }
        public string IdEstadoPreAprobacion { get; set; }
        public string IdCod_Impuesto_Iva { get; set; }
 

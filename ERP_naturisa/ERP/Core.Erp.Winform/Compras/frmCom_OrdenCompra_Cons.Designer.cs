@@ -42,30 +42,24 @@
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colap_descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpr_nombre = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSolicitante = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Nom_Comprador = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SDepartamento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rec_descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdSucursal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coloc_fechaVencimiento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSolicitudes_x_OC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbImgIcon = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.imageListIconos = new System.Windows.Forms.ImageList(this.components);
             this.colEstado_pendiente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEn_guia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbImgGuia = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageListIconos = new System.Windows.Forms.ImageList(this.components);
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_imprimir = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImgIcon = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.ucGe_Menu_Mantenimiento_x_usuario = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOrdenCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrdenCompra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbImgIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImgGuia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_imprimir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImgIcon)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -100,23 +94,18 @@
             this.coltotal,
             this.colap_descripcion,
             this.colpr_nombre,
-            this.colSolicitante,
             this.Nom_Comprador,
-            this.SDepartamento,
-            this.rec_descripcion,
-            this.colIdSucursal,
-            this.colIdProveedor,
-            this.coloc_fechaVencimiento,
-            this.colSolicitudes_x_OC,
             this.colEstado_pendiente,
             this.colEn_guia,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.gridColumn3});
             this.gridViewOrdenCompra.CustomizationFormBounds = new System.Drawing.Rectangle(538, 416, 216, 185);
             this.gridViewOrdenCompra.GridControl = this.gridControlOrdenCompra;
             this.gridViewOrdenCompra.Images = this.imageListIconos;
             this.gridViewOrdenCompra.Name = "gridViewOrdenCompra";
             this.gridViewOrdenCompra.OptionsBehavior.ReadOnly = true;
             this.gridViewOrdenCompra.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewOrdenCompra.OptionsView.ShowGroupPanel = false;
             this.gridViewOrdenCompra.OptionsView.ShowViewCaption = true;
             this.gridViewOrdenCompra.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colIdOrdenCompra, DevExpress.Data.ColumnSortOrder.Descending),
@@ -130,12 +119,11 @@
             // 
             this.gridColumn1.Caption = "Sucursal";
             this.gridColumn1.FieldName = "Su_Descripcion";
-            this.gridColumn1.ImageIndex = 2;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 138;
+            this.gridColumn1.Width = 132;
             // 
             // colIdOrdenCompra
             // 
@@ -145,27 +133,30 @@
             this.colIdOrdenCompra.OptionsColumn.ReadOnly = true;
             this.colIdOrdenCompra.Visible = true;
             this.colIdOrdenCompra.VisibleIndex = 2;
-            this.colIdOrdenCompra.Width = 126;
+            this.colIdOrdenCompra.Width = 79;
             // 
             // coloc_NumDocumento
             // 
             this.coloc_NumDocumento.AppearanceCell.Options.UseTextOptions = true;
             this.coloc_NumDocumento.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.coloc_NumDocumento.Caption = "Referencia";
+            this.coloc_NumDocumento.Caption = "Código";
             this.coloc_NumDocumento.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.coloc_NumDocumento.FieldName = "oc_NumDocumento";
+            this.coloc_NumDocumento.FieldName = "Codigo";
             this.coloc_NumDocumento.Name = "coloc_NumDocumento";
             this.coloc_NumDocumento.OptionsColumn.ReadOnly = true;
             this.coloc_NumDocumento.Visible = true;
             this.coloc_NumDocumento.VisibleIndex = 3;
-            this.coloc_NumDocumento.Width = 136;
+            this.coloc_NumDocumento.Width = 88;
             // 
             // coloc_plazo
             // 
+            this.coloc_plazo.Caption = "Plazo";
             this.coloc_plazo.FieldName = "oc_plazo";
             this.coloc_plazo.Name = "coloc_plazo";
             this.coloc_plazo.OptionsColumn.ReadOnly = true;
-            this.coloc_plazo.Width = 90;
+            this.coloc_plazo.Visible = true;
+            this.coloc_plazo.VisibleIndex = 6;
+            this.coloc_plazo.Width = 64;
             // 
             // coloc_fecha
             // 
@@ -175,7 +166,7 @@
             this.coloc_fecha.OptionsColumn.ReadOnly = true;
             this.coloc_fecha.Visible = true;
             this.coloc_fecha.VisibleIndex = 1;
-            this.coloc_fecha.Width = 97;
+            this.coloc_fecha.Width = 93;
             // 
             // coloc_observacion
             // 
@@ -184,153 +175,80 @@
             this.coloc_observacion.Name = "coloc_observacion";
             this.coloc_observacion.OptionsColumn.ReadOnly = true;
             this.coloc_observacion.Visible = true;
-            this.coloc_observacion.VisibleIndex = 5;
-            this.coloc_observacion.Width = 169;
+            this.coloc_observacion.VisibleIndex = 7;
+            this.coloc_observacion.Width = 213;
             // 
             // colEstado
             // 
-            this.colEstado.Caption = "Activo";
+            this.colEstado.Caption = "Estado";
             this.colEstado.FieldName = "Estado";
             this.colEstado.Name = "colEstado";
             this.colEstado.OptionsColumn.ReadOnly = true;
-            this.colEstado.Width = 42;
+            this.colEstado.Visible = true;
+            this.colEstado.VisibleIndex = 12;
+            this.colEstado.Width = 82;
             // 
             // coltotal
             // 
             this.coltotal.Caption = "Total";
+            this.coltotal.DisplayFormat.FormatString = "n2";
             this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.coltotal.FieldName = "total";
+            this.coltotal.FieldName = "Total";
             this.coltotal.Name = "coltotal";
             this.coltotal.OptionsColumn.ReadOnly = true;
             this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 6;
-            this.coltotal.Width = 109;
+            this.coltotal.VisibleIndex = 9;
+            this.coltotal.Width = 78;
             // 
             // colap_descripcion
             // 
-            this.colap_descripcion.Caption = "Apro/Reprob";
-            this.colap_descripcion.FieldName = "ap_descripcion";
+            this.colap_descripcion.Caption = "Est. Aprobación";
+            this.colap_descripcion.FieldName = "EstadoAprobacion";
             this.colap_descripcion.Name = "colap_descripcion";
             this.colap_descripcion.OptionsColumn.ReadOnly = true;
             this.colap_descripcion.Visible = true;
-            this.colap_descripcion.VisibleIndex = 7;
-            this.colap_descripcion.Width = 136;
+            this.colap_descripcion.VisibleIndex = 10;
+            this.colap_descripcion.Width = 90;
             // 
             // colpr_nombre
             // 
             this.colpr_nombre.Caption = "Proveedor";
-            this.colpr_nombre.FieldName = "pr_nombre";
+            this.colpr_nombre.FieldName = "pe_nombreCompleto";
             this.colpr_nombre.Name = "colpr_nombre";
             this.colpr_nombre.OptionsColumn.ReadOnly = true;
             this.colpr_nombre.Visible = true;
             this.colpr_nombre.VisibleIndex = 4;
-            this.colpr_nombre.Width = 164;
-            // 
-            // colSolicitante
-            // 
-            this.colSolicitante.Caption = "Solicitante";
-            this.colSolicitante.FieldName = "Nom_Solicita";
-            this.colSolicitante.Name = "colSolicitante";
-            this.colSolicitante.OptionsColumn.ReadOnly = true;
-            this.colSolicitante.Width = 81;
+            this.colpr_nombre.Width = 220;
             // 
             // Nom_Comprador
             // 
             this.Nom_Comprador.Caption = "Comprador";
-            this.Nom_Comprador.FieldName = "Nom_Comprador";
+            this.Nom_Comprador.FieldName = "Descripcion";
             this.Nom_Comprador.Name = "Nom_Comprador";
             this.Nom_Comprador.OptionsColumn.ReadOnly = true;
             this.Nom_Comprador.Visible = true;
             this.Nom_Comprador.VisibleIndex = 8;
-            this.Nom_Comprador.Width = 174;
-            // 
-            // SDepartamento
-            // 
-            this.SDepartamento.Caption = "Departamento";
-            this.SDepartamento.FieldName = "SDepartamento";
-            this.SDepartamento.Name = "SDepartamento";
-            this.SDepartamento.OptionsColumn.ReadOnly = true;
-            this.SDepartamento.Width = 61;
-            // 
-            // rec_descripcion
-            // 
-            this.rec_descripcion.Caption = "Estado Recibido";
-            this.rec_descripcion.FieldName = "rec_descripcion";
-            this.rec_descripcion.Name = "rec_descripcion";
-            this.rec_descripcion.OptionsColumn.ReadOnly = true;
-            this.rec_descripcion.Width = 72;
-            // 
-            // colIdSucursal
-            // 
-            this.colIdSucursal.Caption = "IdSucursal";
-            this.colIdSucursal.FieldName = "IdSucursal";
-            this.colIdSucursal.Name = "colIdSucursal";
-            this.colIdSucursal.OptionsColumn.ReadOnly = true;
-            // 
-            // colIdProveedor
-            // 
-            this.colIdProveedor.Caption = "IdProveedor";
-            this.colIdProveedor.FieldName = "IdProveedor";
-            this.colIdProveedor.Name = "colIdProveedor";
-            this.colIdProveedor.OptionsColumn.ReadOnly = true;
-            // 
-            // coloc_fechaVencimiento
-            // 
-            this.coloc_fechaVencimiento.Caption = "Fecha Entrega";
-            this.coloc_fechaVencimiento.FieldName = "oc_fechaVencimiento";
-            this.coloc_fechaVencimiento.Name = "coloc_fechaVencimiento";
-            this.coloc_fechaVencimiento.OptionsColumn.ReadOnly = true;
-            this.coloc_fechaVencimiento.Visible = true;
-            this.coloc_fechaVencimiento.VisibleIndex = 9;
-            this.coloc_fechaVencimiento.Width = 133;
-            // 
-            // colSolicitudes_x_OC
-            // 
-            this.colSolicitudes_x_OC.Caption = "Solicitudes Compras";
-            this.colSolicitudes_x_OC.ColumnEdit = this.cmbImgIcon;
-            this.colSolicitudes_x_OC.FieldName = "Mostrar_Solicitud";
-            this.colSolicitudes_x_OC.Name = "colSolicitudes_x_OC";
-            this.colSolicitudes_x_OC.OptionsColumn.ReadOnly = true;
-            this.colSolicitudes_x_OC.Width = 91;
-            // 
-            // cmbImgIcon
-            // 
-            this.cmbImgIcon.AutoHeight = false;
-            this.cmbImgIcon.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbImgIcon.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0)});
-            this.cmbImgIcon.LargeImages = this.imageListIconos;
-            this.cmbImgIcon.Name = "cmbImgIcon";
-            this.cmbImgIcon.SmallImages = this.imageListIconos;
-            // 
-            // imageListIconos
-            // 
-            this.imageListIconos.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIconos.ImageStream")));
-            this.imageListIconos.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListIconos.Images.SetKeyName(0, "buscar_doc_64x64.png");
-            this.imageListIconos.Images.SetKeyName(1, "Lupa_16x16.png");
-            this.imageListIconos.Images.SetKeyName(2, "imprimir_32x32.png");
+            this.Nom_Comprador.Width = 236;
             // 
             // colEstado_pendiente
             // 
-            this.colEstado_pendiente.Caption = "Estado";
-            this.colEstado_pendiente.FieldName = "nom_EstadoCierre";
+            this.colEstado_pendiente.Caption = "Est. Cierre";
+            this.colEstado_pendiente.FieldName = "EstadoCierre";
             this.colEstado_pendiente.Name = "colEstado_pendiente";
             this.colEstado_pendiente.OptionsColumn.ReadOnly = true;
             this.colEstado_pendiente.Visible = true;
-            this.colEstado_pendiente.VisibleIndex = 10;
-            this.colEstado_pendiente.Width = 188;
+            this.colEstado_pendiente.VisibleIndex = 11;
+            this.colEstado_pendiente.Width = 87;
             // 
             // colEn_guia
             // 
-            this.colEn_guia.Caption = "Tiene guia";
+            this.colEn_guia.Caption = "Guía";
             this.colEn_guia.ColumnEdit = this.cmbImgGuia;
-            this.colEn_guia.FieldName = "En_guia";
+            this.colEn_guia.FieldName = "en_guia";
             this.colEn_guia.Name = "colEn_guia";
             this.colEn_guia.Visible = true;
-            this.colEn_guia.VisibleIndex = 11;
-            this.colEn_guia.Width = 78;
+            this.colEn_guia.VisibleIndex = 13;
+            this.colEn_guia.Width = 66;
             // 
             // cmbImgGuia
             // 
@@ -344,6 +262,14 @@
             this.cmbImgGuia.SmallImages = this.imageListIconos;
             this.cmbImgGuia.Click += new System.EventHandler(this.cmbImgGuia_Click);
             // 
+            // imageListIconos
+            // 
+            this.imageListIconos.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIconos.ImageStream")));
+            this.imageListIconos.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListIconos.Images.SetKeyName(0, "buscar_doc_64x64.png");
+            this.imageListIconos.Images.SetKeyName(1, "Lupa_16x16.png");
+            this.imageListIconos.Images.SetKeyName(2, "imprimir_32x32.png");
+            // 
             // gridColumn2
             // 
             this.gridColumn2.ColumnEdit = this.cmb_imprimir;
@@ -351,8 +277,8 @@
             this.gridColumn2.ImageIndex = 2;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 12;
-            this.gridColumn2.Width = 86;
+            this.gridColumn2.VisibleIndex = 14;
+            this.gridColumn2.Width = 94;
             // 
             // cmb_imprimir
             // 
@@ -367,6 +293,26 @@
             this.cmb_imprimir.ReadOnly = true;
             this.cmb_imprimir.SmallImages = this.imageListIconos;
             this.cmb_imprimir.Click += new System.EventHandler(this.cmb_imprimir_Click);
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Término";
+            this.gridColumn3.FieldName = "TerminoPago";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 5;
+            this.gridColumn3.Width = 112;
+            // 
+            // cmbImgIcon
+            // 
+            this.cmbImgIcon.AutoHeight = false;
+            this.cmbImgIcon.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImgIcon.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0)});
+            this.cmbImgIcon.LargeImages = this.imageListIconos;
+            this.cmbImgIcon.Name = "cmbImgIcon";
+            this.cmbImgIcon.SmallImages = this.imageListIconos;
             // 
             // ucGe_Menu_Mantenimiento_x_usuario
             // 
@@ -393,8 +339,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2018, 10, 7, 11, 25, 37, 33);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2018, 12, 7, 11, 25, 37, 33);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2018, 10, 9, 23, 51, 17, 598);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2018, 12, 9, 23, 51, 17, 599);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
@@ -482,9 +428,9 @@
             this.Load += new System.EventHandler(this.frmCom_OrdenCompraConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOrdenCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrdenCompra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbImgIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImgGuia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_imprimir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImgIcon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -505,18 +451,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colap_descripcion;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colpr_nombre;
-        private DevExpress.XtraGrid.Columns.GridColumn colSolicitante;
         private Controles.UCGe_Menu_Mantenimiento_x_usuario ucGe_Menu_Mantenimiento_x_usuario;
         private System.Windows.Forms.Panel panel1;
         private Controles.UCGe_BarraEstadoInferior_Forms ucGe_BarraEstadoInferior_Forms1;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraGrid.Columns.GridColumn Nom_Comprador;
-        private DevExpress.XtraGrid.Columns.GridColumn SDepartamento;
-        private DevExpress.XtraGrid.Columns.GridColumn rec_descripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdSucursal;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdProveedor;
-        private DevExpress.XtraGrid.Columns.GridColumn coloc_fechaVencimiento;
-        private DevExpress.XtraGrid.Columns.GridColumn colSolicitudes_x_OC;
         private System.Windows.Forms.ImageList imageListIconos;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImgIcon;
         private DevExpress.XtraGrid.Columns.GridColumn colEstado_pendiente;
@@ -524,5 +463,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImgGuia;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_imprimir;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }
