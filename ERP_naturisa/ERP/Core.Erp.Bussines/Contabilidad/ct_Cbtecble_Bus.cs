@@ -498,5 +498,17 @@ namespace Core.Erp.Business.Contabilidad
             
         }
 
+        public List<XCONTA_Rpt023> GetList(int IdEmpresa, string IdCentroCosto, int Nivel, DateTime FechaFin, string IdUsuario, string Balance, bool MostrarSaldo0)
+        {
+            try
+            {
+                return data.GetList(IdEmpresa, IdCentroCosto, Nivel, FechaFin, IdUsuario, Balance, MostrarSaldo0);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

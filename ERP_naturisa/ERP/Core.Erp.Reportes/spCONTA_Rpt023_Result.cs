@@ -11,17 +11,19 @@ namespace Core.Erp.Reportes
 {
     using System;
     
-    public partial class spCONTA_Rpt018_Result
+    public partial class spCONTA_Rpt023_Result
     {
-        public long IdRow { get; set; }
         public int IdEmpresa { get; set; }
         public string IdCtaCble { get; set; }
-        public string pc_Cuenta { get; set; }
-        public string Observacion { get; set; }
-        public Nullable<double> Valor { get; set; }
-        public Nullable<int> IdPunto_cargo_grupo { get; set; }
-        public string nom_punto_cargo_grupo { get; set; }
-        public string Comprobante { get; set; }
-        public Nullable<decimal> IdCbteCble { get; set; }
+        public string IdCentroCosto { get; set; }
+        public string IdUsuario { get; set; }
+        public string IdCtaCblePadre { get; set; }
+        public string Naturaleza { get; set; }
+        public string NombreCuenta { get; set; }
+        public string NombreCentroCosto { get; set; }
+        public bool EsCuentaMovimiento { get; set; }
+        public int NivelCuenta { get; set; }
+        public decimal Saldo { get; set; }
+        public decimal SaldoNaturaleza { get; set; }
     }
 }

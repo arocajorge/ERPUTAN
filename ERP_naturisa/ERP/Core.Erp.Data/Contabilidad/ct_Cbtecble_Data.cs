@@ -1220,10 +1220,119 @@ namespace Core.Erp.Data.Contabilidad
             }
         }
 
+        public List<XCONTA_Rpt023> GetList(int IdEmpresa, string IdCentroCosto, int Nivel, DateTime FechaFin, string IdUsuario, string Balance, bool MostrarSaldo0)
+        {
+            try
+            {
+                List<XCONTA_Rpt023> Lista = new List<XCONTA_Rpt023>();
+                int Anio = FechaFin.Year;
+                DateTime FechaIni = new DateTime(Anio, 1, 1);
+                FechaFin = FechaFin.Date;
+                using (EntitiesDBConta db = new EntitiesDBConta())
+                {
+                    //GET PLAN DE CUENTAS
+                    var lst_plancta = (from q in db.ct_plancta
+                                       join c in db.ct_grupocble
+                                       on q.IdGrupoCble equals c.IdGrupoCble
+                                       where q.IdEmpresa == IdEmpresa
+                                       && c.gc_estado_financiero == Balance
+                                       select new
+                                        {
+                                            IdCtaCble = q.IdCtaCble,
+                                            IdCtaCblePadre = q.IdCtaCblePadre,
+                                            NombreCuenta = q.pc_Cuenta,
+                                            Signo = c.gc_signo_operacion,
+                                            Nivel = q.IdNivelCta
+                                        }).ToList();
+
+                    //GET LISTADO SUBCENTROS
+                    var lst_subcentro = (from c in db.ct_centro_costo
+                                         join d in db.ct_centro_costo_sub_centro_costo
+                                         on new { c.IdEmpresa, c.IdCentroCosto } equals new { d.IdEmpresa, d.IdCentroCosto }
+                                         where c.IdEmpresa == IdEmpresa && c.IdCentroCosto == IdCentroCosto
+                                         select new
+                                         {
+                                             IdEmpresa = c.IdEmpresa,
+                                             IdCentroCosto = c.IdCentroCosto,
+                                             IdCentroCosto_sub_centro_costo = d.IdCentroCosto_sub_centro_costo,
+                                             NombreCentroCosto = c.Centro_costo,
+                                             NombreSubCentroCosto = d.Centro_costo
+                                         }).ToList();
+
+                    var lst_saldos = (from c in db.ct_cbtecble
+                                      join d in db.ct_cbtecble_det
+                                      on new { c.IdEmpresa, c.IdTipoCbte, c.IdCbteCble } equals new { d.IdEmpresa, d.IdTipoCbte, d.IdCbteCble}
+                                      where FechaIni <= c.cb_Fecha && c.cb_Fecha <= FechaFin
+                                  && c.IdEmpresa == IdEmpresa
+                                  && d.IdCentroCosto == IdCentroCosto
+                                      group d by new { d.IdEmpresa, d.IdCtaCble, d.IdCentroCosto, d.IdCentroCosto_sub_centro_costo } into Grouping
+                                      select new
+                                      {
+                                          IdEmpresa = Grouping.Key.IdEmpresa,
+                                          IdCentroCosto = Grouping.Key.IdCentroCosto,
+                                          IdCentroCosto_sub_centro_costo = Grouping.Key.IdCentroCosto_sub_centro_costo,
+                                          IdCtaCble = Grouping.Key.IdCtaCble,
+                                          dc_valor = Grouping.Sum(q=>q.dc_Valor)
+                                      }).ToList();
+
+
+                    //RECORRO LISTAS PARA CREAR PLANTILLA INICIAL DE PLAN DE CUENTAS X SUBCENTROS
+                    lst_subcentro.ForEach(q =>
+                    {
+                        lst_plancta.ForEach(c =>
+                        {
+                            Lista.Add(new XCONTA_Rpt023
+                            {
+                                IdEmpresa = q.IdEmpresa,
+                                IdCentroCosto = q.IdCentroCosto,
+                                IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                NombreCentroCosto = q.NombreCentroCosto,
+                                NombreSubCentroCosto = q.NombreSubCentroCosto,
+                                NombreCuenta = c.NombreCuenta,
+                                IdCtaCble = c.IdCtaCble,
+                                IdCtaCblePadre = c.IdCtaCblePadre,
+                                Signo = c.Signo,
+                                Nivel = c.Nivel,
+                                //OBTENGO EL VALOR DE LA CUENTA CONTABLE POR EL SUBCENTRO
+                                Saldo = 0
+                            });
+                        });
+                    });
+                    //SUMA HACIA LOS PADRES
+                    Lista.OrderByDescending(q => q.Nivel).ToList().ForEach(q =>
+                    {
+                        q.Saldo = Lista.Where(f => f.IdCtaCblePadre == q.IdCtaCble).Sum(f => f.Saldo);
+                    });
+                }
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
+        }
       
         public ct_Cbtecble_Data() 
         {
         
         }
+    }
+
+    public class XCONTA_Rpt023
+    {
+        public int IdEmpresa { get; set; }
+        public string IdCentroCosto { get; set; }
+        public string IdCentroCosto_sub_centro_costo { get; set; }
+        public string NombreCentroCosto { get; set; }
+        public string NombreSubCentroCosto { get; set; }
+        public string IdCtaCble { get; set; }
+        public string IdCtaCblePadre { get; set; }
+        public string NombreCuenta { get; set; }
+        public int? Signo { get; set; }
+        public double? Saldo { get; set; }
+
+        public int Nivel { get; set; }
     }
 }

@@ -185,8 +185,8 @@
       FROM [dbo].[vwCONTA_Rpt014] AS [vwCONTA_Rpt014]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt001">
           <Key>
@@ -228,8 +228,8 @@
           <Property Name="gc_estado_financiero" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="SIdPeriodo" Type="varchar" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt002">
           <Key>
@@ -271,8 +271,8 @@
           <Property Name="gc_estado_financiero" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="SIdPeriodo" Type="varchar" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt003">
           <Key>
@@ -319,8 +319,8 @@
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
           <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt004">
           <Key>
@@ -346,8 +346,8 @@
           <Property Name="pc_es_flujo_efectivo" Type="char" MaxLength="1" />
           <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt005' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt005">
           <Key>
@@ -379,8 +379,8 @@
           <Property Name="IdMes" Type="int" />
           <Property Name="Mes" Type="varchar" MaxLength="30" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt008' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt008">
           <Key>
@@ -412,8 +412,8 @@
           <Property Name="CodTipoCbte" Type="char" Nullable="false" MaxLength="10" />
           <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt009' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt009' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt009">
           <Key>
@@ -451,8 +451,8 @@
           <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCONTA_Rpt014' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCONTA_Rpt014' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_Rpt014">
           <Key>
@@ -557,6 +557,15 @@
           <Parameter Name="IdPunto_cargo_grupo_fin" Type="int" Mode="In" />
           <Parameter Name="Mostrar_detalle" Type="bit" Mode="In" />
         </Function>
+        <Function Name="spCONTA_Rpt023" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdCentroCosto" Type="varchar" Mode="In" />
+          <Parameter Name="Nivel" Type="int" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="Balance" Type="varchar" Mode="In" />
+          <Parameter Name="MostrarSaldo0" Type="bit" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -637,6 +646,15 @@
             <Parameter Name="i_Mostrar_Asiento_Cierre" Mode="In" Type="Boolean" />
           </FunctionImport>
           <EntitySet Name="vwCONTA_Rpt014" EntityType="ModelContabilidadGeneralRpt.vwCONTA_Rpt014" />
+          <FunctionImport Name="spCONTA_Rpt023" ReturnType="Collection(ModelContabilidadGeneralRpt.spCONTA_Rpt023_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdCentroCosto" Mode="In" Type="String" />
+            <Parameter Name="Nivel" Mode="In" Type="Int32" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdUsuario" Mode="In" Type="String" />
+            <Parameter Name="Balance" Mode="In" Type="String" />
+            <Parameter Name="MostrarSaldo0" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="vwCONTA_Rpt001">
           <Key>
@@ -1071,6 +1089,20 @@
           <Property Type="String" Name="nom_punto_cargo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="Byte" Name="gc_Orden" Nullable="false" />
         </EntityType>
+        <ComplexType Name="spCONTA_Rpt023_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IdCtaCblePadre" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Naturaleza" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="NombreCuenta" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="NombreCentroCosto" Nullable="false" MaxLength="1000" />
+          <Property Type="Boolean" Name="EsCuentaMovimiento" Nullable="false" />
+          <Property Type="Int32" Name="NivelCuenta" Nullable="false" />
+          <Property Type="Decimal" Name="Saldo" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SaldoNaturaleza" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1435,6 +1467,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCONTA_Rpt023" FunctionName="ModelContabilidadGeneralRpt.Store.spCONTA_Rpt023">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContabilidadGeneralRpt.spCONTA_Rpt023_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="Naturaleza" ColumnName="Naturaleza" />
+                <ScalarProperty Name="NombreCuenta" ColumnName="NombreCuenta" />
+                <ScalarProperty Name="NombreCentroCosto" ColumnName="NombreCentroCosto" />
+                <ScalarProperty Name="EsCuentaMovimiento" ColumnName="EsCuentaMovimiento" />
+                <ScalarProperty Name="NivelCuenta" ColumnName="NivelCuenta" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="SaldoNaturaleza" ColumnName="SaldoNaturaleza" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+﻿using Core.Erp.Business.Contabilidad;
+using System;
 using System.Windows.Forms;
-using DevExpress.XtraTreeList.Nodes;
-using DevExpress.XtraTreeList;
-using System.Collections;
-using DevExpress.XtraTreeList.Columns;
-using Core.Erp.Business.SeguridadAcceso;
-using Core.Erp.Info.SeguridadAcceso;
-using Core.Erp.Winform.Academico;
-using Core.Erp.Reportes.Inventario;
-using Core.Erp.Business.CuentasxCobrar;
-using Core.Erp.Info.CuentasxCobrar;
-using Core.Erp.Business.Facturacion;
-using Core.Erp.Info.Inventario;
-using Core.Erp.Business.Inventario;
-
-
+using Core.Erp.Business.General;
 namespace Core.Erp.Winform
 {
 
     public partial class Form1 : Form
     {
-       
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                string mensaje = string.Empty;
+                ct_Cbtecble_Bus bus_diario = new ct_Cbtecble_Bus();
+                ct_Centro_costo_Bus bus_centros = new ct_Centro_costo_Bus();
+                var lst_subcentros = bus_centros.Get_list_Centro_Costo(param.IdEmpresa,ref mensaje);
+                
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }    
         }
 
 

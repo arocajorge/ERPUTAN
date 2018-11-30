@@ -320,5 +320,10 @@ namespace Core.Erp.Winform.Inventario
                 throw;
             }
         }
+
+        private void gridControlAprobación_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

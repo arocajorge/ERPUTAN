@@ -30,6 +30,11 @@
         {
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.cmb_sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -53,12 +58,9 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ProgressBar_recosteo = new DevExpress.XtraEditors.ProgressBarControl();
-            this.cmb_sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties)).BeginInit();
@@ -70,8 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobacion)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressBar_recosteo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -150,6 +150,55 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1345, 149);
             this.panel1.TabIndex = 1;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(23, 11);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(54, 16);
+            this.labelControl3.TabIndex = 10;
+            this.labelControl3.Text = "Sucursal:";
+            // 
+            // cmb_sucursal
+            // 
+            this.cmb_sucursal.Location = new System.Drawing.Point(119, 8);
+            this.cmb_sucursal.Name = "cmb_sucursal";
+            this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
+            this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
+            this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
+            this.cmb_sucursal.Size = new System.Drawing.Size(438, 22);
+            this.cmb_sucursal.TabIndex = 9;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn5,
+            this.gridColumn6});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "ID";
+            this.gridColumn5.FieldName = "IdSucursal";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 1;
+            this.gridColumn5.Width = 193;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Sucursal";
+            this.gridColumn6.FieldName = "Su_Descripcion";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn6.Width = 1541;
             // 
             // chk_seleccionar_visibles
             // 
@@ -285,6 +334,7 @@
             this.gridControlAprobación.TabIndex = 2;
             this.gridControlAprobación.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAprobacion});
+            this.gridControlAprobación.Click += new System.EventHandler(this.gridControlAprobación_Click);
             // 
             // gridViewAprobacion
             // 
@@ -407,55 +457,6 @@
             this.ProgressBar_recosteo.Size = new System.Drawing.Size(1329, 23);
             this.ProgressBar_recosteo.TabIndex = 0;
             // 
-            // cmb_sucursal
-            // 
-            this.cmb_sucursal.Location = new System.Drawing.Point(119, 8);
-            this.cmb_sucursal.Name = "cmb_sucursal";
-            this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
-            this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
-            this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_sucursal.Size = new System.Drawing.Size(438, 22);
-            this.cmb_sucursal.TabIndex = 9;
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn5,
-            this.gridColumn6});
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "ID";
-            this.gridColumn5.FieldName = "IdSucursal";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 1;
-            this.gridColumn5.Width = 193;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Sucursal";
-            this.gridColumn6.FieldName = "Su_Descripcion";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 0;
-            this.gridColumn6.Width = 1541;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(23, 11);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(54, 16);
-            this.labelControl3.TabIndex = 10;
-            this.labelControl3.Text = "Sucursal:";
-            // 
             // FrmIn_Aprobacion_Ing_Egr_x_transaccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -472,6 +473,8 @@
             this.Load += new System.EventHandler(this.FrmIn_Aprobacion_Ing_Egr_x_transaccion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties.VistaTimeProperties)).EndInit();
@@ -485,8 +488,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobacion)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProgressBar_recosteo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }

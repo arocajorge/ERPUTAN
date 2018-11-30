@@ -41,7 +41,9 @@ namespace Core.Erp.Reportes.Controles
         List<ct_centro_costo_sub_centro_costo_Info> lst_Centro_costo_sub_centro_costo = new List<ct_centro_costo_sub_centro_costo_Info>();
 
         List<string> lst_GrupoCble_chk = new List<string>();
+        List<string> lst_CentroCosto_chk = new List<string>();
         List<string> lst_id_GrupoCble_chk = new List<string>();
+        List<string> lst_id_CentroCosto_chk = new List<string>();
 
         List<ct_punto_cargo_grupo_Info> lst_punto_cargo_grupo = new List<ct_punto_cargo_grupo_Info>();
         ct_punto_cargo_grupo_Bus bus_punto_cargo_grupo = new ct_punto_cargo_grupo_Bus();
@@ -114,6 +116,9 @@ namespace Core.Erp.Reportes.Controles
             set { this.bei_Check4.Caption = value; }
         }
 
+        public DevExpress.XtraBars.BarItemVisibility Visible_bei_Centro_costo { get { return this.bei_Centro_costo.Visibility; } set { this.bei_Centro_costo.Visibility = value; } }
+        public DevExpress.XtraBars.BarItemVisibility Visible_bei_Centro_costo_chk { get { return this.bei_cmbCentroCosto_chk.Visibility; } set { this.bei_cmbCentroCosto_chk.Visibility = value; } }
+        public DevExpress.XtraBars.BarItemVisibility Visible_bei_Centro_costo_sub_centro_costo { get { return this.bei_Centro_costo_sub_centro_costo.Visibility; } set { this.bei_Centro_costo_sub_centro_costo.Visibility = value; } }
         public DevExpress.XtraBars.BarItemVisibility Visible_bei_Desde { get { return this.bei_Desde.Visibility; } set { this.bei_Desde.Visibility = value; } }
         public DevExpress.XtraBars.BarItemVisibility Visible_bei_Hasta { get { return this.bei_Hasta.Visibility; } set { this.bei_Hasta.Visibility = value; } }
         public DevExpress.XtraBars.BarItemVisibility Visible_bei_Nivel { get { return this.bei_Nivel.Visibility; } set { this.bei_Nivel.Visibility = value; } }
@@ -173,7 +178,7 @@ namespace Core.Erp.Reportes.Controles
 
                 lst_Centro_costo = bus_Centro_costo.Get_list_Centro_Costo(param.IdEmpresa, ref mensaje);
                 cmb_Centro_costo.DataSource = lst_Centro_costo;
-
+                
                 lst_Centro_costo_sub_centro_costo = bus_Centro_costo_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmb_Centro_costo_sub_centro_costo.DataSource = lst_Centro_costo_sub_centro_costo;
 
@@ -188,6 +193,8 @@ namespace Core.Erp.Reportes.Controles
                     lst_GrupoCble_chk.Add(tipo);
                 }
                 cmb_GrupoCble_chk.DataSource = lst_GrupoCble_chk;
+                lst_Centro_costo.Add(new ct_Centro_costo_Info { IdCentroCosto = "", Centro_costo = "Histórico acumulado" });
+                cmb_CentroCosto_chk.DataSource = lst_Centro_costo;
 
                 lst_punto_cargo_grupo = bus_punto_cargo_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref mensaje);
                 cmb_punto_cargo_grupo.DataSource = lst_punto_cargo_grupo;
@@ -276,6 +283,36 @@ namespace Core.Erp.Reportes.Controles
                 return new List<string>();
             }
         }
+
+
+        public List<string> Get_CentroCosto_checked()
+        {
+            try
+            {
+           List<string> lista = new List<string>();
+
+           var lst = cmb_CentroCosto_chk.Items.GetCheckedValues();
+                /*
+                var lst = (from CheckedListBoxItem item in cmb_CentroCosto_chk.Items
+                                              where item.CheckState == CheckState.Checked
+                                              select (ct_Centro_costo_Info)item.Value).ToList();
+                */
+                //lista = lstch.Select(q => q.IdCentroCosto).ToList();
+           foreach (var item in lst)
+           {
+               lista.Add(item.ToString());
+           }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
+                return new List<string>();
+            }
+        }
+
 
         public ct_Plancta_Info Get_info_plancta()
         {

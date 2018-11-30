@@ -41,7 +41,7 @@ namespace Core.Erp.Reportes.Contabilidad
                 rpt.PS_Punto_cargo_grupo.Visible = false;
 
                 ReportPrintTool pt = new ReportPrintTool(rpt);
-                printControl1.PrintingSystem = rpt.PrintingSystem;
+                //printControl1.PrintingSystem = rpt.PrintingSystem;
                 rpt.RequestParameters = false;
 
                 rpt.CreateDocument();

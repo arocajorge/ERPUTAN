@@ -55,7 +55,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 if (Info != null)
                 {
-                    if (Info.IdEstadoCierre == "EST_CIE_CER")
+                    if (Info.IdEstadoCierre == "EST_CIE_CER" && Info.IdOrdenPago_op > 0)
                     {
 
                         MessageBox.Show("La Conciliación de Caja #: " +Info.IdConciliacion_Caja +" está CERRADA con la Orden de Pago #: " +Info.IdOrdenPago_op  + ". No se puede Modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

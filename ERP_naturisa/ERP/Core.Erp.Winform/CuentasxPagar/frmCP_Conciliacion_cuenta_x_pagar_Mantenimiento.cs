@@ -16,7 +16,7 @@ using Core.Erp.Winform.General;
 using DevExpress.XtraGrid.Columns;
 
 
-    
+
 namespace Core.Erp.Winform.CuentasxPagar
 {
     public partial class frmCP_Conciliacion_cuenta_x_pagar_Mantenimiento : Form
@@ -27,7 +27,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         decimal IdCbteCble_ant = 0;
         string StringBusqueda = "";
 
-         //BUS
+        //BUS
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         vwcp_cbtes_cxp_para_conciliar_Bus CbtesConciliarBus = new vwcp_cbtes_cxp_para_conciliar_Bus();
         vwcp_orden_pago_con_cancelacion_para_conciliacion_Bus ordenPagoBus = new vwcp_orden_pago_con_cancelacion_para_conciliacion_Bus();
@@ -69,10 +69,10 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_orden_pago_tipo_x_empresa_Info cp_OP_TipoxEmpresaInfo = new cp_orden_pago_tipo_x_empresa_Info();
         cp_parametros_Info paramCP_I = new cp_parametros_Info();
         ct_Periodo_Info Per_I = new ct_Periodo_Info();
-               
+
         //BindingList 
-        BindingList<vwcp_orden_pago_con_cancelacion_para_conciliacion_Info> BinList_OrdenPago = new BindingList<vwcp_orden_pago_con_cancelacion_para_conciliacion_Info>(); 
-        BindingList<vwcp_cbtes_cxp_para_conciliar_Info> BinList_CXP_Fact_ND = new BindingList<vwcp_cbtes_cxp_para_conciliar_Info>();         
+        BindingList<vwcp_orden_pago_con_cancelacion_para_conciliacion_Info> BinList_OrdenPago = new BindingList<vwcp_orden_pago_con_cancelacion_para_conciliacion_Info>();
+        BindingList<vwcp_cbtes_cxp_para_conciliar_Info> BinList_CXP_Fact_ND = new BindingList<vwcp_cbtes_cxp_para_conciliar_Info>();
         BindingList<vwct_cbtecble_con_saldo_cxp_Info> BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>();
         BindingList<vwcp_orden_pago_con_cancelacion_Info> BinList_OPxCancelacion;
 
@@ -113,7 +113,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+            }
         }
 
         void Cargar_Grids()
@@ -131,7 +131,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txtObservacion.EditValue = null;
 
                 rbAnticipo.Checked = true;
-                
+
                 IdEmpresa_ant = 0;
                 IdTipoCbte_ant = 0;
                 IdCbteCble_ant = 0;
@@ -164,18 +164,18 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
             catch (Exception ex)
             {
-                
-               Log_Error_bus.Log_Error(ex.ToString());
-               MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                     
+
         }
 
         void ucGe_Menu_event_btnlimpiar_Click(object sender, EventArgs e)
         {
             try
             {
-                Cargar_Grids();             
+                Cargar_Grids();
             }
             catch (Exception ex)
             {
@@ -191,13 +191,13 @@ namespace Core.Erp.Winform.CuentasxPagar
                 event_frmCP_Conciliacion_cuenta_x_pagar_Mantenimiento_FormClosing();
             }
             catch (Exception ex)
-            {                
+            {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
-               
+
         private void frmCP_Conciliacion_cuenta_x_pagar_Mantenimiento_Load(object sender, EventArgs e)
         {
             try
@@ -208,87 +208,88 @@ namespace Core.Erp.Winform.CuentasxPagar
                 dtpDesde.DateTime = DateTime.Now.AddMonths(-1);
                 dtpDesde.DateTime = DateTime.Now.AddMonths(1);
 
-                                                    
+
                 load();
-            switch(_Accion)
-            {
-                case Cl_Enumeradores.eTipo_action.grabar:
-
-                bus_OPxCancelar = new vwcp_orden_pago_con_cancelacion_Bus();
-                List_OPxCancelar = new List<vwcp_orden_pago_con_cancelacion_Info>();
-            
-                List_OPxCancelar = bus_OPxCancelar.Get_List_orden_pago_con_cancelacion_todos_Mayor_a_cero(param.IdEmpresa,"APRO");
-                    //Solo deben aparecer facturas que tengan op
-                List_OPxCancelar = List_OPxCancelar.Where(q => q.IdTipo_op == "FACT_PROVEE" && q.Estado == "A").ToList();
-                foreach (var item in List_OPxCancelar)
+                switch (_Accion)
                 {
-                    item.Saldo_x_Pagar_OP = Math.Round(item.Saldo_x_Pagar_OP, 2);
-                    item.Saldo_x_Pagar2 = Math.Round(item.Saldo_x_Pagar2, 2);
-                    item.Valor_estimado_a_pagar_OP = Math.Round(item.Valor_estimado_a_pagar_OP, 2);
+                    case Cl_Enumeradores.eTipo_action.grabar:
+
+                        bus_OPxCancelar = new vwcp_orden_pago_con_cancelacion_Bus();
+                        List_OPxCancelar = new List<vwcp_orden_pago_con_cancelacion_Info>();
+
+                        List_OPxCancelar = bus_OPxCancelar.Get_List_orden_pago_con_cancelacion_todos_Mayor_a_cero(param.IdEmpresa, "APRO");
+                        //Solo deben aparecer facturas que tengan op
+                        List_OPxCancelar = List_OPxCancelar.Where(q => q.IdTipo_op == "FACT_PROVEE" && q.Estado == "A").ToList();
+                        foreach (var item in List_OPxCancelar)
+                        {
+                            item.Saldo_x_Pagar_OP = Math.Round(item.Saldo_x_Pagar_OP, 2);
+                            item.Saldo_x_Pagar2 = Math.Round(item.Saldo_x_Pagar2, 2);
+                            item.Valor_estimado_a_pagar_OP = Math.Round(item.Valor_estimado_a_pagar_OP, 2);
+                        }
+
+                        BinList_OPxCancelacion = new BindingList<vwcp_orden_pago_con_cancelacion_Info>(List_OPxCancelar);
+                        gridControl_OPxCancelar.DataSource = BinList_OPxCancelacion;
+                        ucGe_Menu.Visible_bntAnular = false;
+                        colTotal_cancelado_OP_can.Visible = false;
+
+                        break;
+                    case Cl_Enumeradores.eTipo_action.consultar:
+                        SETINFO();
+
+                        gridViewCompDis.OptionsBehavior.Editable = false;
+                        dtpFecha.Enabled = false;
+                        BtnBuscar.Enabled = false;
+
+                        ucGe_Menu.Visible_bntGuardar_y_Salir = false;
+                        ucGe_Menu.Visible_btnGuardar = false;
+                        ucGe_Menu.Visible_bntAnular = false;
+                        rbAnticipo.Enabled = false;
+
+                        rbDiarioContable.Enabled = false;
+
+
+                        txtObservacion.Properties.ReadOnly = true;
+
+                        colCheck_can.OptionsColumn.AllowEdit = false;
+                        colCheck1.OptionsColumn.AllowEdit = false;
+                        colTotal_cancelado_OP_can.OptionsColumn.AllowEdit = false;
+                        colValor_aplicado_can.Visible = false;
+
+                        ucGe_Menu.Visible_bntLimpiar = false;
+
+                        break;
+                    case Cl_Enumeradores.eTipo_action.actualizar:
+                        ucGe_Menu.Visible_bntAnular = false;
+                        break;
+                    case Cl_Enumeradores.eTipo_action.Anular:
+                        SETINFO();
+
+                        gridViewCompDis.OptionsBehavior.Editable = false;
+                        dtpFecha.Enabled = false;
+                        BtnBuscar.Enabled = false;
+                        ucGe_Menu.Visible_bntGuardar_y_Salir = false;
+                        ucGe_Menu.Visible_btnGuardar = false;
+                        ucGe_Menu.Visible_bntAnular = true;
+
+                        break;
+                    default:
+                        break;
                 }
-              
-                BinList_OPxCancelacion = new BindingList<vwcp_orden_pago_con_cancelacion_Info>(List_OPxCancelar);
-                gridControl_OPxCancelar.DataSource = BinList_OPxCancelacion;
-                ucGe_Menu.Visible_bntAnular = false;
-                colTotal_cancelado_OP_can.Visible = false;
-                    
-                    break;
-                case Cl_Enumeradores.eTipo_action.consultar:
-                    SETINFO();
-                  
-                    gridViewCompDis.OptionsBehavior.Editable = false;
-                    dtpFecha.Enabled = false;
-                    BtnBuscar.Enabled = false;
-                
-                    ucGe_Menu.Visible_bntGuardar_y_Salir = false;
-                    ucGe_Menu.Visible_btnGuardar = false;
-                    ucGe_Menu.Visible_bntAnular = false;
-                    rbAnticipo.Enabled = false;
-                 
-                    rbDiarioContable.Enabled = false;
-                   
 
-                    txtObservacion.Properties.ReadOnly = true;  
-          
-                    colCheck_can.OptionsColumn.AllowEdit = false;
-                    colCheck1.OptionsColumn.AllowEdit = false;                   
-                    colTotal_cancelado_OP_can.OptionsColumn.AllowEdit = false;
-                    colValor_aplicado_can.Visible = false;
-
-                    ucGe_Menu.Visible_bntLimpiar = false;
-
-                    break;
-                case Cl_Enumeradores.eTipo_action.actualizar:
-                    ucGe_Menu.Visible_bntAnular = false;
-                    break;
-                case Cl_Enumeradores.eTipo_action.Anular: 
-                    SETINFO();
-                   
-                    gridViewCompDis.OptionsBehavior.Editable = false;
-                    dtpFecha.Enabled = false;
-                    BtnBuscar.Enabled = false;                    
-                    ucGe_Menu.Visible_bntGuardar_y_Salir = false;
-                    ucGe_Menu.Visible_btnGuardar = false;
-                    ucGe_Menu.Visible_bntAnular = true;
-                   
-                    break;
-                default:
-                    break;
-            }
-                       
             }
             catch (Exception ex)
-            {                
-                 Log_Error_bus.Log_Error(ex.ToString());
-                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }   
-            
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
-        public void load() {
+        public void load()
+        {
             try
             {
-                                       
+
                 rbAnticipo.Checked = true;
 
                 dtpFecha.EditValue = DateTime.Now.Date;
@@ -305,21 +306,21 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         public Boolean Get()
         {
             try
             {
                 ConciliacionInfo = new cp_conciliacion_Info();
                 ConciliacionInfo.IdEmpresa = param.IdEmpresa;
-                        
-                ConciliacionInfo.nom_pc = param.nom_pc;            
+
+                ConciliacionInfo.nom_pc = param.nom_pc;
                 ConciliacionInfo.ip = param.ip;
                 ConciliacionInfo.Fecha_Transac = param.Fecha_Transac.Date;
-              //  ConciliacionInfo.Tipo_detalle = (tabControl.SelectedTab == tabPage1) ? "CxP" : "OPP"; //duda
+                //  ConciliacionInfo.Tipo_detalle = (tabControl.SelectedTab == tabPage1) ? "CxP" : "OPP"; //duda
                 ConciliacionInfo.Tipo_detalle = "";
 
-                ConciliacionInfo.Observacion = Convert.ToString(txtObservacion.EditValue); 
+                ConciliacionInfo.Observacion = Convert.ToString(txtObservacion.EditValue);
                 ConciliacionInfo.tipo = radio;
 
 
@@ -334,7 +335,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     }
                 }
 
-               
+
 
                 if (tabControl.SelectedTab == tabPage5)
                 {
@@ -344,25 +345,25 @@ namespace Core.Erp.Winform.CuentasxPagar
                         {
                             cp_orden_pago_cancelaciones_Info opcsinfo = new cp_orden_pago_cancelaciones_Info();
 
-                            if(item.IdOrdenPago==null)
+                            if (item.IdOrdenPago == null)
                             {
-                              // Generar Orden Pago
+                                // Generar Orden Pago
 
                                 cp_orden_pago_Info info_OP = new cp_orden_pago_Info();
                                 info_OP.IdEmpresa = item.IdEmpresa;
                                 info_OP.Observacion = "Orden de Pago generada por Conciliación";
-                                info_OP.IdTipo_op =item.IdTipo_op;
+                                info_OP.IdTipo_op = item.IdTipo_op;
                                 info_OP.IdTipo_Persona = item.IdTipoPersona;
                                 info_OP.IdPersona = item.IdPersona;
 
-                                if(item.IdEntidad !=null)
+                                if (item.IdEntidad != null)
                                 {
-                                  info_OP.IdEntidad=Convert.ToDecimal(item.IdEntidad);
+                                    info_OP.IdEntidad = Convert.ToDecimal(item.IdEntidad);
                                 }
-                             
+
                                 info_OP.Fecha = DateTime.Now; // duda
                                 info_OP.IdEstadoAprobacion = "APRO";
-                                info_OP.IdFormaPago ="CHEQUE"; // duda
+                                info_OP.IdFormaPago = "CHEQUE"; // duda
                                 info_OP.Fecha_Pago = DateTime.Now;
                                 info_OP.IdUsuario = param.IdUsuario;
 
@@ -391,7 +392,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     item.IdOrdenPago = Id;
                                     item.Secuencia_OP = Convert.ToInt32(info_OP.Detalle.FirstOrDefault().Secuencia);
                                 }
-                                                            
+
                             }
 
                             opcsinfo.IdEmpresa = param.IdEmpresa;
@@ -412,19 +413,19 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 //consulto cabecera diario
                                 ct_Cbtecble_Bus bus_cbtecble = new ct_Cbtecble_Bus();
                                 ct_Cbtecble_Info info_cbtcble = new ct_Cbtecble_Info();
-                                string msgError="";
-                                info_cbtcble=bus_cbtecble.Get_Info_CbteCble(Convert.ToInt32(cuentacontableinfo.IdEmpresa), Convert.ToInt32(cuentacontableinfo.IdTipocbte), Convert.ToDecimal(cuentacontableinfo.IdCbteCble), ref msgError);
+                                string msgError = "";
+                                info_cbtcble = bus_cbtecble.Get_Info_CbteCble(Convert.ToInt32(cuentacontableinfo.IdEmpresa), Convert.ToInt32(cuentacontableinfo.IdTipocbte), Convert.ToDecimal(cuentacontableinfo.IdCbteCble), ref msgError);
 
-                                if (info_cbtcble.IdEmpresa !=0 )
+                                if (info_cbtcble.IdEmpresa != 0)
                                 {
-                                  // consulto detalle diario
+                                    // consulto detalle diario
                                     ct_Cbtecble_det_Bus detbus_cbtecble = new ct_Cbtecble_det_Bus();
                                     List<ct_Cbtecble_det_Info> List_Detcbtecble = new List<ct_Cbtecble_det_Info>();
                                     List_Detcbtecble = detbus_cbtecble.Get_list_Cbtecble_det(Convert.ToInt32(cuentacontableinfo.IdEmpresa), Convert.ToInt32(cuentacontableinfo.IdTipocbte), Convert.ToDecimal(cuentacontableinfo.IdCbteCble), ref msgError);
 
-                                    if (List_Detcbtecble.Count !=0)
+                                    if (List_Detcbtecble.Count != 0)
                                     {
-                                        info_cbtcble._cbteCble_det_lista_info = List_Detcbtecble;                                    
+                                        info_cbtcble._cbteCble_det_lista_info = List_Detcbtecble;
                                     }
                                 }
 
@@ -442,20 +443,20 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 info.Estado = "A";
                                 info.Anio = info_cbtcble.Anio;
                                 info.Mes = info_cbtcble.Mes;
-                                info.IdUsuario = param.IdUsuario;                          
-                                info.cb_FechaTransac = param.Fecha_Transac;                          
+                                info.IdUsuario = param.IdUsuario;
+                                info.cb_FechaTransac = param.Fecha_Transac;
                                 info.Mayorizado = "N";
 
                                 var lst_cbte = from q in info_cbtcble._cbteCble_det_lista_info
-                                               group q by new { q.IdEmpresa, q.IdTipoCbte, q.IdCbteCble, q.IdCtaCble}
+                                               group q by new { q.IdEmpresa, q.IdTipoCbte, q.IdCbteCble, q.IdCtaCble }
                                                    into grouping
                                                    select new
-                                                       {
-                                                           grouping.Key.IdEmpresa,
-                                                           grouping.Key.IdTipoCbte,
-                                                           grouping.Key.IdCtaCble,
-                                                           dc_Valor = grouping.Sum(q=>q.dc_Valor)
-                                                       };
+                                                   {
+                                                       grouping.Key.IdEmpresa,
+                                                       grouping.Key.IdTipoCbte,
+                                                       grouping.Key.IdCtaCble,
+                                                       dc_Valor = grouping.Sum(q => q.dc_Valor)
+                                                   };
 
                                 foreach (var item2 in lst_cbte)
                                 {
@@ -476,8 +477,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                                     }
                                     else
-                                    { 
-                                      // haber
+                                    {
+                                        // haber
                                         det_Info.IdEmpresa = item2.IdEmpresa;
                                         det_Info.IdTipoCbte = item2.IdTipoCbte;
                                         det_Info.IdCtaCble = item2.IdCtaCble;
@@ -488,29 +489,29 @@ namespace Core.Erp.Winform.CuentasxPagar
                                         det_Info.dc_Observacion = txtObservacion.Text;
 
                                         info._cbteCble_det_lista_info.Add(det_Info);
-                                                                
-                                    }                                  
+
+                                    }
                                 }
 
                                 // Grabar Nuevo Diario
-                                decimal IdCbteCble=0;
+                                decimal IdCbteCble = 0;
                                 if (bus_cbtecble.GrabarDB(info, ref IdCbteCble, ref msgError))
                                 {
 
                                     opcsinfo.IdEmpresa_op_padre = cuentacontableinfo.IdEmpresaOP;
                                     opcsinfo.IdOrdenPago_op_padre = cuentacontableinfo.IdOrdenPagoOP;
                                     opcsinfo.Secuencia_op_padre = cuentacontableinfo.SecuenciaOP;
-                                    
+
                                     opcsinfo.IdEmpresa_pago = info.IdEmpresa;
                                     opcsinfo.IdTipoCbte_pago = info.IdTipoCbte;
                                     opcsinfo.IdCbteCble_pago = IdCbteCble;
 
-                                    
+
                                     //Para la cabecera de la conciliación
                                     IdEmpresa_ant = info.IdEmpresa;
                                     IdTipoCbte_ant = info.IdTipoCbte;
                                     IdCbteCble_ant = info.IdCbteCble;
-                             
+
                                 }
                             }
                             else
@@ -518,24 +519,24 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 opcsinfo.IdEmpresa_op_padre = null;
                                 opcsinfo.IdOrdenPago_op_padre = null;
                                 opcsinfo.Secuencia_op_padre = null;
-                                
-                                
+
+
                                 opcsinfo.IdEmpresa_pago = Convert.ToInt32(cuentacontableinfo.IdEmpresa);//ArribaGrid
                                 opcsinfo.IdTipoCbte_pago = cuentacontableinfo.IdTipocbte;	//ArribaGrid
                                 opcsinfo.IdCbteCble_pago = cuentacontableinfo.IdCbteCble;	//ArribaGrid
-                            
+
                             }
 
-                           
+
 
                             opcsinfo.MontoAplicado = item.Valor_aplicado;
                             opcsinfo.SaldoAnterior = item.Valor_estimado_a_pagar_OP;
                             opcsinfo.SaldoActual = item.Saldo_x_Pagar_OP;
-                                                                                                                                                   
+
                             opcsinfo.Observacion = Convert.ToString(txtObservacion.EditValue);
                             opcsinfo.fechaTransaccion = Convert.ToDateTime(dtpFecha.EditValue).Date;
 
-                            OrdenPagoCancesInfo.Add(opcsinfo);                            
+                            OrdenPagoCancesInfo.Add(opcsinfo);
                         }
                     }
                 }
@@ -555,30 +556,31 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 ConciliacionInfo.lista_Det_Concilia = ConciliacionDetInfoL;
 
-               if(radio=="ANTPROV")
-               {
-                  GeneraDiario();
+                if (radio == "ANTPROV")
+                {
+                    GeneraDiario();
 
-                  // if (!UC_Diario.valida_ct_Cbtecble_det())
-                  // {
-                  //     return false;
-                  // }
+                    // if (!UC_Diario.valida_ct_Cbtecble_det())
+                    // {
+                    //     return false;
+                    // }
 
-                 //  get_Cbtecble();
-               
-               }
-                             
+                    //  get_Cbtecble();
+
+                }
+
                 return true;
             }
             catch (Exception ex)
-            {              
+            {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }             
+            }
         }
-        
-        public Boolean GETINFODETALLECONCILIACION() {
+
+        public Boolean GETINFODETALLECONCILIACION()
+        {
             try
             {
                 foreach (var item in OrdenPagoCancesInfo)
@@ -601,7 +603,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     ConcDetinfo.MontoAplicado = item.MontoAplicado;
                     ConcDetinfo.SaldoAnterior = item.SaldoAnterior;
                     ConcDetinfo.SaldoActual = item.SaldoActual;
-                    ConcDetinfo.Observacion = item.Observacion;           
+                    ConcDetinfo.Observacion = item.Observacion;
                     ConcDetinfo.fechaTransaccion = item.fechaTransaccion;
 
                     ConciliacionDetInfoL.Add(ConcDetinfo);
@@ -616,7 +618,8 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
         }
 
-        public Boolean SETINFO() {
+        public Boolean SETINFO()
+        {
             try
             {
                 double suma = 0;
@@ -624,7 +627,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txtIdConciliacion.EditValue = SETINFO_.IdConciliacion;
                 dtpFecha.EditValue = SETINFO_.Fecha;
                 txtObservacion.EditValue = SETINFO_.Observacion;
-                                                       
+
                 Set_Consulta_Cancelaciones();
 
                 //Comprobantes Disponibles                
@@ -633,20 +636,20 @@ namespace Core.Erp.Winform.CuentasxPagar
                 ConciliacionDetInfoL = ConciliacionDetBus.Get_List_Conciliacion_x_cbte_cble(param.IdEmpresa, SETINFO_.IdConciliacion);
                 string TIPO = "";
                 foreach (var item in ConciliacionDetInfoL)
-                {                  
+                {
                     vwct_cbtecble_con_saldo_cxp_Info inf = new vwct_cbtecble_con_saldo_cxp_Info();
                     inf.IdEmpresa = item.IdEmpresa;
-                    inf.IdCbteCble = item.IdCbteCble;                    
+                    inf.IdCbteCble = item.IdCbteCble;
                     inf.tipo = item.Tipo;
                     TIPO = item.Tipo;
-                    inf.IdTipocbte = item.IdTipocbte;                    
+                    inf.IdTipocbte = item.IdTipocbte;
                     inf.cb_Fecha = item.cb_Fecha;
                     inf.cb_Observacion = item.cb_Observacion;
                     inf.referencia = item.referencia;
                     inf.tc_TipoCbte = item.tc_TipoCbte;
                     inf.Valor_cbte = item.Valor_cbte;
-              
-                    inf.Valor_cancelado_cbte = item.Valor_cancelado_cbte;                 
+
+                    inf.Valor_cancelado_cbte = item.Valor_cancelado_cbte;
                     inf.valor_Saldo_cbte = item.valor_Saldo_cbte;
                     inf.Beneficiario = item.Beneficiario;
 
@@ -666,7 +669,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (TIPO.Trim() == "NCPROV")
                 {
                     consultanueva = 1;
-                   // rbNotaCredito.Checked = true;
+                    // rbNotaCredito.Checked = true;
                 }
                 if (TIPO.Trim() == "DIARIO" || TIPO.Trim() == "DIARIO_BAN")
                 {
@@ -675,7 +678,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 }
                 //CCScxpInfoL = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>(CCScxpInfoL.ToList().FindAll(q => q.tipo == set.Trim()));
 
-                gridControlCompDis.DataSource = BinList_Anticipo_Diarios;                
+                gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
 
                 //llena grid contable
 
@@ -684,12 +687,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                 UC_Diario.LimpiarGrid();
                 string mensajeRROR = "";
                 lm = _CbteCbleBus.Get_list_Cbtecble_det(SETINFO_.IdEmpresa_cbtecble, SETINFO_.IdTipoCbte_cbtecble, SETINFO_.IdCbteCble_cbtecble, ref mensajeRROR);
-               // _ListaCbteCbleDetAnt = lm;
+                // _ListaCbteCbleDetAnt = lm;
                 UC_Diario.setDetalle(lm);
                 UC_Diario.HabilitarGrid(false);
 
                 if (SETINFO_.Estado == "I")
-                { lblAnular.Visible = true; }  
+                { lblAnular.Visible = true; }
 
                 return true;
             }
@@ -700,12 +703,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                 return false;
             }
         }
-      
+
         void Set_Consulta_Cancelaciones()
         {
             try
             {
-                          
+
                 string mensaj = "";
                 cp_orden_pago_cancelaciones_Bus bus_Cancela = new cp_orden_pago_cancelaciones_Bus();
                 List<cp_orden_pago_cancelaciones_Info> lista_Cance = new List<cp_orden_pago_cancelaciones_Info>();
@@ -713,16 +716,16 @@ namespace Core.Erp.Winform.CuentasxPagar
                 lista_Cance = bus_Cancela.ConsultaGeneralOPCxIdCancelaciones(param.IdEmpresa, SETINFO_.IdCancelacion, ref mensaj);
 
                 List<vwcp_orden_pago_con_cancelacion_Info> lista_vwCance_AUX = new List<vwcp_orden_pago_con_cancelacion_Info>();
-                
+
                 if (lista_Cance.Count != 0)
-                {                                   
+                {
                     foreach (var item in lista_Cance)
                     {
 
                         bus_OPxCancelar = new vwcp_orden_pago_con_cancelacion_Bus();
                         List<vwcp_orden_pago_con_cancelacion_Info> List_OPxCancelar = new List<vwcp_orden_pago_con_cancelacion_Info>();
-                     
-          //List_OPxCancelar = bus_OPxCancelar.Get_List_orden_pago_con_cancelacion_Mayor_a_cero(Convert.ToInt32(item.IdEmpresa_op), Convert.ToDecimal(item.IdOrdenPago_op), Convert.ToInt32(item.Secuencia_op));
+
+                        //List_OPxCancelar = bus_OPxCancelar.Get_List_orden_pago_con_cancelacion_Mayor_a_cero(Convert.ToInt32(item.IdEmpresa_op), Convert.ToDecimal(item.IdOrdenPago_op), Convert.ToInt32(item.Secuencia_op));
 
                         //List_OPxCancelar = bus_OPxCancelar.Get_List_orden_pago_con_cancelacion_todos_Mayor_a_cero(Convert.ToInt32(item.IdEmpresa_op), Convert.ToDecimal(item.IdOrdenPago_op), Convert.ToInt32(item.Secuencia_op));
 
@@ -735,10 +738,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 item2.Valor_estimado_a_pagar_OP = Math.Round(item2.Valor_estimado_a_pagar_OP, 2);
                             }
 
-                            lista_vwCance_AUX.AddRange(List_OPxCancelar);                                                                                                     
-                        }                   
+                            lista_vwCance_AUX.AddRange(List_OPxCancelar);
+                        }
                     }
-                    
+
                 }
 
                 if (lista_vwCance_AUX.Count != 0)
@@ -746,17 +749,18 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                     BinList_OPxCancelacion = new BindingList<vwcp_orden_pago_con_cancelacion_Info>(lista_vwCance_AUX);
                     gridControl_OPxCancelar.DataSource = BinList_OPxCancelacion;
-                }                                
+                }
             }
             catch (Exception ex)
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
         }
 
-        public void CargarGridCompDis() {
+        public void CargarGridCompDis()
+        {
             try
             {
                 check = false;
@@ -767,74 +771,74 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
 
                     vwcp_Anticipos_para_Conciliar_Bus bus_antxCon = new vwcp_Anticipos_para_Conciliar_Bus();
-                        List<vwcp_Anticipos_para_Conciliar_Info> lista_AntxConciliar = new List<vwcp_Anticipos_para_Conciliar_Info>();
+                    List<vwcp_Anticipos_para_Conciliar_Info> lista_AntxConciliar = new List<vwcp_Anticipos_para_Conciliar_Info>();
 
-                        lista_AntxConciliar = bus_antxCon.Get_list_Anticipos_para_Conciliar(param.IdEmpresa, "", Convert.ToDateTime(dtpDesde.EditValue).Date, Convert.ToDateTime(dtpHasta.EditValue).Date, ref mensaje);
-                        
-                        List<vwct_cbtecble_con_saldo_cxp_Info> lista_saldoCbte = new List<vwct_cbtecble_con_saldo_cxp_Info>();
+                    lista_AntxConciliar = bus_antxCon.Get_list_Anticipos_para_Conciliar(param.IdEmpresa, "", Convert.ToDateTime(dtpDesde.EditValue).Date, Convert.ToDateTime(dtpHasta.EditValue).Date, ref mensaje);
 
-                        if (lista_AntxConciliar.Count != 0)
+                    List<vwct_cbtecble_con_saldo_cxp_Info> lista_saldoCbte = new List<vwct_cbtecble_con_saldo_cxp_Info>();
+
+                    if (lista_AntxConciliar.Count != 0)
+                    {
+
+                        foreach (var item in lista_AntxConciliar)
                         {
+                            vwct_cbtecble_con_saldo_cxp_Info info = new vwct_cbtecble_con_saldo_cxp_Info();
 
-                            foreach (var item in lista_AntxConciliar)
-                            {
-                                vwct_cbtecble_con_saldo_cxp_Info info = new vwct_cbtecble_con_saldo_cxp_Info();
-
-                                info.IdEmpresa = item.IdEmpresa_cxp;
-                                info.IdCbteCble = item.IdCbteCble_cxp;
-                                info.IdTipocbte = item.IdTipocbte_cxp;
-                                info.cb_Fecha = item.Fecha;
-                                info.cb_Observacion = item.Observacion;
-                                info.referencia = item.referencia;
-                                info.tc_TipoCbte = item.tc_TipoCbte;
-                                info.Valor_cbte = item.Valor_cbte;
-                                info.Valor_cancelado_cbte = item.Valor_cancelado;
-                                info.valor_Saldo_cbte = item.valor_Saldo_cbte;
+                            info.IdEmpresa = item.IdEmpresa_cxp;
+                            info.IdCbteCble = item.IdCbteCble_cxp;
+                            info.IdTipocbte = item.IdTipocbte_cxp;
+                            info.cb_Fecha = item.Fecha;
+                            info.cb_Observacion = item.Observacion;
+                            info.referencia = item.referencia;
+                            info.tc_TipoCbte = item.tc_TipoCbte;
+                            info.Valor_cbte = item.Valor_cbte;
+                            info.Valor_cancelado_cbte = item.Valor_cancelado;
+                            info.valor_Saldo_cbte = item.valor_Saldo_cbte;
 
 
-                                info.tipo = item.tipo;
+                            info.tipo = item.tipo;
 
-                                info.IdEmpresaOP = item.IdEmpresaOP;
-                                info.IdOrdenPagoOP = item.IdOrdenPagoOP;
-                                info.SecuenciaOP = item.SecuenciaOP;
+                            info.IdEmpresaOP = item.IdEmpresaOP;
+                            info.IdOrdenPagoOP = item.IdOrdenPagoOP;
+                            info.SecuenciaOP = item.SecuenciaOP;
 
-                                info.IdCtaCble = item.IdCtaCble;
-                                info.IdCtaCble_Anticipo = item.IdCtaCble_Anticipo;
-                                info.Beneficiario = item.Beneficiario;
+                            info.IdCtaCble = item.IdCtaCble;
+                            info.IdCtaCble_Anticipo = item.IdCtaCble_Anticipo;
+                            info.Beneficiario = item.Beneficiario;
 
-                                info.IdBeneficiario = item.IdProveedor;
-                                info.IdPersona = item.IdPersona;
-                                lista_saldoCbte.Add(info);
+                            info.IdBeneficiario = item.IdProveedor;
+                            info.IdPersona = item.IdPersona;
+                            lista_saldoCbte.Add(info);
 
-
-                            }
-
-                            BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>(lista_saldoCbte);
-                            gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
 
                         }
-                        else
-                        {
 
-                            BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>();
-                            gridControlCompDis.DataSource = BinList_Anticipo_Diarios;                       
-                        }
+                        BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>(lista_saldoCbte);
+                        gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
+
+                    }
+                    else
+                    {
+
+                        BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>();
+                        gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
+                    }
                 }
                 else
                 {
 
-                    BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>(CCScxpBus.Get_list_cbtecble_con_saldo_cxp(param.IdEmpresa, radio, Convert.ToDateTime(dtpDesde.EditValue).Date, Convert.ToDateTime(dtpHasta.EditValue).Date, ref mensaje));                 
+                    BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>(CCScxpBus.Get_list_cbtecble_con_saldo_cxp(param.IdEmpresa, radio, Convert.ToDateTime(dtpDesde.EditValue).Date, Convert.ToDateTime(dtpHasta.EditValue).Date, ref mensaje));
                 }
 
 
-                if (BinList_Anticipo_Diarios.Count ==0)
+                if (BinList_Anticipo_Diarios.Count == 0)
                 {
                     MessageBox.Show("No existe Información de Consulta", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;               
+                    return;
                 }
-                               
+
                 foreach (var item in BinList_Anticipo_Diarios)
-                {   
+                {
                     item.Check = false;
                     item.Valor_cancelado_cbte = Convert.ToDouble(item.valor_Saldo_cbte);
 
@@ -848,7 +852,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         check = true;
                         break;
                     }
-                }               
+                }
             }
             catch (Exception ex)
             {
@@ -858,9 +862,10 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
         }
 
-        public void ValidarGridCompDis(){
-            try 
-	        {	        		                     
+        public void ValidarGridCompDis()
+        {
+            try
+            {
                 if (dtpDesde.EditValue == null || dtpDesde.EditValue == "")
                 {
                     MessageBox.Show("Falta campo fecha Desde", "Operación Erronea", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -878,16 +883,17 @@ namespace Core.Erp.Winform.CuentasxPagar
                     MessageBox.Show("La fecha desde es MAYOR a la fecha hasta,\nporfavor el campo de la fecha desde \nno puede ser mayor.", "Operación Erronea", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-	        }
-	        catch (Exception ex)
-	        {
+            }
+            catch (Exception ex)
+            {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		        return;
-	        }        
+                return;
+            }
         }
 
-        public Boolean Validar() {
+        public Boolean Validar()
+        {
             try
             {
                 Boolean verd = false;
@@ -904,7 +910,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     {
                         verd = true;
                         break;
-                    }                    
+                    }
                 }
 
                 if (verd == false)
@@ -927,14 +933,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                         }
                     }
                 }
-                                                      
+
                 if (verd == false)
-                {                 
+                {
                     MessageBox.Show("Debe seleccionar una orden de pago por Cancelar si desea continuar", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return false;
                 }
 
-                if (rbAnticipo.Checked==true)
+                if (rbAnticipo.Checked == true)
                 {
 
                     GeneraDiario();
@@ -948,7 +954,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 }
 
 
-                return true;              
+                return true;
             }
             catch (Exception ex)
             {
@@ -973,25 +979,25 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
         }
 
-        public Boolean Grabar() 
+        public Boolean Grabar()
         {
             try
             {
                 Boolean regresa = false;
                 string mensaje = "";
-                
-                         
+
+
                 if (Get())
                 {
                     if (IdEmpresa_ant != 0)
                     {
                         ConciliacionInfo.IdEmpresa_cbtecble = IdEmpresa_ant;
                         ConciliacionInfo.IdTipoCbte_cbtecble = IdTipoCbte_ant;
-                        ConciliacionInfo.IdCbteCble_cbtecble = IdCbteCble_ant;    
-                    }                    
+                        ConciliacionInfo.IdCbteCble_cbtecble = IdCbteCble_ant;
+                    }
 
-                    if (ConciliacionBus.GrabarDB(ref ConciliacionInfo,CbteCble_I, ref mensaje))//GRABAR EN CABECERA CONCILIACION
-                    {                       
+                    if (ConciliacionBus.GrabarDB(ref ConciliacionInfo, CbteCble_I, ref mensaje))//GRABAR EN CABECERA CONCILIACION
+                    {
                         regresa = true;
                     }
                 }
@@ -1002,11 +1008,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                     MessageBox.Show(smensaje, param.Nombre_sistema);
                     Cargar_Grids();
 
-                }                  
+                }
                 else
                 {
-                    string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgError_Grabar,mensaje);
-                    MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);  
+                    string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgError_Grabar, mensaje);
+                    MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return true;
             }
@@ -1022,11 +1028,11 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                      
+
                 ValidarGridCompDis();
                 CargarGridCompDis();
-            
-                inicioGridCompDis++;                
+
+                inicioGridCompDis++;
             }
             catch (Exception ex)
             {
@@ -1087,35 +1093,35 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     return;
                 }
-                
-                
-                if (e.Column.Name=="colCheck1")
+
+
+                if (e.Column.Name == "colCheck1")
                 {
                     CCScxpInfo = new vwct_cbtecble_con_saldo_cxp_Info();
                     CCScxpInfo = (vwct_cbtecble_con_saldo_cxp_Info)gridViewCompDis.GetFocusedRow();
                     IdBeneficiario = CCScxpInfo.IdPersona;
                     StringBusqueda = CCScxpInfo.Beneficiario;
                     valorGeneral = Convert.ToDouble(CCScxpInfo.valor_Saldo_cbte);
-                    RefrescarCompDis(CCScxpInfo,1);
-            
-                    this.gridView_OPxCancelar.ActiveFilterString = "[Nom_Beneficiario] like '%" + StringBusqueda.Trim()  + "%'";
-             
-                    if (CCScxpInfo.Check==false)
+                    RefrescarCompDis(CCScxpInfo, 1);
+
+                    this.gridView_OPxCancelar.ActiveFilterString = "[Nom_Beneficiario] like '%" + StringBusqueda.Trim() + "%'";
+
+                    if (CCScxpInfo.Check == false)
                     {
-                      /*
-                        foreach (var item in BinList_OPxCancelacion)
-                        {                         
-                            item.Check = false;
-                            item.Check_aux = false;
-                            item.Valor_aplicado = 0;
-                            item.Valor_estimado_a_pagar_OP=item.Saldo_x_Pagar2;
-                        }
-                        */
+                        /*
+                          foreach (var item in BinList_OPxCancelacion)
+                          {                         
+                              item.Check = false;
+                              item.Check_aux = false;
+                              item.Valor_aplicado = 0;
+                              item.Valor_estimado_a_pagar_OP=item.Saldo_x_Pagar2;
+                          }
+                          */
                         gridControl_OPxCancelar.RefreshDataSource();
-                    
+
                     }
-                                     
-                }               
+
+                }
             }
             catch (Exception ex)
             {
@@ -1127,7 +1133,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         public void RefrescarCompDis(vwct_cbtecble_con_saldo_cxp_Info CCScxpInfo, int Qgrides)
         {
 
-           
+
             decimal valors = 0;
             try
             {
@@ -1136,7 +1142,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     if (item.IdCbteCble == CCScxpInfo.IdCbteCble && item.tc_TipoCbte == CCScxpInfo.tc_TipoCbte && inicioGridCompDis > 0)
                     {
                         valors = Math.Abs(Convert.ToDecimal(item.Valor_cbte - ValorTotal));
-                       
+
                         if ((valors > 0 || total > 0) || (Qgrides > 0))
                         {
                             if (item.Check == true)
@@ -1144,7 +1150,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 if (Qgrides == 1)
                                 {
                                     item.Check = false;
-                                   
+
                                 }
                                 if (Convert.ToDouble(item.valor_Saldo_cbte) > ValorTotal)
                                     item.Valor_cancelado_cbte = Convert.ToDouble(item.valor_Saldo_cbte) - ValorTotal;
@@ -1154,7 +1160,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     val = ValorTotal - Convert.ToDouble(item.valor_Saldo_cbte);
                                     CbtesConciliarInfo.co_valorpagar = CbtesConciliarInfo.co_valorpagar - val;
                                     CbtesConciliarInfo.Saldo = CbtesConciliarInfo.Saldo_x_Pagar2 - CbtesConciliarInfo.co_valorpagar;
-                                   
+
                                     foreach (var item2 in BinList_CXP_Fact_ND)
                                     {
                                         if (item2.IdCbte_cxp == CbtesConciliarInfo.IdCbte_cxp && item2.IdProveedor == CbtesConciliarInfo.IdProveedor && item2.IdEmpresa == CbtesConciliarInfo.IdEmpresa && item2.Su_Descripcion == CbtesConciliarInfo.Su_Descripcion)
@@ -1172,7 +1178,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 if (Qgrides == 1)
                                 {
                                     item.Check = true;
-                                   
+
                                 }
                                 item.Valor_cancelado_cbte = Convert.ToDouble(item.valor_Saldo_cbte);
                                 ValorTotal = 0;
@@ -1204,7 +1210,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     CbtesConciliarInfo.check = false;
                                     CbtesConciliarInfo.Saldo = CbtesConciliarInfo.Saldo_x_Pagar2;
                                     CbtesConciliarInfo.co_valorpagar = 0;
-                                   
+
                                     item.Valor_cancelado_cbte = 0;
                                 }
                             }
@@ -1224,14 +1230,15 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-           
-        public void Anular(){
+
+        public void Anular()
+        {
             try
             {
                 string mensaje = "";
-                if (paramCP_I.pa_TipoCbte_para_conci_anulacion_x_antcipo == null) 
+                if (paramCP_I.pa_TipoCbte_para_conci_anulacion_x_antcipo == null)
                 {
-                    MessageBox.Show("Parametrice el tipo de comprobante para la anulación de conciliación de cxp",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Parametrice el tipo de comprobante para la anulación de conciliación de cxp", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
                 OrdenPagoCancesInfo = new List<cp_orden_pago_cancelaciones_Info>();
@@ -1280,8 +1287,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         }
                     }
-                        break;
-                    
+                    break;
+
                 }
             }
             catch (Exception ex)
@@ -1289,20 +1296,20 @@ namespace Core.Erp.Winform.CuentasxPagar
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
         }
 
         private void gridViewCompDis_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             try
-            {                                   
+            {
                 var data = gridViewCompDis.GetRow(e.RowHandle) as vwct_cbtecble_con_saldo_cxp_Info;
                 if (data == null)
                     return;
                 if (data.Check == true)
                     e.Appearance.BackColor = Color.LightSteelBlue;
                 else
-                    e.Appearance.BackColor = Color.White;                              
+                    e.Appearance.BackColor = Color.White;
             }
             catch (Exception ex)
             {
@@ -1310,7 +1317,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-     
+
         private void rbAnticipo_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -1319,13 +1326,13 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     if (rbAnticipo.Checked == true)
                     {
-                                               
+
                         if (BinList_Anticipo_Diarios.Count > 0 && BinList_Anticipo_Diarios != null)
                         {
                             if (MessageBox.Show("Está seguro de cambiar de tipo\nse borraran los datos seleccionados", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
                             {
                                 rbAnticipo.Checked = true;
-                               
+
                                 rbDiarioContable.Checked = false;
                                 rb_NotaCred.Checked = false;
                                 radio = "ANTPROV";
@@ -1338,7 +1345,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         {
                             rbAnticipo.Checked = true;
 
-                            rbDiarioContable.Checked = false; 
+                            rbDiarioContable.Checked = false;
                             rb_NotaCred.Checked = false;
 
                             radio = "ANTPROV";
@@ -1362,31 +1369,31 @@ namespace Core.Erp.Winform.CuentasxPagar
                     if (rbDiarioContable.Checked == true)
                     {
                         UC_Diario.LimpiarGrid();
-                        
+
                         if (BinList_Anticipo_Diarios.Count > 0 && BinList_Anticipo_Diarios != null)
                         {
                             if (MessageBox.Show("Está seguro de cambiar de tipo\nse borraran los datos seleccionados", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
                             {
                                 rbDiarioContable.Checked = true;
-                                
+
                                 rbAnticipo.Checked = false;
                                 rb_NotaCred.Checked = false;
                                 radio = "DIARIO";
                                 BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>();
                                 gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
-                             
+
                             }
                         }
                         else
                         {
                             rbDiarioContable.Checked = true;
-                         
+
                             rbAnticipo.Checked = false;
                             rb_NotaCred.Checked = false;
                             radio = "DIARIO";
                         }
-                    }       
-                }                                
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -1401,7 +1408,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 cbtecbleInfo = new vwct_cbtecble_con_saldo_cxp_Info();
                 cbtecbleInfo = (vwct_cbtecble_con_saldo_cxp_Info)gridViewCompDis.GetFocusedRow();
-             
+
                 foreach (var item2 in BinList_Anticipo_Diarios)
                 {
                     if (item2.Check == true)
@@ -1426,7 +1433,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             try
             {
                 List<ct_Cbtecble_det_Info> ListDetalle = new List<ct_Cbtecble_det_Info>();
-                                            
+
                 // DEBE
 
                 sumaDiario = 0;
@@ -1442,7 +1449,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         sumaDiario = sumaDiario + item.Valor_aplicado;
 
-                        ListDetalle.Add(Debe);                  
+                        ListDetalle.Add(Debe);
                     }
                 }
 
@@ -1460,35 +1467,35 @@ namespace Core.Erp.Winform.CuentasxPagar
                         ListDetalle.Add(Haber);
                     }
                 }
-                                                                               
+
                 UC_Diario.setDetalle(ListDetalle);
             }
             catch (Exception ex)
             {
-                 Log_Error_bus.Log_Error(ex.ToString());
-                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                         
+
         }
 
         public ct_Cbtecble_Info get_Cbtecble()
         {
             try
             {
-                               
+
                 CbteCble_I.IdEmpresa = param.IdEmpresa;
                 CbteCble_I.IdTipoCbte = _IdTipoCbte;
                 CbteCble_I.CodCbteCble = "";
                 CbteCble_I.IdPeriodo = Per_I.IdPeriodo;
-               
+
                 CbteCble_I.cb_Fecha = Convert.ToDateTime(dtpFecha.EditValue);
                 CbteCble_I.cb_Valor = UC_Diario.Get_ValorCbteCble();
                 CbteCble_I.cb_Observacion = txtObservacion.Text.Trim();
                 CbteCble_I.Secuencia = 0;
                 CbteCble_I.Estado = "A";
-             
+
                 CbteCble_I.Anio = Convert.ToDateTime(dtpFecha.EditValue).Year;
-                
+
                 CbteCble_I.Mes = Convert.ToDateTime(dtpFecha.EditValue).Month;
                 CbteCble_I.IdUsuario = param.IdUsuario;
                 CbteCble_I.IdUsuarioUltModi = param.IdUsuario;
@@ -1539,16 +1546,16 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-               // GeneraDiario();
+                // GeneraDiario();
             }
             catch (Exception ex)
             {
-                
+
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         private void gridView_OPxCancelar_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
             try
@@ -1621,20 +1628,20 @@ namespace Core.Erp.Winform.CuentasxPagar
                             return;
                         }
 
-                        if (IdBeneficiario != null )
+                        if (IdBeneficiario != null)
                         {
-                            if (IdBeneficiario !=0)
-                           {
+                            if (IdBeneficiario != 0)
+                            {
 
-                                decimal s=Convert.ToDecimal(gridView_OPxCancelar.GetFocusedRowCellValue(colIdEntidad_can));
+                                decimal s = Convert.ToDecimal(gridView_OPxCancelar.GetFocusedRowCellValue(colIdEntidad_can));
                                 if (IdBeneficiario != info_OPxCance.IdPersona)
-                               {
-                                   MessageBox.Show("Debe Seleccionar el mismo Proveedor", "Sistemas");
-                                   return;
-                               }
-                           }
-                           
-                                                    
+                                {
+                                    MessageBox.Show("Debe Seleccionar el mismo Proveedor", "Sistemas");
+                                    return;
+                                }
+                            }
+
+
                         }
 
 
@@ -1690,36 +1697,36 @@ namespace Core.Erp.Winform.CuentasxPagar
                     }
                 }
 
-              //  GeneraDiario();
+                //  GeneraDiario();
             }
             catch (Exception ex)
             {
-                
-                 Log_Error_bus.Log_Error(ex.ToString());
-                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         private void gridView_OPxCancelar_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             try
-            {               
+            {
                 info_OPxCance = new vwcp_orden_pago_con_cancelacion_Info();
                 info_OPxCance = (vwcp_orden_pago_con_cancelacion_Info)gridView_OPxCancelar.GetFocusedRow();
-            
-                if (CCScxpInfo.Check ==false)
+
+                if (CCScxpInfo.Check == false)
                 {
                     MessageBox.Show("Escoja un comprobante", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     info_OPxCance.Valor_aplicado = 0;
                     return;
                 }
-                                            
+
                 if (e.Column.Name == "colValor_aplicado_can")
                 {
 
-                    if (IdBeneficiario != null )
+                    if (IdBeneficiario != null)
                     {
-                        if(IdBeneficiario != 0)
+                        if (IdBeneficiario != 0)
                         {
                             if (IdBeneficiario != Convert.ToDecimal(gridView_OPxCancelar.GetFocusedRowCellValue(colIdEntidad_can)))
                             {
@@ -1728,12 +1735,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 info_OPxCance.Valor_aplicado = 0;
                                 return;
                             }
-                        
+
                         }
-                       
+
                     }
-                    
-                                      
+
+
                     if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) > Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_estimado_a_pagar_OP_can)))
                     {
                         gridView_OPxCancelar.SetFocusedRowCellValue(colValor_aplicado_can, 0);
@@ -1741,83 +1748,83 @@ namespace Core.Erp.Winform.CuentasxPagar
                     }
                     else
                     {
-                        if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) ==0)
+                        if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) == 0)
                         {
                             gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_can, false);
                             gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_aux, false);
                             gridView_OPxCancelar.SetFocusedRowCellValue(colSaldo_x_Pagar_OP_can, info_OPxCance.Saldo_x_Pagar2);
-                                                                      
+
                         }
-                                               
-                        
-                           if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) !=0)
-                            {
-                                gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_aux, true);                            
-                            }
 
-                           if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) > CCScxpInfo.Valor_cancelado_cbte)
-                           {
-                               gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_can, false);
-                               gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_aux, false);
-                               gridView_OPxCancelar.SetFocusedRowCellValue(colValor_aplicado_can, 0);
-                           }
 
-                                                                                
-                            double val = 0;
-                            double sal = 0;
-                            double tot = 0;
+                        if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) != 0)
+                        {
+                            gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_aux, true);
+                        }
 
-                            val = Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can));
-                            sal = Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_estimado_a_pagar_OP_can));
-                            tot = sal - val;
+                        if (Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can)) > CCScxpInfo.Valor_cancelado_cbte)
+                        {
+                            gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_can, false);
+                            gridView_OPxCancelar.SetFocusedRowCellValue(colCheck_aux, false);
+                            gridView_OPxCancelar.SetFocusedRowCellValue(colValor_aplicado_can, 0);
+                        }
 
-                            gridView_OPxCancelar.SetFocusedRowCellValue(colSaldo_x_Pagar_OP_can, tot);
-                        
-                    
+
+                        double val = 0;
+                        double sal = 0;
+                        double tot = 0;
+
+                        val = Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_aplicado_can));
+                        sal = Convert.ToDouble(gridView_OPxCancelar.GetFocusedRowCellValue(colValor_estimado_a_pagar_OP_can));
+                        tot = sal - val;
+
+                        gridView_OPxCancelar.SetFocusedRowCellValue(colSaldo_x_Pagar_OP_can, tot);
+
+
                         suma = 0;
 
                         foreach (var item in BinList_OPxCancelacion)
                         {
-                            if(item.Check_aux==true)
-                           {
+                            if (item.Check_aux == true)
+                            {
                                 item.Check = true;
-                                
+
                                 suma = suma + item.Valor_aplicado;
-                            
+
                             }
                         }
-                    
-                        if (suma <= CCScxpInfo.Valor_cancelado_cbte)   
+
+                        if (suma <= CCScxpInfo.Valor_cancelado_cbte)
                         {
                             CCScxpInfo.Valor_cancelado_cbte = Convert.ToDouble(CCScxpInfo.valor_Saldo_cbte);
-                          
+
                             CCScxpInfo.Valor_cancelado_cbte = CCScxpInfo.Valor_cancelado_cbte - suma;
                         }
 
-                     
+
                         suma = 0;
 
                         foreach (var item in BinList_OPxCancelacion)
                         {
-                            if(item.Check==true)
+                            if (item.Check == true)
                             {
-                               
+
                                 suma = suma + item.Valor_aplicado;
                             }
                         }
-                      
+
                         CCScxpInfo.Valor_cancelado_cbte = Convert.ToDouble(CCScxpInfo.valor_Saldo_cbte) - suma;
 
                         gridControlCompDis.RefreshDataSource();
-                                       
-                    }                                                                                                                                               
+
+                    }
                 }
 
             }
             catch (Exception ex)
-            {               
-                 Log_Error_bus.Log_Error(ex.ToString());
-                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1828,33 +1835,33 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (consultanueva == 0)
                 {
 
-                    if (rb_NotaCred.Checked==true)
+                    if (rb_NotaCred.Checked == true)
                     {
-                                      
-                    if (BinList_Anticipo_Diarios.Count > 0 && BinList_Anticipo_Diarios != null)
-                    {
-                        if (MessageBox.Show("Está seguro de cambiar de tipo\nse borraran los datos seleccionados", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+
+                        if (BinList_Anticipo_Diarios.Count > 0 && BinList_Anticipo_Diarios != null)
+                        {
+                            if (MessageBox.Show("Está seguro de cambiar de tipo\nse borraran los datos seleccionados", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+                            {
+                                rb_NotaCred.Checked = true;
+
+
+                                rbAnticipo.Checked = false;
+                                rbDiarioContable.Checked = false;
+                                radio = "NOTA-CRED";
+                                BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>();
+                                gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
+                                //load();
+                            }
+                        }
+                        else
                         {
                             rb_NotaCred.Checked = true;
-                           
-                            
+
                             rbAnticipo.Checked = false;
                             rbDiarioContable.Checked = false;
                             radio = "NOTA-CRED";
-                            BinList_Anticipo_Diarios = new BindingList<vwct_cbtecble_con_saldo_cxp_Info>();
-                            gridControlCompDis.DataSource = BinList_Anticipo_Diarios;
-                            //load();
                         }
                     }
-                    else
-                    {
-                        rb_NotaCred.Checked = true;
-                        
-                        rbAnticipo.Checked = false;
-                        rbDiarioContable.Checked = false;
-                        radio = "NOTA-CRED";
-                    }  
-                }
                 }
             }
             catch (Exception ex)
@@ -1922,7 +1929,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
+            }
 
         }
 
@@ -1939,7 +1946,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 frmApro.StringBusqueda = StringBusqueda;
                 frmApro.event_frmCP_Aprobacion_Facturas_x_Pagar += frmApro_event_frmCP_Aprobacion_Facturas_x_Pagar;
                 frmApro.ShowDialog();
-                
+
 
 
             }

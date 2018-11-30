@@ -804,6 +804,21 @@
     <Compile Include="Contabilidad\XCONTA_Rpt022_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt022_Rpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt023_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt023_rpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\UCct_Menu_Reportes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2798,6 +2813,9 @@
     <Compile Include="spCONTA_Rpt018_Result.cs">
       <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
     </Compile>
+    <Compile Include="spCONTA_Rpt023_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
     <Compile Include="spCON_Mayorizar_x_fecha_corte_Result.cs">
       <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
     </Compile>
@@ -3814,6 +3832,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\XCONTA_Rpt022_Rpt.resx">
       <DependentUpon>XCONTA_Rpt022_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt023_frm.resx">
+      <DependentUpon>XCONTA_Rpt023_frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCct_Menu_Reportes.resx">
       <DependentUpon>UCct_Menu_Reportes.cs</DependentUpon>

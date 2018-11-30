@@ -1768,8 +1768,8 @@ namespace Core.Erp.Business.Facturacion
                                     if (item2.vt_por_iva == 12)
                                     {
                                         impuesto.codigoPorcentaje = "2";
-                                        impuesto.baseImponible = Math.Round(Convert.ToDecimal(subtotal),2);
-                                        impuesto.valor = Math.Round(Convert.ToDecimal(item2.vt_iva), 2);
+                                        impuesto.baseImponible = Math.Round(Convert.ToDecimal(subtotal),2,MidpointRounding.AwayFromZero);
+                                        impuesto.valor = Math.Round(Convert.ToDecimal(item2.vt_iva), 6,MidpointRounding.AwayFromZero);
 
                                         lista_Impuesto.Add(impuesto);
 
@@ -1781,8 +1781,8 @@ namespace Core.Erp.Business.Facturacion
                                         {
                                             impuesto.codigoPorcentaje = "3";
 
-                                            impuesto.baseImponible = Math.Round(Convert.ToDecimal(subtotal),2);
-                                            impuesto.valor = Math.Round(Convert.ToDecimal(item2.vt_iva), 2);
+                                            impuesto.baseImponible = Math.Round(Convert.ToDecimal(subtotal),2,MidpointRounding.AwayFromZero);
+                                            impuesto.valor = Math.Round(Convert.ToDecimal(item2.vt_iva), 6,MidpointRounding.AwayFromZero);
 
                                             lista_Impuesto.Add(impuesto);
 
@@ -1862,8 +1862,8 @@ namespace Core.Erp.Business.Facturacion
                                 impuesto = new facturaInfoFacturaTotalImpuesto();
                                 impuesto.codigo = item3.codigo;
                                 impuesto.codigoPorcentaje = item3.codigoPorcentaje;
-                                impuesto.baseImponible = item3.baseImponible;
-                                impuesto.valor = item3.Valor;
+                                impuesto.baseImponible = Math.Round(item3.baseImponible,2,MidpointRounding.AwayFromZero);
+                                impuesto.valor = Math.Round(item3.Valor,2,MidpointRounding.AwayFromZero);
 
                                 myObject.infoFactura.totalConImpuestos.Add(impuesto);
 
