@@ -623,6 +623,8 @@ namespace Core.Erp.Data.Inventario
                                nom_sucursal = q.Su_Descripcion,
                                nom_tipo_inv = q.tm_descripcion,
                                CodMoviInven = q.CodMoviInven,
+                               Bodega1 = q.Bodega1,
+                               Bodega2 = q.Bodega2
                            }).ToList();
               }
 

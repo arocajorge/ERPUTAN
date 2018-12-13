@@ -23,6 +23,9 @@ namespace Core.Erp.Data
         public System.DateTime cm_fecha { get; set; }
         public string Su_Descripcion { get; set; }
         public string tm_descripcion { get; set; }
+        public string bo_Descripcion { get; set; }
+        public string Bodega1 { get; set; }
+        public string Bodega2 { get; set; }
         public string CodMoviInven { get; set; }
     }
 }

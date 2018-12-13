@@ -79,6 +79,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
+                InfoSucursal = new tb_Sucursal_Info();
                 if (cmbsucursal.EditValue != null)
                 {
                     InfoSucursal = listSucursal.FirstOrDefault(v => v.IdSucursal == Convert.ToInt32(cmbsucursal.EditValue));

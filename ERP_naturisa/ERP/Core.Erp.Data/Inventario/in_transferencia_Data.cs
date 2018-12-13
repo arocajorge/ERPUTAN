@@ -639,46 +639,41 @@ namespace Core.Erp.Data.Inventario
                 List<in_transferencia_Info> lst = new List<in_transferencia_Info>();
 
                 EntitiesInventario OEInventario = new EntitiesInventario();
-                var select = from q in OEInventario.vwin_Transferencias
-                             where q.IdEmpresa == IdEmpresa 
-                             && IdSucursalIni<= q.IdSucursalOrigen && q.IdSucursalOrigen <= idSucursalFin
-                             && IdBodegaIni <= q.IdBodegaOrigen && q.IdBodegaOrigen<=idBodegaFin
-                             && q.tr_fecha >= FechaIni && q.tr_fecha <= FechaFin
-                             orderby q.IdEmpresa, q.tr_fecha
-                             select q;
+                lst = OEInventario.vwin_Transferencias.Where(q => q.IdEmpresa == IdEmpresa
+                             && IdSucursalIni <= q.IdSucursalOrigen && q.IdSucursalOrigen <= idSucursalFin
+                             && IdBodegaIni <= q.IdBodegaOrigen && q.IdBodegaOrigen <= idBodegaFin
+                             && q.tr_fecha >= FechaIni && q.tr_fecha <= FechaFin).OrderBy(
+                             q => q.tr_fecha).Select(q => new in_transferencia_Info
+                             {
+                                 IdEmpresa = q.IdEmpresa,
+                                 IdTransferencia = q.IdTransferencia,
+                                 tr_fecha = q.tr_fecha,
+                                 Estado = q.Estado,
+                                 Bodega_Destino = q.BodegDest,
+                                 Bodega_Origen = q.BodegaORIG,
+                                 Sucursal_Destino = q.SucuDEST,
+                                 Sucursal_Origen = q.SucuOrigen,
+                                 tr_fechaAnulacion = q.tr_fechaAnulacion,
+                                 tr_Observacion = q.tr_Observacion,
+                                 IdBodegaDest = q.IdBodegaDest,
+                                 IdBodegaOrigen = q.IdBodegaOrigen,
+                                 IdSucursalDest = q.IdSucursalDest,
+                                 IdSucursalOrigen = q.IdSucursalOrigen,
+                                 Codigo = q.Codigo,
+                                 IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
+                                 EstadoAprobacion_cat = q.EstadoAprobacion_cat,
+                                 IdEmpresa_Ing_Egr_Inven_Destino = q.IdEmpresa_Ing_Egr_Inven_Destino,
+                                 IdEmpresa_Ing_Egr_Inven_Origen = q.IdEmpresa_Ing_Egr_Inven_Origen,
+                                 IdSucursal_Ing_Egr_Inven_Destino = q.IdSucursal_Ing_Egr_Inven_Destino,
+                                 IdSucursal_Ing_Egr_Inven_Origen = q.IdSucursal_Ing_Egr_Inven_Origen,
+                                 IdMovi_inven_tipo_SucuDest = q.IdMovi_inven_tipo_SucuDest,
+                                 IdMovi_inven_tipo_SucuOrig = q.IdMovi_inven_tipo_SucuOrig,
+                                 IdNumMovi_Ing_Egr_Inven_Destino = q.IdNumMovi_Ing_Egr_Inven_Destino,
+                                 IdNumMovi_Ing_Egr_Inven_Origen = q.IdNumMovi_Ing_Egr_Inven_Origen,
+                                 IdEstadoAproba_egr = q.IdEstadoAproba_egr,
+                                 IdEstadoAproba_ing = q.IdEstadoAproba_ing,
+                             }).ToList();
 
-                foreach (var item in select)
-                {
-                    in_transferencia_Info info = new in_transferencia_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdTransferencia = item.IdTransferencia;
-                    info.tr_fecha = item.tr_fecha;
-                    info.Estado = item.Estado;
-                    info.Bodega_Destino = item.BodegDest;
-                    info.Bodega_Origen = item.BodegaORIG;
-                    info.Sucursal_Destino = item.SucuDEST;
-                    info.Sucursal_Origen = item.SucuOrigen;
-                    info.tr_fechaAnulacion = item.tr_fechaAnulacion;
-                    info.tr_Observacion = item.tr_Observacion;
-                    info.IdBodegaDest = item.IdBodegaDest;
-                    info.IdBodegaOrigen = item.IdBodegaOrigen;
-                    info.IdSucursalDest = item.IdSucursalDest;                    
-                    info.IdSucursalOrigen = item.IdSucursalOrigen;
-                    info.Codigo = item.Codigo;
-                    info.IdEstadoAprobacion_cat = item.IdEstadoAprobacion_cat;
-                    info.EstadoAprobacion_cat = item.EstadoAprobacion_cat;
-                    info.IdEmpresa_Ing_Egr_Inven_Destino = item.IdEmpresa_Ing_Egr_Inven_Destino;
-                    info.IdEmpresa_Ing_Egr_Inven_Origen = item.IdEmpresa_Ing_Egr_Inven_Origen;
-                    info.IdSucursal_Ing_Egr_Inven_Destino = item.IdSucursal_Ing_Egr_Inven_Destino;
-                    info.IdSucursal_Ing_Egr_Inven_Origen = item.IdSucursal_Ing_Egr_Inven_Origen;
-                    info.IdMovi_inven_tipo_SucuDest = Convert.ToInt32(item.IdMovi_inven_tipo_SucuDest);
-                    info.IdMovi_inven_tipo_SucuOrig = Convert.ToInt32(item.IdMovi_inven_tipo_SucuOrig);
-                    info.IdNumMovi_Ing_Egr_Inven_Destino = item.IdNumMovi_Ing_Egr_Inven_Destino;
-                    info.IdNumMovi_Ing_Egr_Inven_Origen = item.IdNumMovi_Ing_Egr_Inven_Origen;
-                    info.IdEstadoAproba_egr = item.IdEstadoAproba_egr;
-                    info.IdEstadoAproba_ing = item.IdEstadoAproba_ing;
-                    lst.Add(info);
-                }
 
                 return lst;
             }

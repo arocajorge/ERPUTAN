@@ -24,7 +24,7 @@ namespace Core.Erp.Data
         public Nullable<int> Secuencia_OC { get; set; }
         public string observacion { get; set; }
         public Nullable<decimal> IdProducto { get; set; }
-        public double Cantidad_enviar { get; set; }
+        public Nullable<double> Cantidad_enviar { get; set; }
         public string pr_descripcion { get; set; }
         public Nullable<double> CantOC { get; set; }
         public string Observacion_OC { get; set; }

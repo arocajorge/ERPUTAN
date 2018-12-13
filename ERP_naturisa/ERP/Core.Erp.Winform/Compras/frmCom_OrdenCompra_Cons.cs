@@ -199,17 +199,17 @@ namespace Core.Erp.Winform.Compras
                     return;
                 if (data.Estado == "I" || data.IdEstadoAprobacion_cat == "REP")
                     e.Appearance.ForeColor = Color.Red;
-
+                else
                 if (data.IdEstado_cierre == "ABI" && data.IdEstadoAprobacion_cat=="APRO")
                 {
                     e.Appearance.ForeColor = Color.Blue;
                 }
-
+                else
                 if (data.IdEstado_cierre == "CERR")
                 {
                     e.Appearance.ForeColor = Color.DarkGreen;
                 }
-
+                else
                 if (data.IdEstado_cierre == "PEN")
                 {
                     e.Appearance.ForeColor = Color.DarkOrange;

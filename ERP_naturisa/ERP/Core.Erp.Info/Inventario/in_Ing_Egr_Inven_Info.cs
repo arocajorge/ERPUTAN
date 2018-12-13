@@ -69,5 +69,9 @@ namespace Core.Erp.Info.Inventario
             listIng_Egr = new List<in_Ing_Egr_Inven_det_Info>();
             listMovi_inven_det = new List<in_movi_inve_detalle_Info>();
         }
+
+        public string Bodega2 { get; set; }
+
+        public string Bodega1 { get; set; }
     }
 }

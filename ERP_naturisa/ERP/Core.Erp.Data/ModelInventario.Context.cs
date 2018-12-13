@@ -26,7 +26,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -169,11 +168,11 @@ namespace Core.Erp.Data
         public DbSet<vwin_Guia_x_traspaso_bodega_det_sin_Transferencia> vwin_Guia_x_traspaso_bodega_det_sin_Transferencia { get; set; }
         public DbSet<in_parametro> in_parametro { get; set; }
         public DbSet<in_Producto> in_Producto { get; set; }
-        public DbSet<vwin_Ing_Egr_Inven_aprobacion_x_transaccion> vwin_Ing_Egr_Inven_aprobacion_x_transaccion { get; set; }
         public DbSet<in_linea> in_linea { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega_det> in_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega> in_Guia_x_traspaso_bodega { get; set; }
         public DbSet<vwin_guia_x_traspaso_bodega> vwin_guia_x_traspaso_bodega { get; set; }
+        public DbSet<vwin_Ing_Egr_Inven_aprobacion_x_transaccion> vwin_Ing_Egr_Inven_aprobacion_x_transaccion { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {

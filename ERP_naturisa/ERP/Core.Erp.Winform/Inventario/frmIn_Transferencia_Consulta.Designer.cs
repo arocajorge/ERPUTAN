@@ -39,12 +39,13 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ultrTransFerencia = new DevExpress.XtraGrid.GridControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucGe_Menu_Mantenimiento_x_usuario = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTransferencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultrTransFerencia)).BeginInit();
             this.panel1.SuspendLayout();
@@ -53,9 +54,10 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 356);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 443);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1136, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1515, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -72,7 +74,8 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
-            this.gridColumn5});
+            this.gridColumn5,
+            this.gridColumn6});
             this.gridViewTransferencias.GridControl = this.ultrTransFerencia;
             this.gridViewTransferencias.GroupCount = 2;
             this.gridViewTransferencias.Name = "gridViewTransferencias";
@@ -95,7 +98,7 @@
             this.IdTransferencia.Name = "IdTransferencia";
             this.IdTransferencia.Visible = true;
             this.IdTransferencia.VisibleIndex = 0;
-            this.IdTransferencia.Width = 147;
+            this.IdTransferencia.Width = 143;
             // 
             // tr_fecha
             // 
@@ -104,7 +107,7 @@
             this.tr_fecha.Name = "tr_fecha";
             this.tr_fecha.Visible = true;
             this.tr_fecha.VisibleIndex = 1;
-            this.tr_fecha.Width = 147;
+            this.tr_fecha.Width = 108;
             // 
             // Sucursal_Origen
             // 
@@ -131,7 +134,7 @@
             this.Sucursal_Destino.Name = "Sucursal_Destino";
             this.Sucursal_Destino.Visible = true;
             this.Sucursal_Destino.VisibleIndex = 2;
-            this.Sucursal_Destino.Width = 147;
+            this.Sucursal_Destino.Width = 251;
             // 
             // Bodega_Destino
             // 
@@ -140,7 +143,7 @@
             this.Bodega_Destino.Name = "Bodega_Destino";
             this.Bodega_Destino.Visible = true;
             this.Bodega_Destino.VisibleIndex = 3;
-            this.Bodega_Destino.Width = 147;
+            this.Bodega_Destino.Width = 251;
             // 
             // gridColumn1
             // 
@@ -148,8 +151,8 @@
             this.gridColumn1.FieldName = "EstadoAprobacion_cat";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
-            this.gridColumn1.Width = 193;
+            this.gridColumn1.VisibleIndex = 5;
+            this.gridColumn1.Width = 136;
             // 
             // gridColumn2
             // 
@@ -157,7 +160,8 @@
             this.gridColumn2.FieldName = "IdNumMovi_Ing_Egr_Inven_Origen";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 5;
+            this.gridColumn2.VisibleIndex = 6;
+            this.gridColumn2.Width = 99;
             // 
             // gridColumn3
             // 
@@ -165,15 +169,36 @@
             this.gridColumn3.FieldName = "IdNumMovi_Ing_Egr_Inven_Destino";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 7;
+            this.gridColumn3.VisibleIndex = 8;
+            this.gridColumn3.Width = 99;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Estado egreso";
+            this.gridColumn4.FieldName = "IdEstadoAproba_egr";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 7;
+            this.gridColumn4.Width = 99;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Estado ingreso";
+            this.gridColumn5.FieldName = "IdEstadoAproba_ing";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 9;
+            this.gridColumn5.Width = 120;
             // 
             // ultrTransFerencia
             // 
             this.ultrTransFerencia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ultrTransFerencia.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ultrTransFerencia.Location = new System.Drawing.Point(0, 0);
             this.ultrTransFerencia.MainView = this.gridViewTransferencias;
+            this.ultrTransFerencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ultrTransFerencia.Name = "ultrTransFerencia";
-            this.ultrTransFerencia.Size = new System.Drawing.Size(1136, 196);
+            this.ultrTransFerencia.Size = new System.Drawing.Size(1515, 246);
             this.ultrTransFerencia.TabIndex = 1;
             this.ultrTransFerencia.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTransferencias});
@@ -183,8 +208,9 @@
             this.panel1.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1136, 160);
+            this.panel1.Size = new System.Drawing.Size(1515, 197);
             this.panel1.TabIndex = 11;
             // 
             // ucGe_Menu_Mantenimiento_x_usuario
@@ -212,15 +238,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2016, 12, 19, 22, 46, 41, 717);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2017, 2, 19, 22, 46, 41, 717);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2018, 11, 4, 14, 5, 11, 436);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2019, 1, 4, 14, 5, 11, 436);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Mantenimiento_x_usuario.Name = "ucGe_Menu_Mantenimiento_x_usuario";
             this.ucGe_Menu_Mantenimiento_x_usuario.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1136, 154);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1515, 190);
             this.ucGe_Menu_Mantenimiento_x_usuario.TabIndex = 0;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_bodega = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -240,6 +267,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu_Mantenimiento_x_usuario.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_fechas = true;
@@ -265,35 +293,30 @@
             // 
             this.panel2.Controls.Add(this.ultrTransFerencia);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 160);
+            this.panel2.Location = new System.Drawing.Point(0, 197);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1136, 196);
+            this.panel2.Size = new System.Drawing.Size(1515, 246);
             this.panel2.TabIndex = 12;
             // 
-            // gridColumn4
+            // gridColumn6
             // 
-            this.gridColumn4.Caption = "Estado egreso";
-            this.gridColumn4.FieldName = "IdEstadoAproba_egr";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Estado ingreso";
-            this.gridColumn5.FieldName = "IdEstadoAproba_ing";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 8;
+            this.gridColumn6.Caption = "Observación";
+            this.gridColumn6.FieldName = "tr_Observacion";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 428;
             // 
             // FrmIn_Transferencia_Consulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 378);
+            this.ClientSize = new System.Drawing.Size(1515, 465);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_Transferencia_Consulta";
             this.Text = "Consulta Transferencias";
             this.Load += new System.EventHandler(this.frmIn_Transferencia_Consulta_Load);
@@ -325,5 +348,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

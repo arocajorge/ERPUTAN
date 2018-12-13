@@ -58,6 +58,8 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ProgressBar_recosteo = new DevExpress.XtraEditors.ProgressBarControl();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
@@ -345,7 +347,9 @@
             this.gridColumn4,
             this.colCheck,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10});
             this.gridViewAprobacion.GridControl = this.gridControlAprobación;
             this.gridViewAprobacion.Name = "gridViewAprobacion";
             this.gridViewAprobacion.OptionsView.ShowAutoFilterRow = true;
@@ -359,8 +363,8 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
-            this.gridColumn1.Width = 111;
+            this.gridColumn1.VisibleIndex = 6;
+            this.gridColumn1.Width = 63;
             // 
             // gridColumn2
             // 
@@ -369,8 +373,8 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 5;
-            this.gridColumn2.Width = 529;
+            this.gridColumn2.VisibleIndex = 8;
+            this.gridColumn2.Width = 317;
             // 
             // gridColumn3
             // 
@@ -379,8 +383,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 4;
-            this.gridColumn3.Width = 111;
+            this.gridColumn3.VisibleIndex = 7;
+            this.gridColumn3.Width = 63;
             // 
             // gridColumn4
             // 
@@ -389,8 +393,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
-            this.gridColumn4.Width = 104;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 93;
             // 
             // colCheck
             // 
@@ -400,7 +404,7 @@
             this.colCheck.Name = "colCheck";
             this.colCheck.Visible = true;
             this.colCheck.VisibleIndex = 0;
-            this.colCheck.Width = 27;
+            this.colCheck.Width = 24;
             // 
             // chk_Aprobacion
             // 
@@ -414,8 +418,8 @@
             this.gridColumn7.FieldName = "nom_tipo_inv";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 2;
-            this.gridColumn7.Width = 221;
+            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.Width = 127;
             // 
             // gridColumn8
             // 
@@ -424,8 +428,8 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 1;
-            this.gridColumn8.Width = 224;
+            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 201;
             // 
             // ucGe_BarraEstadoInferior_Forms1
             // 
@@ -456,6 +460,24 @@
             this.ProgressBar_recosteo.Name = "ProgressBar_recosteo";
             this.ProgressBar_recosteo.Size = new System.Drawing.Size(1329, 23);
             this.ProgressBar_recosteo.TabIndex = 0;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Bodega 1";
+            this.gridColumn9.FieldName = "Bodega1";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 3;
+            this.gridColumn9.Width = 208;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Bodega 2";
+            this.gridColumn10.FieldName = "Bodega2";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 4;
+            this.gridColumn10.Width = 231;
             // 
             // FrmIn_Aprobacion_Ing_Egr_x_transaccion
             // 
@@ -524,5 +546,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
     }
 }

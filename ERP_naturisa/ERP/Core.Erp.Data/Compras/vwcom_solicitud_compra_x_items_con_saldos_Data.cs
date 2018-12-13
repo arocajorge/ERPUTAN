@@ -53,6 +53,7 @@ namespace Core.Erp.Data.Compras
                         && q.fecha >= FechaIni
                         && q.IdSucursal >= IdSucursalIni && q.IdSucursal <= IdSucursalFin
                         && q.IdEstadoAprobacion == IdEstadoAprobacion
+                        && q.cant_aprobada_OC == 0
                         && q.IdEstadoPreAprobacion == IdEstadoPreAprobacion
                        select q;
 
