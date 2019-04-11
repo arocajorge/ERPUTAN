@@ -158,8 +158,8 @@ namespace Core.Erp.Reportes.CuentasxCobrar
                         default:
                             InfoDinardap.TipoIden = "C"; break;
                     }
-                    InfoDinardap.Identificacion = item.pe_cedulaRuc;
-                    InfoDinardap.Nom_apellido = item.pe_nombreCompleto;
+                    InfoDinardap.Identificacion = item.pe_cedulaRuc.Trim();
+                    InfoDinardap.Nom_apellido = item.pe_nombreCompleto.Trim();
 
                     switch (item.Naturaleza)
                     {
@@ -189,11 +189,12 @@ namespace Core.Erp.Reportes.CuentasxCobrar
 
 
 
-                    InfoDinardap.num_operacion = item.vt_serie1 != null ? item.vt_serie1 + "-" + item.vt_serie2 + "-" + item.vt_NumFactura : item.CodCbteVta;
+                    InfoDinardap.num_operacion = item.vt_NumFactura != null ? /*item.vt_serie1 + "-" + item.vt_serie2 + "-" +*/ item.vt_NumFactura : item.CodCbteVta;
 
                     InfoDinardap.valor_ope = Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_Original)), 2, MidpointRounding.AwayFromZero);
 
-                    InfoDinardap.saldo_ope = Math.Abs(Convert.ToDecimal(item.Dias_Vencidos) != 0 ? Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_x_Vencer)), 2, MidpointRounding.AwayFromZero) + Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_cobrado)), 2, MidpointRounding.AwayFromZero) : Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_x_Vencer)), 2, MidpointRounding.AwayFromZero) + Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_cobrado)), 2, MidpointRounding.AwayFromZero) + Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_Vencido)), 2, MidpointRounding.AwayFromZero));
+                    InfoDinardap.saldo_ope = Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_Original)), 2, MidpointRounding.AwayFromZero) - Math.Round(Math.Abs(Convert.ToDecimal(item.Total_Pagado)), 2, MidpointRounding.AwayFromZero);
+                        
 
                     InfoDinardap.fecha_conse = item.vt_fecha.ToString("dd/MM/yyyy");
                     InfoDinardap.fecha_vct = Convert.ToDateTime(item.vt_fech_venc).ToString("dd/MM/yyyy");
@@ -231,10 +232,10 @@ namespace Core.Erp.Reportes.CuentasxCobrar
                     InfoDinardap.valor_vencido_mas_360 = Math.Round(Math.Abs(Convert.ToDecimal(item.Vencido_Mayor_a_360Dias)), 2, MidpointRounding.AwayFromZero);
                     InfoDinardap.valor_en_demand_judi = 0;
                     InfoDinardap.cartera_castigada = 0;
-                    InfoDinardap.couta_credito = Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_cobrado)), 2, MidpointRounding.AwayFromZero);
+                    InfoDinardap.couta_credito = Math.Round(Math.Abs(Convert.ToDecimal(item.Valor_Vencido == 0 ? item.Valor_x_Vencer : item.Valor_Vencido)), 2, MidpointRounding.AwayFromZero);
                     //Fecha de cobro
-                    InfoDinardap.fecha_cancela = item.cr_fechaCobro == null || item.Total_Pagado == 0 ? "" : Convert.ToDateTime(item.cr_fechaCobro).ToString("dd/MM/yyyy");
-                    InfoDinardap.forma_cance = item.cr_fechaCobro == null ? "" : "E";
+                    InfoDinardap.fecha_cancela = "";//item.cr_fechaCobro == null || item.Total_Pagado == 0 ? "" : Convert.ToDateTime(item.cr_fechaCobro).ToString("dd/MM/yyyy");
+                    InfoDinardap.forma_cance = ""; //item.cr_fechaCobro == null ? "" : "E";
                     InfoDinardap.CodEntidad = item.cod_entidad_dinardap;
 
 
@@ -311,14 +312,23 @@ namespace Core.Erp.Reportes.CuentasxCobrar
                         sLinea = sLinea + "|" + InfoData.Identificacion + "|" + InfoData.Nom_apellido + "|" + InfoData.clase_suje;
                         sLinea = sLinea + "|" + InfoData.Provincia + "|" + InfoData.canton + "|" + InfoData.parroquia;
                         sLinea = sLinea + "|" + InfoData.sexo + "|" + InfoData.estado_civil + "|" + InfoData.Origen_Ing;
-                        sLinea = sLinea + "|" + InfoData.num_operacion + "|" + InfoData.valor_ope + "|" + InfoData.saldo_ope ;
+                        
+                        sLinea = sLinea + "|" + InfoData.num_operacion + "|" + string.Format("{0:f2}", InfoData.valor_ope) + "|" + string.Format("{0:f2}", InfoData.saldo_ope);
+                        //sLinea = sLinea + "|" + InfoData.num_operacion + "|" + InfoData.valor_ope + "|" + InfoData.saldo_ope ;
+                        
                         sLinea = sLinea + "|" + InfoData.fecha_conse + "|" + InfoData.fecha_vct + "|" + InfoData.fecha_exigi ;
                         sLinea = sLinea + "|" + InfoData.Plazo_op + "|" + InfoData.Periodicidad_pago + "|" + InfoData.dias_morosidad ;
-                        sLinea = sLinea + "|" + InfoData.monto_morosidad + "|" + InfoData.monto_inte_mora + "|" + InfoData.valor_x_vencer_1_30 ;
+
+                        sLinea = sLinea + "|" + string.Format("{0:f2}", InfoData.monto_morosidad) + "|" + string.Format("{0:f2}", InfoData.monto_inte_mora) + "|" + string.Format("{0:f2}", InfoData.valor_x_vencer_1_30);
+                        sLinea = sLinea + "|" + string.Format("{0:f2}", InfoData.valor_x_vencer_31_90) + "|" + string.Format("{0:f2}", InfoData.valor_x_vencer_91_180) + "|" + string.Format("{0:f2}", InfoData.valor_x_vencer_181_360);
+                        sLinea = sLinea + "|" + string.Format("{0:f2}", InfoData.valor_x_vencer_mas_360) + "|" + string.Format("{0:f2}", InfoData.valor_vencido_1_30) + "|" + string.Format("{0:f2}", InfoData.valor_vencido_31_90);
+                        sLinea = sLinea + "|" + string.Format("{0:f2}", InfoData.valor_vencido_91_180) + "|" + string.Format("{0:f2}", InfoData.valor_vencido_181_360) + "|" + string.Format("{0:f2}", InfoData.valor_vencido_mas_360);
+                        sLinea = sLinea + "|" + string.Format("{0:f2}", InfoData.valor_en_demand_judi) + "|" + string.Format("{0:f2}", InfoData.cartera_castigada) + "|" + string.Format("{0:f2}", InfoData.couta_credito);
+                        /*sLinea = sLinea + "|" + InfoData.monto_morosidad + "|" + InfoData.monto_inte_mora + "|" + InfoData.valor_x_vencer_1_30 ;
                         sLinea = sLinea + "|" + InfoData.valor_x_vencer_31_90 + "|" + InfoData.valor_x_vencer_91_180 + "|" + InfoData.valor_x_vencer_181_360;
                         sLinea = sLinea + "|" + InfoData.valor_x_vencer_mas_360 + "|" + InfoData.valor_vencido_1_30 + "|" + InfoData.valor_vencido_31_90 ;
                         sLinea = sLinea + "|" + InfoData.valor_vencido_91_180 + "|" + InfoData.valor_vencido_181_360 + "|" + InfoData.valor_vencido_mas_360;
-                        sLinea = sLinea + "|" + InfoData.valor_en_demand_judi + "|" + InfoData.cartera_castigada + "|" + InfoData.couta_credito ;
+                        sLinea = sLinea + "|" + InfoData.valor_en_demand_judi + "|" + InfoData.cartera_castigada + "|" + InfoData.couta_credito ;*/
                         sLinea = sLinea + "|" + InfoData.fecha_cancela + "|" + InfoData.forma_cance;
 
 

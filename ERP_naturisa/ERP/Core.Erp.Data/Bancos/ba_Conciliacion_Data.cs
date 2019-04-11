@@ -17,56 +17,30 @@ namespace Core.Erp.Data.Bancos
             try
             {
                 List<vwba_TransaccionesAConciliar_Info> lM = new List<vwba_TransaccionesAConciliar_Info>();
-                EntitiesBanco b = new EntitiesBanco();
-
-
-                var select_ = from T in b.vwba_TransaccionesAConciliar
-                              where T.IdEmpresa == IdEmpresa && T.IdCtaCble == IdCtaCble
-                               && T.cb_Fecha <= F_fin
-                               && T.@checked==0
-                               && T.IdConciliacion==0
-                              select T;
-                foreach (var item in select_)
+                using (EntitiesBanco b = new EntitiesBanco())
                 {
-                    vwba_TransaccionesAConciliar_Info dat_ = new vwba_TransaccionesAConciliar_Info();
-
-                    dat_.IdEmpresa = item.IdEmpresa;
-                    dat_.IdConciliacion = item.IdConciliacion;
-                    dat_.IdBanco = item.IdBanco;
-                    dat_.IdCtaCble = item.IdCtaCble;
-                    dat_.ba_descripcion = item.ba_descripcion;
-                    dat_.dc_Observacion = item.dc_Observacion;
-                    dat_.cb_Fecha = item.cb_Fecha;
-                    dat_.nom_IdTipoCbte = item.nom_IdTipoCbte;
-                    dat_.dc_Valor = item.dc_Valor;
-                    dat_.fechaConciliacion = item.fechaConciliacion;
-                    dat_.Estado = item.IdEstado_Concil_Cat;
-                    dat_.SecuenciaCbteCble = item.secuencia;
-                    dat_.cb_Cheque = item.cb_Cheque;
-
-                    dat_.IdTipocbte =Convert.ToInt32( item.IdTipoCbte);
-                    if (item.@checked == 1)
+                    lM = b.SPBAN_TransaccionesAConciliar(IdEmpresa, IdCtaCble, F_fin, 0).Select(q => new vwba_TransaccionesAConciliar_Info
                     {
-                        dat_.chk = true;
-                    }
-                    else
-                    {
-                        dat_.chk = false;
-                    }
+                        IdEmpresa = q.IdEmpresa,
+                        IdConciliacion = q.IdConciliacion,
+                        IdBanco = q.IdBanco,
+                        IdCtaCble = q.IdCtaCble,
+                        ba_descripcion = q.ba_descripcion,
+                        dc_Observacion = q.dc_Observacion,
+                        cb_Fecha = q.cb_Fecha,
+                        nom_IdTipoCbte = q.nom_IdTipoCbte,
+                        dc_Valor = q.dc_Valor ?? 0,
+                        fechaConciliacion = q.fechaConciliacion,
+                        Estado = q.IdEstado_Concil_Cat,
+                        SecuenciaCbteCble = q.secuencia,
+                        cb_Cheque = q.cb_Cheque,
 
-                    dat_.IdCbteCble = item.IdCbteCble;
-                    if (item.dc_Valor <= 0) 
-                    {
-                        dat_.Tipo = "-";
-                        dat_.dc_Valor = dat_.dc_Valor * -1;
-                    }
-                    else
-                    {
-                        dat_.Tipo = "+";
-                    }
-                    dat_.chk = false;
+                        IdTipocbte = q.IdTipoCbte,
 
-                    lM.Add(dat_);
+                        IdCbteCble = q.IdCbteCble,
+                        Tipo = q.Tipo,
+                        chk = q.Seleccionado ?? false
+                    }).ToList();    
                 }
                 return (lM);
             }
@@ -87,60 +61,30 @@ namespace Core.Erp.Data.Bancos
             try
             {
                 List<vwba_TransaccionesAConciliar_Info> lM = new List<vwba_TransaccionesAConciliar_Info>();
-                EntitiesBanco b = new EntitiesBanco();
-
-
-                var select_ = from T in b.vwba_TransaccionesAConciliar
-                              where T.IdEmpresa == IdEmpresa && T.IdCtaCble == IdCtaCble
-                              && T.IdBanco == IdBanco 
-                              && T.cb_Fecha <= F_fin
-                              && (T.IdConciliacion == IdConciliacion
-                              || T.IdConciliacion == 0)
-                              select T;
-                
-
-                foreach (var item in select_)
+                using (EntitiesBanco b = new EntitiesBanco())
                 {
-                    vwba_TransaccionesAConciliar_Info dat_ = new vwba_TransaccionesAConciliar_Info();                 
-                    dat_.IdEmpresa = item.IdEmpresa;
-                    dat_.IdConciliacion = item.IdConciliacion;
-                    dat_.IdBanco = item.IdBanco;
-                    dat_.IdCtaCble = item.IdCtaCble;
-                    dat_.ba_descripcion = item.ba_descripcion;
-                    dat_.dc_Observacion = item.dc_Observacion;
-                    dat_.cb_Fecha = item.cb_Fecha;
-                    dat_.nom_IdTipoCbte = item.nom_IdTipoCbte;
-                    dat_.dc_Valor = item.dc_Valor;
-                    dat_.fechaConciliacion = item.fechaConciliacion;
-                    dat_.Estado = item.IdEstado_Concil_Cat;
-                    dat_.IdTipocbte = item.IdTipoCbte;
-                    dat_.SecuenciaCbteCble = item.secuencia;
-                    dat_.nom_IdTipoCbte = item.nom_IdTipoCbte;
-                    dat_.cb_Cheque = item.cb_Cheque;
-                    dat_.co_SaldoBanco_anterior = item.co_SaldoBanco_anterior;
-                    if (item.@checked == 1)
+                    lM = b.SPBAN_TransaccionesAConciliar(IdEmpresa, IdCtaCble, F_fin, IdConciliacion).Select(q => new vwba_TransaccionesAConciliar_Info
                     {
-                        dat_.chk = true;
-                    }
-                    else
-                    {
-                        dat_.chk = false;
-                    }
+                        IdEmpresa = q.IdEmpresa,
+                        IdConciliacion = q.IdConciliacion,
+                        IdBanco = q.IdBanco,
+                        IdCtaCble = q.IdCtaCble,
+                        ba_descripcion = q.ba_descripcion,
+                        dc_Observacion = q.dc_Observacion,
+                        cb_Fecha = q.cb_Fecha,
+                        nom_IdTipoCbte = q.nom_IdTipoCbte,
+                        dc_Valor = q.dc_Valor ?? 0,
+                        fechaConciliacion = q.fechaConciliacion,
+                        Estado = q.IdEstado_Concil_Cat,
+                        SecuenciaCbteCble = q.secuencia,
+                        cb_Cheque = q.cb_Cheque,
 
-                    dat_.IdCbteCble = item.IdCbteCble;
-                    if (item.dc_Valor <= 0)
-                    {
-                        dat_.Tipo = "-";
-                        dat_.dc_Valor = dat_.dc_Valor * -1;
+                        IdTipocbte = q.IdTipoCbte,
 
-                    }
-                    else
-                    {
-                        dat_.Tipo = "+";
-                    }
-                   
-
-                    lM.Add(dat_);
+                        IdCbteCble = q.IdCbteCble,
+                        Tipo = q.Tipo,
+                        chk = q.Seleccionado ?? false
+                    }).ToList();
                 }
                 return (lM);
             }

@@ -1205,6 +1205,9 @@
     <Compile Include="ct_saldoxCuentas_TMP.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
+    <Compile Include="ct_spCONTA_Rpt023.cs">
+      <DependentUpon>ModelConta.tt</DependentUpon>
+    </Compile>
     <Compile Include="ct_tipo_ctacble.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
@@ -3475,6 +3478,9 @@
     <Compile Include="spACTF_activos_a_depreciar_Result.cs">
       <DependentUpon>ModelActivoFijo.tt</DependentUpon>
     </Compile>
+    <Compile Include="SPBAN_TransaccionesAConciliar_Result.cs">
+      <DependentUpon>ModelBancos.tt</DependentUpon>
+    </Compile>
     <Compile Include="spCON_Mayorizar_x_fecha_corte_Result.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
@@ -4033,9 +4039,6 @@
       <DependentUpon>ModelBancos.tt</DependentUpon>
     </Compile>
     <Compile Include="vwba_tipo_nota.cs">
-      <DependentUpon>ModelBancos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwba_TransaccionesAConciliar.cs">
       <DependentUpon>ModelBancos.tt</DependentUpon>
     </Compile>
     <Compile Include="vwba_transferencia.cs">

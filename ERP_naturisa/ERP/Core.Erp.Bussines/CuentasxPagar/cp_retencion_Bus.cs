@@ -520,18 +520,25 @@ namespace Core.Erp.Business.CuentasxPagar
                 cp_retencion_x_ct_cbtecble_Info info_x_cbte = Get_Info_retencion_x_ct_cbtecble(info.IdEmpresa, info.IdRetencion);
                 info.Info_CbteCble_x_RT = CbteCble_B.Get_Info_CbteCble(info_x_cbte.ct_IdEmpresa, info_x_cbte.ct_IdTipoCbte, info_x_cbte.ct_IdCbteCble, ref mensaje);
 
-
-                if (CbteCble_B.ReversoCbteCble(info.Info_CbteCble_x_RT.IdEmpresa, info.Info_CbteCble_x_RT.IdCbteCble, info.Info_CbteCble_x_RT.IdTipoCbte
-                    , Convert.ToInt32(InfoParam.pa_IdTipoCbte_x_Anu_Retencion),
-                    ref idCbteCble_anu, ref mensaje, info.IdUsuarioUltAnu, info.MotivoAnulacion))
+                if (info.Info_CbteCble_x_RT.IdEmpresa != 0)
                 {
+                    if (CbteCble_B.ReversoCbteCble(info.Info_CbteCble_x_RT.IdEmpresa, info.Info_CbteCble_x_RT.IdCbteCble, info.Info_CbteCble_x_RT.IdTipoCbte
+                        , Convert.ToInt32(InfoParam.pa_IdTipoCbte_x_Anu_Retencion),
+                        ref idCbteCble_anu, ref mensaje, info.IdUsuarioUltAnu, info.MotivoAnulacion))
+                    {
 
-                    info.ct_IdEmpresa_Anu = info.Info_CbteCble_x_RT.IdEmpresa;
-                    info.ct_IdCbteCble_Anu = idCbteCble_anu;
-                    info.ct_IdTipoCbte_Anu = InfoParam.pa_IdTipoCbte_x_Anu_Retencion;
+                        info.ct_IdEmpresa_Anu = info.Info_CbteCble_x_RT.IdEmpresa;
+                        info.ct_IdCbteCble_Anu = idCbteCble_anu;
+                        info.ct_IdTipoCbte_Anu = InfoParam.pa_IdTipoCbte_x_Anu_Retencion;
 
+                        return data_retencion.AnularDB(info, ref mensaje);
+                    }
+                }
+                else
+                {
                     return data_retencion.AnularDB(info, ref mensaje);
                 }
+                
             }
             catch (Exception ex)
             {

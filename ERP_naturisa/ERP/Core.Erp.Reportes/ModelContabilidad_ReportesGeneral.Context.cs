@@ -26,7 +26,6 @@ namespace Core.Erp.Reportes
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

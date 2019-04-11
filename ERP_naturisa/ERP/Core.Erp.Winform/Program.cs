@@ -82,6 +82,9 @@ namespace Core.Erp.Winform
             Thread.CurrentThread.CurrentCulture.NumberFormat.PercentDecimalSeparator=".";
             Thread.CurrentThread.CurrentCulture.NumberFormat.PercentGroupSeparator = ",";
 
+            Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            
+
             tb_Empresa_Bus BusEmpresa = new tb_Empresa_Bus();
             tb_Empresa_Info InfoEmpresa = new tb_Empresa_Info();
             tb_Sucursal_Info InfoSucursal = new tb_Sucursal_Info();

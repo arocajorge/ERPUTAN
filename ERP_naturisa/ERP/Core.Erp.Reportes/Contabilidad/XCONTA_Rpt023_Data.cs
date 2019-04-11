@@ -15,7 +15,7 @@ namespace Core.Erp.Reportes.Contabilidad
             {
                 using (EntitiesContabilidadRptGeneral db = new EntitiesContabilidadRptGeneral())
                 {
-                    return db.spCONTA_Rpt023(IdEmpresa, IdCentroCosto, Nivel, FechaFin, IdUsuario, Balance, MostrarSaldo0).Select(q => new XCONTA_Rpt023_Info
+                    return db.spCONTA_Rpt023(IdEmpresa,IdCentroCosto, Nivel, FechaFin,IdUsuario, Balance, MostrarSaldo0).Select(q => new XCONTA_Rpt023_Info
                     {
                         IdEmpresa = q.IdEmpresa,
                         IdCtaCble = q.IdCtaCble,

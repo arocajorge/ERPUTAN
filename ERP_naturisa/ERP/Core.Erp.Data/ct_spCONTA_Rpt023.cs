@@ -12,18 +12,19 @@ namespace Core.Erp.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ct_saldoxCuentas_Movi_tmp
+    public partial class ct_spCONTA_Rpt023
     {
         public int IdEmpresa { get; set; }
-        public int IdAnioF { get; set; }
-        public int IdPeriodo { get; set; }
         public string IdCtaCble { get; set; }
+        public string IdCentroCosto { get; set; }
+        public string IdUsuario { get; set; }
         public string IdCtaCblePadre { get; set; }
-        public double sc_saldo_anterior { get; set; }
-        public double sc_debito_mes { get; set; }
-        public double sc_credito_mes { get; set; }
-        public double sc_debito_acum { get; set; }
-        public double sc_credito_acum { get; set; }
-        public double sc_saldo_acum { get; set; }
+        public string Naturaleza { get; set; }
+        public string NombreCuenta { get; set; }
+        public string NombreCentroCosto { get; set; }
+        public bool EsCuentaMovimiento { get; set; }
+        public int NivelCuenta { get; set; }
+        public decimal Saldo { get; set; }
+        public decimal SaldoNaturaleza { get; set; }
     }
 }

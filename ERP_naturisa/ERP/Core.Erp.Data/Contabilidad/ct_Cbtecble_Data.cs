@@ -1242,67 +1242,47 @@ namespace Core.Erp.Data.Contabilidad
                                             IdCtaCblePadre = q.IdCtaCblePadre,
                                             NombreCuenta = q.pc_Cuenta,
                                             Signo = c.gc_signo_operacion,
-                                            Nivel = q.IdNivelCta
+                                            Nivel = q.IdNivelCta,
+                                            pc_Naturaleza = q.pc_Naturaleza
                                         }).ToList();
 
                     //GET LISTADO SUBCENTROS
-                    var lst_subcentro = (from c in db.ct_centro_costo
-                                         join d in db.ct_centro_costo_sub_centro_costo
-                                         on new { c.IdEmpresa, c.IdCentroCosto } equals new { d.IdEmpresa, d.IdCentroCosto }
+                    var lst_centro = (from c in db.ct_centro_costo                                         
                                          where c.IdEmpresa == IdEmpresa && c.IdCentroCosto == IdCentroCosto
                                          select new
                                          {
                                              IdEmpresa = c.IdEmpresa,
                                              IdCentroCosto = c.IdCentroCosto,
-                                             IdCentroCosto_sub_centro_costo = d.IdCentroCosto_sub_centro_costo,
                                              NombreCentroCosto = c.Centro_costo,
-                                             NombreSubCentroCosto = d.Centro_costo
                                          }).ToList();
-
-                    var lst_saldos = (from c in db.ct_cbtecble
-                                      join d in db.ct_cbtecble_det
-                                      on new { c.IdEmpresa, c.IdTipoCbte, c.IdCbteCble } equals new { d.IdEmpresa, d.IdTipoCbte, d.IdCbteCble}
-                                      where FechaIni <= c.cb_Fecha && c.cb_Fecha <= FechaFin
-                                  && c.IdEmpresa == IdEmpresa
-                                  && d.IdCentroCosto == IdCentroCosto
-                                      group d by new { d.IdEmpresa, d.IdCtaCble, d.IdCentroCosto, d.IdCentroCosto_sub_centro_costo } into Grouping
-                                      select new
-                                      {
-                                          IdEmpresa = Grouping.Key.IdEmpresa,
-                                          IdCentroCosto = Grouping.Key.IdCentroCosto,
-                                          IdCentroCosto_sub_centro_costo = Grouping.Key.IdCentroCosto_sub_centro_costo,
-                                          IdCtaCble = Grouping.Key.IdCtaCble,
-                                          dc_valor = Grouping.Sum(q=>q.dc_Valor)
-                                      }).ToList();
 
 
                     //RECORRO LISTAS PARA CREAR PLANTILLA INICIAL DE PLAN DE CUENTAS X SUBCENTROS
-                    lst_subcentro.ForEach(q =>
+                    lst_centro.ForEach(q =>
                     {
                         lst_plancta.ForEach(c =>
                         {
-                            Lista.Add(new XCONTA_Rpt023
+                            db.ct_spCONTA_Rpt023.Add( new ct_spCONTA_Rpt023
                             {
                                 IdEmpresa = q.IdEmpresa,
                                 IdCentroCosto = q.IdCentroCosto,
-                                IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
                                 NombreCentroCosto = q.NombreCentroCosto,
-                                NombreSubCentroCosto = q.NombreSubCentroCosto,
                                 NombreCuenta = c.NombreCuenta,
                                 IdCtaCble = c.IdCtaCble,
                                 IdCtaCblePadre = c.IdCtaCblePadre,
-                                Signo = c.Signo,
-                                Nivel = c.Nivel,
+                                Naturaleza = c.pc_Naturaleza,
+                                NivelCuenta = c.Nivel,
+                                EsCuentaMovimiento = false,
+                                IdUsuario = IdUsuario,
+                                
                                 //OBTENGO EL VALOR DE LA CUENTA CONTABLE POR EL SUBCENTRO
-                                Saldo = 0
+                                Saldo = 0,
+                                SaldoNaturaleza = 0,
                             });
                         });
                     });
-                    //SUMA HACIA LOS PADRES
-                    Lista.OrderByDescending(q => q.Nivel).ToList().ForEach(q =>
-                    {
-                        q.Saldo = Lista.Where(f => f.IdCtaCblePadre == q.IdCtaCble).Sum(f => f.Saldo);
-                    });
+
+                    db.SaveChanges();
                 }
 
                 return Lista;

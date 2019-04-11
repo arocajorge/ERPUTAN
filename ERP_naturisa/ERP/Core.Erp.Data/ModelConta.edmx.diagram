@@ -112,6 +112,7 @@
         <AssociationConnector Association="DBERPModelConta.FK_ct_cbtecble_det_ct_centro_costo_sub_centro_costo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_centro_costo" />
         <AssociationConnector Association="DBERPModelConta.FK_ct_centro_costo_sub_centro_costo_ct_plancta" />
+        <EntityTypeShape EntityType="DBERPModelConta.ct_spCONTA_Rpt023" Width="1.5" PointX="10.929358893506862" PointY="7.57439062352031" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

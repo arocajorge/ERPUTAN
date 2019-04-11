@@ -93,21 +93,58 @@ namespace Core.Erp.Reportes.Contabilidad
                             itemInfo.nom_CentroCosto = item.nom_centro_costo;
                             itemInfo.nom_empresa = item.nom_empresa;
                             
-                            //Nivel 2
-                            itemInfo.IdCtaCble_nivel2 = item.IdCtaCble.Length > info_nivel_2.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_2.nv_NumDigitos_total)) : null;
-                            if (itemInfo.IdCtaCble_nivel2 != null) itemInfo.pc_cuenta_nivel2 = lst_nivel_2.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel2).pc_Cuenta;
-                            //Nivel 3
-                            itemInfo.IdCtaCble_nivel3 = item.IdCtaCble.Length > info_nivel_3.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_3.nv_NumDigitos_total)) : null;
-                            if (itemInfo.IdCtaCble_nivel3 != null) itemInfo.pc_cuenta_nivel3 = lst_nivel_3.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel3).pc_Cuenta;
-                            //Nivel 4
-                            itemInfo.IdCtaCble_nivel4 = item.IdCtaCble.Length > info_nivel_4.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_4.nv_NumDigitos_total)) : null;
-                            if (itemInfo.IdCtaCble_nivel4 != null) itemInfo.pc_cuenta_nivel4 = lst_nivel_4.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel4).pc_Cuenta;
-                            //Nivel 5
-                            itemInfo.IdCtaCble_nivel5 = item.IdCtaCble.Length > info_nivel_5.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_5.nv_NumDigitos_total)) : null;
-                            if (itemInfo.IdCtaCble_nivel5 != null) itemInfo.pc_cuenta_nivel5 = lst_nivel_5.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel5).pc_Cuenta;
-                            //Nivel 6
-                            itemInfo.IdCtaCble_nivel6 = item.IdCtaCble.Length > info_nivel_6.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_6.nv_NumDigitos_total)) : null;
-                            if (itemInfo.IdCtaCble_nivel6 != null) itemInfo.pc_cuenta_nivel6 = lst_nivel_6.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel6).pc_Cuenta;
+                                              
+                            try
+                            {
+                                //Nivel 2          
+                                itemInfo.IdCtaCble_nivel2 = item.IdCtaCble.Length > info_nivel_2.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_2.nv_NumDigitos_total)) : null;
+                                if (itemInfo.IdCtaCble_nivel2 != null) itemInfo.pc_cuenta_nivel2 = lst_nivel_2.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel2).pc_Cuenta;
+                            }
+                            catch (Exception ex)
+                            {
+                                
+                            }
+                            try
+                            {
+                                //Nivel 3
+                                itemInfo.IdCtaCble_nivel3 = item.IdCtaCble.Length > info_nivel_3.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_3.nv_NumDigitos_total)) : null;
+                                if (itemInfo.IdCtaCble_nivel3 != null) itemInfo.pc_cuenta_nivel3 = lst_nivel_3.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel3).pc_Cuenta;
+                            }
+                            catch (Exception ex)
+                            {
+                                
+                            }
+                            try
+                            {
+                                //Nivel 4
+                                itemInfo.IdCtaCble_nivel4 = item.IdCtaCble.Length > info_nivel_4.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_4.nv_NumDigitos_total)) : null;
+                                if (itemInfo.IdCtaCble_nivel4 != null) itemInfo.pc_cuenta_nivel4 = lst_nivel_4.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel4).pc_Cuenta;
+                            }
+                            catch (Exception ex)
+                            {
+                                
+                            }
+                            try
+                            {
+                                //Nivel 5
+                                itemInfo.IdCtaCble_nivel5 = item.IdCtaCble.Length > info_nivel_5.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_5.nv_NumDigitos_total)) : null;
+                                if (itemInfo.IdCtaCble_nivel5 != null) itemInfo.pc_cuenta_nivel5 = lst_nivel_5.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel5).pc_Cuenta;
+                            }
+                            catch (Exception ex)
+                            {
+                                
+                            }
+                            try
+                            {
+                                //Nivel 6
+                                itemInfo.IdCtaCble_nivel6 = item.IdCtaCble.Length > info_nivel_6.nv_NumDigitos_total ? itemInfo.IdCtaCble.Substring(0, Convert.ToInt32(info_nivel_6.nv_NumDigitos_total)) : null;
+                                if (itemInfo.IdCtaCble_nivel6 != null) itemInfo.pc_cuenta_nivel6 = lst_nivel_6.FirstOrDefault(q => q.IdCtaCble == itemInfo.IdCtaCble_nivel6).pc_Cuenta;
+                            }
+                            catch (Exception ex)
+                            {
+                                
+                            }
+                            
 
                             listadedatos.Add(itemInfo);
                         }

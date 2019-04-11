@@ -28,22 +28,29 @@ namespace Core.Erp.Reportes.Contabilidad
         {
             try
             {
-                ct_Cbtecble_Bus bus_diario = new ct_Cbtecble_Bus();
                 splashScreenManager1.ShowWaitForm();
                 blst = new List<XCONTA_Rpt023_Info>();
                 List<string> CentroCosto = new List<string>();
                 CentroCosto = uCct_Menu_Reportes1.Get_CentroCosto_checked();
                 int Nivel = uCct_Menu_Reportes1.bei_Nivel.EditValue == null ? 0 : Convert.ToInt32(uCct_Menu_Reportes1.bei_Nivel.EditValue);
                 DateTime FechaCorte = uCct_Menu_Reportes1.bei_Hasta.EditValue == null ? DateTime.Now : Convert.ToDateTime(uCct_Menu_Reportes1.bei_Hasta.EditValue);
+
+                progressBarControl1.EditValue = 0;
+                progressBarControl1.Properties.Minimum = 1;
+                progressBarControl1.Properties.Maximum = CentroCosto.Count;
+                progressBarControl1.Properties.Step = 1;
+                progressBarControl1.Properties.PercentView = true;
+
                 foreach (var item in CentroCosto)
                 {
-                    var lst = bus_diario.GetList(param.IdEmpresa,item,Nivel,FechaCorte,param.IdUsuario,"ER",Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue));
-                    
-                    //blst.AddRange(bus.GetList(param.IdEmpresa,item,Nivel,FechaCorte,param.IdUsuario,"ER",Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue)));
+                    blst.AddRange(bus.GetList(param.IdEmpresa, item, Nivel, FechaCorte, param.IdUsuario, "ER", Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue)));
                     pivotBalance.DataSource = null;
                     pivotBalance.DataSource = blst;
-                    
+                    progressBarControl1.PerformStep();
+                    progressBarControl1.Update();
+                    Application.DoEvents();
                 }
+                blst.AddRange(bus.GetList(param.IdEmpresa, "", Nivel, FechaCorte, param.IdUsuario, "ER", Convert.ToBoolean(uCct_Menu_Reportes1.bei_Check.EditValue)));
                 splashScreenManager1.CloseWaitForm();
             }
             catch (Exception)

@@ -41,6 +41,7 @@
           <EntitySet Name="ct_saldoxCuentas_Movi_tmp" EntityType="DBERPModelConta.Store.ct_saldoxCuentas_Movi_tmp" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ct_saldoxCuentas_Movi_x_RangoFecha" EntityType="DBERPModelConta.Store.ct_saldoxCuentas_Movi_x_RangoFecha" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ct_saldoxCuentas_TMP" EntityType="DBERPModelConta.Store.ct_saldoxCuentas_TMP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ct_spCONTA_Rpt023" EntityType="DBERPModelConta.Store.ct_spCONTA_Rpt023" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ct_tipo_ctacble" EntityType="DBERPModelConta.Store.ct_tipo_ctacble" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="vwct_anio_fiscal_x_cuenta_utilidad" EntityType="DBERPModelConta.Store.vwct_anio_fiscal_x_cuenta_utilidad" store:Type="Views" store:Schema="dbo" store:Name="vwct_anio_fiscal_x_cuenta_utilidad">
             <DefiningQuery>SELECT 
@@ -1117,6 +1118,26 @@
           <Property Name="sc_saldo_acum" Type="float" Nullable="false" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ct_spCONTA_Rpt023">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCtaCblePadre" Type="varchar" MaxLength="20" />
+          <Property Name="Naturaleza" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="NombreCuenta" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="NombreCentroCosto" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="EsCuentaMovimiento" Type="bit" Nullable="false" />
+          <Property Name="NivelCuenta" Type="int" Nullable="false" />
+          <Property Name="Saldo" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="SaldoNaturaleza" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
         <EntityType Name="ct_tipo_ctacble">
           <Key>
             <PropertyRef Name="IdTipoCtaCble" />
@@ -1125,8 +1146,8 @@
           <Property Name="nom_TipoCtaCble" Type="varchar" MaxLength="150" />
           <Property Name="estado" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_anio_fiscal_x_cuenta_utilidad' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_anio_fiscal_x_cuenta_utilidad' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_anio_fiscal_x_cuenta_utilidad">
           <Key>
@@ -1147,8 +1168,8 @@
           <Property Name="IdTipoCtaCble" Type="varchar" MaxLength="10" />
           <Property Name="gc_GrupoCble" Type="char" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_con_ctacble_acreedora' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_con_ctacble_acreedora' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_con_ctacble_acreedora">
           <Key>
@@ -1161,8 +1182,8 @@
           <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
           <Property Name="IdCtaCble_Acreedora" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_Con_Saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_Con_Saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_Con_Saldo">
           <Key>
@@ -1183,8 +1204,8 @@
           <Property Name="cb_Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_con_saldo_cxp' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_con_saldo_cxp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_con_saldo_cxp">
           <Key>
@@ -1212,8 +1233,8 @@
           <Property Name="Beneficiario" Type="varchar" MaxLength="246" />
           <Property Name="IdBeneficiario" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_con_saldo_cxp_consulta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_con_saldo_cxp_consulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_con_saldo_cxp_consulta">
           <Key>
@@ -1237,8 +1258,8 @@
           <Property Name="IdConciliacion" Type="numeric" Nullable="false" />
           <Property Name="Beneficiario" Type="varchar" MaxLength="246" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_det">
           <Key>
@@ -1277,8 +1298,8 @@
           <Property Name="IdPunto_cargo_grupo" Type="int" />
           <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_det_TotalDiario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_det_TotalDiario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_det_TotalDiario">
           <Key>
@@ -1291,8 +1312,8 @@
           <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
           <Property Name="dc_Valor" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_cbtecble_x_cp_Conciliacion_caja' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_cbtecble_x_cp_Conciliacion_caja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_cbtecble_x_cp_Conciliacion_caja">
           <Key>
@@ -1330,8 +1351,8 @@
           <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_centro_costo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_centro_costo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_centro_costo">
           <Key>
@@ -1355,8 +1376,8 @@
           <Property Name="pc_Estado" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_centro_costo_sub_centro_costo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_centro_costo_sub_centro_costo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_centro_costo_sub_centro_costo">
           <Key>
@@ -1378,8 +1399,8 @@
           <Property Name="pc_Cuenta" Type="varchar" MaxLength="150" />
           <Property Name="pc_clave_corta" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_ComprobanteContable' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_ComprobanteContable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_ComprobanteContable">
           <Key>
@@ -1423,8 +1444,8 @@
           <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_grupo_x_Tipo_Gasto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_grupo_x_Tipo_Gasto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_grupo_x_Tipo_Gasto">
           <Key>
@@ -1443,8 +1464,8 @@
           <Property Name="nivel" Type="int" />
           <Property Name="orden" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_periodo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_periodo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_periodo">
           <Key>
@@ -1472,8 +1493,8 @@
           <Property Name="Nemonico" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="smesIngles" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_plancta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_plancta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_plancta">
           <Key>
@@ -1502,8 +1523,8 @@
           <Property Name="CuentaPadre" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="IdTipoCtaCble" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_plancta_nivel' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_plancta_nivel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_plancta_nivel">
           <Key>
@@ -1519,8 +1540,8 @@
           <Property Name="Estado" Type="char" MaxLength="1" />
           <Property Name="nv_NumDigitos_total" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_Plancta_UltimoNivel' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_Plancta_UltimoNivel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_Plancta_UltimoNivel">
           <Key>
@@ -1553,8 +1574,8 @@
           <Property Name="Total" Type="float" />
           <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_SaldosxCuentas' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_SaldosxCuentas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_SaldosxCuentas">
           <Key>
@@ -1596,8 +1617,8 @@
           <Property Name="gc_estado_financiero" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="SIdPeriodo" Type="varchar" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_UtilidadxPeriodo">
           <Key>
@@ -1615,8 +1636,8 @@
           <Property Name="Utilidad_Periodo" Type="float" Nullable="false" />
           <Property Name="Utilidad_acum" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo_Saldo_Acumulado' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo_Saldo_Acumulado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_UtilidadxPeriodo_Saldo_Acumulado">
           <Key>
@@ -1629,8 +1650,8 @@
           <Property Name="IdPeriodo" Type="int" Nullable="false" />
           <Property Name="Utilidad_acum" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo_Saldo_Anterior' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo_Saldo_Anterior' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_UtilidadxPeriodo_Saldo_Anterior">
           <Key>
@@ -1643,8 +1664,8 @@
           <Property Name="IdPeriodo" Type="int" Nullable="false" />
           <Property Name="Utilidad_Anterior" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo_Saldo_PeriodoActual' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwct_UtilidadxPeriodo_Saldo_PeriodoActual' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwct_UtilidadxPeriodo_Saldo_PeriodoActual">
           <Key>
@@ -2647,6 +2668,7 @@
             <End Role="ct_plancta" EntitySet="ct_plancta" />
             <End Role="ct_centro_costo_sub_centro_costo" EntitySet="ct_centro_costo_sub_centro_costo" />
           </AssociationSet>
+          <EntitySet Name="ct_spCONTA_Rpt023" EntityType="DBERPModelConta.ct_spCONTA_Rpt023" />
         </EntityContainer>
         <EntityType Name="ct_cbtecble">
           <Key>
@@ -4513,6 +4535,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ct_spCONTA_Rpt023">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCtaCble" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCtaCblePadre" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Naturaleza" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCuenta" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreCentroCosto" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EsCuentaMovimiento" Nullable="false" />
+          <Property Type="Int32" Name="NivelCuenta" Nullable="false" />
+          <Property Type="Decimal" Name="Saldo" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SaldoNaturaleza" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5477,6 +5519,24 @@
                 <ScalarProperty Name="cod_subcentroCosto" ColumnName="cod_subcentroCosto" />
                 <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
                 <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ct_spCONTA_Rpt023">
+            <EntityTypeMapping TypeName="DBERPModelConta.ct_spCONTA_Rpt023">
+              <MappingFragment StoreEntitySet="ct_spCONTA_Rpt023">
+                <ScalarProperty Name="SaldoNaturaleza" ColumnName="SaldoNaturaleza" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="NivelCuenta" ColumnName="NivelCuenta" />
+                <ScalarProperty Name="EsCuentaMovimiento" ColumnName="EsCuentaMovimiento" />
+                <ScalarProperty Name="NombreCentroCosto" ColumnName="NombreCentroCosto" />
+                <ScalarProperty Name="NombreCuenta" ColumnName="NombreCuenta" />
+                <ScalarProperty Name="Naturaleza" ColumnName="Naturaleza" />
+                <ScalarProperty Name="IdCtaCblePadre" ColumnName="IdCtaCblePadre" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

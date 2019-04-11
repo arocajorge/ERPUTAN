@@ -90,7 +90,6 @@
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Banco_Cuenta" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1" />
-        <EntityTypeShape EntityType="DBERPModelBanco.vwba_TransaccionesAConciliar" Width="1.5" PointX="9.1655096230867841" PointY="14.026041082118658" />
         <EntityTypeShape EntityType="DBERPModelBanco.ba_prestamo" Width="1.5" PointX="10.480373135991568" PointY="24.634559538510889" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo1" />

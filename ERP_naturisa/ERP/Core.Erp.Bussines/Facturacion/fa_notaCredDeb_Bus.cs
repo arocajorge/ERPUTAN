@@ -1505,7 +1505,7 @@ namespace Core.Erp.Business.Facturacion
                             myObject.infoNotaCredito.codDocModificado = item.tipo_doc_aplicado == "FACT" ? "01" : "05"; //01 FACT - 05 NTDB
 
                             myObject.infoNotaCredito.numDocModificado = item.NumDocModificado;
-                            myObject.infoNotaCredito.fechaEmisionDocSustento = Convert.ToString(item.fechaEmisionDocSustento.Value.ToShortDateString());
+                            myObject.infoNotaCredito.fechaEmisionDocSustento = Convert.ToDateTime(item.fechaEmisionDocSustento.Value).ToString(format);
                             myObject.infoNotaCredito.motivo = item.observacion_Nota;
                             myObject.infoNotaCredito.moneda = "DOLAR";
 
@@ -1746,7 +1746,7 @@ namespace Core.Erp.Business.Facturacion
 
                             myObject.infoNotaDebito.codDocModificado = "01";
                             myObject.infoNotaDebito.numDocModificado = item.NumDocModificado;
-                            myObject.infoNotaDebito.fechaEmisionDocSustento = Convert.ToString(Convert.ToDateTime(item.fechaEmisionDocSustento).ToShortDateString());
+                            myObject.infoNotaDebito.fechaEmisionDocSustento = Convert.ToDateTime(item.fechaEmisionDocSustento).ToString(format);
 
                             // calculo impuestos detalle nota cerdito
                             double sum_totsinImp = 0;

@@ -1216,8 +1216,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                          infoRetencion.MotivoAnulacion = frm.motivoAnulacion;
                          infoRetencion.Fecha_UltAnu = DateTime.Now;
                          infoRetencion.IdUsuarioUltAnu = param.IdUsuario;
-                         
 
+                         infoRetencion.IdEmpresa = param.IdEmpresa;
                      if (busRetencion.AnularDB(infoRetencion,ref idcbtecble_rev,ref msg))
                      {
 

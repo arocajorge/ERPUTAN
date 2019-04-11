@@ -42,8 +42,10 @@
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_imprimir = new System.Windows.Forms.ToolStripButton();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.pivotBalance)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // col_SaldoNaturaleza
@@ -83,7 +85,7 @@
             this.pivotBalance.OptionsPrint.PrintUnusedFilterFields = false;
             this.pivotBalance.OptionsView.ShowColumnTotals = false;
             this.pivotBalance.OptionsView.ShowRowGrandTotals = false;
-            this.pivotBalance.Size = new System.Drawing.Size(1272, 490);
+            this.pivotBalance.Size = new System.Drawing.Size(1272, 472);
             this.pivotBalance.TabIndex = 1;
             this.pivotBalance.CustomAppearance += new DevExpress.XtraPivotGrid.PivotCustomAppearanceEventHandler(this.pivotBalance_CustomAppearance);
             this.pivotBalance.CustomDrawFieldValue += new DevExpress.XtraPivotGrid.PivotCustomDrawFieldValueEventHandler(this.pivotBalance_CustomDrawFieldValue);
@@ -197,6 +199,14 @@
             this.btn_imprimir.Text = "Imprimir";
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
+            // progressBarControl1
+            // 
+            this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.progressBarControl1.Location = new System.Drawing.Point(0, 600);
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Size = new System.Drawing.Size(1272, 18);
+            this.progressBarControl1.TabIndex = 3;
+            // 
             // XCONTA_Rpt023_frm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,12 +215,14 @@
             this.Controls.Add(this.pivotBalance);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.uCct_Menu_Reportes1);
+            this.Controls.Add(this.progressBarControl1);
             this.Name = "XCONTA_Rpt023_frm";
             this.Text = "XCONTA_Rpt023_frm";
             this.Load += new System.EventHandler(this.XCONTA_Rpt023_frm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pivotBalance)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,7 +241,8 @@
         private System.Windows.Forms.ToolStripButton btn_imprimir;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField3;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField6;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField7;
+        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

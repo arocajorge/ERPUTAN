@@ -706,28 +706,6 @@
       [vwba_TipoFlujo].[cod_flujo] AS [cod_flujo]
       FROM [dbo].[vwba_TipoFlujo] AS [vwba_TipoFlujo]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwba_TransaccionesAConciliar" EntityType="DBERPModelBanco.Store.vwba_TransaccionesAConciliar" store:Type="Views" store:Schema="dbo" store:Name="vwba_TransaccionesAConciliar">
-            <DefiningQuery>SELECT 
-      [vwba_TransaccionesAConciliar].[IdRow] AS [IdRow], 
-      [vwba_TransaccionesAConciliar].[IdEmpresa] AS [IdEmpresa], 
-      [vwba_TransaccionesAConciliar].[IdConciliacion] AS [IdConciliacion], 
-      [vwba_TransaccionesAConciliar].[IdBanco] AS [IdBanco], 
-      [vwba_TransaccionesAConciliar].[IdCtaCble] AS [IdCtaCble], 
-      [vwba_TransaccionesAConciliar].[ba_descripcion] AS [ba_descripcion], 
-      [vwba_TransaccionesAConciliar].[dc_Observacion] AS [dc_Observacion], 
-      [vwba_TransaccionesAConciliar].[cb_Fecha] AS [cb_Fecha], 
-      [vwba_TransaccionesAConciliar].[nom_IdTipoCbte] AS [nom_IdTipoCbte], 
-      [vwba_TransaccionesAConciliar].[dc_Valor] AS [dc_Valor], 
-      [vwba_TransaccionesAConciliar].[fechaConciliacion] AS [fechaConciliacion], 
-      [vwba_TransaccionesAConciliar].[IdEstado_Concil_Cat] AS [IdEstado_Concil_Cat], 
-      [vwba_TransaccionesAConciliar].[checked] AS [checked], 
-      [vwba_TransaccionesAConciliar].[IdTipoCbte] AS [IdTipoCbte], 
-      [vwba_TransaccionesAConciliar].[IdCbteCble] AS [IdCbteCble], 
-      [vwba_TransaccionesAConciliar].[secuencia] AS [secuencia], 
-      [vwba_TransaccionesAConciliar].[cb_Cheque] AS [cb_Cheque], 
-      [vwba_TransaccionesAConciliar].[co_SaldoBanco_anterior] AS [co_SaldoBanco_anterior]
-      FROM [dbo].[vwba_TransaccionesAConciliar] AS [vwba_TransaccionesAConciliar]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="vwba_transferencia" EntityType="DBERPModelBanco.Store.vwba_transferencia" store:Type="Views" store:Schema="dbo" store:Name="vwba_transferencia">
             <DefiningQuery>SELECT 
       [vwba_transferencia].[IdTransferencia] AS [IdTransferencia], 
@@ -1542,8 +1520,8 @@
           <Property Name="nom_pc" Type="varchar" MaxLength="50" />
           <Property Name="tr_MotivoAnulacion" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Archivo_Transferencia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Archivo_Transferencia">
           <Key>
@@ -1590,8 +1568,8 @@
           <Property Name="IdProceso_bancario_tipo" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="Contabilizado" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Archivo_Transferencia_Det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_Det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Archivo_Transferencia_Det">
           <Key>
@@ -1635,8 +1613,8 @@
           <Property Name="IdBodega_fac" Type="int" />
           <Property Name="IdCbteVta_fac" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
           <Key>
@@ -1672,8 +1650,8 @@
           <Property Name="Es_CtaCble_caja" Type="bit" Nullable="false" />
           <Property Name="Contabilizado" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Archivo_Transferencia_Det_sum_valores' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_Det_sum_valores' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Archivo_Transferencia_Det_sum_valores">
           <Key>
@@ -1686,8 +1664,8 @@
           <Property Name="Valor_cobrado" Type="numeric" Precision="38" Scale="2" />
           <Property Name="Saldo_x_Cobrar" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Archivo_Transferencia_x_PreAviso_Cheq' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_x_PreAviso_Cheq' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Archivo_Transferencia_x_PreAviso_Cheq">
           <Key>
@@ -1723,8 +1701,8 @@
           <Property Name="Motivo_anulacion" Type="varchar" MaxLength="50" />
           <Property Name="nom_banco" Type="varchar" Nullable="false" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Archivo_Transferencia_x_PreAviso_Cheq_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_x_PreAviso_Cheq_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Archivo_Transferencia_x_PreAviso_Cheq_det">
           <Key>
@@ -1755,8 +1733,8 @@
           <Property Name="cb_giradoA" Type="varchar" MaxLength="150" />
           <Property Name="IdEstado_Preaviso_ch_cat" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_ba_Banco_Cuenta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_ba_Banco_Cuenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_ba_Banco_Cuenta">
           <Key>
@@ -1800,8 +1778,8 @@
           <Property Name="Fecha_Transac" Type="datetime" />
           <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_ba_prestamo_detalle_x_af_activo_fijo_Prendados' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_ba_prestamo_detalle_x_af_activo_fijo_Prendados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_ba_prestamo_detalle_x_af_activo_fijo_Prendados">
           <Key>
@@ -1816,8 +1794,8 @@
           <Property Name="Garantia_Bancaria" Type="float" />
           <Property Name="Af_costo_compra" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Banco_Estado_Cheques' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Banco_Estado_Cheques' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Banco_Estado_Cheques">
           <Key>
@@ -1834,8 +1812,8 @@
           <Property Name="Estado_Conciliacion" Type="varchar" MaxLength="20" />
           <Property Name="IdTipocbte" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Banco_Movimiento_det_cancelado' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Banco_Movimiento_det_cancelado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Banco_Movimiento_det_cancelado">
           <Key>
@@ -1903,8 +1881,8 @@
           <Property Name="SaldoActual" Type="float" Nullable="false" />
           <Property Name="Secuencia" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Catalogo_IdAuto_numeric' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Catalogo_IdAuto_numeric' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Catalogo_IdAuto_numeric">
           <Key>
@@ -1913,8 +1891,8 @@
           <Property Name="IdCatalogo" Type="varchar" MaxLength="10" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Cbte_Ban' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Cbte_Ban' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Cbte_Ban">
           <Key>
@@ -1988,8 +1966,8 @@
           <Property Name="IdEstado_Preaviso_ch_cat" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="IdEstado_cheque_cat" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Cbte_Ban_detallePagos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Cbte_Ban_detallePagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Cbte_Ban_detallePagos">
           <Key>
@@ -2026,8 +2004,8 @@
           <Property Name="IdCancelacion" Type="numeric" Nullable="false" />
           <Property Name="IdEmpresa_cbte" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Cbte_Ban_tipo_x_ct_CbteCble_tipo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Cbte_Ban_tipo_x_ct_CbteCble_tipo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Cbte_Ban_tipo_x_ct_CbteCble_tipo">
           <Key>
@@ -2043,8 +2021,8 @@
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="Tipo_DebCred" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwBa_ChequexCbteCtble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwBa_ChequexCbteCtble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwBa_ChequexCbteCtble">
           <Key>
@@ -2097,8 +2075,8 @@
           <Property Name="IdBanco" Type="int" Nullable="false" />
           <Property Name="ba_descripcion" Type="varchar" Nullable="false" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Conciliacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Conciliacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Conciliacion">
           <Key>
@@ -2163,8 +2141,8 @@
           <Property Name="Periodo" Type="varchar" MaxLength="38" />
           <Property Name="co_SaldoBanco_anterior" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Conciliacion_det_IngEgr' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Conciliacion_det_IngEgr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Conciliacion_det_IngEgr">
           <Key>
@@ -2209,8 +2187,8 @@
           <Property Name="SecuenciaConciliacion" Type="int" Nullable="false" />
           <Property Name="tipo_IngEgr" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_Estado_cbte_ban' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Estado_cbte_ban' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_Estado_cbte_ban">
           <Key>
@@ -2226,8 +2204,8 @@
           <Property Name="ca_estado" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="ca_orden" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_EstadoPago' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_EstadoPago' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_EstadoPago">
           <Key>
@@ -2243,8 +2221,8 @@
           <Property Name="ca_estado" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="ca_orden" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_MetodoCalculo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_MetodoCalculo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_MetodoCalculo">
           <Key>
@@ -2260,8 +2238,8 @@
           <Property Name="ca_estado" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="ca_orden" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_MotivoPrestamo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_MotivoPrestamo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_MotivoPrestamo">
           <Key>
@@ -2277,8 +2255,8 @@
           <Property Name="ca_estado" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="ca_orden" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_MoviCaja_Depositados' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_MoviCaja_Depositados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_MoviCaja_Depositados">
           <Key>
@@ -2326,8 +2304,8 @@
           <Property Name="IdTipocbte_MoviBan" Type="int" Nullable="false" />
           <Property Name="mcj_Secuencia" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_notasDebCre_masivo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_notasDebCre_masivo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_notasDebCre_masivo">
           <Key>
@@ -2364,8 +2342,8 @@
           <Property Name="tn_IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="tn_IdCentroCosto" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_notasDebCre_masivo_consul' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_notasDebCre_masivo_consul' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_notasDebCre_masivo_consul">
           <Key>
@@ -2383,8 +2361,8 @@
           <Property Name="tm_IdUsuario" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="TotalTransacciones" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_op_ba_Archivo_Transferencia_Det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_op_ba_Archivo_Transferencia_Det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_op_ba_Archivo_Transferencia_Det">
           <Key>
@@ -2435,8 +2413,8 @@
           <Property Name="IdTipo_Persona" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="IdEntidad" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_ordenGiroPendientes' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_ordenGiroPendientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_ordenGiroPendientes">
           <Key>
@@ -2463,8 +2441,8 @@
           <Property Name="GiraCheque" Type="varchar" MaxLength="100" />
           <Property Name="CtaProveedor" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_PeriocidadPago' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_PeriocidadPago' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_PeriocidadPago">
           <Key>
@@ -2480,8 +2458,8 @@
           <Property Name="ca_estado" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="ca_orden" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_prestamo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_prestamo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_prestamo">
           <Key>
@@ -2559,8 +2537,8 @@
           <Property Name="Pago_contado" Type="float" />
           <Property Name="IdCliente" Type="numeric" Precision="9" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_prestamo_detalle_cancelacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_prestamo_detalle_cancelacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_prestamo_detalle_cancelacion">
           <Key>
@@ -2603,8 +2581,8 @@
           <Property Name="AbonoCapital" Type="float" Nullable="false" />
           <Property Name="Saldo" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwBA_Sucursal_x_TipoCobro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwBA_Sucursal_x_TipoCobro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwBA_Sucursal_x_TipoCobro">
           <Key>
@@ -2620,8 +2598,8 @@
           <Property Name="IdCobro_tipo" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="tc_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_tipo_nota' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_tipo_nota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_tipo_nota">
           <Key>
@@ -2640,8 +2618,8 @@
           <Property Name="nom_CentroCosto" Type="varchar" MaxLength="250" />
           <Property Name="Estado" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_TipoFlujo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_TipoFlujo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_TipoFlujo">
           <Key>
@@ -2659,49 +2637,8 @@
           <Property Name="Tipo" Type="varchar" MaxLength="3" />
           <Property Name="cod_flujo" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_TransaccionesAConciliar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-        <EntityType Name="vwba_TransaccionesAConciliar">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdConciliacion" />
-            <PropertyRef Name="IdBanco" />
-            <PropertyRef Name="IdCtaCble" />
-            <PropertyRef Name="ba_descripcion" />
-            <PropertyRef Name="dc_Observacion" />
-            <PropertyRef Name="cb_Fecha" />
-            <PropertyRef Name="nom_IdTipoCbte" />
-            <PropertyRef Name="dc_Valor" />
-            <PropertyRef Name="IdEstado_Concil_Cat" />
-            <PropertyRef Name="checked" />
-            <PropertyRef Name="IdTipoCbte" />
-            <PropertyRef Name="IdCbteCble" />
-            <PropertyRef Name="secuencia" />
-            <PropertyRef Name="co_SaldoBanco_anterior" />
-          </Key>
-          <Property Name="IdRow" Type="bigint" Nullable="false" />
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="IdConciliacion" Type="numeric" Nullable="false" />
-          <Property Name="IdBanco" Type="int" Nullable="false" />
-          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="ba_descripcion" Type="varchar" Nullable="false" MaxLength="150" />
-          <Property Name="dc_Observacion" Type="varchar(max)" Nullable="false" />
-          <Property Name="cb_Fecha" Type="datetime" Nullable="false" />
-          <Property Name="nom_IdTipoCbte" Type="char" Nullable="false" MaxLength="50" />
-          <Property Name="dc_Valor" Type="float" Nullable="false" />
-          <Property Name="fechaConciliacion" Type="datetime" />
-          <Property Name="IdEstado_Concil_Cat" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="checked" Type="int" Nullable="false" />
-          <Property Name="IdTipoCbte" Type="int" Nullable="false" />
-          <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
-          <Property Name="secuencia" Type="int" Nullable="false" />
-          <Property Name="cb_Cheque" Type="varchar" MaxLength="50" />
-          <Property Name="co_SaldoBanco_anterior" Type="float" Nullable="false" />
-        </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwba_transferencia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_transferencia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwba_transferencia">
           <Key>
@@ -3223,6 +3160,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SPBAN_TransaccionesAConciliar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdCtaCble" Type="varchar" Mode="In" />
+          <Parameter Name="FechaCorte" Type="date" Mode="In" />
+          <Parameter Name="IdConciliacion" Type="numeric" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -3403,7 +3346,6 @@
             <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
             <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
           </AssociationSet>
-          <EntitySet Name="vwba_TransaccionesAConciliar" EntityType="DBERPModelBanco.vwba_TransaccionesAConciliar" />
           <EntitySet Name="ba_prestamo" EntityType="DBERPModelBanco.ba_prestamo" />
           <AssociationSet Name="FK_ba_prestamo_ba_Catalogo" Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo">
             <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
@@ -3439,6 +3381,12 @@
             <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
             <End Role="ba_Archivo_Transferencia_Det" EntitySet="ba_Archivo_Transferencia_Det" />
           </AssociationSet>
+          <FunctionImport Name="SPBAN_TransaccionesAConciliar" ReturnType="Collection(DBERPModelBanco.SPBAN_TransaccionesAConciliar_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdCtaCble" Mode="In" Type="String" />
+            <Parameter Name="FechaCorte" Mode="In" Type="DateTime" />
+            <Parameter Name="IdConciliacion" Mode="In" Type="Decimal" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="ba_Archivo_Transferencia_Parametros">
           <Key>
@@ -5367,44 +5315,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vwba_TransaccionesAConciliar">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdConciliacion" />
-            <PropertyRef Name="IdBanco" />
-            <PropertyRef Name="IdCtaCble" />
-            <PropertyRef Name="ba_descripcion" />
-            <PropertyRef Name="dc_Observacion" />
-            <PropertyRef Name="cb_Fecha" />
-            <PropertyRef Name="nom_IdTipoCbte" />
-            <PropertyRef Name="dc_Valor" />
-            <PropertyRef Name="IdEstado_Concil_Cat" />
-            <PropertyRef Name="checked" />
-            <PropertyRef Name="IdTipoCbte" />
-            <PropertyRef Name="IdCbteCble" />
-            <PropertyRef Name="secuencia" />
-            <PropertyRef Name="co_SaldoBanco_anterior" />
-          </Key>
-          <Property Type="Int64" Name="IdRow" Nullable="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdBanco" Nullable="false" />
-          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ba_descripcion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="dc_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="3" />
-          <Property Type="String" Name="nom_IdTipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Type="Double" Name="dc_Valor" Nullable="false" />
-          <Property Type="DateTime" Name="fechaConciliacion" Precision="3" />
-          <Property Type="String" Name="IdEstado_Concil_Cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="checked" Nullable="false" />
-          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
-          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="secuencia" Nullable="false" />
-          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="co_SaldoBanco_anterior" Nullable="false" />
-        </EntityType>
         <EntityType Name="ba_prestamo">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -5763,6 +5673,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SPBAN_TransaccionesAConciliar_Result">
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ba_descripcion" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="nom_IdTipoCbte" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="dc_Valor" Nullable="true" />
+          <Property Type="DateTime" Name="fechaConciliacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IdEstado_Concil_Cat" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Seleccionado" Nullable="true" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="co_SaldoBanco_anterior" Nullable="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="1" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6955,30 +6886,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwba_TransaccionesAConciliar">
-            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_TransaccionesAConciliar">
-              <MappingFragment StoreEntitySet="vwba_TransaccionesAConciliar">
-                <ScalarProperty Name="co_SaldoBanco_anterior" ColumnName="co_SaldoBanco_anterior" />
-                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
-                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
-                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
-                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
-                <ScalarProperty Name="checked" ColumnName="checked" />
-                <ScalarProperty Name="IdEstado_Concil_Cat" ColumnName="IdEstado_Concil_Cat" />
-                <ScalarProperty Name="fechaConciliacion" ColumnName="fechaConciliacion" />
-                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
-                <ScalarProperty Name="nom_IdTipoCbte" ColumnName="nom_IdTipoCbte" />
-                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
-                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
-                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ba_prestamo">
             <EntityTypeMapping TypeName="DBERPModelBanco.ba_prestamo">
               <MappingFragment StoreEntitySet="ba_prestamo">
@@ -7184,6 +7091,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPBAN_TransaccionesAConciliar" FunctionName="DBERPModelBanco.Store.SPBAN_TransaccionesAConciliar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelBanco.SPBAN_TransaccionesAConciliar_Result">
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="nom_IdTipoCbte" ColumnName="nom_IdTipoCbte" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="fechaConciliacion" ColumnName="fechaConciliacion" />
+                <ScalarProperty Name="IdEstado_Concil_Cat" ColumnName="IdEstado_Concil_Cat" />
+                <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="co_SaldoBanco_anterior" ColumnName="co_SaldoBanco_anterior" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

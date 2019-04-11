@@ -289,7 +289,7 @@ public class CodeStringGenerator
             CultureInfo.InvariantCulture,
             "return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction{0}(\"{1}\"{2});",
             returnType == null ? "" : "<" + _typeMapper.GetTypeName(returnType, modelNamespace) + ">",
-            edmFunction.Name,
+            edmFunction.FullName,
             callParams);
     }
     
