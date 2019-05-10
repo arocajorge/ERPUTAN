@@ -57,6 +57,7 @@ namespace Core.Erp.Business.Inventario
                             item.IdUnidadMedida_Consumo = InfoProdu.IdUnidadMedida_Consumo;
                             item.IdUnidadMedida_sinConversion = InfoProdu.IdUnidadMedida;
                         }
+
                         if (item.mv_costo_sinConversion == 0 || item.signo == "-")
                         {
                             in_producto_x_tb_bodega_Costo_Historico_Bus BusProd_x_Costo = new in_producto_x_tb_bodega_Costo_Historico_Bus();
