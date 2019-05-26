@@ -14,21 +14,18 @@ namespace Core.Erp.Data.SeguridadAcceso
         {
             List<seg_usuario_info> lU = new List<seg_usuario_info>();
             try
-            {                
-                EntitiesSeguAcceso OEUser = new EntitiesSeguAcceso();
-                var selectUsers = from C in OEUser.seg_usuario
-                                  select C;
-
-                foreach (var item in selectUsers)
+            {
+                using (EntitiesSeguAcceso db = new EntitiesSeguAcceso())
                 {
-                    seg_usuario_info user_info = new seg_usuario_info();
-                    user_info.IdUsuario = item.IdUsuario;
-                    user_info.Contrasena = item.Contrasena;       
-                    user_info.estado = item.estado;
-                    user_info.Nombre = item.Nombre;
-                    user_info.ExigirDirectivaContrasenia = item.ExigirDirectivaContrasenia;
-                    user_info.CambiarContraseniaSgtSesion = item.CambiarContraseniaSgtSesion;
-                    lU.Add(user_info);
+                    lU = db.seg_usuario.Select(q => new seg_usuario_info
+                    {
+                        IdUsuario = q.IdUsuario,
+                        Contrasena = q.Contrasena,
+                        estado = q.estado,
+                        Nombre = q.Nombre,
+                        ExigirDirectivaContrasenia = q.ExigirDirectivaContrasenia,
+                        CambiarContraseniaSgtSesion = q.CambiarContraseniaSgtSesion
+                    }).ToList();
                 }
                 return (lU);
             }

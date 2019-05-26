@@ -70,6 +70,7 @@ namespace Core.Erp.Data
         public string Nom_Centro_costo { get; set; }
         public string departamento { get; set; }
         public Nullable<double> Stock { get; set; }
-        public string IdCod_Impuesto_iva { get; set; }
+        public string IdCod_Impuesto_Iva { get; set; }
+        public Nullable<int> Expr1 { get; set; }
     }
 }

@@ -139,7 +139,7 @@ namespace Core.Erp.Data.Compras
                        Obj.Referencia = "Sucursal : " + item.Sucursal + " con Solicitud #: " + item.IdSolicitudCompra + " , Fecha: " + item.fecha + " y Comprador: " + item.Comprador + " , Observación: " + item.observacion + "";
 
                        Obj.IdEstadoPreAprobacion = item.IdEstadoPreAprobacion;
-                       Obj.IdCod_Impuesto_Iva = item.IdCod_Impuesto_iva;
+                       Obj.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
                   
                        Lst.Add(Obj);
                    }

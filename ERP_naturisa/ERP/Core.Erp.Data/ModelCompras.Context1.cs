@@ -19,10 +19,7 @@ namespace Core.Erp.Data
             : base("name=EntitiesCompras")
         {
         }
-        public void SetCommandTimeOut(int TimeOut)
-        {
-            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
-        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -44,7 +41,6 @@ namespace Core.Erp.Data
         public DbSet<com_ordencompra_local> com_ordencompra_local { get; set; }
         public DbSet<com_ordencompra_local_det_x_com_solicitud_compra_det> com_ordencompra_local_det_x_com_solicitud_compra_det { get; set; }
         public DbSet<com_parametro> com_parametro { get; set; }
-        public DbSet<com_solicitante> com_solicitante { get; set; }
         public DbSet<com_solicitud_compra> com_solicitud_compra { get; set; }
         public DbSet<com_solicitud_compra_det_pre_aprobacion> com_solicitud_compra_det_pre_aprobacion { get; set; }
         public DbSet<vwcom_Catalogo_IdAuto_numeric> vwcom_Catalogo_IdAuto_numeric { get; set; }
@@ -92,7 +88,13 @@ namespace Core.Erp.Data
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega { get; set; }
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul { get; set; }
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det { get; set; }
-        public DbSet<vwcom_solicitud_compra_x_items_con_saldos> vwcom_solicitud_compra_x_items_con_saldos { get; set; }
         public DbSet<vwcom_ordencompra_local_consulta> vwcom_ordencompra_local_consulta { get; set; }
+        public DbSet<com_OrdenPedido> com_OrdenPedido { get; set; }
+        public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
+        public DbSet<vwcom_solicitud_compra_x_items_con_saldos> vwcom_solicitud_compra_x_items_con_saldos { get; set; }
+        public DbSet<com_solicitante> com_solicitante { get; set; }
+        public DbSet<vwcom_solicitante> vwcom_solicitante { get; set; }
+        public DbSet<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
+        public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
     }
 }

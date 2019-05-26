@@ -299,6 +299,24 @@
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.Designer.cs">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoConsulta.Designer.cs">
+      <DependentUpon>frmCom_OrdenPedidoConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoMantenimiento.Designer.cs">
+      <DependentUpon>frmCom_OrdenPedidoMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_Solicitante_Cons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_Solicitante_Cons.Designer.cs">
+      <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras_FJ\frmCom_OrdenCompra_Cons_FJ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -6276,6 +6294,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCom_OrdenPedidoConsulta.resx">
+      <DependentUpon>frmCom_OrdenPedidoConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCom_OrdenPedidoMantenimiento.resx">
+      <DependentUpon>frmCom_OrdenPedidoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_Solicitante_Cons.resx">
+      <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras_FJ\frmCom_OrdenCompra_Cons_FJ.resx">
       <DependentUpon>frmCom_OrdenCompra_Cons_FJ.cs</DependentUpon>

@@ -17,15 +17,16 @@ namespace Core.Erp.Data
         public com_solicitante()
         {
             this.com_ordencompra_local = new HashSet<com_ordencompra_local>();
+            this.com_OrdenPedido = new HashSet<com_OrdenPedido>();
+            this.com_solicitante_aprobador = new HashSet<com_solicitante_aprobador>();
         }
     
         public int IdEmpresa { get; set; }
         public decimal IdSolicitante { get; set; }
         public string nom_solicitante { get; set; }
         public string estado { get; set; }
-        public string cedula { get; set; }
-        public Nullable<decimal> IdPersona { get; set; }
         public string IdUsuario { get; set; }
+        public Nullable<decimal> IdDepartamento { get; set; }
         public Nullable<System.DateTime> Fecha_Transac { get; set; }
         public string IdUsuarioUltMod { get; set; }
         public Nullable<System.DateTime> Fecha_UltMod { get; set; }
@@ -33,6 +34,9 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
         public string MotiAnula { get; set; }
     
+        public virtual com_departamento com_departamento { get; set; }
         public virtual ICollection<com_ordencompra_local> com_ordencompra_local { get; set; }
+        public virtual ICollection<com_OrdenPedido> com_OrdenPedido { get; set; }
+        public virtual ICollection<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
     }
 }

@@ -15,36 +15,27 @@ namespace Core.Erp.Data.General
         {
             try
             {
-
                 List<tb_Sucursal_Info> lM = new List<tb_Sucursal_Info>();
-                EntitiesGeneral OESucursal = new EntitiesGeneral();
-
-                var select_sucursal = from A in OESucursal.tb_sucursal
-                                      where A.IdEmpresa==IdEmpresa
-                                       select A;
-
-                foreach (var item in select_sucursal)
+                using (EntitiesGeneral db = new EntitiesGeneral())
                 {
-                        tb_Sucursal_Info info = new tb_Sucursal_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdSucursal = item.IdSucursal;
-
-                        info.Su_CodigoEstablecimiento = item.Su_CodigoEstablecimiento;
-                        info.Su_Ubicacion = item.Su_Ubicacion;
-                        info.Su_Ruc = item.Su_Ruc;
-                        info.Su_JefeSucursal = item.Su_JefeSucursal;
-                        info.Su_Telefonos = item.Su_Telefonos;
-                        info.Su_Direccion = item.Su_Direccion;
-                        info.Es_establecimiento = item.Es_establecimiento;
-                        info.Su_Descripcion = item.Su_Descripcion.Trim();
-                        info.Su_Descripcion2 = "[" + item.IdSucursal + "]" + item.Su_Descripcion.Trim();
-                        info.Estado = (item.Estado == "A") ? true : false;
-                        info.SEstado = (item.Estado == "A") ? "ACTIVO" : "*ANULADO*";
-                        info.codigo = item.codigo;
-                    
-                        lM.Add(info);
-                  
+                    lM = db.tb_sucursal.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new tb_Sucursal_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSucursal = q.IdSucursal,
+                        Su_CodigoEstablecimiento = q.Su_CodigoEstablecimiento,
+                        Su_Descripcion = q.Su_Descripcion,
+                        Su_Ubicacion = q.Su_Ubicacion,
+                        Su_Ruc = q.Su_Ruc,
+                        Su_JefeSucursal = q.Su_JefeSucursal,
+                        Su_Direccion = q.Su_Direccion,
+                        Es_establecimiento = q.Es_establecimiento,
+                        Su_Telefonos = q.Su_Telefonos,
+                        Estado = q.Estado == "A" ? true : false,
+                        SEstado = q.Estado == "A" ? "ACTIVO" : "*ANULADO*",
+                        codigo = q.codigo
+                    }).ToList();
                 }
+                lM.ForEach(q => q.Su_Descripcion2 = "[" + q.IdSucursal.ToString() + "] " + q.Su_Descripcion.Trim());
                 return (lM);
             }
           

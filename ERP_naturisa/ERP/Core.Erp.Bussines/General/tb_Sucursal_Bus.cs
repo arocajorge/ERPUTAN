@@ -48,9 +48,9 @@ namespace Core.Erp.Business.General
         {
             try
             {
-                List<tb_Sucursal_Info> lM = new List<tb_Sucursal_Info>();
-                lM = data.Get_List_Sucursal(idempresa);
-                return (lM);
+                
+                return data.Get_List_Sucursal(idempresa);
+                
             }
             catch (Exception ex)
             {

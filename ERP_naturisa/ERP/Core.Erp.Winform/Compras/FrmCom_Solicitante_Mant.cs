@@ -17,6 +17,7 @@ using Core.Erp.Winform.General;
 
 namespace Core.Erp.Winform.Compras
 {
+    using Core.Erp.Business.SeguridadAcceso;
     public partial class FrmCom_Solicitante_Mant : Form
     {
         public FrmCom_Solicitante_Mant()
@@ -36,7 +37,8 @@ namespace Core.Erp.Winform.Compras
             {
 
                 _Accion = (_Accion == 0) ? Cl_Enumeradores.eTipo_action.grabar : _Accion;
-
+                BList_det = new BindingList<com_solicitante_aprobador_Info>();
+                gc_detalle.DataSource = BList_det;
                 Set_Accion_Control();
             }
             catch (Exception ex)
@@ -56,9 +58,11 @@ namespace Core.Erp.Winform.Compras
         com_solicitante_Bus Bus_comprador = new com_solicitante_Bus();
         tb_persona_Info InfoPersona = new tb_persona_Info();
         com_solicitante_Info Info = new com_solicitante_Info();
-
+        com_departamento_Bus bus_departamento = new com_departamento_Bus();
+        seg_usuario_bus bus_usuario = new seg_usuario_bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
-        
+        com_solicitante_aprobador_Bus bus_det = new com_solicitante_aprobador_Bus();
+        BindingList<com_solicitante_aprobador_Info> BList_det = new BindingList<com_solicitante_aprobador_Info>();
 
         public delegate void delegate_FrmCom_Solicitante_Mant_FormClosing(object sender, FormClosingEventArgs e);
         public event delegate_FrmCom_Solicitante_Mant_FormClosing event_FrmCom_Solicitante_Mant_FormClosing;
@@ -101,15 +105,14 @@ namespace Core.Erp.Winform.Compras
             {
                 _Accion = Cl_Enumeradores.eTipo_action.grabar;
                 Info = new com_solicitante_Info();
-
                 txtIdSolicitante.Text = "0";
-                txtCedula.Text = "";
-                txtCedula.Enabled = true;
                 txtNombre.Text = "";
                 ucGe_Menu_Superior_Mant1.Visible_bntGuardar_y_Salir = true;
                 ucGe_Menu_Superior_Mant1.Visible_btnGuardar = true;
-                txtCedula.Focus();
-           
+                ComboUsuario.EditValue = null;
+                ComboDepartamento.EditValue = null;
+                BList_det = new BindingList<com_solicitante_aprobador_Info>();
+                gc_detalle.DataSource = BList_det;
             }
             catch (Exception ex)
             {
@@ -189,17 +192,6 @@ namespace Core.Erp.Winform.Compras
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
-
-                        string ver = "";
-                        
-                        if (txtNombre.Text != string.Empty)
-                        {
-                            if (Bus_comprador.VerificarNombre(param.IdEmpresa, txtNombre.Text, ref  ver))
-                            {
-                                MessageBox.Show("El Solicitante : " + ver + " ya existe");
-                                return;
-                            }
-                        }
 
                         Guardar();
 
@@ -292,8 +284,7 @@ namespace Core.Erp.Winform.Compras
                         FrmGe_MotivoAnulacion ofrm = new FrmGe_MotivoAnulacion();
                         ofrm.ShowDialog();
 
-                        Info.IdUsuarioUltAnu = param.IdUsuario;
-                        Info.Fecha_UltAnu = DateTime.Now;
+                        Info.IdUsuarioUltMod = param.IdUsuario;
                         Info.MotiAnula = ofrm.motivoAnulacion;
 
                         if (Info.estado == "A")
@@ -332,26 +323,42 @@ namespace Core.Erp.Winform.Compras
 
         }
 
+        private void CargarCombos()
+        {
+            try
+            {
+                var lstUsuario = bus_usuario.Get_List_Usuario(ref MensajeError);
+                var lstDepartamento = bus_departamento.Get_List_Departamento(param.IdEmpresa);
+
+                ComboUsuario.Properties.DataSource = lstUsuario;
+                cmb_Usuario.DataSource = lstUsuario;
+
+                ComboDepartamento.Properties.DataSource = lstDepartamento;
+                cmb_Departamento.DataSource = lstDepartamento;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public void GetComprador()
         {
             try
             {
-                Info.IdSolicitante = Convert.ToDecimal((txtIdSolicitante.Text == "") ? "0" : txtIdSolicitante.Text);
+                Info.IdSolicitante = string.IsNullOrEmpty(txtIdSolicitante.Text) ? 0 : Convert.ToDecimal(txtIdSolicitante.Text);
                 Info.IdEmpresa = param.IdEmpresa;
-                Info.nom_solicitante = Convert.ToString(txtNombre.Text);
-                //Info.IdPersona = txtIdPersona.EditValue == "" ? 0 : Convert.ToDecimal(txtIdPersona.EditValue);
-                Info.cedula = txtCedula.Text;
-                Info.IdUsuario = param.IdUsuario;
-                Info.Fecha_Transac = DateTime.Now;
-
-                if (this.chkestado.Checked == true)
-                {
-                    Info.estado = "A";
-                }
+                Info.nom_solicitante = txtNombre.Text;
+                Info.IdUsuario = ComboUsuario.EditValue.ToString();
+                if (ComboDepartamento.EditValue == null)
+                    Info.IdDepartamento = null;
                 else
-                {
-                    Info.estado = "I";
-                }
+                    Info.IdDepartamento = Convert.ToDecimal(ComboDepartamento.EditValue);
+                
+                Info.IdUsuarioUltMod = param.IdUsuario;
+                Info.ListaDetalle = new List<com_solicitante_aprobador_Info>(BList_det);
+
             }
             catch (Exception ex)
             {
@@ -367,21 +374,12 @@ namespace Core.Erp.Winform.Compras
                 if (Info != null)
                 {
                     txtIdSolicitante.Text = Info.IdSolicitante.ToString();
-                    //txtIdPersona.EditValue = _SetInfo.IdPersona;
-                    txtCedula.Text = Info.cedula;
+                    ComboDepartamento.EditValue = Info.IdDepartamento;
+                    ComboUsuario.EditValue = Info.IdUsuario;
                     txtNombre.Text = Info.nom_solicitante;
-
-                    if (Info.estado == "I")
-                    {
-                        this.chkestado.Checked = false;
-                        lblAnulado.Visible = true;
-                    }
-                    else
-                    {
-                        chkestado.Checked = true;
-                        lblAnulado.Visible = false;
-                    }
-                }
+                    BList_det = new BindingList<com_solicitante_aprobador_Info>(bus_det.GetList(Info.IdEmpresa, Info.IdSolicitante));
+                    gc_detalle.DataSource = BList_det;
+                 }
                 else
                 { 
                     MessageBox.Show("Por favor seleccione un solicitante para poder modificarlo", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -452,7 +450,6 @@ namespace Core.Erp.Winform.Compras
             }
         }
 
-
         public void Set_Info(com_solicitante_Info _Info)
         {
             try
@@ -478,10 +475,12 @@ namespace Core.Erp.Winform.Compras
                 
             }
         }
+
         void Set_Accion_Control()
         {
             try
             {
+                CargarCombos();
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -491,9 +490,6 @@ namespace Core.Erp.Winform.Compras
                         txtIdSolicitante.BackColor = System.Drawing.Color.White;
                         txtIdSolicitante.ForeColor = System.Drawing.Color.Black;
 
-                        txtCedula.Focus();
-                        chkestado.Checked = true;
-                        chkestado.Enabled = false;
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
 
@@ -586,6 +582,15 @@ namespace Core.Erp.Winform.Compras
         private void FrmCom_Solicitante_Mant_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             event_FrmCom_Solicitante_Mant_FormClosing(sender, e);
+        }
+
+
+        private void gv_detalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                gv_detalle.DeleteSelectedRows();
+            }
         }
 
     

@@ -25,6 +25,7 @@ namespace Core.Erp.Data
             this.com_solicitud_compra_det_pre_aprobacion = new HashSet<com_solicitud_compra_det_pre_aprobacion>();
             this.com_solicitud_compra_det_aprobacion = new HashSet<com_solicitud_compra_det_aprobacion>();
             this.com_solicitud_compra_det_aprobacion1 = new HashSet<com_solicitud_compra_det_aprobacion>();
+            this.com_OrdenPedido = new HashSet<com_OrdenPedido>();
         }
     
         public string IdCatalogocompra { get; set; }
@@ -54,5 +55,6 @@ namespace Core.Erp.Data
         public virtual ICollection<com_solicitud_compra_det_pre_aprobacion> com_solicitud_compra_det_pre_aprobacion { get; set; }
         public virtual ICollection<com_solicitud_compra_det_aprobacion> com_solicitud_compra_det_aprobacion { get; set; }
         public virtual ICollection<com_solicitud_compra_det_aprobacion> com_solicitud_compra_det_aprobacion1 { get; set; }
+        public virtual ICollection<com_OrdenPedido> com_OrdenPedido { get; set; }
     }
 }

@@ -15,24 +15,22 @@ namespace Core.Erp.Data.Compras
         string mensaje = "";
         public List<com_departamento_Info> Get_List_Departamento(int IdEmpresa)
         {
+
+            List<com_departamento_Info> Lst;
             
-            List<com_departamento_Info> Lst = new List<com_departamento_Info>();
-            EntitiesCompras oEnti = new EntitiesCompras();
             try
             {
-                var Query = from q in oEnti.com_departamento
-                            where q.IdEmpresa == IdEmpresa
-                            select q;
-                foreach (var item in Query)
+                using (EntitiesCompras oEnti = new EntitiesCompras())
                 {
-                    com_departamento_Info Obj = new com_departamento_Info();
-                    Obj.IdEmpresa = item.IdEmpresa;
-                    Obj.IdDepartamento = item.IdDepartamento;
-                    Obj.nom_departamento = item.nom_departamento;
-                    Obj.Estado = item.Estado;
-
-                    Lst.Add(Obj);
+                    Lst = oEnti.com_departamento.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new com_departamento_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdDepartamento = q.IdDepartamento,
+                        nom_departamento = q.nom_departamento,
+                        Estado = q.Estado
+                    }).ToList();    
                 }
+                
                 return Lst;
             }
             catch (Exception ex)

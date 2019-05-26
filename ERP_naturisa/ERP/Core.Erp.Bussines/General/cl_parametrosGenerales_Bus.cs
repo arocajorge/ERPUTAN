@@ -48,6 +48,7 @@ namespace Core.Erp.Business.General
         public String NombreEmpresa { get; set; }
         public string Nombre_sistema { get; set; }
         public String IdUsuario { get; set; }
+        public decimal IdSolicitante { get; set; }
         public String nom_pc { get; set; }
         public String ip { get; set; }
         public int IdInstitucion { get; set; }

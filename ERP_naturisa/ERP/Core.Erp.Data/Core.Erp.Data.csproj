@@ -736,7 +736,10 @@
     <Compile Include="Compras\com_ordencompra_local_Data.cs" />
     <Compile Include="Compras\com_ordencompra_local_det_Data.cs" />
     <Compile Include="Compras\com_ordencompra_local_det_x_com_solicitud_compra_det_Data.cs" />
+    <Compile Include="Compras\com_OrdenPedidoDet_Data.cs" />
+    <Compile Include="Compras\com_OrdenPedido_Data.cs" />
     <Compile Include="Compras\com_parametro_Data.cs" />
+    <Compile Include="Compras\com_solicitante_aprobador_Data.cs" />
     <Compile Include="Compras\com_solicitante_Data.cs" />
     <Compile Include="Compras\com_solicitud_compra_Data.cs" />
     <Compile Include="Compras\com_solicitud_compra_det_aprobacion_Data.cs" />
@@ -885,10 +888,19 @@
     <Compile Include="com_ordencompra_local_det_x_com_solicitud_compra_det.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="com_OrdenPedido.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_OrdenPedidoDet.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="com_parametro.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="com_solicitante.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_solicitante_aprobador.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="com_solicitud_compra.cs">
@@ -4174,6 +4186,12 @@
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_ordenesCompras_Aprobadas.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_OrdenPedido.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_solicitante.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_solicitud_compra.cs">

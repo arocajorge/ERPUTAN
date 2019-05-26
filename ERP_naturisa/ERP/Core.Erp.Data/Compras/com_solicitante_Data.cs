@@ -17,86 +17,6 @@ namespace Core.Erp.Data.Compras
 
         string mensaje = "";
 
-        public Boolean VericarCedulaExiste(int IdEmpresa, string cedula, ref string mensaje)
-        {
-            try
-            {
-                Boolean Existe;
-                string scedula;
-
-                scedula = cedula.Trim();
-                mensaje = "";
-                Existe = false;
-
-                EntitiesCompras Context = new EntitiesCompras();
-
-                var consulta = from q in Context.com_solicitante
-                               where q.cedula == scedula
-                               && q.IdEmpresa == IdEmpresa
-                               select q;
-
-                foreach (var item in consulta)
-                {
-                    mensaje = mensaje + " " + item.nom_solicitante + " ";
-                    Existe = true;
-                }
-
-                return Existe;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString();
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        public Boolean VerificarNombre(int IdEmpresa, string nombre, ref string mensaje)
-        {
-            try
-            {
-                Boolean Existe;
-                string snombre;
-
-                snombre = nombre.Trim();
-                mensaje = "";
-                Existe = false;
-
-                EntitiesCompras Context = new EntitiesCompras();
-
-                var consulta = from q in Context.com_solicitante
-                               where q.IdEmpresa == IdEmpresa
-                               select q;
-                foreach (var item in consulta)
-                {
-                    string valor = Funciones.cadena(item.nom_solicitante);
-
-                    if (valor == Funciones.cadena(snombre))
-                    {
-                        mensaje = mensaje + " " + item.nom_solicitante + " ";
-                        Existe = true;
-                        break;
-                    }
-                }
-
-                return Existe;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString();
-                throw new Exception(ex.ToString());
-            }
-        }
-
         public decimal GetIdSolicitante(int IdEmpresa, ref string mensaje)
         {
             decimal Id = 0;
@@ -136,18 +56,30 @@ namespace Core.Erp.Data.Compras
             {
                 using (EntitiesCompras Context = new EntitiesCompras())
                 {
-                    com_solicitante Address = new com_solicitante();
+                    Context.com_solicitante.Add(new com_solicitante
+                    {
+                        IdEmpresa = info.IdEmpresa,
+                        IdSolicitante = info.IdSolicitante = GetIdSolicitante(info.IdEmpresa,ref mensaje),
+                        IdDepartamento = info.IdDepartamento,
+                        estado = "A",
+                        nom_solicitante = info.nom_solicitante,
+                        IdUsuario = info.IdUsuario,
 
-                    Address.IdSolicitante = info.IdSolicitante = GetIdSolicitante(info.IdEmpresa, ref mensaje);
-                    Address.IdEmpresa = info.IdEmpresa;
-                    Address.nom_solicitante = info.nom_solicitante.Trim();
-                    Address.estado = "A";
-                    Address.IdPersona = (info.IdPersona == 0) ? null : info.IdPersona;
-                    Address.cedula = info.cedula;
-                    Address.IdUsuario = info.IdUsuario;
-                    Address.Fecha_Transac = DateTime.Now;
-
-                    Context.com_solicitante.Add(Address);
+                        Fecha_Transac = DateTime.Now,
+                        IdUsuarioUltMod =  info.IdUsuarioUltMod
+                    });
+                    int secuencia = 1;
+                    foreach (var item in info.ListaDetalle)
+                    {
+                        Context.com_solicitante_aprobador.Add(new com_solicitante_aprobador
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdSolicitante = info.IdSolicitante,
+                            IdUsuario = item.IdUsuario,
+                            IdDepartamento = item.IdDepartamento,
+                            Secuencia = secuencia++
+                        });
+                    }
                     Context.SaveChanges();
                 }
                 return true;
@@ -175,7 +107,28 @@ namespace Core.Erp.Data.Compras
                     if (contact != null)
                     {
                         contact.nom_solicitante = info.nom_solicitante;
-                        contact.estado = info.estado;
+                        contact.IdUsuario = info.IdUsuario;
+                        contact.IdDepartamento = info.IdDepartamento;
+
+                        var lst = context.com_solicitante_aprobador.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSolicitante == info.IdSolicitante).ToList();
+                        foreach (var item in lst)
+                        {
+                            context.com_solicitante_aprobador.Remove(item);
+                        }
+                        
+                        int secuencia = 1;
+                        foreach (var item in info.ListaDetalle)
+                        {
+                            context.com_solicitante_aprobador.Add(new com_solicitante_aprobador
+                            {
+                                IdEmpresa = info.IdEmpresa,
+                                IdSolicitante = info.IdSolicitante,
+                                IdUsuario = item.IdUsuario,
+                                IdDepartamento = item.IdDepartamento,
+                                Secuencia = secuencia++
+                            });
+                        }
+
                         context.SaveChanges();
                     }
                 }
@@ -202,7 +155,7 @@ namespace Core.Erp.Data.Compras
 
                     if (contact != null)
                     {
-                        contact.IdUsuarioUltAnu = info.IdUsuarioUltAnu;
+                        contact.IdUsuarioUltAnu = info.IdUsuarioUltMod;
                         contact.MotiAnula = info.MotiAnula;
                         contact.Fecha_UltAnu = DateTime.Now;
                         contact.estado = "I";
@@ -224,27 +177,23 @@ namespace Core.Erp.Data.Compras
 
         public List<com_solicitante_Info> Get_List_Solicitante(int IdEmpresa)
         {
-            List<com_solicitante_Info> Lst = new List<com_solicitante_Info>();
+            List<com_solicitante_Info> Lst;
             try
             {
-                EntitiesCompras oEnti = new EntitiesCompras();
-                var Query = from q in oEnti.com_solicitante
-                            where q.IdEmpresa == IdEmpresa
-
-                            select q;
-                foreach (var item in Query)
+                using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    com_solicitante_Info Obj = new com_solicitante_Info();
-
-                    Obj.IdEmpresa = item.IdEmpresa;
-                    Obj.IdSolicitante = item.IdSolicitante;
-                    Obj.nom_solicitante = item.nom_solicitante;
-                    Obj.estado = item.estado;
-                    Obj.SEstado = (item.estado.TrimEnd() == "A") ? "ACTIVO" : "*ANULADO*";
-                    Obj.IdPersona = Convert.ToDecimal(item.IdPersona);
-                    Obj.cedula = item.cedula;
-
-                    Lst.Add(Obj);
+                    Lst = db.vwcom_solicitante.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new com_solicitante_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSolicitante = q.IdSolicitante,
+                        nom_solicitante = q.nom_solicitante,
+                        nom_departamento = q.nom_departamento,
+                        estado = q.estado,
+                        SEstado = q.estado == "A" ? "ACTIVO" : "ANULADO",
+                        IdUsuario = q.IdUsuario,
+                        IdDepartamento = q.IdDepartamento,
+                        
+                    }).ToList();
                 }
                 return Lst;
             }
@@ -259,8 +208,56 @@ namespace Core.Erp.Data.Compras
             }
         }
 
+        public com_solicitante_Info GetInfo(int IdEmpresa, decimal IdSolicitante)
+        {
+            try
+            {
+                com_solicitante_Info info;
 
-        
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    info = db.com_solicitante.Where(q => q.IdEmpresa == IdEmpresa && q.IdSolicitante == IdSolicitante).Select(q => new com_solicitante_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSolicitante = q.IdSolicitante,
+                        nom_solicitante = q.nom_solicitante,
+                        estado = q.estado,
+                        IdUsuario = q.IdUsuario
+                    }).FirstOrDefault();
+                }
 
+                return info;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public com_solicitante_Info GetInfo(int IdEmpresa, string IdUsuario)
+        {
+            try
+            {
+                com_solicitante_Info info;
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    info = db.com_solicitante.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).Select(q => new com_solicitante_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSolicitante = q.IdSolicitante,
+                        nom_solicitante = q.nom_solicitante,
+                        estado = q.estado,
+                        IdUsuario = q.IdUsuario
+                    }).FirstOrDefault();
+                }
+
+                return info;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

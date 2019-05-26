@@ -16,19 +16,17 @@ namespace Core.Erp.Business.SeguridadAcceso
 
         public List<seg_usuario_info> Get_List_Usuario(ref string MensajeError)
         {
-            List<seg_usuario_info> lm = new List<seg_usuario_info>();
+            
             seg_usuario_data data = new seg_usuario_data();
             try
             {
-                lm = data.Get_List_Usuario(ref MensajeError);
-                return (lm);
+                return data.Get_List_Usuario(ref MensajeError);                
             }
             catch (Exception ex)
             {
                 //oLog.Log_Error(ex.ToString());
                 MensajeError = "Error al Obtener Usuarios .." + ex.Message;
-
-                return (lm);
+                throw;
             }
         }
 
