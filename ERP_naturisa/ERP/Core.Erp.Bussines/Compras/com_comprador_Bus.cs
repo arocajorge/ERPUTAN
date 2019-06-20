@@ -18,36 +18,6 @@ namespace Core.Erp.Business.Compras
       tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
       string mensaje = "";
       
-     
-      public Boolean VericarCedulaExiste(int IdEmpresa,string cedula, ref string mensaje)
-      {
-          try
-          {
-              return odata.VericarCedulaExiste(IdEmpresa,cedula, ref mensaje);
-          }
-          catch (Exception ex)
-          {
-              Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-              throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "VericarCedulaExiste", ex.Message), ex) { EntityType = typeof(com_comprador_Bus) };
-          }
-
-      }
-
-      public Boolean VerificarNombre(int IdEmpresa, string nombre, ref string mensaje)
-      {
-          try
-          {
-              return odata.VerificarNombre(IdEmpresa, nombre, ref mensaje);
-          }
-          catch (Exception ex)
-          {
-              Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-              throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "VerificarNombre", ex.Message), ex) { EntityType = typeof(com_comprador_Bus) };
-          }
-      
-      
-      }
-
       public Boolean GuardarDB(com_comprador_Info info, ref string mensaje)
         {
             try

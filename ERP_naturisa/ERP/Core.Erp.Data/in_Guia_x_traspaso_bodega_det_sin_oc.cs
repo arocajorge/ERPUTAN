@@ -25,7 +25,7 @@ namespace Core.Erp.Data
         public double Cantidad_enviar { get; set; }
         public string observacion { get; set; }
     
-        public virtual in_Producto in_Producto { get; set; }
         public virtual in_Guia_x_traspaso_bodega in_Guia_x_traspaso_bodega { get; set; }
+        public virtual in_Producto in_Producto { get; set; }
     }
 }

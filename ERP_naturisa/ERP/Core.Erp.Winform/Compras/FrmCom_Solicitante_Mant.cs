@@ -357,6 +357,7 @@ namespace Core.Erp.Winform.Compras
                     Info.IdDepartamento = Convert.ToDecimal(ComboDepartamento.EditValue);
                 
                 Info.IdUsuarioUltMod = param.IdUsuario;
+                Info.ConsultaDepartamento = chk_ConsultaDepartamento.Checked;
                 Info.ListaDetalle = new List<com_solicitante_aprobador_Info>(BList_det);
 
             }
@@ -377,6 +378,7 @@ namespace Core.Erp.Winform.Compras
                     ComboDepartamento.EditValue = Info.IdDepartamento;
                     ComboUsuario.EditValue = Info.IdUsuario;
                     txtNombre.Text = Info.nom_solicitante;
+                    chk_ConsultaDepartamento.Checked = Info.ConsultaDepartamento;
                     BList_det = new BindingList<com_solicitante_aprobador_Info>(bus_det.GetList(Info.IdEmpresa, Info.IdSolicitante));
                     gc_detalle.DataSource = BList_det;
                  }

@@ -18,6 +18,15 @@ namespace Core.Erp.Info.Compras
         public int IdSucursal_x_Aprob_x_SolComp { get; set; }
         public string  IdEstado_cierre{ get; set; }
 
+        public string UbicacionArchivosPedido { get; set; }
+        public string Correo { get; set; }
+        public string Contrasenia { get; set; }
+        public string Dominio { get; set; }
+        public bool PemitirSSL { get; set; }
+        public string CorreosCopia { get; set; }
+        public string FileUsuario { get; set; }
+        public string FileContrasenia { get; set; }
+        public string FileDominio { get; set; }
 
         public com_parametro_Info()
         {

@@ -7,6 +7,7 @@ using Core.Erp.Data.Inventario;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Business.General;
 using System.Data;
+using Core.Erp.Info.General;
 
 
 namespace Core.Erp.Business.Inventario
@@ -40,7 +41,30 @@ namespace Core.Erp.Business.Inventario
             }
 
         }
-
+        public List<in_Producto_Info> GetListProductoCombo(int IdEmpresa, Cl_Enumeradores.eModulos Modulo)
+        {
+            try
+            {
+                return proD.GetListProductoCombo(IdEmpresa, Modulo);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+        public List<in_Producto_Combo> GetListCombo(int IdEmpresa)
+        {
+            try
+            {
+                return proD.GetListCombo(IdEmpresa);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         public List<in_Producto_Info> Get_list_Producto(int IdEmpresa)
         {
             try
@@ -873,6 +897,43 @@ namespace Core.Erp.Business.Inventario
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_list_Productos_not_exist_in_producto_x_bodega", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
 
+            }
+        }
+
+        public double GetStockProductoPorEmpresa(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                return proD.GetStockProductoPorEmpresa(IdEmpresa, IdProducto);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public List<in_Producto_Info> GetListStockPorBodega(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                return proD.GetListStockPorBodega(IdEmpresa, IdProducto);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<in_Producto_ComprasAnteriores> GetListCompras(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                return proD.GetListCompras(IdEmpresa, IdProducto);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 

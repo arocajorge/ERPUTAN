@@ -357,9 +357,6 @@ namespace Core.Erp.Winform.SeguridadAcceso
                   {
                     this.BackgroundImage = Funciones.ArrayAImage(fondo);
                   }
-
-                  if (InfoEmpresa.em_nombre.Equals("DESARROLLO") || InfoEmpresa.em_nombre.Equals("DESarrollo") || InfoEmpresa.em_nombre.Equals("desARROllo") || InfoEmpresa.em_nombre.Equals("desarroLLO"))
-                    LBLMENSAJE.Visible = true;
                 return true;
             }
             catch (Exception ex)
@@ -454,7 +451,7 @@ namespace Core.Erp.Winform.SeguridadAcceso
                         if (estaAbierto)
                         {
                             this.MdiChildren[i].Focus();
-                            MessageBox.Show("El formulario o reporte solicitado ya se encuentra abierto");
+                            //MessageBox.Show("El formulario o reporte solicitado ya se encuentra abierto");
                             return true;
                         }
                     }

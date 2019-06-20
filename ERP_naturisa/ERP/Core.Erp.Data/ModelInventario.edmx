@@ -20,6 +20,7 @@
           <EntitySet Name="in_devolucion_inven" EntityType="DBERPModelInventario.Store.in_devolucion_inven" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="in_devolucion_inven_det" EntityType="DBERPModelInventario.Store.in_devolucion_inven_det" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="in_egreso_d_Suministro" EntityType="DBERPModelInventario.Store.in_egreso_d_Suministro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="in_Familia" EntityType="DBERPModelInventario.Store.in_Familia" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="in_grupo" EntityType="DBERPModelInventario.Store.in_grupo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="in_Guia_x_traspaso_bodega" EntityType="DBERPModelInventario.Store.in_Guia_x_traspaso_bodega" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="in_Guia_x_traspaso_bodega_det" EntityType="DBERPModelInventario.Store.in_Guia_x_traspaso_bodega_det" store:Type="Tables" Schema="dbo" />
@@ -1617,7 +1618,9 @@
       [vwin_producto].[Aparece_modu_Compras] AS [Aparece_modu_Compras], 
       [vwin_producto].[Aparece_modu_Inventario] AS [Aparece_modu_Inventario], 
       [vwin_producto].[Aparece_modu_Activo_F] AS [Aparece_modu_Activo_F], 
-      [vwin_producto].[tp_ManejaInven] AS [tp_ManejaInven]
+      [vwin_producto].[tp_ManejaInven] AS [tp_ManejaInven], 
+      [vwin_producto].[IdFamilia] AS [IdFamilia], 
+      [vwin_producto].[mobile_cod_produccion] AS [mobile_cod_produccion]
       FROM [dbo].[vwin_producto] AS [vwin_producto]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwin_Producto_a_Cortar_CusCider" EntityType="DBERPModelInventario.Store.vwin_Producto_a_Cortar_CusCider" store:Type="Views" store:Schema="dbo" store:Name="vwin_Producto_a_Cortar_CusCider">
@@ -2454,6 +2457,10 @@
             <End Role="in_Producto" EntitySet="in_Producto" />
             <End Role="in_Producto_Composicion" EntitySet="in_Producto_Composicion" />
           </AssociationSet>
+          <AssociationSet Name="FK_in_Producto_in_Familia" Association="DBERPModelInventario.Store.FK_in_Producto_in_Familia">
+            <End Role="in_Familia" EntitySet="in_Familia" />
+            <End Role="in_Producto" EntitySet="in_Producto" />
+          </AssociationSet>
           <AssociationSet Name="FK_in_Producto_in_Marca" Association="DBERPModelInventario.Store.FK_in_Producto_in_Marca">
             <End Role="in_Marca" EntitySet="in_Marca" />
             <End Role="in_Producto" EntitySet="in_Producto" />
@@ -2735,6 +2742,17 @@
           <Property Name="IdUsuarioAnula" Type="varchar" MaxLength="20" />
           <Property Name="FechaAnula" Type="datetime" />
           <Property Name="Estado" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="in_Familia">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdFamilia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdFamilia" Type="int" Nullable="false" />
+          <Property Name="fa_Codigo" Type="varchar" MaxLength="50" />
+          <Property Name="fa_Descripcion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="in_grupo">
           <Key>
@@ -3638,6 +3656,7 @@
           <Property Name="Aparece_modu_Inventario" Type="bit" Nullable="false" />
           <Property Name="Aparece_modu_Activo_F" Type="bit" Nullable="false" />
           <Property Name="mobile_cod_produccion" Type="varchar" MaxLength="100" />
+          <Property Name="IdFamilia" Type="int" />
         </EntityType>
         <EntityType Name="in_Producto_Composicion">
           <Key>
@@ -6484,7 +6503,6 @@
             <PropertyRef Name="pr_precio_mayor" />
             <PropertyRef Name="pr_precio_minimo" />
             <PropertyRef Name="pr_precio_puerta" />
-            <PropertyRef Name="pr_stock" />
             <PropertyRef Name="pr_pedidos" />
             <PropertyRef Name="pr_ManejaIva" />
             <PropertyRef Name="pr_ManejaSeries" />
@@ -6521,14 +6539,10 @@
             <PropertyRef Name="Aparece_modu_Compras" />
             <PropertyRef Name="Aparece_modu_Inventario" />
             <PropertyRef Name="Aparece_modu_Activo_F" />
-            <PropertyRef Name="ca_Categoria" />
-            <PropertyRef Name="nom_linea" />
-            <PropertyRef Name="nom_grupo" />
-            <PropertyRef Name="nom_subgrupo" />
           </Key>
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
           <Property Name="tp_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="ca_Categoria" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ca_Categoria" Type="varchar" MaxLength="100" />
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
@@ -6543,7 +6557,7 @@
           <Property Name="pr_precio_mayor" Type="float" Nullable="false" />
           <Property Name="pr_precio_minimo" Type="float" Nullable="false" />
           <Property Name="pr_precio_puerta" Type="float" Nullable="false" />
-          <Property Name="pr_stock" Type="float" Nullable="false" />
+          <Property Name="pr_stock" Type="float" />
           <Property Name="pr_pedidos" Type="int" Nullable="false" />
           <Property Name="pr_ManejaIva" Type="char" Nullable="false" MaxLength="10" />
           <Property Name="pr_ManejaSeries" Type="char" Nullable="false" MaxLength="10" />
@@ -6585,9 +6599,9 @@
           <Property Name="IdNaturaleza" Type="varchar" MaxLength="15" />
           <Property Name="IdMotivo_Vta" Type="int" />
           <Property Name="IdUnidadMedida_Consumo" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="nom_linea" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="nom_grupo" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="nom_subgrupo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nom_linea" Type="varchar" MaxLength="150" />
+          <Property Name="nom_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="nom_subgrupo" Type="varchar" MaxLength="150" />
           <Property Name="IdCod_Impuesto_Iva" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="IdCod_Impuesto_Ice" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Aparece_modu_Ventas" Type="bit" Nullable="false" />
@@ -6595,6 +6609,8 @@
           <Property Name="Aparece_modu_Inventario" Type="bit" Nullable="false" />
           <Property Name="Aparece_modu_Activo_F" Type="bit" Nullable="false" />
           <Property Name="tp_ManejaInven" Type="char" MaxLength="1" />
+          <Property Name="IdFamilia" Type="int" />
+          <Property Name="mobile_cod_produccion" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Producto_a_Cortar_CusCider' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -8500,6 +8516,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_in_Producto_in_Familia">
+          <End Role="in_Familia" Type="DBERPModelInventario.Store.in_Familia" Multiplicity="0..1" />
+          <End Role="in_Producto" Type="DBERPModelInventario.Store.in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Familia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdFamilia" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdFamilia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_in_Producto_in_Marca">
           <End Role="in_Marca" Type="DBERPModelInventario.Store.in_Marca" Multiplicity="1" />
           <End Role="in_Producto" Type="DBERPModelInventario.Store.in_Producto" Multiplicity="*" />
@@ -8943,10 +8973,22 @@
           <Parameter Name="IdBodega" Type="int" Mode="In" />
           <Parameter Name="IdNumMovi" Type="numeric" Mode="In" />
         </Function>
+        <Function Name="SPINV_ComprasAnteriores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdProducto" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="SPINV_MejorPrecio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdProducto" Type="numeric" Mode="In" />
+        </Function>
         <Function Name="spINV_relaciones_no_parametrizadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpresa" Type="int" Mode="In" />
           <Parameter Name="Fecha_ini" Type="datetime" Mode="In" />
           <Parameter Name="Fecha_fin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SPINV_Stock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdProducto" Type="decimal" Mode="In" />
         </Function>
         <Function Name="spSys_Inv_Recosteo_Inventario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpresa" Type="int" Mode="In" />
@@ -9151,7 +9193,6 @@
           <EntitySet Name="vwin_PrecargaItemsOrdenCompra_det" EntityType="DBERPModelInventario.vwin_PrecargaItemsOrdenCompra_det" />
           <EntitySet Name="vwin_presupuesto" EntityType="DBERPModelInventario.vwin_presupuesto" />
           <EntitySet Name="vwin_presupuesto_detalle" EntityType="DBERPModelInventario.vwin_presupuesto_detalle" />
-          <EntitySet Name="vwin_producto" EntityType="DBERPModelInventario.vwin_producto" />
           <EntitySet Name="vwin_Producto_a_Cortar_CusCider" EntityType="DBERPModelInventario.vwin_Producto_a_Cortar_CusCider" />
           <EntitySet Name="vwin_Producto_Stock_x_Bodega" EntityType="DBERPModelInventario.vwin_Producto_Stock_x_Bodega" />
           <EntitySet Name="vwin_Producto_Stock_x_producto" EntityType="DBERPModelInventario.vwin_Producto_Stock_x_producto" />
@@ -9357,11 +9398,6 @@
             <Parameter Name="cant_Decimales" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="in_parametro" EntityType="DBERPModelInventario.in_parametro" />
-          <EntitySet Name="in_Producto" EntityType="DBERPModelInventario.in_Producto" />
-          <AssociationSet Name="FK_in_AjusteFisico_Detalle_in_Producto" Association="DBERPModelInventario.FK_in_AjusteFisico_Detalle_in_Producto">
-            <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_AjusteFisico_Detalle" EntitySet="in_AjusteFisico_Detalle" />
-          </AssociationSet>
           <AssociationSet Name="FK_in_parametro_in_Catalogo" Association="DBERPModelInventario.FK_in_parametro_in_Catalogo">
             <End Role="in_Catalogo" EntitySet="in_Catalogo" />
             <End Role="in_parametro" EntitySet="in_parametro" />
@@ -9370,14 +9406,6 @@
             <End Role="in_Catalogo" EntitySet="in_Catalogo" />
             <End Role="in_parametro" EntitySet="in_parametro" />
           </AssociationSet>
-          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto">
-            <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_Guia_x_traspaso_bodega_det_sin_oc" EntitySet="in_Guia_x_traspaso_bodega_det_sin_oc" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_Ing_Egr_Inven_det_in_Producto" Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Producto">
-            <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_Ing_Egr_Inven_det" EntitySet="in_Ing_Egr_Inven_det" />
-          </AssociationSet>
           <AssociationSet Name="FK_in_parametro_in_Ing_Egr_Inven_estado_apro" Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro">
             <End Role="in_Ing_Egr_Inven_estado_apro" EntitySet="in_Ing_Egr_Inven_estado_apro" />
             <End Role="in_parametro" EntitySet="in_parametro" />
@@ -9385,18 +9413,6 @@
           <AssociationSet Name="FK_in_parametro_in_Ing_Egr_Inven_estado_apro1" Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro1">
             <End Role="in_Ing_Egr_Inven_estado_apro" EntitySet="in_Ing_Egr_Inven_estado_apro" />
             <End Role="in_parametro" EntitySet="in_parametro" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_kardex_det_in_Producto" Association="DBERPModelInventario.FK_in_kardex_det_in_Producto">
-            <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_kardex_det" EntitySet="in_kardex_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_Producto_in_Marca" Association="DBERPModelInventario.FK_in_Producto_in_Marca">
-            <End Role="in_Marca" EntitySet="in_Marca" />
-            <End Role="in_Producto" EntitySet="in_Producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_movi_inve_detalle_in_Producto" Association="DBERPModelInventario.FK_in_movi_inve_detalle_in_Producto">
-            <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_movi_inve_detalle" EntitySet="in_movi_inve_detalle" />
           </AssociationSet>
           <AssociationSet Name="FK_in_parametro_in_movi_inven_tipo" Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo">
             <End Role="in_movi_inven_tipo" EntitySet="in_movi_inven_tipo" />
@@ -9437,6 +9453,89 @@
           <AssociationSet Name="FK_in_parametro_in_movi_inven_tipo9" Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo9">
             <End Role="in_movi_inven_tipo" EntitySet="in_movi_inven_tipo" />
             <End Role="in_parametro" EntitySet="in_parametro" />
+          </AssociationSet>
+          <FunctionImport Name="spINV_aprobacion_movimiento">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursal" Mode="In" Type="Int32" />
+            <Parameter Name="IdMovi_inven_tipo" Mode="In" Type="Int32" />
+            <Parameter Name="IdBodega" Mode="In" Type="Int32" />
+            <Parameter Name="IdNumMovi" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="spINV_relaciones_no_parametrizadas" ReturnType="Collection(DBERPModelInventario.spINV_relaciones_no_parametrizadas_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="in_linea" EntityType="DBERPModelInventario.in_linea" />
+          <AssociationSet Name="FK_in_linea_in_categorias" Association="DBERPModelInventario.FK_in_linea_in_categorias">
+            <End Role="in_categorias" EntitySet="in_categorias" />
+            <End Role="in_linea" EntitySet="in_linea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_grupo_in_linea" Association="DBERPModelInventario.FK_in_grupo_in_linea">
+            <End Role="in_linea" EntitySet="in_linea" />
+            <End Role="in_grupo" EntitySet="in_grupo" />
+          </AssociationSet>
+          <EntitySet Name="in_Guia_x_traspaso_bodega_det" EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega_det" />
+          <AssociationSet Name="FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega_det" Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega_det">
+            <End Role="in_Guia_x_traspaso_bodega_det" EntitySet="in_Guia_x_traspaso_bodega_det" />
+            <End Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" EntitySet="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
+          </AssociationSet>
+          <EntitySet Name="in_Guia_x_traspaso_bodega" EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega" />
+          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_in_Catalogo" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_in_Catalogo">
+            <End Role="in_Catalogo" EntitySet="in_Catalogo" />
+            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega">
+            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
+            <End Role="in_Guia_x_traspaso_bodega_det" EntitySet="in_Guia_x_traspaso_bodega_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega">
+            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
+            <End Role="in_Guia_x_traspaso_bodega_det_sin_oc" EntitySet="in_Guia_x_traspaso_bodega_det_sin_oc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega">
+            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
+            <End Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det" EntitySet="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega">
+            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
+            <End Role="in_transferencia_x_in_Guia_x_traspaso_bodega" EntitySet="in_transferencia_x_in_Guia_x_traspaso_bodega" />
+          </AssociationSet>
+          <EntitySet Name="vwin_guia_x_traspaso_bodega" EntityType="DBERPModelInventario.vwin_guia_x_traspaso_bodega" />
+          <EntitySet Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_aprobacion_x_transaccion" />
+          <FunctionImport Name="SPINV_Stock" ReturnType="Collection(DBERPModelInventario.SPINV_Stock_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="in_Familia" EntityType="DBERPModelInventario.in_Familia" />
+          <EntitySet Name="in_Producto" EntityType="DBERPModelInventario.in_Producto" />
+          <AssociationSet Name="FK_in_AjusteFisico_Detalle_in_Producto" Association="DBERPModelInventario.FK_in_AjusteFisico_Detalle_in_Producto">
+            <End Role="in_Producto" EntitySet="in_Producto" />
+            <End Role="in_AjusteFisico_Detalle" EntitySet="in_AjusteFisico_Detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Producto_in_Familia" Association="DBERPModelInventario.FK_in_Producto_in_Familia">
+            <End Role="in_Familia" EntitySet="in_Familia" />
+            <End Role="in_Producto" EntitySet="in_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto">
+            <End Role="in_Producto" EntitySet="in_Producto" />
+            <End Role="in_Guia_x_traspaso_bodega_det_sin_oc" EntitySet="in_Guia_x_traspaso_bodega_det_sin_oc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Ing_Egr_Inven_det_in_Producto" Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Producto">
+            <End Role="in_Producto" EntitySet="in_Producto" />
+            <End Role="in_Ing_Egr_Inven_det" EntitySet="in_Ing_Egr_Inven_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_kardex_det_in_Producto" Association="DBERPModelInventario.FK_in_kardex_det_in_Producto">
+            <End Role="in_Producto" EntitySet="in_Producto" />
+            <End Role="in_kardex_det" EntitySet="in_kardex_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_Producto_in_Marca" Association="DBERPModelInventario.FK_in_Producto_in_Marca">
+            <End Role="in_Marca" EntitySet="in_Marca" />
+            <End Role="in_Producto" EntitySet="in_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_movi_inve_detalle_in_Producto" Association="DBERPModelInventario.FK_in_movi_inve_detalle_in_Producto">
+            <End Role="in_Producto" EntitySet="in_Producto" />
+            <End Role="in_movi_inve_detalle" EntitySet="in_movi_inve_detalle" />
           </AssociationSet>
           <AssociationSet Name="FK_in_PrecargaItemsOrdenCompra_det_in_Producto" Association="DBERPModelInventario.FK_in_PrecargaItemsOrdenCompra_det_in_Producto">
             <End Role="in_Producto" EntitySet="in_Producto" />
@@ -9490,55 +9589,15 @@
             <End Role="in_Producto" EntitySet="in_Producto" />
             <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
           </AssociationSet>
-          <FunctionImport Name="spINV_aprobacion_movimiento">
+          <EntitySet Name="vwin_producto" EntityType="DBERPModelInventario.vwin_producto" />
+          <FunctionImport Name="SPINV_ComprasAnteriores" ReturnType="Collection(DBERPModelInventario.SPINV_ComprasAnteriores_Result)">
             <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
-            <Parameter Name="IdSucursal" Mode="In" Type="Int32" />
-            <Parameter Name="IdMovi_inven_tipo" Mode="In" Type="Int32" />
-            <Parameter Name="IdBodega" Mode="In" Type="Int32" />
-            <Parameter Name="IdNumMovi" Mode="In" Type="Decimal" />
+            <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <FunctionImport Name="spINV_relaciones_no_parametrizadas" ReturnType="Collection(DBERPModelInventario.spINV_relaciones_no_parametrizadas_Result)">
+          <FunctionImport Name="SPINV_MejorPrecio" ReturnType="Collection(DBERPModelInventario.SPINV_MejorPrecio_Result)">
             <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
-            <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
-            <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="in_linea" EntityType="DBERPModelInventario.in_linea" />
-          <AssociationSet Name="FK_in_linea_in_categorias" Association="DBERPModelInventario.FK_in_linea_in_categorias">
-            <End Role="in_categorias" EntitySet="in_categorias" />
-            <End Role="in_linea" EntitySet="in_linea" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_grupo_in_linea" Association="DBERPModelInventario.FK_in_grupo_in_linea">
-            <End Role="in_linea" EntitySet="in_linea" />
-            <End Role="in_grupo" EntitySet="in_grupo" />
-          </AssociationSet>
-          <EntitySet Name="in_Guia_x_traspaso_bodega_det" EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega_det" />
-          <AssociationSet Name="FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega_det" Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega_det">
-            <End Role="in_Guia_x_traspaso_bodega_det" EntitySet="in_Guia_x_traspaso_bodega_det" />
-            <End Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" EntitySet="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
-          </AssociationSet>
-          <EntitySet Name="in_Guia_x_traspaso_bodega" EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega" />
-          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_in_Catalogo" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_in_Catalogo">
-            <End Role="in_Catalogo" EntitySet="in_Catalogo" />
-            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega">
-            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
-            <End Role="in_Guia_x_traspaso_bodega_det" EntitySet="in_Guia_x_traspaso_bodega_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega">
-            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
-            <End Role="in_Guia_x_traspaso_bodega_det_sin_oc" EntitySet="in_Guia_x_traspaso_bodega_det_sin_oc" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega">
-            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
-            <End Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det" EntitySet="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega">
-            <End Role="in_Guia_x_traspaso_bodega" EntitySet="in_Guia_x_traspaso_bodega" />
-            <End Role="in_transferencia_x_in_Guia_x_traspaso_bodega" EntitySet="in_transferencia_x_in_Guia_x_traspaso_bodega" />
-          </AssociationSet>
-          <EntitySet Name="vwin_guia_x_traspaso_bodega" EntityType="DBERPModelInventario.vwin_guia_x_traspaso_bodega" />
-          <EntitySet Name="vwin_Ing_Egr_Inven_aprobacion_x_transaccion" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_aprobacion_x_transaccion" />
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
           <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="23" />
@@ -9775,8 +9834,8 @@
           <Property Type="String" Name="nom_producto" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="Double" Name="Cantidad_enviar" Nullable="false" />
           <Property Type="String" Name="observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="in_Producto" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" FromRole="in_Guia_x_traspaso_bodega_det_sin_oc" ToRole="in_Producto" />
           <NavigationProperty Name="in_Guia_x_traspaso_bodega" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega" FromRole="in_Guia_x_traspaso_bodega_det_sin_oc" ToRole="in_Guia_x_traspaso_bodega" />
+          <NavigationProperty Name="in_Producto" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" FromRole="in_Guia_x_traspaso_bodega_det_sin_oc" ToRole="in_Producto" />
         </EntityType>
         <EntityType Name="in_Guia_x_traspaso_bodega_x_in_transferencia_det">
           <Key>
@@ -12161,134 +12220,6 @@
           <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="dp_observacion" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vwin_producto">
-          <Key>
-            <PropertyRef Name="tp_descripcion" />
-            <PropertyRef Name="ca_Categoria" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdProducto" />
-            <PropertyRef Name="pr_codigo" />
-            <PropertyRef Name="pr_codigo_barra" />
-            <PropertyRef Name="IdProductoTipo" />
-            <PropertyRef Name="IdCategoria" />
-            <PropertyRef Name="pr_descripcion" />
-            <PropertyRef Name="pr_observacion" />
-            <PropertyRef Name="IdUnidadMedida" />
-            <PropertyRef Name="pr_precio_publico" />
-            <PropertyRef Name="pr_precio_mayor" />
-            <PropertyRef Name="pr_precio_minimo" />
-            <PropertyRef Name="pr_precio_puerta" />
-            <PropertyRef Name="pr_stock" />
-            <PropertyRef Name="pr_pedidos" />
-            <PropertyRef Name="pr_ManejaIva" />
-            <PropertyRef Name="pr_ManejaSeries" />
-            <PropertyRef Name="pr_costo_fob" />
-            <PropertyRef Name="pr_costo_CIF" />
-            <PropertyRef Name="pr_costo_promedio" />
-            <PropertyRef Name="IdMarca" />
-            <PropertyRef Name="pr_DiasMaritimo" />
-            <PropertyRef Name="pr_DiasAereo" />
-            <PropertyRef Name="pr_DiasTerrestre" />
-            <PropertyRef Name="pr_largo" />
-            <PropertyRef Name="pr_alto" />
-            <PropertyRef Name="pr_profundidad" />
-            <PropertyRef Name="pr_peso" />
-            <PropertyRef Name="pr_partidaArancel" />
-            <PropertyRef Name="pr_porcentajeArancel" />
-            <PropertyRef Name="pr_Por_descuento" />
-            <PropertyRef Name="pr_stock_maximo" />
-            <PropertyRef Name="pr_stock_minimo" />
-            <PropertyRef Name="IdUsuario" />
-            <PropertyRef Name="Fecha_Transac" />
-            <PropertyRef Name="IdUsuarioUltMod" />
-            <PropertyRef Name="Fecha_UltMod" />
-            <PropertyRef Name="nom_pc" />
-            <PropertyRef Name="ip" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="IdLinea" />
-            <PropertyRef Name="IdGrupo" />
-            <PropertyRef Name="IdSubGrupo" />
-            <PropertyRef Name="IdUnidadMedida_Consumo" />
-            <PropertyRef Name="nom_linea" />
-            <PropertyRef Name="nom_grupo" />
-            <PropertyRef Name="nom_subgrupo" />
-            <PropertyRef Name="IdCod_Impuesto_Iva" />
-            <PropertyRef Name="IdCod_Impuesto_Ice" />
-            <PropertyRef Name="Aparece_modu_Ventas" />
-            <PropertyRef Name="Aparece_modu_Compras" />
-            <PropertyRef Name="Aparece_modu_Inventario" />
-            <PropertyRef Name="Aparece_modu_Activo_F" />
-          </Key>
-          <Property Type="String" Name="Descripcion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="tp_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ca_Categoria" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="pr_codigo_barra" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="IdProductoTipo" Nullable="false" />
-          <Property Type="String" Name="IdPresentacion" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="pr_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="pr_precio_publico" Nullable="false" />
-          <Property Type="Double" Name="pr_precio_mayor" Nullable="false" />
-          <Property Type="Double" Name="pr_precio_minimo" Nullable="false" />
-          <Property Type="Double" Name="pr_precio_puerta" Nullable="false" />
-          <Property Type="Double" Name="pr_stock" Nullable="false" />
-          <Property Type="Int32" Name="pr_pedidos" Nullable="false" />
-          <Property Type="String" Name="pr_ManejaIva" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="pr_ManejaSeries" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Type="Double" Name="pr_costo_fob" Nullable="false" />
-          <Property Type="Double" Name="pr_costo_CIF" Nullable="false" />
-          <Property Type="Double" Name="pr_costo_promedio" Nullable="false" />
-          <Property Type="Int32" Name="IdMarca" Nullable="false" />
-          <Property Type="Int32" Name="pr_DiasMaritimo" Nullable="false" />
-          <Property Type="Int32" Name="pr_DiasAereo" Nullable="false" />
-          <Property Type="Int32" Name="pr_DiasTerrestre" Nullable="false" />
-          <Property Type="Double" Name="pr_largo" Nullable="false" />
-          <Property Type="Double" Name="pr_alto" Nullable="false" />
-          <Property Type="Double" Name="pr_profundidad" Nullable="false" />
-          <Property Type="Double" Name="pr_peso" Nullable="false" />
-          <Property Type="Binary" Name="pr_imagenPeque" MaxLength="Max" FixedLength="false" />
-          <Property Type="Binary" Name="pr_imagen_Grande" MaxLength="Max" FixedLength="false" />
-          <Property Type="String" Name="pr_partidaArancel" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="pr_porcentajeArancel" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="Double" Name="pr_Por_descuento" Nullable="false" />
-          <Property Type="Double" Name="pr_stock_maximo" Nullable="false" />
-          <Property Type="Double" Name="pr_stock_minimo" Nullable="false" />
-          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltMod" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Nullable="false" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
-          <Property Type="String" Name="pr_motivoAnulacion" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="nom_pc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ip" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="AnchoEspecifico" />
-          <Property Type="Double" Name="PesoEspecifico" />
-          <Property Type="Int32" Name="IdLinea" Nullable="false" />
-          <Property Type="Int32" Name="IdGrupo" Nullable="false" />
-          <Property Type="Int32" Name="IdSubGrupo" Nullable="false" />
-          <Property Type="String" Name="ManejaKardex" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="IdNaturaleza" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdMotivo_Vta" />
-          <Property Type="String" Name="IdUnidadMedida_Consumo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_linea" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_grupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_subgrupo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCod_Impuesto_Ice" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Ventas" Nullable="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Compras" Nullable="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Inventario" Nullable="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Activo_F" Nullable="false" />
-          <Property Type="String" Name="tp_ManejaInven" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="vwin_Producto_a_Cortar_CusCider">
           <Key>
@@ -15072,106 +15003,6 @@
           <NavigationProperty Name="in_movi_inven_tipo8" Relationship="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo8" FromRole="in_parametro" ToRole="in_movi_inven_tipo" />
           <NavigationProperty Name="in_movi_inven_tipo9" Relationship="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo9" FromRole="in_parametro" ToRole="in_movi_inven_tipo" />
         </EntityType>
-        <EntityType Name="in_Producto">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdProducto" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="IdProductoTipo" Nullable="false" />
-          <Property Type="Int32" Name="IdMarca" Nullable="false" />
-          <Property Type="String" Name="IdPresentacion" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdLinea" Nullable="false" />
-          <Property Type="Int32" Name="IdGrupo" Nullable="false" />
-          <Property Type="Int32" Name="IdSubGrupo" Nullable="false" />
-          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUnidadMedida_Consumo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdNaturaleza" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdMotivo_Vta" />
-          <Property Type="String" Name="pr_codigo_barra" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="pr_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="pr_precio_publico" Nullable="false" />
-          <Property Type="Double" Name="pr_precio_mayor" Nullable="false" />
-          <Property Type="Double" Name="pr_precio_minimo" Nullable="false" />
-          <Property Type="Double" Name="pr_precio_puerta" Nullable="false" />
-          <Property Type="String" Name="pr_ManejaIva" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="pr_ManejaSeries" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Type="Double" Name="pr_costo_fob" Nullable="false" />
-          <Property Type="Double" Name="pr_costo_CIF" Nullable="false" />
-          <Property Type="Double" Name="pr_costo_promedio" Nullable="false" />
-          <Property Type="Int32" Name="pr_DiasMaritimo" Nullable="false" />
-          <Property Type="Int32" Name="pr_DiasAereo" Nullable="false" />
-          <Property Type="Int32" Name="pr_DiasTerrestre" Nullable="false" />
-          <Property Type="Double" Name="pr_largo" Nullable="false" />
-          <Property Type="Double" Name="pr_alto" Nullable="false" />
-          <Property Type="Double" Name="pr_profundidad" Nullable="false" />
-          <Property Type="Double" Name="pr_peso" Nullable="false" />
-          <Property Type="Binary" Name="pr_imagenPeque" MaxLength="Max" FixedLength="false" />
-          <Property Type="Binary" Name="pr_imagen_Grande" MaxLength="Max" FixedLength="false" />
-          <Property Type="String" Name="pr_partidaArancel" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="pr_porcentajeArancel" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="Double" Name="pr_Por_descuento" Nullable="false" />
-          <Property Type="Double" Name="pr_stock_maximo" Nullable="false" />
-          <Property Type="Double" Name="pr_stock_minimo" Nullable="false" />
-          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltMod" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Nullable="false" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
-          <Property Type="String" Name="pr_motivoAnulacion" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="nom_pc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ip" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Double" Name="AnchoEspecifico" />
-          <Property Type="Double" Name="PesoEspecifico" />
-          <Property Type="String" Name="ManejaKardex" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCod_Impuesto_Ice" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Ventas" Nullable="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Compras" Nullable="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Inventario" Nullable="false" />
-          <Property Type="Boolean" Name="Aparece_modu_Activo_F" Nullable="false" />
-          <Property Type="String" Name="mobile_cod_produccion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="in_AjusteFisico_Detalle" Relationship="DBERPModelInventario.FK_in_AjusteFisico_Detalle_in_Producto" FromRole="in_Producto" ToRole="in_AjusteFisico_Detalle" />
-          <NavigationProperty Name="in_Guia_x_traspaso_bodega_det_sin_oc" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" FromRole="in_Producto" ToRole="in_Guia_x_traspaso_bodega_det_sin_oc" />
-          <NavigationProperty Name="in_Ing_Egr_Inven_det" Relationship="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Producto" FromRole="in_Producto" ToRole="in_Ing_Egr_Inven_det" />
-          <NavigationProperty Name="in_kardex_det" Relationship="DBERPModelInventario.FK_in_kardex_det_in_Producto" FromRole="in_Producto" ToRole="in_kardex_det" />
-          <NavigationProperty Name="in_Marca" Relationship="DBERPModelInventario.FK_in_Producto_in_Marca" FromRole="in_Producto" ToRole="in_Marca" />
-          <NavigationProperty Name="in_movi_inve_detalle" Relationship="DBERPModelInventario.FK_in_movi_inve_detalle_in_Producto" FromRole="in_Producto" ToRole="in_movi_inve_detalle" />
-          <NavigationProperty Name="in_PrecargaItemsOrdenCompra_det" Relationship="DBERPModelInventario.FK_in_PrecargaItemsOrdenCompra_det_in_Producto" FromRole="in_Producto" ToRole="in_PrecargaItemsOrdenCompra_det" />
-          <NavigationProperty Name="in_presentacion" Relationship="DBERPModelInventario.FK_in_Producto_in_presentacion" FromRole="in_Producto" ToRole="in_presentacion" />
-          <NavigationProperty Name="in_presupuesto_det" Relationship="DBERPModelInventario.FK_in_presupuesto_det_in_Producto" FromRole="in_Producto" ToRole="in_presupuesto_det" />
-          <NavigationProperty Name="in_Producto_Composicion" Relationship="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto" FromRole="in_Producto" ToRole="in_Producto_Composicion" />
-          <NavigationProperty Name="in_Producto_Composicion1" Relationship="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto1" FromRole="in_Producto" ToRole="in_Producto_Composicion" />
-          <NavigationProperty Name="in_ProductoTipo" Relationship="DBERPModelInventario.FK_in_Producto_in_ProductoTipo" FromRole="in_Producto" ToRole="in_ProductoTipo" />
-          <NavigationProperty Name="in_subgrupo" Relationship="DBERPModelInventario.FK_in_Producto_in_subgrupo" FromRole="in_Producto" ToRole="in_subgrupo" />
-          <NavigationProperty Name="in_UnidadMedida" Relationship="DBERPModelInventario.FK_in_Producto_in_UnidadMedida" FromRole="in_Producto" ToRole="in_UnidadMedida" />
-          <NavigationProperty Name="in_UnidadMedida1" Relationship="DBERPModelInventario.FK_in_Producto_in_UnidadMedida1" FromRole="in_Producto" ToRole="in_UnidadMedida" />
-          <NavigationProperty Name="in_producto_x_cp_proveedor" Relationship="DBERPModelInventario.FK_in_producto_x_cp_proveedor_in_Producto" FromRole="in_Producto" ToRole="in_producto_x_cp_proveedor" />
-          <NavigationProperty Name="in_producto_x_tb_bodega" Relationship="DBERPModelInventario.FK_in_producto_x_tb_bodega_in_Producto" FromRole="in_Producto" ToRole="in_producto_x_tb_bodega" />
-          <NavigationProperty Name="in_recepcion_material_det" Relationship="DBERPModelInventario.FK_in_recepcion_material_det_in_Producto" FromRole="in_Producto" ToRole="in_recepcion_material_det" />
-          <NavigationProperty Name="in_transferencia_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_Producto" FromRole="in_Producto" ToRole="in_transferencia_det" />
-        </EntityType>
-        <Association Name="FK_in_AjusteFisico_Detalle_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_AjusteFisico_Detalle" Role="in_AjusteFisico_Detalle" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_AjusteFisico_Detalle">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_in_parametro_in_Catalogo">
           <End Type="DBERPModelInventario.in_Catalogo" Role="in_Catalogo" Multiplicity="0..1" />
           <End Type="DBERPModelInventario.in_parametro" Role="in_parametro" Multiplicity="*" />
@@ -15196,34 +15027,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="0..1" />
-          <End Type="DBERPModelInventario.in_Guia_x_traspaso_bodega_det_sin_oc" Role="in_Guia_x_traspaso_bodega_det_sin_oc" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_Guia_x_traspaso_bodega_det_sin_oc">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Ing_Egr_Inven_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Ing_Egr_Inven_det" Role="in_Ing_Egr_Inven_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_Ing_Egr_Inven_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_in_parametro_in_Ing_Egr_Inven_estado_apro">
           <End Type="DBERPModelInventario.in_Ing_Egr_Inven_estado_apro" Role="in_Ing_Egr_Inven_estado_apro" Multiplicity="0..1" />
           <End Type="DBERPModelInventario.in_parametro" Role="in_parametro" Multiplicity="*" />
@@ -15245,48 +15048,6 @@
             </Principal>
             <Dependent Role="in_parametro">
               <PropertyRef Name="IdEstadoAproba_x_Egr" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_kardex_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_kardex_det" Role="in_kardex_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_kardex_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_in_Marca">
-          <End Type="DBERPModelInventario.in_Marca" Role="in_Marca" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Marca">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdMarca" />
-            </Principal>
-            <Dependent Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdMarca" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_movi_inve_detalle_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_movi_inve_detalle" Role="in_movi_inve_detalle" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_movi_inve_detalle">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -15427,190 +15188,6 @@
             <Dependent Role="in_parametro">
               <PropertyRef Name="IdEmpresa" />
               <PropertyRef Name="IdMovi_inven_tipo_mobile_egr" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_PrecargaItemsOrdenCompra_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_PrecargaItemsOrdenCompra_det" Role="in_PrecargaItemsOrdenCompra_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_PrecargaItemsOrdenCompra_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_in_presentacion">
-          <End Type="DBERPModelInventario.in_presentacion" Role="in_presentacion" Multiplicity="0..1" />
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_presentacion">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdPresentacion" />
-            </Principal>
-            <Dependent Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdPresentacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_presupuesto_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_presupuesto_det" Role="in_presupuesto_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_presupuesto_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_Composicion_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto_Composicion" Role="in_Producto_Composicion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_Producto_Composicion">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProductoPadre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_Composicion_in_Producto1">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto_Composicion" Role="in_Producto_Composicion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_Producto_Composicion">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProductoHijo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_in_ProductoTipo">
-          <End Type="DBERPModelInventario.in_ProductoTipo" Role="in_ProductoTipo" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_ProductoTipo">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProductoTipo" />
-            </Principal>
-            <Dependent Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProductoTipo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_in_subgrupo">
-          <End Type="DBERPModelInventario.in_subgrupo" Role="in_subgrupo" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_subgrupo">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdCategoria" />
-              <PropertyRef Name="IdLinea" />
-              <PropertyRef Name="IdGrupo" />
-              <PropertyRef Name="IdSubgrupo" />
-            </Principal>
-            <Dependent Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdCategoria" />
-              <PropertyRef Name="IdLinea" />
-              <PropertyRef Name="IdGrupo" />
-              <PropertyRef Name="IdSubGrupo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_in_UnidadMedida">
-          <End Type="DBERPModelInventario.in_UnidadMedida" Role="in_UnidadMedida" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_UnidadMedida">
-              <PropertyRef Name="IdUnidadMedida" />
-            </Principal>
-            <Dependent Role="in_Producto">
-              <PropertyRef Name="IdUnidadMedida" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_Producto_in_UnidadMedida1">
-          <End Type="DBERPModelInventario.in_UnidadMedida" Role="in_UnidadMedida" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_UnidadMedida">
-              <PropertyRef Name="IdUnidadMedida" />
-            </Principal>
-            <Dependent Role="in_Producto">
-              <PropertyRef Name="IdUnidadMedida_Consumo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_producto_x_cp_proveedor_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_producto_x_cp_proveedor" Role="in_producto_x_cp_proveedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_producto_x_cp_proveedor">
-              <PropertyRef Name="IdEmpresa_prod" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_producto_x_tb_bodega_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_producto_x_tb_bodega" Role="in_producto_x_tb_bodega" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_producto_x_tb_bodega">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_recepcion_material_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_recepcion_material_det" Role="in_recepcion_material_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_recepcion_material_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_transferencia_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -15912,6 +15489,544 @@
           <Property Type="String" Name="Bodega2" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="SPINV_Stock_Result">
+          <Property Type="Int32" Name="idempresa" Nullable="false" />
+          <Property Type="Int32" Name="idsucursal" Nullable="false" />
+          <Property Type="Int32" Name="idbodega" Nullable="false" />
+          <Property Type="Decimal" Name="idproducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Stock" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="in_Familia">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdFamilia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdFamilia" Nullable="false" />
+          <Property Type="String" Name="fa_Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="fa_Descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <NavigationProperty Name="in_Producto" Relationship="DBERPModelInventario.FK_in_Producto_in_Familia" FromRole="in_Familia" ToRole="in_Producto" />
+        </EntityType>
+        <EntityType Name="in_Producto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdProductoTipo" Nullable="false" />
+          <Property Type="Int32" Name="IdMarca" Nullable="false" />
+          <Property Type="String" Name="IdPresentacion" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdLinea" Nullable="false" />
+          <Property Type="Int32" Name="IdGrupo" Nullable="false" />
+          <Property Type="Int32" Name="IdSubGrupo" Nullable="false" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadMedida_Consumo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdNaturaleza" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMotivo_Vta" />
+          <Property Type="String" Name="pr_codigo_barra" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="pr_precio_publico" Nullable="false" />
+          <Property Type="Double" Name="pr_precio_mayor" Nullable="false" />
+          <Property Type="Double" Name="pr_precio_minimo" Nullable="false" />
+          <Property Type="Double" Name="pr_precio_puerta" Nullable="false" />
+          <Property Type="String" Name="pr_ManejaIva" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pr_ManejaSeries" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="pr_costo_fob" Nullable="false" />
+          <Property Type="Double" Name="pr_costo_CIF" Nullable="false" />
+          <Property Type="Double" Name="pr_costo_promedio" Nullable="false" />
+          <Property Type="Int32" Name="pr_DiasMaritimo" Nullable="false" />
+          <Property Type="Int32" Name="pr_DiasAereo" Nullable="false" />
+          <Property Type="Int32" Name="pr_DiasTerrestre" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" Nullable="false" />
+          <Property Type="Double" Name="pr_alto" Nullable="false" />
+          <Property Type="Double" Name="pr_profundidad" Nullable="false" />
+          <Property Type="Double" Name="pr_peso" Nullable="false" />
+          <Property Type="Binary" Name="pr_imagenPeque" MaxLength="Max" FixedLength="false" />
+          <Property Type="Binary" Name="pr_imagen_Grande" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="pr_partidaArancel" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="pr_porcentajeArancel" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Double" Name="pr_Por_descuento" Nullable="false" />
+          <Property Type="Double" Name="pr_stock_maximo" Nullable="false" />
+          <Property Type="Double" Name="pr_stock_minimo" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="pr_motivoAnulacion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_pc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ip" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="AnchoEspecifico" />
+          <Property Type="Double" Name="PesoEspecifico" />
+          <Property Type="String" Name="ManejaKardex" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Ice" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Ventas" Nullable="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Compras" Nullable="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Inventario" Nullable="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Activo_F" Nullable="false" />
+          <Property Type="String" Name="mobile_cod_produccion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdFamilia" />
+          <NavigationProperty Name="in_AjusteFisico_Detalle" Relationship="DBERPModelInventario.FK_in_AjusteFisico_Detalle_in_Producto" FromRole="in_Producto" ToRole="in_AjusteFisico_Detalle" />
+          <NavigationProperty Name="in_Familia" Relationship="DBERPModelInventario.FK_in_Producto_in_Familia" FromRole="in_Producto" ToRole="in_Familia" />
+          <NavigationProperty Name="in_Guia_x_traspaso_bodega_det_sin_oc" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" FromRole="in_Producto" ToRole="in_Guia_x_traspaso_bodega_det_sin_oc" />
+          <NavigationProperty Name="in_Ing_Egr_Inven_det" Relationship="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Producto" FromRole="in_Producto" ToRole="in_Ing_Egr_Inven_det" />
+          <NavigationProperty Name="in_kardex_det" Relationship="DBERPModelInventario.FK_in_kardex_det_in_Producto" FromRole="in_Producto" ToRole="in_kardex_det" />
+          <NavigationProperty Name="in_Marca" Relationship="DBERPModelInventario.FK_in_Producto_in_Marca" FromRole="in_Producto" ToRole="in_Marca" />
+          <NavigationProperty Name="in_movi_inve_detalle" Relationship="DBERPModelInventario.FK_in_movi_inve_detalle_in_Producto" FromRole="in_Producto" ToRole="in_movi_inve_detalle" />
+          <NavigationProperty Name="in_PrecargaItemsOrdenCompra_det" Relationship="DBERPModelInventario.FK_in_PrecargaItemsOrdenCompra_det_in_Producto" FromRole="in_Producto" ToRole="in_PrecargaItemsOrdenCompra_det" />
+          <NavigationProperty Name="in_presentacion" Relationship="DBERPModelInventario.FK_in_Producto_in_presentacion" FromRole="in_Producto" ToRole="in_presentacion" />
+          <NavigationProperty Name="in_presupuesto_det" Relationship="DBERPModelInventario.FK_in_presupuesto_det_in_Producto" FromRole="in_Producto" ToRole="in_presupuesto_det" />
+          <NavigationProperty Name="in_Producto_Composicion" Relationship="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto" FromRole="in_Producto" ToRole="in_Producto_Composicion" />
+          <NavigationProperty Name="in_Producto_Composicion1" Relationship="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto1" FromRole="in_Producto" ToRole="in_Producto_Composicion" />
+          <NavigationProperty Name="in_ProductoTipo" Relationship="DBERPModelInventario.FK_in_Producto_in_ProductoTipo" FromRole="in_Producto" ToRole="in_ProductoTipo" />
+          <NavigationProperty Name="in_subgrupo" Relationship="DBERPModelInventario.FK_in_Producto_in_subgrupo" FromRole="in_Producto" ToRole="in_subgrupo" />
+          <NavigationProperty Name="in_UnidadMedida" Relationship="DBERPModelInventario.FK_in_Producto_in_UnidadMedida" FromRole="in_Producto" ToRole="in_UnidadMedida" />
+          <NavigationProperty Name="in_UnidadMedida1" Relationship="DBERPModelInventario.FK_in_Producto_in_UnidadMedida1" FromRole="in_Producto" ToRole="in_UnidadMedida" />
+          <NavigationProperty Name="in_producto_x_cp_proveedor" Relationship="DBERPModelInventario.FK_in_producto_x_cp_proveedor_in_Producto" FromRole="in_Producto" ToRole="in_producto_x_cp_proveedor" />
+          <NavigationProperty Name="in_producto_x_tb_bodega" Relationship="DBERPModelInventario.FK_in_producto_x_tb_bodega_in_Producto" FromRole="in_Producto" ToRole="in_producto_x_tb_bodega" />
+          <NavigationProperty Name="in_recepcion_material_det" Relationship="DBERPModelInventario.FK_in_recepcion_material_det_in_Producto" FromRole="in_Producto" ToRole="in_recepcion_material_det" />
+          <NavigationProperty Name="in_transferencia_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_Producto" FromRole="in_Producto" ToRole="in_transferencia_det" />
+        </EntityType>
+        <Association Name="FK_in_AjusteFisico_Detalle_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_AjusteFisico_Detalle" Role="in_AjusteFisico_Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_AjusteFisico_Detalle">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_Familia">
+          <End Type="DBERPModelInventario.in_Familia" Role="in_Familia" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Familia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdFamilia" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdFamilia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_Guia_x_traspaso_bodega_det_sin_oc" Role="in_Guia_x_traspaso_bodega_det_sin_oc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_Guia_x_traspaso_bodega_det_sin_oc">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Ing_Egr_Inven_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Ing_Egr_Inven_det" Role="in_Ing_Egr_Inven_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_Ing_Egr_Inven_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_kardex_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_kardex_det" Role="in_kardex_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_kardex_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_Marca">
+          <End Type="DBERPModelInventario.in_Marca" Role="in_Marca" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Marca">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_movi_inve_detalle_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_movi_inve_detalle" Role="in_movi_inve_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_movi_inve_detalle">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_PrecargaItemsOrdenCompra_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_PrecargaItemsOrdenCompra_det" Role="in_PrecargaItemsOrdenCompra_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_PrecargaItemsOrdenCompra_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_presentacion">
+          <End Type="DBERPModelInventario.in_presentacion" Role="in_presentacion" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_presentacion">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdPresentacion" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdPresentacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_presupuesto_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_presupuesto_det" Role="in_presupuesto_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_presupuesto_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_Composicion_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto_Composicion" Role="in_Producto_Composicion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_Producto_Composicion">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProductoPadre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_Composicion_in_Producto1">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto_Composicion" Role="in_Producto_Composicion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_Producto_Composicion">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProductoHijo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_ProductoTipo">
+          <End Type="DBERPModelInventario.in_ProductoTipo" Role="in_ProductoTipo" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_ProductoTipo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProductoTipo" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProductoTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_subgrupo">
+          <End Type="DBERPModelInventario.in_subgrupo" Role="in_subgrupo" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_subgrupo">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdCategoria" />
+              <PropertyRef Name="IdLinea" />
+              <PropertyRef Name="IdGrupo" />
+              <PropertyRef Name="IdSubgrupo" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdCategoria" />
+              <PropertyRef Name="IdLinea" />
+              <PropertyRef Name="IdGrupo" />
+              <PropertyRef Name="IdSubGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_UnidadMedida">
+          <End Type="DBERPModelInventario.in_UnidadMedida" Role="in_UnidadMedida" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_UnidadMedida">
+              <PropertyRef Name="IdUnidadMedida" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_Producto_in_UnidadMedida1">
+          <End Type="DBERPModelInventario.in_UnidadMedida" Role="in_UnidadMedida" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_UnidadMedida">
+              <PropertyRef Name="IdUnidadMedida" />
+            </Principal>
+            <Dependent Role="in_Producto">
+              <PropertyRef Name="IdUnidadMedida_Consumo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_producto_x_cp_proveedor_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_producto_x_cp_proveedor" Role="in_producto_x_cp_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_producto_x_cp_proveedor">
+              <PropertyRef Name="IdEmpresa_prod" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_producto_x_tb_bodega_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_producto_x_tb_bodega" Role="in_producto_x_tb_bodega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_producto_x_tb_bodega">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_recepcion_material_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_recepcion_material_det" Role="in_recepcion_material_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_recepcion_material_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_transferencia_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwin_producto">
+          <Key>
+            <PropertyRef Name="tp_descripcion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_codigo_barra" />
+            <PropertyRef Name="IdProductoTipo" />
+            <PropertyRef Name="IdCategoria" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="pr_observacion" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="pr_precio_publico" />
+            <PropertyRef Name="pr_precio_mayor" />
+            <PropertyRef Name="pr_precio_minimo" />
+            <PropertyRef Name="pr_precio_puerta" />
+            <PropertyRef Name="pr_pedidos" />
+            <PropertyRef Name="pr_ManejaIva" />
+            <PropertyRef Name="pr_ManejaSeries" />
+            <PropertyRef Name="pr_costo_fob" />
+            <PropertyRef Name="pr_costo_CIF" />
+            <PropertyRef Name="pr_costo_promedio" />
+            <PropertyRef Name="IdMarca" />
+            <PropertyRef Name="pr_DiasMaritimo" />
+            <PropertyRef Name="pr_DiasAereo" />
+            <PropertyRef Name="pr_DiasTerrestre" />
+            <PropertyRef Name="pr_largo" />
+            <PropertyRef Name="pr_alto" />
+            <PropertyRef Name="pr_profundidad" />
+            <PropertyRef Name="pr_peso" />
+            <PropertyRef Name="pr_partidaArancel" />
+            <PropertyRef Name="pr_porcentajeArancel" />
+            <PropertyRef Name="pr_Por_descuento" />
+            <PropertyRef Name="pr_stock_maximo" />
+            <PropertyRef Name="pr_stock_minimo" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="IdUsuarioUltMod" />
+            <PropertyRef Name="Fecha_UltMod" />
+            <PropertyRef Name="nom_pc" />
+            <PropertyRef Name="ip" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdLinea" />
+            <PropertyRef Name="IdGrupo" />
+            <PropertyRef Name="IdSubGrupo" />
+            <PropertyRef Name="IdUnidadMedida_Consumo" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+            <PropertyRef Name="IdCod_Impuesto_Ice" />
+            <PropertyRef Name="Aparece_modu_Ventas" />
+            <PropertyRef Name="Aparece_modu_Compras" />
+            <PropertyRef Name="Aparece_modu_Inventario" />
+            <PropertyRef Name="Aparece_modu_Activo_F" />
+          </Key>
+          <Property Type="String" Name="Descripcion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tp_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ca_Categoria" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_codigo_barra" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdProductoTipo" Nullable="false" />
+          <Property Type="String" Name="IdPresentacion" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCategoria" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="pr_precio_publico" Nullable="false" />
+          <Property Type="Double" Name="pr_precio_mayor" Nullable="false" />
+          <Property Type="Double" Name="pr_precio_minimo" Nullable="false" />
+          <Property Type="Double" Name="pr_precio_puerta" Nullable="false" />
+          <Property Type="Double" Name="pr_stock" />
+          <Property Type="Int32" Name="pr_pedidos" Nullable="false" />
+          <Property Type="String" Name="pr_ManejaIva" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pr_ManejaSeries" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="Double" Name="pr_costo_fob" Nullable="false" />
+          <Property Type="Double" Name="pr_costo_CIF" Nullable="false" />
+          <Property Type="Double" Name="pr_costo_promedio" Nullable="false" />
+          <Property Type="Int32" Name="IdMarca" Nullable="false" />
+          <Property Type="Int32" Name="pr_DiasMaritimo" Nullable="false" />
+          <Property Type="Int32" Name="pr_DiasAereo" Nullable="false" />
+          <Property Type="Int32" Name="pr_DiasTerrestre" Nullable="false" />
+          <Property Type="Double" Name="pr_largo" Nullable="false" />
+          <Property Type="Double" Name="pr_alto" Nullable="false" />
+          <Property Type="Double" Name="pr_profundidad" Nullable="false" />
+          <Property Type="Double" Name="pr_peso" Nullable="false" />
+          <Property Type="Binary" Name="pr_imagenPeque" MaxLength="Max" FixedLength="false" />
+          <Property Type="Binary" Name="pr_imagen_Grande" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="pr_partidaArancel" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="pr_porcentajeArancel" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Double" Name="pr_Por_descuento" Nullable="false" />
+          <Property Type="Double" Name="pr_stock_maximo" Nullable="false" />
+          <Property Type="Double" Name="pr_stock_minimo" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="pr_motivoAnulacion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_pc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ip" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="AnchoEspecifico" />
+          <Property Type="Double" Name="PesoEspecifico" />
+          <Property Type="Int32" Name="IdLinea" Nullable="false" />
+          <Property Type="Int32" Name="IdGrupo" Nullable="false" />
+          <Property Type="Int32" Name="IdSubGrupo" Nullable="false" />
+          <Property Type="String" Name="ManejaKardex" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdNaturaleza" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMotivo_Vta" />
+          <Property Type="String" Name="IdUnidadMedida_Consumo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_linea" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subgrupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Ice" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Ventas" Nullable="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Compras" Nullable="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Inventario" Nullable="false" />
+          <Property Type="Boolean" Name="Aparece_modu_Activo_F" Nullable="false" />
+          <Property Type="String" Name="tp_ManejaInven" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdFamilia" />
+          <Property Type="String" Name="mobile_cod_produccion" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="SPINV_ComprasAnteriores_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" />
+          <Property Type="Double" Name="do_precioCompra" Nullable="false" />
+          <Property Type="Double" Name="do_porc_des" Nullable="false" />
+          <Property Type="Double" Name="do_descuento" Nullable="false" />
+          <Property Type="Double" Name="do_precioFinal" Nullable="false" />
+          <Property Type="DateTime" Name="oc_fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="NomUnidadMedida" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="SPINV_MejorPrecio_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="MejorPrecio" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -17716,81 +17831,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwin_producto">
-            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_producto">
-              <MappingFragment StoreEntitySet="vwin_producto">
-                <ScalarProperty Name="tp_ManejaInven" ColumnName="tp_ManejaInven" />
-                <ScalarProperty Name="Aparece_modu_Activo_F" ColumnName="Aparece_modu_Activo_F" />
-                <ScalarProperty Name="Aparece_modu_Inventario" ColumnName="Aparece_modu_Inventario" />
-                <ScalarProperty Name="Aparece_modu_Compras" ColumnName="Aparece_modu_Compras" />
-                <ScalarProperty Name="Aparece_modu_Ventas" ColumnName="Aparece_modu_Ventas" />
-                <ScalarProperty Name="IdCod_Impuesto_Ice" ColumnName="IdCod_Impuesto_Ice" />
-                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
-                <ScalarProperty Name="nom_subgrupo" ColumnName="nom_subgrupo" />
-                <ScalarProperty Name="nom_grupo" ColumnName="nom_grupo" />
-                <ScalarProperty Name="nom_linea" ColumnName="nom_linea" />
-                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
-                <ScalarProperty Name="IdMotivo_Vta" ColumnName="IdMotivo_Vta" />
-                <ScalarProperty Name="IdNaturaleza" ColumnName="IdNaturaleza" />
-                <ScalarProperty Name="ManejaKardex" ColumnName="ManejaKardex" />
-                <ScalarProperty Name="IdSubGrupo" ColumnName="IdSubGrupo" />
-                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
-                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
-                <ScalarProperty Name="PesoEspecifico" ColumnName="PesoEspecifico" />
-                <ScalarProperty Name="AnchoEspecifico" ColumnName="AnchoEspecifico" />
-                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
-                <ScalarProperty Name="pr_motivoAnulacion" ColumnName="pr_motivoAnulacion" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="pr_stock_minimo" ColumnName="pr_stock_minimo" />
-                <ScalarProperty Name="pr_stock_maximo" ColumnName="pr_stock_maximo" />
-                <ScalarProperty Name="pr_Por_descuento" ColumnName="pr_Por_descuento" />
-                <ScalarProperty Name="pr_porcentajeArancel" ColumnName="pr_porcentajeArancel" />
-                <ScalarProperty Name="pr_partidaArancel" ColumnName="pr_partidaArancel" />
-                <ScalarProperty Name="pr_imagen_Grande" ColumnName="pr_imagen_Grande" />
-                <ScalarProperty Name="pr_imagenPeque" ColumnName="pr_imagenPeque" />
-                <ScalarProperty Name="pr_peso" ColumnName="pr_peso" />
-                <ScalarProperty Name="pr_profundidad" ColumnName="pr_profundidad" />
-                <ScalarProperty Name="pr_alto" ColumnName="pr_alto" />
-                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
-                <ScalarProperty Name="pr_DiasTerrestre" ColumnName="pr_DiasTerrestre" />
-                <ScalarProperty Name="pr_DiasAereo" ColumnName="pr_DiasAereo" />
-                <ScalarProperty Name="pr_DiasMaritimo" ColumnName="pr_DiasMaritimo" />
-                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
-                <ScalarProperty Name="pr_costo_promedio" ColumnName="pr_costo_promedio" />
-                <ScalarProperty Name="pr_costo_CIF" ColumnName="pr_costo_CIF" />
-                <ScalarProperty Name="pr_costo_fob" ColumnName="pr_costo_fob" />
-                <ScalarProperty Name="pr_ManejaSeries" ColumnName="pr_ManejaSeries" />
-                <ScalarProperty Name="pr_ManejaIva" ColumnName="pr_ManejaIva" />
-                <ScalarProperty Name="pr_pedidos" ColumnName="pr_pedidos" />
-                <ScalarProperty Name="pr_stock" ColumnName="pr_stock" />
-                <ScalarProperty Name="pr_precio_puerta" ColumnName="pr_precio_puerta" />
-                <ScalarProperty Name="pr_precio_minimo" ColumnName="pr_precio_minimo" />
-                <ScalarProperty Name="pr_precio_mayor" ColumnName="pr_precio_mayor" />
-                <ScalarProperty Name="pr_precio_publico" ColumnName="pr_precio_publico" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="pr_observacion" ColumnName="pr_observacion" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
-                <ScalarProperty Name="IdPresentacion" ColumnName="IdPresentacion" />
-                <ScalarProperty Name="IdProductoTipo" ColumnName="IdProductoTipo" />
-                <ScalarProperty Name="pr_codigo_barra" ColumnName="pr_codigo_barra" />
-                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="ca_Categoria" ColumnName="ca_Categoria" />
-                <ScalarProperty Name="tp_descripcion" ColumnName="tp_descripcion" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwin_Producto_a_Cortar_CusCider">
             <EntityTypeMapping TypeName="DBERPModelInventario.vwin_Producto_a_Cortar_CusCider">
               <MappingFragment StoreEntitySet="vwin_Producto_a_Cortar_CusCider">
@@ -19484,73 +19524,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="in_Producto">
-            <EntityTypeMapping TypeName="DBERPModelInventario.in_Producto">
-              <MappingFragment StoreEntitySet="in_Producto">
-                <ScalarProperty Name="mobile_cod_produccion" ColumnName="mobile_cod_produccion" />
-                <ScalarProperty Name="Aparece_modu_Activo_F" ColumnName="Aparece_modu_Activo_F" />
-                <ScalarProperty Name="Aparece_modu_Inventario" ColumnName="Aparece_modu_Inventario" />
-                <ScalarProperty Name="Aparece_modu_Compras" ColumnName="Aparece_modu_Compras" />
-                <ScalarProperty Name="Aparece_modu_Ventas" ColumnName="Aparece_modu_Ventas" />
-                <ScalarProperty Name="IdCod_Impuesto_Ice" ColumnName="IdCod_Impuesto_Ice" />
-                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
-                <ScalarProperty Name="ManejaKardex" ColumnName="ManejaKardex" />
-                <ScalarProperty Name="PesoEspecifico" ColumnName="PesoEspecifico" />
-                <ScalarProperty Name="AnchoEspecifico" ColumnName="AnchoEspecifico" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
-                <ScalarProperty Name="pr_motivoAnulacion" ColumnName="pr_motivoAnulacion" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="pr_stock_minimo" ColumnName="pr_stock_minimo" />
-                <ScalarProperty Name="pr_stock_maximo" ColumnName="pr_stock_maximo" />
-                <ScalarProperty Name="pr_Por_descuento" ColumnName="pr_Por_descuento" />
-                <ScalarProperty Name="pr_porcentajeArancel" ColumnName="pr_porcentajeArancel" />
-                <ScalarProperty Name="pr_partidaArancel" ColumnName="pr_partidaArancel" />
-                <ScalarProperty Name="pr_imagen_Grande" ColumnName="pr_imagen_Grande" />
-                <ScalarProperty Name="pr_imagenPeque" ColumnName="pr_imagenPeque" />
-                <ScalarProperty Name="pr_peso" ColumnName="pr_peso" />
-                <ScalarProperty Name="pr_profundidad" ColumnName="pr_profundidad" />
-                <ScalarProperty Name="pr_alto" ColumnName="pr_alto" />
-                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
-                <ScalarProperty Name="pr_DiasTerrestre" ColumnName="pr_DiasTerrestre" />
-                <ScalarProperty Name="pr_DiasAereo" ColumnName="pr_DiasAereo" />
-                <ScalarProperty Name="pr_DiasMaritimo" ColumnName="pr_DiasMaritimo" />
-                <ScalarProperty Name="pr_costo_promedio" ColumnName="pr_costo_promedio" />
-                <ScalarProperty Name="pr_costo_CIF" ColumnName="pr_costo_CIF" />
-                <ScalarProperty Name="pr_costo_fob" ColumnName="pr_costo_fob" />
-                <ScalarProperty Name="pr_ManejaSeries" ColumnName="pr_ManejaSeries" />
-                <ScalarProperty Name="pr_ManejaIva" ColumnName="pr_ManejaIva" />
-                <ScalarProperty Name="pr_precio_puerta" ColumnName="pr_precio_puerta" />
-                <ScalarProperty Name="pr_precio_minimo" ColumnName="pr_precio_minimo" />
-                <ScalarProperty Name="pr_precio_mayor" ColumnName="pr_precio_mayor" />
-                <ScalarProperty Name="pr_precio_publico" ColumnName="pr_precio_publico" />
-                <ScalarProperty Name="pr_observacion" ColumnName="pr_observacion" />
-                <ScalarProperty Name="pr_codigo_barra" ColumnName="pr_codigo_barra" />
-                <ScalarProperty Name="IdMotivo_Vta" ColumnName="IdMotivo_Vta" />
-                <ScalarProperty Name="IdNaturaleza" ColumnName="IdNaturaleza" />
-                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="IdSubGrupo" ColumnName="IdSubGrupo" />
-                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
-                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
-                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
-                <ScalarProperty Name="IdPresentacion" ColumnName="IdPresentacion" />
-                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
-                <ScalarProperty Name="IdProductoTipo" ColumnName="IdProductoTipo" />
-                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spINV_aprobacion_movimiento" FunctionName="DBERPModelInventario.Store.spINV_aprobacion_movimiento" />
           <FunctionImportMapping FunctionImportName="spINV_relaciones_no_parametrizadas" FunctionName="DBERPModelInventario.Store.spINV_relaciones_no_parametrizadas">
             <ResultMapping>
@@ -19712,6 +19685,205 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPINV_Stock" FunctionName="DBERPModelInventario.Store.SPINV_Stock">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelInventario.SPINV_Stock_Result">
+                <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+                <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+                <ScalarProperty Name="idbodega" ColumnName="idbodega" />
+                <ScalarProperty Name="idproducto" ColumnName="idproducto" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="in_Familia">
+            <EntityTypeMapping TypeName="DBERPModelInventario.in_Familia">
+              <MappingFragment StoreEntitySet="in_Familia">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="fa_Descripcion" ColumnName="fa_Descripcion" />
+                <ScalarProperty Name="fa_Codigo" ColumnName="fa_Codigo" />
+                <ScalarProperty Name="IdFamilia" ColumnName="IdFamilia" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_Producto">
+            <EntityTypeMapping TypeName="DBERPModelInventario.in_Producto">
+              <MappingFragment StoreEntitySet="in_Producto">
+                <ScalarProperty Name="IdFamilia" ColumnName="IdFamilia" />
+                <ScalarProperty Name="mobile_cod_produccion" ColumnName="mobile_cod_produccion" />
+                <ScalarProperty Name="Aparece_modu_Activo_F" ColumnName="Aparece_modu_Activo_F" />
+                <ScalarProperty Name="Aparece_modu_Inventario" ColumnName="Aparece_modu_Inventario" />
+                <ScalarProperty Name="Aparece_modu_Compras" ColumnName="Aparece_modu_Compras" />
+                <ScalarProperty Name="Aparece_modu_Ventas" ColumnName="Aparece_modu_Ventas" />
+                <ScalarProperty Name="IdCod_Impuesto_Ice" ColumnName="IdCod_Impuesto_Ice" />
+                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
+                <ScalarProperty Name="ManejaKardex" ColumnName="ManejaKardex" />
+                <ScalarProperty Name="PesoEspecifico" ColumnName="PesoEspecifico" />
+                <ScalarProperty Name="AnchoEspecifico" ColumnName="AnchoEspecifico" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="pr_motivoAnulacion" ColumnName="pr_motivoAnulacion" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="pr_stock_minimo" ColumnName="pr_stock_minimo" />
+                <ScalarProperty Name="pr_stock_maximo" ColumnName="pr_stock_maximo" />
+                <ScalarProperty Name="pr_Por_descuento" ColumnName="pr_Por_descuento" />
+                <ScalarProperty Name="pr_porcentajeArancel" ColumnName="pr_porcentajeArancel" />
+                <ScalarProperty Name="pr_partidaArancel" ColumnName="pr_partidaArancel" />
+                <ScalarProperty Name="pr_imagen_Grande" ColumnName="pr_imagen_Grande" />
+                <ScalarProperty Name="pr_imagenPeque" ColumnName="pr_imagenPeque" />
+                <ScalarProperty Name="pr_peso" ColumnName="pr_peso" />
+                <ScalarProperty Name="pr_profundidad" ColumnName="pr_profundidad" />
+                <ScalarProperty Name="pr_alto" ColumnName="pr_alto" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="pr_DiasTerrestre" ColumnName="pr_DiasTerrestre" />
+                <ScalarProperty Name="pr_DiasAereo" ColumnName="pr_DiasAereo" />
+                <ScalarProperty Name="pr_DiasMaritimo" ColumnName="pr_DiasMaritimo" />
+                <ScalarProperty Name="pr_costo_promedio" ColumnName="pr_costo_promedio" />
+                <ScalarProperty Name="pr_costo_CIF" ColumnName="pr_costo_CIF" />
+                <ScalarProperty Name="pr_costo_fob" ColumnName="pr_costo_fob" />
+                <ScalarProperty Name="pr_ManejaSeries" ColumnName="pr_ManejaSeries" />
+                <ScalarProperty Name="pr_ManejaIva" ColumnName="pr_ManejaIva" />
+                <ScalarProperty Name="pr_precio_puerta" ColumnName="pr_precio_puerta" />
+                <ScalarProperty Name="pr_precio_minimo" ColumnName="pr_precio_minimo" />
+                <ScalarProperty Name="pr_precio_mayor" ColumnName="pr_precio_mayor" />
+                <ScalarProperty Name="pr_precio_publico" ColumnName="pr_precio_publico" />
+                <ScalarProperty Name="pr_observacion" ColumnName="pr_observacion" />
+                <ScalarProperty Name="pr_codigo_barra" ColumnName="pr_codigo_barra" />
+                <ScalarProperty Name="IdMotivo_Vta" ColumnName="IdMotivo_Vta" />
+                <ScalarProperty Name="IdNaturaleza" ColumnName="IdNaturaleza" />
+                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdSubGrupo" ColumnName="IdSubGrupo" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdPresentacion" ColumnName="IdPresentacion" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="IdProductoTipo" ColumnName="IdProductoTipo" />
+                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwin_producto">
+            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_producto">
+              <MappingFragment StoreEntitySet="vwin_producto">
+                <ScalarProperty Name="mobile_cod_produccion" ColumnName="mobile_cod_produccion" />
+                <ScalarProperty Name="IdFamilia" ColumnName="IdFamilia" />
+                <ScalarProperty Name="tp_ManejaInven" ColumnName="tp_ManejaInven" />
+                <ScalarProperty Name="Aparece_modu_Activo_F" ColumnName="Aparece_modu_Activo_F" />
+                <ScalarProperty Name="Aparece_modu_Inventario" ColumnName="Aparece_modu_Inventario" />
+                <ScalarProperty Name="Aparece_modu_Compras" ColumnName="Aparece_modu_Compras" />
+                <ScalarProperty Name="Aparece_modu_Ventas" ColumnName="Aparece_modu_Ventas" />
+                <ScalarProperty Name="IdCod_Impuesto_Ice" ColumnName="IdCod_Impuesto_Ice" />
+                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
+                <ScalarProperty Name="nom_subgrupo" ColumnName="nom_subgrupo" />
+                <ScalarProperty Name="nom_grupo" ColumnName="nom_grupo" />
+                <ScalarProperty Name="nom_linea" ColumnName="nom_linea" />
+                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
+                <ScalarProperty Name="IdMotivo_Vta" ColumnName="IdMotivo_Vta" />
+                <ScalarProperty Name="IdNaturaleza" ColumnName="IdNaturaleza" />
+                <ScalarProperty Name="ManejaKardex" ColumnName="ManejaKardex" />
+                <ScalarProperty Name="IdSubGrupo" ColumnName="IdSubGrupo" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+                <ScalarProperty Name="PesoEspecifico" ColumnName="PesoEspecifico" />
+                <ScalarProperty Name="AnchoEspecifico" ColumnName="AnchoEspecifico" />
+                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="pr_motivoAnulacion" ColumnName="pr_motivoAnulacion" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="pr_stock_minimo" ColumnName="pr_stock_minimo" />
+                <ScalarProperty Name="pr_stock_maximo" ColumnName="pr_stock_maximo" />
+                <ScalarProperty Name="pr_Por_descuento" ColumnName="pr_Por_descuento" />
+                <ScalarProperty Name="pr_porcentajeArancel" ColumnName="pr_porcentajeArancel" />
+                <ScalarProperty Name="pr_partidaArancel" ColumnName="pr_partidaArancel" />
+                <ScalarProperty Name="pr_imagen_Grande" ColumnName="pr_imagen_Grande" />
+                <ScalarProperty Name="pr_imagenPeque" ColumnName="pr_imagenPeque" />
+                <ScalarProperty Name="pr_peso" ColumnName="pr_peso" />
+                <ScalarProperty Name="pr_profundidad" ColumnName="pr_profundidad" />
+                <ScalarProperty Name="pr_alto" ColumnName="pr_alto" />
+                <ScalarProperty Name="pr_largo" ColumnName="pr_largo" />
+                <ScalarProperty Name="pr_DiasTerrestre" ColumnName="pr_DiasTerrestre" />
+                <ScalarProperty Name="pr_DiasAereo" ColumnName="pr_DiasAereo" />
+                <ScalarProperty Name="pr_DiasMaritimo" ColumnName="pr_DiasMaritimo" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="pr_costo_promedio" ColumnName="pr_costo_promedio" />
+                <ScalarProperty Name="pr_costo_CIF" ColumnName="pr_costo_CIF" />
+                <ScalarProperty Name="pr_costo_fob" ColumnName="pr_costo_fob" />
+                <ScalarProperty Name="pr_ManejaSeries" ColumnName="pr_ManejaSeries" />
+                <ScalarProperty Name="pr_ManejaIva" ColumnName="pr_ManejaIva" />
+                <ScalarProperty Name="pr_pedidos" ColumnName="pr_pedidos" />
+                <ScalarProperty Name="pr_stock" ColumnName="pr_stock" />
+                <ScalarProperty Name="pr_precio_puerta" ColumnName="pr_precio_puerta" />
+                <ScalarProperty Name="pr_precio_minimo" ColumnName="pr_precio_minimo" />
+                <ScalarProperty Name="pr_precio_mayor" ColumnName="pr_precio_mayor" />
+                <ScalarProperty Name="pr_precio_publico" ColumnName="pr_precio_publico" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="pr_observacion" ColumnName="pr_observacion" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdPresentacion" ColumnName="IdPresentacion" />
+                <ScalarProperty Name="IdProductoTipo" ColumnName="IdProductoTipo" />
+                <ScalarProperty Name="pr_codigo_barra" ColumnName="pr_codigo_barra" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="ca_Categoria" ColumnName="ca_Categoria" />
+                <ScalarProperty Name="tp_descripcion" ColumnName="tp_descripcion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPINV_ComprasAnteriores" FunctionName="DBERPModelInventario.Store.SPINV_ComprasAnteriores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelInventario.SPINV_ComprasAnteriores_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="do_precioCompra" ColumnName="do_precioCompra" />
+                <ScalarProperty Name="do_porc_des" ColumnName="do_porc_des" />
+                <ScalarProperty Name="do_descuento" ColumnName="do_descuento" />
+                <ScalarProperty Name="do_precioFinal" ColumnName="do_precioFinal" />
+                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NomUnidadMedida" ColumnName="NomUnidadMedida" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPINV_MejorPrecio" FunctionName="DBERPModelInventario.Store.SPINV_MejorPrecio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelInventario.SPINV_MejorPrecio_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="MejorPrecio" ColumnName="MejorPrecio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

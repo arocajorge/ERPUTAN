@@ -26,5 +26,11 @@ namespace Core.Erp.Info.Compras
         public string CatalogoEstado { get; set; }
         public List<com_OrdenPedidoDet_Info> ListaDetalle { get; set; }
         #endregion
+
+        public bool EsCompraUrgente { get; set; }
+
+        public string nom_punto_cargo { get; set; }
+
+        public int? IdPunto_cargo { get; set; }
     }
 }

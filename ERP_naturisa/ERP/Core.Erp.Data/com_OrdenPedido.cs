@@ -28,6 +28,7 @@ namespace Core.Erp.Data
         public decimal IdSolicitante { get; set; }
         public string IdCatalogoEstado { get; set; }
         public bool Estado { get; set; }
+        public Nullable<int> IdPunto_cargo { get; set; }
         public string IdUsuarioCreacion { get; set; }
         public Nullable<System.DateTime> FechaCreacion { get; set; }
         public string IdUsuarioUltModi { get; set; }
@@ -35,10 +36,11 @@ namespace Core.Erp.Data
         public string IdUsuarioAnu { get; set; }
         public Nullable<System.DateTime> FechaUltAnu { get; set; }
         public string MotivoAnu { get; set; }
+        public Nullable<bool> EsCompraUrgente { get; set; }
     
         public virtual com_catalogo com_catalogo { get; set; }
         public virtual com_departamento com_departamento { get; set; }
-        public virtual com_solicitante com_solicitante { get; set; }
         public virtual ICollection<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
+        public virtual com_solicitante com_solicitante { get; set; }
     }
 }

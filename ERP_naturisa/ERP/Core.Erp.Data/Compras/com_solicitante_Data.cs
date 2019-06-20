@@ -64,7 +64,7 @@ namespace Core.Erp.Data.Compras
                         estado = "A",
                         nom_solicitante = info.nom_solicitante,
                         IdUsuario = info.IdUsuario,
-
+                        ConsultaDepartamento = info.ConsultaDepartamento,
                         Fecha_Transac = DateTime.Now,
                         IdUsuarioUltMod =  info.IdUsuarioUltMod
                     });
@@ -109,6 +109,7 @@ namespace Core.Erp.Data.Compras
                         contact.nom_solicitante = info.nom_solicitante;
                         contact.IdUsuario = info.IdUsuario;
                         contact.IdDepartamento = info.IdDepartamento;
+                        contact.ConsultaDepartamento = info.ConsultaDepartamento;
 
                         var lst = context.com_solicitante_aprobador.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSolicitante == info.IdSolicitante).ToList();
                         foreach (var item in lst)
@@ -248,7 +249,8 @@ namespace Core.Erp.Data.Compras
                         IdSolicitante = q.IdSolicitante,
                         nom_solicitante = q.nom_solicitante,
                         estado = q.estado,
-                        IdUsuario = q.IdUsuario
+                        IdUsuario = q.IdUsuario,
+                        IdDepartamento = q.IdDepartamento
                     }).FirstOrDefault();
                 }
 

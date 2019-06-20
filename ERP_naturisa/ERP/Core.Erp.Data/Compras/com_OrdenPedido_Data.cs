@@ -18,20 +18,62 @@ namespace Core.Erp.Data.Compras
                 FechaFin = FechaFin.Date;
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lista = db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
+                    var solicitante = db.com_solicitante.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).FirstOrDefault();
+                    if (solicitante == null)
+                        return new List<com_OrdenPedido_Info>();
+
+                    if (!solicitante.ConsultaDepartamento)
+                        Lista = db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
+                        {
+                            IdEmpresa = q.IdEmpresa,
+                            IdOrdenPedido = q.IdOrdenPedido,
+                            op_Codigo = q.op_Codigo,
+                            op_Fecha = q.op_Fecha,
+                            op_Observacion = q.op_Observacion,
+
+                            nom_departamento = q.nom_departamento,
+                            nom_solicitante = q.nom_solicitante,
+                            Estado = q.Estado,
+                            CatalogoEstado = q.CatalogoEstado,
+                            IdCatalogoEstado = q.IdCatalogoEstado,
+                            EsCompraUrgente = q.EsCompraUrgente ?? false,
+                            nom_punto_cargo = q.nom_punto_cargo
+                        }).ToList();
+                    else
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        IdOrdenPedido = q.IdOrdenPedido,
-                        op_Codigo = q.op_Codigo,
-                        op_Fecha = q.op_Fecha,
-                        op_Observacion = q.op_Observacion,
-                        
-                        nom_departamento = q.nom_departamento,
-                        nom_solicitante = q.nom_solicitante,
-                        Estado = q.Estado,
-                        CatalogoEstado = q.CatalogoEstado,
-                        
-                    }).ToList();
+                        Lista = db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdDepartamento == solicitante.IdDepartamento && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
+                        {
+                            IdEmpresa = q.IdEmpresa,
+                            IdOrdenPedido = q.IdOrdenPedido,
+                            op_Codigo = q.op_Codigo,
+                            op_Fecha = q.op_Fecha,
+                            op_Observacion = q.op_Observacion,
+
+                            nom_departamento = q.nom_departamento,
+                            nom_solicitante = q.nom_solicitante,
+                            Estado = q.Estado,
+                            CatalogoEstado = q.CatalogoEstado,
+                            IdCatalogoEstado = q.IdCatalogoEstado,
+                            EsCompraUrgente = q.EsCompraUrgente ?? false,
+                            nom_punto_cargo = q.nom_punto_cargo
+                        }).ToList();
+                        Lista.AddRange(db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && q.IdDepartamento != solicitante.IdDepartamento && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
+                        {
+                            IdEmpresa = q.IdEmpresa,
+                            IdOrdenPedido = q.IdOrdenPedido,
+                            op_Codigo = q.op_Codigo,
+                            op_Fecha = q.op_Fecha,
+                            op_Observacion = q.op_Observacion,
+
+                            nom_departamento = q.nom_departamento,
+                            nom_solicitante = q.nom_solicitante,
+                            Estado = q.Estado,
+                            CatalogoEstado = q.CatalogoEstado,
+                            IdCatalogoEstado = q.IdCatalogoEstado,
+                            EsCompraUrgente = q.EsCompraUrgente ?? false,
+                            nom_punto_cargo = q.nom_punto_cargo
+                        }).ToList());
+                    }
                 }
 
                 return Lista;
@@ -39,6 +81,40 @@ namespace Core.Erp.Data.Compras
             catch (Exception)
             {
                 
+                throw;
+            }
+        }
+
+        public List<com_OrdenPedido_Info> GetList(int IdEmpresa, string IdUsuario)
+        {
+            try
+            {
+                List<com_OrdenPedido_Info> Lista;
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                        Lista = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && q.IdCatalogoEstado != "EST_OP_CER").Select(q => new com_OrdenPedido_Info
+                        {
+                            IdEmpresa = q.IdEmpresa,
+                            IdOrdenPedido = q.IdOrdenPedido,
+                            op_Codigo = q.op_Codigo,
+                            op_Fecha = q.op_Fecha,
+                            op_Observacion = q.op_Observacion,
+
+                            nom_departamento = q.nom_departamento,
+                            nom_solicitante = q.nom_solicitante,
+                            Estado = q.Estado,                            
+                            IdCatalogoEstado = q.IdCatalogoEstado,
+                            EsCompraUrgente = q.EsCompraUrgente ?? false,
+                            nom_punto_cargo = q.nom_punto_cargo
+                        }).ToList();
+                    
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
@@ -80,10 +156,12 @@ namespace Core.Erp.Data.Compras
                         op_Observacion = info.op_Observacion,
                         IdDepartamento = info.IdDepartamento,
                         IdSolicitante = info.IdSolicitante,
-                        IdCatalogoEstado = info.IdCatalogoEstado = "EST_OP_ABI",
+                        IdCatalogoEstado = info.IdCatalogoEstado = (info.EsCompraUrgente == true ? "EST_OP_PRO" : "EST_OP_ABI"),
                         Estado = true,
                         IdUsuarioCreacion = info.IdUsuarioCreacion,
-                        FechaCreacion = DateTime.Now
+                        FechaCreacion = DateTime.Now,
+                        EsCompraUrgente = info.EsCompraUrgente,
+                        IdPunto_cargo = info.IdPunto_cargo
                     });
                     int Secuencia = 1;
                     foreach (var item in info.ListaDetalle)
@@ -98,9 +176,13 @@ namespace Core.Erp.Data.Compras
                             IdProducto = item.IdProducto,
                             IdPunto_cargo = item.IdPunto_cargo,
                             IdUnidadMedida = item.IdUnidadMedida,
-                            opd_EstadoProceso = item.opd_EstadoProceso = "P",
+                            opd_EstadoProceso = item.opd_EstadoProceso = (info.EsCompraUrgente == true ? "A" : "P"),
                             pr_descripcion = item.pr_descripcion,
-                            opd_Detalle = item.opd_Detalle
+                            opd_Detalle = item.opd_Detalle,
+                            opd_Cantidad = item.opd_Cantidad,
+                            opd_CantidadApro = info.EsCompraUrgente == true ? item.opd_Cantidad : 0,
+                            Adjunto = item.Adjunto,
+                            NombreArchivo = item.NombreArchivo
                         });
                     }
                     db.SaveChanges();
@@ -130,6 +212,7 @@ namespace Core.Erp.Data.Compras
                         Entity.IdSolicitante = info.IdSolicitante;
                         Entity.IdUsuarioUltModi = info.IdUsuarioCreacion;
                         Entity.FechaUltModi = DateTime.Now;
+                        Entity.IdPunto_cargo = info.IdPunto_cargo;
                     }
                     var lst = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == info.IdOrdenPedido).ToList();
                     foreach (var item in lst)
@@ -151,7 +234,10 @@ namespace Core.Erp.Data.Compras
                             IdUnidadMedida = item.IdUnidadMedida,
                             opd_EstadoProceso = item.opd_EstadoProceso = "P",
                             pr_descripcion = item.pr_descripcion,
-                            opd_Detalle = item.opd_Detalle
+                            opd_Detalle = item.opd_Detalle,
+                            opd_Cantidad = item.opd_Cantidad,
+                            Adjunto = item.Adjunto,
+                            NombreArchivo = item.NombreArchivo
                         });
                     }
                     db.SaveChanges();
@@ -211,7 +297,8 @@ namespace Core.Erp.Data.Compras
                             IdSolicitante = Entity.IdSolicitante,
                             IdCatalogoEstado = Entity.IdCatalogoEstado,
                             Estado = Entity.Estado,
-
+                            EsCompraUrgente = Entity.EsCompraUrgente ?? false,
+                            IdPunto_cargo = Entity.IdPunto_cargo
                         };
                         return info;
                     }
@@ -222,6 +309,30 @@ namespace Core.Erp.Data.Compras
             {
                 
                 throw;
+            }
+        }
+
+        public bool ValidarProceso(int IdEmpresa, decimal IdOrdenPedido)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var cont = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && (q.opd_EstadoProceso == "A" || q.opd_EstadoProceso == "AC" || q.opd_EstadoProceso == "AJC")).Count();
+                    if (cont == 0)
+                    {
+                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                        if (pedido != null)
+                            pedido.IdCatalogoEstado = "EST_OP_CER";
+
+                        db.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

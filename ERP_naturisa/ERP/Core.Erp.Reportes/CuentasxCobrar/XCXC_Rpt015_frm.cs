@@ -201,7 +201,7 @@ namespace Core.Erp.Reportes.CuentasxCobrar
                     InfoDinardap.fecha_exigi = Convert.ToDateTime(item.vt_fech_venc).ToString("dd/MM/yyyy");
 
                     //
-                    InfoDinardap.Plazo_op = item.Plazo;
+                    InfoDinardap.Plazo_op = Convert.ToInt32(((DateTime)item.vt_fech_venc - (DateTime)item.vt_fecha).TotalDays); //item.Plazo;
                     InfoDinardap.Periodicidad_pago = item.Plazo;
 
                     if (InfoDinardap.Plazo_op <= 0) { InfoDinardap.Plazo_op = 1; }

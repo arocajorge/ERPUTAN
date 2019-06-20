@@ -31,7 +31,7 @@ namespace Core.Erp.Data
         public double pr_precio_mayor { get; set; }
         public double pr_precio_minimo { get; set; }
         public double pr_precio_puerta { get; set; }
-        public double pr_stock { get; set; }
+        public Nullable<double> pr_stock { get; set; }
         public int pr_pedidos { get; set; }
         public string pr_ManejaIva { get; set; }
         public string pr_ManejaSeries { get; set; }
@@ -83,5 +83,7 @@ namespace Core.Erp.Data
         public bool Aparece_modu_Inventario { get; set; }
         public bool Aparece_modu_Activo_F { get; set; }
         public string tp_ManejaInven { get; set; }
+        public Nullable<int> IdFamilia { get; set; }
+        public string mobile_cod_produccion { get; set; }
     }
 }

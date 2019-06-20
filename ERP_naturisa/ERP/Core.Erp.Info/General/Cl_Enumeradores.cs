@@ -372,10 +372,12 @@ namespace Core.Erp.Info.General
            FacturaRembolso
        }
 
-
-      
-
-
+       public enum eCatalogoEstadoSolicitudPedido
+       {
+           EST_OP_ABI,
+           EST_OP_CER,
+           EST_OP_PRO
+       }
     }
 
     

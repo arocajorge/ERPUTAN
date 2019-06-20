@@ -15,108 +15,120 @@ namespace Core.Erp.Data.Inventario
     public class in_Producto_data
     {
         string MensajeError = "";
-        
+
+        public List<in_Producto_Combo> GetListCombo(int IdEmpresa)
+        {
+            try
+            {
+                List<in_Producto_Combo> Lista;
+
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    Lista = db.in_Producto.Include("in_Familia").Where(q => q.IdEmpresa == IdEmpresa).Select(q => new in_Producto_Combo
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdProducto = q.IdProducto,
+                        pr_codigo = q.pr_codigo,
+                        pr_descripcion = q.pr_descripcion,
+                        fa_Descripcion = q.in_Familia.fa_Descripcion,
+                        IdUnidadMedida = q.IdUnidadMedida,
+                        IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
+                        IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
+                    }).ToList();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                return new List<in_Producto_Combo>();
+            }
+        }
+
         public List<in_Producto_Info> Get_list_Producto(int IdEmpresa)
         {
             try
             {
                 List<in_Producto_Info> lM = new List<in_Producto_Info>();
-                EntitiesInventario OECbtecble_Info = new EntitiesInventario();
-                var selectCbtecble = from C in OECbtecble_Info.vwin_producto
-                                     where C.IdEmpresa == IdEmpresa
-                                     select C;
-
-                foreach (var item in selectCbtecble)
+                using (EntitiesInventario db = new EntitiesInventario())
                 {
-                    in_Producto_Info prd = new in_Producto_Info();
-                    prd.IdEmpresa = item.IdEmpresa;
-                    prd.Estado = item.Estado.Trim();
-                    prd.Fecha_Transac = item.Fecha_Transac;
-                    prd.Fecha_UltAnu = item.Fecha_UltAnu;
-                    prd.Fecha_UltMod = item.Fecha_UltMod;                    
-                   
-                    prd.pr_imagen_Grande = item.pr_imagen_Grande;
-                    prd.pr_imagenPeque = item.pr_imagenPeque;
-                    prd.IdPresentacion = item.IdPresentacion;
-                    prd.nom_Categoria = item.ca_Categoria;
-                    prd.nom_Linea = item.nom_linea;
-                    prd.nom_Grupo = item.nom_grupo;
-                    prd.nom_SubGrupo = item.nom_subgrupo;
-                    prd.nom_Marca = item.Descripcion;
-                    prd.nom_Tipo_Producto = item.tp_descripcion;
-                    prd.pr_descripcion_2 = item.pr_descripcion_2;
-                    prd.pr_descripcion = item.pr_descripcion;
-                    prd.PesoEspecifico = item.PesoEspecifico;
-                    prd.AnchoEspecifico = item.AnchoEspecifico;
-                    prd.IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo;
-                    prd.IdEmpresa = item.IdEmpresa;
+                    lM = db.vwin_producto.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new in_Producto_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        Estado = q.Estado,
+                        IdPresentacion = q.IdPresentacion,
+                        nom_Categoria = q.ca_Categoria,
+                        nom_Linea = q.nom_linea,
+                        nom_Grupo = q.nom_grupo,
+                        nom_SubGrupo = q.nom_subgrupo,
+                        nom_Marca = q.Descripcion,
+                        nom_Tipo_Producto = q.tp_descripcion,
+                        pr_descripcion_2 = q.pr_descripcion_2,
+                        pr_descripcion = q.pr_descripcion,
+                        PesoEspecifico = q.PesoEspecifico,
+                        AnchoEspecifico = q.AnchoEspecifico,
+                        IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo,
 
-                    prd.IdMarca = (item.IdMarca == null) ? 0 : Convert.ToInt32(item.IdMarca);
+                        IdMarca = q.IdMarca,
 
-                    prd.IdProducto = item.IdProducto;
-                    
-                    prd.IdProductoTipo = item.IdProductoTipo;
+                        IdProducto = q.IdProducto,
 
-                    prd.IdUnidadMedida = item.IdUnidadMedida.Trim();
-                    prd.IdUsuario = item.IdUsuario.Trim();
-                    prd.IdUsuarioUltAnu = item.IdUsuarioUltAnu;
-                    prd.IdUsuarioUltMod = item.IdUsuarioUltMod;
-                    prd.ip = item.ip.Trim();
-                    prd.nom_pc = item.nom_pc.Trim();
-                    prd.pr_alto = item.pr_alto;
-                    prd.pr_codigo = item.pr_codigo.Trim();
-                    prd.pr_codigo_barra = item.pr_codigo_barra.Trim();
-                    prd.pr_costo_CIF = item.pr_costo_CIF;
-                    prd.pr_costo_fob = item.pr_costo_fob;
-                    prd.pr_costo_promedio = item.pr_costo_promedio;
-                    prd.pr_descripcion = item.pr_descripcion.Trim();
-                    prd.pr_DiasAereo = item.pr_DiasAereo;
-                    prd.pr_DiasMaritimo = item.pr_DiasMaritimo;
-                    prd.pr_DiasTerrestre = item.pr_DiasTerrestre;
-                    
-                    prd.pr_largo = item.pr_largo;
-                    
-                    prd.pr_ManejaSeries = item.pr_ManejaSeries.Trim();
-                    prd.pr_observacion = item.pr_observacion.Trim();
-                    prd.pr_partidaArancel = item.pr_partidaArancel;
-                    prd.pr_pedidos = item.pr_pedidos;
-                    prd.pr_peso = item.pr_peso;
-                    prd.pr_porcentajeArancel = item.pr_porcentajeArancel;
-                    prd.pr_precio_mayor = item.pr_precio_mayor;
-                    prd.pr_precio_minimo = item.pr_precio_minimo;
-                    prd.pr_precio_publico = item.pr_precio_publico;
-                    prd.pr_profundidad = item.pr_profundidad;
-                    prd.pr_stock = item.pr_stock;
-                    prd.pr_descripcion_2 = "[" + item.pr_codigo + "]- " + item.pr_descripcion;
-                    prd.pr_stock_maximo = item.pr_stock_maximo;
-                    prd.pr_stock_minimo = item.pr_stock_minimo;
-                    prd.IdProductoTipo = item.IdProductoTipo;
+                        IdProductoTipo = q.IdProductoTipo,
 
-                    prd.IdCategoria = item.IdCategoria.Trim();
-                    prd.IdLinea = Convert.ToInt32(item.IdLinea);
-                    prd.IdGrupo = Convert.ToInt32(item.IdGrupo);
-                    prd.IdSubGrupo = Convert.ToInt32(item.IdSubGrupo);
+                        IdUnidadMedida = q.IdUnidadMedida,
+                        IdUsuario = q.IdUsuario,
+                        IdUsuarioUltAnu = q.IdUsuarioUltAnu,
+                        IdUsuarioUltMod = q.IdUsuarioUltMod,
+                        ip = q.ip,
+                        nom_pc = q.nom_pc,
+                        pr_alto = q.pr_alto,
+                        pr_codigo = q.pr_codigo,
+                        pr_codigo_barra = q.pr_codigo_barra,
+                        pr_costo_CIF = q.pr_costo_CIF,
+                        pr_costo_fob = q.pr_costo_fob,
+                        pr_costo_promedio = q.pr_costo_promedio,
+                        pr_DiasAereo = q.pr_DiasAereo,
+                        pr_DiasMaritimo = q.pr_DiasMaritimo,
+                        pr_DiasTerrestre = q.pr_DiasTerrestre,
 
-                    
+                        pr_largo = q.pr_largo,
 
-                    prd.IdProductoTipo = item.IdProductoTipo;
-                    prd.ManejaKardex = item.ManejaKardex;
+                        pr_ManejaSeries = q.pr_ManejaSeries,
+                        pr_observacion = q.pr_observacion,
+                        pr_partidaArancel = q.pr_partidaArancel,
+                        pr_pedidos = q.pr_pedidos,
+                        pr_peso = q.pr_peso,
+                        pr_porcentajeArancel = q.pr_porcentajeArancel,
+                        pr_precio_mayor = q.pr_precio_mayor,
+                        pr_precio_minimo = q.pr_precio_minimo,
+                        pr_precio_publico = q.pr_precio_publico,
+                        pr_profundidad = q.pr_profundidad,
+                        pr_stock = q.pr_stock,
 
-                    //prd.IdNaturaleza = item.IdNaturaleza;
-                    prd.pr_ManejaIva = item.pr_ManejaIva.Trim();
+                        pr_stock_maximo = q.pr_stock_maximo,
+                        pr_stock_minimo = q.pr_stock_minimo,
 
-                    prd.IdMotivo_Vta = Convert.ToInt32(item.IdMotivo_Vta);
+                        IdCategoria = q.IdCategoria,
+                        IdLinea = q.IdLinea,
+                        IdGrupo = q.IdGrupo,
+                        IdSubGrupo = q.IdSubGrupo,
+                        ManejaKardex = q.ManejaKardex,
 
-                    prd.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
-                    prd.IdCod_Impuesto_Ice = item.IdCod_Impuesto_Ice;
-                    prd.Aparece_modu_Ventas = item.Aparece_modu_Ventas;
-                    prd.Aparece_modu_Compras = item.Aparece_modu_Compras;
-                    prd.Aparece_modu_Inventario = item.Aparece_modu_Inventario;
-                    prd.Aparece_modu_Activo_F = item.Aparece_modu_Activo_F;
+                        // IdNaturaleza = q.IdNaturaleza,
+                        pr_ManejaIva = q.pr_ManejaIva,
 
+                        IdMotivo_Vta = q.IdMotivo_Vta ?? 0,
 
-
-                    lM.Add(prd);
+                        IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
+                        IdCod_Impuesto_Ice = q.IdCod_Impuesto_Ice,
+                        Aparece_modu_Ventas = q.Aparece_modu_Ventas,
+                        Aparece_modu_Compras = q.Aparece_modu_Compras,
+                        Aparece_modu_Inventario = q.Aparece_modu_Inventario,
+                        Aparece_modu_Activo_F = q.Aparece_modu_Activo_F,
+                        IdFamilia = q.IdFamilia,
+                        mobile_cod_produccion = q.mobile_cod_produccion
+                    }).ToList();
+                    lM.ForEach(q => q.pr_descripcion_2 = "[" + q.pr_codigo + "]- " + q.pr_descripcion);
                 }
                 return (lM);
             }
@@ -1025,7 +1037,7 @@ namespace Core.Erp.Data.Inventario
                             address.Aparece_modu_Compras = prI.Aparece_modu_Compras;
                             address.Aparece_modu_Inventario = prI.Aparece_modu_Inventario;
                             address.Aparece_modu_Activo_F = prI.Aparece_modu_Activo_F;
-
+                            address.IdFamilia = prI.IdFamilia;
                             context.in_Producto.Add(address);
                             context.SaveChanges();
 
@@ -1223,7 +1235,7 @@ namespace Core.Erp.Data.Inventario
                         contact.Aparece_modu_Compras = prI.Aparece_modu_Compras;
                         contact.Aparece_modu_Inventario = prI.Aparece_modu_Inventario;
                         contact.Aparece_modu_Activo_F = prI.Aparece_modu_Activo_F;
-
+                        contact.IdFamilia = prI.IdFamilia;
                         contact.Fecha_UltMod = DateTime.Now;
 
 
@@ -1901,7 +1913,68 @@ namespace Core.Erp.Data.Inventario
         
         }
 
+        public List<in_Producto_Info> GetListProductoCombo(int IdEmpresa, Cl_Enumeradores.eModulos Modulo)
+        {
+            try
+            {
+                List<in_Producto_Info> Lista;
 
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    switch (Modulo)
+                    {
+                        case Cl_Enumeradores.eModulos.COMP:
+                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A" && q.Aparece_modu_Compras == true).Select(q => new in_Producto_Info
+                            {
+                                IdEmpresa = q.IdEmpresa,
+                                IdProducto = q.IdProducto,
+                                pr_descripcion = q.pr_descripcion,
+                                IdUnidadMedida = q.IdUnidadMedida,
+                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
+                            }).ToList();
+                            break;
+                        case Cl_Enumeradores.eModulos.FAC:
+                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A" && q.Aparece_modu_Ventas == true).Select(q => new in_Producto_Info
+                            {
+                                IdEmpresa = q.IdEmpresa,
+                                IdProducto = q.IdProducto,
+                                IdUnidadMedida = q.IdUnidadMedida,
+                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo,
+                                pr_descripcion = q.pr_descripcion,
+                            }).ToList();
+                            break;
+                        case Cl_Enumeradores.eModulos.INV:
+                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A" && q.Aparece_modu_Inventario == true).Select(q => new in_Producto_Info
+                            {
+                                IdEmpresa = q.IdEmpresa,
+                                IdProducto = q.IdProducto,
+                                pr_descripcion = q.pr_descripcion,
+                                IdUnidadMedida = q.IdUnidadMedida,
+                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
+                            }).ToList();
+                            break;
+                        default:
+                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A").Select(q => new in_Producto_Info
+                            {
+                                IdEmpresa = q.IdEmpresa,
+                                IdProducto = q.IdProducto,
+                                pr_descripcion = q.pr_descripcion,
+                                IdUnidadMedida = q.IdUnidadMedida,
+                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
+                            }).ToList();
+                            break;
+                    }
+                    
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public List<in_Producto_Info> Get_list_ProductosMateriaPrima(int IdEmpresa)
         {
@@ -2715,6 +2788,90 @@ namespace Core.Erp.Data.Inventario
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
                 MensajeError = ex.ToString() + " " + ex.Message;
                 throw new Exception(ex.ToString());
+            }
+        }
+
+        public double GetStockProductoPorEmpresa(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                double Stock = 0;
+
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var query = db.in_movi_inve_detalle.Where(q => q.IdEmpresa == IdEmpresa && q.IdProducto == IdProducto).GroupBy(q => new { q.IdEmpresa, q.IdProducto }).Select(q => q.Sum(v => v.dm_cantidad)).FirstOrDefault();
+                    if (query != null)
+                        Stock = query;
+                }
+
+                return Stock;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<in_Producto_Info> GetListStockPorBodega(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                List<in_Producto_Info> Lista;
+
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    Lista = db.SPINV_Stock(IdEmpresa, IdProducto).Select(q => new in_Producto_Info
+                    {
+                        IdEmpresa = q.idempresa,
+                        nom_Sucursal = q.Su_Descripcion,
+                        nom_Bodega = q.bo_Descripcion,
+                        pr_stock = q.Stock
+                    }).ToList();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+        public List<in_Producto_ComprasAnteriores> GetListCompras(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                List<in_Producto_ComprasAnteriores> Lista;
+
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    Lista = db.SPINV_ComprasAnteriores(IdEmpresa, IdProducto).Select(q => new in_Producto_ComprasAnteriores
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSucursal = q.IdSucursal,
+                        IdOrdenCompra = q.IdOrdenCompra,
+                        Secuencia = q.Secuencia,
+                        IdProducto = q.IdProducto,
+                        IdProveedor = q.IdProveedor,
+                        pr_descripcion = q.pr_descripcion,
+                        do_precioCompra = q.do_precioCompra,
+                        do_porc_des = q.do_porc_des,
+                        do_descuento = q.do_descuento,
+                        do_precioFinal = q.do_precioFinal,
+                        oc_fecha = q.oc_fecha,
+                        Codigo = q.Codigo,
+                        pe_nombreCompleto = q.pe_nombreCompleto,
+                        NomUnidadMedida = q.NomUnidadMedida
+                    }).OrderByDescending(q=> q.oc_fecha).ToList();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }

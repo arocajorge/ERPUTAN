@@ -18,24 +18,19 @@ namespace Core.Erp.Data.Contabilidad
           List<ct_punto_cargo_Info> Lst = new List<ct_punto_cargo_Info>();
           try
           {
-              EntitiesDBConta oEnti = new EntitiesDBConta();
-              var Query = from q in oEnti.ct_punto_cargo
-                          where q.IdEmpresa == IdEmpresa
-
-                          select q;
-              foreach (var item in Query)
+              using (EntitiesDBConta db = new EntitiesDBConta())
               {
-                  ct_punto_cargo_Info Obj = new ct_punto_cargo_Info();
+                  Lst = db.ct_punto_cargo.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new ct_punto_cargo_Info
+                  {
+                      IdEmpresa = q.IdEmpresa,
+                      IdPunto_cargo = q.IdPunto_cargo,
+                      codPunto_cargo = q.codPunto_cargo,
+                      nom_punto_cargo = q.nom_punto_cargo,
+                      IdPunto_cargo_grupo = q.IdPunto_cargo_grupo,
+                      Estado = q.Estado
+                  }).ToList();
 
-                  Obj.IdEmpresa = item.IdEmpresa;
-                  Obj.IdPunto_cargo = item.IdPunto_cargo;
-                  Obj.codPunto_cargo = item.codPunto_cargo;
-                  Obj.nom_punto_cargo = item.nom_punto_cargo;
-                  Obj.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                  Obj.nom_punto_cargo2 = "[" + item.IdPunto_cargo + "] " + item.nom_punto_cargo;
-                  Obj.Estado = item.Estado.TrimEnd();
-                                
-                  Lst.Add(Obj);
+                  Lst.ForEach(q=> q.nom_punto_cargo2 = "[" + q.IdPunto_cargo + "] " + q.nom_punto_cargo);
               }
               return Lst;
           }

@@ -37,6 +37,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).BeginInit();
             this.SuspendLayout();
@@ -66,8 +67,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 4, 24, 15, 20, 58, 978);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 6, 24, 15, 20, 58, 978);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 5, 19, 19, 43, 58, 691);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 7, 19, 19, 43, 58, 691);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -134,12 +135,14 @@
             this.gridColumn3,
             this.gridColumn4,
             this.gridColumn5,
-            this.gridColumn6});
+            this.gridColumn6,
+            this.gridColumn7});
             this.gv_Consulta.GridControl = this.gc_Consulta;
             this.gv_Consulta.Name = "gv_Consulta";
             this.gv_Consulta.OptionsBehavior.ReadOnly = true;
             this.gv_Consulta.OptionsView.ShowAutoFilterRow = true;
             this.gv_Consulta.OptionsView.ShowGroupPanel = false;
+            this.gv_Consulta.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_Consulta_RowStyle);
             // 
             // gridColumn1
             // 
@@ -148,7 +151,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 135;
+            this.gridColumn1.Width = 129;
             // 
             // gridColumn2
             // 
@@ -157,7 +160,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 178;
+            this.gridColumn2.Width = 170;
             // 
             // gridColumn3
             // 
@@ -166,7 +169,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 721;
+            this.gridColumn3.Width = 560;
             // 
             // gridColumn4
             // 
@@ -175,7 +178,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 281;
+            this.gridColumn4.Width = 269;
             // 
             // gridColumn5
             // 
@@ -183,8 +186,8 @@
             this.gridColumn5.FieldName = "Estado";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
-            this.gridColumn5.Width = 206;
+            this.gridColumn5.VisibleIndex = 6;
+            this.gridColumn5.Width = 164;
             // 
             // gridColumn6
             // 
@@ -192,8 +195,17 @@
             this.gridColumn6.FieldName = "CatalogoEstado";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 213;
+            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.Width = 164;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Cargo";
+            this.gridColumn7.FieldName = "nom_punto_cargo";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 4;
+            this.gridColumn7.Width = 278;
             // 
             // frmCom_OrdenPedidoConsulta
             // 
@@ -222,5 +234,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }

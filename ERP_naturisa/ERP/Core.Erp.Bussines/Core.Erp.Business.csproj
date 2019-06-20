@@ -207,6 +207,9 @@
     <Compile Include="Compras\com_CatalogoTipo_Bus.cs" />
     <Compile Include="Compras\com_Catalogo_Bus.cs" />
     <Compile Include="Compras\com_comprador_Bus.cs" />
+    <Compile Include="Compras\com_comprador_familia_Bus.cs" />
+    <Compile Include="Compras\com_CotizacionPedidoDet_Bus.cs" />
+    <Compile Include="Compras\com_CotizacionPedido_Bus.cs" />
     <Compile Include="Compras\com_cotizacion_compra_det_Bus.cs" />
     <Compile Include="Compras\com_departamento_Bus.cs" />
     <Compile Include="Compras\com_dev_compra_Bus.cs" />
@@ -539,6 +542,7 @@
     <Compile Include="Inventario\in_devolucion_inven_Bus.cs" />
     <Compile Include="Inventario\in_devolucion_inven_det_Bus.cs" />
     <Compile Include="Inventario\in_egreso_d_Suministro_Bus.cs" />
+    <Compile Include="Inventario\in_Familia_Bus.cs" />
     <Compile Include="Inventario\in_grupo_Bus.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_Bus.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_det_Bus.cs" />

@@ -144,6 +144,9 @@
     <Compile Include="Bancos\ba_IngrEgre_x_Cbte_depos_Info.cs" />
     <Compile Include="Caja\caj_catalogo_Info.cs" />
     <Compile Include="Caja\Caj_Talonario_Recibo_Info.cs" />
+    <Compile Include="Compras\com_comprador_familia_Info.cs" />
+    <Compile Include="Compras\com_CotizacionPedidoDet_Info.cs" />
+    <Compile Include="Compras\com_CotizacionPedido_Info.cs" />
     <Compile Include="Compras\com_OrdenPedidoDet_Info.cs" />
     <Compile Include="Compras\com_OrdenPedido_Info.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Info.cs" />
@@ -718,6 +721,7 @@
     <Compile Include="Inventario\in_egreso_d_Suministro_Info.cs" />
     <Compile Include="Inventario\in_Egreso_varios_det_Info.cs" />
     <Compile Include="Inventario\in_Egreso_varios_Info.cs" />
+    <Compile Include="Inventario\in_Familia_Info.cs" />
     <Compile Include="Inventario\in_grupo_info.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_det_Info.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_det_sin_oc_Info.cs" />

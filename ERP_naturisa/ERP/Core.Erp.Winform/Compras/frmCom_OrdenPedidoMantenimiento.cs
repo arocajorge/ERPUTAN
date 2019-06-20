@@ -15,6 +15,10 @@ namespace Core.Erp.Winform.Compras
     using Core.Erp.Business.Compras;
     using Core.Erp.Info.Compras;
     using Core.Erp.Business.Contabilidad;
+    using Core.Erp.Business.Inventario;
+using Core.Erp.Info.Inventario;
+    using DevExpress.XtraGrid.Views.Grid;
+    using Core.Erp.Winform.Inventario;
 
     public partial class frmCom_OrdenPedidoMantenimiento : Form
     {
@@ -29,11 +33,14 @@ namespace Core.Erp.Winform.Compras
         BindingList<com_OrdenPedidoDet_Info> blst_det;
         tb_Sucursal_Bus bus_sucursal;
         ct_punto_cargo_Bus bus_punto_cargo;
+        in_producto_Bus bus_producto;
+        in_UnidadMedida_Bus bus_uni_medida;
+        List<in_Producto_Info> Lista_producto;
         #endregion
 
         #region Delegados
-        public delegate void delegate_frmCom_OrdenPedidoMantenimiento_FormClosed(object sender, FormClosedEventArgs e);
-        public event delegate_frmCom_OrdenPedidoMantenimiento_FormClosed event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed;
+        public delegate void delegate_frmCom_OrdenPedidoMantenimiento_FormClosing(object sender, FormClosingEventArgs e);
+        public event delegate_frmCom_OrdenPedidoMantenimiento_FormClosing event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing;
         #endregion
 
         public frmCom_OrdenPedidoMantenimiento()
@@ -46,13 +53,17 @@ namespace Core.Erp.Winform.Compras
             blst_det = new BindingList<com_OrdenPedidoDet_Info>();
             bus_sucursal = new tb_Sucursal_Bus();
             bus_punto_cargo = new ct_punto_cargo_Bus();
-            event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed += frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed;
+            bus_producto = new in_producto_Bus();
+            bus_uni_medida = new in_UnidadMedida_Bus();
+            Lista_producto = new List<in_Producto_Info>();
+            event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing += frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing;
         }
 
-        void frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed(object sender, FormClosedEventArgs e)
+        void frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            
         }
+
 
         private void CargarCombos()
         {
@@ -60,7 +71,14 @@ namespace Core.Erp.Winform.Compras
             {
                 cmb_Departamento.Properties.DataSource = bus_departamento.Get_List_Departamento(param.IdEmpresa);
                 var lstSucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
-                
+                cmb_SucursalDestino.DataSource = lstSucursal;
+                cmb_SucursalOrdigen.DataSource = lstSucursal;
+                var lstPuntoCargo =bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
+                cmb_PuntoCargo.DataSource = lstPuntoCargo;
+                Lista_producto = bus_producto.GetListProductoCombo(param.IdEmpresa, Cl_Enumeradores.eModulos.COMP);
+                cmb_producto.DataSource = Lista_producto;
+                cmb_UnidadMedida.DataSource = bus_uni_medida.Get_list_UnidadMedida();
+                cmb_PuntoCargoCab.Properties.DataSource = lstPuntoCargo;
             }
             catch (Exception)
             {
@@ -87,6 +105,25 @@ namespace Core.Erp.Winform.Compras
             try
             {
                 CargarCombos();
+                    var solicitante = bus_solicitante.GetInfo(param.IdEmpresa, param.IdUsuario);
+                    if (solicitante == null)
+                        MessageBox.Show("No tiene un usuario solicitante configurado para el módulo de compras, comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    else
+                    {
+                        if (solicitante.IdDepartamento != null)
+                        {
+                            cmb_Departamento.Visible = false;
+                            lblDepartamento.Visible = false;                            
+                        }
+                        else
+                        {
+                            cmb_Departamento.Visible = true;
+                            lblDepartamento.Visible = true;                    
+                        }
+                        cmb_Departamento.EditValue = solicitante.IdDepartamento;
+                        param.IdSolicitante = solicitante.IdSolicitante;
+                    }
+                
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -140,6 +177,8 @@ namespace Core.Erp.Winform.Compras
                     cmb_Departamento.EditValue = info_pedido.IdDepartamento;
                     de_Fecha.DateTime = info_pedido.op_Fecha.Date;
                     txt_codigo.Text = info_pedido.op_Codigo;
+                    chk_EsCompraUrgente.Checked = info_pedido.EsCompraUrgente;
+                    cmb_PuntoCargoCab.EditValue = info_pedido.IdPunto_cargo;
                     blst_det = new BindingList<com_OrdenPedidoDet_Info>(bus_detalle.GetList(info_pedido.IdEmpresa,info_pedido.IdOrdenPedido));
                     gc_detalle.DataSource = blst_det;
                 }
@@ -199,6 +238,8 @@ namespace Core.Erp.Winform.Compras
                 txt_codigo.Text = string.Empty;
                 blst_det = new BindingList<com_OrdenPedidoDet_Info>();
                 gc_detalle.DataSource = blst_det;
+                chk_EsCompraUrgente.Checked = false;
+                cmb_PuntoCargoCab.EditValue = null;
                 SetAccionInControls();
             }
             catch (Exception)
@@ -214,6 +255,7 @@ namespace Core.Erp.Winform.Compras
                 de_Fecha.DateTime = DateTime.Now.Date;
                 gc_detalle.DataSource = blst_det;
                 SetAccionInControls();
+                
             }
             catch (Exception)
             {
@@ -225,6 +267,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
+                txt_codigo.Focus();
                 info_pedido = new com_OrdenPedido_Info
                 {
                     IdEmpresa = param.IdEmpresa,
@@ -235,6 +278,8 @@ namespace Core.Erp.Winform.Compras
                     op_Codigo = txt_codigo.Text,
                     op_Fecha = de_Fecha.DateTime.Date,
                     op_Observacion = txt_Observacion.Text,
+                    EsCompraUrgente = chk_EsCompraUrgente.Checked,
+                    IdPunto_cargo = cmb_PuntoCargoCab.EditValue == null ? null : (int?)cmb_PuntoCargoCab.EditValue,
                     ListaDetalle = new List<com_OrdenPedidoDet_Info>(blst_det)
                 };
             }
@@ -245,11 +290,6 @@ namespace Core.Erp.Winform.Compras
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void frmCom_OrdenPedidoMantenimiento_FormClosed(object sender, FormClosedEventArgs e)
         {
 
         }
@@ -317,7 +357,7 @@ namespace Core.Erp.Winform.Compras
             {
                 if (bus_orden.GuardarDB(info_pedido))
                 {
-                    MessageBox.Show("Registro guardado exitósamente");
+                    MessageBox.Show("Orden de pedido # "+info_pedido.IdOrdenPedido.ToString()+" creado exitósamente");
                     return true;
                 }
                 return true;
@@ -334,7 +374,7 @@ namespace Core.Erp.Winform.Compras
             {
                 if (bus_orden.ModificarDB(info_pedido))
                 {
-                    MessageBox.Show("Registro modificado exitósamente");
+                    MessageBox.Show("Orden de pedido # " + info_pedido.IdOrdenPedido.ToString() + " modificado exitósamente");
                     return true;
                 }
                 return true;
@@ -359,6 +399,163 @@ namespace Core.Erp.Winform.Compras
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        private void gv_detalle_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                com_OrdenPedidoDet_Info row = (com_OrdenPedidoDet_Info)gv_detalle.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+
+                if (col_IdProducto == e.Column)
+                {
+                    if (row.IdProducto != null)
+                    {
+                        var producto = Lista_producto.Where(q => q.IdEmpresa == param.IdEmpresa && q.IdProducto == Convert.ToDecimal(row.IdProducto)).FirstOrDefault();
+                        if (producto != null)
+                        {
+                            row.pr_descripcion = producto.pr_descripcion;
+                            row.IdUnidadMedida = producto.IdUnidadMedida;
+                            row.IdUnidadMedida_Consumo = producto.IdUnidadMedida_Consumo;
+                            row.Stock = bus_producto.GetStockProductoPorEmpresa(param.IdEmpresa, Convert.ToDecimal(row.IdProducto));
+                        }
+                    }
+                    else
+                    {
+                        row.IdUnidadMedida = "UND";
+                        row.IdUnidadMedida_Consumo = "UND";
+                        row.pr_descripcion = string.Empty;
+                        row.Stock = 0;
+                    }    
+                }
+
+                if (cmb_PuntoCargoCab.EditValue != null)
+                    row.IdPunto_cargo = Convert.ToInt32(cmb_PuntoCargoCab.EditValue);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void gv_detalle_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
+        {
+            SetEstadoCelda(gv_detalle.FocusedRowHandle);
+        }
+
+        private void gv_detalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            SetEstadoCelda(e.FocusedRowHandle);
+        }
+
+        private void SetEstadoCelda(int RowHandle)
+        {
+            com_OrdenPedidoDet_Info row = (com_OrdenPedidoDet_Info)gv_detalle.GetRow(RowHandle);
+            if (row == null)
+            {
+                col_IdUnidadMedida.OptionsColumn.AllowEdit = true;
+                col_pr_descripcion.OptionsColumn.AllowEdit = true;
+            }
+            else
+                if (row.IdProducto == null)
+            {
+                col_IdUnidadMedida.OptionsColumn.AllowEdit = false;
+                col_pr_descripcion.OptionsColumn.AllowEdit = true;
+            }else
+            if (row.IdProducto != null)
+            {
+                col_IdUnidadMedida.OptionsColumn.AllowEdit = true;
+                col_pr_descripcion.OptionsColumn.AllowEdit = false;
+            }
+        }
+
+        private void txtStock_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                com_OrdenPedidoDet_Info row = (com_OrdenPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if(row == null)
+                    return;
+
+                if(row.IdProducto == null)
+                    return;
+
+                FrmIn_ProductoPorBodegaStock frm = new FrmIn_ProductoPorBodegaStock();
+                frm._IdProducto = row.IdProducto ?? 0;
+                frm.Show();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void gv_detalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Delete)
+                {
+                    gv_detalle.DeleteSelectedRows();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void frmCom_OrdenPedidoMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing(sender, e);
+        }
+
+        private void cmb_subir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_OrdenPedidoDet_Info row = (com_OrdenPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+                string filePath = null;
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = saveFileDialog1.FileName;
+                    row.Adjunto = true;
+                    gc_detalle.RefreshDataSource();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void gv_detalle_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            try
+            {
+                com_OrdenPedidoDet_Info row = (com_OrdenPedidoDet_Info)gv_detalle.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+                if(row.IdProducto == null)
+                    e.Appearance.ForeColor = Color.DarkOrange;
+            }
+            catch (Exception)
+            {
+                
             }
         }
     }

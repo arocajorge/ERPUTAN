@@ -16,6 +16,7 @@ namespace Core.Erp.Data
     {
         public com_comprador()
         {
+            this.com_comprador_familia = new HashSet<com_comprador_familia>();
             this.com_ordencompra_local = new HashSet<com_ordencompra_local>();
             this.com_solicitud_compra = new HashSet<com_solicitud_compra>();
         }
@@ -25,8 +26,6 @@ namespace Core.Erp.Data
         public string IdUsuario_com { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
-        public Nullable<decimal> IdPersona { get; set; }
-        public string cedula { get; set; }
         public string IdUsuario { get; set; }
         public Nullable<System.DateTime> Fecha_Transac { get; set; }
         public string IdUsuarioUltMod { get; set; }
@@ -35,6 +34,7 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> Fecha_UltAnu { get; set; }
         public string MotiAnula { get; set; }
     
+        public virtual ICollection<com_comprador_familia> com_comprador_familia { get; set; }
         public virtual ICollection<com_ordencompra_local> com_ordencompra_local { get; set; }
         public virtual ICollection<com_solicitud_compra> com_solicitud_compra { get; set; }
     }

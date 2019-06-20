@@ -92,4 +92,12 @@ namespace Core.Erp.Info.CuentasxPagar
         }
 
     }
+
+    public class cp_proveedor_combo_Info
+    {
+        public int IdEmpresa { get; set; }
+        public decimal IdProveedor { get; set; }
+        public string pe_nombreCompleto { get; set; }
+        public string pe_cedulaRuc { get; set; }
+    }
 }

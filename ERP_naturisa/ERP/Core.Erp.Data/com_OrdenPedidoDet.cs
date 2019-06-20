@@ -14,10 +14,15 @@ namespace Core.Erp.Data
     
     public partial class com_OrdenPedidoDet
     {
+        public com_OrdenPedidoDet()
+        {
+            this.com_CotizacionPedidoDet = new HashSet<com_CotizacionPedidoDet>();
+        }
+    
         public int IdEmpresa { get; set; }
         public decimal IdOrdenPedido { get; set; }
         public int Secuencia { get; set; }
-        public decimal IdProducto { get; set; }
+        public Nullable<decimal> IdProducto { get; set; }
         public string pr_descripcion { get; set; }
         public string IdUnidadMedida { get; set; }
         public int IdSucursalOrigen { get; set; }
@@ -27,7 +32,10 @@ namespace Core.Erp.Data
         public double opd_CantidadApro { get; set; }
         public string opd_EstadoProceso { get; set; }
         public string opd_Detalle { get; set; }
+        public bool Adjunto { get; set; }
+        public string NombreArchivo { get; set; }
     
+        public virtual ICollection<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
         public virtual com_OrdenPedido com_OrdenPedido { get; set; }
     }
 }

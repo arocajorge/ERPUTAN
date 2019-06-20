@@ -1534,6 +1534,14 @@
       [vwcp_OrdenGiroRetencionReport].[IdEmpresa_Ogiro] AS [IdEmpresa_Ogiro]
       FROM [dbo].[vwcp_OrdenGiroRetencionReport] AS [vwcp_OrdenGiroRetencionReport]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwcp_proveedor_combo" EntityType="ModelCuentasxPagar.Store.vwcp_proveedor_combo" store:Type="Views" store:Schema="dbo" store:Name="vwcp_proveedor_combo">
+            <DefiningQuery>SELECT 
+      [vwcp_proveedor_combo].[IdEmpresa] AS [IdEmpresa], 
+      [vwcp_proveedor_combo].[IdProveedor] AS [IdProveedor], 
+      [vwcp_proveedor_combo].[pe_nombrecompleto] AS [pe_nombrecompleto], 
+      [vwcp_proveedor_combo].[pe_cedularuc] AS [pe_cedularuc]
+      FROM [dbo].[vwcp_proveedor_combo] AS [vwcp_proveedor_combo]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwcp_proveedor_vista_previa" EntityType="ModelCuentasxPagar.Store.vwcp_proveedor_vista_previa" store:Type="Views" store:Schema="dbo" store:Name="vwcp_proveedor_vista_previa">
             <DefiningQuery>SELECT 
       [vwcp_proveedor_vista_previa].[IdEmpresa] AS [IdEmpresa], 
@@ -2742,7 +2750,7 @@
           <Property Name="IdCbteCble_cxp" Type="numeric" />
           <Property Name="IdTipoCbte_cxp" Type="int" />
           <Property Name="Valor_a_pagar" Type="float" Nullable="false" />
-          <Property Name="Referencia" Type="varchar" MaxLength="50" />
+          <Property Name="Referencia" Type="varchar(max)" />
           <Property Name="IdFormaPago" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="Fecha_Pago" Type="date" Nullable="false" />
           <Property Name="IdEstadoAprobacion" Type="varchar" Nullable="false" MaxLength="10" />
@@ -5500,6 +5508,21 @@
           <Property Name="IdEmpresa_Ogiro" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_proveedor_combo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcp_proveedor_combo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="pe_nombrecompleto" />
+            <PropertyRef Name="pe_cedularuc" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="pe_nombrecompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedularuc" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_proveedor_vista_previa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_proveedor_vista_previa">
@@ -7077,6 +7100,7 @@
             <Parameter Name="mostrar_saldo_0" Mode="In" Type="Boolean" />
           </FunctionImport>
           <EntitySet Name="vwcp_orden_giro_consulta" EntityType="ModelCuentasxPagar.vwcp_orden_giro_consulta" />
+          <EntitySet Name="vwcp_proveedor_combo" EntityType="ModelCuentasxPagar.vwcp_proveedor_combo" />
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -7715,7 +7739,7 @@
           <Property Name="IdCbteCble_cxp" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IdTipoCbte_cxp" Type="Int32" />
           <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Referencia" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Referencia" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="Fecha_Pago" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
@@ -11729,6 +11753,18 @@
           <Property Type="String" Name="descripcion_clas_prove" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vwcp_proveedor_combo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="pe_nombrecompleto" />
+            <PropertyRef Name="pe_cedularuc" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombrecompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedularuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -14717,6 +14753,16 @@
                 <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
                 <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
                 <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_proveedor_combo">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_proveedor_combo">
+              <MappingFragment StoreEntitySet="vwcp_proveedor_combo">
+                <ScalarProperty Name="pe_cedularuc" ColumnName="pe_cedularuc" />
+                <ScalarProperty Name="pe_nombrecompleto" ColumnName="pe_nombrecompleto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

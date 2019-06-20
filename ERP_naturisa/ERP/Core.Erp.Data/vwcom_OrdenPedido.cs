@@ -27,5 +27,7 @@ namespace Core.Erp.Data
         public string IdCatalogoEstado { get; set; }
         public decimal IdSolicitante { get; set; }
         public decimal IdDepartamento { get; set; }
+        public Nullable<bool> EsCompraUrgente { get; set; }
+        public string nom_punto_cargo { get; set; }
     }
 }

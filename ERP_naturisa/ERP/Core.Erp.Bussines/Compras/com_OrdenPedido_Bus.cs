@@ -24,11 +24,26 @@ namespace Core.Erp.Business.Compras
             }
         }
 
+
+
         public bool GuardarDB(com_OrdenPedido_Info info)
         {
             try
             {
                 return odata.GuardarDB(info);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public List<com_OrdenPedido_Info> GetList(int IdEmpresa, string IdUsuario)
+        {
+            try
+            {
+                return odata.GetList(IdEmpresa, IdUsuario);
             }
             catch (Exception)
             {
@@ -68,6 +83,19 @@ namespace Core.Erp.Business.Compras
             try
             {
                 return odata.GetInfo(IdEmpresa, IdOrdenPedido);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool ValidarProceso(int IdEmpresa, decimal IdOrdenPedido)
+        {
+            try
+            {
+                return odata.ValidarProceso(IdEmpresa, IdOrdenPedido);
             }
             catch (Exception)
             {

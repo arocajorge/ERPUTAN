@@ -17,6 +17,32 @@ namespace Core.Erp.Data.CuentasxPagar
     { 
         string mensaje = "";
 
+        public List<cp_proveedor_combo_Info> GetListCombo(int IdEmpresa)
+        {
+            try
+            {
+                List<cp_proveedor_combo_Info> Lista = new List<cp_proveedor_combo_Info>();
+
+                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                {
+                    Lista = db.vwcp_proveedor_combo.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new cp_proveedor_combo_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdProveedor = q.IdProveedor,
+                        pe_nombreCompleto = q.pe_nombrecompleto,
+                        pe_cedulaRuc = q.pe_cedularuc
+                    }).ToList();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public List<cp_proveedor_Info> Get_List_proveedor(int IdEmpresa)
         {
             try

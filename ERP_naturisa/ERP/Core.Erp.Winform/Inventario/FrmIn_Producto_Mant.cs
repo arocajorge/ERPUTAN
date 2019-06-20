@@ -34,41 +34,20 @@ namespace Core.Erp.Winform.Inventario
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         Cl_Enumeradores.eTipo_action _Accion;
-
+        in_Familia_Bus bus_familia = new in_Familia_Bus();
+        
 
                 vwtb_Bodega_x_Sucursal_TreeList_Info info_Bodega_x_Sucursal = new vwtb_Bodega_x_Sucursal_TreeList_Info();
                 
 
-                ct_Plancta_Bus plnCta_B = new ct_Plancta_Bus();                
-
-                BindingList<in_producto_x_cp_proveedor_Info> LBinProxProve ;
                 BindingList<in_Producto_Composicion_Info> LBinProComposi;
-                List<in_producto_x_cp_proveedor_Info> listaProd_x_prove;
                 
 
                 in_producto_Bus Bus_Producto = new in_producto_Bus();
                 in_Producto_Info Info_Producto = new in_Producto_Info();
         
-                List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
-                ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
-
-                List<ct_Centro_costo_Info> listCentroCosto_Info = new List<ct_Centro_costo_Info>();
-                ct_Centro_costo_Bus BusCentroCosto = new ct_Centro_costo_Bus();
-                List<ct_centro_costo_sub_centro_costo_Info> list_SubCentroCosto_Info = new List<ct_centro_costo_sub_centro_costo_Info>();
-                ct_centro_costo_sub_centro_costo_Bus BusSubCentroCosto = new ct_centro_costo_sub_centro_costo_Bus();
-
-               
-
                 string MensajeError = "";
                 
-               
-                ct_Plancta_Bus _PlanCta_bus1 = new ct_Plancta_Bus();
-                List<ct_Plancta_Info> listaPlan = new List<ct_Plancta_Info>();
-                //lista producto x proveedor
-                List<in_producto_x_cp_proveedor_Info> lm_prod_x_prove = new List<in_producto_x_cp_proveedor_Info>();
-                List<in_producto_x_cp_proveedor_Info> _lm_prod_x_prove = new List<in_producto_x_cp_proveedor_Info>();
-                in_producto_x_cp_proveedor_Bus pxp_bus = new in_producto_x_cp_proveedor_Bus();
-
                 //lista producto composicion
                 List<in_Producto_Composicion_Info> lsComposicionProducto = new List<in_Producto_Composicion_Info>();
                 List<in_Producto_Composicion_Info> _lsComposicionProducto = new List<in_Producto_Composicion_Info>();
@@ -79,10 +58,6 @@ namespace Core.Erp.Winform.Inventario
                 in_producto_x_tb_bodega_Bus busProductoBodega = new in_producto_x_tb_bodega_Bus();
                 vwtb_Bodega_x_Sucursal_TreeList_Bus busBod_x_Suc = new vwtb_Bodega_x_Sucursal_TreeList_Bus();
                 List<vwtb_Bodega_x_Sucursal_TreeList_Info> lst_Bod_x_Suc = new List<vwtb_Bodega_x_Sucursal_TreeList_Info>();
-
-                fa_catalogo_Bus busFactCata = new fa_catalogo_Bus();
-                List<fa_catalogo_Info> lstFactCata = new List<fa_catalogo_Info>();
-                
 
                 public delegate void delegate_FrmIn_Producto_Mant_FormClosing(object sender, FormClosingEventArgs e, in_Producto_Info info);
                 public event delegate_FrmIn_Producto_Mant_FormClosing event_FrmIn_Producto_Mant_FormClosing;
@@ -144,10 +119,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 lblIdProducto.Text = Info_Producto.IdProducto.ToString();             
                 txtDescripcion2.Text = Info_Producto.pr_descripcion_2;             
-                txePesoEspecifico.EditValue = Info_Producto.PesoEspecifico;      
-                txeAnchoEspecifico.EditValue = Info_Producto.AnchoEspecifico;
-                //txtCodigo.Enabled = false;
-
+               
                 
                 cmbMarca.set_MarcaInfo(Info_Producto.IdMarca);
                 cmbUnidadMedida_Consumo.set_IdUnidadMedida(Info_Producto.IdUnidadMedida_Consumo);
@@ -155,17 +127,10 @@ namespace Core.Erp.Winform.Inventario
                 ucIn_Presentacion.set_PresentacionInfo(Info_Producto.IdPresentacion);
                 cmb_tipoProducto.set_TipoProductoInfo(Info_Producto.IdProductoTipo);                
                 
-                txeAlto.EditValue = Info_Producto.pr_alto;
                 txtCodigo.Text = Info_Producto.pr_codigo;
                 txtCodigoBarra.Text = Info_Producto.pr_codigo_barra;             
-                txeCostoCIF.EditValue = Convert.ToDouble(Info_Producto.pr_costo_CIF);            
-                txeCostoFOB.EditValue = Convert.ToDouble(Info_Producto.pr_costo_fob);            
-                txeCostoPromedio.EditValue = Convert.ToDouble(Info_Producto.pr_costo_promedio);
                 txtNombre.Text = Info_Producto.pr_descripcion;
-                txtDiasAereo.Value = Info_Producto.pr_DiasAereo;
-                txtDiasMaritimo.Value = Info_Producto.pr_DiasMaritimo;
-                txtDiasTerrestre.Value = Info_Producto.pr_DiasTerrestre;
-
+                cmb_familia.EditValue = Info_Producto.IdFamilia;
                 chkActivo.Checked = (Info_Producto.Estado == "A") ? true : false;
 
                 cmbCodImp_IVA.EditValue = Info_Producto.IdCod_Impuesto_Iva;
@@ -173,19 +138,7 @@ namespace Core.Erp.Winform.Inventario
 
                 chkManejaKardex.Checked = (Info_Producto.ManejaKardex == "S") ? true : false;
 
-                txeLargo.EditValue = Info_Producto.pr_largo;
                 txtObservacion.Text = Info_Producto.pr_observacion;
-                txtPartidaArancelaria.Text = Info_Producto.pr_partidaArancel;             
-                txePeso.EditValue = Info_Producto.pr_peso;
-                txtPorPartidaArancelaria.Value = Info_Producto.pr_porcentajeArancel;          
-                txePrecioMayor.EditValue = Convert.ToDouble(Info_Producto.pr_precio_mayor);             
-                txePrecioMinimo.EditValue = Convert.ToDouble(Info_Producto.pr_precio_minimo);           
-                txePrecioPublico.EditValue = Convert.ToDouble(Info_Producto.pr_precio_publico);            
-                txeProfundidad.EditValue = Info_Producto.pr_profundidad;              
-                txeStockMaximo.EditValue = Convert.ToDecimal(Info_Producto.pr_stock_maximo);
-                
-                txeStockminimo.EditValue = Convert.ToDecimal(Info_Producto.pr_stock_minimo);
-
                 ucIn_Linea_Grup_SubGr.set_item_Catgoria(Info_Producto.IdCategoria);
                 ucIn_Linea_Grup_SubGr.set_item_Linea(Convert.ToInt32(Info_Producto.IdLinea));
                 ucIn_Linea_Grup_SubGr.set_item_Grupo(Convert.ToInt32(Info_Producto.IdGrupo));
@@ -224,123 +177,73 @@ namespace Core.Erp.Winform.Inventario
                 Info_Producto.Estado = (chkActivo.Checked == true) ? "A" : "I";
                 Info_Producto.pr_descripcion = txtNombre.Text.Trim();
                 Info_Producto.IdPresentacion = null;
-                Info_Producto.pr_descripcion_2 = txtDescripcion2.Text;           
-                Info_Producto.PesoEspecifico = txePesoEspecifico.Text=="" ? 0 : Convert.ToDouble(txePesoEspecifico.EditValue);
-                Info_Producto.AnchoEspecifico = txeAnchoEspecifico.Text =="" ? 0 : Convert.ToDouble(txeAnchoEspecifico.EditValue);
-
+                Info_Producto.pr_descripcion_2 = txtDescripcion2.Text;
                 Info_Producto.IdPresentacion = ucIn_Presentacion.Get_PresentacionInfo().IdPresentacion;
-
                 byte[] arr =Funciones.ImageAArray(pibx_imagenPequeña.Image);
-
                 Info_Producto.pr_imagenPeque = arr;
-
                 Info_Producto.IdUnidadMedida_Consumo = cmbUnidadMedida_Consumo.Get_Info_UnidadMedida().IdUnidadMedida;
-
-              
-              
                 Info_Producto.IdCategoria = ucIn_Linea_Grup_SubGr.get_item_Categria();
                 Info_Producto.IdLinea = ucIn_Linea_Grup_SubGr.get_item_Linea();
                 Info_Producto.IdGrupo = ucIn_Linea_Grup_SubGr.get_item_Grupo();
                 Info_Producto.IdSubGrupo = ucIn_Linea_Grup_SubGr.get_item_SubGrupo();
-
                 Info_Producto.IdCtaCble_Inventario = (ucIn_Linea_Grup_SubGr.SubGrupoInfo == null)? null: ucIn_Linea_Grup_SubGr.SubGrupoInfo.IdCtaCtble_Inve;
                 Info_Producto.IdCtaCble_Costo = (ucIn_Linea_Grup_SubGr.SubGrupoInfo == null) ? null : ucIn_Linea_Grup_SubGr.SubGrupoInfo.IdCtaCtble_Costo;
                 Info_Producto.IdCtaCble_Gasto_x_cxp = (ucIn_Linea_Grup_SubGr.SubGrupoInfo == null) ? null : ucIn_Linea_Grup_SubGr.SubGrupoInfo.IdCtaCtble_Gasto_x_cxp;
-
-                
-
-                //haac 01/08/2014
-
                 Info_Producto.IdProducto = lblIdProducto.Text=="" ? 0 : Convert.ToDecimal(lblIdProducto.Text);
                 Info_Producto.IdProductoTipo = cmb_tipoProducto.get_TipoProductoInfo().IdProductoTipo;
                 Info_Producto.IdUnidadMedida = (cmbUnidadMedida.Get_Info_UnidadMedida().IdUnidadMedida == null) ? "UNI" : cmbUnidadMedida.Get_Info_UnidadMedida().IdUnidadMedida;
-                Info_Producto.pr_alto = txeAlto.Text=="" ? 0 : Convert.ToDouble(txeAlto.EditValue);
                 Info_Producto.pr_codigo = txtCodigo.Text.Trim();
                 Info_Producto.pr_codigo_barra = txtCodigoBarra.Text.Trim();
-                Info_Producto.pr_costo_CIF = txeCostoCIF.Text=="" ? 0 :  Convert.ToDouble(txeCostoCIF.EditValue);             
-                Info_Producto.pr_costo_fob = txeCostoFOB.Text=="" ? 0 : Convert.ToDouble(txeCostoFOB.EditValue);             
-                Info_Producto.pr_costo_promedio = txeCostoPromedio.Text=="" ? 0 : Convert.ToDouble(txeCostoPromedio.EditValue);
-
-
                 Info_Producto.IdCod_Impuesto_Iva = Convert.ToString(cmbCodImp_IVA.EditValue);
                 Info_Producto.IdCod_Impuesto_Ice = cmbCodImpt_ICE.EditValue == "" ? null : Convert.ToString(cmbCodImpt_ICE.EditValue);
-                
-                
-                Info_Producto.pr_DiasAereo = Convert.ToInt32(txtDiasAereo.Value);
-                Info_Producto.pr_DiasMaritimo = Convert.ToInt32(txtDiasMaritimo.Value);
-                Info_Producto.pr_DiasTerrestre = Convert.ToInt32(txtDiasTerrestre.Value);
-                Info_Producto.pr_largo = txeLargo.Text=="" ? 0 : Convert.ToInt32(txeLargo.EditValue);
                 Info_Producto.pr_observacion = txtObservacion.Text.Trim();
-                Info_Producto.pr_partidaArancel = txtPartidaArancelaria.Text.Trim();
-                Info_Producto.pr_pedidos = 0;
-                Info_Producto.pr_peso = txePeso.Text=="" ? 0 : Convert.ToDouble(txePeso.EditValue);
-                Info_Producto.pr_porcentajeArancel = txtPorPartidaArancelaria.Value;             
-                Info_Producto.pr_precio_mayor = txePrecioMayor.Text=="" ? 0 : Convert.ToDouble(txePrecioMayor.EditValue);             
-                Info_Producto.pr_precio_minimo = txePrecioMinimo.Text==""?0: Convert.ToDouble(txePrecioMinimo.EditValue);             
-                Info_Producto.pr_precio_publico = Convert.ToDouble(txePrecioPublico.EditValue);
-                Info_Producto.pr_profundidad = txeProfundidad.Text == "" ? 0 : Convert.ToDouble(txeProfundidad.EditValue);
                 Info_Producto.pr_stock = 0;
-                Info_Producto.pr_stock_maximo = txeStockMaximo.Text == "" ? 0 : Convert.ToDouble(txeStockMaximo.EditValue);
-                Info_Producto.pr_stock_minimo = txeStockminimo.Text == "" ? 0 : Convert.ToDouble(txeStockminimo.EditValue);
                 Info_Producto.IdUsuarioUltMod = param.IdUsuario;
-
-            
-
                 Info_Producto.ManejaKardex = (chkManejaKardex.Checked) ? "S" : "N";
-                
                 Info_Producto.IdMarca = cmbMarca.get_MarcaInfo().IdMarca;
-
                 Info_Producto.IdMotivo_Vta = (ucFa_Motivo_venta.get_Info() ==null) ? 1:ucFa_Motivo_venta.get_Info().IdMotivo_Vta;
-
                 Info_Producto.Aparece_modu_Activo_F = chkModulo_AF.Checked;
                 Info_Producto.Aparece_modu_Compras = chkModulo_Compras.Checked;
                 Info_Producto.Aparece_modu_Inventario = chkModulo_Inven.Checked;
                 Info_Producto.Aparece_modu_Ventas = chkModulo_Venta.Checked;
+                
+                if (cmb_familia.EditValue == null)
+                    Info_Producto.IdFamilia = null;
+                else
+                    Info_Producto.IdFamilia = Convert.ToInt32(cmb_familia.EditValue);
+
+                #region Campos que hay que borrar luego
+                Info_Producto.PesoEspecifico = 0;
+                Info_Producto.AnchoEspecifico = 0;
+                Info_Producto.pr_stock_maximo = 0;
+                Info_Producto.pr_stock_minimo = 0;
+                Info_Producto.pr_partidaArancel = null;
+                Info_Producto.pr_pedidos = 0;
+                Info_Producto.pr_peso = 0;
+                Info_Producto.pr_porcentajeArancel = 0;
+                Info_Producto.pr_precio_mayor = 0;
+                Info_Producto.pr_precio_minimo = 0;
+                Info_Producto.pr_precio_publico = 0;
+                Info_Producto.pr_profundidad = 0;
+                Info_Producto.pr_DiasAereo = 0;
+                Info_Producto.pr_DiasMaritimo = 0;
+                Info_Producto.pr_DiasTerrestre = 0;
+                Info_Producto.pr_largo = 0;
+                Info_Producto.pr_alto = 0;
+                Info_Producto.pr_costo_CIF = 0;
+                Info_Producto.pr_costo_fob = 0;
+                Info_Producto.pr_costo_promedio = 0;
+                #endregion
+
+
                 return Info_Producto;
             }
             catch (Exception  ex )
             {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new in_Producto_Info();
+                return null;
             }                                                        
         }
         
-        public List<in_producto_x_cp_proveedor_Info> get_Producto_x_provee_del_grid()
-        {
-            try
-            {
-                List<in_producto_x_cp_proveedor_Info> lss = new List<in_producto_x_cp_proveedor_Info>();
-              
-                int focus = this.gridViewProveedor.FocusedRowHandle;
-                gridViewProveedor.FocusedRowHandle = focus + 1;
-                
-                foreach (var item in LBinProxProve)
-                {
-                     if(item.NomProducto_en_Proveedor !="")
-                     {
-                         in_producto_x_cp_proveedor_Info pxp_inf = new in_producto_x_cp_proveedor_Info();
-
-                         pxp_inf.IdEmpresa_prod = param.IdEmpresa;
-                         pxp_inf.IdEmpresa_prov = param.IdEmpresa;
-                         pxp_inf.IdProducto = Convert.ToInt32(lblIdProducto.Text);
-                         pxp_inf.IdProveedor = item.IdProveedor;
-                         pxp_inf.NomProducto_en_Proveedor = item.NomProducto_en_Proveedor;
-                         lss.Add(pxp_inf);                    
-                     }                                   
-                }
-
-                lm_prod_x_prove = lss;
-
-                return lss;
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<in_producto_x_cp_proveedor_Info>();
-            }
-        }
         
         public Boolean Validaciones()
         {
@@ -421,29 +324,6 @@ namespace Core.Erp.Winform.Inventario
                     return false;
                 }
 
-                //if (Catei.IdCategoria == "" || Catei.IdCategoria == null)
-                //{
-                //    MessageBox.Show("Seleccione una categoria ....", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //    return false;
-                //}
-
-                //if (Catei.IdCategoria == "000")
-                //{
-                //    MessageBox.Show("La Categoria no puede ser Todos", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //    return false;
-                //}
-
-                foreach (var item in LBinProxProve)
-                {
-                    if (string.IsNullOrEmpty(item.NomProducto_en_Proveedor)) 
-                    {
-                        MessageBox.Show("Por favor ingrese descripcion del producto por proveedor", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
-                    }
-                }
-
-               
-
                 in_producto_Bus prob = new in_producto_Bus();
                 if (_Accion == Cl_Enumeradores.eTipo_action.grabar)
                 {
@@ -505,7 +385,6 @@ namespace Core.Erp.Winform.Inventario
                 if (!(Info_Producto == null))
                 {
                     Get_producto();
-                    get_Producto_x_provee_del_grid();
                     get_Producto_x_composicion_del_grid();
                     get_ProductoxBodega_del_grid();
 
@@ -518,15 +397,9 @@ namespace Core.Erp.Winform.Inventario
 
                     perBu.ModificarDB(Info_Producto, ref MensajeError);
 
-                    
-                    pxpbus.eliminarRegistro_x_producto(param.IdEmpresa, Convert.ToInt32(this.lblIdProducto.Text), ref MensajeError);                        
-                    pxpbus.Grabar_Producto_Proveedor_lista(lm_prod_x_prove, param.IdEmpresa, Convert.ToInt32(this.lblIdProducto.Text), ref MensajeError);
-                  
                     busComposicion.eliminarRegistro_x_producto(param.IdEmpresa, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
                     busComposicion.GrabarDB(lsComposicionProducto, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
             
-
-
                     foreach (var item in lsProductoBodega_Insert)
                     {
                         item.IdEmpresa = param.IdEmpresa;
@@ -584,7 +457,6 @@ namespace Core.Erp.Winform.Inventario
                     decimal idProducto;
                     idProducto = 0;
 
-                    get_Producto_x_provee_del_grid();
                     get_Producto_x_composicion_del_grid();
                     get_ProductoxBodega_del_grid();
 
@@ -597,10 +469,7 @@ namespace Core.Erp.Winform.Inventario
                                               
                         lblIdProducto.Text = idProducto.ToString();
                         Info_Producto.IdProducto = idProducto;
-                        
-                        pxpbus.Grabar_Producto_Proveedor_lista(lm_prod_x_prove, param.IdEmpresa, idProducto , ref MensajeError);
-                        busComposicion.GrabarDB(lsComposicionProducto, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
-
+                    
                         foreach (var item in lsProductoBodega_Insert)
                         {
                             item.IdProducto = idProducto;
@@ -855,7 +724,7 @@ namespace Core.Erp.Winform.Inventario
                 cmbCodImpt_ICE.Properties.DataSource = lstInfoCodSri_Ice;
                 cmbCodImp_IVA.Properties.DataSource = lstInfoCodSri_Iva;
 
-                lstFactCata = busFactCata.Get_List_catalogo(7);
+                cmb_familia.Properties.DataSource = bus_familia.GetList(param.IdEmpresa);
             }
             catch (Exception ex)
             {
@@ -869,16 +738,8 @@ namespace Core.Erp.Winform.Inventario
 
             try
             {
-                CargarCombo();
-
-                LBinProxProve = new BindingList<in_producto_x_cp_proveedor_Info>();
-                gridControlProveedor.DataSource = LBinProxProve;          
-                
-            tabControl_Producto.TabPages.Remove(tab_Costos);
-           
-            tabControl_Producto.TabPages.Remove(tab_DatosContables);   
-                            
-            load_grid();
+                CargarCombo(); 
+                        
             carga_ultragrid_composicion();
 
             if (_Accion == null || _Accion == 0)
@@ -894,26 +755,6 @@ namespace Core.Erp.Winform.Inventario
             }
         }
         
-        public void load_grid()
-        {                      
-            try
-            {
-                carga_cmb_proveedor();
-                                                          
-                _lm_prod_x_prove = pxp_bus.ObtenerProducto_Proveedor(param.IdEmpresa);
-
-                listaProd_x_prove = new List<in_producto_x_cp_proveedor_Info>();
-                listaProd_x_prove = _lm_prod_x_prove.FindAll(q => q.IdProducto == Convert.ToDecimal(lblIdProducto.Text));
-                            
-                LBinProxProve = new BindingList<in_producto_x_cp_proveedor_Info>(listaProd_x_prove);
-                gridControlProveedor.DataSource = LBinProxProve;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);     
-            }
-        }
-      
         private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
         {
             codigoBarraProducto.Text = txtCodigoBarra.Text;
@@ -925,26 +766,6 @@ namespace Core.Erp.Winform.Inventario
             codigoBarraProducto.Text = txtCodigoBarra.Text;
             codigoBarraProducto.Refresh();
 
-        }
-             
-        private void carga_cmb_proveedor()
-        {
-            
-            try
-            {
-                List<cp_proveedor_Info> ListProveedorInfo = new List<cp_proveedor_Info>();
-                cp_proveedor_Bus _ProveedorBus = new cp_proveedor_Bus();
-                ListProveedorInfo = _ProveedorBus.Get_List_proveedor(param.IdEmpresa);
-          
-                cmbProveedor_grid.DisplayMember = "pr_nombre";
-                cmbProveedor_grid.ValueMember = "IdProveedor";
-                cmbProveedor_grid.DataSource = ListProveedorInfo;
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);   
-            }
         }
           
         private void carga_ultragrid_composicion()
@@ -972,14 +793,14 @@ namespace Core.Erp.Winform.Inventario
         { 
             try
             {
-                 
+             /*    
                 List<in_Producto_Info> ls = new List<in_Producto_Info>();
                 in_producto_Bus bus = new in_producto_Bus();
                 ls = bus.Get_list_Producto(param.IdEmpresa);
                 List<in_Producto_Info> itemComp = ls.FindAll(q => q.IdProducto != Convert.ToDecimal(lblIdProducto.Text));
                 cmbProductoHijo_grid.DisplayMember = "pr_descripcion";
                 cmbProductoHijo_grid.ValueMember = "IdProducto";
-                cmbProductoHijo_grid.DataSource = itemComp;
+                cmbProductoHijo_grid.DataSource = itemComp;*/
             }
             catch (Exception ex)
             {
@@ -1181,42 +1002,12 @@ namespace Core.Erp.Winform.Inventario
             }
         }
         
-        private void txtPrecioPublico_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                foreach (var item in lst_Bod_x_Suc)
-                {
-                    item.pr_precio_publico = Convert.ToDouble(txePrecioPublico.EditValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);     
-            }
-        }
        
         private void FrmIn_Producto_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
             event_FrmIn_Producto_Mant_FormClosing(sender, e, Info_Producto);
         }
 
-        private void txePrecioPublico_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (lst_Bod_x_Suc != null)
-                    foreach (var item in lst_Bod_x_Suc)
-                {
-                    item.pr_precio_publico = Convert.ToDouble(txePrecioPublico.EditValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void btn_imgGrande_Click_1(object sender, EventArgs e)
         {
@@ -1277,42 +1068,6 @@ namespace Core.Erp.Winform.Inventario
             }
         }
 
-        private void gridViewProveedor_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
-        {
-            try
-            {
-                var data = gridViewProveedor.GetRow(e.RowHandle) as cp_proveedor_Info;
-                if (data == null)
-                    return;
-
-                if (data.pr_estado == "I")
-                    e.Appearance.ForeColor = Color.Red;
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
-        {
-            try
-            {
-                var data = gridView1.GetRow(e.RowHandle) as cp_proveedor_Info;
-                if (data == null)
-                    return;
-
-                if (data.pr_estado == "I")
-                    e.Appearance.ForeColor = Color.Red;
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void cmbUnidadMedida_event_cmbUnidadMedida_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -1340,29 +1095,10 @@ namespace Core.Erp.Winform.Inventario
                 chkManejaKardex.Checked = true;
                 txtNombre.Text = "";
                 txtDescripcion2.Text = "";
-                txePesoEspecifico.EditValue = "";
-                txeAnchoEspecifico.EditValue = "";
                 lblIdProducto.Text = "";
-                txeAlto.EditValue = "";
                 txtCodigo.Text = "";
                 txtCodigoBarra.Text = "";
-                txeCostoCIF.EditValue = "";
-                txeCostoFOB.EditValue = "";
-                txeCostoPromedio.EditValue = "";               
-                txtDiasAereo.Value = 0;
-                txtDiasMaritimo.Value =0;
-                txtDiasTerrestre.Value = 0;
-                txeLargo.EditValue = "";
                 txtObservacion.Text = "";
-                txtPartidaArancelaria.Text = "";
-                txePeso.EditValue = "";
-                txtPorPartidaArancelaria.Value = 0;
-                txePrecioMayor.EditValue = "";
-                txePrecioMinimo.EditValue = "";
-                txePrecioPublico.EditValue = 0;
-                txeProfundidad.EditValue ="";
-                txeStockMaximo.EditValue = "";
-                txeStockminimo.EditValue ="";
                 
             }
             catch (Exception ex)

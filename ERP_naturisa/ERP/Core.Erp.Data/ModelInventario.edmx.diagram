@@ -96,7 +96,6 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_PrecargaItemsOrdenCompra_det" Width="1.5" PointX="11.263027047395253" PointY="24.998371150809515" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_presupuesto" Width="1.5" PointX="11.373902443504846" PointY="22.213232900115305" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_presupuesto_detalle" Width="1.5" PointX="4.0724387579003531" PointY="1.9215645650036468" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto" Width="1.5" PointX="2.9429995952839962" PointY="13.113323947933187" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_a_Cortar_CusCider" Width="1.5" PointX="10.300256262673186" PointY="26.615169954772654" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_Stock_x_Bodega" Width="1.5" PointX="2.6447482456661522" PointY="23.504564147211873" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_Stock_x_producto" Width="1.5" PointX="2.3546426139560728" PointY="15.751474015298985" />
@@ -185,17 +184,10 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_movi_inve_detalle_x_item_in_movi_inve_detalle" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_det_sin_Transferencia" Width="1.5" PointX="0.024854209285627218" PointY="25.695620116635979" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_parametro" Width="1.5" PointX="0.246641675125175" PointY="21.35650105278776" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_Producto" Width="1.5" PointX="0.86450096632563556" PointY="4.3631706854157013" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_AjusteFisico_Detalle_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Catalogo" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Catalogo1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_kardex_det_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_Marca" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_movi_inve_detalle_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo1" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo2" />
@@ -206,19 +198,6 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo7" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo8" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo9" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_PrecargaItemsOrdenCompra_det_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_presentacion" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_presupuesto_det_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_ProductoTipo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_subgrupo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_UnidadMedida" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_UnidadMedida1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_producto_x_cp_proveedor_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_producto_x_tb_bodega_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_recepcion_material_det_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_linea" Width="1.5" PointX="5.0944272918135054" PointY="0.16822302349294677" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_linea_in_categorias" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_grupo_in_linea" />
@@ -232,6 +211,29 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_guia_x_traspaso_bodega" Width="1.5" PointX="5.448547607962297" PointY="29.262884570873755" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_aprobacion_x_transaccion" Width="1.5" PointX="5.777709253960154" PointY="6.8642111750618611" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_Familia" Width="1.5" PointX="9.51188684884081" PointY="1.9714629063249858" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_Producto" Width="1.5" PointX="8.5925024042802409" PointY="0.77443058824838629" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_AjusteFisico_Detalle_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_Familia" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_kardex_det_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_Marca" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_movi_inve_detalle_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_PrecargaItemsOrdenCompra_det_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_presentacion" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_presupuesto_det_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_Composicion_in_Producto1" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_ProductoTipo" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_subgrupo" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_UnidadMedida" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Producto_in_UnidadMedida1" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_producto_x_cp_proveedor_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_producto_x_tb_bodega_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_recepcion_material_det_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto" Width="1.5" PointX="4.8383646983831952" PointY="2.9527872218530566" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

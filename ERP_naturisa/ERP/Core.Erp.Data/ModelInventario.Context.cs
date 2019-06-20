@@ -26,6 +26,7 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -107,7 +108,6 @@ namespace Core.Erp.Data
         public DbSet<vwin_PrecargaItemsOrdenCompra_det> vwin_PrecargaItemsOrdenCompra_det { get; set; }
         public DbSet<vwin_presupuesto> vwin_presupuesto { get; set; }
         public DbSet<vwin_presupuesto_detalle> vwin_presupuesto_detalle { get; set; }
-        public DbSet<vwin_producto> vwin_producto { get; set; }
         public DbSet<vwin_Producto_a_Cortar_CusCider> vwin_Producto_a_Cortar_CusCider { get; set; }
         public DbSet<vwin_Producto_Stock_x_Bodega> vwin_Producto_Stock_x_Bodega { get; set; }
         public DbSet<vwin_Producto_Stock_x_producto> vwin_Producto_Stock_x_producto { get; set; }
@@ -167,12 +167,14 @@ namespace Core.Erp.Data
         public DbSet<vwin_movi_inve_detalle> vwin_movi_inve_detalle { get; set; }
         public DbSet<vwin_Guia_x_traspaso_bodega_det_sin_Transferencia> vwin_Guia_x_traspaso_bodega_det_sin_Transferencia { get; set; }
         public DbSet<in_parametro> in_parametro { get; set; }
-        public DbSet<in_Producto> in_Producto { get; set; }
         public DbSet<in_linea> in_linea { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega_det> in_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega> in_Guia_x_traspaso_bodega { get; set; }
         public DbSet<vwin_guia_x_traspaso_bodega> vwin_guia_x_traspaso_bodega { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_aprobacion_x_transaccion> vwin_Ing_Egr_Inven_aprobacion_x_transaccion { get; set; }
+        public DbSet<in_Familia> in_Familia { get; set; }
+        public DbSet<in_Producto> in_Producto { get; set; }
+        public DbSet<vwin_producto> vwin_producto { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {
@@ -435,6 +437,45 @@ namespace Core.Erp.Data
                 new ObjectParameter("Fecha_fin", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spINV_relaciones_no_parametrizadas_Result>("spINV_relaciones_no_parametrizadas", idEmpresaParameter, fecha_iniParameter, fecha_finParameter);
+        }
+    
+        public virtual ObjectResult<SPINV_Stock_Result> SPINV_Stock(Nullable<int> idEmpresa, Nullable<decimal> idProducto)
+        {
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("IdEmpresa", idEmpresa) :
+                new ObjectParameter("IdEmpresa", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPINV_Stock_Result>("SPINV_Stock", idEmpresaParameter, idProductoParameter);
+        }
+    
+        public virtual ObjectResult<SPINV_ComprasAnteriores_Result> SPINV_ComprasAnteriores(Nullable<int> idEmpresa, Nullable<decimal> idProducto)
+        {
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("IdEmpresa", idEmpresa) :
+                new ObjectParameter("IdEmpresa", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPINV_ComprasAnteriores_Result>("SPINV_ComprasAnteriores", idEmpresaParameter, idProductoParameter);
+        }
+    
+        public virtual ObjectResult<SPINV_MejorPrecio_Result> SPINV_MejorPrecio(Nullable<int> idEmpresa, Nullable<decimal> idProducto)
+        {
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("IdEmpresa", idEmpresa) :
+                new ObjectParameter("IdEmpresa", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPINV_MejorPrecio_Result>("SPINV_MejorPrecio", idEmpresaParameter, idProductoParameter);
         }
     }
 }

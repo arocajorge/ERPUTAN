@@ -148,31 +148,37 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                List<com_parametro_Info> listParam = new List<com_parametro_Info>();
-                listParam = ParaBus.Get_List_parametro(param.IdEmpresa);
-                if (listParam.Count() == 0)
+                
+                var item = ParaBus.Get_Info_parametro(param.IdEmpresa);
+                if (item.IdEmpresa == 0)
                 {
                     B_siExiste = false;
                 }
                 else
                 {
                     B_siExiste = true;
-
-                    
-
                 }
 
-                foreach (var item in listParam)
-                {
-                    cmb_estado_cierre_oc.EditValue = item.IdEstado_cierre;
-                    cmb_estado_anulacion.EditValue = item.IdEstadoAnulacion_OC;
-                    cmb_estado_aprobacion.EditValue = item.IdEstadoAprobacion_OC;
-                    cmbestadoAprobacion_solCom.EditValue = item.IdEstadoAprobacion_SolCompra;
-                    cmbTipoMovInven_x_devCom.EditValue = item.IdMovi_inven_tipo_dev_compra;
-                    cmb_tipo_movi_inven_x_oc.EditValue = item.IdMovi_inven_tipo_OC;
-                    cmb_sucursalxaprobacionsc.set_SucursalInfo(item.IdSucursal_x_Aprob_x_SolComp);
+                
+                cmb_estado_cierre_oc.EditValue = item.IdEstado_cierre;
+                cmb_estado_anulacion.EditValue = item.IdEstadoAnulacion_OC;
+                cmb_estado_aprobacion.EditValue = item.IdEstadoAprobacion_OC;
+                cmbestadoAprobacion_solCom.EditValue = item.IdEstadoAprobacion_SolCompra;
+                cmbTipoMovInven_x_devCom.EditValue = item.IdMovi_inven_tipo_dev_compra;
+                cmb_tipo_movi_inven_x_oc.EditValue = item.IdMovi_inven_tipo_OC;
+                cmb_sucursalxaprobacionsc.set_SucursalInfo(item.IdSucursal_x_Aprob_x_SolComp);
                     
-                }
+                txt_correo.Text = item.Correo;
+                txt_clavecorreo.Text = item.Contrasenia;
+                txt_dominiocorreo.Text = item.Dominio;
+                txt_correoscopia.Text = item.CorreosCopia;
+                chk_permitirssl.Checked = item.PemitirSSL;
+
+                txt_ubicacionpedido.Text = item.UbicacionArchivosPedido;
+                txt_fileusuario.Text = item.FileUsuario;
+                txt_fileclave.Text = item.FileContrasenia;
+                txt_filedominio.Text = item.FileDominio;
+
             }
             catch (Exception ex)
             {
@@ -204,6 +210,17 @@ namespace Core.Erp.Winform.Compras
                     Info_parametro.IdEstadoAprobacion_SolCompra = (cmbestadoAprobacion_solCom.EditValue==null)?null:Convert.ToString(cmbestadoAprobacion_solCom.EditValue);
                     Info_parametro.IdSucursal_x_Aprob_x_SolComp = (cmb_sucursalxaprobacionsc.get_SucursalInfo().IdSucursal==null)?0:Convert.ToInt32(cmb_sucursalxaprobacionsc.get_SucursalInfo().IdSucursal);
                     Info_parametro.IdEstado_cierre = (cmb_estado_cierre_oc.EditValue==null)?null:Convert.ToString(cmb_estado_cierre_oc.EditValue);
+                    
+                Info_parametro.Correo = txt_correo.Text;
+                Info_parametro.Contrasenia = txt_clavecorreo.Text;
+                Info_parametro.Dominio = txt_dominiocorreo.Text;
+                Info_parametro.PemitirSSL = chk_permitirssl.Checked;
+                Info_parametro.CorreosCopia = txt_correoscopia.Text;
+
+                Info_parametro.UbicacionArchivosPedido = txt_ubicacionpedido.Text;
+                Info_parametro.FileUsuario = txt_fileusuario.Text;
+                Info_parametro.FileContrasenia = txt_fileclave.Text;
+                Info_parametro.FileDominio = txt_filedominio.Text;
 
 
             }

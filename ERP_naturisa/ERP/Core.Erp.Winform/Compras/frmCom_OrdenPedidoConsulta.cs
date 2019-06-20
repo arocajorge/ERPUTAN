@@ -80,10 +80,22 @@ namespace Core.Erp.Winform.Compras
                     return;
                 }
 
+                if (Accion != Cl_Enumeradores.eTipo_action.grabar && Accion != Cl_Enumeradores.eTipo_action.consultar && row != null)
+                {
+                    var orden = bus_Orden.GetInfo(row.IdEmpresa, row.IdOrdenPedido);
+                    if (orden.IdCatalogoEstado != Cl_Enumeradores.eCatalogoEstadoSolicitudPedido.EST_OP_ABI.ToString())
+                    {
+                        MessageBox.Show("La solicitud de pedido #"+row.IdOrdenPedido.ToString()+" no puede ser " +
+                            (Accion == Cl_Enumeradores.eTipo_action.actualizar ?  "modificada" : "anulada")
+                        , param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
+
                 frmCom_OrdenPedidoMantenimiento frm = new frmCom_OrdenPedidoMantenimiento();
                 frm.SetInfo(row ?? new com_OrdenPedido_Info(), Accion);
                 frm.MdiParent = this.MdiParent;
-                frm.event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed += frm_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed;
+                frm.event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing += frm_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing;
                 frm.Show();
             }
             catch (Exception)
@@ -93,7 +105,7 @@ namespace Core.Erp.Winform.Compras
             }
         }
 
-        void frm_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosed(object sender, FormClosedEventArgs e)
+        void frm_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
         {
             Buscar();
         }
@@ -111,6 +123,29 @@ namespace Core.Erp.Winform.Compras
         private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnconsultar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LlamarFormulario(Cl_Enumeradores.eTipo_action.consultar);
+        }
+
+        private void gv_Consulta_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            try
+            {
+                com_OrdenPedido_Info row = (com_OrdenPedido_Info)gv_Consulta.GetRow(e.RowHandle);
+                if (row != null)
+                {
+                    if (row.IdCatalogoEstado == "EST_OP_CER")
+                        e.Appearance.ForeColor = Color.Green;
+                    else
+                        if (row.IdCatalogoEstado == "EST_OP_PRO")
+                            e.Appearance.ForeColor = Color.Navy;
+                    if (!row.Estado)
+                        e.Appearance.ForeColor = Color.Red;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

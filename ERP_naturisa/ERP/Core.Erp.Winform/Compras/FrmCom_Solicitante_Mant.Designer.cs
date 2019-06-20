@@ -58,6 +58,7 @@
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chk_ConsultaDepartamento = new DevExpress.XtraEditors.CheckEdit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComboUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Departamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_ConsultaDepartamento.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -100,7 +102,7 @@
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
             this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
-            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(716, 30);
+            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(840, 30);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 0;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAnular = true;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAprobar = false;
@@ -133,14 +135,15 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 450);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 548);
             this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(716, 32);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(840, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 1;
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.chk_ConsultaDepartamento);
             this.panelMain.Controls.Add(this.label3);
             this.panelMain.Controls.Add(this.label2);
             this.panelMain.Controls.Add(this.ComboUsuario);
@@ -154,7 +157,7 @@
             this.panelMain.Location = new System.Drawing.Point(0, 30);
             this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(716, 148);
+            this.panelMain.Size = new System.Drawing.Size(840, 148);
             this.panelMain.TabIndex = 2;
             // 
             // label3
@@ -264,7 +267,7 @@
             this.lblAnulado.AutoSize = true;
             this.lblAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnulado.ForeColor = System.Drawing.Color.Red;
-            this.lblAnulado.Location = new System.Drawing.Point(457, 28);
+            this.lblAnulado.Location = new System.Drawing.Point(641, 24);
             this.lblAnulado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAnulado.Name = "lblAnulado";
             this.lblAnulado.Size = new System.Drawing.Size(170, 25);
@@ -318,7 +321,7 @@
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_Usuario,
             this.cmb_Departamento});
-            this.gc_detalle.Size = new System.Drawing.Size(716, 272);
+            this.gc_detalle.Size = new System.Drawing.Size(840, 370);
             this.gc_detalle.TabIndex = 3;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -338,7 +341,7 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "Usuario";
+            this.gridColumn1.Caption = "Usuario aprobador";
             this.gridColumn1.ColumnEdit = this.cmb_Usuario;
             this.gridColumn1.FieldName = "IdUsuario";
             this.gridColumn1.Name = "gridColumn1";
@@ -434,11 +437,19 @@
             this.gridColumn6.VisibleIndex = 1;
             this.gridColumn6.Width = 1431;
             // 
+            // chk_ConsultaDepartamento
+            // 
+            this.chk_ConsultaDepartamento.Location = new System.Drawing.Point(272, 29);
+            this.chk_ConsultaDepartamento.Name = "chk_ConsultaDepartamento";
+            this.chk_ConsultaDepartamento.Properties.Caption = "Consulta pedidos del departamento";
+            this.chk_ConsultaDepartamento.Size = new System.Drawing.Size(364, 21);
+            this.chk_ConsultaDepartamento.TabIndex = 12;
+            // 
             // FrmCom_Solicitante_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 482);
+            this.ClientSize = new System.Drawing.Size(840, 580);
             this.Controls.Add(this.gc_detalle);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
@@ -460,6 +471,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Departamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_ConsultaDepartamento.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,5 +508,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.CheckEdit chk_ConsultaDepartamento;
     }
 }

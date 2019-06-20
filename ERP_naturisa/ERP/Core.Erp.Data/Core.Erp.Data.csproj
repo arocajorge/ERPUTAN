@@ -721,6 +721,9 @@
     <Compile Include="Compras\com_CatalogoTipo_Data.cs" />
     <Compile Include="Compras\com_Catalogo_Data.cs" />
     <Compile Include="Compras\com_comprador_Data.cs" />
+    <Compile Include="Compras\com_comprador_familia_Data.cs" />
+    <Compile Include="Compras\com_CotizacionPedidoDet_Data.cs" />
+    <Compile Include="Compras\com_CotizacionPedido_Data.cs" />
     <Compile Include="Compras\com_cotizacion_compra_det_Data.cs" />
     <Compile Include="Compras\com_departamento_Data.cs" />
     <Compile Include="Compras\com_dev_compra_Data.cs" />
@@ -838,6 +841,18 @@
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="com_comprador.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_comprador_familia.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_CotizacionPedido.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_CotizacionPedidoDet.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_CotizacionPedidoSaltar.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="com_cotizacion_compra.cs">
@@ -1885,6 +1900,7 @@
     <Compile Include="Inventario\in_devolucion_inven_Data.cs" />
     <Compile Include="Inventario\in_devolucion_inven_det_Data.cs" />
     <Compile Include="Inventario\in_egreso_d_Suministro_Data.cs" />
+    <Compile Include="Inventario\in_Familia_Data.cs" />
     <Compile Include="Inventario\in_grupo_data.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_Data.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_det_Data.cs" />
@@ -2061,6 +2077,9 @@
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="in_egreso_d_Suministro.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="in_Familia.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="in_grupo.cs">
@@ -3508,7 +3527,16 @@
     <Compile Include="spFa_pre_facturacion_det_egr_x_bod_Result.cs">
       <DependentUpon>Facturacion_FJ.tt</DependentUpon>
     </Compile>
+    <Compile Include="SPINV_ComprasAnteriores_Result.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPINV_MejorPrecio_Result.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
     <Compile Include="spINV_relaciones_no_parametrizadas_Result.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SPINV_Stock_Result.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="spROL_Archivo_MTE_Result.cs">
@@ -4092,6 +4120,15 @@
     <Compile Include="vwcom_Catalogo_IdAuto_numeric.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcom_CotizacionPedido.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_CotizacionPedidoDet.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_CotizacionPedidoDetAprobacion.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcom_cotizacion_compra.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
@@ -4189,6 +4226,18 @@
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_OrdenPedido.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_OrdenPedidoAprobar.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_OrdenPedidoDet.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_OrdenPedidoDet_Aprobacion.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_OrdenPedidoDet_Cotizacion.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_solicitante.cs">
@@ -4354,6 +4403,9 @@
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcp_ProveedorRuc.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcp_proveedor_combo.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcp_proveedor_vista_previa.cs">

@@ -64,7 +64,6 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucSeg_Menu_x_Usuario_x_Empresa1 = new Core.Erp.Winform.SeguridadAcceso.UCSeg_Menu_x_Usuario_x_Empresa();
-            this.LBLMENSAJE = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenuTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection64_x_64)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_reportes)).BeginInit();
@@ -97,6 +96,7 @@
             this.barStaticItem1});
             this.ribbonMenuTop.ItemsVertAlign = DevExpress.Utils.VertAlignment.Top;
             this.ribbonMenuTop.Location = new System.Drawing.Point(0, 0);
+            this.ribbonMenuTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonMenuTop.MaxItemId = 20;
             this.ribbonMenuTop.Name = "ribbonMenuTop";
             this.ribbonMenuTop.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -104,7 +104,7 @@
             this.ribbonMenuTop.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_reportes,
             this.repositoryItemImageEditLogo});
-            this.ribbonMenuTop.Size = new System.Drawing.Size(1135, 144);
+            this.ribbonMenuTop.Size = new System.Drawing.Size(1324, 155);
             this.ribbonMenuTop.StatusBar = this.ribbonStatusBar;
             this.ribbonMenuTop.Click += new System.EventHandler(this.ribbon_Click);
             // 
@@ -685,10 +685,11 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem_param);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 564);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 701);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMenuTop;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1135, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1324, 31);
             // 
             // dockManagerPaneles
             // 
@@ -717,18 +718,20 @@
             this.dockPanelMenu.Controls.Add(this.dockPanel1_Container);
             this.dockPanelMenu.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelMenu.ID = new System.Guid("159fd171-eb52-4f90-acdf-2e9d2d41179c");
-            this.dockPanelMenu.Location = new System.Drawing.Point(0, 144);
+            this.dockPanelMenu.Location = new System.Drawing.Point(0, 155);
+            this.dockPanelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dockPanelMenu.Name = "dockPanelMenu";
             this.dockPanelMenu.OriginalSize = new System.Drawing.Size(258, 200);
-            this.dockPanelMenu.Size = new System.Drawing.Size(258, 420);
+            this.dockPanelMenu.Size = new System.Drawing.Size(258, 546);
             this.dockPanelMenu.Text = "Menu";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.panel1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
+            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(250, 393);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(250, 518);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // panel1
@@ -736,44 +739,32 @@
             this.panel1.Controls.Add(this.ucSeg_Menu_x_Usuario_x_Empresa1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 393);
+            this.panel1.Size = new System.Drawing.Size(250, 518);
             this.panel1.TabIndex = 1;
             // 
             // ucSeg_Menu_x_Usuario_x_Empresa1
             // 
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Location = new System.Drawing.Point(0, 0);
+            this.ucSeg_Menu_x_Usuario_x_Empresa1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Name = "ucSeg_Menu_x_Usuario_x_Empresa1";
-            this.ucSeg_Menu_x_Usuario_x_Empresa1.Size = new System.Drawing.Size(250, 393);
+            this.ucSeg_Menu_x_Usuario_x_Empresa1.Size = new System.Drawing.Size(250, 518);
             this.ucSeg_Menu_x_Usuario_x_Empresa1.TabIndex = 0;
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Load += new System.EventHandler(this.ucSeg_Menu_x_Usuario_x_Empresa1_Load);
             // 
-            // LBLMENSAJE
-            // 
-            this.LBLMENSAJE.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LBLMENSAJE.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLMENSAJE.ForeColor = System.Drawing.Color.Red;
-            this.LBLMENSAJE.Location = new System.Drawing.Point(666, 97);
-            this.LBLMENSAJE.Name = "LBLMENSAJE";
-            this.LBLMENSAJE.Size = new System.Drawing.Size(301, 26);
-            this.LBLMENSAJE.TabIndex = 4;
-            this.LBLMENSAJE.Text = "AMBIENTE DE PRUEBAS";
-            this.LBLMENSAJE.Visible = false;
-            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
-            this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(1135, 595);
-            this.Controls.Add(this.LBLMENSAJE);
+            this.ClientSize = new System.Drawing.Size(1324, 732);
             this.Controls.Add(this.dockPanelMenu);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMenuTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
             this.Ribbon = this.ribbonMenuTop;
             this.StatusBar = this.ribbonStatusBar;
@@ -815,7 +806,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarListItem barListItem1;
         private DevExpress.Utils.ImageCollection imageCollection64_x_64;
-        private System.Windows.Forms.Label LBLMENSAJE;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Reportes;
         private DevExpress.XtraBars.BarEditItem barEditItem_Reportes;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_reportes;

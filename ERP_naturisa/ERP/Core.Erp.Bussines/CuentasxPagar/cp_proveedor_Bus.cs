@@ -19,6 +19,18 @@ namespace Core.Erp.Business.CuentasxPagar
         string mensaje = "";
         cp_proveedor_Data data = new cp_proveedor_Data();
 
+        public List<cp_proveedor_combo_Info> GetListCombo(int IdEmpresa)
+        {
+            try
+            {
+                return data.GetListCombo(IdEmpresa);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public List<cp_proveedor_Info> Get_List_proveedor(int IdEmpresa)
         {

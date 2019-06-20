@@ -13,8 +13,6 @@ namespace Core.Erp.Info.Compras
         public string IdUsuario_com { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
-        public decimal ? IdPersona { get; set; }
-        public string  cedula { get; set; }
         public string SEstado { get; set; }
         public string IdUsuario { get; set; }
         public DateTime Fecha_Transac { get; set; }
@@ -23,7 +21,7 @@ namespace Core.Erp.Info.Compras
         public string IdUsuarioUltAnu { get; set; }
         public DateTime Fecha_UltAnu { get; set; }
         public string MotiAnula { get; set; }
-
+        public List<com_comprador_familia_Info> ListaDetalle { get; set; }
         public  com_comprador_Info(){}
     }
 }

@@ -16,7 +16,7 @@ namespace Core.Erp.Info.Compras
        public string IdUsuario { get; set; }
        public string nom_departamento { get; set; }
        public decimal? IdDepartamento { get; set; }
-
+       public bool ConsultaDepartamento { get; set; }
        public string IdUsuarioUltMod { get; set; }
        public string MotiAnula { get; set; }
        public string SEstado { get; set; }

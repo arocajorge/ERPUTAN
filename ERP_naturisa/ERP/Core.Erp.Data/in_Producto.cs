@@ -92,8 +92,10 @@ namespace Core.Erp.Data
         public bool Aparece_modu_Inventario { get; set; }
         public bool Aparece_modu_Activo_F { get; set; }
         public string mobile_cod_produccion { get; set; }
+        public Nullable<int> IdFamilia { get; set; }
     
         public virtual ICollection<in_AjusteFisico_Detalle> in_AjusteFisico_Detalle { get; set; }
+        public virtual in_Familia in_Familia { get; set; }
         public virtual ICollection<in_Guia_x_traspaso_bodega_det_sin_oc> in_Guia_x_traspaso_bodega_det_sin_oc { get; set; }
         public virtual ICollection<in_Ing_Egr_Inven_det> in_Ing_Egr_Inven_det { get; set; }
         public virtual ICollection<in_kardex_det> in_kardex_det { get; set; }

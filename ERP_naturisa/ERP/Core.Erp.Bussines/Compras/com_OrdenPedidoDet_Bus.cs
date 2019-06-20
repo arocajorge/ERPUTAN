@@ -24,5 +24,44 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public bool RechazarComprador(List<com_OrdenPedidoDet_Info> Lista)
+        {
+            try
+            {
+                return odata.RechazarComprador(Lista);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public List<com_OrdenPedidoDet_Info> GetListPorAprobar(int IdEmpresa, string IdUsuario, string Estado)
+        {
+            try
+            {
+                return odata.GetListPorAprobar(IdEmpresa, IdUsuario, Estado);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool ActualizarEstadoAprobacion(List<com_OrdenPedidoDet_Info> Lista)
+        {
+            try
+            {
+                return odata.ActualizarEstadoAprobacion(Lista);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

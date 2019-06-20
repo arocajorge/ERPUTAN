@@ -17,6 +17,9 @@ using Core.Erp.Business.SeguridadAcceso;
 
 namespace Core.Erp.Winform.Compras
 {
+    using Core.Erp.Info.Inventario;
+    using Core.Erp.Business.Inventario;
+
     public partial class FrmCom_CompradorMantenimiento : Form
     {
         #region Variables
@@ -30,7 +33,9 @@ namespace Core.Erp.Winform.Compras
 
         List<seg_usuario_info> list_usuario = new List<seg_usuario_info>();
         seg_usuario_bus bus_usuario = new seg_usuario_bus();
-
+        BindingList<com_comprador_familia_Info> blst = new BindingList<com_comprador_familia_Info>();
+        in_Familia_Bus bus_familia = new in_Familia_Bus();
+        com_comprador_familia_Bus bus_det = new com_comprador_familia_Bus();
         public com_comprador_Info _SetInfo { get; set; }
         public delegate void delegate_FrmCom_CompradorMantenimiento_FormClosing(object sender, FormClosingEventArgs e);
         public event delegate_FrmCom_CompradorMantenimiento_FormClosing event_FrmCom_CompradorMantenimiento_FormClosing;
@@ -99,14 +104,12 @@ namespace Core.Erp.Winform.Compras
                 Info = new com_comprador_Info();
 
                 txtIdComprador.EditValue= "";
-                txtIdPersona.EditValue = "";
-                txtCedula.Text = "";
-                txtCedula.Enabled = true;
                 txtNombre.Text = "";
                 ucGe_Menu_Superior_Mant1.Visible_bntGuardar_y_Salir = true;
                 ucGe_Menu_Superior_Mant1.Visible_btnGuardar = true;
                 cmbIdUsuario.EditValue = null;
-                txtCedula.Focus();
+                blst = new BindingList<com_comprador_familia_Info>();
+                gc_detalle.DataSource = blst;
            
             }
             catch (Exception ex)
@@ -187,36 +190,7 @@ namespace Core.Erp.Winform.Compras
                 switch (enu)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
-
-                       string ver = "";
-                       string variable = (this.txtCedula.Text).TrimEnd();
-
-                     if (variable != "")
-                     {
-                         if (!BusPersona.Verifica_Ruc(this.txtCedula.Text, ref ver))
-                        {
-                           MessageBox.Show(ver);
-                           return;
-                        }
-
-                       if (Bus_comprador.VericarCedulaExiste(param.IdEmpresa, variable, ref  ver))
-                       {
-                         MessageBox.Show("La Cédula #: " + txtCedula.Text + " , ya se encuentra ingresada ", "Sistemas");
-                         return;
-                        }
-
-                     }  
-                     if (txtNombre.Text != string.Empty)
-                    {
-                        if (Bus_comprador.VerificarNombre(param.IdEmpresa,txtNombre.Text, ref  ver))
-                       {
-                           MessageBox.Show("El comprador : " + ver + " ya existe");
-                           return;                   
-                       }                                               
-                    }
-                    
                         Guardar();
-
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
 
@@ -354,23 +328,14 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
+                txtIdComprador.Focus();
                 Info.IdComprador = Convert.ToDecimal((txtIdComprador.EditValue == "") ? "0" : txtIdComprador.EditValue);                
                 Info.IdEmpresa = param.IdEmpresa;
                 Info.Descripcion = Convert.ToString(txtNombre.EditValue);
-                Info.IdPersona =txtIdPersona.EditValue==""?0: Convert.ToDecimal(txtIdPersona.EditValue);
-                Info.cedula = txtCedula.Text;
                 Info.IdUsuario = param.IdUsuario;
                 Info.IdUsuario_com = Convert.ToString(cmbIdUsuario.EditValue);
                 Info.Fecha_Transac = DateTime.Now;
-
-                if (this.ckbActivo.Checked == true)
-                {
-                    Info.Estado = "A";
-                }
-                else
-                {
-                    Info.Estado = "I";
-                }
+                Info.ListaDetalle = new List<com_comprador_familia_Info>(blst);
             }
             catch (Exception ex)
             {
@@ -388,20 +353,10 @@ namespace Core.Erp.Winform.Compras
                     if (_SetInfo != null)
                     {
                         txtIdComprador.EditValue = _SetInfo.IdComprador;
-                        txtIdPersona.EditValue = _SetInfo.IdPersona;
-                        txtCedula.Text = _SetInfo.cedula;
                         txtNombre.EditValue = _SetInfo.Descripcion;
                         cmbIdUsuario.EditValue = _SetInfo.IdUsuario_com == "" ? null : _SetInfo.IdUsuario_com;
-
-                        if (_SetInfo.Estado.TrimEnd() == "I")
-                        {
-                            this.ckbActivo.Checked = false;
-                            lblAnulado.Visible = true;
-                        }
-                        else
-                        {
-                            ckbActivo.Checked = true;
-                        }
+                        blst = new BindingList<com_comprador_familia_Info>(bus_det.GetList(param.IdEmpresa,_SetInfo.IdComprador));
+                        gc_detalle.DataSource = blst;
                     }
                     else
                     {
@@ -421,67 +376,13 @@ namespace Core.Erp.Winform.Compras
                MessageBox.Show(ex.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
-       {
-            try
-            {
-                //Para obligar a que sólo se introduzcan números
-                if (Char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else
-                    if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
-                    {
-                        e.Handled = false;
-                    }
-                    else
-                    {
-                        //el resto de teclas pulsadas se desactivan
-                        e.Handled = true;
-                    }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-               MessageBox.Show(ex.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void txtCedula_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                string msg = "";
-
-                if (txtCedula.Text != string.Empty)
-                {
-                    if (BusPersona.VericarCedulaExiste(txtCedula.Text, ref  msg))
-                    {
-                        InfoPersona = BusPersona.Get_Info_Persona(txtCedula.Text);
-
-                        txtNombre.EditValue = InfoPersona.pe_nombreCompleto;
-                        txtIdPersona.EditValue = Convert.ToDecimal(InfoPersona.IdPersona);
-                    }                    
-                }
-                else
-                {
-                    txtNombre.EditValue = "";
-                    txtIdPersona.EditValue = "";              
-                }
-            }
-            catch (Exception ex)
-            {
-                 Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
                 
         private void FrmCom_CompradorMantenimiento_Load(object sender, EventArgs e)
         {
             try
             {
+                blst = new BindingList<com_comprador_familia_Info>();
+                gc_detalle.DataSource = blst;
                 Cargar_combos();
 
                 switch (enu)
@@ -489,11 +390,7 @@ namespace Core.Erp.Winform.Compras
                     case Cl_Enumeradores.eTipo_action.grabar:
                  
                          C = 1;
-                        Inhabilita_Campos(C);
-                     
-                        txtCedula.Focus();
-                        ckbActivo.Checked = true;
-                        ckbActivo.Enabled = false;                                                                
+                        Inhabilita_Campos(C);                                                              
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
 
@@ -557,14 +454,6 @@ namespace Core.Erp.Winform.Compras
                 txtIdComprador.BackColor = System.Drawing.Color.White;
                 txtIdComprador.ForeColor = System.Drawing.Color.Black;
 
-                txtIdPersona.Enabled = false;
-                txtIdPersona.BackColor = System.Drawing.Color.White;
-                txtIdPersona.ForeColor = System.Drawing.Color.Black;
-
-                txtCedula.Enabled = false;
-                txtCedula.BackColor = System.Drawing.Color.White;
-                txtCedula.ForeColor = System.Drawing.Color.Black;
-
                 txtNombre.Enabled = false;
                 txtNombre.BackColor = System.Drawing.Color.White;
                 txtNombre.ForeColor = System.Drawing.Color.Black;
@@ -576,17 +465,6 @@ namespace Core.Erp.Winform.Compras
                     txtIdComprador.Enabled = false;
                     txtIdComprador.BackColor = System.Drawing.Color.White;
                     txtIdComprador.ForeColor = System.Drawing.Color.Black;
-
-                    txtIdPersona.Enabled = false;
-                    txtIdPersona.BackColor = System.Drawing.Color.White;
-                    txtIdPersona.ForeColor = System.Drawing.Color.Black;
-
-                    txtCedula.Enabled = false;
-                    txtCedula.BackColor = System.Drawing.Color.White;
-                    txtCedula.ForeColor = System.Drawing.Color.Black;
-
-                    ckbActivo.Enabled = true;
-                    txtIdPersona.Enabled = false;
                 }             
             }
             catch (Exception ex)
@@ -664,7 +542,8 @@ namespace Core.Erp.Winform.Compras
             {
                 list_usuario = bus_usuario.Get_List_Usuario_x_Empresa(param.IdEmpresa, ref MensajeError);
                 cmbIdUsuario.Properties.DataSource = list_usuario;
-                
+
+                cmb_familia.DataSource = bus_familia.GetList(param.IdEmpresa);
             }
             catch (Exception ex)
             {

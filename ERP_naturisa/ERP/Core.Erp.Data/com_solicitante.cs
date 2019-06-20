@@ -27,6 +27,7 @@ namespace Core.Erp.Data
         public string estado { get; set; }
         public string IdUsuario { get; set; }
         public Nullable<decimal> IdDepartamento { get; set; }
+        public bool ConsultaDepartamento { get; set; }
         public Nullable<System.DateTime> Fecha_Transac { get; set; }
         public string IdUsuarioUltMod { get; set; }
         public Nullable<System.DateTime> Fecha_UltMod { get; set; }

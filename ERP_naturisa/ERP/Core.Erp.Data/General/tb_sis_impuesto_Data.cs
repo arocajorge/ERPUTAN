@@ -101,28 +101,21 @@ namespace Core.Erp.Data.General
           try
           {
               List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
-
-              EntitiesGeneral oEnti = new EntitiesGeneral();
-
-              var bancos = from q in oEnti.tb_sis_Impuesto
-                           where q.IdTipoImpuesto == IdTipoImpuesto
-                           select q;
-              foreach (var item in bancos)
+              using (EntitiesGeneral db = new EntitiesGeneral())
               {
-                  tb_sis_impuesto_Info info = new tb_sis_impuesto_Info();
-
-                  info.IdCod_Impuesto = item.IdCod_Impuesto;
-                  info.nom_impuesto = item.nom_impuesto;
-                  info.Usado_en_Ventas = item.Usado_en_Ventas;
-                  info.Usado_en_Compras = item.Usado_en_Compras;
-                  info.porcentaje = item.porcentaje;
-                  info.IdCodigo_SRI = item.IdCodigo_SRI;
-                  info.estado = item.estado;
-                  info.IdTipoImpuesto = item.IdTipoImpuesto;
-
-
-                  lst.Add(info);
+                  lst = db.tb_sis_Impuesto.Where(q => q.IdTipoImpuesto == IdTipoImpuesto).Select(q => new tb_sis_impuesto_Info
+                  {
+                      IdCod_Impuesto = q.IdCod_Impuesto,
+                      nom_impuesto = q.nom_impuesto,
+                      Usado_en_Compras = q.Usado_en_Compras,
+                      Usado_en_Ventas = q.Usado_en_Ventas,
+                      porcentaje = q.porcentaje,
+                      IdCodigo_SRI = q.IdCodigo_SRI,
+                      estado = q.estado,
+                  IdTipoImpuesto = q.IdTipoImpuesto    
+                  }).ToList();
               }
+
               return lst;
           }
           catch (Exception ex)

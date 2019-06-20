@@ -34,7 +34,7 @@ namespace Core.Erp.Info.Inventario
         public double? pr_precio_publico { get; set; }
         public double pr_precio_mayor { get; set; }
         public double? pr_precio_minimo { get; set; }
-
+        public int? IdFamilia { get; set; }
         public string IdCategoria { get; set; }
         public int  IdLinea { get; set; }
         public int  IdGrupo { get; set; }
@@ -175,5 +175,40 @@ namespace Core.Erp.Info.Inventario
         
 
         public in_Producto_Info() { }
+    }
+
+    public class in_Producto_Combo
+    {
+        public int IdEmpresa { get; set; }
+        public decimal IdProducto { get; set; }
+        public string pr_codigo { get; set; }
+        public string pr_descripcion { get; set; }
+        public string fa_Descripcion { get; set; }
+
+        public string IdUnidadMedida { get; set; }
+
+        public string IdCod_Impuesto_Iva { get; set; }
+
+        public string IdUnidadMedida_Consumo { get; set; }
+    }
+
+    public class in_Producto_ComprasAnteriores
+    {
+        public int IdEmpresa { get; set; }
+        public int IdSucursal { get; set; }
+        public decimal IdOrdenCompra { get; set; }
+        public int Secuencia { get; set; }
+        public decimal IdProducto { get; set; }
+        public decimal IdProveedor { get; set; }
+        public string pr_descripcion { get; set; }
+        public string pe_nombreCompleto { get; set; }
+        public double do_precioCompra { get; set; }
+        public double do_porc_des { get; set; }
+        public double do_descuento { get; set; }
+        public double do_precioFinal { get; set; }
+        public System.DateTime oc_fecha { get; set; }
+        public string Codigo { get; set; }
+
+        public string NomUnidadMedida { get; set; }
     }
 }
