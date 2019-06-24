@@ -23,6 +23,7 @@ namespace Core.Erp.Winform.Contabilidad
         ct_punto_cargo_Info Info = new ct_punto_cargo_Info();
         List<ct_punto_cargo_grupo_Info> lista_grupo = new List<ct_punto_cargo_grupo_Info>();
         ct_punto_cargo_grupo_Bus grupo_bus = new ct_punto_cargo_grupo_Bus();
+        public int IdPuntoCargo { get; set; }
         #endregion
         
         public frmCon_Punto_Cargo_Mant()
@@ -116,6 +117,7 @@ namespace Core.Erp.Winform.Contabilidad
               try
               {
                    enu = Numerador;
+                   IdPuntoCargo = 0;
               }
               catch (Exception ex)
               {
@@ -204,7 +206,8 @@ namespace Core.Erp.Winform.Contabilidad
                 if (Bus.GuardarDB(Info,param.IdEmpresa))
                 {
                     string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro : ", Info.IdPunto_cargo);
-                    MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);                    
+                    MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    IdPuntoCargo = Info.IdPunto_cargo;
                     txt_codPunto_cargo.Text = Info.codPunto_cargo;
                     limpiar();
                 }

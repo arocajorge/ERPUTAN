@@ -19,6 +19,7 @@ namespace Core.Erp.Winform.Compras
     using Core.Erp.Business.Contabilidad;
     using Core.Erp.Business.Inventario;
     using Core.Erp.Winform.Inventario;
+    using Core.Erp.Winform.Contabilidad;
     
     public partial class FrmCom_OrdenPedidoCotizacion : Form
     {
@@ -264,7 +265,8 @@ namespace Core.Erp.Winform.Compras
                     cd_iva = q.cd_iva,
                     cd_total = q.cd_total,
                     IdUnidadMedida = q.IdUnidadMedida,
-                    IdPunto_cargo = q.IdPunto_cargo
+                    IdPunto_cargo = q.IdPunto_cargo,
+                    cd_DetallePorItem = q.cd_DetallePorItem
                 }).ToList();
 
                 lst_info.Add(cab);
@@ -451,6 +453,41 @@ namespace Core.Erp.Winform.Compras
         {
             Anular();
             Buscar();
+        }
+
+        private void cmb_addPC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+                
+                frmCon_Punto_Cargo_Mant frm = new frmCon_Punto_Cargo_Mant(Cl_Enumeradores.eTipo_action.grabar);
+                frm.event_frmCon_Punto_Cargo_Mant_FormClosing += frm_event_frmCon_Punto_Cargo_Mant_FormClosing;
+                frm.ShowDialog();
+                if(frm.IdPuntoCargo > 0)
+                    row.IdPunto_cargo = frm.IdPuntoCargo;
+
+                gc_detalle.RefreshDataSource();
+
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        void frm_event_frmCon_Punto_Cargo_Mant_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                cmb_PuntoCargo.DataSource = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
+            }
+            catch (Exception)
+            {
+                
+            }
         }
     }
 }

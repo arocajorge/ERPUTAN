@@ -36,8 +36,10 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ucGe_Menu_Mantenimiento_x_usuario1 = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ucGe_Menu_Mantenimiento_x_usuario1 = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +64,9 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn6,
+            this.gridColumn9});
             this.gv_Consulta.GridControl = this.gc_Consulta;
             this.gv_Consulta.Name = "gv_Consulta";
             this.gv_Consulta.OptionsBehavior.ReadOnly = true;
@@ -76,7 +80,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 103;
+            this.gridColumn1.Width = 121;
             // 
             // gridColumn2
             // 
@@ -86,7 +90,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 136;
+            this.gridColumn2.Width = 160;
             // 
             // gridColumn3
             // 
@@ -95,7 +99,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 4;
-            this.gridColumn3.Width = 398;
+            this.gridColumn3.Width = 322;
             // 
             // gridColumn4
             // 
@@ -104,7 +108,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 191;
+            this.gridColumn4.Width = 225;
             // 
             // gridColumn5
             // 
@@ -112,8 +116,8 @@
             this.gridColumn5.FieldName = "Estado";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 6;
-            this.gridColumn5.Width = 119;
+            this.gridColumn5.VisibleIndex = 8;
+            this.gridColumn5.Width = 118;
             // 
             // gridColumn7
             // 
@@ -122,7 +126,16 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
-            this.gridColumn7.Width = 197;
+            this.gridColumn7.Width = 229;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Solicitante";
+            this.gridColumn8.FieldName = "nom_solicitante";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 203;
             // 
             // ucGe_Menu_Mantenimiento_x_usuario1
             // 
@@ -149,8 +162,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 5, 20, 1, 42, 4, 250);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 7, 20, 1, 42, 4, 250);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 5, 23, 22, 37, 57, 890);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 7, 23, 22, 37, 57, 890);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -194,14 +207,23 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.event_btnconsultar_ItemClick += new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnconsultar_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario1_event_btnconsultar_ItemClick);
             this.ucGe_Menu_Mantenimiento_x_usuario1.event_btnSalir_ItemClick += new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnSalir_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario1_event_btnSalir_ItemClick);
             // 
-            // gridColumn8
+            // gridColumn6
             // 
-            this.gridColumn8.Caption = "Solicitante";
-            this.gridColumn8.FieldName = "nom_solicitante";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 2;
-            this.gridColumn8.Width = 172;
+            this.gridColumn6.Caption = "Urgente";
+            this.gridColumn6.FieldName = "EsCompraUrgente";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 7;
+            this.gridColumn6.Width = 127;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "*";
+            this.gridColumn9.FieldName = "IdCatalogoEstado";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 6;
+            this.gridColumn9.Width = 229;
             // 
             // FrmCom_CotizacionAprobacionGA
             // 
@@ -231,6 +253,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private Controles.UCGe_Menu_Mantenimiento_x_usuario ucGe_Menu_Mantenimiento_x_usuario1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
 
     }
 }

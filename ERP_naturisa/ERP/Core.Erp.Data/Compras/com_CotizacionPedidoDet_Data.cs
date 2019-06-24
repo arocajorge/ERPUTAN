@@ -141,7 +141,7 @@ namespace Core.Erp.Data.Compras
                         Selec = q.IdProducto == null ? true : false,
                         Grupo = q.EsCompraUrgente == true ? "1. URGENTES" : (q.IdProducto == null ? "3. NO CREADOS" : "2. NORMALES") ,
                         Adjunto = q.Adjunto,
-
+                        
                         op_Observacion = q.op_Observacion,
                         op_Fecha = q.op_Fecha,
                         NombreArchivo = q.NombreArchivo
@@ -150,12 +150,12 @@ namespace Core.Erp.Data.Compras
                     
                 }
                 Lista.ForEach(q => q.op_Observacion = "Pedido #" + q.opd_IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion);
-
+                /*
                 in_Producto_data odata = new in_Producto_data();
                 foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())
                 {
                     item.Stock = odata.GetStockProductoPorEmpresa(item.IdEmpresa, item.IdProducto ?? 0);
-                }
+                }*/
 
                 return Lista;
             }
@@ -210,6 +210,7 @@ namespace Core.Erp.Data.Compras
                             Secuencia = q.SecuenciaCot ?? 0,
                             cd_precioFinal = q.cd_precioFinal ?? 0,
                             opd_EstadoProceso = q.opd_EstadoProceso,
+                            
                         A = true
 
                     }).ToList();

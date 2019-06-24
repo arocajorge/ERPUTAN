@@ -69,6 +69,7 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Color = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolicitante.Properties)).BeginInit();
@@ -343,7 +344,8 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn1,
-            this.col_Color});
+            this.col_Color,
+            this.gridColumn2});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.Name = "gv_detalle";
             this.gv_detalle.OptionsView.ShowFooter = true;
@@ -375,7 +377,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.VisibleIndex = 3;
             this.gridColumn3.Width = 541;
             // 
             // txtProducto
@@ -392,7 +394,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 5;
             this.gridColumn4.Width = 118;
             // 
             // gridColumn5
@@ -402,7 +404,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 6;
             this.gridColumn5.Width = 99;
             // 
             // gridColumn6
@@ -412,7 +414,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 7;
             this.gridColumn6.Width = 82;
             // 
             // gridColumn7
@@ -422,7 +424,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 8;
             this.gridColumn7.Width = 86;
             // 
             // gridColumn8
@@ -432,7 +434,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 9;
             this.gridColumn8.Width = 85;
             // 
             // gridColumn9
@@ -442,7 +444,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.VisibleIndex = 10;
             this.gridColumn9.Width = 84;
             // 
             // gridColumn10
@@ -452,7 +454,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
+            this.gridColumn10.VisibleIndex = 11;
             this.gridColumn10.Width = 95;
             // 
             // gridColumn11
@@ -464,17 +466,17 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_total", "{0:n2}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 10;
+            this.gridColumn11.VisibleIndex = 12;
             this.gridColumn11.Width = 88;
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "Observación";
+            this.gridColumn1.Caption = "Observación comprador";
             this.gridColumn1.FieldName = "cd_DetallePorItem";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 11;
+            this.gridColumn1.VisibleIndex = 2;
             this.gridColumn1.Width = 306;
             // 
             // col_Color
@@ -483,8 +485,17 @@
             this.col_Color.Name = "col_Color";
             this.col_Color.OptionsColumn.AllowEdit = false;
             this.col_Color.Visible = true;
-            this.col_Color.VisibleIndex = 2;
+            this.col_Color.VisibleIndex = 4;
             this.col_Color.Width = 72;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "# Pedido";
+            this.gridColumn2.FieldName = "opd_IdOrdenPedido";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
             // 
             // FrmCom_CotizacionAprobacionJC
             // 
@@ -557,5 +568,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn col_Color;
         private DevExpress.XtraEditors.SimpleButton btnBuscar;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }
