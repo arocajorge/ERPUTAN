@@ -147,6 +147,7 @@
     <Compile Include="Compras\com_comprador_familia_Info.cs" />
     <Compile Include="Compras\com_CotizacionPedidoDet_Info.cs" />
     <Compile Include="Compras\com_CotizacionPedido_Info.cs" />
+    <Compile Include="Compras\com_ordencompra_local_correo_Info.cs" />
     <Compile Include="Compras\com_OrdenPedidoDet_Info.cs" />
     <Compile Include="Compras\com_OrdenPedido_Info.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Info.cs" />

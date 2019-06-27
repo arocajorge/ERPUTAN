@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Core.Erp.Business.General;
 namespace Core.Erp.Winform
 {
-
+    using Core.Erp.Business.Compras;
     public partial class Form1 : Form
     {
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
@@ -13,11 +13,9 @@ namespace Core.Erp.Winform
         {
             try
             {
-                string mensaje = string.Empty;
-                ct_Cbtecble_Bus bus_diario = new ct_Cbtecble_Bus();
-                ct_Centro_costo_Bus bus_centros = new ct_Centro_costo_Bus();
-                var lst_subcentros = bus_centros.Get_list_Centro_Costo(param.IdEmpresa,ref mensaje);
-                
+                com_OrdenPedido_Bus bus_pedido = new com_OrdenPedido_Bus();
+
+                bus_pedido.SubirDocumentos(1);
             }
             catch (Exception)
             {

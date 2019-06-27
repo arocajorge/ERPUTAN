@@ -69,23 +69,27 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_correo = new DevExpress.XtraEditors.TextEdit();
-            this.txt_clavecorreo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_dominiocorreo = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_ubicacionpedido = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_fileusuario = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_fileclave = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_filedominio = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.chk_permitirssl = new DevExpress.XtraEditors.CheckEdit();
             this.txt_correoscopia = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.chk_permitirssl = new DevExpress.XtraEditors.CheckEdit();
+            this.txt_filedominio = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_fileclave = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_fileusuario = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_ubicacionpedido = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_dominiocorreo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_clavecorreo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_correo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_CuerpoCorreo = new DevExpress.XtraEditors.MemoEdit();
+            this.txt_Asunto = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_estado_cierre_oc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView12)).BeginInit();
@@ -103,15 +107,17 @@
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_clavecorreo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_dominiocorreo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ubicacionpedido.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_fileusuario.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_fileclave.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_filedominio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_permitirssl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_correoscopia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_permitirssl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_filedominio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_fileclave.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_fileusuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ubicacionpedido.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_dominiocorreo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_clavecorreo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_CuerpoCorreo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Asunto.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,7 +139,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(929, 521);
             this.panel1.TabIndex = 4;
@@ -141,7 +147,7 @@
             // cmb_sucursalxaprobacionsc
             // 
             this.cmb_sucursalxaprobacionsc.Location = new System.Drawing.Point(41, 298);
-            this.cmb_sucursalxaprobacionsc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmb_sucursalxaprobacionsc.Margin = new System.Windows.Forms.Padding(5);
             this.cmb_sucursalxaprobacionsc.Name = "cmb_sucursalxaprobacionsc";
             this.cmb_sucursalxaprobacionsc.Size = new System.Drawing.Size(644, 32);
             this.cmb_sucursalxaprobacionsc.TabIndex = 16;
@@ -159,7 +165,7 @@
             // cmb_estado_cierre_oc
             // 
             this.cmb_estado_cierre_oc.Location = new System.Drawing.Point(41, 345);
-            this.cmb_estado_cierre_oc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_estado_cierre_oc.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_estado_cierre_oc.Name = "cmb_estado_cierre_oc";
             this.cmb_estado_cierre_oc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -211,7 +217,7 @@
             // cmbestadoAprobacion_solCom
             // 
             this.cmbestadoAprobacion_solCom.Location = new System.Drawing.Point(41, 249);
-            this.cmbestadoAprobacion_solCom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbestadoAprobacion_solCom.Margin = new System.Windows.Forms.Padding(4);
             this.cmbestadoAprobacion_solCom.Name = "cmbestadoAprobacion_solCom";
             this.cmbestadoAprobacion_solCom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -271,7 +277,7 @@
             // cmbTipoMovInven_x_devCom
             // 
             this.cmbTipoMovInven_x_devCom.Location = new System.Drawing.Point(41, 201);
-            this.cmbTipoMovInven_x_devCom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoMovInven_x_devCom.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoMovInven_x_devCom.Name = "cmbTipoMovInven_x_devCom";
             this.cmbTipoMovInven_x_devCom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -318,7 +324,7 @@
             // cmb_estado_anulacion
             // 
             this.cmb_estado_anulacion.Location = new System.Drawing.Point(41, 151);
-            this.cmb_estado_anulacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_estado_anulacion.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_estado_anulacion.Name = "cmb_estado_anulacion";
             this.cmb_estado_anulacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -369,7 +375,7 @@
             // cmb_tipo_movi_inven_x_oc
             // 
             this.cmb_tipo_movi_inven_x_oc.Location = new System.Drawing.Point(41, 101);
-            this.cmb_tipo_movi_inven_x_oc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_tipo_movi_inven_x_oc.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_tipo_movi_inven_x_oc.Name = "cmb_tipo_movi_inven_x_oc";
             this.cmb_tipo_movi_inven_x_oc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -430,7 +436,7 @@
             // cmb_estado_aprobacion
             // 
             this.cmb_estado_aprobacion.Location = new System.Drawing.Point(41, 49);
-            this.cmb_estado_aprobacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_estado_aprobacion.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_estado_aprobacion.Name = "cmb_estado_aprobacion";
             this.cmb_estado_aprobacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -515,7 +521,7 @@
             this.ucGe_Menu_Superior_Mant.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Superior_Mant.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Menu_Superior_Mant.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Superior_Mant.Name = "ucGe_Menu_Superior_Mant";
             this.ucGe_Menu_Superior_Mant.Size = new System.Drawing.Size(935, 33);
             this.ucGe_Menu_Superior_Mant.TabIndex = 3;
@@ -551,7 +557,7 @@
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 585);
-            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
             this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(935, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 2;
@@ -577,6 +583,10 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.labelControl10);
+            this.xtraTabPage2.Controls.Add(this.labelControl9);
+            this.xtraTabPage2.Controls.Add(this.txt_Asunto);
+            this.xtraTabPage2.Controls.Add(this.txt_CuerpoCorreo);
             this.xtraTabPage2.Controls.Add(this.txt_correoscopia);
             this.xtraTabPage2.Controls.Add(this.labelControl8);
             this.xtraTabPage2.Controls.Add(this.chk_permitirssl);
@@ -598,35 +608,88 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(929, 521);
             this.xtraTabPage2.Text = "Cuentas";
             // 
-            // labelControl1
+            // txt_correoscopia
             // 
-            this.labelControl1.Location = new System.Drawing.Point(25, 22);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(81, 16);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Cuenta correo";
+            this.txt_correoscopia.Location = new System.Drawing.Point(145, 103);
+            this.txt_correoscopia.Name = "txt_correoscopia";
+            this.txt_correoscopia.Size = new System.Drawing.Size(577, 22);
+            this.txt_correoscopia.TabIndex = 16;
             // 
-            // txt_correo
+            // labelControl8
             // 
-            this.txt_correo.Location = new System.Drawing.Point(145, 19);
-            this.txt_correo.Name = "txt_correo";
-            this.txt_correo.Size = new System.Drawing.Size(577, 22);
-            this.txt_correo.TabIndex = 1;
+            this.labelControl8.Location = new System.Drawing.Point(25, 106);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(98, 16);
+            this.labelControl8.TabIndex = 15;
+            this.labelControl8.Text = "Correos copia (;)";
             // 
-            // txt_clavecorreo
+            // chk_permitirssl
             // 
-            this.txt_clavecorreo.Location = new System.Drawing.Point(145, 47);
-            this.txt_clavecorreo.Name = "txt_clavecorreo";
-            this.txt_clavecorreo.Size = new System.Drawing.Size(577, 22);
-            this.txt_clavecorreo.TabIndex = 3;
+            this.chk_permitirssl.Location = new System.Drawing.Point(143, 131);
+            this.chk_permitirssl.Name = "chk_permitirssl";
+            this.chk_permitirssl.Properties.Caption = "Permitir SSL";
+            this.chk_permitirssl.Size = new System.Drawing.Size(250, 21);
+            this.chk_permitirssl.TabIndex = 14;
             // 
-            // labelControl2
+            // txt_filedominio
             // 
-            this.labelControl2.Location = new System.Drawing.Point(25, 50);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(65, 16);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Contraseña";
+            this.txt_filedominio.Location = new System.Drawing.Point(145, 340);
+            this.txt_filedominio.Name = "txt_filedominio";
+            this.txt_filedominio.Size = new System.Drawing.Size(577, 22);
+            this.txt_filedominio.TabIndex = 13;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(25, 343);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(46, 16);
+            this.labelControl7.TabIndex = 12;
+            this.labelControl7.Text = "Dominio";
+            // 
+            // txt_fileclave
+            // 
+            this.txt_fileclave.Location = new System.Drawing.Point(145, 312);
+            this.txt_fileclave.Name = "txt_fileclave";
+            this.txt_fileclave.Size = new System.Drawing.Size(577, 22);
+            this.txt_fileclave.TabIndex = 11;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(25, 315);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(65, 16);
+            this.labelControl6.TabIndex = 10;
+            this.labelControl6.Text = "Contraseña";
+            // 
+            // txt_fileusuario
+            // 
+            this.txt_fileusuario.Location = new System.Drawing.Point(145, 284);
+            this.txt_fileusuario.Name = "txt_fileusuario";
+            this.txt_fileusuario.Size = new System.Drawing.Size(577, 22);
+            this.txt_fileusuario.TabIndex = 9;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(25, 287);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(43, 16);
+            this.labelControl5.TabIndex = 8;
+            this.labelControl5.Text = "Usuario";
+            // 
+            // txt_ubicacionpedido
+            // 
+            this.txt_ubicacionpedido.Location = new System.Drawing.Point(145, 256);
+            this.txt_ubicacionpedido.Name = "txt_ubicacionpedido";
+            this.txt_ubicacionpedido.Size = new System.Drawing.Size(577, 22);
+            this.txt_ubicacionpedido.TabIndex = 7;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(25, 259);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(102, 16);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Ubicación pedidos";
             // 
             // txt_dominiocorreo
             // 
@@ -643,88 +706,65 @@
             this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "Dominio correo";
             // 
-            // txt_ubicacionpedido
+            // txt_clavecorreo
             // 
-            this.txt_ubicacionpedido.Location = new System.Drawing.Point(145, 158);
-            this.txt_ubicacionpedido.Name = "txt_ubicacionpedido";
-            this.txt_ubicacionpedido.Size = new System.Drawing.Size(577, 22);
-            this.txt_ubicacionpedido.TabIndex = 7;
+            this.txt_clavecorreo.Location = new System.Drawing.Point(145, 47);
+            this.txt_clavecorreo.Name = "txt_clavecorreo";
+            this.txt_clavecorreo.Size = new System.Drawing.Size(577, 22);
+            this.txt_clavecorreo.TabIndex = 3;
             // 
-            // labelControl4
+            // labelControl2
             // 
-            this.labelControl4.Location = new System.Drawing.Point(25, 161);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(102, 16);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Ubicación pedidos";
+            this.labelControl2.Location = new System.Drawing.Point(25, 50);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(65, 16);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Contraseña";
             // 
-            // txt_fileusuario
+            // txt_correo
             // 
-            this.txt_fileusuario.Location = new System.Drawing.Point(145, 186);
-            this.txt_fileusuario.Name = "txt_fileusuario";
-            this.txt_fileusuario.Size = new System.Drawing.Size(577, 22);
-            this.txt_fileusuario.TabIndex = 9;
+            this.txt_correo.Location = new System.Drawing.Point(145, 19);
+            this.txt_correo.Name = "txt_correo";
+            this.txt_correo.Size = new System.Drawing.Size(577, 22);
+            this.txt_correo.TabIndex = 1;
             // 
-            // labelControl5
+            // labelControl1
             // 
-            this.labelControl5.Location = new System.Drawing.Point(25, 189);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(43, 16);
-            this.labelControl5.TabIndex = 8;
-            this.labelControl5.Text = "Usuario";
+            this.labelControl1.Location = new System.Drawing.Point(25, 22);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(81, 16);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Cuenta correo";
             // 
-            // txt_fileclave
+            // txt_CuerpoCorreo
             // 
-            this.txt_fileclave.Location = new System.Drawing.Point(145, 214);
-            this.txt_fileclave.Name = "txt_fileclave";
-            this.txt_fileclave.Size = new System.Drawing.Size(577, 22);
-            this.txt_fileclave.TabIndex = 11;
+            this.txt_CuerpoCorreo.Location = new System.Drawing.Point(145, 194);
+            this.txt_CuerpoCorreo.Name = "txt_CuerpoCorreo";
+            this.txt_CuerpoCorreo.Size = new System.Drawing.Size(577, 56);
+            this.txt_CuerpoCorreo.TabIndex = 17;
             // 
-            // labelControl6
+            // txt_Asunto
             // 
-            this.labelControl6.Location = new System.Drawing.Point(25, 217);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(65, 16);
-            this.labelControl6.TabIndex = 10;
-            this.labelControl6.Text = "Contraseña";
+            this.txt_Asunto.Location = new System.Drawing.Point(145, 166);
+            this.txt_Asunto.Name = "txt_Asunto";
+            this.txt_Asunto.Size = new System.Drawing.Size(577, 22);
+            this.txt_Asunto.TabIndex = 18;
             // 
-            // txt_filedominio
+            // labelControl9
             // 
-            this.txt_filedominio.Location = new System.Drawing.Point(145, 242);
-            this.txt_filedominio.Name = "txt_filedominio";
-            this.txt_filedominio.Size = new System.Drawing.Size(577, 22);
-            this.txt_filedominio.TabIndex = 13;
+            this.labelControl9.Location = new System.Drawing.Point(25, 169);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(39, 16);
+            this.labelControl9.TabIndex = 19;
+            this.labelControl9.Text = "Asunto";
             // 
-            // labelControl7
+            // labelControl10
             // 
-            this.labelControl7.Location = new System.Drawing.Point(25, 245);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(46, 16);
-            this.labelControl7.TabIndex = 12;
-            this.labelControl7.Text = "Dominio";
-            // 
-            // chk_permitirssl
-            // 
-            this.chk_permitirssl.Location = new System.Drawing.Point(143, 131);
-            this.chk_permitirssl.Name = "chk_permitirssl";
-            this.chk_permitirssl.Properties.Caption = "Permitir SSL";
-            this.chk_permitirssl.Size = new System.Drawing.Size(250, 21);
-            this.chk_permitirssl.TabIndex = 14;
-            // 
-            // txt_correoscopia
-            // 
-            this.txt_correoscopia.Location = new System.Drawing.Point(145, 103);
-            this.txt_correoscopia.Name = "txt_correoscopia";
-            this.txt_correoscopia.Size = new System.Drawing.Size(577, 22);
-            this.txt_correoscopia.TabIndex = 16;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(25, 106);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(98, 16);
-            this.labelControl8.TabIndex = 15;
-            this.labelControl8.Text = "Correos copia (;)";
+            this.labelControl10.Location = new System.Drawing.Point(25, 197);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(82, 16);
+            this.labelControl10.TabIndex = 20;
+            this.labelControl10.Text = "Cuerpo correo";
             // 
             // FrmCom_Parametro
             // 
@@ -734,7 +774,7 @@
             this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCom_Parametro";
             this.Text = "Parámetros de Compras";
             this.Load += new System.EventHandler(this.FrmCom_Parametro_Load);
@@ -757,15 +797,17 @@
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_clavecorreo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_dominiocorreo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ubicacionpedido.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_fileusuario.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_fileclave.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_filedominio.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_permitirssl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_correoscopia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_permitirssl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_filedominio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_fileclave.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_fileusuario.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ubicacionpedido.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_dominiocorreo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_clavecorreo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_CuerpoCorreo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Asunto.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -830,5 +872,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txt_correoscopia;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit txt_Asunto;
+        private DevExpress.XtraEditors.MemoEdit txt_CuerpoCorreo;
     }
 }

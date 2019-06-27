@@ -23,5 +23,7 @@ namespace Core.Erp.Info.Compras
         public string MotiAnula { get; set; }
         public List<com_comprador_familia_Info> ListaDetalle { get; set; }
         public  com_comprador_Info(){}
+
+        public string Correo { get; set; }
     }
 }

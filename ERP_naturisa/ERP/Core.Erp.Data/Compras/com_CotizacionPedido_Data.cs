@@ -211,6 +211,13 @@ namespace Core.Erp.Data.Compras
                             }
 
                             Entity.oc_IdOrdenCompra = Convert.ToInt32(info.oc_IdOrdenCompra);
+                            db.com_ordencompra_local_correo.Add(new com_ordencompra_local_correo
+                            {
+                                IdEmpresa = info.IdEmpresa,
+                                IdSucursal = info.IdSucursal,
+                                IdOrdenCompra = info.oc_IdOrdenCompra,
+                                Correo = ""
+                            });
                         }
                         db.SaveChanges();
                     }
@@ -455,7 +462,7 @@ namespace Core.Erp.Data.Compras
                         nom_departamento = q.nom_departamento,
                         cp_PlazoEntrega = q.cp_PlazoEntrega,
                         Pasado = q.Pasado,
-                       
+                        opd_IdOrdenPedido = q.opd_IdOrdenPedido
                     }).ToList();
                 }
 

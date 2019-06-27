@@ -26,6 +26,7 @@ namespace Core.Erp.Data
         public string IdUsuario_com { get; set; }
         public string Descripcion { get; set; }
         public string Estado { get; set; }
+        public string Correo { get; set; }
         public string IdUsuario { get; set; }
         public Nullable<System.DateTime> Fecha_Transac { get; set; }
         public string IdUsuarioUltMod { get; set; }

@@ -103,5 +103,18 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public void SubirDocumentos(int IdEmpresa)
+        {
+            try
+            {
+                odata.SubirDocumentos(IdEmpresa);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

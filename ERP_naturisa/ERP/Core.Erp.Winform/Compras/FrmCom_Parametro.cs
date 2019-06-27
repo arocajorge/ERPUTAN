@@ -178,6 +178,8 @@ namespace Core.Erp.Winform.Compras
                 txt_fileusuario.Text = item.FileUsuario;
                 txt_fileclave.Text = item.FileContrasenia;
                 txt_filedominio.Text = item.FileDominio;
+                txt_Asunto.Text = item.Asunto;
+                txt_CuerpoCorreo.Text = item.CuerpoCorreo;
 
             }
             catch (Exception ex)
@@ -221,7 +223,8 @@ namespace Core.Erp.Winform.Compras
                 Info_parametro.FileUsuario = txt_fileusuario.Text;
                 Info_parametro.FileContrasenia = txt_fileclave.Text;
                 Info_parametro.FileDominio = txt_filedominio.Text;
-
+                Info_parametro.CuerpoCorreo = txt_CuerpoCorreo.Text;
+                Info_parametro.Asunto = txt_Asunto.Text;
 
             }
             catch (Exception ex)

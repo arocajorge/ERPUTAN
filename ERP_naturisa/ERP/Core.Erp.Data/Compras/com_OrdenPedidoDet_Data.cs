@@ -39,7 +39,8 @@ namespace Core.Erp.Data.Compras
                         Stock = q.Stock,
                         Adjunto = q.Adjunto,
                         EstadoDetalle = q.EstadoDetalle,
-                        NombreArchivo = q.NombreArchivo
+                        NombreArchivo = q.NombreArchivo,
+                        NomComprador = q.NomComprador
                     }).ToList();
                 }
                 in_Producto_data odata = new in_Producto_data();

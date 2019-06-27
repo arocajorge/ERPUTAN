@@ -215,13 +215,14 @@ namespace Core.Erp.Winform.Compras
                 return false;
             }
 
-            var lstProvDep = lst.GroupBy(q => new { q.IdProveedor, q.IdDepartamento, q.IdSolicitante, q.IdSucursalOrigen, q.IdComprador }).Select(q => new
+            var lstProvDep = lst.GroupBy(q => new { q.IdProveedor, q.IdDepartamento, q.IdSolicitante, q.IdSucursalOrigen, q.IdComprador, q.opd_IdOrdenPedido }).Select(q => new
             {
                 q.Key.IdSolicitante,
                 q.Key.IdDepartamento,
                 q.Key.IdProveedor,
                 q.Key.IdSucursalOrigen,
-                q.Key.IdComprador
+                q.Key.IdComprador,
+                q.Key.opd_IdOrdenPedido
             }).ToList();
             lst_termino = bus_termino.Get_List_TerminoPago().Where(q=> q.Estado == "A").ToList();
             
@@ -248,7 +249,7 @@ namespace Core.Erp.Winform.Compras
                     ListaDetalle = new List<com_CotizacionPedidoDet_Info>()
                 };
 
-                cab.ListaDetalle = lst.Where(q => q.IdProveedor == item.IdProveedor && q.IdDepartamento == item.IdDepartamento && q.IdSolicitante == item.IdSolicitante && q.IdSucursalOrigen == item.IdSucursalOrigen).Select(q=> new com_CotizacionPedidoDet_Info{
+                cab.ListaDetalle = lst.Where(q => q.IdProveedor == item.IdProveedor && q.IdDepartamento == item.IdDepartamento && q.IdSolicitante == item.IdSolicitante && q.IdSucursalOrigen == item.IdSucursalOrigen && q.opd_IdOrdenPedido == item.opd_IdOrdenPedido).Select(q=> new com_CotizacionPedidoDet_Info{
                     IdEmpresa = param.IdEmpresa,
                     opd_IdEmpresa = q.opd_IdEmpresa,
                     opd_IdOrdenPedido = q.opd_IdOrdenPedido,

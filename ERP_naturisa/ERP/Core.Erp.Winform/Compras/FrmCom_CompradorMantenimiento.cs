@@ -335,6 +335,7 @@ namespace Core.Erp.Winform.Compras
                 Info.IdUsuario = param.IdUsuario;
                 Info.IdUsuario_com = Convert.ToString(cmbIdUsuario.EditValue);
                 Info.Fecha_Transac = DateTime.Now;
+                Info.Correo = txt_correo.Text;
                 Info.ListaDetalle = new List<com_comprador_familia_Info>(blst);
             }
             catch (Exception ex)
@@ -355,6 +356,7 @@ namespace Core.Erp.Winform.Compras
                         txtIdComprador.EditValue = _SetInfo.IdComprador;
                         txtNombre.EditValue = _SetInfo.Descripcion;
                         cmbIdUsuario.EditValue = _SetInfo.IdUsuario_com == "" ? null : _SetInfo.IdUsuario_com;
+                        txt_correo.Text = _SetInfo.Correo;
                         blst = new BindingList<com_comprador_familia_Info>(bus_det.GetList(param.IdEmpresa,_SetInfo.IdComprador));
                         gc_detalle.DataSource = blst;
                     }

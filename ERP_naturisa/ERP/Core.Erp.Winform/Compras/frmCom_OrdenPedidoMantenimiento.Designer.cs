@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCom_OrdenPedidoMantenimiento));
             this.uc_menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.cmb_PuntoCargoCab = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chk_EsCompraUrgente = new DevExpress.XtraEditors.CheckEdit();
             this.txt_codigo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -84,14 +89,12 @@
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_subir = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.cmb_PuntoCargoCab = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Estado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_Comprador = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_EsCompraUrgente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_codigo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Observacion.Properties)).BeginInit();
@@ -114,8 +117,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             this.SuspendLayout();
             // 
             // uc_menu
@@ -202,6 +203,55 @@
             this.panel1.Size = new System.Drawing.Size(1161, 139);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(862, 78);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(257, 16);
+            this.labelControl3.TabIndex = 13;
+            this.labelControl3.Text = "Utilizar punto de cargo para nuevos registros";
+            // 
+            // cmb_PuntoCargoCab
+            // 
+            this.cmb_PuntoCargoCab.Location = new System.Drawing.Point(862, 104);
+            this.cmb_PuntoCargoCab.Name = "cmb_PuntoCargoCab";
+            this.cmb_PuntoCargoCab.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_PuntoCargoCab.Properties.DisplayMember = "nom_punto_cargo";
+            this.cmb_PuntoCargoCab.Properties.ValueMember = "IdPunto_cargo";
+            this.cmb_PuntoCargoCab.Properties.View = this.gridView5;
+            this.cmb_PuntoCargoCab.Size = new System.Drawing.Size(287, 22);
+            this.cmb_PuntoCargoCab.TabIndex = 12;
+            // 
+            // gridView5
+            // 
+            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn24,
+            this.gridColumn25});
+            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView5.OptionsView.ShowAutoFilterRow = true;
+            this.gridView5.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.Caption = "Punto de cargo";
+            this.gridColumn24.FieldName = "nom_punto_cargo";
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.Visible = true;
+            this.gridColumn24.VisibleIndex = 0;
+            this.gridColumn24.Width = 1565;
+            // 
+            // gridColumn25
+            // 
+            this.gridColumn25.Caption = "ID";
+            this.gridColumn25.FieldName = "IdPunto_cargo";
+            this.gridColumn25.Name = "gridColumn25";
+            this.gridColumn25.Visible = true;
+            this.gridColumn25.VisibleIndex = 1;
+            this.gridColumn25.Width = 169;
             // 
             // chk_EsCompraUrgente
             // 
@@ -359,7 +409,8 @@
             this.gridColumn5,
             this.gridColumn21,
             this.gridColumn22,
-            this.gridColumn23});
+            this.col_Estado,
+            this.col_Comprador});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.Images = this.imageList1;
             this.gv_detalle.Name = "gv_detalle";
@@ -380,7 +431,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 0;
-            this.gridColumn3.Width = 115;
+            this.gridColumn3.Width = 110;
             // 
             // cmb_SucursalOrdigen
             // 
@@ -439,7 +490,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 142;
+            this.gridColumn4.Width = 136;
             // 
             // cmb_SucursalDestino
             // 
@@ -498,7 +549,7 @@
             this.col_IdProducto.Name = "col_IdProducto";
             this.col_IdProducto.Visible = true;
             this.col_IdProducto.VisibleIndex = 2;
-            this.col_IdProducto.Width = 129;
+            this.col_IdProducto.Width = 123;
             // 
             // cmb_producto
             // 
@@ -546,7 +597,7 @@
             this.col_pr_descripcion.Name = "col_pr_descripcion";
             this.col_pr_descripcion.Visible = true;
             this.col_pr_descripcion.VisibleIndex = 3;
-            this.col_pr_descripcion.Width = 343;
+            this.col_pr_descripcion.Width = 328;
             // 
             // col_IdUnidadMedida
             // 
@@ -556,7 +607,7 @@
             this.col_IdUnidadMedida.Name = "col_IdUnidadMedida";
             this.col_IdUnidadMedida.Visible = true;
             this.col_IdUnidadMedida.VisibleIndex = 7;
-            this.col_IdUnidadMedida.Width = 97;
+            this.col_IdUnidadMedida.Width = 92;
             // 
             // cmb_UnidadMedida
             // 
@@ -606,7 +657,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;
-            this.gridColumn8.Width = 99;
+            this.gridColumn8.Width = 94;
             // 
             // gridColumn9
             // 
@@ -615,7 +666,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 9;
-            this.gridColumn9.Width = 222;
+            this.gridColumn9.Width = 212;
             // 
             // gridColumn10
             // 
@@ -625,7 +676,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 8;
-            this.gridColumn10.Width = 143;
+            this.gridColumn10.Width = 137;
             // 
             // cmb_PuntoCargo
             // 
@@ -678,7 +729,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 97;
+            this.gridColumn5.Width = 92;
             // 
             // txtStock
             // 
@@ -702,7 +753,7 @@
             this.gridColumn21.OptionsColumn.AllowEdit = false;
             this.gridColumn21.Visible = true;
             this.gridColumn21.VisibleIndex = 5;
-            this.gridColumn21.Width = 92;
+            this.gridColumn21.Width = 88;
             // 
             // gridColumn22
             // 
@@ -713,7 +764,7 @@
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
             this.gridColumn22.VisibleIndex = 10;
-            this.gridColumn22.Width = 71;
+            this.gridColumn22.Width = 57;
             // 
             // cmb_subir
             // 
@@ -737,64 +788,29 @@
             this.imageList1.Images.SetKeyName(0, "Upload_16x16.png");
             this.imageList1.Images.SetKeyName(1, "Adjunto_16x16.png");
             // 
-            // gridColumn23
+            // col_Estado
             // 
-            this.gridColumn23.Caption = "Estado";
-            this.gridColumn23.FieldName = "EstadoDetalle";
-            this.gridColumn23.Name = "gridColumn23";
-            this.gridColumn23.OptionsColumn.AllowEdit = false;
-            this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 11;
-            this.gridColumn23.Width = 184;
+            this.col_Estado.Caption = "Estado";
+            this.col_Estado.FieldName = "EstadoDetalle";
+            this.col_Estado.Name = "col_Estado";
+            this.col_Estado.OptionsColumn.AllowEdit = false;
+            this.col_Estado.Visible = true;
+            this.col_Estado.VisibleIndex = 11;
+            this.col_Estado.Width = 131;
             // 
-            // cmb_PuntoCargoCab
+            // col_Comprador
             // 
-            this.cmb_PuntoCargoCab.Location = new System.Drawing.Point(862, 104);
-            this.cmb_PuntoCargoCab.Name = "cmb_PuntoCargoCab";
-            this.cmb_PuntoCargoCab.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_PuntoCargoCab.Properties.DisplayMember = "nom_punto_cargo";
-            this.cmb_PuntoCargoCab.Properties.ValueMember = "IdPunto_cargo";
-            this.cmb_PuntoCargoCab.Properties.View = this.gridView5;
-            this.cmb_PuntoCargoCab.Size = new System.Drawing.Size(287, 22);
-            this.cmb_PuntoCargoCab.TabIndex = 12;
+            this.col_Comprador.Caption = "Comprador";
+            this.col_Comprador.FieldName = "NomComprador";
+            this.col_Comprador.Name = "col_Comprador";
+            this.col_Comprador.OptionsColumn.AllowEdit = false;
+            this.col_Comprador.Visible = true;
+            this.col_Comprador.VisibleIndex = 12;
+            this.col_Comprador.Width = 134;
             // 
-            // gridView5
+            // openFileDialog1
             // 
-            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn24,
-            this.gridColumn25});
-            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView5.Name = "gridView5";
-            this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView5.OptionsView.ShowAutoFilterRow = true;
-            this.gridView5.OptionsView.ShowGroupPanel = false;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(862, 78);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(257, 16);
-            this.labelControl3.TabIndex = 13;
-            this.labelControl3.Text = "Utilizar punto de cargo para nuevos registros";
-            // 
-            // gridColumn24
-            // 
-            this.gridColumn24.Caption = "Punto de cargo";
-            this.gridColumn24.FieldName = "nom_punto_cargo";
-            this.gridColumn24.Name = "gridColumn24";
-            this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 0;
-            this.gridColumn24.Width = 1565;
-            // 
-            // gridColumn25
-            // 
-            this.gridColumn25.Caption = "ID";
-            this.gridColumn25.FieldName = "IdPunto_cargo";
-            this.gridColumn25.Name = "gridColumn25";
-            this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 1;
-            this.gridColumn25.Width = 169;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmCom_OrdenPedidoMantenimiento
             // 
@@ -810,6 +826,8 @@
             this.Load += new System.EventHandler(this.frmCom_OrdenPedidoMantenimiento_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_EsCompraUrgente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_codigo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Observacion.Properties)).EndInit();
@@ -832,8 +850,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -894,12 +910,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_subir;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Estado;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SearchLookUpEdit cmb_PuntoCargoCab;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Comprador;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -37,7 +37,7 @@ namespace Core.Erp.Data
         public bool EstadoGA { get; set; }
         public string cd_DetallePorItem { get; set; }
     
-        public virtual com_CotizacionPedido com_CotizacionPedido { get; set; }
         public virtual com_OrdenPedidoDet com_OrdenPedidoDet { get; set; }
+        public virtual com_CotizacionPedido com_CotizacionPedido { get; set; }
     }
 }

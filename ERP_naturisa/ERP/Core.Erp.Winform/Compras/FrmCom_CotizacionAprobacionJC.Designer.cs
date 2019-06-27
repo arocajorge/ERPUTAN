@@ -70,6 +70,10 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Color = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_punto_cargo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolicitante.Properties)).BeginInit();
@@ -84,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_punto_cargo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -323,7 +329,8 @@
             this.gc_detalle.MainView = this.gv_detalle;
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.txtProducto});
+            this.txtProducto,
+            this.cmb_punto_cargo});
             this.gc_detalle.Size = new System.Drawing.Size(1056, 264);
             this.gc_detalle.TabIndex = 1;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -345,7 +352,9 @@
             this.gridColumn11,
             this.gridColumn1,
             this.col_Color,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.gridColumn12,
+            this.gridColumn13});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.Name = "gv_detalle";
             this.gv_detalle.OptionsView.ShowFooter = true;
@@ -360,7 +369,7 @@
             this.colA.Name = "colA";
             this.colA.Visible = true;
             this.colA.VisibleIndex = 0;
-            this.colA.Width = 78;
+            this.colA.Width = 69;
             // 
             // colR
             // 
@@ -377,8 +386,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 541;
+            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.Width = 453;
             // 
             // txtProducto
             // 
@@ -394,8 +403,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
-            this.gridColumn4.Width = 118;
+            this.gridColumn4.VisibleIndex = 7;
+            this.gridColumn4.Width = 104;
             // 
             // gridColumn5
             // 
@@ -404,8 +413,8 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 6;
-            this.gridColumn5.Width = 99;
+            this.gridColumn5.VisibleIndex = 8;
+            this.gridColumn5.Width = 87;
             // 
             // gridColumn6
             // 
@@ -414,8 +423,8 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 7;
-            this.gridColumn6.Width = 82;
+            this.gridColumn6.VisibleIndex = 9;
+            this.gridColumn6.Width = 72;
             // 
             // gridColumn7
             // 
@@ -424,8 +433,8 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 8;
-            this.gridColumn7.Width = 86;
+            this.gridColumn7.VisibleIndex = 10;
+            this.gridColumn7.Width = 76;
             // 
             // gridColumn8
             // 
@@ -434,8 +443,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 9;
-            this.gridColumn8.Width = 85;
+            this.gridColumn8.VisibleIndex = 11;
             // 
             // gridColumn9
             // 
@@ -444,8 +452,8 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 10;
-            this.gridColumn9.Width = 84;
+            this.gridColumn9.VisibleIndex = 12;
+            this.gridColumn9.Width = 74;
             // 
             // gridColumn10
             // 
@@ -454,8 +462,8 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 11;
-            this.gridColumn10.Width = 95;
+            this.gridColumn10.VisibleIndex = 13;
+            this.gridColumn10.Width = 84;
             // 
             // gridColumn11
             // 
@@ -466,8 +474,8 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_total", "{0:n2}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 12;
-            this.gridColumn11.Width = 88;
+            this.gridColumn11.VisibleIndex = 14;
+            this.gridColumn11.Width = 93;
             // 
             // gridColumn1
             // 
@@ -477,7 +485,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 2;
-            this.gridColumn1.Width = 306;
+            this.gridColumn1.Width = 270;
             // 
             // col_Color
             // 
@@ -485,8 +493,8 @@
             this.col_Color.Name = "col_Color";
             this.col_Color.OptionsColumn.AllowEdit = false;
             this.col_Color.Visible = true;
-            this.col_Color.VisibleIndex = 4;
-            this.col_Color.Width = 72;
+            this.col_Color.VisibleIndex = 6;
+            this.col_Color.Width = 63;
             // 
             // gridColumn2
             // 
@@ -496,6 +504,44 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 66;
+            // 
+            // cmb_punto_cargo
+            // 
+            this.cmb_punto_cargo.AutoHeight = false;
+            this.cmb_punto_cargo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_punto_cargo.DisplayMember = "nom_punto_cargo";
+            this.cmb_punto_cargo.Name = "cmb_punto_cargo";
+            this.cmb_punto_cargo.ValueMember = "IdPunto_cargo";
+            this.cmb_punto_cargo.View = this.repositoryItemSearchLookUpEdit1View;
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Cargo";
+            this.gridColumn12.FieldName = "nom_punto_cargo";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowEdit = false;
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 5;
+            this.gridColumn12.Width = 82;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "ID";
+            this.gridColumn13.FieldName = "IdProducto";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 3;
+            this.gridColumn13.Width = 66;
             // 
             // FrmCom_CotizacionAprobacionJC
             // 
@@ -522,6 +568,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_punto_cargo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -569,5 +617,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_Color;
         private DevExpress.XtraEditors.SimpleButton btnBuscar;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_punto_cargo;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
     }
 }

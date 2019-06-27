@@ -62,6 +62,7 @@ namespace Core.Erp.Data.Compras
                         Descripcion = info.Descripcion,
                         Estado = "A",
                         IdUsuario = info.IdUsuario,
+                        Correo = info.Correo,
                         Fecha_Transac = DateTime.Now
                     };
                     Context.com_comprador.Add(Address);
@@ -102,6 +103,7 @@ namespace Core.Erp.Data.Compras
 
                     contact.IdUsuario_com = info.IdUsuario_com;
                     contact.Descripcion = info.Descripcion;
+                    contact.Correo = info.Correo;
                     
                     var lst = context.com_comprador_familia.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdComprador == info.IdComprador).ToList();
                     foreach (var item in lst)
@@ -180,6 +182,7 @@ namespace Core.Erp.Data.Compras
                         IdUsuario_com = q.IdUsuario_com,
                         Descripcion = q.Descripcion,
                         Estado = q.Estado,
+                        Correo = q.Correo,
                         SEstado = q.Estado == "A" ? "ACTIVO" : "**ANULADO**",
 
                     }).ToList();

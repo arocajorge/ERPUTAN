@@ -331,7 +331,7 @@
             this.col_IdUnidadMedida.Name = "col_IdUnidadMedida";
             this.col_IdUnidadMedida.OptionsColumn.AllowEdit = false;
             this.col_IdUnidadMedida.Visible = true;
-            this.col_IdUnidadMedida.VisibleIndex = 13;
+            this.col_IdUnidadMedida.VisibleIndex = 11;
             this.col_IdUnidadMedida.Width = 100;
             // 
             // cmb_UnidadMedida
@@ -380,7 +380,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 22;
+            this.gridColumn9.VisibleIndex = 20;
             this.gridColumn9.Width = 200;
             // 
             // gridColumn10
@@ -390,7 +390,7 @@
             this.gridColumn10.FieldName = "IdPunto_cargo";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 20;
+            this.gridColumn10.VisibleIndex = 18;
             this.gridColumn10.Width = 100;
             // 
             // cmb_PuntoCargo
@@ -442,8 +442,6 @@
             this.gridColumn5.FieldName = "Stock";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.ReadOnly = true;
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 10;
             this.gridColumn5.Width = 80;
             // 
             // txtStock
@@ -465,8 +463,6 @@
             this.gridColumn21.FieldName = "IdUnidadMedida_Consumo";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.OptionsColumn.AllowEdit = false;
-            this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 11;
             this.gridColumn21.Width = 100;
             // 
             // col_A
@@ -571,7 +567,7 @@
             this.col_IVA.FieldName = "IdCod_Impuesto";
             this.col_IVA.Name = "col_IVA";
             this.col_IVA.Visible = true;
-            this.col_IVA.VisibleIndex = 17;
+            this.col_IVA.VisibleIndex = 15;
             this.col_IVA.Width = 80;
             // 
             // cmb_impuesto
@@ -633,7 +629,7 @@
             this.col_cd_Cantidad.Name = "col_cd_Cantidad";
             this.col_cd_Cantidad.OptionsColumn.AllowEdit = false;
             this.col_cd_Cantidad.Visible = true;
-            this.col_cd_Cantidad.VisibleIndex = 12;
+            this.col_cd_Cantidad.VisibleIndex = 10;
             this.col_cd_Cantidad.Width = 100;
             // 
             // col_cd_precioCompr
@@ -647,7 +643,7 @@
             this.col_cd_precioCompr.FieldName = "cd_precioCompra";
             this.col_cd_precioCompr.Name = "col_cd_precioCompr";
             this.col_cd_precioCompr.Visible = true;
-            this.col_cd_precioCompr.VisibleIndex = 14;
+            this.col_cd_precioCompr.VisibleIndex = 12;
             this.col_cd_precioCompr.Width = 100;
             // 
             // col_cd_porc_des
@@ -662,7 +658,7 @@
             this.col_cd_porc_des.FieldName = "cd_porc_des";
             this.col_cd_porc_des.Name = "col_cd_porc_des";
             this.col_cd_porc_des.Visible = true;
-            this.col_cd_porc_des.VisibleIndex = 15;
+            this.col_cd_porc_des.VisibleIndex = 13;
             this.col_cd_porc_des.Width = 100;
             // 
             // gridColumn28
@@ -676,7 +672,7 @@
             this.gridColumn28.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_subtotal", "{0:n2}")});
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 16;
+            this.gridColumn28.VisibleIndex = 14;
             this.gridColumn28.Width = 100;
             // 
             // gridColumn29
@@ -690,7 +686,7 @@
             this.gridColumn29.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_iva", "{0:n2}")});
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 18;
+            this.gridColumn29.VisibleIndex = 16;
             this.gridColumn29.Width = 100;
             // 
             // gridColumn30
@@ -704,7 +700,7 @@
             this.gridColumn30.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_total", "{0:n2}")});
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 19;
+            this.gridColumn30.VisibleIndex = 17;
             this.gridColumn30.Width = 100;
             // 
             // gridColumn2
@@ -784,7 +780,7 @@
             this.gridColumn27.FieldName = "cd_DetallePorItem";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 23;
+            this.gridColumn27.VisibleIndex = 21;
             this.gridColumn27.Width = 200;
             // 
             // gridColumn31
@@ -812,7 +808,7 @@
             this.gridColumn33.ImageIndex = 1;
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 21;
+            this.gridColumn33.VisibleIndex = 19;
             this.gridColumn33.Width = 50;
             // 
             // cmb_addPC

@@ -41,5 +41,7 @@ namespace Core.Erp.Info.Compras
         public DateTime op_Fecha { get; set; }
 
         public string NombreArchivo { get; set; }
+
+        public string NomComprador { get; set; }
     }
 }

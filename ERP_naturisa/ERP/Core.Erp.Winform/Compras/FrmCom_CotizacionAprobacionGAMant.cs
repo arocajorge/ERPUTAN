@@ -199,5 +199,26 @@ namespace Core.Erp.Winform.Compras
                 
             }
         }
+
+        private void cmb_search_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if (row.IdPunto_cargo == null)
+                    return;
+
+                FrmCom_ComprasPorPuntoCargo frm = new FrmCom_ComprasPorPuntoCargo();
+                frm.IdPunto_cargo = Convert.ToInt32(row.IdPunto_cargo);
+                frm.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

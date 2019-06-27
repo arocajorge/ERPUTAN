@@ -746,6 +746,44 @@ namespace Core.Erp.Data.Compras
                 throw new Exception(ex.ToString());
             }
         }
+
+        public List<com_ordencompra_local_det_Info> GetListComprasPorPuntoCargo(int IdEmpresa, int IdPunto_cargo)
+        {
+            try
+            {
+                List<com_ordencompra_local_det_Info> Lista;
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    Lista = db.SPCOM_ComprasPorPuntoCargo(IdEmpresa, IdPunto_cargo).Select(q => new com_ordencompra_local_det_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSucursal = q.IdSucursal,
+                        IdOrdenCompra = q.IdOrdenCompra,
+                        Secuencia = q.Secuencia,
+                        producto = q.pr_descripcion,
+                        Nom_UnidadMedida = q.NomUnidadMedida,
+                        pe_nombreCompleto = q.pe_nombreCompleto,
+                        Codigo = q.OC,
+                        nom_punto_cargo = q.nom_punto_cargo,
+                        IdPunto_cargo = q.IdPunto_cargo,
+                        oc_fecha = q.oc_fecha,
+                        IdOrdenPedido = q.IdOrdenPedido,
+                        do_Cantidad = q.do_cantidad,
+                        do_precioCompra = q.do_precioCompra,
+                        do_porc_des = q.do_porc_des,
+                        do_subtotal = q.do_subtotal
+                    }).ToList();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     
     }
 }

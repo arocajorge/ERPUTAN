@@ -35,5 +35,9 @@ namespace Core.Erp.Info.Compras
 
 
 
+
+        public string Asunto { get; set; }
+
+        public string CuerpoCorreo { get; set; }
     }
 }

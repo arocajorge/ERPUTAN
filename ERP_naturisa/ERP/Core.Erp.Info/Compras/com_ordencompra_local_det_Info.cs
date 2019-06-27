@@ -89,5 +89,13 @@ namespace Core.Erp.Info.Compras
         public Boolean Checked { get; set; }
    
         public com_ordencompra_local_det_Info() { }
+
+        public string pe_nombreCompleto { get; set; }
+
+        public string Codigo { get; set; }
+
+        public string nom_punto_cargo { get; set; }
+
+        public decimal? IdOrdenPedido { get; set; }
     }
 }

@@ -39,7 +39,9 @@ namespace Core.Erp.Data.Compras
 
                            FileUsuario = q.FileUsuario,
                            FileContrasenia = q.FileContrasenia,
-                           FileDominio = q.FileDominio
+                           FileDominio = q.FileDominio,
+                           Asunto = q.Asunto,
+                           CuerpoCorreo = q.CuerpoCorreo
                        }).FirstOrDefault();
 
                        return Obj ?? new com_parametro_Info();
@@ -83,6 +85,8 @@ namespace Core.Erp.Data.Compras
                    Obj.IdEstadoAprobacion_SolCompra = item.IdEstadoAprobacion_SolCompra;
                    Obj.IdSucursal_x_Aprob_x_SolComp = Convert.ToInt32(item.IdSucursal_x_Aprob_x_SolComp);
                    Obj.IdEstado_cierre = item.IdEstado_cierre;
+                   Obj.Asunto = item.Asunto;
+                   Obj.CuerpoCorreo = item.CuerpoCorreo;
 
                    list.Add(Obj);
 
@@ -130,7 +134,9 @@ namespace Core.Erp.Data.Compras
 
                        FileUsuario = info.FileUsuario,
                        FileContrasenia = info.FileContrasenia,
-                       FileDominio = info.FileDominio
+                       FileDominio = info.FileDominio,
+                       CuerpoCorreo = info.CuerpoCorreo,
+                       Asunto = info.Asunto
                    };
                    Context.com_parametro.Add(Address);
                    Context.SaveChanges();
@@ -177,6 +183,7 @@ namespace Core.Erp.Data.Compras
                        contact.FileUsuario = Info.FileUsuario;
                        contact.FileContrasenia = Info.FileContrasenia;
                        contact.FileDominio = Info.FileDominio;
+                       contact.Asunto = Info.Asunto;
 
                        context.SaveChanges();
                        msg = "Se ha procedido a modificar el registro exitosamente";

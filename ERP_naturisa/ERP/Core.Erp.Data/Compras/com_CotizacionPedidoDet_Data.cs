@@ -112,6 +112,8 @@ namespace Core.Erp.Data.Compras
 
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
+                    var Comprador = db.com_comprador.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario_com == IdUsuario_com).FirstOrDefault();
+                    
                     Lista = db.vwcom_OrdenPedidoDet_Cotizacion.Where(q => q.IdEmpresa == IdEmpresa && q.opd_EstadoProceso == "A" && (q.IdUsuario_com  ?? IdUsuario_com)== IdUsuario_com).Select(q => new com_CotizacionPedidoDet_Info
                     {
                         IdEmpresa = q.IdEmpresa,
@@ -147,9 +149,9 @@ namespace Core.Erp.Data.Compras
                         NombreArchivo = q.NombreArchivo
                         
                     }).ToList();
-                    
+                    Lista.ForEach(q => { q.op_Observacion = "Pedido #" + q.opd_IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion; q.IdComprador = q.IdComprador == 0 ? Comprador.IdComprador : q.IdComprador; });    
                 }
-                Lista.ForEach(q => q.op_Observacion = "Pedido #" + q.opd_IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion);
+                
                 /*
                 in_Producto_data odata = new in_Producto_data();
                 foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())
@@ -232,5 +234,7 @@ namespace Core.Erp.Data.Compras
                 throw;
             }
         }
+
+        
     }
 }

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -108,14 +110,6 @@ namespace Core.Erp.Data.Compras
                             nom_punto_cargo = q.nom_punto_cargo
                         }).ToList();
 
-                        foreach (var item in Lista)
-                        {
-                            var lstDet = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdOrdenPedido == item.IdOrdenPedido).ToList();
-                            if (lstDet.Where(q => q.opd_EstadoProceso == "AJC").Count() == lstDet.Where(q => q.opd_EstadoProceso != "RA" && q.opd_EstadoProceso != "RC" && q.opd_EstadoProceso != "RGA").Count())
-                            {
-                                item.IdCatalogoEstado = "PRECIO APROBADO";   
-                            }
-                        }
                 }
 
                 return Lista;
@@ -343,5 +337,17 @@ namespace Core.Erp.Data.Compras
                 return false;
             }
         }
+
+
+        #region SubirArchivos
+        public void SubirDocumentos(int IdEmpresa)
+        {
+            EntitiesCompras db = new EntitiesCompras();
+            var param = db.com_parametro.Where(q => q.IdEmpresa == IdEmpresa).FirstOrDefault();
+
+
+        }
+        #endregion
+        
     }
 }

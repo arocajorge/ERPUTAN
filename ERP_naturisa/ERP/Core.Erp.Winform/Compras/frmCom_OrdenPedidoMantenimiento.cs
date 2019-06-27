@@ -132,6 +132,8 @@ using Core.Erp.Info.Inventario;
                         uc_menu.btnGuardar.Visible = true;
                         uc_menu.btnGuardar_y_Salir.Visible = true;
                         uc_menu.Visible_bntAnular = false;
+                        col_Estado.Visible = false;
+                        col_Comprador.Visible = false;
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         lbl_IdOrdenPedido.Visible = true;
@@ -140,6 +142,8 @@ using Core.Erp.Info.Inventario;
                         uc_menu.btnGuardar_y_Salir.Visible = true;
                         uc_menu.Visible_bntAnular = false;
                         SetInfoInControls();
+                        col_Estado.Visible = true;
+                        col_Comprador.Visible = true;
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
                         lbl_IdOrdenPedido.Visible = true;
@@ -148,6 +152,8 @@ using Core.Erp.Info.Inventario;
                         uc_menu.btnGuardar_y_Salir.Visible = false;
                         uc_menu.Visible_bntAnular = true;
                         SetInfoInControls();
+                        col_Estado.Visible = true;
+                        col_Comprador.Visible = true;
                         break;
                     case Cl_Enumeradores.eTipo_action.consultar:
                         lbl_IdOrdenPedido.Visible = true;
@@ -156,6 +162,8 @@ using Core.Erp.Info.Inventario;
                         uc_menu.btnGuardar_y_Salir.Visible = false;
                         uc_menu.Visible_bntAnular = false;
                         SetInfoInControls();
+                        col_Estado.Visible = true;
+                        col_Comprador.Visible = true;
                         break;
                 }
             }
@@ -525,9 +533,10 @@ using Core.Erp.Info.Inventario;
                 if (row == null)
                     return;
                 string filePath = null;
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    filePath = saveFileDialog1.FileName;
+                    filePath = openFileDialog1.FileName;
+                    row.NombreArchivo = openFileDialog1.FileName;
                     row.Adjunto = true;
                     gc_detalle.RefreshDataSource();
                 }

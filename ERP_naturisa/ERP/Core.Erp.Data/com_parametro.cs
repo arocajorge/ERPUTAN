@@ -31,6 +31,8 @@ namespace Core.Erp.Data
         public string FileUsuario { get; set; }
         public string FileContrasenia { get; set; }
         public string FileDominio { get; set; }
+        public string Asunto { get; set; }
+        public string CuerpoCorreo { get; set; }
     
         public virtual com_catalogo com_catalogo { get; set; }
         public virtual com_catalogo com_catalogo1 { get; set; }

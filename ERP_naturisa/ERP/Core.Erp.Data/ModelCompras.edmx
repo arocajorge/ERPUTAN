@@ -27,6 +27,7 @@
           <EntitySet Name="com_ListadoMateriales_Det_x_com_GenerOCompra_Det" EntityType="DBERPModelCompras.Store.com_ListadoMateriales_Det_x_com_GenerOCompra_Det" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_Motivo_Orden_Compra" EntityType="DBERPModelCompras.Store.com_Motivo_Orden_Compra" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_ordencompra_local" EntityType="DBERPModelCompras.Store.com_ordencompra_local" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="com_ordencompra_local_correo" EntityType="DBERPModelCompras.Store.com_ordencompra_local_correo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_ordencompra_local_det" EntityType="DBERPModelCompras.Store.com_ordencompra_local_det" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_ordencompra_local_det_x_com_solicitud_compra_det" EntityType="DBERPModelCompras.Store.com_ordencompra_local_det_x_com_solicitud_compra_det" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_OrdenPedido" EntityType="DBERPModelCompras.Store.com_OrdenPedido" store:Type="Tables" Schema="dbo" />
@@ -173,7 +174,8 @@
       [vwcom_CotizacionPedido].[nom_solicitante] AS [nom_solicitante], 
       [vwcom_CotizacionPedido].[nom_departamento] AS [nom_departamento], 
       [vwcom_CotizacionPedido].[Pasado] AS [Pasado], 
-      [vwcom_CotizacionPedido].[cp_PlazoEntrega] AS [cp_PlazoEntrega]
+      [vwcom_CotizacionPedido].[cp_PlazoEntrega] AS [cp_PlazoEntrega], 
+      [vwcom_CotizacionPedido].[opd_IdOrdenPedido] AS [opd_IdOrdenPedido]
       FROM [dbo].[vwcom_CotizacionPedido] AS [vwcom_CotizacionPedido]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwcom_CotizacionPedidoDet" EntityType="DBERPModelCompras.Store.vwcom_CotizacionPedidoDet" store:Type="Views" store:Schema="dbo" store:Name="vwcom_CotizacionPedidoDet">
@@ -607,6 +609,18 @@
       [vwcom_ordencompra_local_consulta].[oc_plazo] AS [oc_plazo]
       FROM [dbo].[vwcom_ordencompra_local_consulta] AS [vwcom_ordencompra_local_consulta]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwcom_ordencompra_local_correo" EntityType="DBERPModelCompras.Store.vwcom_ordencompra_local_correo" store:Type="Views" store:Schema="dbo" store:Name="vwcom_ordencompra_local_correo">
+            <DefiningQuery>SELECT 
+      [vwcom_ordencompra_local_correo].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ordencompra_local_correo].[IdSucursal] AS [IdSucursal], 
+      [vwcom_ordencompra_local_correo].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwcom_ordencompra_local_correo].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwcom_ordencompra_local_correo].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwcom_ordencompra_local_correo].[pe_correo] AS [pe_correo], 
+      [vwcom_ordencompra_local_correo].[Codigo] AS [Codigo], 
+      [vwcom_ordencompra_local_correo].[CorreoComprador] AS [CorreoComprador]
+      FROM [dbo].[vwcom_ordencompra_local_correo] AS [vwcom_ordencompra_local_correo]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwcom_ordencompra_local_det" EntityType="DBERPModelCompras.Store.vwcom_ordencompra_local_det" store:Type="Views" store:Schema="dbo" store:Name="vwcom_ordencompra_local_det">
             <DefiningQuery>SELECT 
       [vwcom_ordencompra_local_det].[IdEmpresa] AS [IdEmpresa], 
@@ -991,7 +1005,8 @@
       [vwcom_OrdenPedidoDet].[IdProducto] AS [IdProducto], 
       [vwcom_OrdenPedidoDet].[Adjunto] AS [Adjunto], 
       [vwcom_OrdenPedidoDet].[EstadoDetalle] AS [EstadoDetalle], 
-      [vwcom_OrdenPedidoDet].[NombreArchivo] AS [NombreArchivo]
+      [vwcom_OrdenPedidoDet].[NombreArchivo] AS [NombreArchivo], 
+      [vwcom_OrdenPedidoDet].[NomComprador] AS [NomComprador]
       FROM [dbo].[vwcom_OrdenPedidoDet] AS [vwcom_OrdenPedidoDet]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwcom_OrdenPedidoDet_Aprobacion" EntityType="DBERPModelCompras.Store.vwcom_OrdenPedidoDet_Aprobacion" store:Type="Views" store:Schema="dbo" store:Name="vwcom_OrdenPedidoDet_Aprobacion">
@@ -1451,6 +1466,7 @@
           <Property Name="IdUsuario_com" Type="varchar" MaxLength="50" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Correo" Type="varchar(max)" />
           <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
           <Property Name="Fecha_Transac" Type="datetime" />
           <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="20" />
@@ -1841,6 +1857,19 @@
           <Property Name="IdEstado_cierre" Type="varchar" MaxLength="25" />
           <Property Name="IdComprador" Type="numeric" Nullable="false" />
         </EntityType>
+        <EntityType Name="com_ordencompra_local_correo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="Correo" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaEnvio" Type="datetime" />
+          <Property Name="Mensaje" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="com_ordencompra_local_det">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -1961,6 +1990,8 @@
           <Property Name="FileUsuario" Type="varchar" MaxLength="500" />
           <Property Name="FileContrasenia" Type="varchar" MaxLength="500" />
           <Property Name="FileDominio" Type="varchar" MaxLength="500" />
+          <Property Name="Asunto" Type="varchar(max)" />
+          <Property Name="CuerpoCorreo" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="com_solicitante">
           <Key>
@@ -2331,6 +2362,7 @@
           <Property Name="nom_departamento" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Pasado" Type="bit" />
           <Property Name="cp_PlazoEntrega" Type="int" Nullable="false" />
+          <Property Name="opd_IdOrdenPedido" Type="numeric" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoDet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -3053,6 +3085,26 @@
           <Property Name="oc_plazo" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_correo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcom_ordencompra_local_correo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_correo" Type="varchar" MaxLength="100" />
+          <Property Name="Codigo" Type="varchar" MaxLength="41" />
+          <Property Name="CorreoComprador" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_det">
@@ -3597,7 +3649,7 @@
           <Property Name="op_Observacion" Type="varchar(max)" />
           <Property Name="IdDepartamento" Type="numeric" Nullable="false" />
           <Property Name="IdSolicitante" Type="numeric" Nullable="false" />
-          <Property Name="IdCatalogoEstado" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdCatalogoEstado" Type="varchar" Nullable="false" MaxLength="15" />
           <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="IdPunto_cargo" Type="int" />
           <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
@@ -3640,6 +3692,7 @@
           <Property Name="Adjunto" Type="bit" Nullable="false" />
           <Property Name="EstadoDetalle" Type="varchar" MaxLength="23" />
           <Property Name="NombreArchivo" Type="varchar" MaxLength="1000" />
+          <Property Name="NomComprador" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_Aprobacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -4643,6 +4696,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SPCOM_ComprasPorPuntoCargo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdPuntoCargo" Type="int" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -4825,58 +4882,18 @@
             <End Role="com_departamento" EntitySet="com_departamento" />
             <End Role="com_solicitante_aprobador" EntitySet="com_solicitante_aprobador" />
           </AssociationSet>
-          <EntitySet Name="com_comprador" EntityType="DBERPModelCompras.com_comprador" />
           <EntitySet Name="com_comprador_familia" EntityType="DBERPModelCompras.com_comprador_familia" />
-          <AssociationSet Name="FK_com_comprador_familia_com_comprador" Association="DBERPModelCompras.FK_com_comprador_familia_com_comprador">
-            <End Role="com_comprador" EntitySet="com_comprador" />
-            <End Role="com_comprador_familia" EntitySet="com_comprador_familia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_ordencompra_local_com_comprador" Association="DBERPModelCompras.FK_com_ordencompra_local_com_comprador">
-            <End Role="com_comprador" EntitySet="com_comprador" />
-            <End Role="com_ordencompra_local" EntitySet="com_ordencompra_local" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_solicitud_compra_com_comprador" Association="DBERPModelCompras.FK_com_solicitud_compra_com_comprador">
-            <End Role="com_comprador" EntitySet="com_comprador" />
-            <End Role="com_solicitud_compra" EntitySet="com_solicitud_compra" />
-          </AssociationSet>
           <EntitySet Name="com_CotizacionPedidoSaltar" EntityType="DBERPModelCompras.com_CotizacionPedidoSaltar" />
           <EntitySet Name="com_CotizacionPedidoDet" EntityType="DBERPModelCompras.com_CotizacionPedidoDet" />
           <EntitySet Name="vwcom_CotizacionPedidoDet" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDet" />
-          <EntitySet Name="com_CotizacionPedido" EntityType="DBERPModelCompras.com_CotizacionPedido" />
-          <AssociationSet Name="FK_com_CotizacionPedido_com_departamento" Association="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento">
-            <End Role="com_departamento" EntitySet="com_departamento" />
-            <End Role="com_CotizacionPedido" EntitySet="com_CotizacionPedido" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_CotizacionPedido_com_TerminoPago" Association="DBERPModelCompras.FK_com_CotizacionPedido_com_TerminoPago">
-            <End Role="com_TerminoPago" EntitySet="com_TerminoPago" />
-            <End Role="com_CotizacionPedido" EntitySet="com_CotizacionPedido" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_CotizacionPedidoDet_com_CotizacionPedido" Association="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido">
-            <End Role="com_CotizacionPedido" EntitySet="com_CotizacionPedido" />
-            <End Role="com_CotizacionPedidoDet" EntitySet="com_CotizacionPedidoDet" />
-          </AssociationSet>
           <EntitySet Name="com_OrdenPedido" EntityType="DBERPModelCompras.com_OrdenPedido" />
           <EntitySet Name="com_OrdenPedidoDet" EntityType="DBERPModelCompras.com_OrdenPedidoDet" />
-          <EntitySet Name="com_parametro" EntityType="DBERPModelCompras.com_parametro" />
           <EntitySet Name="vwcom_OrdenPedido" EntityType="DBERPModelCompras.vwcom_OrdenPedido" />
-          <EntitySet Name="vwcom_OrdenPedidoDet" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet" />
           <EntitySet Name="vwcom_OrdenPedidoDet_Aprobacion" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Aprobacion" />
           <EntitySet Name="vwcom_OrdenPedidoDet_Cotizacion" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion" />
           <AssociationSet Name="FK_com_OrdenPedido_com_catalogo" Association="DBERPModelCompras.FK_com_OrdenPedido_com_catalogo">
             <End Role="com_catalogo" EntitySet="com_catalogo" />
             <End Role="com_OrdenPedido" EntitySet="com_OrdenPedido" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_parametro_com_catalogo" Association="DBERPModelCompras.FK_com_parametro_com_catalogo">
-            <End Role="com_catalogo" EntitySet="com_catalogo" />
-            <End Role="com_parametro" EntitySet="com_parametro" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_parametro_com_catalogo1" Association="DBERPModelCompras.FK_com_parametro_com_catalogo1">
-            <End Role="com_catalogo" EntitySet="com_catalogo" />
-            <End Role="com_parametro" EntitySet="com_parametro" />
-          </AssociationSet>
-          <AssociationSet Name="FK_com_parametro_com_catalogo2" Association="DBERPModelCompras.FK_com_parametro_com_catalogo2">
-            <End Role="com_catalogo" EntitySet="com_catalogo" />
-            <End Role="com_parametro" EntitySet="com_parametro" />
           </AssociationSet>
           <AssociationSet Name="FK_com_CotizacionPedidoDet_com_OrdenPedidoDet" Association="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_OrdenPedidoDet">
             <End Role="com_OrdenPedidoDet" EntitySet="com_OrdenPedidoDet" />
@@ -4886,16 +4903,11 @@
             <End Role="com_departamento" EntitySet="com_departamento" />
             <End Role="com_OrdenPedido" EntitySet="com_OrdenPedido" />
           </AssociationSet>
-          <AssociationSet Name="FK_com_parametro_com_estado_cierre" Association="DBERPModelCompras.FK_com_parametro_com_estado_cierre">
-            <End Role="com_estado_cierre" EntitySet="com_estado_cierre" />
-            <End Role="com_parametro" EntitySet="com_parametro" />
-          </AssociationSet>
           <AssociationSet Name="FK_com_OrdenPedidoDet_com_OrdenPedido" Association="DBERPModelCompras.FK_com_OrdenPedidoDet_com_OrdenPedido">
             <End Role="com_OrdenPedido" EntitySet="com_OrdenPedido" />
             <End Role="com_OrdenPedidoDet" EntitySet="com_OrdenPedidoDet" />
           </AssociationSet>
           <EntitySet Name="com_solicitante" EntityType="DBERPModelCompras.com_solicitante" />
-          <EntitySet Name="vwcom_CotizacionPedido" EntityType="DBERPModelCompras.vwcom_CotizacionPedido" />
           <AssociationSet Name="FK_com_solicitante_com_departamento" Association="DBERPModelCompras.FK_com_solicitante_com_departamento">
             <End Role="com_departamento" EntitySet="com_departamento" />
             <End Role="com_solicitante" EntitySet="com_solicitante" />
@@ -4914,6 +4926,57 @@
           </AssociationSet>
           <EntitySet Name="vwcom_OrdenPedidoAprobar" EntityType="DBERPModelCompras.vwcom_OrdenPedidoAprobar" />
           <EntitySet Name="vwcom_CotizacionPedidoDetAprobacion" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDetAprobacion" />
+          <FunctionImport Name="SPCOM_ComprasPorPuntoCargo" ReturnType="Collection(DBERPModelCompras.SPCOM_ComprasPorPuntoCargo_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdPuntoCargo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="vwcom_OrdenPedidoDet" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet" />
+          <EntitySet Name="com_CotizacionPedido" EntityType="DBERPModelCompras.com_CotizacionPedido" />
+          <EntitySet Name="vwcom_CotizacionPedido" EntityType="DBERPModelCompras.vwcom_CotizacionPedido" />
+          <AssociationSet Name="FK_com_CotizacionPedido_com_departamento" Association="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento">
+            <End Role="com_departamento" EntitySet="com_departamento" />
+            <End Role="com_CotizacionPedido" EntitySet="com_CotizacionPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_CotizacionPedido_com_TerminoPago" Association="DBERPModelCompras.FK_com_CotizacionPedido_com_TerminoPago">
+            <End Role="com_TerminoPago" EntitySet="com_TerminoPago" />
+            <End Role="com_CotizacionPedido" EntitySet="com_CotizacionPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_CotizacionPedidoDet_com_CotizacionPedido" Association="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido">
+            <End Role="com_CotizacionPedido" EntitySet="com_CotizacionPedido" />
+            <End Role="com_CotizacionPedidoDet" EntitySet="com_CotizacionPedidoDet" />
+          </AssociationSet>
+          <EntitySet Name="com_ordencompra_local_correo" EntityType="DBERPModelCompras.com_ordencompra_local_correo" />
+          <EntitySet Name="com_parametro" EntityType="DBERPModelCompras.com_parametro" />
+          <AssociationSet Name="FK_com_parametro_com_catalogo" Association="DBERPModelCompras.FK_com_parametro_com_catalogo">
+            <End Role="com_catalogo" EntitySet="com_catalogo" />
+            <End Role="com_parametro" EntitySet="com_parametro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_parametro_com_catalogo1" Association="DBERPModelCompras.FK_com_parametro_com_catalogo1">
+            <End Role="com_catalogo" EntitySet="com_catalogo" />
+            <End Role="com_parametro" EntitySet="com_parametro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_parametro_com_catalogo2" Association="DBERPModelCompras.FK_com_parametro_com_catalogo2">
+            <End Role="com_catalogo" EntitySet="com_catalogo" />
+            <End Role="com_parametro" EntitySet="com_parametro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_parametro_com_estado_cierre" Association="DBERPModelCompras.FK_com_parametro_com_estado_cierre">
+            <End Role="com_estado_cierre" EntitySet="com_estado_cierre" />
+            <End Role="com_parametro" EntitySet="com_parametro" />
+          </AssociationSet>
+          <EntitySet Name="com_comprador" EntityType="DBERPModelCompras.com_comprador" />
+          <AssociationSet Name="FK_com_comprador_familia_com_comprador" Association="DBERPModelCompras.FK_com_comprador_familia_com_comprador">
+            <End Role="com_comprador" EntitySet="com_comprador" />
+            <End Role="com_comprador_familia" EntitySet="com_comprador_familia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_ordencompra_local_com_comprador" Association="DBERPModelCompras.FK_com_ordencompra_local_com_comprador">
+            <End Role="com_comprador" EntitySet="com_comprador" />
+            <End Role="com_ordencompra_local" EntitySet="com_ordencompra_local" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_solicitud_compra_com_comprador" Association="DBERPModelCompras.FK_com_solicitud_compra_com_comprador">
+            <End Role="com_comprador" EntitySet="com_comprador" />
+            <End Role="com_solicitud_compra" EntitySet="com_solicitud_compra" />
+          </AssociationSet>
+          <EntitySet Name="vwcom_ordencompra_local_correo" EntityType="DBERPModelCompras.vwcom_ordencompra_local_correo" />
           </EntityContainer>
         <EntityType Name="com_catalogo">
           <Key>
@@ -5033,9 +5096,9 @@
           <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_departamento" FromRole="com_departamento" ToRole="com_ordencompra_local" />
           <NavigationProperty Name="com_solicitud_compra" Relationship="DBERPModelCompras.FK_com_solicitud_compra_com_departamento" FromRole="com_departamento" ToRole="com_solicitud_compra" />
           <NavigationProperty Name="com_solicitante_aprobador" Relationship="DBERPModelCompras.FK_com_solicitante_aprobador_com_departamento" FromRole="com_departamento" ToRole="com_solicitante_aprobador" />
-          <NavigationProperty Name="com_CotizacionPedido" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento" FromRole="com_departamento" ToRole="com_CotizacionPedido" />
           <NavigationProperty Name="com_OrdenPedido" Relationship="DBERPModelCompras.FK_com_OrdenPedido_com_departamento" FromRole="com_departamento" ToRole="com_OrdenPedido" />
           <NavigationProperty Name="com_solicitante" Relationship="DBERPModelCompras.FK_com_solicitante_com_departamento" FromRole="com_departamento" ToRole="com_solicitante" />
+          <NavigationProperty Name="com_CotizacionPedido" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento" FromRole="com_departamento" ToRole="com_CotizacionPedido" />
         </EntityType>
         <EntityType Name="com_dev_compra">
           <Key>
@@ -5246,8 +5309,8 @@
           <NavigationProperty Name="com_Motivo_Orden_Compra" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_Motivo_Orden_Compra" FromRole="com_ordencompra_local" ToRole="com_Motivo_Orden_Compra" />
           <NavigationProperty Name="com_ordencompra_local_det" Relationship="DBERPModelCompras.FK_com_ordencompra_local_det_com_ordencompra_local" FromRole="com_ordencompra_local" ToRole="com_ordencompra_local_det" />
           <NavigationProperty Name="com_TerminoPago" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_TerminoPago" FromRole="com_ordencompra_local" ToRole="com_TerminoPago" />
-          <NavigationProperty Name="com_comprador" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_comprador" FromRole="com_ordencompra_local" ToRole="com_comprador" />
           <NavigationProperty Name="com_solicitante" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_solicitante" FromRole="com_ordencompra_local" ToRole="com_solicitante" />
+          <NavigationProperty Name="com_comprador" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_comprador" FromRole="com_ordencompra_local" ToRole="com_comprador" />
         </EntityType>
         <EntityType Name="com_ordencompra_local_det_x_com_solicitud_compra_det">
           <Key>
@@ -7342,27 +7405,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="com_comprador">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdComprador" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdUsuario_com" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
-          <Property Type="String" Name="MotiAnula" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="com_comprador_familia" Relationship="DBERPModelCompras.FK_com_comprador_familia_com_comprador" FromRole="com_comprador" ToRole="com_comprador_familia" />
-          <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_comprador" FromRole="com_comprador" ToRole="com_ordencompra_local" />
-          <NavigationProperty Name="com_solicitud_compra" Relationship="DBERPModelCompras.FK_com_solicitud_compra_com_comprador" FromRole="com_comprador" ToRole="com_solicitud_compra" />
-        </EntityType>
         <EntityType Name="com_comprador_familia">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -7375,48 +7417,6 @@
           <Property Type="Int32" Name="IdFamilia" Nullable="false" />
           <NavigationProperty Name="com_comprador" Relationship="DBERPModelCompras.FK_com_comprador_familia_com_comprador" FromRole="com_comprador_familia" ToRole="com_comprador" />
         </EntityType>
-        <Association Name="FK_com_comprador_familia_com_comprador">
-          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_comprador_familia" Role="com_comprador_familia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_comprador">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdComprador" />
-            </Principal>
-            <Dependent Role="com_comprador_familia">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdComprador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_ordencompra_local_com_comprador">
-          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_ordencompra_local" Role="com_ordencompra_local" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_comprador">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdComprador" />
-            </Principal>
-            <Dependent Role="com_ordencompra_local">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdComprador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_solicitud_compra_com_comprador">
-          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_solicitud_compra" Role="com_solicitud_compra" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_comprador">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdComprador" />
-            </Principal>
-            <Dependent Role="com_solicitud_compra">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdComprador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="com_CotizacionPedidoSaltar">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -7456,8 +7456,8 @@
           <Property Type="Boolean" Name="EstadoJC" Nullable="false" />
           <Property Type="Boolean" Name="EstadoGA" Nullable="false" />
           <Property Type="String" Name="cd_DetallePorItem" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="com_CotizacionPedido" Relationship="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido" FromRole="com_CotizacionPedidoDet" ToRole="com_CotizacionPedido" />
           <NavigationProperty Name="com_OrdenPedidoDet" Relationship="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_OrdenPedidoDet" FromRole="com_CotizacionPedidoDet" ToRole="com_OrdenPedidoDet" />
+          <NavigationProperty Name="com_CotizacionPedido" Relationship="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido" FromRole="com_CotizacionPedidoDet" ToRole="com_CotizacionPedido" />
         </EntityType>
         <EntityType Name="vwcom_CotizacionPedidoDet">
           <Key>
@@ -7509,70 +7509,6 @@
           <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="cd_DetallePorItem" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="com_CotizacionPedido">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCotizacion" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdCotizacion" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="cp_Fecha" Nullable="false" Precision="0" />
-          <Property Type="Int32" Name="cp_Plazo" Nullable="false" />
-          <Property Type="Int32" Name="cp_PlazoEntrega" Nullable="false" />
-          <Property Type="String" Name="cp_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="EstadoJC" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EstadoGA" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="oc_IdOrdenCompra" />
-          <NavigationProperty Name="com_departamento" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento" FromRole="com_CotizacionPedido" ToRole="com_departamento" />
-          <NavigationProperty Name="com_TerminoPago" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_TerminoPago" FromRole="com_CotizacionPedido" ToRole="com_TerminoPago" />
-          <NavigationProperty Name="com_CotizacionPedidoDet" Relationship="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido" FromRole="com_CotizacionPedido" ToRole="com_CotizacionPedidoDet" />
-        </EntityType>
-        <Association Name="FK_com_CotizacionPedido_com_departamento">
-          <End Type="DBERPModelCompras.com_departamento" Role="com_departamento" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_CotizacionPedido" Role="com_CotizacionPedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_departamento">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdDepartamento" />
-            </Principal>
-            <Dependent Role="com_CotizacionPedido">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdDepartamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_CotizacionPedido_com_TerminoPago">
-          <End Type="DBERPModelCompras.com_TerminoPago" Role="com_TerminoPago" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_CotizacionPedido" Role="com_CotizacionPedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_TerminoPago">
-              <PropertyRef Name="IdTerminoPago" />
-            </Principal>
-            <Dependent Role="com_CotizacionPedido">
-              <PropertyRef Name="IdTerminoPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_CotizacionPedidoDet_com_CotizacionPedido">
-          <End Type="DBERPModelCompras.com_CotizacionPedido" Role="com_CotizacionPedido" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_CotizacionPedidoDet" Role="com_CotizacionPedidoDet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_CotizacionPedido">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdCotizacion" />
-            </Principal>
-            <Dependent Role="com_CotizacionPedidoDet">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdCotizacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="com_OrdenPedido">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -7625,32 +7561,6 @@
           <NavigationProperty Name="com_CotizacionPedidoDet" Relationship="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_OrdenPedidoDet" FromRole="com_OrdenPedidoDet" ToRole="com_CotizacionPedidoDet" />
           <NavigationProperty Name="com_OrdenPedido" Relationship="DBERPModelCompras.FK_com_OrdenPedidoDet_com_OrdenPedido" FromRole="com_OrdenPedidoDet" ToRole="com_OrdenPedido" />
         </EntityType>
-        <EntityType Name="com_parametro">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="String" Name="IdEstadoAprobacion_OC" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo_OC" Nullable="false" />
-          <Property Type="String" Name="IdEstadoAnulacion_OC" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo_dev_compra" Nullable="false" />
-          <Property Type="String" Name="IdEstadoAprobacion_SolCompra" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursal_x_Aprob_x_SolComp" Nullable="false" />
-          <Property Type="String" Name="IdEstado_cierre" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="UbicacionArchivosPedido" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Correo" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Contrasenia" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Dominio" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="PemitirSSL" />
-          <Property Type="String" Name="CorreosCopia" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="FileUsuario" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="FileContrasenia" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="FileDominio" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="com_catalogo" Relationship="DBERPModelCompras.FK_com_parametro_com_catalogo" FromRole="com_parametro" ToRole="com_catalogo" />
-          <NavigationProperty Name="com_catalogo1" Relationship="DBERPModelCompras.FK_com_parametro_com_catalogo1" FromRole="com_parametro" ToRole="com_catalogo" />
-          <NavigationProperty Name="com_catalogo2" Relationship="DBERPModelCompras.FK_com_parametro_com_catalogo2" FromRole="com_parametro" ToRole="com_catalogo" />
-          <NavigationProperty Name="com_estado_cierre" Relationship="DBERPModelCompras.FK_com_parametro_com_estado_cierre" FromRole="com_parametro" ToRole="com_estado_cierre" />
-        </EntityType>
         <EntityType Name="vwcom_OrdenPedido">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -7679,39 +7589,6 @@
           <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Boolean" Name="EsCompraUrgente" />
           <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vwcom_OrdenPedidoDet">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdOrdenPedido" />
-            <PropertyRef Name="Secuencia" />
-            <PropertyRef Name="IdSucursalOrigen" />
-            <PropertyRef Name="IdSucursalDestino" />
-            <PropertyRef Name="opd_Cantidad" />
-            <PropertyRef Name="opd_CantidadApro" />
-            <PropertyRef Name="opd_EstadoProceso" />
-            <PropertyRef Name="nom_solicitante" />
-            <PropertyRef Name="Adjunto" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
-          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
-          <Property Type="String" Name="opd_EstadoProceso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUnidadMedida_Consumo" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Stock" />
-          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
-          <Property Type="Boolean" Name="Adjunto" Nullable="false" />
-          <Property Type="String" Name="EstadoDetalle" MaxLength="23" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NombreArchivo" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vwcom_OrdenPedidoDet_Aprobacion">
           <Key>
@@ -7805,42 +7682,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_com_parametro_com_catalogo">
-          <End Type="DBERPModelCompras.com_catalogo" Role="com_catalogo" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_catalogo">
-              <PropertyRef Name="IdCatalogocompra" />
-            </Principal>
-            <Dependent Role="com_parametro">
-              <PropertyRef Name="IdEstadoAprobacion_OC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_parametro_com_catalogo1">
-          <End Type="DBERPModelCompras.com_catalogo" Role="com_catalogo" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_catalogo">
-              <PropertyRef Name="IdCatalogocompra" />
-            </Principal>
-            <Dependent Role="com_parametro">
-              <PropertyRef Name="IdEstadoAnulacion_OC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_parametro_com_catalogo2">
-          <End Type="DBERPModelCompras.com_catalogo" Role="com_catalogo" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_catalogo">
-              <PropertyRef Name="IdCatalogocompra" />
-            </Principal>
-            <Dependent Role="com_parametro">
-              <PropertyRef Name="IdEstadoAprobacion_SolCompra" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_com_CotizacionPedidoDet_com_OrdenPedidoDet">
           <End Type="DBERPModelCompras.com_OrdenPedidoDet" Role="com_OrdenPedidoDet" Multiplicity="1" />
           <End Type="DBERPModelCompras.com_CotizacionPedidoDet" Role="com_CotizacionPedidoDet" Multiplicity="*" />
@@ -7868,18 +7709,6 @@
             <Dependent Role="com_OrdenPedido">
               <PropertyRef Name="IdEmpresa" />
               <PropertyRef Name="IdDepartamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_com_parametro_com_estado_cierre">
-          <End Type="DBERPModelCompras.com_estado_cierre" Role="com_estado_cierre" Multiplicity="1" />
-          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="com_estado_cierre">
-              <PropertyRef Name="IdEstado_cierre" />
-            </Principal>
-            <Dependent Role="com_parametro">
-              <PropertyRef Name="IdEstado_cierre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -7919,50 +7748,6 @@
           <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_solicitante" FromRole="com_solicitante" ToRole="com_ordencompra_local" />
           <NavigationProperty Name="com_OrdenPedido" Relationship="DBERPModelCompras.FK_com_OrdenPedido_com_solicitante" FromRole="com_solicitante" ToRole="com_OrdenPedido" />
           <NavigationProperty Name="com_solicitante_aprobador" Relationship="DBERPModelCompras.FK_com_solicitante_aprobador_com_solicitante" FromRole="com_solicitante" ToRole="com_solicitante_aprobador" />
-        </EntityType>
-        <EntityType Name="vwcom_CotizacionPedido">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCotizacion" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="IdProveedor" />
-            <PropertyRef Name="IdTerminoPago" />
-            <PropertyRef Name="cp_Fecha" />
-            <PropertyRef Name="cp_Plazo" />
-            <PropertyRef Name="IdComprador" />
-            <PropertyRef Name="IdSolicitante" />
-            <PropertyRef Name="IdDepartamento" />
-            <PropertyRef Name="EstadoJC" />
-            <PropertyRef Name="EstadoGA" />
-            <PropertyRef Name="Su_Descripcion" />
-            <PropertyRef Name="pe_nombreCompleto" />
-            <PropertyRef Name="TerminoPago" />
-            <PropertyRef Name="Comprador" />
-            <PropertyRef Name="nom_solicitante" />
-            <PropertyRef Name="nom_departamento" />
-            <PropertyRef Name="cp_PlazoEntrega" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdCotizacion" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="cp_Fecha" Nullable="false" Precision="0" />
-          <Property Type="Int32" Name="cp_Plazo" Nullable="false" />
-          <Property Type="String" Name="cp_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="EstadoJC" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EstadoGA" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="TerminoPago" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_departamento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Pasado" />
-          <Property Type="Int32" Name="cp_PlazoEntrega" Nullable="false" />
         </EntityType>
         <Association Name="FK_com_solicitante_com_departamento">
           <End Type="DBERPModelCompras.com_departamento" Role="com_departamento" Multiplicity="0..1" />
@@ -8040,7 +7825,7 @@
           <Property Type="String" Name="op_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdCatalogoEstado" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCatalogoEstado" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Estado" Nullable="false" />
           <Property Type="Int32" Name="IdPunto_cargo" />
           <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -8090,6 +7875,338 @@
           <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
           <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
           <Property Type="Int32" Name="SecuenciaCot" />
+        </EntityType>
+        <ComplexType Name="SPCOM_ComprasPorPuntoCargo_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="NomUnidadMedida" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="pr_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="OC" Nullable="true" MaxLength="31" />
+          <Property Type="String" Name="nom_punto_cargo" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="true" />
+          <Property Type="DateTime" Name="oc_fecha" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Double" Name="do_cantidad" Nullable="false" />
+          <Property Type="Double" Name="do_precioCompra" Nullable="false" />
+          <Property Type="Double" Name="do_porc_des" Nullable="false" />
+          <Property Type="Double" Name="do_subtotal" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="vwcom_OrdenPedidoDet">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdSucursalDestino" />
+            <PropertyRef Name="opd_Cantidad" />
+            <PropertyRef Name="opd_CantidadApro" />
+            <PropertyRef Name="opd_EstadoProceso" />
+            <PropertyRef Name="nom_solicitante" />
+            <PropertyRef Name="Adjunto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
+          <Property Type="String" Name="opd_EstadoProceso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadMedida_Consumo" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Stock" />
+          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="Adjunto" Nullable="false" />
+          <Property Type="String" Name="EstadoDetalle" MaxLength="23" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreArchivo" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NomComprador" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_CotizacionPedido">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCotizacion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCotizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cp_Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="cp_Plazo" Nullable="false" />
+          <Property Type="Int32" Name="cp_PlazoEntrega" Nullable="false" />
+          <Property Type="String" Name="cp_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="EstadoJC" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EstadoGA" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="oc_IdOrdenCompra" />
+          <NavigationProperty Name="com_departamento" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento" FromRole="com_CotizacionPedido" ToRole="com_departamento" />
+          <NavigationProperty Name="com_TerminoPago" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_TerminoPago" FromRole="com_CotizacionPedido" ToRole="com_TerminoPago" />
+          <NavigationProperty Name="com_CotizacionPedidoDet" Relationship="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido" FromRole="com_CotizacionPedido" ToRole="com_CotizacionPedidoDet" />
+        </EntityType>
+        <EntityType Name="vwcom_CotizacionPedido">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCotizacion" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdTerminoPago" />
+            <PropertyRef Name="cp_Fecha" />
+            <PropertyRef Name="cp_Plazo" />
+            <PropertyRef Name="IdComprador" />
+            <PropertyRef Name="IdSolicitante" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="EstadoJC" />
+            <PropertyRef Name="EstadoGA" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="TerminoPago" />
+            <PropertyRef Name="Comprador" />
+            <PropertyRef Name="nom_solicitante" />
+            <PropertyRef Name="nom_departamento" />
+            <PropertyRef Name="cp_PlazoEntrega" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCotizacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cp_Fecha" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="cp_Plazo" Nullable="false" />
+          <Property Type="String" Name="cp_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="EstadoJC" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EstadoGA" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TerminoPago" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_departamento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Pasado" />
+          <Property Type="Int32" Name="cp_PlazoEntrega" Nullable="false" />
+          <Property Type="Decimal" Name="opd_IdOrdenPedido" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK_com_CotizacionPedido_com_departamento">
+          <End Type="DBERPModelCompras.com_departamento" Role="com_departamento" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_CotizacionPedido" Role="com_CotizacionPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_departamento">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="com_CotizacionPedido">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_CotizacionPedido_com_TerminoPago">
+          <End Type="DBERPModelCompras.com_TerminoPago" Role="com_TerminoPago" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_CotizacionPedido" Role="com_CotizacionPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_TerminoPago">
+              <PropertyRef Name="IdTerminoPago" />
+            </Principal>
+            <Dependent Role="com_CotizacionPedido">
+              <PropertyRef Name="IdTerminoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_CotizacionPedidoDet_com_CotizacionPedido">
+          <End Type="DBERPModelCompras.com_CotizacionPedido" Role="com_CotizacionPedido" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_CotizacionPedidoDet" Role="com_CotizacionPedidoDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_CotizacionPedido">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdCotizacion" />
+            </Principal>
+            <Dependent Role="com_CotizacionPedidoDet">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="com_ordencompra_local_correo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Correo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaEnvio" Precision="3" />
+          <Property Type="String" Name="Mensaje" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="com_parametro">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion_OC" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo_OC" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAnulacion_OC" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo_dev_compra" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion_SolCompra" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal_x_Aprob_x_SolComp" Nullable="false" />
+          <Property Type="String" Name="IdEstado_cierre" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UbicacionArchivosPedido" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Correo" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Contrasenia" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Dominio" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="PemitirSSL" />
+          <Property Type="String" Name="CorreosCopia" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FileUsuario" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FileContrasenia" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FileDominio" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Asunto" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CuerpoCorreo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="com_catalogo" Relationship="DBERPModelCompras.FK_com_parametro_com_catalogo" FromRole="com_parametro" ToRole="com_catalogo" />
+          <NavigationProperty Name="com_catalogo1" Relationship="DBERPModelCompras.FK_com_parametro_com_catalogo1" FromRole="com_parametro" ToRole="com_catalogo" />
+          <NavigationProperty Name="com_catalogo2" Relationship="DBERPModelCompras.FK_com_parametro_com_catalogo2" FromRole="com_parametro" ToRole="com_catalogo" />
+          <NavigationProperty Name="com_estado_cierre" Relationship="DBERPModelCompras.FK_com_parametro_com_estado_cierre" FromRole="com_parametro" ToRole="com_estado_cierre" />
+        </EntityType>
+        <Association Name="FK_com_parametro_com_catalogo">
+          <End Type="DBERPModelCompras.com_catalogo" Role="com_catalogo" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_catalogo">
+              <PropertyRef Name="IdCatalogocompra" />
+            </Principal>
+            <Dependent Role="com_parametro">
+              <PropertyRef Name="IdEstadoAprobacion_OC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_parametro_com_catalogo1">
+          <End Type="DBERPModelCompras.com_catalogo" Role="com_catalogo" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_catalogo">
+              <PropertyRef Name="IdCatalogocompra" />
+            </Principal>
+            <Dependent Role="com_parametro">
+              <PropertyRef Name="IdEstadoAnulacion_OC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_parametro_com_catalogo2">
+          <End Type="DBERPModelCompras.com_catalogo" Role="com_catalogo" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_catalogo">
+              <PropertyRef Name="IdCatalogocompra" />
+            </Principal>
+            <Dependent Role="com_parametro">
+              <PropertyRef Name="IdEstadoAprobacion_SolCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_parametro_com_estado_cierre">
+          <End Type="DBERPModelCompras.com_estado_cierre" Role="com_estado_cierre" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_parametro" Role="com_parametro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_estado_cierre">
+              <PropertyRef Name="IdEstado_cierre" />
+            </Principal>
+            <Dependent Role="com_parametro">
+              <PropertyRef Name="IdEstado_cierre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="com_comprador">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdComprador" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUsuario_com" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="MotiAnula" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="com_comprador_familia" Relationship="DBERPModelCompras.FK_com_comprador_familia_com_comprador" FromRole="com_comprador" ToRole="com_comprador_familia" />
+          <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_comprador" FromRole="com_comprador" ToRole="com_ordencompra_local" />
+          <NavigationProperty Name="com_solicitud_compra" Relationship="DBERPModelCompras.FK_com_solicitud_compra_com_comprador" FromRole="com_comprador" ToRole="com_solicitud_compra" />
+        </EntityType>
+        <Association Name="FK_com_comprador_familia_com_comprador">
+          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_comprador_familia" Role="com_comprador_familia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_comprador">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="com_comprador_familia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_ordencompra_local_com_comprador">
+          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_ordencompra_local" Role="com_ordencompra_local" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_comprador">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="com_ordencompra_local">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_solicitud_compra_com_comprador">
+          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_solicitud_compra" Role="com_solicitud_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_comprador">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="com_solicitud_compra">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwcom_ordencompra_local_correo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Codigo" MaxLength="41" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CorreoComprador" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -9655,24 +9772,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="com_comprador">
-            <EntityTypeMapping TypeName="DBERPModelCompras.com_comprador">
-              <MappingFragment StoreEntitySet="com_comprador">
-                <ScalarProperty Name="MotiAnula" ColumnName="MotiAnula" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="IdUsuario_com" ColumnName="IdUsuario_com" />
-                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="com_comprador_familia">
             <EntityTypeMapping TypeName="DBERPModelCompras.com_comprador_familia">
               <MappingFragment StoreEntitySet="com_comprador_familia">
@@ -9753,27 +9852,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="com_CotizacionPedido">
-            <EntityTypeMapping TypeName="DBERPModelCompras.com_CotizacionPedido">
-              <MappingFragment StoreEntitySet="com_CotizacionPedido">
-                <ScalarProperty Name="oc_IdOrdenCompra" ColumnName="oc_IdOrdenCompra" />
-                <ScalarProperty Name="EstadoGA" ColumnName="EstadoGA" />
-                <ScalarProperty Name="EstadoJC" ColumnName="EstadoJC" />
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-                <ScalarProperty Name="IdSolicitante" ColumnName="IdSolicitante" />
-                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
-                <ScalarProperty Name="cp_Observacion" ColumnName="cp_Observacion" />
-                <ScalarProperty Name="cp_PlazoEntrega" ColumnName="cp_PlazoEntrega" />
-                <ScalarProperty Name="cp_Plazo" ColumnName="cp_Plazo" />
-                <ScalarProperty Name="cp_Fecha" ColumnName="cp_Fecha" />
-                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdCotizacion" ColumnName="IdCotizacion" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="com_OrdenPedido">
             <EntityTypeMapping TypeName="DBERPModelCompras.com_OrdenPedido">
               <MappingFragment StoreEntitySet="com_OrdenPedido">
@@ -9819,29 +9897,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="com_parametro">
-            <EntityTypeMapping TypeName="DBERPModelCompras.com_parametro">
-              <MappingFragment StoreEntitySet="com_parametro">
-                <ScalarProperty Name="FileDominio" ColumnName="FileDominio" />
-                <ScalarProperty Name="FileContrasenia" ColumnName="FileContrasenia" />
-                <ScalarProperty Name="FileUsuario" ColumnName="FileUsuario" />
-                <ScalarProperty Name="CorreosCopia" ColumnName="CorreosCopia" />
-                <ScalarProperty Name="PemitirSSL" ColumnName="PemitirSSL" />
-                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
-                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="UbicacionArchivosPedido" ColumnName="UbicacionArchivosPedido" />
-                <ScalarProperty Name="IdEstado_cierre" ColumnName="IdEstado_cierre" />
-                <ScalarProperty Name="IdSucursal_x_Aprob_x_SolComp" ColumnName="IdSucursal_x_Aprob_x_SolComp" />
-                <ScalarProperty Name="IdEstadoAprobacion_SolCompra" ColumnName="IdEstadoAprobacion_SolCompra" />
-                <ScalarProperty Name="IdMovi_inven_tipo_dev_compra" ColumnName="IdMovi_inven_tipo_dev_compra" />
-                <ScalarProperty Name="IdEstadoAnulacion_OC" ColumnName="IdEstadoAnulacion_OC" />
-                <ScalarProperty Name="IdMovi_inven_tipo_OC" ColumnName="IdMovi_inven_tipo_OC" />
-                <ScalarProperty Name="IdEstadoAprobacion_OC" ColumnName="IdEstadoAprobacion_OC" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcom_OrdenPedido">
             <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedido">
               <MappingFragment StoreEntitySet="vwcom_OrdenPedido">
@@ -9858,31 +9913,6 @@
                 <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
                 <ScalarProperty Name="op_Fecha" ColumnName="op_Fecha" />
                 <ScalarProperty Name="op_Codigo" ColumnName="op_Codigo" />
-                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwcom_OrdenPedidoDet">
-            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet">
-              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet">
-                <ScalarProperty Name="NombreArchivo" ColumnName="NombreArchivo" />
-                <ScalarProperty Name="EstadoDetalle" ColumnName="EstadoDetalle" />
-                <ScalarProperty Name="Adjunto" ColumnName="Adjunto" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
-                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
-                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
-                <ScalarProperty Name="opd_EstadoProceso" ColumnName="opd_EstadoProceso" />
-                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
-                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
                 <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
@@ -9966,33 +9996,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwcom_CotizacionPedido">
-            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_CotizacionPedido">
-              <MappingFragment StoreEntitySet="vwcom_CotizacionPedido">
-                <ScalarProperty Name="cp_PlazoEntrega" ColumnName="cp_PlazoEntrega" />
-                <ScalarProperty Name="Pasado" ColumnName="Pasado" />
-                <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
-                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
-                <ScalarProperty Name="Comprador" ColumnName="Comprador" />
-                <ScalarProperty Name="TerminoPago" ColumnName="TerminoPago" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
-                <ScalarProperty Name="EstadoGA" ColumnName="EstadoGA" />
-                <ScalarProperty Name="EstadoJC" ColumnName="EstadoJC" />
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-                <ScalarProperty Name="IdSolicitante" ColumnName="IdSolicitante" />
-                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
-                <ScalarProperty Name="cp_Observacion" ColumnName="cp_Observacion" />
-                <ScalarProperty Name="cp_Plazo" ColumnName="cp_Plazo" />
-                <ScalarProperty Name="cp_Fecha" ColumnName="cp_Fecha" />
-                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdCotizacion" ColumnName="IdCotizacion" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcom_OrdenPedidoAprobar">
             <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoAprobar">
               <MappingFragment StoreEntitySet="vwcom_OrdenPedidoAprobar">
@@ -10045,6 +10048,174 @@
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
                 <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPCOM_ComprasPorPuntoCargo" FunctionName="DBERPModelCompras.Store.SPCOM_ComprasPorPuntoCargo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_ComprasPorPuntoCargo_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="NomUnidadMedida" ColumnName="NomUnidadMedida" />
+                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="OC" ColumnName="OC" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="do_cantidad" ColumnName="do_cantidad" />
+                <ScalarProperty Name="do_precioCompra" ColumnName="do_precioCompra" />
+                <ScalarProperty Name="do_porc_des" ColumnName="do_porc_des" />
+                <ScalarProperty Name="do_subtotal" ColumnName="do_subtotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwcom_OrdenPedidoDet">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet">
+              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet">
+                <ScalarProperty Name="NomComprador" ColumnName="NomComprador" />
+                <ScalarProperty Name="NombreArchivo" ColumnName="NombreArchivo" />
+                <ScalarProperty Name="EstadoDetalle" ColumnName="EstadoDetalle" />
+                <ScalarProperty Name="Adjunto" ColumnName="Adjunto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
+                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="opd_EstadoProceso" ColumnName="opd_EstadoProceso" />
+                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
+                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_CotizacionPedido">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_CotizacionPedido">
+              <MappingFragment StoreEntitySet="com_CotizacionPedido">
+                <ScalarProperty Name="oc_IdOrdenCompra" ColumnName="oc_IdOrdenCompra" />
+                <ScalarProperty Name="EstadoGA" ColumnName="EstadoGA" />
+                <ScalarProperty Name="EstadoJC" ColumnName="EstadoJC" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdSolicitante" ColumnName="IdSolicitante" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="cp_Observacion" ColumnName="cp_Observacion" />
+                <ScalarProperty Name="cp_PlazoEntrega" ColumnName="cp_PlazoEntrega" />
+                <ScalarProperty Name="cp_Plazo" ColumnName="cp_Plazo" />
+                <ScalarProperty Name="cp_Fecha" ColumnName="cp_Fecha" />
+                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdCotizacion" ColumnName="IdCotizacion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_CotizacionPedido">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_CotizacionPedido">
+              <MappingFragment StoreEntitySet="vwcom_CotizacionPedido">
+                <ScalarProperty Name="opd_IdOrdenPedido" ColumnName="opd_IdOrdenPedido" />
+                <ScalarProperty Name="cp_PlazoEntrega" ColumnName="cp_PlazoEntrega" />
+                <ScalarProperty Name="Pasado" ColumnName="Pasado" />
+                <ScalarProperty Name="nom_departamento" ColumnName="nom_departamento" />
+                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
+                <ScalarProperty Name="Comprador" ColumnName="Comprador" />
+                <ScalarProperty Name="TerminoPago" ColumnName="TerminoPago" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="EstadoGA" ColumnName="EstadoGA" />
+                <ScalarProperty Name="EstadoJC" ColumnName="EstadoJC" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdSolicitante" ColumnName="IdSolicitante" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="cp_Observacion" ColumnName="cp_Observacion" />
+                <ScalarProperty Name="cp_Plazo" ColumnName="cp_Plazo" />
+                <ScalarProperty Name="cp_Fecha" ColumnName="cp_Fecha" />
+                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdCotizacion" ColumnName="IdCotizacion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ordencompra_local_correo">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_ordencompra_local_correo">
+              <MappingFragment StoreEntitySet="com_ordencompra_local_correo">
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="FechaEnvio" ColumnName="FechaEnvio" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_parametro">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_parametro">
+              <MappingFragment StoreEntitySet="com_parametro">
+                <ScalarProperty Name="CuerpoCorreo" ColumnName="CuerpoCorreo" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="FileDominio" ColumnName="FileDominio" />
+                <ScalarProperty Name="FileContrasenia" ColumnName="FileContrasenia" />
+                <ScalarProperty Name="FileUsuario" ColumnName="FileUsuario" />
+                <ScalarProperty Name="CorreosCopia" ColumnName="CorreosCopia" />
+                <ScalarProperty Name="PemitirSSL" ColumnName="PemitirSSL" />
+                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="UbicacionArchivosPedido" ColumnName="UbicacionArchivosPedido" />
+                <ScalarProperty Name="IdEstado_cierre" ColumnName="IdEstado_cierre" />
+                <ScalarProperty Name="IdSucursal_x_Aprob_x_SolComp" ColumnName="IdSucursal_x_Aprob_x_SolComp" />
+                <ScalarProperty Name="IdEstadoAprobacion_SolCompra" ColumnName="IdEstadoAprobacion_SolCompra" />
+                <ScalarProperty Name="IdMovi_inven_tipo_dev_compra" ColumnName="IdMovi_inven_tipo_dev_compra" />
+                <ScalarProperty Name="IdEstadoAnulacion_OC" ColumnName="IdEstadoAnulacion_OC" />
+                <ScalarProperty Name="IdMovi_inven_tipo_OC" ColumnName="IdMovi_inven_tipo_OC" />
+                <ScalarProperty Name="IdEstadoAprobacion_OC" ColumnName="IdEstadoAprobacion_OC" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_comprador">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_comprador">
+              <MappingFragment StoreEntitySet="com_comprador">
+                <ScalarProperty Name="MotiAnula" ColumnName="MotiAnula" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdUsuario_com" ColumnName="IdUsuario_com" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ordencompra_local_correo">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_ordencompra_local_correo">
+              <MappingFragment StoreEntitySet="vwcom_ordencompra_local_correo">
+                <ScalarProperty Name="CorreoComprador" ColumnName="CorreoComprador" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

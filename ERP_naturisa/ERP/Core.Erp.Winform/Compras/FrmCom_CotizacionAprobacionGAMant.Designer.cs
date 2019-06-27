@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionAprobacionGAMant));
             this.uc_menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chk_Aprobar = new DevExpress.XtraEditors.CheckEdit();
             this.lblTotal = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cmb_PuntoCargoCab = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -75,8 +78,11 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Col_A = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chk_Aprobar = new DevExpress.XtraEditors.CheckEdit();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cmb_search = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_EsCompraUrgente.Properties)).BeginInit();
@@ -93,7 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalDestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_search)).BeginInit();
             this.SuspendLayout();
             // 
             // uc_menu
@@ -178,6 +184,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1304, 158);
             this.panel1.TabIndex = 2;
+            // 
+            // chk_Aprobar
+            // 
+            this.chk_Aprobar.Location = new System.Drawing.Point(29, 132);
+            this.chk_Aprobar.Name = "chk_Aprobar";
+            this.chk_Aprobar.Properties.Caption = "Aprobar visibles";
+            this.chk_Aprobar.Size = new System.Drawing.Size(127, 21);
+            this.chk_Aprobar.TabIndex = 15;
+            this.chk_Aprobar.CheckedChanged += new System.EventHandler(this.chk_Aprobar_CheckedChanged);
             // 
             // lblTotal
             // 
@@ -375,7 +390,8 @@
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_SucursalOrdigen,
-            this.cmb_SucursalDestino});
+            this.cmb_SucursalDestino,
+            this.cmb_search});
             this.gc_detalle.Size = new System.Drawing.Size(1304, 420);
             this.gc_detalle.TabIndex = 3;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -396,8 +412,10 @@
             this.gridColumn7,
             this.gridColumn9,
             this.gridColumn17,
-            this.Col_A});
+            this.Col_A,
+            this.gridColumn18});
             this.gv_detalle.GridControl = this.gc_detalle;
+            this.gv_detalle.Images = this.imageList1;
             this.gv_detalle.Name = "gv_detalle";
             this.gv_detalle.OptionsView.ShowFooter = true;
             this.gv_detalle.OptionsView.ShowGroupPanel = false;
@@ -411,7 +429,7 @@
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 115;
+            this.gridColumn3.Width = 121;
             // 
             // cmb_SucursalOrdigen
             // 
@@ -471,7 +489,7 @@
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 142;
+            this.gridColumn4.Width = 149;
             // 
             // cmb_SucursalDestino
             // 
@@ -530,7 +548,7 @@
             this.col_pr_descripcion.OptionsColumn.AllowEdit = false;
             this.col_pr_descripcion.Visible = true;
             this.col_pr_descripcion.VisibleIndex = 3;
-            this.col_pr_descripcion.Width = 343;
+            this.col_pr_descripcion.Width = 360;
             // 
             // col_IdUnidadMedida
             // 
@@ -540,7 +558,7 @@
             this.col_IdUnidadMedida.OptionsColumn.AllowEdit = false;
             this.col_IdUnidadMedida.Visible = true;
             this.col_IdUnidadMedida.VisibleIndex = 5;
-            this.col_IdUnidadMedida.Width = 97;
+            this.col_IdUnidadMedida.Width = 102;
             // 
             // gridColumn8
             // 
@@ -552,7 +570,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
-            this.gridColumn8.Width = 99;
+            this.gridColumn8.Width = 104;
             // 
             // gridColumn10
             // 
@@ -562,7 +580,7 @@
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 11;
-            this.gridColumn10.Width = 143;
+            this.gridColumn10.Width = 150;
             // 
             // gridColumn23
             // 
@@ -571,8 +589,8 @@
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.OptionsColumn.AllowEdit = false;
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 12;
-            this.gridColumn23.Width = 184;
+            this.gridColumn23.VisibleIndex = 13;
+            this.gridColumn23.Width = 210;
             // 
             // gridColumn5
             // 
@@ -582,6 +600,7 @@
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 6;
+            this.gridColumn5.Width = 78;
             // 
             // gridColumn6
             // 
@@ -591,6 +610,7 @@
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 7;
+            this.gridColumn6.Width = 78;
             // 
             // gridColumn7
             // 
@@ -602,6 +622,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_subtotal", "{0:n2}")});
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 8;
+            this.gridColumn7.Width = 78;
             // 
             // gridColumn9
             // 
@@ -613,6 +634,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_iva", "{0:n2}")});
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 9;
+            this.gridColumn9.Width = 78;
             // 
             // gridColumn17
             // 
@@ -624,6 +646,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_total", "{0:n2}")});
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 10;
+            this.gridColumn17.Width = 78;
             // 
             // Col_A
             // 
@@ -632,15 +655,37 @@
             this.Col_A.Name = "Col_A";
             this.Col_A.Visible = true;
             this.Col_A.VisibleIndex = 0;
+            this.Col_A.Width = 78;
             // 
-            // chk_Aprobar
+            // imageList1
             // 
-            this.chk_Aprobar.Location = new System.Drawing.Point(29, 132);
-            this.chk_Aprobar.Name = "chk_Aprobar";
-            this.chk_Aprobar.Properties.Caption = "Aprobar visibles";
-            this.chk_Aprobar.Size = new System.Drawing.Size(127, 21);
-            this.chk_Aprobar.TabIndex = 15;
-            this.chk_Aprobar.CheckedChanged += new System.EventHandler(this.chk_Aprobar_CheckedChanged);
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "iconfinder_-_Magnifier-Search-Zoom-_3844432.png");
+            // 
+            // cmb_search
+            // 
+            this.cmb_search.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmb_search.AutoHeight = false;
+            this.cmb_search.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_search.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmb_search.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 0)});
+            this.cmb_search.Name = "cmb_search";
+            this.cmb_search.ReadOnly = true;
+            this.cmb_search.SmallImages = this.imageList1;
+            this.cmb_search.Click += new System.EventHandler(this.cmb_search_Click);
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.ColumnEdit = this.cmb_search;
+            this.gridColumn18.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn18.ImageIndex = 0;
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 12;
+            this.gridColumn18.Width = 70;
             // 
             // FrmCom_CotizacionAprobacionGAMant
             // 
@@ -656,6 +701,7 @@
             this.Load += new System.EventHandler(this.FrmCom_CotizacionAprobacionGAMant_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_EsCompraUrgente.Properties)).EndInit();
@@ -672,7 +718,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalDestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_search)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -727,5 +773,8 @@
         private DevExpress.XtraEditors.LabelControl lblTotal;
         private DevExpress.XtraGrid.Columns.GridColumn Col_A;
         private DevExpress.XtraEditors.CheckEdit chk_Aprobar;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_search;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

@@ -35,5 +35,6 @@ namespace Core.Erp.Data
         public string nom_departamento { get; set; }
         public Nullable<bool> Pasado { get; set; }
         public int cp_PlazoEntrega { get; set; }
+        public Nullable<decimal> opd_IdOrdenPedido { get; set; }
     }
 }

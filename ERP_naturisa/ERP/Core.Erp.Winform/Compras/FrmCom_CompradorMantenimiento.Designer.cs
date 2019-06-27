@@ -34,14 +34,6 @@
             this.txtNombre = new DevExpress.XtraEditors.TextEdit();
             this.lblAnulado = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.cmbIdUsuario = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
-            this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.gc_detalle = new DevExpress.XtraGrid.GridControl();
             this.gv_detalle = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,17 +42,28 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbIdUsuario = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
+            this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
+            this.txt_correo = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbIdUsuario.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_familia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbIdUsuario.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -125,6 +128,103 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(924, 406);
             this.panelControl1.TabIndex = 2;
+            // 
+            // gc_detalle
+            // 
+            this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_detalle.Location = new System.Drawing.Point(2, 163);
+            this.gc_detalle.MainView = this.gv_detalle;
+            this.gc_detalle.Name = "gc_detalle";
+            this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmb_familia});
+            this.gc_detalle.Size = new System.Drawing.Size(920, 241);
+            this.gc_detalle.TabIndex = 18;
+            this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_detalle});
+            // 
+            // gv_detalle
+            // 
+            this.gv_detalle.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3});
+            this.gv_detalle.GridControl = this.gc_detalle;
+            this.gv_detalle.Name = "gv_detalle";
+            this.gv_detalle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gv_detalle.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Familia";
+            this.gridColumn3.ColumnEdit = this.cmb_familia;
+            this.gridColumn3.FieldName = "IdFamilia";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            // 
+            // cmb_familia
+            // 
+            this.cmb_familia.AutoHeight = false;
+            this.cmb_familia.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_familia.DisplayMember = "fa_Descripcion";
+            this.cmb_familia.Name = "cmb_familia";
+            this.cmb_familia.ValueMember = "IdFamilia";
+            this.cmb_familia.View = this.repositoryItemSearchLookUpEdit1View;
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6});
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "ID";
+            this.gridColumn4.FieldName = "IdFamilia";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 0;
+            this.gridColumn4.Width = 200;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Código";
+            this.gridColumn5.FieldName = "fa_Codigo";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 266;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Familia";
+            this.gridColumn6.FieldName = "fa_Descripcion";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 1;
+            this.gridColumn6.Width = 1268;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txt_correo);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cmbIdUsuario);
+            this.panel1.Controls.Add(this.txtNombre);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblAnulado);
+            this.panel1.Controls.Add(this.txtIdComprador);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(920, 161);
+            this.panel1.TabIndex = 17;
             // 
             // cmbIdUsuario
             // 
@@ -246,100 +346,23 @@
             this.ucGe_Menu_Superior_Mant1.Visible_btnproductos = false;
             this.ucGe_Menu_Superior_Mant1.Load += new System.EventHandler(this.ucGe_Menu_Superior_Mant1_Load);
             // 
-            // panel1
+            // txt_correo
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.cmbIdUsuario);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lblAnulado);
-            this.panel1.Controls.Add(this.txtIdComprador);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(920, 113);
-            this.panel1.TabIndex = 17;
+            this.txt_correo.Location = new System.Drawing.Point(117, 112);
+            this.txt_correo.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_correo.Name = "txt_correo";
+            this.txt_correo.Size = new System.Drawing.Size(429, 22);
+            this.txt_correo.TabIndex = 18;
             // 
-            // gc_detalle
+            // label2
             // 
-            this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.Location = new System.Drawing.Point(2, 115);
-            this.gc_detalle.MainView = this.gv_detalle;
-            this.gc_detalle.Name = "gc_detalle";
-            this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cmb_familia});
-            this.gc_detalle.Size = new System.Drawing.Size(920, 289);
-            this.gc_detalle.TabIndex = 18;
-            this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_detalle});
-            // 
-            // gv_detalle
-            // 
-            this.gv_detalle.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn3});
-            this.gv_detalle.GridControl = this.gc_detalle;
-            this.gv_detalle.Name = "gv_detalle";
-            this.gv_detalle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gv_detalle.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Familia";
-            this.gridColumn3.ColumnEdit = this.cmb_familia;
-            this.gridColumn3.FieldName = "IdFamilia";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
-            // 
-            // cmb_familia
-            // 
-            this.cmb_familia.AutoHeight = false;
-            this.cmb_familia.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_familia.DisplayMember = "fa_Descripcion";
-            this.cmb_familia.Name = "cmb_familia";
-            this.cmb_familia.ValueMember = "IdFamilia";
-            this.cmb_familia.View = this.repositoryItemSearchLookUpEdit1View;
-            // 
-            // repositoryItemSearchLookUpEdit1View
-            // 
-            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn4,
-            this.gridColumn5,
-            this.gridColumn6});
-            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
-            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "ID";
-            this.gridColumn4.FieldName = "IdFamilia";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 0;
-            this.gridColumn4.Width = 200;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Código";
-            this.gridColumn5.FieldName = "fa_Codigo";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 266;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Familia";
-            this.gridColumn6.FieldName = "fa_Descripcion";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 1;
-            this.gridColumn6.Width = 1268;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 115);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Correos (;)";
             // 
             // FrmCom_CompradorMantenimiento
             // 
@@ -359,14 +382,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbIdUsuario.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_familia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbIdUsuario.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,5 +419,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.TextEdit txt_correo;
+        private System.Windows.Forms.Label label2;
     }
 }

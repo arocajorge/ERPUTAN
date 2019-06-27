@@ -43,5 +43,7 @@ namespace Core.Erp.Info.Compras
         public string pe_correo { get; set; }
 
         public decimal IdPersona { get; set; }
+
+        public decimal? opd_IdOrdenPedido { get; set; }
     }
 }

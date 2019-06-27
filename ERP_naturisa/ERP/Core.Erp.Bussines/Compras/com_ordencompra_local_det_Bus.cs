@@ -16,7 +16,18 @@ namespace Core.Erp.Business.Compras
         com_ordencompra_local_det_Data data = new com_ordencompra_local_det_Data();
 
         string mensaje = "";
-
+        public List<com_ordencompra_local_det_Info> GetListComprasPorPuntoCargo(int IdEmpresa, int IdPunto_cargo)
+        {
+            try
+            {
+                return data.GetListComprasPorPuntoCargo(IdEmpresa, IdPunto_cargo);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public Boolean GuardarDB(List<com_ordencompra_local_det_Info> LstInfo,ref string msg)
         {

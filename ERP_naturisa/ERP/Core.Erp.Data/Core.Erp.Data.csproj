@@ -736,6 +736,7 @@
     <Compile Include="Compras\com_ListadoMateriales_Det_Data.cs" />
     <Compile Include="Compras\com_ListadoMateriales_Det_x_com_GenerOCompra_Det_Data.cs" />
     <Compile Include="Compras\com_Motivo_Orden_Compra_Data.cs" />
+    <Compile Include="Compras\com_ordencompra_local_correo_Data.cs" />
     <Compile Include="Compras\com_ordencompra_local_Data.cs" />
     <Compile Include="Compras\com_ordencompra_local_det_Data.cs" />
     <Compile Include="Compras\com_ordencompra_local_det_x_com_solicitud_compra_det_Data.cs" />
@@ -895,6 +896,9 @@
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="com_ordencompra_local.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="com_ordencompra_local_correo.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="com_ordencompra_local_det.cs">
@@ -3512,6 +3516,9 @@
     <Compile Include="SPBAN_TransaccionesAConciliar_Result.cs">
       <DependentUpon>ModelBancos.tt</DependentUpon>
     </Compile>
+    <Compile Include="SPCOM_ComprasPorPuntoCargo_Result.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="spCON_Mayorizar_x_fecha_corte_Result.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
@@ -4190,6 +4197,9 @@
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_ordencompra_local_con_cant_devolver.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_ordencompra_local_correo.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_ordencompra_local_det.cs">

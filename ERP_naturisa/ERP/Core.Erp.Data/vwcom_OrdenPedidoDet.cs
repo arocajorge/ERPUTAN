@@ -33,5 +33,6 @@ namespace Core.Erp.Data
         public bool Adjunto { get; set; }
         public string EstadoDetalle { get; set; }
         public string NombreArchivo { get; set; }
+        public string NomComprador { get; set; }
     }
 }
