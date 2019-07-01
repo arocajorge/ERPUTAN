@@ -23,7 +23,9 @@ namespace Core.Erp.Data.Compras
                         IdSolicitante = q.IdSolicitante,
                         IdDepartamento = q.IdDepartamento,
                         IdUsuario = q.IdUsuario,
-                        Secuencia = q.Secuencia
+                        Secuencia = q.Secuencia,
+                        MontoMin = q.MontoMin,
+                        MontoMax = q.MontoMax
                     }).ToList();
                 }
 

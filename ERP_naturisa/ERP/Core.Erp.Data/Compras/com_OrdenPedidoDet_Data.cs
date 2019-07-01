@@ -152,7 +152,10 @@ namespace Core.Erp.Data.Compras
                     {
                         var det = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdOrdenPedido == item.IdOrdenPedido && q.Secuencia == item.Secuencia).FirstOrDefault();
                         if (det != null)
+                        {
                             det.opd_EstadoProceso = "RC";
+                            det.opd_Detalle = "Com:"+item.opd_Detalle+" Sol:"+det.opd_Detalle;
+                        }
                         db.SaveChanges();
                     }
                 }

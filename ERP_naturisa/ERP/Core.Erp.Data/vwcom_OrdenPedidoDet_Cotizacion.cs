@@ -40,5 +40,6 @@ namespace Core.Erp.Data
         public System.DateTime op_Fecha { get; set; }
         public string op_Observacion { get; set; }
         public string NombreArchivo { get; set; }
+        public string Grupo { get; set; }
     }
 }

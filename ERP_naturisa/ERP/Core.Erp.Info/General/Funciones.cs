@@ -349,6 +349,24 @@ namespace Core.Erp.Info.General
             }
         }
 
+        public void ExecuteCommand(string Command)
+        {
+            try
+            {
+                Process p = new Process();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "cmd.exe";
+                startInfo.Arguments = Command;
+                startInfo.CreateNoWindow = true;
+                p.StartInfo = startInfo;
+                p.Start();
+            }
+            catch (Exception ex)
+            {
+
+            }     
+        }
+
         public Funciones(){ }
 
 

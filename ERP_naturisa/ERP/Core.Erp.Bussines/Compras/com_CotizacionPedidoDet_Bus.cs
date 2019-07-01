@@ -25,11 +25,11 @@ namespace Core.Erp.Business.Compras
             }
         }
 
-        public List<com_CotizacionPedidoDet_Info> GetListCotizacion(int IdEmpresa, string IdUsuario_com)
+        public List<com_CotizacionPedidoDet_Info> GetListCotizacion(int IdEmpresa, string IdUsuario_com, DateTime FechaIni, DateTime FechaFin, bool MostrarAR)
         {
             try
             {
-                return odata.GetListCotizacion(IdEmpresa, IdUsuario_com);
+                return odata.GetListCotizacion(IdEmpresa, IdUsuario_com,FechaIni,FechaFin,MostrarAR);
             }
             catch (Exception)
             {

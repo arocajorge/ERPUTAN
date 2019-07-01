@@ -77,6 +77,8 @@ namespace Core.Erp.Data.Compras
                             IdSolicitante = info.IdSolicitante,
                             IdUsuario = item.IdUsuario,
                             IdDepartamento = item.IdDepartamento,
+                            MontoMax = item.MontoMax,
+                            MontoMin = item.MontoMin,
                             Secuencia = secuencia++
                         });
                     }
@@ -126,6 +128,8 @@ namespace Core.Erp.Data.Compras
                                 IdSolicitante = info.IdSolicitante,
                                 IdUsuario = item.IdUsuario,
                                 IdDepartamento = item.IdDepartamento,
+                                MontoMax = item.MontoMax,
+                                MontoMin = item.MontoMin,
                                 Secuencia = secuencia++
                             });
                         }
@@ -223,7 +227,8 @@ namespace Core.Erp.Data.Compras
                         IdSolicitante = q.IdSolicitante,
                         nom_solicitante = q.nom_solicitante,
                         estado = q.estado,
-                        IdUsuario = q.IdUsuario
+                        IdUsuario = q.IdUsuario,
+                        ConsultaDepartamento = q.ConsultaDepartamento
                     }).FirstOrDefault();
                 }
 
@@ -250,7 +255,8 @@ namespace Core.Erp.Data.Compras
                         nom_solicitante = q.nom_solicitante,
                         estado = q.estado,
                         IdUsuario = q.IdUsuario,
-                        IdDepartamento = q.IdDepartamento
+                        IdDepartamento = q.IdDepartamento,
+                        ConsultaDepartamento = q.ConsultaDepartamento
                     }).FirstOrDefault();
                 }
 

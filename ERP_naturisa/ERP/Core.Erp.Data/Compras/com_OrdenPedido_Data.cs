@@ -1,8 +1,12 @@
 ﻿using Core.Erp.Info.Compras;
+using Core.Erp.Info.General;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +15,7 @@ namespace Core.Erp.Data.Compras
 {
     public class com_OrdenPedido_Data
     {
+        Funciones Fx = new Funciones();
         public List<com_OrdenPedido_Info> GetList(int IdEmpresa, string IdUsuario, DateTime FechaIni, DateTime FechaFin)
         {
             try
@@ -82,7 +87,7 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -94,21 +99,21 @@ namespace Core.Erp.Data.Compras
                 List<com_OrdenPedido_Info> Lista;
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                        Lista = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && q.IdCatalogoEstado != "EST_OP_CER").Select(q => new com_OrdenPedido_Info
-                        {
-                            IdEmpresa = q.IdEmpresa,
-                            IdOrdenPedido = q.IdOrdenPedido,
-                            op_Codigo = q.op_Codigo,
-                            op_Fecha = q.op_Fecha,
-                            op_Observacion = q.op_Observacion,
+                    Lista = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && q.IdCatalogoEstado != "EST_OP_CER").Select(q => new com_OrdenPedido_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdOrdenPedido = q.IdOrdenPedido,
+                        op_Codigo = q.op_Codigo,
+                        op_Fecha = q.op_Fecha,
+                        op_Observacion = q.op_Observacion,
 
-                            nom_departamento = q.nom_departamento,
-                            nom_solicitante = q.nom_solicitante,
-                            Estado = q.Estado,                            
-                            IdCatalogoEstado = q.IdCatalogoEstado,
-                            EsCompraUrgente = q.EsCompraUrgente ?? false,
-                            nom_punto_cargo = q.nom_punto_cargo
-                        }).ToList();
+                        nom_departamento = q.nom_departamento,
+                        nom_solicitante = q.nom_solicitante,
+                        Estado = q.Estado,
+                        IdCatalogoEstado = q.IdCatalogoEstado,
+                        EsCompraUrgente = q.EsCompraUrgente ?? false,
+                        nom_punto_cargo = q.nom_punto_cargo
+                    }).ToList();
 
                 }
 
@@ -138,7 +143,7 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -172,7 +177,7 @@ namespace Core.Erp.Data.Compras
                         {
                             IdEmpresa = info.IdEmpresa,
                             IdOrdenPedido = info.IdOrdenPedido,
-                            Secuencia = Secuencia++,
+                            Secuencia = item.Secuencia = Secuencia++,
                             IdSucursalOrigen = item.IdSucursalOrigen,
                             IdSucursalDestino = item.IdSucursalDestino,
                             IdProducto = item.IdProducto,
@@ -184,16 +189,35 @@ namespace Core.Erp.Data.Compras
                             opd_Cantidad = item.opd_Cantidad,
                             opd_CantidadApro = info.EsCompraUrgente == true ? item.opd_Cantidad : 0,
                             Adjunto = item.Adjunto,
-                            NombreArchivo = item.NombreArchivo
+                            NombreArchivo = !string.IsNullOrEmpty(item.NombreArchivo) ? Path.GetFileName(item.NombreArchivo): item.NombreArchivo
                         });
                     }
                     db.SaveChanges();
+                    #region Adjuntos
+                    var lst_adjuntos = info.ListaDetalle.Where(q => q.Adjunto == true).ToList();
+                    var param = db.com_parametro.Where(q => q.IdEmpresa == info.IdEmpresa).FirstOrDefault();
+                    if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosPedido))
+                    {
+                        string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                        Fx.ExecuteCommand(@"" + Comando);
+                        Directory.CreateDirectory(param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString());
+                        foreach (var item in lst_adjuntos)
+                        {
+                            var ext = Path.GetFileName(item.NombreArchivo);
+                            System.IO.File.Copy(item.NombreArchivo, param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString() + @"\" + ext, true);
+                        }
+
+                        Comando = "/c Net Use /DELETE " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                        Fx.ExecuteCommand(@"" + Comando);
+                    }
+                    #endregion
+                    
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+
                 throw;
             }
         }
@@ -204,8 +228,8 @@ namespace Core.Erp.Data.Compras
             {
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    com_OrdenPedido Entity = db.com_OrdenPedido.Where(q=> q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == info.IdOrdenPedido).FirstOrDefault();
-                    if(Entity != null)
+                    com_OrdenPedido Entity = db.com_OrdenPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == info.IdOrdenPedido).FirstOrDefault();
+                    if (Entity != null)
                     {
                         Entity.op_Codigo = info.op_Codigo;
                         Entity.op_Fecha = info.op_Fecha;
@@ -238,11 +262,29 @@ namespace Core.Erp.Data.Compras
                             pr_descripcion = item.pr_descripcion,
                             opd_Detalle = item.opd_Detalle,
                             opd_Cantidad = item.opd_Cantidad,
-                            Adjunto = item.Adjunto,
-                            NombreArchivo = item.NombreArchivo
+                            Adjunto = !string.IsNullOrEmpty(item.NombreArchivo) ? true : false,
+                            NombreArchivo = item.NuevoAdjunto ? Path.GetFileName(item.NombreArchivo) : item.NombreArchivo
                         });
                     }
                     db.SaveChanges();
+                    #region Adjuntos
+                    var lst_adjuntos = info.ListaDetalle.Where(q => q.NuevoAdjunto == true).ToList();
+                    var param = db.com_parametro.Where(q => q.IdEmpresa == info.IdEmpresa).FirstOrDefault();
+                    if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosPedido))
+                    {
+                        string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                        Fx.ExecuteCommand(@"" + Comando);
+                        Directory.CreateDirectory(param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString());
+                        foreach (var item in lst_adjuntos)
+                        {
+                            var ext = Path.GetFileName(item.NombreArchivo);
+                            System.IO.File.Copy(item.NombreArchivo, param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString() + @"\" + ext, true);
+                        }
+
+                        Comando = "/c Net Use /DELETE " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                        Fx.ExecuteCommand(@"" + Comando);
+                    }
+                    #endregion
                 }
                 return true;
             }
@@ -309,7 +351,7 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -337,17 +379,5 @@ namespace Core.Erp.Data.Compras
                 return false;
             }
         }
-
-
-        #region SubirArchivos
-        public void SubirDocumentos(int IdEmpresa)
-        {
-            EntitiesCompras db = new EntitiesCompras();
-            var param = db.com_parametro.Where(q => q.IdEmpresa == IdEmpresa).FirstOrDefault();
-
-
-        }
-        #endregion
-        
     }
 }

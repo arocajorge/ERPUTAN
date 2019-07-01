@@ -13,5 +13,7 @@ namespace Core.Erp.Info.Compras
         public int Secuencia { get; set; }
         public string IdUsuario { get; set; }
         public decimal IdDepartamento { get; set; }
+        public double MontoMin { get; set; }
+        public double MontoMax { get; set; }
     }
 }

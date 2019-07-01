@@ -44,6 +44,10 @@ namespace Core.Erp.Info.Compras
 
         public decimal IdPersona { get; set; }
 
+        public double Subtotal { get; set; }
+        public double IVA { get; set; }
+        public double Total { get; set; }
+
         public decimal? opd_IdOrdenPedido { get; set; }
     }
 }

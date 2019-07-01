@@ -22,7 +22,7 @@ namespace Core.Erp.Info.Compras
         public string opd_EstadoProceso { get; set; }
         public string opd_Detalle { get; set; }
         public double? Stock { get; set; }
-
+        public bool NuevoAdjunto { get; set; }
         #region Campos que no existen en la tabla
         public string IdUnidadMedida_Consumo { get; set; }
         public bool A { get; set; }

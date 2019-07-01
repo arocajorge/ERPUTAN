@@ -90,7 +90,7 @@
             this.btnSalir});
             this.toolStrip_menu_top.Location = new System.Drawing.Point(0, 0);
             this.toolStrip_menu_top.Name = "toolStrip_menu_top";
-            this.toolStrip_menu_top.Size = new System.Drawing.Size(1292, 25);
+            this.toolStrip_menu_top.Size = new System.Drawing.Size(1723, 27);
             this.toolStrip_menu_top.TabIndex = 0;
             this.toolStrip_menu_top.Text = "toolStrip1";
             // 
@@ -99,7 +99,7 @@
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
             this.btnAceptar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(68, 22);
+            this.btnAceptar.Size = new System.Drawing.Size(81, 24);
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
@@ -108,7 +108,7 @@
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(116, 22);
+            this.btnGuardar.Size = new System.Drawing.Size(140, 24);
             this.btnGuardar.Text = "Guardar y Nuevo";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -117,7 +117,7 @@
             this.btnGuardar_y_Salir.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar_y_Salir.Image")));
             this.btnGuardar_y_Salir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardar_y_Salir.Name = "btnGuardar_y_Salir";
-            this.btnGuardar_y_Salir.Size = new System.Drawing.Size(103, 22);
+            this.btnGuardar_y_Salir.Size = new System.Drawing.Size(126, 24);
             this.btnGuardar_y_Salir.Text = "Guardar y Salir";
             this.btnGuardar_y_Salir.Click += new System.EventHandler(this.btnGuardar_y_Salir_Click);
             // 
@@ -126,7 +126,7 @@
             this.btnModificar.Image = global::Core.Erp.Winform.Properties.Resources.monificar_16_x_16;
             this.btnModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(78, 22);
+            this.btnModificar.Size = new System.Drawing.Size(93, 24);
             this.btnModificar.Text = "Modificar";
             this.btnModificar.Visible = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -136,7 +136,7 @@
             this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
             this.btnAprobar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAprobar.Name = "btnAprobar";
-            this.btnAprobar.Size = new System.Drawing.Size(124, 22);
+            this.btnAprobar.Size = new System.Drawing.Size(152, 24);
             this.btnAprobar.Text = "Aprobar y Guardar";
             this.btnAprobar.Click += new System.EventHandler(this.btnAprobar_Click);
             // 
@@ -145,7 +145,7 @@
             this.btnEstadosOC.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadosOC.Image")));
             this.btnEstadosOC.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEstadosOC.Name = "btnEstadosOC";
-            this.btnEstadosOC.Size = new System.Drawing.Size(185, 22);
+            this.btnEstadosOC.Size = new System.Drawing.Size(227, 24);
             this.btnEstadosOC.Text = "Grabar Precios/Estados  y O/C";
             this.btnEstadosOC.Click += new System.EventHandler(this.btnEstadosOC_Click);
             // 
@@ -154,7 +154,7 @@
             this.btn_Actualizar.Image = global::Core.Erp.Winform.Properties.Resources.Actualizar_Archivo;
             this.btn_Actualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Actualizar.Name = "btn_Actualizar";
-            this.btn_Actualizar.Size = new System.Drawing.Size(184, 22);
+            this.btn_Actualizar.Size = new System.Drawing.Size(227, 24);
             this.btn_Actualizar.Text = "Actualizar archivos generados";
             this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
             // 
@@ -163,7 +163,7 @@
             this.btnContabilizar.Image = global::Core.Erp.Winform.Properties.Resources.Contabilizar_16x16;
             this.btnContabilizar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnContabilizar.Name = "btnContabilizar";
-            this.btnContabilizar.Size = new System.Drawing.Size(90, 22);
+            this.btnContabilizar.Size = new System.Drawing.Size(109, 24);
             this.btnContabilizar.Text = "Contabilizar";
             this.btnContabilizar.Visible = false;
             this.btnContabilizar.Click += new System.EventHandler(this.btnContabilizar_Click);
@@ -173,7 +173,7 @@
             this.btnAprobarGuardarSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobarGuardarSalir.Image")));
             this.btnAprobarGuardarSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAprobarGuardarSalir.Name = "btnAprobarGuardarSalir";
-            this.btnAprobarGuardarSalir.Size = new System.Drawing.Size(154, 22);
+            this.btnAprobarGuardarSalir.Size = new System.Drawing.Size(191, 24);
             this.btnAprobarGuardarSalir.Text = "Aprobar y Guardar /Salir";
             this.btnAprobarGuardarSalir.Click += new System.EventHandler(this.btnAprobarGuardarSalir_Click);
             // 
@@ -182,7 +182,7 @@
             this.btnproductos.Image = ((System.Drawing.Image)(resources.GetObject("btnproductos.Image")));
             this.btnproductos.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnproductos.Name = "btnproductos";
-            this.btnproductos.Size = new System.Drawing.Size(119, 22);
+            this.btnproductos.Size = new System.Drawing.Size(143, 24);
             this.btnproductos.Text = "Cargar Productos";
             this.btnproductos.Click += new System.EventHandler(this.btnproductos_Click);
             // 
@@ -191,7 +191,7 @@
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
             this.btnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(73, 20);
+            this.btnImprimir.Size = new System.Drawing.Size(86, 24);
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -200,7 +200,7 @@
             this.btn_Imprimir_Reten.Image = ((System.Drawing.Image)(resources.GetObject("btn_Imprimir_Reten.Image")));
             this.btn_Imprimir_Reten.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Imprimir_Reten.Name = "btn_Imprimir_Reten";
-            this.btn_Imprimir_Reten.Size = new System.Drawing.Size(107, 20);
+            this.btn_Imprimir_Reten.Size = new System.Drawing.Size(128, 24);
             this.btn_Imprimir_Reten.Text = "Imp. Retención";
             this.btn_Imprimir_Reten.Click += new System.EventHandler(this.btn_Imprimir_Reten_Click);
             // 
@@ -209,7 +209,7 @@
             this.btn_Imprimir_Cbte.Image = ((System.Drawing.Image)(resources.GetObject("btn_Imprimir_Cbte.Image")));
             this.btn_Imprimir_Cbte.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Imprimir_Cbte.Name = "btn_Imprimir_Cbte";
-            this.btn_Imprimir_Cbte.Size = new System.Drawing.Size(104, 20);
+            this.btn_Imprimir_Cbte.Size = new System.Drawing.Size(124, 24);
             this.btn_Imprimir_Cbte.Text = "Imprimir Cbte.";
             this.btn_Imprimir_Cbte.Click += new System.EventHandler(this.btn_Imprimir_Cbte_Click);
             // 
@@ -218,7 +218,7 @@
             this.btn_Imprimir_Cheq.Image = ((System.Drawing.Image)(resources.GetObject("btn_Imprimir_Cheq.Image")));
             this.btn_Imprimir_Cheq.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Imprimir_Cheq.Name = "btn_Imprimir_Cheq";
-            this.btn_Imprimir_Cheq.Size = new System.Drawing.Size(107, 20);
+            this.btn_Imprimir_Cheq.Size = new System.Drawing.Size(127, 24);
             this.btn_Imprimir_Cheq.Text = "Imprimir Cheq.";
             this.btn_Imprimir_Cheq.Click += new System.EventHandler(this.btn_Imprimir_Cheq_Click);
             // 
@@ -227,7 +227,7 @@
             this.btnImprimir_guia.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir_guia.Image")));
             this.btnImprimir_guia.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImprimir_guia.Name = "btnImprimir_guia";
-            this.btnImprimir_guia.Size = new System.Drawing.Size(100, 20);
+            this.btnImprimir_guia.Size = new System.Drawing.Size(120, 24);
             this.btnImprimir_guia.Text = "Imprimir Guia";
             this.btnImprimir_guia.Click += new System.EventHandler(this.btnImprimir_guia_Click);
             // 
@@ -236,7 +236,7 @@
             this.btn_conciliacion_Auto.Image = ((System.Drawing.Image)(resources.GetObject("btn_conciliacion_Auto.Image")));
             this.btn_conciliacion_Auto.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_conciliacion_Auto.Name = "btn_conciliacion_Auto";
-            this.btn_conciliacion_Auto.Size = new System.Drawing.Size(175, 20);
+            this.btn_conciliacion_Auto.Size = new System.Drawing.Size(212, 24);
             this.btn_conciliacion_Auto.Text = "Conciliacion Auto. Por Excel";
             this.btn_conciliacion_Auto.Visible = false;
             this.btn_conciliacion_Auto.Click += new System.EventHandler(this.btn_conciliacion_Auto_Click);
@@ -246,7 +246,7 @@
             this.btnReImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnReImprimir.Image")));
             this.btnReImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReImprimir.Name = "btnReImprimir";
-            this.btnReImprimir.Size = new System.Drawing.Size(89, 20);
+            this.btnReImprimir.Size = new System.Drawing.Size(107, 24);
             this.btnReImprimir.Text = "Re Imprimir";
             this.btnReImprimir.Click += new System.EventHandler(this.btnReImprimir_Click);
             // 
@@ -255,7 +255,7 @@
             this.btnImpLote.Image = ((System.Drawing.Image)(resources.GetObject("btnImpLote.Image")));
             this.btnImpLote.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImpLote.Name = "btnImpLote";
-            this.btnImpLote.Size = new System.Drawing.Size(122, 20);
+            this.btnImpLote.Size = new System.Drawing.Size(148, 24);
             this.btnImpLote.Text = "Impresión en Lote";
             this.btnImpLote.Click += new System.EventHandler(this.btnImpLote_Click);
             // 
@@ -264,7 +264,7 @@
             this.btn_DiseñoReporte.Image = ((System.Drawing.Image)(resources.GetObject("btn_DiseñoReporte.Image")));
             this.btn_DiseñoReporte.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_DiseñoReporte.Name = "btn_DiseñoReporte";
-            this.btn_DiseñoReporte.Size = new System.Drawing.Size(107, 20);
+            this.btn_DiseñoReporte.Size = new System.Drawing.Size(132, 24);
             this.btn_DiseñoReporte.Text = "Diseño Reporte";
             this.btn_DiseñoReporte.Click += new System.EventHandler(this.btn_DiseñoReporte_Click);
             // 
@@ -273,7 +273,7 @@
             this.btn_Generar_XML.Image = ((System.Drawing.Image)(resources.GetObject("btn_Generar_XML.Image")));
             this.btn_Generar_XML.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Generar_XML.Name = "btn_Generar_XML";
-            this.btn_Generar_XML.Size = new System.Drawing.Size(95, 20);
+            this.btn_Generar_XML.Size = new System.Drawing.Size(114, 24);
             this.btn_Generar_XML.Text = "Generar XML";
             this.btn_Generar_XML.Click += new System.EventHandler(this.btn_Generar_XML_Click);
             // 
@@ -282,7 +282,7 @@
             this.btnImprimirSoporte.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirSoporte.Image")));
             this.btnImprimirSoporte.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImprimirSoporte.Name = "btnImprimirSoporte";
-            this.btnImprimirSoporte.Size = new System.Drawing.Size(117, 20);
+            this.btnImprimirSoporte.Size = new System.Drawing.Size(143, 24);
             this.btnImprimirSoporte.Text = "Imprimir Soporte";
             this.btnImprimirSoporte.Visible = false;
             this.btnImprimirSoporte.Click += new System.EventHandler(this.btnImprimirSoporte_Click);
@@ -292,7 +292,7 @@
             this.btnImpFrm.Image = ((System.Drawing.Image)(resources.GetObject("btnImpFrm.Image")));
             this.btnImpFrm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImpFrm.Name = "btnImpFrm";
-            this.btnImpFrm.Size = new System.Drawing.Size(134, 20);
+            this.btnImpFrm.Size = new System.Drawing.Size(162, 24);
             this.btnImpFrm.Text = "Imprimir Formulario";
             this.btnImpFrm.Click += new System.EventHandler(this.btnImpFrm_Click);
             // 
@@ -301,7 +301,7 @@
             this.btnImpRep.Image = ((System.Drawing.Image)(resources.GetObject("btnImpRep.Image")));
             this.btnImpRep.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImpRep.Name = "btnImpRep";
-            this.btnImpRep.Size = new System.Drawing.Size(117, 20);
+            this.btnImpRep.Size = new System.Drawing.Size(143, 24);
             this.btnImpRep.Text = "Imprimir Reporte";
             this.btnImpRep.Click += new System.EventHandler(this.btnImpRep_Click);
             // 
@@ -310,7 +310,7 @@
             this.btnlimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnlimpiar.Image")));
             this.btnlimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnlimpiar.Name = "btnlimpiar";
-            this.btnlimpiar.Size = new System.Drawing.Size(67, 20);
+            this.btnlimpiar.Size = new System.Drawing.Size(79, 24);
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             // 
@@ -319,7 +319,7 @@
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
             this.btnAnular.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(62, 20);
+            this.btnAnular.Size = new System.Drawing.Size(72, 24);
             this.btnAnular.Text = "Anular";
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
@@ -328,17 +328,18 @@
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(49, 20);
+            this.btnSalir.Size = new System.Drawing.Size(58, 24);
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // UCGe_Menu_Superior_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStrip_menu_top);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCGe_Menu_Superior_Mant";
-            this.Size = new System.Drawing.Size(1292, 29);
+            this.Size = new System.Drawing.Size(1723, 36);
             this.toolStrip_menu_top.ResumeLayout(false);
             this.toolStrip_menu_top.PerformLayout();
             this.ResumeLayout(false);
@@ -351,7 +352,6 @@
         private System.Windows.Forms.ToolStrip toolStrip_menu_top;
         private System.Windows.Forms.ToolStripButton btnlimpiar;
         private System.Windows.Forms.ToolStripButton btnImprimir;
-        private System.Windows.Forms.ToolStripButton btnAnular;
         private System.Windows.Forms.ToolStripButton btnSalir;
         private System.Windows.Forms.ToolStripButton btnAceptar;
         private System.Windows.Forms.ToolStripButton btnImprimir_guia;
@@ -375,5 +375,6 @@
         public System.Windows.Forms.ToolStripButton btnContabilizar;
         public System.Windows.Forms.ToolStripButton btnAprobar;
         public System.Windows.Forms.ToolStripButton btnAprobarGuardarSalir;
+        public System.Windows.Forms.ToolStripButton btnAnular;
     }
 }

@@ -60,6 +60,10 @@ namespace Core.Erp.Winform.Compras
                     blst = new BindingList<com_CotizacionPedidoDet_Info>(info.ListaDetalle);
                     gc_detalle.DataSource = blst;
 
+                    lblSubtotal.Text = "$ " + Math.Round(blst.Sum(q => q.cd_subtotal),2,MidpointRounding.AwayFromZero).ToString("n2");
+                    lblIva.Text = "$ " + Math.Round(blst.Sum(q => q.cd_iva),2,MidpointRounding.AwayFromZero).ToString("n2");
+                    lblTotal.Text = "$ " + Math.Round(blst.Sum(q => q.cd_total),2,MidpointRounding.AwayFromZero).ToString("n2");
+
                     btnAnular.Visible = true;
                     btnAprobar.Visible = true;
                     btnPasar.Visible = true;
@@ -239,8 +243,11 @@ namespace Core.Erp.Winform.Compras
                 FrmCom_CotizacionConsulta frm = new FrmCom_CotizacionConsulta();
                 frm.Cargo = "JC";
                 frm.ShowDialog();
-                info = frm.info;
-                SetCotizacion();
+                if (frm.info != null && frm.info.IdCotizacion > 0)
+                {
+                    info = frm.info;
+                    SetCotizacion();    
+                }
             }
             catch (Exception)
             {

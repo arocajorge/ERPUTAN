@@ -537,6 +537,7 @@ using Core.Erp.Info.Inventario;
                 {
                     filePath = openFileDialog1.FileName;
                     row.NombreArchivo = openFileDialog1.FileName;
+                    row.NuevoAdjunto = true;
                     row.Adjunto = true;
                     gc_detalle.RefreshDataSource();
                 }

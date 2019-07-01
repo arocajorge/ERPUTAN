@@ -40,5 +40,7 @@ namespace Core.Erp.Data
         public string nom_impuesto { get; set; }
         public string nom_punto_cargo { get; set; }
         public string cd_DetallePorItem { get; set; }
+        public string opd_Detalle { get; set; }
+        public string op_Observacion { get; set; }
     }
 }

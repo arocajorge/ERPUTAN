@@ -881,7 +881,7 @@
           <Property Name="pe_telefonoInter" Type="varchar" MaxLength="50" />
           <Property Name="pe_telfono_Contacto" Type="varchar" MaxLength="50" />
           <Property Name="pe_celular" Type="varchar" MaxLength="50" />
-          <Property Name="pe_correo" Type="varchar" MaxLength="100" />
+          <Property Name="pe_correo" Type="varchar(max)" />
           <Property Name="pe_fax" Type="varchar" MaxLength="50" />
           <Property Name="pe_casilla" Type="varchar" MaxLength="50" />
           <Property Name="pe_sexo" Type="varchar" Nullable="false" MaxLength="25" />
@@ -1303,8 +1303,8 @@
           <Property Name="MotivoAnulacion" Type="varchar" MaxLength="100" />
           <Property Name="Placa" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.tbSys_Ge_Comparativo_Modulo_vs_Contas' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.tbSys_Ge_Comparativo_Modulo_vs_Contas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="tbSys_Ge_Comparativo_Modulo_vs_Contas">
           <Key>
@@ -1343,8 +1343,8 @@
           <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="referencia" Type="varchar" MaxLength="143" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vw_EstadoCivil' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vw_EstadoCivil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_EstadoCivil">
           <Key>
@@ -1362,8 +1362,8 @@
           <Property Name="orden" Type="int" Nullable="false" />
           <Property Name="IdTipoCatalogo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vw_NaturalezaPersona' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vw_NaturalezaPersona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_NaturalezaPersona">
           <Key>
@@ -1381,8 +1381,8 @@
           <Property Name="orden" Type="int" Nullable="false" />
           <Property Name="IdTipoCatalogo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vw_Persona' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vw_Persona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_Persona">
           <Key>
@@ -1413,8 +1413,8 @@
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="1" />
           <Property Name="Fecha_Creacion" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vw_TipoDocumento' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vw_TipoDocumento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_TipoDocumento">
           <Key>
@@ -1432,8 +1432,8 @@
           <Property Name="orden" Type="int" Nullable="false" />
           <Property Name="IdTipoCatalogo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vw_usuario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vw_usuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_usuario">
           <Key>
@@ -1452,8 +1452,8 @@
           <Property Name="pe_nombre" Type="varchar" MaxLength="50" />
           <Property Name="estado" Type="nvarchar" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwGe_tb_sis_Documento_Tipo_Talonario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwGe_tb_sis_Documento_Tipo_Talonario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwGe_tb_sis_Documento_Tipo_Talonario">
           <Key>
@@ -1480,8 +1480,8 @@
           <Property Name="Estado" Type="char" MaxLength="1" />
           <Property Name="es_Documento_Electronico" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwGe_tb_sis_Mensajes_sys_IdAuto_numeric' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwGe_tb_sis_Mensajes_sys_IdAuto_numeric' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwGe_tb_sis_Mensajes_sys_IdAuto_numeric">
           <Key>
@@ -1490,8 +1490,8 @@
           <Property Name="IdMensaje" Type="varchar" MaxLength="26" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwGe_tb_Tarjeta_tb_Parametro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwGe_tb_Tarjeta_tb_Parametro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwGe_tb_Tarjeta_tb_Parametro">
           <Key>
@@ -1513,8 +1513,8 @@
           <Property Name="IdCobro_tipo_x_RetIva" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_Tarj" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_Bodega_x_Sucursal_TreeList' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_Bodega_x_Sucursal_TreeList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_Bodega_x_Sucursal_TreeList">
           <Key>
@@ -1533,8 +1533,8 @@
           <Property Name="IdSucursal" Type="int" Nullable="false" />
           <Property Name="IdBodega" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_Ciudad' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_Ciudad' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_Ciudad">
           <Key>
@@ -1552,8 +1552,8 @@
           <Property Name="IdPais" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="IdProvincia" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_contacto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_contacto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_contacto">
           <Key>
@@ -1613,8 +1613,8 @@
           <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
           <Property Name="pe_Naturaleza" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_empresa_x_Usuario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_empresa_x_Usuario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_empresa_x_Usuario">
           <Key>
@@ -1654,8 +1654,8 @@
           <Property Name="IdUsuario" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="cod_entidad_dinardap" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_persona_beneficiario' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_persona_beneficiario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_persona_beneficiario">
           <Key>
@@ -1700,8 +1700,8 @@
           <Property Name="pe_celular" Type="varchar" MaxLength="50" />
           <Property Name="pe_correo" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_persona_beneficiario_por_Banco_Acreditacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_persona_beneficiario_por_Banco_Acreditacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_persona_beneficiario_por_Banco_Acreditacion">
           <Key>
@@ -1749,8 +1749,8 @@
           <Property Name="TieneFormatoTransferencia" Type="bit" />
           <Property Name="ba_descripcion" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_sis_Documento_Tipo_x_Disenio_Report' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_sis_Documento_Tipo_x_Disenio_Report' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_sis_Documento_Tipo_x_Disenio_Report">
           <Key>
@@ -1764,8 +1764,8 @@
           <Property Name="File_Disenio_Reporte" Type="varbinary(max)" />
           <Property Name="ApareceCombo_FileReporte" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_sis_Documento_Tipo_x_Empresa_Anulados' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_sis_Documento_Tipo_x_Empresa_Anulados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_sis_Documento_Tipo_x_Empresa_Anulados">
           <Key>
@@ -1789,8 +1789,8 @@
           <Property Name="NumAutorizacion" Type="varchar" MaxLength="150" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_tb_banco_procesos_bancarios' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_tb_banco_procesos_bancarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_tb_banco_procesos_bancarios">
           <Key>
@@ -1813,8 +1813,8 @@
           <Property Name="Se_contabiliza" Type="bit" />
           <Property Name="Tipo_Proc" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_transportista_x_tb_persona' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_transportista_x_tb_persona' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_transportista_x_tb_persona">
           <Key>
@@ -1830,8 +1830,8 @@
           <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="500" />
           <Property Name="pe_cedulaRuc" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwtb_Ubicacion_Geografica' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwtb_Ubicacion_Geografica' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwtb_Ubicacion_Geografica">
           <Key>
@@ -2342,7 +2342,6 @@
           <EntitySet Name="tb_pais" EntityType="DBERPModelGeneral.tb_pais" />
           <EntitySet Name="tb_parametro" EntityType="DBERPModelGeneral.tb_parametro" />
           <EntitySet Name="tb_parametro_tipo" EntityType="DBERPModelGeneral.tb_parametro_tipo" />
-          <EntitySet Name="tb_persona" EntityType="DBERPModelGeneral.tb_persona" />
           <EntitySet Name="tb_persona_direccion" EntityType="DBERPModelGeneral.tb_persona_direccion" />
           <EntitySet Name="tb_persona_direccion_tipo" EntityType="DBERPModelGeneral.tb_persona_direccion_tipo" />
           <EntitySet Name="tb_persona_tipo" EntityType="DBERPModelGeneral.tb_persona_tipo" />
@@ -2381,34 +2380,6 @@
             <End Role="tb_CatalogoTipo" EntitySet="tb_CatalogoTipo" />
             <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
           </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo1" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo2" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo3" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo4" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo5" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_tb_Catalogo6" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6">
-            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
           <AssociationSet Name="FK_tb_contacto_tb_ciudad" Association="DBERPModelGeneral.FK_tb_contacto_tb_ciudad">
             <End Role="tb_ciudad" EntitySet="tb_ciudad" />
             <End Role="tb_contacto" EntitySet="tb_contacto" />
@@ -2421,17 +2392,9 @@
             <End Role="tb_pais" EntitySet="tb_pais" />
             <End Role="tb_contacto" EntitySet="tb_contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK_tb_contacto_tb_persona" Association="DBERPModelGeneral.FK_tb_contacto_tb_persona">
-            <End Role="tb_persona" EntitySet="tb_persona" />
-            <End Role="tb_contacto" EntitySet="tb_contacto" />
-          </AssociationSet>
           <AssociationSet Name="FK_tb_parametro_tb_parametro_tipo" Association="DBERPModelGeneral.FK_tb_parametro_tb_parametro_tipo">
             <End Role="tb_parametro_tipo" EntitySet="tb_parametro_tipo" />
             <End Role="tb_parametro" EntitySet="tb_parametro" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_persona_direccion_tb_persona" Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona">
-            <End Role="tb_persona" EntitySet="tb_persona" />
-            <End Role="tb_persona_direccion" EntitySet="tb_persona_direccion" />
           </AssociationSet>
           <AssociationSet Name="FK_tb_persona_direccion_tb_persona_direccion_tipo" Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona_direccion_tipo">
             <End Role="tb_persona_direccion_tipo" EntitySet="tb_persona_direccion_tipo" />
@@ -2504,10 +2467,6 @@
           </AssociationSet>
           <EntitySet Name="tb_banco_procesos_bancarios_tipo" EntityType="DBERPModelGeneral.tb_banco_procesos_bancarios_tipo" />
           <EntitySet Name="tb_banco" EntityType="DBERPModelGeneral.tb_banco" />
-          <AssociationSet Name="FK_tb_persona_tb_banco" Association="DBERPModelGeneral.FK_tb_persona_tb_banco">
-            <End Role="tb_banco" EntitySet="tb_banco" />
-            <End Role="tb_persona" EntitySet="tb_persona" />
-          </AssociationSet>
           <EntitySet Name="tb_banco_procesos_bancarios_x_empresa" EntityType="DBERPModelGeneral.tb_banco_procesos_bancarios_x_empresa" />
           <EntitySet Name="vwtb_tb_banco_procesos_bancarios" EntityType="DBERPModelGeneral.vwtb_tb_banco_procesos_bancarios" />
           <EntitySet Name="tb_transportista" EntityType="DBERPModelGeneral.tb_transportista" />
@@ -2556,6 +2515,47 @@
           <AssociationSet Name="FK_tb_provincia_tb_region" Association="DBERPModelGeneral.FK_tb_provincia_tb_region">
             <End Role="tb_region" EntitySet="tb_region" />
             <End Role="tb_provincia" EntitySet="tb_provincia" />
+          </AssociationSet>
+          <EntitySet Name="tb_persona" EntityType="DBERPModelGeneral.tb_persona" />
+          <AssociationSet Name="FK_tb_persona_tb_banco" Association="DBERPModelGeneral.FK_tb_persona_tb_banco">
+            <End Role="tb_banco" EntitySet="tb_banco" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo1" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo2" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo3" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo4" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo5" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_tb_Catalogo6" Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6">
+            <End Role="tb_Catalogo" EntitySet="tb_Catalogo" />
+            <End Role="tb_persona" EntitySet="tb_persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_contacto_tb_persona" Association="DBERPModelGeneral.FK_tb_contacto_tb_persona">
+            <End Role="tb_persona" EntitySet="tb_persona" />
+            <End Role="tb_contacto" EntitySet="tb_contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_persona_direccion_tb_persona" Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona">
+            <End Role="tb_persona" EntitySet="tb_persona" />
+            <End Role="tb_persona_direccion" EntitySet="tb_persona_direccion" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="spSys_ObtenerFecha_SinFeriadoTampocoSabDom_Result">
@@ -2635,7 +2635,7 @@
           <NavigationProperty Name="tb_persona4" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4" FromRole="tb_Catalogo" ToRole="tb_persona" />
           <NavigationProperty Name="tb_persona5" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5" FromRole="tb_Catalogo" ToRole="tb_persona" />
           <NavigationProperty Name="tb_persona6" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" FromRole="tb_Catalogo" ToRole="tb_persona" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="tb_CatalogoTipo">
           <Key>
             <PropertyRef Name="IdTipoCatalogo" />
@@ -2707,9 +2707,9 @@
           <NavigationProperty Name="tb_ciudad" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_ciudad" FromRole="tb_contacto" ToRole="tb_ciudad" />
           <NavigationProperty Name="tb_pais" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_pais" FromRole="tb_contacto" ToRole="tb_pais" />
           <NavigationProperty Name="tb_pais1" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_pais1" FromRole="tb_contacto" ToRole="tb_pais" />
-          <NavigationProperty Name="tb_persona" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_persona" FromRole="tb_contacto" ToRole="tb_persona" />
           <NavigationProperty Name="tb_empresa" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_empresa" FromRole="tb_contacto" ToRole="tb_empresa" />
           <NavigationProperty Name="tb_provincia" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_provincia" FromRole="tb_contacto" ToRole="tb_provincia" />
+          <NavigationProperty Name="tb_persona" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_persona" FromRole="tb_contacto" ToRole="tb_persona" />
         </EntityType>
         <EntityType Name="tb_dia">
           <Key>
@@ -2779,56 +2779,6 @@
           <Property Type="String" Name="nom_TipoParam" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_parametro" Relationship="DBERPModelGeneral.FK_tb_parametro_tb_parametro_tipo" FromRole="tb_parametro_tipo" ToRole="tb_parametro" />
         </EntityType>
-        <EntityType Name="tb_persona">
-          <Key>
-            <PropertyRef Name="IdPersona" />
-          </Key>
-          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="CodPersona" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_Naturaleza" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdTipoPersona" Nullable="false" />
-          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_telefonoOfic" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_telefonoInter" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_celular" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_correo" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_fax" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_casilla" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_sexo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstadoCivil" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="pe_fechaNacimiento" Precision="3" />
-          <Property Type="String" Name="pe_estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="pe_fechaCreacion" Precision="3" />
-          <Property Type="DateTime" Name="pe_fechaModificacion" Precision="3" />
-          <Property Type="String" Name="pe_UltUsuarioModi" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_celularSecundario" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
-          <Property Type="String" Name="MotivoAnulacion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_correo_secundario1" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_correo_secundario2" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdTipoCta_acreditacion_cat" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="num_cta_acreditacion" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdBanco_acreditacion" />
-          <NavigationProperty Name="tb_Catalogo" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_Catalogo1" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_Catalogo2" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_Catalogo3" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_Catalogo4" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_Catalogo5" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_Catalogo6" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" FromRole="tb_persona" ToRole="tb_Catalogo" />
-          <NavigationProperty Name="tb_contacto" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_persona" FromRole="tb_persona" ToRole="tb_contacto" />
-          <NavigationProperty Name="tb_persona_direccion" Relationship="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" FromRole="tb_persona" ToRole="tb_persona_direccion" />
-          <NavigationProperty Name="tb_banco" Relationship="DBERPModelGeneral.FK_tb_persona_tb_banco" FromRole="tb_persona" ToRole="tb_banco" />
-        </EntityType>
         <EntityType Name="tb_persona_direccion">
           <Key>
             <PropertyRef Name="IdPersona" />
@@ -2846,8 +2796,8 @@
           <Property Type="String" Name="Ciudad" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="estado" Nullable="false" />
           <Property Type="Int32" Name="IdTipoDireccion" Nullable="false" />
-          <NavigationProperty Name="tb_persona" Relationship="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" FromRole="tb_persona_direccion" ToRole="tb_persona" />
           <NavigationProperty Name="tb_persona_direccion_tipo" Relationship="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona_direccion_tipo" FromRole="tb_persona_direccion" ToRole="tb_persona_direccion_tipo" />
+          <NavigationProperty Name="tb_persona" Relationship="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" FromRole="tb_persona_direccion" ToRole="tb_persona" />
         </EntityType>
         <EntityType Name="tb_persona_direccion_tipo">
           <Key>
@@ -3459,90 +3409,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="pe_Naturaleza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo1">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="IdTipoDocumento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo2">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="IdTipoDocumento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo3">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="IdEstadoCivil" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo4">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="pe_sexo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo5">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="pe_Naturaleza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_tb_Catalogo6">
-          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="0..1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Catalogo">
-              <PropertyRef Name="CodCatalogo" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="IdTipoCta_acreditacion_cat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tb_contacto_tb_ciudad">
           <End Type="DBERPModelGeneral.tb_ciudad" Role="tb_ciudad" Multiplicity="1" />
           <End Type="DBERPModelGeneral.tb_contacto" Role="tb_contacto" Multiplicity="*" />
@@ -3579,18 +3445,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tb_contacto_tb_persona">
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_contacto" Role="tb_contacto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_persona">
-              <PropertyRef Name="IdPersona" />
-            </Principal>
-            <Dependent Role="tb_contacto">
-              <PropertyRef Name="IdPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tb_parametro_tb_parametro_tipo">
           <End Type="DBERPModelGeneral.tb_parametro_tipo" Role="tb_parametro_tipo" Multiplicity="1" />
           <End Type="DBERPModelGeneral.tb_parametro" Role="tb_parametro" Multiplicity="*" />
@@ -3600,18 +3454,6 @@
             </Principal>
             <Dependent Role="tb_parametro">
               <PropertyRef Name="IdTipoParam" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_persona_direccion_tb_persona">
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_persona_direccion" Role="tb_persona_direccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_persona">
-              <PropertyRef Name="IdPersona" />
-            </Principal>
-            <Dependent Role="tb_persona_direccion">
-              <PropertyRef Name="IdPersona" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4063,21 +3905,9 @@
           <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="CodigoLegal" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="TieneFormatoTransferencia" Nullable="false" />
-          <NavigationProperty Name="tb_persona" Relationship="DBERPModelGeneral.FK_tb_persona_tb_banco" FromRole="tb_banco" ToRole="tb_persona" />
           <NavigationProperty Name="tb_banco_estado_reg__resp_bancaria" Relationship="DBERPModelGeneral.FK_tb_banco_estado_reg__resp_bancaria_tb_banco" FromRole="tb_banco" ToRole="tb_banco_estado_reg__resp_bancaria" />
+          <NavigationProperty Name="tb_persona" Relationship="DBERPModelGeneral.FK_tb_persona_tb_banco" FromRole="tb_banco" ToRole="tb_persona" />
         </EntityType>
-        <Association Name="FK_tb_persona_tb_banco">
-          <End Type="DBERPModelGeneral.tb_banco" Role="tb_banco" Multiplicity="0..1" />
-          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_banco">
-              <PropertyRef Name="IdBanco" />
-            </Principal>
-            <Dependent Role="tb_persona">
-              <PropertyRef Name="IdBanco_acreditacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="tb_banco_procesos_bancarios_x_empresa">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -4382,6 +4212,176 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tb_persona">
+          <Key>
+            <PropertyRef Name="IdPersona" />
+          </Key>
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodPersona" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_Naturaleza" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoPersona" Nullable="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoCasa" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoOfic" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoInter" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_celular" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_fax" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_casilla" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_sexo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoCivil" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="pe_fechaNacimiento" Precision="3" />
+          <Property Type="String" Name="pe_estado" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="pe_fechaCreacion" Precision="3" />
+          <Property Type="DateTime" Name="pe_fechaModificacion" Precision="3" />
+          <Property Type="String" Name="pe_UltUsuarioModi" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_celularSecundario" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo_secundario1" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo_secundario2" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoCta_acreditacion_cat" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="num_cta_acreditacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdBanco_acreditacion" />
+          <NavigationProperty Name="tb_banco" Relationship="DBERPModelGeneral.FK_tb_persona_tb_banco" FromRole="tb_persona" ToRole="tb_banco" />
+          <NavigationProperty Name="tb_Catalogo" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_Catalogo1" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_Catalogo2" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_Catalogo3" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_Catalogo4" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_Catalogo5" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_Catalogo6" Relationship="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" FromRole="tb_persona" ToRole="tb_Catalogo" />
+          <NavigationProperty Name="tb_contacto" Relationship="DBERPModelGeneral.FK_tb_contacto_tb_persona" FromRole="tb_persona" ToRole="tb_contacto" />
+          <NavigationProperty Name="tb_persona_direccion" Relationship="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" FromRole="tb_persona" ToRole="tb_persona_direccion" />
+        </EntityType>
+        <Association Name="FK_tb_persona_tb_banco">
+          <End Type="DBERPModelGeneral.tb_banco" Role="tb_banco" Multiplicity="0..1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_banco">
+              <PropertyRef Name="IdBanco" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="IdBanco_acreditacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="pe_Naturaleza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo1">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo2">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="IdTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo3">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo4">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="pe_sexo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo5">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="pe_Naturaleza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_tb_Catalogo6">
+          <End Type="DBERPModelGeneral.tb_Catalogo" Role="tb_Catalogo" Multiplicity="0..1" />
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Catalogo">
+              <PropertyRef Name="CodCatalogo" />
+            </Principal>
+            <Dependent Role="tb_persona">
+              <PropertyRef Name="IdTipoCta_acreditacion_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_contacto_tb_persona">
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_contacto" Role="tb_contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_persona">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="tb_contacto">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_persona_direccion_tb_persona">
+          <End Type="DBERPModelGeneral.tb_persona" Role="tb_persona" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_persona_direccion" Role="tb_persona_direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_persona">
+              <PropertyRef Name="IdPersona" />
+            </Principal>
+            <Dependent Role="tb_persona_direccion">
+              <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4597,47 +4597,6 @@
               <MappingFragment StoreEntitySet="tb_parametro_tipo">
                 <ScalarProperty Name="nom_TipoParam" ColumnName="nom_TipoParam" />
                 <ScalarProperty Name="IdTipoParam" ColumnName="IdTipoParam" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_persona">
-            <EntityTypeMapping TypeName="DBERPModelGeneral.tb_persona">
-              <MappingFragment StoreEntitySet="tb_persona">
-                <ScalarProperty Name="IdBanco_acreditacion" ColumnName="IdBanco_acreditacion" />
-                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
-                <ScalarProperty Name="IdTipoCta_acreditacion_cat" ColumnName="IdTipoCta_acreditacion_cat" />
-                <ScalarProperty Name="pe_correo_secundario2" ColumnName="pe_correo_secundario2" />
-                <ScalarProperty Name="pe_correo_secundario1" ColumnName="pe_correo_secundario1" />
-                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="pe_celularSecundario" ColumnName="pe_celularSecundario" />
-                <ScalarProperty Name="pe_UltUsuarioModi" ColumnName="pe_UltUsuarioModi" />
-                <ScalarProperty Name="pe_fechaModificacion" ColumnName="pe_fechaModificacion" />
-                <ScalarProperty Name="pe_fechaCreacion" ColumnName="pe_fechaCreacion" />
-                <ScalarProperty Name="pe_estado" ColumnName="pe_estado" />
-                <ScalarProperty Name="pe_fechaNacimiento" ColumnName="pe_fechaNacimiento" />
-                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
-                <ScalarProperty Name="pe_sexo" ColumnName="pe_sexo" />
-                <ScalarProperty Name="pe_casilla" ColumnName="pe_casilla" />
-                <ScalarProperty Name="pe_fax" ColumnName="pe_fax" />
-                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
-                <ScalarProperty Name="pe_celular" ColumnName="pe_celular" />
-                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
-                <ScalarProperty Name="pe_telefonoInter" ColumnName="pe_telefonoInter" />
-                <ScalarProperty Name="pe_telefonoOfic" ColumnName="pe_telefonoOfic" />
-                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
-                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
-                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
-                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
-                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
-                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
-                <ScalarProperty Name="CodPersona" ColumnName="CodPersona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5605,6 +5564,47 @@
               <MappingFragment StoreEntitySet="tb_region">
                 <ScalarProperty Name="Nom_region" ColumnName="Nom_region" />
                 <ScalarProperty Name="Cod_Region" ColumnName="Cod_Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_persona">
+            <EntityTypeMapping TypeName="DBERPModelGeneral.tb_persona">
+              <MappingFragment StoreEntitySet="tb_persona">
+                <ScalarProperty Name="IdBanco_acreditacion" ColumnName="IdBanco_acreditacion" />
+                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
+                <ScalarProperty Name="IdTipoCta_acreditacion_cat" ColumnName="IdTipoCta_acreditacion_cat" />
+                <ScalarProperty Name="pe_correo_secundario2" ColumnName="pe_correo_secundario2" />
+                <ScalarProperty Name="pe_correo_secundario1" ColumnName="pe_correo_secundario1" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="pe_celularSecundario" ColumnName="pe_celularSecundario" />
+                <ScalarProperty Name="pe_UltUsuarioModi" ColumnName="pe_UltUsuarioModi" />
+                <ScalarProperty Name="pe_fechaModificacion" ColumnName="pe_fechaModificacion" />
+                <ScalarProperty Name="pe_fechaCreacion" ColumnName="pe_fechaCreacion" />
+                <ScalarProperty Name="pe_estado" ColumnName="pe_estado" />
+                <ScalarProperty Name="pe_fechaNacimiento" ColumnName="pe_fechaNacimiento" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="pe_sexo" ColumnName="pe_sexo" />
+                <ScalarProperty Name="pe_casilla" ColumnName="pe_casilla" />
+                <ScalarProperty Name="pe_fax" ColumnName="pe_fax" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="pe_celular" ColumnName="pe_celular" />
+                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
+                <ScalarProperty Name="pe_telefonoInter" ColumnName="pe_telefonoInter" />
+                <ScalarProperty Name="pe_telefonoOfic" ColumnName="pe_telefonoOfic" />
+                <ScalarProperty Name="pe_telefonoCasa" ColumnName="pe_telefonoCasa" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
+                <ScalarProperty Name="CodPersona" ColumnName="CodPersona" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

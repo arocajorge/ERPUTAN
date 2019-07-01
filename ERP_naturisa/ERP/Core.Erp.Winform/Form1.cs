@@ -13,9 +13,6 @@ namespace Core.Erp.Winform
         {
             try
             {
-                com_OrdenPedido_Bus bus_pedido = new com_OrdenPedido_Bus();
-
-                bus_pedido.SubirDocumentos(1);
             }
             catch (Exception)
             {

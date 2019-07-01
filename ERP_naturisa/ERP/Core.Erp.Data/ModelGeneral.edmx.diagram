@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_pais" Width="1.5" PointX="0.86847620125323344" PointY="10.43227002510441" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_parametro" Width="1.5" PointX="3.94838665795903" PointY="25.353633475188925" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_parametro_tipo" Width="1.5" PointX="2.8617728570763825" PointY="17.785542347368573" />
-        <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona" Width="1.5" PointX="11.345358285748102" PointY="25.252402421670222" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona_direccion" Width="1.5" PointX="4.5774389191425584" PointY="20.140195543011743" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona_direccion_tipo" Width="1.5" PointX="6.0183742074381437" PointY="19.988377327094032" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona_tipo" Width="1.5" PointX="9.23194335830954" PointY="14.744114495229029" />
@@ -52,19 +51,10 @@
         <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_transportista_x_tb_persona" Width="1.5" PointX="8.92428457966274" PointY="25.207679164226949" />
         <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_Ubicacion_Geografica" Width="1.5" PointX="7.0731751262551059" PointY="0.6963817033434202" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_Catalogo_tb_CatalogoTipo" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_ciudad" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_pais" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_pais1" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_persona" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_parametro_tb_parametro_tipo" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona_direccion_tipo" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_Documento_Tipo_Reporte_x_Empresa_tb_sis_Documento_Tipo" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_reporte_tb_sis_reporte_Grupo" />
@@ -92,7 +82,6 @@
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_sis_reporte_x_formulario_tb_sis_formulario" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco_procesos_bancarios_tipo" Width="1.5" PointX="11.706720482421442" PointY="17.427140422829957" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco" Width="1.5" PointX="5.5658037558038735" PointY="6.400329384207879" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_banco" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco_procesos_bancarios_x_empresa" Width="1.5" PointX="4.2710287758479968" PointY="0.70975759658485538" />
         <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_tb_banco_procesos_bancarios" Width="1.5" PointX="7.1138353474036959" PointY="9.7380566493319609" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_transportista" Width="1.5" PointX="4.3297950254426318" PointY="17.531098806080919" />
@@ -112,6 +101,17 @@
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_ciudad_tb_provincia" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_provincia" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_provincia_tb_pais" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_persona" Width="1.5" PointX="1.2639729554131503" PointY="7.7233269846641122" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_banco" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo1" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo2" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo3" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo4" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo5" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_persona" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

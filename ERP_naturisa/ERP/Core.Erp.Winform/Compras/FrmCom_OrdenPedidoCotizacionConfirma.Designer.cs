@@ -51,6 +51,9 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtFocus = new DevExpress.XtraEditors.TextEdit();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal)).BeginInit();
@@ -91,7 +94,7 @@
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
             this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
-            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1449, 28);
+            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1658, 28);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 0;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAnular = false;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAprobar = false;
@@ -132,7 +135,7 @@
             this.cmb_TerminoPago,
             this.cmb_Sucursal,
             this.cmb_Proveedor});
-            this.gc_detalle.Size = new System.Drawing.Size(1449, 579);
+            this.gc_detalle.Size = new System.Drawing.Size(1658, 583);
             this.gc_detalle.TabIndex = 1;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -146,11 +149,15 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn9,
-            this.gridColumn12});
+            this.gridColumn12,
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn15});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.Name = "gv_detalle";
             this.gv_detalle.OptionsView.ShowAutoFilterRow = true;
             this.gv_detalle.OptionsView.ShowDetailButtons = false;
+            this.gv_detalle.OptionsView.ShowFooter = true;
             this.gv_detalle.OptionsView.ShowGroupPanel = false;
             this.gv_detalle.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gv_detalle_CellValueChanged);
             // 
@@ -163,7 +170,7 @@
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
-            this.gridColumn7.Width = 206;
+            this.gridColumn7.Width = 182;
             // 
             // cmb_Sucursal
             // 
@@ -223,7 +230,7 @@
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;
-            this.gridColumn8.Width = 454;
+            this.gridColumn8.Width = 401;
             // 
             // cmb_Proveedor
             // 
@@ -250,7 +257,7 @@
             this.col_TerminoPago.Name = "col_TerminoPago";
             this.col_TerminoPago.Visible = true;
             this.col_TerminoPago.VisibleIndex = 3;
-            this.col_TerminoPago.Width = 244;
+            this.col_TerminoPago.Width = 215;
             // 
             // cmb_TerminoPago
             // 
@@ -308,7 +315,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 4;
-            this.gridColumn10.Width = 108;
+            this.gridColumn10.Width = 95;
             // 
             // gridColumn11
             // 
@@ -317,7 +324,7 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 6;
-            this.gridColumn11.Width = 361;
+            this.gridColumn11.Width = 250;
             // 
             // gridColumn9
             // 
@@ -326,7 +333,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
-            this.gridColumn9.Width = 93;
+            this.gridColumn9.Width = 82;
             // 
             // gridColumn12
             // 
@@ -335,7 +342,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 2;
-            this.gridColumn12.Width = 268;
+            this.gridColumn12.Width = 237;
             // 
             // txtFocus
             // 
@@ -345,11 +352,53 @@
             this.txtFocus.TabIndex = 2;
             this.txtFocus.Visible = false;
             // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Subtotal";
+            this.gridColumn13.DisplayFormat.FormatString = "n2";
+            this.gridColumn13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn13.FieldName = "Subtotal";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
+            this.gridColumn13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Subtotal", "{0:n2}")});
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 7;
+            this.gridColumn13.Width = 88;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "I.V.A.";
+            this.gridColumn14.DisplayFormat.FormatString = "n2";
+            this.gridColumn14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn14.FieldName = "IVA";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
+            this.gridColumn14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "IVA", "{0:n2}")});
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 8;
+            this.gridColumn14.Width = 88;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Total";
+            this.gridColumn15.DisplayFormat.FormatString = "n2";
+            this.gridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn15.FieldName = "Total";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowEdit = false;
+            this.gridColumn15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")});
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 9;
+            this.gridColumn15.Width = 96;
+            // 
             // FrmCom_OrdenPedidoCotizacionConfirma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1449, 607);
+            this.ClientSize = new System.Drawing.Size(1658, 611);
             this.Controls.Add(this.txtFocus);
             this.Controls.Add(this.gc_detalle);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
@@ -395,5 +444,8 @@
         private DevExpress.XtraEditors.TextEdit txtFocus;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
     }
 }

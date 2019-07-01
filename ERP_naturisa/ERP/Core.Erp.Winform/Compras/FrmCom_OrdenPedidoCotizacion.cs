@@ -20,6 +20,8 @@ namespace Core.Erp.Winform.Compras
     using Core.Erp.Business.Inventario;
     using Core.Erp.Winform.Inventario;
     using Core.Erp.Winform.Contabilidad;
+    using System.IO;
+    using System.Diagnostics;
     
     public partial class FrmCom_OrdenPedidoCotizacion : Form
     {
@@ -40,6 +42,9 @@ namespace Core.Erp.Winform.Compras
         List<cp_proveedor_combo_Info> lst_proveedor;
         List<com_TerminoPago_Info> lst_termino;
         com_OrdenPedidoDet_Bus bus_pedido_det;
+        Funciones Fx;
+        com_parametro_Info com_param;
+        com_parametro_Bus bus_param;
         #endregion
 
         #region Constructor
@@ -61,6 +66,9 @@ namespace Core.Erp.Winform.Compras
             lst_proveedor = new List<cp_proveedor_combo_Info>();
             lst_termino = new List<com_TerminoPago_Info>();
             bus_pedido_det = new com_OrdenPedidoDet_Bus();
+            Fx = new Funciones();
+            com_param = new com_parametro_Info();
+            bus_param = new com_parametro_Bus();
             InitializeComponent();
         }
         #endregion
@@ -96,7 +104,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                blst = new BindingList<com_CotizacionPedidoDet_Info>(bus_det.GetListCotizacion(param.IdEmpresa, param.IdUsuario));
+                blst = new BindingList<com_CotizacionPedidoDet_Info>(bus_det.GetListCotizacion(param.IdEmpresa, param.IdUsuario,de_Desde.DateTime,de_Hasta.DateTime,chk_MostrarAR.Checked));
                 gc_detalle.DataSource = blst;
             }
             catch (Exception)
@@ -111,6 +119,12 @@ namespace Core.Erp.Winform.Compras
 
         private void FrmCom_OrdenPedidoCotizacion_Load(object sender, EventArgs e)
         {
+            de_Desde.DateTime = DateTime.Now.Date.AddMonths(-1);
+            de_Hasta.DateTime = DateTime.Now.Date;
+            ucGe_Menu_Superior_Mant1.btnAnular.Text = "Rechazar";
+            ucGe_Menu_Superior_Mant1.btnAprobar.Text = "Cotizar";
+            ucGe_Menu_Superior_Mant1.btnAprobarGuardarSalir.Text = "Cotizar y salir";
+            com_param = bus_param.Get_Info_parametro(param.IdEmpresa);
             CargarCombos();
         }
 
@@ -137,6 +151,7 @@ namespace Core.Erp.Winform.Compras
                         row.A = true;
                     }
                 }
+                
             }
             catch (Exception)
             {
@@ -151,7 +166,7 @@ namespace Core.Erp.Winform.Compras
                 com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetRow(e.RowHandle);
                 if (row == null)
                     return;
-
+                
                 if (e.Column == col_cd_Cantidad || e.Column == col_cd_porc_des || e.Column == col_cd_precioCompr || e.Column == col_IVA)
                 {
                     row.cd_descuento = row.cd_precioCompra * (row.cd_porc_des / 100);
@@ -201,7 +216,7 @@ namespace Core.Erp.Winform.Compras
         {
             btn_Buscar.Focus();
             lst_info = new List<com_CotizacionPedido_Info>();
-            var lst = blst.Where(q => q.A == true).ToList();
+            var lst = blst.Where(q => q.A == true && q.opd_EstadoProceso == "A").ToList();
 
             if (lst.Count == 0)
             {
@@ -269,7 +284,9 @@ namespace Core.Erp.Winform.Compras
                     IdPunto_cargo = q.IdPunto_cargo,
                     cd_DetallePorItem = q.cd_DetallePorItem
                 }).ToList();
-
+                cab.Subtotal = cab.ListaDetalle.Sum(q => q.cd_subtotal);
+                cab.IVA = cab.ListaDetalle.Sum(q => q.cd_iva);
+                cab.Total = cab.ListaDetalle.Sum(q => q.cd_total);
                 lst_info.Add(cab);
             }
             return true;
@@ -279,11 +296,12 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                var lst = blst.Where(q => q.R == true).Select(q => new com_OrdenPedidoDet_Info
+                var lst = blst.Where(q => q.R == true && q.opd_EstadoProceso == "A").Select(q => new com_OrdenPedidoDet_Info
                 {
                     IdEmpresa = q.IdEmpresa,
                     IdOrdenPedido = q.opd_IdOrdenPedido,
-                    Secuencia = q.opd_Secuencia
+                    Secuencia = q.opd_Secuencia,
+                    opd_Detalle = q.cd_DetallePorItem
                 }).ToList();
 
                 bus_pedido_det.RechazarComprador(lst);
@@ -383,6 +401,10 @@ namespace Core.Erp.Winform.Compras
                     return;
                 if (row.IdProducto == null)
                     e.Appearance.ForeColor = Color.DarkOrange;
+                if(row.Grupo == "5. RECHAZADO")
+                    e.Appearance.ForeColor = Color.DarkRed;
+                if (row.Grupo == "4. APROBADOS")
+                    e.Appearance.ForeColor = Color.DarkGreen;
             }
             catch (Exception)
             {
@@ -484,6 +506,71 @@ namespace Core.Erp.Winform.Compras
             try
             {
                 cmb_PuntoCargo.DataSource = bus_punto_cargo.Get_List_PuntoCargo(param.IdEmpresa);
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void gv_detalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+                if (row.opd_EstadoProceso != "A")
+                {
+                    col_A.OptionsColumn.AllowEdit = false;
+                    col_R.OptionsColumn.AllowEdit = false;
+                    col_pr_descripcion.OptionsColumn.AllowFocus = false;
+                }
+                else
+                {
+                    col_A.OptionsColumn.AllowEdit = true;
+                    col_R.OptionsColumn.AllowEdit = true;
+                    col_pr_descripcion.OptionsColumn.AllowFocus = true;
+                }
+
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void ucGe_Menu_Superior_Mant1_event_btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gv_detalle.ShowPrintPreview();
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void cmb_adjunto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+                
+                if (!row.Adjunto)
+                    return;
+
+                string Comando = "/c Net Use " + com_param.FileDominio + " /USER:" + com_param.FileUsuario + " " + com_param.FileContrasenia;
+                Fx.ExecuteCommand(@"" + Comando);
+
+                var ruta = com_param.UbicacionArchivosPedido + @"\" + row.opd_IdOrdenPedido.ToString()+@"\"+row.NombreArchivo;
+                Process.Start(@"" + ruta);
+                
+                Comando = "/c Net Use /DELETE " + com_param.FileDominio + " /USER:" + com_param.FileUsuario + " " + com_param.FileContrasenia;
+                Fx.ExecuteCommand(@"" + Comando);
             }
             catch (Exception)
             {
