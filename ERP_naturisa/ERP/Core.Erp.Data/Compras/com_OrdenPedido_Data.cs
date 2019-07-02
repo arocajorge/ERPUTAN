@@ -342,7 +342,8 @@ namespace Core.Erp.Data.Compras
                             IdCatalogoEstado = Entity.IdCatalogoEstado,
                             Estado = Entity.Estado,
                             EsCompraUrgente = Entity.EsCompraUrgente ?? false,
-                            IdPunto_cargo = Entity.IdPunto_cargo
+                            IdPunto_cargo = Entity.IdPunto_cargo,
+                            ObservacionGA = Entity.ObservacionGA
                         };
                         return info;
                     }

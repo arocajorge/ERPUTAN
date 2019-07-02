@@ -92,6 +92,8 @@
             this.col_Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Comprador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_ObservacionGA = new DevExpress.XtraEditors.MemoEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
@@ -117,6 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // uc_menu
@@ -146,7 +149,7 @@
             this.uc_menu.Enabled_btnImprimirSoporte = true;
             this.uc_menu.Enabled_btnproductos = true;
             this.uc_menu.Location = new System.Drawing.Point(0, 0);
-            this.uc_menu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uc_menu.Margin = new System.Windows.Forms.Padding(4);
             this.uc_menu.Name = "uc_menu";
             this.uc_menu.Size = new System.Drawing.Size(1161, 27);
             this.uc_menu.TabIndex = 0;
@@ -184,6 +187,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelControl5);
+            this.panel1.Controls.Add(this.txt_ObservacionGA);
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Controls.Add(this.cmb_PuntoCargoCab);
             this.panel1.Controls.Add(this.chk_EsCompraUrgente);
@@ -200,13 +205,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1161, 139);
+            this.panel1.Size = new System.Drawing.Size(1161, 194);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(862, 78);
+            this.labelControl3.Location = new System.Drawing.Point(863, 134);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(257, 16);
             this.labelControl3.TabIndex = 13;
@@ -214,7 +219,7 @@
             // 
             // cmb_PuntoCargoCab
             // 
-            this.cmb_PuntoCargoCab.Location = new System.Drawing.Point(862, 104);
+            this.cmb_PuntoCargoCab.Location = new System.Drawing.Point(863, 160);
             this.cmb_PuntoCargoCab.Name = "cmb_PuntoCargoCab";
             this.cmb_PuntoCargoCab.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -379,7 +384,7 @@
             // gc_detalle
             // 
             this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.Location = new System.Drawing.Point(0, 166);
+            this.gc_detalle.Location = new System.Drawing.Point(0, 221);
             this.gc_detalle.MainView = this.gv_detalle;
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -390,7 +395,7 @@
             this.cmb_producto,
             this.txtStock,
             this.cmb_subir});
-            this.gc_detalle.Size = new System.Drawing.Size(1161, 502);
+            this.gc_detalle.Size = new System.Drawing.Size(1161, 447);
             this.gc_detalle.TabIndex = 2;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -812,6 +817,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(31, 135);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(77, 16);
+            this.labelControl5.TabIndex = 15;
+            this.labelControl5.Text = "Comentarios:";
+            // 
+            // txt_ObservacionGA
+            // 
+            this.txt_ObservacionGA.Location = new System.Drawing.Point(134, 132);
+            this.txt_ObservacionGA.Name = "txt_ObservacionGA";
+            this.txt_ObservacionGA.Properties.ReadOnly = true;
+            this.txt_ObservacionGA.Size = new System.Drawing.Size(713, 52);
+            this.txt_ObservacionGA.TabIndex = 14;
+            // 
             // frmCom_OrdenPedidoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -850,6 +871,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -918,5 +940,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
         private DevExpress.XtraGrid.Columns.GridColumn col_Comprador;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.MemoEdit txt_ObservacionGA;
     }
 }

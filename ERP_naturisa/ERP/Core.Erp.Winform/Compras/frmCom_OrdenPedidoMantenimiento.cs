@@ -187,6 +187,7 @@ using Core.Erp.Info.Inventario;
                     txt_codigo.Text = info_pedido.op_Codigo;
                     chk_EsCompraUrgente.Checked = info_pedido.EsCompraUrgente;
                     cmb_PuntoCargoCab.EditValue = info_pedido.IdPunto_cargo;
+                    txt_ObservacionGA.Text = info_pedido.ObservacionGA;
                     blst_det = new BindingList<com_OrdenPedidoDet_Info>(bus_detalle.GetList(info_pedido.IdEmpresa,info_pedido.IdOrdenPedido));
                     gc_detalle.DataSource = blst_det;
                 }

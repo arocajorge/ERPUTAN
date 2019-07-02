@@ -19,6 +19,9 @@ namespace Core.Erp.Info.Compras
         public bool Estado { get; set; }
         public string IdUsuarioCreacion { get; set; }
         public string MotivoAnu { get; set; }
+        public string ObservacionGA { get; set; }
+        public Nullable<System.DateTime> FechaAprobacion { get; set; }
+        public string IdUsuarioAprobacion { get; set; }
 
         #region Campos que no existen en la tabla
         public string nom_departamento { get; set; }

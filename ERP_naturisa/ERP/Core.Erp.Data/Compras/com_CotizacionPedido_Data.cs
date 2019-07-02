@@ -153,6 +153,18 @@ namespace Core.Erp.Data.Compras
                             }
                         }
 
+                        var lstPedido = info.ListaDetalle.GroupBy(q => q.opd_IdOrdenPedido).ToList();
+                        foreach (var item in lstPedido)
+                        {
+                            var Pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == item.Key).FirstOrDefault();
+                            if (Pedido != null)
+                            {
+                                Pedido.IdUsuarioAprobacion = info.IdUsuario;
+                                Pedido.FechaAprobacion = DateTime.Now;
+                                Pedido.ObservacionGA = info.ObservacionAprobador;
+                            }
+                        }
+
                         if (Cargo == "GA" && info.ListaDetalle.Where(q => q.EstadoGA).Count() > 0)
                         {
                             com_ordencompra_local_Data odataCom = new com_ordencompra_local_Data();
@@ -180,6 +192,9 @@ namespace Core.Erp.Data.Compras
                                 oc_fechaVencimiento = DateTime.Now.Date.AddDays(info.cp_PlazoEntrega),
                                 IdEstado_cierre = "ABI",
                                 IdComprador = info.IdComprador,
+                                IdUsuario = info.IdUsuario,
+                                co_fecha_aprobacion = DateTime.Now,
+                                IdUsuario_Aprueba = info.IdUsuario
                             });
                             int Secuencia = 1;
                             foreach (var item in info.ListaDetalle)
@@ -238,7 +253,6 @@ namespace Core.Erp.Data.Compras
                 throw;
             }
         }
-        
 
         public bool PasarDB(int IdEmpresa, decimal IdCotizacion, string IdUsuario)
         {

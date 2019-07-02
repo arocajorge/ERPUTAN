@@ -37,10 +37,13 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> FechaUltAnu { get; set; }
         public string MotivoAnu { get; set; }
         public Nullable<bool> EsCompraUrgente { get; set; }
+        public string ObservacionGA { get; set; }
+        public Nullable<System.DateTime> FechaAprobacion { get; set; }
+        public string IdUsuarioAprobacion { get; set; }
     
         public virtual com_catalogo com_catalogo { get; set; }
         public virtual com_departamento com_departamento { get; set; }
-        public virtual ICollection<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
         public virtual com_solicitante com_solicitante { get; set; }
+        public virtual ICollection<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
     }
 }

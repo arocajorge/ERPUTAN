@@ -68,6 +68,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
+                uc_menu.btnAnular.Text = "Anular todo";
                 SetInfoInControls();
             }
             catch (Exception)
@@ -142,7 +143,9 @@ namespace Core.Erp.Winform.Compras
                     var cotizacion = bus_cotizacion.GetInfoAprobar(param.IdEmpresa, item.Key);
                     if (cotizacion != null)
                     {
+                        cotizacion.ObservacionAprobador = txt_ObservacionApro.Text;
                         cotizacion.EstadoGA = blst.Where(q => q.IdCotizacion == item.Key && q.A == true).Count() > 0 ? "A" : "R";
+                        cotizacion.IdUsuario = param.IdUsuario;
                         cotizacion.ListaDetalle = new List<com_CotizacionPedidoDet_Info>(blst.Where(q => q.IdCotizacion == item.Key).Select(q => new com_CotizacionPedidoDet_Info
                         {
                             IdEmpresa = param.IdEmpresa,
@@ -175,13 +178,12 @@ namespace Core.Erp.Winform.Compras
                     }
                 }
                 bus_pedido.ValidarProceso(param.IdEmpresa, IdOrdenPedido);
-
+                MessageBox.Show("Pedido # " + txt_IdOrdenPedido.Text + " actualizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 this.Close();
             }
             catch (Exception)
             {
                 
-                throw;
             }
         }
 
@@ -214,6 +216,70 @@ namespace Core.Erp.Winform.Compras
                 FrmCom_ComprasPorPuntoCargo frm = new FrmCom_ComprasPorPuntoCargo();
                 frm.IdPunto_cargo = Convert.ToInt32(row.IdPunto_cargo);
                 frm.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void uc_menu_event_btnAnular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txt_codigo.Focus();
+                if (MessageBox.Show("A continuación se anulará el pedido #"+txt_IdOrdenPedido.Text+" completamente",param.Nombre_sistema,MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+                if (blst.Where(q => q.opd_EstadoProceso != "AJC").Count() > 0)
+                {
+                    MessageBox.Show("Para anular el pedido todos los items deben ser aprobados por el jefe de compras", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                var lst = blst.GroupBy(q => q.IdCotizacion).ToList();
+                foreach (var item in lst)
+                {
+                    var cotizacion = bus_cotizacion.GetInfoAprobar(param.IdEmpresa, item.Key);
+                    if (cotizacion != null)
+                    {
+                        cotizacion.ObservacionAprobador = txt_ObservacionApro.Text;
+                        cotizacion.EstadoGA = "R";
+                        cotizacion.IdUsuario = param.IdUsuario;
+                        cotizacion.ListaDetalle = new List<com_CotizacionPedidoDet_Info>(blst.Where(q => q.IdCotizacion == item.Key).Select(q => new com_CotizacionPedidoDet_Info
+                        {
+                            IdEmpresa = param.IdEmpresa,
+                            IdCotizacion = q.IdCotizacion,
+                            Secuencia = q.Secuencia,
+                            opd_IdEmpresa = q.opd_IdEmpresa,
+                            opd_IdOrdenPedido = q.opd_IdOrdenPedido,
+                            opd_Secuencia = q.opd_Secuencia,
+                            IdProducto = q.IdProducto ?? 0,
+                            cd_Cantidad = q.cd_Cantidad,
+                            cd_precioCompra = q.cd_precioCompra,
+                            cd_porc_des = q.cd_porc_des,
+                            cd_descuento = q.cd_descuento,
+                            cd_precioFinal = q.cd_precioFinal,
+                            cd_subtotal = q.cd_subtotal,
+                            IdCod_Impuesto = q.IdCod_Impuesto,
+                            Por_Iva = q.Por_Iva,
+                            cd_iva = q.cd_iva,
+                            cd_total = q.cd_total,
+                            IdUnidadMedida = q.IdUnidadMedida,
+                            IdPunto_cargo = q.IdPunto_cargo,
+                            EstadoGA = false,
+                            A = false,
+                            cd_DetallePorItem = q.cd_DetallePorItem
+                        }).ToList());
+
+                        if (!bus_cotizacion.AprobarDB(cotizacion, "GA"))
+                            return;
+
+                    }
+                }
+                bus_pedido.ValidarProceso(param.IdEmpresa, IdOrdenPedido);
+                MessageBox.Show("Pedido # " + txt_IdOrdenPedido.Text + " actualizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                this.Close();
             }
             catch (Exception)
             {

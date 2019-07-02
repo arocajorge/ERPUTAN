@@ -78,9 +78,11 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Col_A = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.cmb_search = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_search = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txt_ObservacionApro = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_Aprobar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
@@ -100,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalDestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionApro.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // uc_menu
@@ -129,11 +132,11 @@
             this.uc_menu.Enabled_btnImprimirSoporte = true;
             this.uc_menu.Enabled_btnproductos = true;
             this.uc_menu.Location = new System.Drawing.Point(0, 0);
-            this.uc_menu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uc_menu.Margin = new System.Windows.Forms.Padding(4);
             this.uc_menu.Name = "uc_menu";
             this.uc_menu.Size = new System.Drawing.Size(1304, 28);
             this.uc_menu.TabIndex = 0;
-            this.uc_menu.Visible_bntAnular = false;
+            this.uc_menu.Visible_bntAnular = true;
             this.uc_menu.Visible_bntAprobar = false;
             this.uc_menu.Visible_bntDiseñoReporte = false;
             this.uc_menu.Visible_bntGuardar_y_Salir = false;
@@ -160,10 +163,13 @@
             this.uc_menu.Visible_btnModificar = false;
             this.uc_menu.Visible_btnproductos = false;
             this.uc_menu.event_btnAprobarGuardarSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAprobarGuardarSalir_Click(this.uc_menu_event_btnAprobarGuardarSalir_Click);
+            this.uc_menu.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.uc_menu_event_btnAnular_Click);
             this.uc_menu.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.uc_menu_event_btnSalir_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelControl5);
+            this.panel1.Controls.Add(this.txt_ObservacionApro);
             this.panel1.Controls.Add(this.chk_Aprobar);
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.labelControl3);
@@ -182,12 +188,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1304, 158);
+            this.panel1.Size = new System.Drawing.Size(1304, 219);
             this.panel1.TabIndex = 2;
             // 
             // chk_Aprobar
             // 
-            this.chk_Aprobar.Location = new System.Drawing.Point(29, 132);
+            this.chk_Aprobar.Location = new System.Drawing.Point(29, 192);
             this.chk_Aprobar.Name = "chk_Aprobar";
             this.chk_Aprobar.Properties.Caption = "Aprobar visibles";
             this.chk_Aprobar.Size = new System.Drawing.Size(127, 21);
@@ -385,14 +391,14 @@
             // gc_detalle
             // 
             this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.Location = new System.Drawing.Point(0, 186);
+            this.gc_detalle.Location = new System.Drawing.Point(0, 247);
             this.gc_detalle.MainView = this.gv_detalle;
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_SucursalOrdigen,
             this.cmb_SucursalDestino,
             this.cmb_search});
-            this.gc_detalle.Size = new System.Drawing.Size(1304, 420);
+            this.gc_detalle.Size = new System.Drawing.Size(1304, 359);
             this.gc_detalle.TabIndex = 3;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -657,11 +663,15 @@
             this.Col_A.VisibleIndex = 0;
             this.Col_A.Width = 78;
             // 
-            // imageList1
+            // gridColumn18
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "iconfinder_-_Magnifier-Search-Zoom-_3844432.png");
+            this.gridColumn18.ColumnEdit = this.cmb_search;
+            this.gridColumn18.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn18.ImageIndex = 0;
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 12;
+            this.gridColumn18.Width = 70;
             // 
             // cmb_search
             // 
@@ -677,15 +687,26 @@
             this.cmb_search.SmallImages = this.imageList1;
             this.cmb_search.Click += new System.EventHandler(this.cmb_search_Click);
             // 
-            // gridColumn18
+            // imageList1
             // 
-            this.gridColumn18.ColumnEdit = this.cmb_search;
-            this.gridColumn18.ImageAlignment = System.Drawing.StringAlignment.Center;
-            this.gridColumn18.ImageIndex = 0;
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 12;
-            this.gridColumn18.Width = 70;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "iconfinder_-_Magnifier-Search-Zoom-_3844432.png");
+            // 
+            // txt_ObservacionApro
+            // 
+            this.txt_ObservacionApro.Location = new System.Drawing.Point(134, 132);
+            this.txt_ObservacionApro.Name = "txt_ObservacionApro";
+            this.txt_ObservacionApro.Size = new System.Drawing.Size(713, 52);
+            this.txt_ObservacionApro.TabIndex = 16;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(31, 135);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(72, 16);
+            this.labelControl5.TabIndex = 17;
+            this.labelControl5.Text = "Comentarios";
             // 
             // FrmCom_CotizacionAprobacionGAMant
             // 
@@ -719,6 +740,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalDestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionApro.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -776,5 +798,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_search;
         private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.MemoEdit txt_ObservacionApro;
     }
 }

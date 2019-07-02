@@ -22,6 +22,7 @@ namespace Core.Erp.Info.Compras
         public string EstadoJC { get; set; }
         public string EstadoGA { get; set; }
         public decimal oc_IdOrdenCompra { get; set; }
+        public string ObservacionAprobador { get; set; }
 
         public List<com_CotizacionPedidoDet_Info> ListaDetalle { get; set; }
 
@@ -49,5 +50,7 @@ namespace Core.Erp.Info.Compras
         public double Total { get; set; }
 
         public decimal? opd_IdOrdenPedido { get; set; }
+
+        public string IdUsuario { get; set; }
     }
 }

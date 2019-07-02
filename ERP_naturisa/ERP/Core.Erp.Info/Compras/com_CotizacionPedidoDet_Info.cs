@@ -30,6 +30,7 @@ namespace Core.Erp.Info.Compras
         public string IdUnidadMedida { get; set; }
         public Nullable<int> IdPunto_cargo { get; set; }
         public string cd_DetallePorItem { get; set; }
+        
 
         #region Campos que no existen en la tabla
         public int IdSucursalDestino { get; set; }

@@ -99,7 +99,6 @@ namespace Core.Erp.Data
         public DbSet<com_comprador_familia> com_comprador_familia { get; set; }
         public DbSet<com_CotizacionPedidoSaltar> com_CotizacionPedidoSaltar { get; set; }
         public DbSet<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
-        public DbSet<com_OrdenPedido> com_OrdenPedido { get; set; }
         public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
         public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
         public DbSet<vwcom_OrdenPedidoDet_Aprobacion> vwcom_OrdenPedidoDet_Aprobacion { get; set; }
@@ -116,6 +115,7 @@ namespace Core.Erp.Data
         public DbSet<vwcom_CotizacionPedidoDet> vwcom_CotizacionPedidoDet { get; set; }
         public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
         public DbSet<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
+        public DbSet<com_OrdenPedido> com_OrdenPedido { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

@@ -17,8 +17,8 @@ namespace Core.Erp.Data
         public com_solicitante()
         {
             this.com_ordencompra_local = new HashSet<com_ordencompra_local>();
-            this.com_OrdenPedido = new HashSet<com_OrdenPedido>();
             this.com_solicitante_aprobador = new HashSet<com_solicitante_aprobador>();
+            this.com_OrdenPedido = new HashSet<com_OrdenPedido>();
         }
     
         public int IdEmpresa { get; set; }
@@ -37,7 +37,7 @@ namespace Core.Erp.Data
     
         public virtual com_departamento com_departamento { get; set; }
         public virtual ICollection<com_ordencompra_local> com_ordencompra_local { get; set; }
-        public virtual ICollection<com_OrdenPedido> com_OrdenPedido { get; set; }
         public virtual ICollection<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
+        public virtual ICollection<com_OrdenPedido> com_OrdenPedido { get; set; }
     }
 }
