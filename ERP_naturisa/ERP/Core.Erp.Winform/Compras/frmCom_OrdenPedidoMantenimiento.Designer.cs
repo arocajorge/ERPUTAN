@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCom_OrdenPedidoMantenimiento));
             this.uc_menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txt_ObservacionGA = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cmb_PuntoCargoCab = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -92,9 +94,8 @@
             this.col_Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Comprador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_ObservacionGA = new DevExpress.XtraEditors.MemoEdit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_EsCompraUrgente.Properties)).BeginInit();
@@ -119,7 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // uc_menu
@@ -208,6 +208,22 @@
             this.panel1.Size = new System.Drawing.Size(1161, 194);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(31, 135);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(77, 16);
+            this.labelControl5.TabIndex = 15;
+            this.labelControl5.Text = "Comentarios:";
+            // 
+            // txt_ObservacionGA
+            // 
+            this.txt_ObservacionGA.Location = new System.Drawing.Point(134, 132);
+            this.txt_ObservacionGA.Name = "txt_ObservacionGA";
+            this.txt_ObservacionGA.Properties.ReadOnly = true;
+            this.txt_ObservacionGA.Size = new System.Drawing.Size(713, 52);
+            this.txt_ObservacionGA.TabIndex = 14;
             // 
             // labelControl3
             // 
@@ -817,22 +833,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(31, 135);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(77, 16);
-            this.labelControl5.TabIndex = 15;
-            this.labelControl5.Text = "Comentarios:";
-            // 
-            // txt_ObservacionGA
-            // 
-            this.txt_ObservacionGA.Location = new System.Drawing.Point(134, 132);
-            this.txt_ObservacionGA.Name = "txt_ObservacionGA";
-            this.txt_ObservacionGA.Properties.ReadOnly = true;
-            this.txt_ObservacionGA.Size = new System.Drawing.Size(713, 52);
-            this.txt_ObservacionGA.TabIndex = 14;
-            // 
             // frmCom_OrdenPedidoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -847,6 +847,7 @@
             this.Load += new System.EventHandler(this.frmCom_OrdenPedidoMantenimiento_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_EsCompraUrgente.Properties)).EndInit();
@@ -871,7 +872,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

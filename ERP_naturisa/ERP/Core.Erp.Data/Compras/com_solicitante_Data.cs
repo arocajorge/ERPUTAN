@@ -197,7 +197,7 @@ namespace Core.Erp.Data.Compras
                         SEstado = q.estado == "A" ? "ACTIVO" : "ANULADO",
                         IdUsuario = q.IdUsuario,
                         IdDepartamento = q.IdDepartamento,
-                        
+                        ConsultaDepartamento = q.ConsultaDepartamento
                     }).ToList();
                 }
                 return Lst;

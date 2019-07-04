@@ -35,5 +35,7 @@ namespace Core.Erp.Info.Compras
         public string nom_punto_cargo { get; set; }
 
         public int? IdPunto_cargo { get; set; }
+
+        public double cd_total { get; set; }
     }
 }

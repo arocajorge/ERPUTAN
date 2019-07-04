@@ -158,6 +158,16 @@ namespace Core.Erp.Data.Compras
                         }
                         db.SaveChanges();
                     }
+                    var Ordenes = Lista.GroupBy(q => new { q.IdEmpresa, q.IdOrdenPedido }).Select(q => new { IdEmpresa = q.Key.IdEmpresa, IdOrdenPedido = q.Key.IdOrdenPedido }).ToList();
+                    foreach (var item in Ordenes)
+                    {
+                        var cab = db.com_OrdenPedido.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdOrdenPedido == item.IdOrdenPedido).FirstOrDefault();
+                        if (cab != null)
+                        {
+                            cab.IdCatalogoEstado = Cl_Enumeradores.eCatalogoEstadoSolicitudPedido.EST_OP_PRO.ToString();
+                        }
+                    }
+                    db.SaveChanges();
                 }
                 return true;
             }

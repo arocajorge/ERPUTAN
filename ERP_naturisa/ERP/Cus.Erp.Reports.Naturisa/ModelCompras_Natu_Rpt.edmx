@@ -314,7 +314,8 @@
       [vwCOMP_NATU_Rpt007].[departamento] AS [departamento], 
       [vwCOMP_NATU_Rpt007].[nom_EstadoCierre] AS [nom_EstadoCierre], 
       [vwCOMP_NATU_Rpt007].[pr_codigo] AS [pr_codigo], 
-      [vwCOMP_NATU_Rpt007].[CodigoSucursal] AS [CodigoSucursal]
+      [vwCOMP_NATU_Rpt007].[CodigoSucursal] AS [CodigoSucursal], 
+      [vwCOMP_NATU_Rpt007].[NombreUsuarioApro] AS [NombreUsuarioApro]
       FROM [Naturisa].[vwCOMP_NATU_Rpt007] AS [vwCOMP_NATU_Rpt007]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="ModelCompras_Natu_Rpt.Store.vwCONTA_NATU_Rpt003" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt003">
@@ -853,7 +854,7 @@
           <Property Name="direc_provee" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="telef_provee" Type="varchar" MaxLength="50" />
           <Property Name="NomUnidad" Type="varchar" MaxLength="500" />
-          <Property Name="Nom_comprador" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nom_comprador" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
           <Property Name="nom_centro_costo" Type="varchar" MaxLength="250" />
@@ -862,13 +863,14 @@
           <Property Name="IdPunto_cargo" Type="int" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
           <Property Name="em_direccion" Type="varchar" Nullable="false" MaxLength="300" />
-          <Property Name="nom_solicitante" Type="varchar" MaxLength="50" />
+          <Property Name="nom_solicitante" Type="varchar" MaxLength="500" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" />
           <Property Name="Nom_TerminoPago" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="departamento" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="nom_EstadoCierre" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="pr_codigo" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CodigoSucursal" Type="varchar" MaxLength="10" />
+          <Property Name="NombreUsuarioApro" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1449,7 +1451,7 @@
           <Property Type="String" Name="direc_provee" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="telef_provee" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NomUnidad" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Nom_comprador" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="nom_centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
@@ -1458,13 +1460,14 @@
           <Property Type="Int32" Name="IdPunto_cargo" />
           <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_solicitante" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_solicitante" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Descripcion" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Nom_TerminoPago" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="departamento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="nom_EstadoCierre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CodigoSucursal" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreUsuarioApro" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1768,6 +1771,7 @@
           <EntitySetMapping Name="vwCOMP_NATU_Rpt007">
             <EntityTypeMapping TypeName="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt007">
               <MappingFragment StoreEntitySet="vwCOMP_NATU_Rpt007">
+                <ScalarProperty Name="NombreUsuarioApro" ColumnName="NombreUsuarioApro" />
                 <ScalarProperty Name="CodigoSucursal" ColumnName="CodigoSucursal" />
                 <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
                 <ScalarProperty Name="nom_EstadoCierre" ColumnName="nom_EstadoCierre" />

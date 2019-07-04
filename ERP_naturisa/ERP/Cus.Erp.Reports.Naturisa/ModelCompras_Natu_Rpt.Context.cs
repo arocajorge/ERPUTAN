@@ -19,10 +19,7 @@ namespace Cus.Erp.Reports.Naturisa
             : base("name=EntitiesCompras_natu_rpt")
         {
         }
-        public void SetCommandTimeOut(int TimeOut)
-        {
-            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
-        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

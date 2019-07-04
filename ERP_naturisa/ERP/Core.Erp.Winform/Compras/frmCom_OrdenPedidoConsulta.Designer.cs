@@ -67,8 +67,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 5, 19, 19, 43, 58, 691);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 7, 19, 19, 43, 58, 691);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 6, 3, 9, 59, 56, 67);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 8, 3, 9, 59, 56, 67);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -143,6 +143,7 @@
             this.gv_Consulta.OptionsView.ShowAutoFilterRow = true;
             this.gv_Consulta.OptionsView.ShowGroupPanel = false;
             this.gv_Consulta.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_Consulta_RowStyle);
+            this.gv_Consulta.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gv_Consulta_FocusedRowChanged);
             // 
             // gridColumn1
             // 

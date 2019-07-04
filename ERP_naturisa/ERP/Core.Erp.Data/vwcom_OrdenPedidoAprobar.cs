@@ -29,5 +29,6 @@ namespace Core.Erp.Data
         public string nom_punto_cargo { get; set; }
         public string nom_departamento { get; set; }
         public string nom_solicitante { get; set; }
+        public double cd_total { get; set; }
     }
 }

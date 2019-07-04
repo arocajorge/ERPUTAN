@@ -133,12 +133,57 @@ namespace Core.Erp.Winform.Compras
                 if (row != null)
                 {
                     if (row.IdCatalogoEstado == "EST_OP_CER")
+                    {
                         e.Appearance.ForeColor = Color.Green;
+                    }
                     else
                         if (row.IdCatalogoEstado == "EST_OP_PRO")
+                        {
                             e.Appearance.ForeColor = Color.Navy;
-                    if (!row.Estado)
+                        }
+                    if (!row.Estado || row.IdCatalogoEstado == "EST_OP_REC")
+                    {
                         e.Appearance.ForeColor = Color.Red;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void gv_Consulta_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                com_OrdenPedido_Info row = (com_OrdenPedido_Info)gv_Consulta.GetRow(e.FocusedRowHandle);
+                if (row != null)
+                {
+                    if (row.IdCatalogoEstado == "EST_OP_CER")
+                    {
+                        gv_Consulta.Appearance.FocusedRow.ForeColor = Color.Green;
+                        gv_Consulta.Appearance.FocusedCell.ForeColor = Color.Green;
+                    }
+                    else
+                        if (row.IdCatalogoEstado == "EST_OP_PRO")
+                        {
+                            gv_Consulta.Appearance.FocusedRow.ForeColor = Color.Navy;
+                            gv_Consulta.Appearance.FocusedCell.ForeColor = Color.Navy;
+                        }
+                        else
+                            if (!row.Estado || row.IdCatalogoEstado == "EST_OP_REC")
+                            {
+                                gv_Consulta.Appearance.FocusedRow.ForeColor = Color.Red;
+                                gv_Consulta.Appearance.FocusedCell.ForeColor = Color.Red;
+                            }
+                            else
+                                if (!row.Estado || row.IdCatalogoEstado == "EST_OP_ABI")
+                                {
+                                    gv_Consulta.Appearance.FocusedRow.ForeColor = Color.Black;
+                                    gv_Consulta.Appearance.FocusedCell.ForeColor = Color.Black;
+                                }
                 }
             }
             catch (Exception)

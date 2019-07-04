@@ -24,8 +24,11 @@ namespace Core.Erp.Data.Compras
                         CorreoComprador = q.CorreoComprador,
                         CorreoProveedor = q.pe_correo,
                         pe_cedulaRuc = q.pe_cedulaRuc,
-                        pe_nombreCompleto = q.pe_nombreCompleto
+                        pe_nombreCompleto = q.pe_nombreCompleto,
+                        Codigo = q.Codigo
                     }).FirstOrDefault();
+
+                    db.SaveChanges();
 
                     return info;
                 }

@@ -99,7 +99,7 @@ namespace Core.Erp.Data.Compras
                 List<com_OrdenPedido_Info> Lista;
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lista = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && q.IdCatalogoEstado != "EST_OP_CER").Select(q => new com_OrdenPedido_Info
+                    Lista = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).Select(q => new com_OrdenPedido_Info
                     {
                         IdEmpresa = q.IdEmpresa,
                         IdOrdenPedido = q.IdOrdenPedido,
@@ -112,7 +112,8 @@ namespace Core.Erp.Data.Compras
                         Estado = q.Estado,
                         IdCatalogoEstado = q.IdCatalogoEstado,
                         EsCompraUrgente = q.EsCompraUrgente ?? false,
-                        nom_punto_cargo = q.nom_punto_cargo
+                        nom_punto_cargo = q.nom_punto_cargo,
+                        cd_total = q.cd_total
                     }).ToList();
 
                 }
@@ -217,8 +218,7 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception ex)
             {
-
-                throw;
+                return true;
             }
         }
 
@@ -364,11 +364,24 @@ namespace Core.Erp.Data.Compras
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     var cont = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && (q.opd_EstadoProceso == "A" || q.opd_EstadoProceso == "AC" || q.opd_EstadoProceso == "AJC")).Count();
-                    if (cont == 0)
+                    var contR = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && (q.opd_EstadoProceso == "RA" || q.opd_EstadoProceso == "RC" || q.opd_EstadoProceso == "RGA")).Count();
+                    var contT = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).Count();
+
+
+                    if (cont == 0 && contR != contT)
                     {
                         var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
                         if (pedido != null)
                             pedido.IdCatalogoEstado = "EST_OP_CER";
+
+                        db.SaveChanges();
+                    }
+
+                    if (cont == 0 && contR == contT)
+                    {
+                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                        if (pedido != null)
+                            pedido.IdCatalogoEstado = "EST_OP_REC";
 
                         db.SaveChanges();
                     }

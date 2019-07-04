@@ -358,6 +358,7 @@ namespace Core.Erp.Info.General
                 startInfo.FileName = "cmd.exe";
                 startInfo.Arguments = Command;
                 startInfo.CreateNoWindow = true;
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo = startInfo;
                 p.Start();
             }

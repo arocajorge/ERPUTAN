@@ -50,10 +50,10 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtFocus = new DevExpress.XtraEditors.TextEdit();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtFocus = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal)).BeginInit();
@@ -92,7 +92,7 @@
             this.ucGe_Menu_Superior_Mant1.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant1.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
             this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1658, 28);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 0;
@@ -344,14 +344,6 @@
             this.gridColumn12.VisibleIndex = 2;
             this.gridColumn12.Width = 237;
             // 
-            // txtFocus
-            // 
-            this.txtFocus.Location = new System.Drawing.Point(362, 2);
-            this.txtFocus.Name = "txtFocus";
-            this.txtFocus.Size = new System.Drawing.Size(100, 22);
-            this.txtFocus.TabIndex = 2;
-            this.txtFocus.Visible = false;
-            // 
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Subtotal";
@@ -393,6 +385,14 @@
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 9;
             this.gridColumn15.Width = 96;
+            // 
+            // txtFocus
+            // 
+            this.txtFocus.Location = new System.Drawing.Point(390, 1);
+            this.txtFocus.Name = "txtFocus";
+            this.txtFocus.Properties.ReadOnly = true;
+            this.txtFocus.Size = new System.Drawing.Size(100, 22);
+            this.txtFocus.TabIndex = 2;
             // 
             // FrmCom_OrdenPedidoCotizacionConfirma
             // 

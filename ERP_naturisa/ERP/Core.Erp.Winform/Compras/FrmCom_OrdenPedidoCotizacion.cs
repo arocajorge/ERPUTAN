@@ -296,6 +296,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
+                btn_Buscar.Focus();
                 var lst = blst.Where(q => q.R == true && q.opd_EstadoProceso == "A").Select(q => new com_OrdenPedidoDet_Info
                 {
                     IdEmpresa = q.IdEmpresa,

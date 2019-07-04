@@ -23,5 +23,7 @@ namespace Core.Erp.Info.Compras
         public string pe_nombreCompleto { get; set; }
 
         public string pe_cedulaRuc { get; set; }
+
+        public string Codigo { get; set; }
     }
 }

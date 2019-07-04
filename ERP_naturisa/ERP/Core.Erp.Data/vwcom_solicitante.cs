@@ -21,5 +21,6 @@ namespace Core.Erp.Data
         public string IdUsuario { get; set; }
         public Nullable<decimal> IdDepartamento { get; set; }
         public string nom_departamento { get; set; }
+        public bool ConsultaDepartamento { get; set; }
     }
 }

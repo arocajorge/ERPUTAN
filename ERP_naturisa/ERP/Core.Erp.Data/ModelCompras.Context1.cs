@@ -26,7 +26,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -95,7 +94,6 @@ namespace Core.Erp.Data
         public DbSet<vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det> vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<vwcom_ordencompra_local_consulta> vwcom_ordencompra_local_consulta { get; set; }
         public DbSet<vwcom_solicitud_compra_x_items_con_saldos> vwcom_solicitud_compra_x_items_con_saldos { get; set; }
-        public DbSet<vwcom_solicitante> vwcom_solicitante { get; set; }
         public DbSet<com_comprador_familia> com_comprador_familia { get; set; }
         public DbSet<com_CotizacionPedidoSaltar> com_CotizacionPedidoSaltar { get; set; }
         public DbSet<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
@@ -103,7 +101,6 @@ namespace Core.Erp.Data
         public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
         public DbSet<vwcom_OrdenPedidoDet_Aprobacion> vwcom_OrdenPedidoDet_Aprobacion { get; set; }
         public DbSet<com_solicitante> com_solicitante { get; set; }
-        public DbSet<vwcom_OrdenPedidoAprobar> vwcom_OrdenPedidoAprobar { get; set; }
         public DbSet<vwcom_CotizacionPedidoDetAprobacion> vwcom_CotizacionPedidoDetAprobacion { get; set; }
         public DbSet<vwcom_OrdenPedidoDet> vwcom_OrdenPedidoDet { get; set; }
         public DbSet<com_CotizacionPedido> com_CotizacionPedido { get; set; }
@@ -116,6 +113,8 @@ namespace Core.Erp.Data
         public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
         public DbSet<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
         public DbSet<com_OrdenPedido> com_OrdenPedido { get; set; }
+        public DbSet<vwcom_OrdenPedidoAprobar> vwcom_OrdenPedidoAprobar { get; set; }
+        public DbSet<vwcom_solicitante> vwcom_solicitante { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

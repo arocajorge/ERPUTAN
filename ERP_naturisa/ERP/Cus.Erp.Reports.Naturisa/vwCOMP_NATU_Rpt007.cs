@@ -66,5 +66,6 @@ namespace Cus.Erp.Reports.Naturisa
         public string nom_EstadoCierre { get; set; }
         public string pr_codigo { get; set; }
         public string CodigoSucursal { get; set; }
+        public string NombreUsuarioApro { get; set; }
     }
 }

@@ -76,6 +76,12 @@ namespace Core.Erp.Winform.Compras
                 return;
             }
 
+            if (blst.Where(q => string.IsNullOrEmpty(q.cp_Observacion)).Count() > 0)
+            {
+                MessageBox.Show("Ingrese la observación", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             bool cerrar = true;
             foreach (var item in blst)
             {
