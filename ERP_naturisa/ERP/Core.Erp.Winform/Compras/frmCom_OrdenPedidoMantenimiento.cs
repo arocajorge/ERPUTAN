@@ -16,7 +16,7 @@ namespace Core.Erp.Winform.Compras
     using Core.Erp.Info.Compras;
     using Core.Erp.Business.Contabilidad;
     using Core.Erp.Business.Inventario;
-using Core.Erp.Info.Inventario;
+    using Core.Erp.Info.Inventario;
     using DevExpress.XtraGrid.Views.Grid;
     using Core.Erp.Winform.Inventario;
 
@@ -36,6 +36,8 @@ using Core.Erp.Info.Inventario;
         in_producto_Bus bus_producto;
         in_UnidadMedida_Bus bus_uni_medida;
         List<in_Producto_Info> Lista_producto;
+        com_OrdenPedidoPlantilla_Bus bus_plantilla;
+        com_OrdenPedidoPlantillaDet_Bus bus_plantilla_det;
         #endregion
 
         #region Delegados
@@ -56,6 +58,8 @@ using Core.Erp.Info.Inventario;
             bus_producto = new in_producto_Bus();
             bus_uni_medida = new in_UnidadMedida_Bus();
             Lista_producto = new List<in_Producto_Info>();
+            bus_plantilla = new com_OrdenPedidoPlantilla_Bus();
+            bus_plantilla_det = new com_OrdenPedidoPlantillaDet_Bus();
             event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing += frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing;
         }
 
@@ -134,6 +138,7 @@ using Core.Erp.Info.Inventario;
                         uc_menu.Visible_bntAnular = false;
                         col_Estado.Visible = false;
                         col_Comprador.Visible = false;
+                        btnBuscarPlantilla.Text = "Buscar plantilla";
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         lbl_IdOrdenPedido.Visible = true;
@@ -144,6 +149,7 @@ using Core.Erp.Info.Inventario;
                         SetInfoInControls();
                         col_Estado.Visible = true;
                         col_Comprador.Visible = true;
+                        btnBuscarPlantilla.Text = "Compradores por familia";
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
                         lbl_IdOrdenPedido.Visible = true;
@@ -154,6 +160,7 @@ using Core.Erp.Info.Inventario;
                         SetInfoInControls();
                         col_Estado.Visible = true;
                         col_Comprador.Visible = true;
+                        btnBuscarPlantilla.Text = "Compradores por familia";
                         break;
                     case Cl_Enumeradores.eTipo_action.consultar:
                         lbl_IdOrdenPedido.Visible = true;
@@ -164,6 +171,7 @@ using Core.Erp.Info.Inventario;
                         SetInfoInControls();
                         col_Estado.Visible = true;
                         col_Comprador.Visible = true;
+                        btnBuscarPlantilla.Text = "Compradores por familia";
                         break;
                 }
             }
@@ -517,7 +525,6 @@ using Core.Erp.Info.Inventario;
             catch (Exception)
             {
                 
-                throw;
             }
         }
 
@@ -563,6 +570,43 @@ using Core.Erp.Info.Inventario;
                     return;
                 if(row.IdProducto == null)
                     e.Appearance.ForeColor = Color.DarkOrange;
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void btnBuscarPlantilla_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Accion == Cl_Enumeradores.eTipo_action.grabar)
+                {
+                    frmCom_OrdenPedidoPlantillaAsignar frm = new frmCom_OrdenPedidoPlantillaAsignar();
+                    frm.ShowDialog();
+                    if (frm.info_plantilla != null && frm.info_plantilla.IdPlantilla > 0)
+                    {
+                        limpiar();
+                        frm.info_plantilla = bus_plantilla.GetInfo(frm.info_plantilla.IdEmpresa, frm.info_plantilla.IdPlantilla);
+                        if (frm.info_plantilla != null)
+                        {
+                            txt_Observacion.Text = frm.info_plantilla.op_Observacion;
+                            cmb_Departamento.EditValue = frm.info_plantilla.IdDepartamento;
+                            txt_codigo.Text = frm.info_plantilla.op_Codigo;
+                            chk_EsCompraUrgente.Checked = frm.info_plantilla.EsCompraUrgente;
+                            cmb_PuntoCargoCab.EditValue = frm.info_plantilla.IdPunto_cargo;
+                            blst_det = new BindingList<com_OrdenPedidoDet_Info>(bus_detalle.GetListPlantilla(frm.info_plantilla.IdEmpresa, frm.info_plantilla.IdPlantilla));
+                            gc_detalle.DataSource = blst_det;
+                        }
+                    }
+                }
+                else
+                {
+                    FrmCom_OrdenPedidoCompradorFamilia frm = new FrmCom_OrdenPedidoCompradorFamilia();
+                    frm.IdOrdenPedido = Convert.ToDecimal(txt_IdOrdenPedido.Text);
+                    frm.ShowDialog();
+                }
             }
             catch (Exception)
             {

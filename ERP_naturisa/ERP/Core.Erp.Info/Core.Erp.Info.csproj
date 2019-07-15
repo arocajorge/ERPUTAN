@@ -145,12 +145,16 @@
     <Compile Include="Caja\caj_catalogo_Info.cs" />
     <Compile Include="Caja\Caj_Talonario_Recibo_Info.cs" />
     <Compile Include="Compras\com_comprador_familia_Info.cs" />
+    <Compile Include="Compras\com_ConvenioPreciosPorProducto_Info.cs" />
     <Compile Include="Compras\com_CotizacionPedidoDet_Info.cs" />
     <Compile Include="Compras\com_CotizacionPedido_Info.cs" />
     <Compile Include="Compras\com_ordencompra_local_correo_Info.cs" />
     <Compile Include="Compras\com_OrdenPedidoDet_Info.cs" />
+    <Compile Include="Compras\com_OrdenPedidoPlantillaDet_Info.cs" />
+    <Compile Include="Compras\com_OrdenPedidoPlantilla_Info.cs" />
     <Compile Include="Compras\com_OrdenPedido_Info.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Info.cs" />
+    <Compile Include="Compras\com_solicitante_x_com_departamento_Info.cs" />
     <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_Info.cs" />
     <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_det_gastos_Info.cs" />
     <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_Info.cs" />

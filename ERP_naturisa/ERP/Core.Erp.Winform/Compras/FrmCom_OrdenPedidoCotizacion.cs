@@ -230,14 +230,15 @@ namespace Core.Erp.Winform.Compras
                 return false;
             }
 
-            var lstProvDep = lst.GroupBy(q => new { q.IdProveedor, q.IdDepartamento, q.IdSolicitante, q.IdSucursalOrigen, q.IdComprador, q.opd_IdOrdenPedido }).Select(q => new
+            var lstProvDep = lst.GroupBy(q => new { q.IdProveedor, q.IdDepartamento, q.IdSolicitante, q.IdSucursalOrigen, q.IdComprador, q.opd_IdOrdenPedido, q.IdSucursalDestino }).Select(q => new
             {
                 q.Key.IdSolicitante,
                 q.Key.IdDepartamento,
                 q.Key.IdProveedor,
                 q.Key.IdSucursalOrigen,
                 q.Key.IdComprador,
-                q.Key.opd_IdOrdenPedido
+                q.Key.opd_IdOrdenPedido,
+                q.Key.IdSucursalDestino
             }).ToList();
             lst_termino = bus_termino.Get_List_TerminoPago().Where(q=> q.Estado == "A").ToList();
             
@@ -246,21 +247,24 @@ namespace Core.Erp.Winform.Compras
                 var proveedor = bus_proveedor.Get_Info_Proveedor(param.IdEmpresa, item.IdProveedor ?? 0);
                 if (proveedor == null)
                     return false;
-
+                var Pedido = blst.Where(q => q.opd_IdOrdenPedido == item.opd_IdOrdenPedido).FirstOrDefault();
+                string Observacion = Pedido == null ? Pedido.op_Observacion : string.Empty;
                 com_CotizacionPedido_Info cab = new com_CotizacionPedido_Info
                 {
                     IdEmpresa = param.IdEmpresa,
                     IdSucursal = item.IdSucursalOrigen,
                     IdProveedor = item.IdProveedor ?? 0,                    
-                    cp_Fecha = DateTime.Now.Date,                    
-                    cp_Observacion = string.Empty,
+                    cp_Fecha = DateTime.Now.Date,
+                    cp_Observacion = Observacion,
                     IdDepartamento = item.IdDepartamento,
                     IdSolicitante = item.IdSolicitante,
                     IdComprador = item.IdComprador,
                     IdTerminoPago = (proveedor.pr_plazo ?? 0) == 0 ? "1" : lst_termino.Where(q => q.Dias == (proveedor.pr_plazo ?? 0)).FirstOrDefault() == null ? "1" : lst_termino.Where(q => q.Dias == (proveedor.pr_plazo ?? 0)).FirstOrDefault().IdTerminoPago,
                     cp_Plazo = proveedor.pr_plazo ?? 0,
-                    pe_correo = proveedor.Persona_Info.pe_correo,
+                    pe_correo = proveedor.Persona_Info.pe_correo_secundario1,
                     IdPersona = proveedor.IdPersona,
+                    
+                    IdOrdenPedido = item.opd_IdOrdenPedido,
                     ListaDetalle = new List<com_CotizacionPedidoDet_Info>()
                 };
 
@@ -282,7 +286,9 @@ namespace Core.Erp.Winform.Compras
                     cd_total = q.cd_total,
                     IdUnidadMedida = q.IdUnidadMedida,
                     IdPunto_cargo = q.IdPunto_cargo,
-                    cd_DetallePorItem = q.cd_DetallePorItem
+                    cd_DetallePorItem = q.cd_DetallePorItem,
+                    IdSucursalDestino = q.IdSucursalDestino,
+                    IdSucursalOrigen = q.IdSucursalOrigen
                 }).ToList();
                 cab.Subtotal = cab.ListaDetalle.Sum(q => q.cd_subtotal);
                 cab.IVA = cab.ListaDetalle.Sum(q => q.cd_iva);
@@ -576,6 +582,29 @@ namespace Core.Erp.Winform.Compras
             catch (Exception)
             {
                 
+            }
+        }
+
+        private void txtIdOrdenPedido_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtIdOrdenPedido_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                FrmCom_OrdenPedidoCompradorFamilia frm = new FrmCom_OrdenPedidoCompradorFamilia();
+                frm.IdOrdenPedido = row.opd_IdOrdenPedido;
+                frm.ShowDialog();
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

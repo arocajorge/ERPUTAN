@@ -69,5 +69,7 @@ namespace Core.Erp.Info.Compras
         public string EstadoDetalle { get; set; }
 
         public string opd_EstadoProceso { get; set; }
+
+        public DateTime? FechaCantidad { get; set; }
     }
 }

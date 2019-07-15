@@ -31,6 +31,7 @@ namespace Core.Erp.Info.Compras
         public string pe_nombreCompleto { get; set; }
 
         public string Comprador { get; set; }
+        public string Cargo { get; set; }
 
         public string TerminoPago { get; set; }
 
@@ -49,8 +50,8 @@ namespace Core.Erp.Info.Compras
         public double IVA { get; set; }
         public double Total { get; set; }
 
-        public decimal? opd_IdOrdenPedido { get; set; }
-
         public string IdUsuario { get; set; }
+
+        public decimal? IdOrdenPedido { get; set; }
     }
 }

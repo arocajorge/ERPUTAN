@@ -71,7 +71,6 @@ namespace Core.Erp.Data
         public DbSet<com_dev_compra_det> com_dev_compra_det { get; set; }
         public DbSet<vwcom_dev_compra_con_det> vwcom_dev_compra_con_det { get; set; }
         public DbSet<vwcom_dev_compra_det_cant_devuelta_x_prod> vwcom_dev_compra_det_cant_devuelta_x_prod { get; set; }
-        public DbSet<com_ordencompra_local_det> com_ordencompra_local_det { get; set; }
         public DbSet<vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven> vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven { get; set; }
         public DbSet<vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo> vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo { get; set; }
         public DbSet<com_solicitud_compra_det> com_solicitud_compra_det { get; set; }
@@ -80,7 +79,6 @@ namespace Core.Erp.Data
         public DbSet<com_ListadoMateriales_Det> com_ListadoMateriales_Det { get; set; }
         public DbSet<vwcom_ordencompra_local_x_in_guia_x_traspaso_bodega> vwcom_ordencompra_local_x_in_guia_x_traspaso_bodega { get; set; }
         public DbSet<vwcom_ordencompra_local> vwcom_ordencompra_local { get; set; }
-        public DbSet<vwcom_ordencompra_local_det> vwcom_ordencompra_local_det { get; set; }
         public DbSet<vwcom_ordencompra_local_vs_in_Guia_x_traspaso_bodega_Total_Reg> vwcom_ordencompra_local_vs_in_Guia_x_traspaso_bodega_Total_Reg { get; set; }
         public DbSet<vwcom_ListadoMateriales> vwcom_ListadoMateriales { get; set; }
         public DbSet<vwcom_ListadoMateriales_Detalle> vwcom_ListadoMateriales_Detalle { get; set; }
@@ -97,24 +95,31 @@ namespace Core.Erp.Data
         public DbSet<com_comprador_familia> com_comprador_familia { get; set; }
         public DbSet<com_CotizacionPedidoSaltar> com_CotizacionPedidoSaltar { get; set; }
         public DbSet<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
-        public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
-        public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
         public DbSet<vwcom_OrdenPedidoDet_Aprobacion> vwcom_OrdenPedidoDet_Aprobacion { get; set; }
         public DbSet<com_solicitante> com_solicitante { get; set; }
-        public DbSet<vwcom_CotizacionPedidoDetAprobacion> vwcom_CotizacionPedidoDetAprobacion { get; set; }
         public DbSet<vwcom_OrdenPedidoDet> vwcom_OrdenPedidoDet { get; set; }
-        public DbSet<com_CotizacionPedido> com_CotizacionPedido { get; set; }
         public DbSet<vwcom_CotizacionPedido> vwcom_CotizacionPedido { get; set; }
         public DbSet<com_ordencompra_local_correo> com_ordencompra_local_correo { get; set; }
         public DbSet<com_parametro> com_parametro { get; set; }
         public DbSet<com_comprador> com_comprador { get; set; }
         public DbSet<vwcom_ordencompra_local_correo> vwcom_ordencompra_local_correo { get; set; }
-        public DbSet<vwcom_CotizacionPedidoDet> vwcom_CotizacionPedidoDet { get; set; }
-        public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
         public DbSet<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
         public DbSet<com_OrdenPedido> com_OrdenPedido { get; set; }
         public DbSet<vwcom_OrdenPedidoAprobar> vwcom_OrdenPedidoAprobar { get; set; }
         public DbSet<vwcom_solicitante> vwcom_solicitante { get; set; }
+        public DbSet<com_solicitante_x_com_departamento> com_solicitante_x_com_departamento { get; set; }
+        public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
+        public DbSet<vwcom_CotizacionPedidoDet> vwcom_CotizacionPedidoDet { get; set; }
+        public DbSet<vwcom_CotizacionPedidoDetAprobacion> vwcom_CotizacionPedidoDetAprobacion { get; set; }
+        public DbSet<vwcom_OrdenPedidoDet_FamiliaComprador> vwcom_OrdenPedidoDet_FamiliaComprador { get; set; }
+        public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
+        public DbSet<com_CotizacionPedido> com_CotizacionPedido { get; set; }
+        public DbSet<com_ordencompra_local_det> com_ordencompra_local_det { get; set; }
+        public DbSet<com_OrdenPedidoPlantilla> com_OrdenPedidoPlantilla { get; set; }
+        public DbSet<com_OrdenPedidoPlantillaDet> com_OrdenPedidoPlantillaDet { get; set; }
+        public DbSet<vwcom_ordencompra_local_det> vwcom_ordencompra_local_det { get; set; }
+        public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
+        public DbSet<vwcom_OrdenPedidoPlantilla> vwcom_OrdenPedidoPlantilla { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

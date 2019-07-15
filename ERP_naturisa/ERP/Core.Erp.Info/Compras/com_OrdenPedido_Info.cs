@@ -20,22 +20,19 @@ namespace Core.Erp.Info.Compras
         public string IdUsuarioCreacion { get; set; }
         public string MotivoAnu { get; set; }
         public string ObservacionGA { get; set; }
+        public bool EsCompraUrgente { get; set; }
+        public string nom_punto_cargo { get; set; }
+        public int? IdPunto_cargo { get; set; }
+        public double cd_total { get; set; }
         public Nullable<System.DateTime> FechaAprobacion { get; set; }
         public string IdUsuarioAprobacion { get; set; }
+
 
         #region Campos que no existen en la tabla
         public string nom_departamento { get; set; }
         public string nom_solicitante { get; set; }
         public string CatalogoEstado { get; set; }
         public List<com_OrdenPedidoDet_Info> ListaDetalle { get; set; }
-        #endregion
-
-        public bool EsCompraUrgente { get; set; }
-
-        public string nom_punto_cargo { get; set; }
-
-        public int? IdPunto_cargo { get; set; }
-
-        public double cd_total { get; set; }
+        #endregion        
     }
 }

@@ -34,6 +34,10 @@ namespace Core.Erp.Data
         public string opd_Detalle { get; set; }
         public bool Adjunto { get; set; }
         public string NombreArchivo { get; set; }
+        public string IdUsuarioCantidad { get; set; }
+        public Nullable<System.DateTime> FechaCantidad { get; set; }
+        public string IdUsuarioCotizacion { get; set; }
+        public Nullable<System.DateTime> FechaCotizacion { get; set; }
     
         public virtual ICollection<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
         public virtual com_OrdenPedido com_OrdenPedido { get; set; }

@@ -70,7 +70,11 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                                       nom_EstadoCierre = q.nom_EstadoCierre,
                                       pr_codigo = q.pr_codigo,
                                       CodigoSucursal = q.CodigoSucursal,
-                                      NombreUsuarioApro = q.NombreUsuarioApro
+                                      NombreUsuarioApro = q.NombreUsuarioApro,
+
+                                      EsProcesoSolicitud = q.EsProcesoSolicitud,
+                                      oc_fechaVencimiento = q.oc_fechaVencimiento,
+                                      SucursalDestino = q.SucursalDestino
                                   }).ToList();
                 }
 

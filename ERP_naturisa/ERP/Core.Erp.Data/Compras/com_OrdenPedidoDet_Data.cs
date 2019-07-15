@@ -57,6 +57,51 @@ namespace Core.Erp.Data.Compras
             }
         }
 
+        public List<com_OrdenPedidoDet_Info> GetListPlantilla(int IdEmpresa, decimal IdPlantilla)
+        {
+            try
+            {
+                List<com_OrdenPedidoDet_Info> Lista;
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    Lista = db.vwcom_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdPlantilla).Select(q => new com_OrdenPedidoDet_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdOrdenPedido = q.IdOrdenPedido,
+                        Secuencia = q.Secuencia,
+                        IdProducto = q.IdProducto,
+                        pr_descripcion = q.pr_descripcion,
+                        IdUnidadMedida = q.IdUnidadMedida,
+                        IdSucursalDestino = q.IdSucursalDestino,
+                        IdSucursalOrigen = q.IdSucursalOrigen,
+                        IdPunto_cargo = q.IdPunto_cargo,
+                        opd_Cantidad = q.opd_Cantidad,
+                        opd_CantidadApro = q.opd_CantidadApro,
+                        opd_EstadoProceso = q.opd_EstadoProceso,
+                        opd_Detalle = q.opd_Detalle,
+                        IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo,
+                        Stock = q.Stock,
+                        Adjunto = q.Adjunto,
+                        EstadoDetalle = q.EstadoDetalle,
+                        NombreArchivo = q.NombreArchivo,
+                        NomComprador = q.NomComprador
+                    }).ToList();
+                }
+                in_Producto_data odata = new in_Producto_data();
+                foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())
+                {
+                    item.Stock = odata.GetStockProductoPorEmpresa(item.IdEmpresa, item.IdProducto ?? 0);
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<com_OrdenPedidoDet_Info> GetListPorAprobar(int IdEmpresa, string IdUsuario, string Estado)
         {
             try
@@ -119,6 +164,8 @@ namespace Core.Erp.Data.Compras
                         {
                             Entity.opd_CantidadApro = item.A == true ? item.opd_CantidadApro : 0;
                             Entity.opd_EstadoProceso = item.A == true ? "A" : "RA";
+                            Entity.IdUsuarioCantidad = item.IdUsuario;
+                            Entity.FechaCantidad = DateTime.Now;
                         }
                     }
                     db.SaveChanges();
@@ -155,6 +202,8 @@ namespace Core.Erp.Data.Compras
                         {
                             det.opd_EstadoProceso = "RC";
                             det.opd_Detalle = "Com:"+item.opd_Detalle+" Sol:"+det.opd_Detalle;
+                            det.IdUsuarioCotizacion = item.IdUsuario;
+                            det.FechaCotizacion = DateTime.Now;
                         }
                         db.SaveChanges();
                     }

@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>113</ApplicationRevision>
+    <ApplicationRevision>116</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -299,6 +299,24 @@
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.Designer.cs">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoPlantillaAsignar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoPlantillaAsignar.Designer.cs">
+      <DependentUpon>frmCom_OrdenPedidoPlantillaAsignar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoPlantillaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoPlantillaMantenimiento.Designer.cs">
+      <DependentUpon>frmCom_OrdenPedidoPlantillaMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoPlantillaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoPlantillaConsulta.Designer.cs">
+      <DependentUpon>frmCom_OrdenPedidoPlantillaConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\FrmCom_ComprasPorPuntoCargo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +352,12 @@
     </Compile>
     <Compile Include="Compras\FrmCom_OrdenPedidoAprobacion.Designer.cs">
       <DependentUpon>FrmCom_OrdenPedidoAprobacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_OrdenPedidoCompradorFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_OrdenPedidoCompradorFamilia.Designer.cs">
+      <DependentUpon>FrmCom_OrdenPedidoCompradorFamilia.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmCom_OrdenPedidoConsulta.cs">
       <SubType>Form</SubType>
@@ -6373,6 +6397,15 @@
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCom_OrdenPedidoPlantillaAsignar.resx">
+      <DependentUpon>frmCom_OrdenPedidoPlantillaAsignar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCom_OrdenPedidoPlantillaMantenimiento.resx">
+      <DependentUpon>frmCom_OrdenPedidoPlantillaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCom_OrdenPedidoPlantillaConsulta.resx">
+      <DependentUpon>frmCom_OrdenPedidoPlantillaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_ComprasPorPuntoCargo.resx">
       <DependentUpon>FrmCom_ComprasPorPuntoCargo.cs</DependentUpon>
     </EmbeddedResource>
@@ -6390,6 +6423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_OrdenPedidoAprobacion.resx">
       <DependentUpon>FrmCom_OrdenPedidoAprobacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_OrdenPedidoCompradorFamilia.resx">
+      <DependentUpon>FrmCom_OrdenPedidoCompradorFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmCom_OrdenPedidoConsulta.resx">
       <DependentUpon>frmCom_OrdenPedidoConsulta.cs</DependentUpon>

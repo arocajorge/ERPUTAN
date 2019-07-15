@@ -337,6 +337,11 @@ namespace Core.Erp.Winform.Compras
                 Info.Fecha_Transac = DateTime.Now;
                 Info.Correo = txt_correo.Text;
                 Info.ListaDetalle = new List<com_comprador_familia_Info>(blst);
+
+                Info.ListaDetalle = Info.ListaDetalle.GroupBy(q => q.IdFamilia).Select(q => new com_comprador_familia_Info
+                {
+                    IdFamilia = q.Key
+                }).ToList();
             }
             catch (Exception ex)
             {
@@ -552,6 +557,21 @@ namespace Core.Erp.Winform.Compras
 
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void gv_detalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Delete)
+                {
+                    gv_detalle.DeleteSelectedRows();
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

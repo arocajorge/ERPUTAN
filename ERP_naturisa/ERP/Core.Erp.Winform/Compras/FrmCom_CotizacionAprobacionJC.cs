@@ -64,9 +64,20 @@ namespace Core.Erp.Winform.Compras
                     lblIva.Text = "$ " + Math.Round(blst.Sum(q => q.cd_iva),2,MidpointRounding.AwayFromZero).ToString("n2");
                     lblTotal.Text = "$ " + Math.Round(blst.Sum(q => q.cd_total),2,MidpointRounding.AwayFromZero).ToString("n2");
 
-                    btnAnular.Visible = true;
-                    btnAprobar.Visible = true;
-                    btnPasar.Visible = true;
+                    if (info.Cargo != "HIS")
+                    {
+                        btnAnular.Visible = true;
+                        btnAprobar.Visible = true;
+                        btnPasar.Visible = true;
+                    }
+                    else
+                    {
+                        btnAnular.Visible = false;
+                        btnAprobar.Visible = false;
+                        btnPasar.Visible = false;
+                    }
+
+                    
                 }
                 else
                     Limpiar();
@@ -132,6 +143,7 @@ namespace Core.Erp.Winform.Compras
             {
                 txtIdCotizacion.Focus();
                 info.ListaDetalle = new List<com_CotizacionPedidoDet_Info>(blst);
+                info.cp_Observacion = txtObservacion.Text;
                 info.EstadoJC = info.ListaDetalle.Where(q=>q.A == true).Count() > 0 ? "A" : "R";
                 if (bus_cotizacion.AprobarDB(info,"JC"))
                 {
@@ -242,6 +254,25 @@ namespace Core.Erp.Winform.Compras
             {
                 FrmCom_CotizacionConsulta frm = new FrmCom_CotizacionConsulta();
                 frm.Cargo = "JC";
+                frm.ShowDialog();
+                if (frm.info != null && frm.info.IdCotizacion > 0)
+                {
+                    info = frm.info;
+                    SetCotizacion();    
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void btnBuscarHistorico_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmCom_CotizacionConsulta frm = new FrmCom_CotizacionConsulta();
+                frm.Cargo = "HIS";
                 frm.ShowDialog();
                 if (frm.info != null && frm.info.IdCotizacion > 0)
                 {

@@ -22,5 +22,6 @@ namespace Core.Erp.Info.Compras
        public string SEstado { get; set; }
 
        public List<com_solicitante_aprobador_Info> ListaDetalle { get; set; }
+       public List<com_solicitante_x_com_departamento_Info> ListaDepartamento { get; set; }
     }
 }

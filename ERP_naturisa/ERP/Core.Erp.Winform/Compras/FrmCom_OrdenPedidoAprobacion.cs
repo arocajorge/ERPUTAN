@@ -113,7 +113,14 @@ namespace Core.Erp.Winform.Compras
             try
             {
                 btn_Buscar.Focus();
-                if (bus_detalle.ActualizarEstadoAprobacion(new List<com_OrdenPedidoDet_Info>(blst_det.Where(q=> q.A == true || q.R == true).ToList())))
+                if (blst_det.Where(q=> q.A == true && q.opd_CantidadApro == 0).Count() > 0)
+                {
+                    MessageBox.Show("Existen registros aprobados con cantidad 0, verifique",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                var lst = new List<com_OrdenPedidoDet_Info>(blst_det.Where(q => q.A == true || q.R == true).ToList());
+                lst.ForEach(q => q.IdUsuario = param.IdUsuario);
+                if (bus_detalle.ActualizarEstadoAprobacion(lst))
                 {
                     MessageBox.Show("Registros actualizados exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                     return true;

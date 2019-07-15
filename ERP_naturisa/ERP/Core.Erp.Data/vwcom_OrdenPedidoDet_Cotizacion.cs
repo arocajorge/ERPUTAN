@@ -41,5 +41,16 @@ namespace Core.Erp.Data
         public string op_Observacion { get; set; }
         public string NombreArchivo { get; set; }
         public string Grupo { get; set; }
+        public Nullable<System.DateTime> FechaCantidad { get; set; }
+        public Nullable<decimal> IdProveedor { get; set; }
+        public Nullable<double> cd_precioCompra { get; set; }
+        public Nullable<double> cd_porc_des { get; set; }
+        public Nullable<double> cd_descuento { get; set; }
+        public Nullable<double> cd_precioFinal { get; set; }
+        public Nullable<double> cd_subtotal { get; set; }
+        public Nullable<double> Por_Iva { get; set; }
+        public Nullable<double> cd_iva { get; set; }
+        public Nullable<double> cd_total { get; set; }
+        public string cd_DetallePorItem { get; set; }
     }
 }

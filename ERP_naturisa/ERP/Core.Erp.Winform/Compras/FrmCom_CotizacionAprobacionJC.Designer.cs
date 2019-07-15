@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionAprobacionJC));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblIva = new System.Windows.Forms.Label();
+            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.btnSalir = new DevExpress.XtraEditors.SimpleButton();
@@ -72,16 +78,12 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmb_punto_cargo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.lblIva = new System.Windows.Forms.Label();
-            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_punto_cargo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnBuscarHistorico = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolicitante.Properties)).BeginInit();
@@ -102,6 +104,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBuscarHistorico);
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.lblIva);
             this.panel1.Controls.Add(this.lblSubtotal);
@@ -137,14 +140,80 @@
             this.panel1.Size = new System.Drawing.Size(1431, 263);
             this.panel1.TabIndex = 0;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Blue;
+            this.lblTotal.Location = new System.Drawing.Point(1289, 184);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(32, 32);
+            this.lblTotal.TabIndex = 28;
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblIva
+            // 
+            this.lblIva.AutoSize = true;
+            this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIva.ForeColor = System.Drawing.Color.Blue;
+            this.lblIva.Location = new System.Drawing.Point(1289, 139);
+            this.lblIva.Name = "lblIva";
+            this.lblIva.Size = new System.Drawing.Size(32, 32);
+            this.lblIva.TabIndex = 27;
+            this.lblIva.Text = "0";
+            this.lblIva.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblSubtotal
+            // 
+            this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal.ForeColor = System.Drawing.Color.Blue;
+            this.lblSubtotal.Location = new System.Drawing.Point(1289, 94);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(32, 32);
+            this.lblSubtotal.TabIndex = 26;
+            this.lblSubtotal.Text = "0";
+            this.lblSubtotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(999, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 32);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Total:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(999, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 32);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "I.V.A.:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(999, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 32);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Subtotal:";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.Location = new System.Drawing.Point(817, 13);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(137, 41);
+            this.btnBuscar.Size = new System.Drawing.Size(152, 41);
             this.btnBuscar.TabIndex = 22;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar pendientes";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // labelControl9
@@ -160,7 +229,7 @@
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
             this.btnSalir.Location = new System.Drawing.Point(817, 202);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(137, 41);
+            this.btnSalir.Size = new System.Drawing.Size(152, 41);
             this.btnSalir.TabIndex = 19;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -170,7 +239,7 @@
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
             this.btnAnular.Location = new System.Drawing.Point(817, 108);
             this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(137, 41);
+            this.btnAnular.Size = new System.Drawing.Size(152, 41);
             this.btnAnular.TabIndex = 18;
             this.btnAnular.Text = "Anular";
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
@@ -180,7 +249,7 @@
             this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
             this.btnPasar.Location = new System.Drawing.Point(817, 155);
             this.btnPasar.Name = "btnPasar";
-            this.btnPasar.Size = new System.Drawing.Size(137, 41);
+            this.btnPasar.Size = new System.Drawing.Size(152, 41);
             this.btnPasar.TabIndex = 17;
             this.btnPasar.Text = "Pasar";
             this.btnPasar.Click += new System.EventHandler(this.btnPasar_Click);
@@ -190,7 +259,7 @@
             this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
             this.btnAprobar.Location = new System.Drawing.Point(817, 60);
             this.btnAprobar.Name = "btnAprobar";
-            this.btnAprobar.Size = new System.Drawing.Size(137, 41);
+            this.btnAprobar.Size = new System.Drawing.Size(152, 41);
             this.btnAprobar.TabIndex = 16;
             this.btnAprobar.Text = "Aprobar";
             this.btnAprobar.Click += new System.EventHandler(this.btnAprobar_Click);
@@ -332,7 +401,6 @@
             // 
             this.txtObservacion.Location = new System.Drawing.Point(159, 191);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Properties.ReadOnly = true;
             this.txtObservacion.Size = new System.Drawing.Size(607, 54);
             this.txtObservacion.TabIndex = 20;
             // 
@@ -370,7 +438,8 @@
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.gridColumn16});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.GroupCount = 1;
             this.gv_detalle.Name = "gv_detalle";
@@ -547,23 +616,6 @@
             this.gridColumn13.VisibleIndex = 4;
             this.gridColumn13.Width = 61;
             // 
-            // cmb_punto_cargo
-            // 
-            this.cmb_punto_cargo.AutoHeight = false;
-            this.cmb_punto_cargo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_punto_cargo.DisplayMember = "nom_punto_cargo";
-            this.cmb_punto_cargo.Name = "cmb_punto_cargo";
-            this.cmb_punto_cargo.ValueMember = "IdPunto_cargo";
-            this.cmb_punto_cargo.View = this.repositoryItemSearchLookUpEdit1View;
-            // 
-            // repositoryItemSearchLookUpEdit1View
-            // 
-            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
-            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
             // gridColumn14
             // 
             this.gridColumn14.Caption = "Observación";
@@ -583,71 +635,41 @@
             this.gridColumn15.VisibleIndex = 3;
             this.gridColumn15.Width = 139;
             // 
-            // label1
+            // gridColumn16
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(999, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 32);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Subtotal:";
+            this.gridColumn16.Caption = "F. Apro. Cantidad";
+            this.gridColumn16.FieldName = "FechaCantidad";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 16;
             // 
-            // label2
+            // cmb_punto_cargo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(999, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 32);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "I.V.A.:";
+            this.cmb_punto_cargo.AutoHeight = false;
+            this.cmb_punto_cargo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_punto_cargo.DisplayMember = "nom_punto_cargo";
+            this.cmb_punto_cargo.Name = "cmb_punto_cargo";
+            this.cmb_punto_cargo.ValueMember = "IdPunto_cargo";
+            this.cmb_punto_cargo.View = this.repositoryItemSearchLookUpEdit1View;
             // 
-            // label3
+            // repositoryItemSearchLookUpEdit1View
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(999, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 32);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Total:";
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // lblTotal
+            // btnBuscarHistorico
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotal.Location = new System.Drawing.Point(1289, 127);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(32, 32);
-            this.lblTotal.TabIndex = 28;
-            this.lblTotal.Text = "0";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblIva
-            // 
-            this.lblIva.AutoSize = true;
-            this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIva.ForeColor = System.Drawing.Color.Blue;
-            this.lblIva.Location = new System.Drawing.Point(1289, 82);
-            this.lblIva.Name = "lblIva";
-            this.lblIva.Size = new System.Drawing.Size(32, 32);
-            this.lblIva.TabIndex = 27;
-            this.lblIva.Text = "0";
-            this.lblIva.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblSubtotal
-            // 
-            this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblSubtotal.Location = new System.Drawing.Point(1289, 37);
-            this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(32, 32);
-            this.lblSubtotal.TabIndex = 26;
-            this.lblSubtotal.Text = "0";
-            this.lblSubtotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnBuscarHistorico.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarHistorico.Image")));
+            this.btnBuscarHistorico.Location = new System.Drawing.Point(1000, 13);
+            this.btnBuscarHistorico.Name = "btnBuscarHistorico";
+            this.btnBuscarHistorico.Size = new System.Drawing.Size(137, 41);
+            this.btnBuscarHistorico.TabIndex = 29;
+            this.btnBuscarHistorico.Text = "Buscar todo";
+            this.btnBuscarHistorico.Click += new System.EventHandler(this.btnBuscarHistorico_Click);
             // 
             // FrmCom_CotizacionAprobacionJC
             // 
@@ -735,5 +757,7 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblIva;
         private System.Windows.Forms.Label lblSubtotal;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraEditors.SimpleButton btnBuscarHistorico;
     }
 }

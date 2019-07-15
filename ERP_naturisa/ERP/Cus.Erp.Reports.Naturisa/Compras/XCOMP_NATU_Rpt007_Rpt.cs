@@ -40,6 +40,16 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                 IdOrdenCompra = Convert.ToDecimal(this.PIdOrdenCompra.Value);
 
                 listDataRpt = repbus.consultar_data(IdEmpresa, IdSucursal, IdOrdenCompra, ref mensaje);
+                if (listDataRpt.Count > 0)
+                {
+                    var Primero = listDataRpt[0];
+                    if ((Primero.EsProcesoSolicitud ?? false) == false)
+                        PbFirma.Visible = false;
+                    else
+                        PbFirma.Visible = true;
+
+                    lblPedido.Text = Primero.IdOrdenPedido == null ? "" : ("SOLPED #" + Primero.IdOrdenPedido);
+                }
                 this.DataSource = listDataRpt.ToArray();
             }
             catch (Exception ex)

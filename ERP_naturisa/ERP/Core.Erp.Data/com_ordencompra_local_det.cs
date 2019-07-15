@@ -40,11 +40,12 @@ namespace Core.Erp.Data
         public string do_observacion { get; set; }
         public string IdCentroCosto { get; set; }
         public string IdCentroCosto_sub_centro_costo { get; set; }
+        public Nullable<int> IdPunto_cargo_grupo { get; set; }
         public Nullable<int> IdPunto_cargo { get; set; }
         public string IdUnidadMedida { get; set; }
         public double Por_Iva { get; set; }
         public string IdCod_Impuesto { get; set; }
-        public Nullable<int> IdPunto_cargo_grupo { get; set; }
+        public Nullable<int> IdSucursalDestino { get; set; }
     
         public virtual ICollection<com_dev_compra_det> com_dev_compra_det { get; set; }
         public virtual ICollection<com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider> com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider { get; set; }

@@ -34,5 +34,31 @@ namespace Core.Erp.Data.Compras
                 throw;
             }
         }
+
+        public List<com_comprador_familia_Info> GetListPorPedido(int IdEmpresa, decimal IdOrdenPedido)
+        {
+            try
+            {
+                List<com_comprador_familia_Info> Lista;
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    Lista = db.vwcom_OrdenPedidoDet_FamiliaComprador.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).Select(q=> new com_comprador_familia_Info{
+                      IdEmpresa = q.IdEmpresa,
+                      IdOrdenPedido = q.IdOrdenPedido,
+                      Familia = q.Familia,
+                      Comprador = q.Comprador
+                    }).ToList();
+
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

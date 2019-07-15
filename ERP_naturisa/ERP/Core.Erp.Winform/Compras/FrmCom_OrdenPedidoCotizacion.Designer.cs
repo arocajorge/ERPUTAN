@@ -89,10 +89,14 @@
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtIdOrdenPedido = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_addPC = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_adjunto = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chk_MostrarAR = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -101,8 +105,6 @@
             this.de_Desde = new DevExpress.XtraEditors.DateEdit();
             this.btn_Buscar = new DevExpress.XtraEditors.SimpleButton();
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
-            this.cmb_adjunto = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalOrdigen)).BeginInit();
@@ -121,14 +123,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_add)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_selec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_addPC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_MostrarAR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Hasta.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Hasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).BeginInit();
             this.SuspendLayout();
             // 
             // gc_detalle
@@ -149,7 +152,8 @@
             this.cmb_add,
             this.cmb_selec,
             this.cmb_addPC,
-            this.cmb_adjunto});
+            this.cmb_adjunto,
+            this.txtIdOrdenPedido});
             this.gc_detalle.Size = new System.Drawing.Size(1096, 532);
             this.gc_detalle.TabIndex = 6;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -185,7 +189,8 @@
             this.gridColumn32,
             this.gridColumn33,
             this.gridColumn34,
-            this.gridColumn35});
+            this.gridColumn35,
+            this.gridColumn36});
             this.gv_detalle.CustomizationFormBounds = new System.Drawing.Rectangle(978, 706, 218, 212);
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.GroupCount = 3;
@@ -214,7 +219,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.VisibleIndex = 5;
             this.gridColumn3.Width = 50;
             // 
             // cmb_SucursalOrdigen
@@ -274,7 +279,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
+            this.gridColumn4.VisibleIndex = 6;
             this.gridColumn4.Width = 50;
             // 
             // cmb_SucursalDestino
@@ -334,7 +339,7 @@
             this.col_pr_descripcion.Name = "col_pr_descripcion";
             this.col_pr_descripcion.OptionsColumn.ReadOnly = true;
             this.col_pr_descripcion.Visible = true;
-            this.col_pr_descripcion.VisibleIndex = 6;
+            this.col_pr_descripcion.VisibleIndex = 7;
             this.col_pr_descripcion.Width = 250;
             // 
             // txtProducto
@@ -351,7 +356,7 @@
             this.col_IdUnidadMedida.Name = "col_IdUnidadMedida";
             this.col_IdUnidadMedida.OptionsColumn.AllowEdit = false;
             this.col_IdUnidadMedida.Visible = true;
-            this.col_IdUnidadMedida.VisibleIndex = 15;
+            this.col_IdUnidadMedida.VisibleIndex = 16;
             this.col_IdUnidadMedida.Width = 100;
             // 
             // cmb_UnidadMedida
@@ -400,7 +405,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 11;
+            this.gridColumn9.VisibleIndex = 12;
             this.gridColumn9.Width = 200;
             // 
             // gridColumn10
@@ -410,7 +415,7 @@
             this.gridColumn10.FieldName = "IdPunto_cargo";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 9;
+            this.gridColumn10.VisibleIndex = 10;
             this.gridColumn10.Width = 100;
             // 
             // cmb_PuntoCargo
@@ -524,7 +529,7 @@
             this.col_IdProveedor.FieldName = "IdProveedor";
             this.col_IdProveedor.Name = "col_IdProveedor";
             this.col_IdProveedor.Visible = true;
-            this.col_IdProveedor.VisibleIndex = 13;
+            this.col_IdProveedor.VisibleIndex = 14;
             this.col_IdProveedor.Width = 200;
             // 
             // cmb_proveedor
@@ -587,7 +592,7 @@
             this.col_IVA.FieldName = "IdCod_Impuesto";
             this.col_IVA.Name = "col_IVA";
             this.col_IVA.Visible = true;
-            this.col_IVA.VisibleIndex = 19;
+            this.col_IVA.VisibleIndex = 20;
             this.col_IVA.Width = 80;
             // 
             // cmb_impuesto
@@ -649,7 +654,7 @@
             this.col_cd_Cantidad.Name = "col_cd_Cantidad";
             this.col_cd_Cantidad.OptionsColumn.AllowEdit = false;
             this.col_cd_Cantidad.Visible = true;
-            this.col_cd_Cantidad.VisibleIndex = 14;
+            this.col_cd_Cantidad.VisibleIndex = 15;
             this.col_cd_Cantidad.Width = 100;
             // 
             // col_cd_precioCompr
@@ -663,7 +668,7 @@
             this.col_cd_precioCompr.FieldName = "cd_precioCompra";
             this.col_cd_precioCompr.Name = "col_cd_precioCompr";
             this.col_cd_precioCompr.Visible = true;
-            this.col_cd_precioCompr.VisibleIndex = 16;
+            this.col_cd_precioCompr.VisibleIndex = 17;
             this.col_cd_precioCompr.Width = 100;
             // 
             // col_cd_porc_des
@@ -678,7 +683,7 @@
             this.col_cd_porc_des.FieldName = "cd_porc_des";
             this.col_cd_porc_des.Name = "col_cd_porc_des";
             this.col_cd_porc_des.Visible = true;
-            this.col_cd_porc_des.VisibleIndex = 17;
+            this.col_cd_porc_des.VisibleIndex = 18;
             this.col_cd_porc_des.Width = 100;
             // 
             // gridColumn28
@@ -692,7 +697,7 @@
             this.gridColumn28.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_subtotal", "{0:n2}")});
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 18;
+            this.gridColumn28.VisibleIndex = 19;
             this.gridColumn28.Width = 100;
             // 
             // gridColumn29
@@ -706,7 +711,7 @@
             this.gridColumn29.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_iva", "{0:n2}")});
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 20;
+            this.gridColumn29.VisibleIndex = 21;
             this.gridColumn29.Width = 100;
             // 
             // gridColumn30
@@ -720,7 +725,7 @@
             this.gridColumn30.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_total", "{0:n2}")});
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 21;
+            this.gridColumn30.VisibleIndex = 22;
             this.gridColumn30.Width = 100;
             // 
             // gridColumn2
@@ -731,7 +736,7 @@
             this.gridColumn2.ImageIndex = 1;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 7;
+            this.gridColumn2.VisibleIndex = 8;
             this.gridColumn2.Width = 50;
             // 
             // cmb_add
@@ -766,7 +771,7 @@
             this.gridColumn8.ImageIndex = 2;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.VisibleIndex = 9;
             this.gridColumn8.Width = 50;
             // 
             // cmb_selec
@@ -801,17 +806,26 @@
             this.gridColumn27.FieldName = "cd_DetallePorItem";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 22;
+            this.gridColumn27.VisibleIndex = 23;
             this.gridColumn27.Width = 200;
             // 
             // gridColumn31
             // 
             this.gridColumn31.Caption = "# SolPe";
+            this.gridColumn31.ColumnEdit = this.txtIdOrdenPedido;
             this.gridColumn31.FieldName = "opd_IdOrdenPedido";
             this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.OptionsColumn.ReadOnly = true;
             this.gridColumn31.Visible = true;
             this.gridColumn31.VisibleIndex = 2;
             this.gridColumn31.Width = 50;
+            // 
+            // txtIdOrdenPedido
+            // 
+            this.txtIdOrdenPedido.AutoHeight = false;
+            this.txtIdOrdenPedido.Name = "txtIdOrdenPedido";
+            this.txtIdOrdenPedido.Click += new System.EventHandler(this.txtIdOrdenPedido_Click);
+            this.txtIdOrdenPedido.DoubleClick += new System.EventHandler(this.txtIdOrdenPedido_DoubleClick);
             // 
             // gridColumn32
             // 
@@ -829,7 +843,7 @@
             this.gridColumn33.ImageIndex = 1;
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 10;
+            this.gridColumn33.VisibleIndex = 11;
             this.gridColumn33.Width = 50;
             // 
             // cmb_addPC
@@ -854,6 +868,39 @@
             this.gridColumn34.OptionsColumn.AllowEdit = false;
             this.gridColumn34.Visible = true;
             this.gridColumn34.VisibleIndex = 22;
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.ColumnEdit = this.cmb_adjunto;
+            this.gridColumn35.FieldName = "Adjunto";
+            this.gridColumn35.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn35.ImageIndex = 3;
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 13;
+            this.gridColumn35.Width = 45;
+            // 
+            // cmb_adjunto
+            // 
+            this.cmb_adjunto.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmb_adjunto.AutoHeight = false;
+            this.cmb_adjunto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_adjunto.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 3),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", false, 0)});
+            this.cmb_adjunto.Name = "cmb_adjunto";
+            this.cmb_adjunto.ReadOnly = true;
+            this.cmb_adjunto.SmallImages = this.imageList1;
+            this.cmb_adjunto.Click += new System.EventHandler(this.cmb_adjunto_Click);
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "F. Apro Cantidad";
+            this.gridColumn36.FieldName = "FechaCantidad";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 4;
             // 
             // panel1
             // 
@@ -989,31 +1036,6 @@
             this.ucGe_Menu_Superior_Mant1.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.ucGe_Menu_Superior_Mant1_event_btnAnular_Click);
             this.ucGe_Menu_Superior_Mant1.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucGe_Menu_Superior_Mant1_event_btnSalir_Click);
             // 
-            // cmb_adjunto
-            // 
-            this.cmb_adjunto.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
-            this.cmb_adjunto.AutoHeight = false;
-            this.cmb_adjunto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_adjunto.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 3),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", false, 0)});
-            this.cmb_adjunto.Name = "cmb_adjunto";
-            this.cmb_adjunto.ReadOnly = true;
-            this.cmb_adjunto.SmallImages = this.imageList1;
-            this.cmb_adjunto.Click += new System.EventHandler(this.cmb_adjunto_Click);
-            // 
-            // gridColumn35
-            // 
-            this.gridColumn35.ColumnEdit = this.cmb_adjunto;
-            this.gridColumn35.FieldName = "Adjunto";
-            this.gridColumn35.ImageAlignment = System.Drawing.StringAlignment.Center;
-            this.gridColumn35.ImageIndex = 3;
-            this.gridColumn35.Name = "gridColumn35";
-            this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 12;
-            this.gridColumn35.Width = 45;
-            // 
             // FrmCom_OrdenPedidoCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1043,7 +1065,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_add)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_selec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_addPC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_MostrarAR.Properties)).EndInit();
@@ -1051,7 +1075,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_Hasta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1131,5 +1154,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_adjunto;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtIdOrdenPedido;
     }
 }

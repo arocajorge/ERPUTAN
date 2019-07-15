@@ -61,6 +61,16 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.gc_d = new DevExpress.XtraGrid.GridControl();
+            this.gv_d = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_departamento_dep = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_ConsultaDepartamento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboUsuario.Properties)).BeginInit();
@@ -73,6 +83,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Departamento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_d)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_d)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_departamento_dep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -166,7 +184,7 @@
             // 
             this.chk_ConsultaDepartamento.Location = new System.Drawing.Point(272, 29);
             this.chk_ConsultaDepartamento.Name = "chk_ConsultaDepartamento";
-            this.chk_ConsultaDepartamento.Properties.Caption = "Consulta pedidos del departamento";
+            this.chk_ConsultaDepartamento.Properties.Caption = "Consulta listado departamentos";
             this.chk_ConsultaDepartamento.Size = new System.Drawing.Size(364, 21);
             this.chk_ConsultaDepartamento.TabIndex = 12;
             // 
@@ -325,13 +343,13 @@
             // gc_detalle
             // 
             this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.Location = new System.Drawing.Point(0, 178);
+            this.gc_detalle.Location = new System.Drawing.Point(0, 0);
             this.gc_detalle.MainView = this.gv_detalle;
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_Usuario,
             this.cmb_Departamento});
-            this.gc_detalle.Size = new System.Drawing.Size(840, 370);
+            this.gc_detalle.Size = new System.Drawing.Size(834, 339);
             this.gc_detalle.TabIndex = 3;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -465,12 +483,111 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 3;
             // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 178);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(840, 370);
+            this.xtraTabControl1.TabIndex = 4;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.gc_detalle);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(834, 339);
+            this.xtraTabPage1.Text = "Aprobadores";
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.gc_d);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(834, 339);
+            this.xtraTabPage2.Text = "Departamentos visibles opción 1";
+            // 
+            // gc_d
+            // 
+            this.gc_d.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_d.Location = new System.Drawing.Point(0, 0);
+            this.gc_d.MainView = this.gv_d;
+            this.gc_d.Name = "gc_d";
+            this.gc_d.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmb_departamento_dep});
+            this.gc_d.Size = new System.Drawing.Size(834, 339);
+            this.gc_d.TabIndex = 4;
+            this.gc_d.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_d});
+            // 
+            // gv_d
+            // 
+            this.gv_d.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn16});
+            this.gv_d.GridControl = this.gc_d;
+            this.gv_d.Name = "gv_d";
+            this.gv_d.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gv_d.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gv_d.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gv_d.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Departamento";
+            this.gridColumn16.ColumnEdit = this.cmb_departamento_dep;
+            this.gridColumn16.FieldName = "IdDepartamento";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 0;
+            this.gridColumn16.Width = 311;
+            // 
+            // cmb_departamento_dep
+            // 
+            this.cmb_departamento_dep.AutoHeight = false;
+            this.cmb_departamento_dep.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_departamento_dep.DisplayMember = "nom_departamento";
+            this.cmb_departamento_dep.Name = "cmb_departamento_dep";
+            this.cmb_departamento_dep.ValueMember = "IdDepartamento";
+            this.cmb_departamento_dep.View = this.gridView4;
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn17,
+            this.gridColumn18});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "ID";
+            this.gridColumn17.FieldName = "IdDepartamento";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 0;
+            this.gridColumn17.Width = 303;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Departamento";
+            this.gridColumn18.FieldName = "nom_departamento";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 1;
+            this.gridColumn18.Width = 1431;
+            // 
             // FrmCom_Solicitante_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 580);
-            this.Controls.Add(this.gc_detalle);
+            this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
@@ -492,6 +609,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Departamento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gc_d)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_d)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_departamento_dep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,5 +656,15 @@
         private DevExpress.XtraEditors.CheckEdit chk_ConsultaDepartamento;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraGrid.GridControl gc_d;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_d;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_departamento_dep;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }

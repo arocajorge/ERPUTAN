@@ -39,6 +39,8 @@ namespace Core.Erp.Winform.Compras
                 _Accion = (_Accion == 0) ? Cl_Enumeradores.eTipo_action.grabar : _Accion;
                 BList_det = new BindingList<com_solicitante_aprobador_Info>();
                 gc_detalle.DataSource = BList_det;
+                BList_dep = new BindingList<com_solicitante_x_com_departamento_Info>();
+                gc_d.DataSource = BList_dep;
                 Set_Accion_Control();
             }
             catch (Exception ex)
@@ -63,6 +65,8 @@ namespace Core.Erp.Winform.Compras
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         com_solicitante_aprobador_Bus bus_det = new com_solicitante_aprobador_Bus();
         BindingList<com_solicitante_aprobador_Info> BList_det = new BindingList<com_solicitante_aprobador_Info>();
+        BindingList<com_solicitante_x_com_departamento_Info> BList_dep = new BindingList<com_solicitante_x_com_departamento_Info>();
+        com_solicitante_x_com_departamento_Bus bus_solxdep = new com_solicitante_x_com_departamento_Bus();
 
         public delegate void delegate_FrmCom_Solicitante_Mant_FormClosing(object sender, FormClosingEventArgs e);
         public event delegate_FrmCom_Solicitante_Mant_FormClosing event_FrmCom_Solicitante_Mant_FormClosing;
@@ -113,6 +117,8 @@ namespace Core.Erp.Winform.Compras
                 ComboDepartamento.EditValue = null;
                 BList_det = new BindingList<com_solicitante_aprobador_Info>();
                 gc_detalle.DataSource = BList_det;
+                BList_dep = new BindingList<com_solicitante_x_com_departamento_Info>();
+                gc_d.DataSource = BList_dep;
             }
             catch (Exception ex)
             {
@@ -335,6 +341,7 @@ namespace Core.Erp.Winform.Compras
 
                 ComboDepartamento.Properties.DataSource = lstDepartamento;
                 cmb_Departamento.DataSource = lstDepartamento;
+                cmb_departamento_dep.DataSource = lstDepartamento;
             }
             catch (Exception)
             {
@@ -359,6 +366,7 @@ namespace Core.Erp.Winform.Compras
                 Info.IdUsuarioUltMod = param.IdUsuario;
                 Info.ConsultaDepartamento = chk_ConsultaDepartamento.Checked;
                 Info.ListaDetalle = new List<com_solicitante_aprobador_Info>(BList_det);
+                Info.ListaDepartamento = new List<com_solicitante_x_com_departamento_Info>(BList_dep);
 
             }
             catch (Exception ex)
@@ -381,6 +389,8 @@ namespace Core.Erp.Winform.Compras
                     chk_ConsultaDepartamento.Checked = Info.ConsultaDepartamento;
                     BList_det = new BindingList<com_solicitante_aprobador_Info>(bus_det.GetList(Info.IdEmpresa, Info.IdSolicitante));
                     gc_detalle.DataSource = BList_det;
+                    BList_dep = new BindingList<com_solicitante_x_com_departamento_Info>(bus_solxdep.GetList(Info.IdEmpresa,Info.IdSolicitante));
+                    gc_d.DataSource = BList_dep;
                  }
                 else
                 { 

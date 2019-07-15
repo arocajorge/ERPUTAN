@@ -192,5 +192,23 @@ namespace Core.Erp.Winform.Compras
                 throw;
             }
         }
+
+        private void txtIdOrdenPedido_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                com_OrdenPedido_Info row = (com_OrdenPedido_Info)gv_Consulta.GetFocusedRow();
+                if (row != null)
+                {
+                    FrmCom_OrdenPedidoCompradorFamilia frm = new FrmCom_OrdenPedidoCompradorFamilia();
+                    frm.IdOrdenPedido = row.IdOrdenPedido;
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
     }
 }

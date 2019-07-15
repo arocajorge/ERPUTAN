@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionConsulta));
             this.gc_consulta = new DevExpress.XtraGrid.GridControl();
             this.gv_consulta = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -40,7 +39,7 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_imagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_consulta)).BeginInit();
@@ -76,6 +75,8 @@
             this.gv_consulta.Name = "gv_consulta";
             this.gv_consulta.OptionsView.ShowAutoFilterRow = true;
             this.gv_consulta.OptionsView.ShowGroupPanel = false;
+            this.gv_consulta.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_consulta_RowStyle);
+            this.gv_consulta.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gv_consulta_FocusedRowChanged);
             this.gv_consulta.DoubleClick += new System.EventHandler(this.gv_consulta_DoubleClick);
             // 
             // gridColumn1

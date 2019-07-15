@@ -85,6 +85,7 @@ namespace Core.Erp.Winform.Compras
             bool cerrar = true;
             foreach (var item in blst)
             {
+                item.IdUsuario = param.IdUsuario;
                 if (!bus_cotizaciones.GuardarDB(item))
                 {
                     cerrar = false;

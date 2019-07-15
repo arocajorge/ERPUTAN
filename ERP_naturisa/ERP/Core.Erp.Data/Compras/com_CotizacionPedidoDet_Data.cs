@@ -48,7 +48,8 @@ namespace Core.Erp.Data.Compras
                         A = true,
                         cd_DetallePorItem = q.cd_DetallePorItem,
                         op_Observacion = q.op_Observacion,
-                        opd_Detalle = q.opd_Detalle
+                        opd_Detalle = q.opd_Detalle,
+                        FechaCantidad = q.FechaCantidad
                         
                     }).ToList();
                 }
@@ -121,7 +122,8 @@ namespace Core.Erp.Data.Compras
                         op_Observacion = q.op_Observacion,
                         op_Fecha = q.op_Fecha,
                         NombreArchivo = q.NombreArchivo,
-                        opd_EstadoProceso = q.opd_EstadoProceso
+                        opd_EstadoProceso = q.opd_EstadoProceso,
+                        FechaCantidad = q.FechaCantidad
                     }).ToList();
                     else
                         Lista = db.vwcom_OrdenPedidoDet_Cotizacion.Where(q => q.IdEmpresa == IdEmpresa && q.opd_EstadoProceso == "A" && (q.IdUsuario_com ?? IdUsuario_com) == IdUsuario_com && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_CotizacionPedidoDet_Info
@@ -157,7 +159,19 @@ namespace Core.Erp.Data.Compras
                             op_Observacion = q.op_Observacion,
                             op_Fecha = q.op_Fecha,
                             NombreArchivo = q.NombreArchivo,
-                        opd_EstadoProceso = q.opd_EstadoProceso
+                        opd_EstadoProceso = q.opd_EstadoProceso,
+                            FechaCantidad = q.FechaCantidad,
+
+                            IdProveedor = q.IdProveedor,
+                            cd_precioCompra = q.cd_precioCompra ?? 0,
+                            cd_porc_des = q.cd_porc_des ?? 0,
+                            cd_descuento = q.cd_descuento ?? 0,
+                            cd_precioFinal = q.cd_precioFinal ?? 0,
+                            cd_subtotal = q.cd_subtotal ?? 0,
+                            Por_Iva = q.Por_Iva ?? 0,
+                            cd_iva = q.cd_iva ?? 0,
+                            cd_total = q.cd_total ?? 0,
+                            cd_DetallePorItem = q.cd_DetallePorItem
 
                         }).ToList();
                     Lista.ForEach(q => { q.op_Observacion = "Pedido #" + q.opd_IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion; q.IdComprador = q.IdComprador == 0 ? Comprador.IdComprador : q.IdComprador; });    
@@ -201,7 +215,7 @@ namespace Core.Erp.Data.Compras
 
                         cd_Cantidad = q.cd_cantidad,
                         IdCod_Impuesto = q.IdCod_Impuesto,
-                        pr_descripcion = q.pr_descripcion,                        
+                        pr_descripcion = q.pr_descripcion,
                         IdProducto = q.IdProducto,
                         nom_solicitante = q.nom_solicitante,
 
@@ -210,7 +224,7 @@ namespace Core.Erp.Data.Compras
                         EstadoDetalle = q.EstadoDetalle,
 
                         cd_precioCompra = q.cd_precioCompra ?? 0,
-                        cd_descuento  =q.cd_descuento ?? 0,
+                        cd_descuento = q.cd_descuento ?? 0,
                         cd_porc_des = q.cd_porc_des ?? 0,
                         Por_Iva = q.Por_Iva ?? 0,
                         cd_iva = q.cd_iva ?? 0,
@@ -219,12 +233,13 @@ namespace Core.Erp.Data.Compras
                         nom_punto_cargo = q.nom_punto_cargo,
                         NomUnidadMedida = q.nomUnidadMedida,
 
-                            IdCotizacion = q.IdCotizacion ?? 0,
-                            Secuencia = q.SecuenciaCot ?? 0,
-                            cd_precioFinal = q.cd_precioFinal ?? 0,
-                            opd_EstadoProceso = q.opd_EstadoProceso,
-                            
-                        A = true
+                        IdCotizacion = q.IdCotizacion ?? 0,
+                        Secuencia = q.SecuenciaCot ?? 0,
+                        cd_precioFinal = q.cd_precioFinal ?? 0,
+                        opd_EstadoProceso = q.opd_EstadoProceso,
+                        cd_DetallePorItem = q.cd_DetallePorItem,
+                        A = true,
+                        
 
                     }).ToList();
 

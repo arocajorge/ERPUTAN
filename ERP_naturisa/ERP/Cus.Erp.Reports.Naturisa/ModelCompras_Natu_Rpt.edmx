@@ -315,7 +315,11 @@
       [vwCOMP_NATU_Rpt007].[nom_EstadoCierre] AS [nom_EstadoCierre], 
       [vwCOMP_NATU_Rpt007].[pr_codigo] AS [pr_codigo], 
       [vwCOMP_NATU_Rpt007].[CodigoSucursal] AS [CodigoSucursal], 
-      [vwCOMP_NATU_Rpt007].[NombreUsuarioApro] AS [NombreUsuarioApro]
+      [vwCOMP_NATU_Rpt007].[NombreUsuarioApro] AS [NombreUsuarioApro], 
+      [vwCOMP_NATU_Rpt007].[SucursalDestino] AS [SucursalDestino], 
+      [vwCOMP_NATU_Rpt007].[EsProcesoSolicitud] AS [EsProcesoSolicitud], 
+      [vwCOMP_NATU_Rpt007].[IdOrdenPedido] AS [IdOrdenPedido], 
+      [vwCOMP_NATU_Rpt007].[oc_fechaVencimiento] AS [oc_fechaVencimiento]
       FROM [Naturisa].[vwCOMP_NATU_Rpt007] AS [vwCOMP_NATU_Rpt007]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="ModelCompras_Natu_Rpt.Store.vwCONTA_NATU_Rpt003" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt003">
@@ -871,6 +875,10 @@
           <Property Name="pr_codigo" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CodigoSucursal" Type="varchar" MaxLength="10" />
           <Property Name="NombreUsuarioApro" Type="varchar" MaxLength="50" />
+          <Property Name="SucursalDestino" Type="nchar" MaxLength="60" />
+          <Property Name="EsProcesoSolicitud" Type="bit" />
+          <Property Name="IdOrdenPedido" Type="numeric" />
+          <Property Name="oc_fechaVencimiento" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1468,6 +1476,10 @@
           <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CodigoSucursal" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NombreUsuarioApro" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SucursalDestino" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="EsProcesoSolicitud" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="oc_fechaVencimiento" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1771,6 +1783,10 @@
           <EntitySetMapping Name="vwCOMP_NATU_Rpt007">
             <EntityTypeMapping TypeName="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt007">
               <MappingFragment StoreEntitySet="vwCOMP_NATU_Rpt007">
+                <ScalarProperty Name="oc_fechaVencimiento" ColumnName="oc_fechaVencimiento" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="EsProcesoSolicitud" ColumnName="EsProcesoSolicitud" />
+                <ScalarProperty Name="SucursalDestino" ColumnName="SucursalDestino" />
                 <ScalarProperty Name="NombreUsuarioApro" ColumnName="NombreUsuarioApro" />
                 <ScalarProperty Name="CodigoSucursal" ColumnName="CodigoSucursal" />
                 <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />

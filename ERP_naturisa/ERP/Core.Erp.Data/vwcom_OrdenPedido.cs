@@ -29,5 +29,7 @@ namespace Core.Erp.Data
         public decimal IdDepartamento { get; set; }
         public Nullable<bool> EsCompraUrgente { get; set; }
         public string nom_punto_cargo { get; set; }
+        public Nullable<int> IdPunto_cargo { get; set; }
+        public string ObservacionGA { get; set; }
     }
 }

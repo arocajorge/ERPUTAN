@@ -25,6 +25,19 @@ namespace Core.Erp.Business.Compras
             }
         }
 
+        public List<com_OrdenPedidoDet_Info> GetListPlantilla(int IdEmpresa, decimal IdPlantilla)
+        {
+            try
+            {
+                return odata.GetListPlantilla(IdEmpresa, IdPlantilla);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public bool RechazarComprador(List<com_OrdenPedidoDet_Info> Lista)
         {
             try

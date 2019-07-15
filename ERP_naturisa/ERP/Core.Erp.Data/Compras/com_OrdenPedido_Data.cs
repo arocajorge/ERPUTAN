@@ -16,11 +16,12 @@ namespace Core.Erp.Data.Compras
     public class com_OrdenPedido_Data
     {
         Funciones Fx = new Funciones();
+
         public List<com_OrdenPedido_Info> GetList(int IdEmpresa, string IdUsuario, DateTime FechaIni, DateTime FechaFin)
         {
             try
             {
-                List<com_OrdenPedido_Info> Lista;
+                List<com_OrdenPedido_Info> Lista = new List<com_OrdenPedido_Info>();
                 FechaIni = FechaIni.Date;
                 FechaFin = FechaFin.Date;
                 using (EntitiesCompras db = new EntitiesCompras())
@@ -48,23 +49,27 @@ namespace Core.Erp.Data.Compras
                         }).ToList();
                     else
                     {
-                        Lista = db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdDepartamento == solicitante.IdDepartamento && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
+                        var lst_Dep = db.com_solicitante_x_com_departamento.Where(q => q.IdEmpresa == solicitante.IdEmpresa && q.IdSolicitante == solicitante.IdSolicitante).ToList();
+                        foreach (var item in lst_Dep)
                         {
-                            IdEmpresa = q.IdEmpresa,
-                            IdOrdenPedido = q.IdOrdenPedido,
-                            op_Codigo = q.op_Codigo,
-                            op_Fecha = q.op_Fecha,
-                            op_Observacion = q.op_Observacion,
+                            Lista.AddRange(db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdDepartamento == item.IdDepartamento && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin && q.IdUsuario != IdUsuario).Select(q => new com_OrdenPedido_Info
+                            {
+                                IdEmpresa = q.IdEmpresa,
+                                IdOrdenPedido = q.IdOrdenPedido,
+                                op_Codigo = q.op_Codigo,
+                                op_Fecha = q.op_Fecha,
+                                op_Observacion = q.op_Observacion,
 
-                            nom_departamento = q.nom_departamento,
-                            nom_solicitante = q.nom_solicitante,
-                            Estado = q.Estado,
-                            CatalogoEstado = q.CatalogoEstado,
-                            IdCatalogoEstado = q.IdCatalogoEstado,
-                            EsCompraUrgente = q.EsCompraUrgente ?? false,
-                            nom_punto_cargo = q.nom_punto_cargo
-                        }).ToList();
-                        Lista.AddRange(db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && q.IdDepartamento != solicitante.IdDepartamento && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
+                                nom_departamento = q.nom_departamento,
+                                nom_solicitante = q.nom_solicitante,
+                                Estado = q.Estado,
+                                CatalogoEstado = q.CatalogoEstado,
+                                IdCatalogoEstado = q.IdCatalogoEstado,
+                                EsCompraUrgente = q.EsCompraUrgente ?? false,
+                                nom_punto_cargo = q.nom_punto_cargo
+                            }).ToList());
+                        }
+                        Lista.AddRange(db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
                         {
                             IdEmpresa = q.IdEmpresa,
                             IdOrdenPedido = q.IdOrdenPedido,

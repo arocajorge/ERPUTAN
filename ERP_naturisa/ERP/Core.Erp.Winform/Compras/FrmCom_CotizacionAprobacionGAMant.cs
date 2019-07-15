@@ -286,5 +286,40 @@ namespace Core.Erp.Winform.Compras
 
             }
         }
+
+        private void gv_detalle_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+
+                if (Col_Cantidad == e.Column)
+                {
+                    row.cd_subtotal = row.cd_precioFinal * row.cd_Cantidad;
+                    row.cd_iva = row.cd_subtotal * (row.Por_Iva / 100);
+                    row.cd_total = row.cd_subtotal + row.cd_iva;
+                    gc_detalle.RefreshDataSource();
+                    SetTotal();
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void SetTotal()
+        {
+            try
+            {
+                lblTotal.Text = "$ " + blst.Sum(q => q.cd_total).ToString("n2");
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
     }
 }

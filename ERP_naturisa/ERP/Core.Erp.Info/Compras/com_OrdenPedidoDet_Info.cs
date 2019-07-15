@@ -23,25 +23,22 @@ namespace Core.Erp.Info.Compras
         public string opd_Detalle { get; set; }
         public double? Stock { get; set; }
         public bool NuevoAdjunto { get; set; }
+
         #region Campos que no existen en la tabla
         public string IdUnidadMedida_Consumo { get; set; }
         public bool A { get; set; }
         public bool R { get; set; }
+        public string nom_solicitante { get; set; }
+        public bool Adjunto { get; set; }
+        public string EstadoDetalle { get; set; }
+        public string op_Observacion { get; set; }
+        public DateTime op_Fecha { get; set; }
+        public string NombreArchivo { get; set; }
+        public string NomComprador { get; set; }
+        public string IdUsuario { get; set; }
         #endregion
 
 
-        public string nom_solicitante { get; set; }
 
-        public bool Adjunto { get; set; }
-
-        public string EstadoDetalle { get; set; }
-
-        public string op_Observacion { get; set; }
-
-        public DateTime op_Fecha { get; set; }
-
-        public string NombreArchivo { get; set; }
-
-        public string NomComprador { get; set; }
     }
 }

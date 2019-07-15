@@ -34,6 +34,9 @@ namespace Core.Erp.Data
         public string EstadoJC { get; set; }
         public string EstadoGA { get; set; }
         public Nullable<int> oc_IdOrdenCompra { get; set; }
+        public string IdUsuarioJC { get; set; }
+        public Nullable<System.DateTime> FechaJC { get; set; }
+        public Nullable<decimal> IdOrdenPedido { get; set; }
     
         public virtual com_departamento com_departamento { get; set; }
         public virtual com_TerminoPago com_TerminoPago { get; set; }

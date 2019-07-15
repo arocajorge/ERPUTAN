@@ -62,5 +62,9 @@ namespace Cus.Erp.Reports.Naturisa.Compras
         public string CodigoSucursal { get; set; }
 
         public string NombreUsuarioApro { get; set; }
+        public string SucursalDestino { get; set; }
+        public Nullable<bool> EsProcesoSolicitud { get; set; }
+        public Nullable<decimal> IdOrdenPedido { get; set; }
+        public Nullable<System.DateTime> oc_fechaVencimiento { get; set; }
     }
 }

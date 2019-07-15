@@ -24,5 +24,18 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public List<com_comprador_familia_Info> GetListPorPedido(int IdEmpresa, decimal IdOrdenPedido)
+        {
+            try
+            {
+                return odata.GetListPorPedido(IdEmpresa, IdOrdenPedido);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

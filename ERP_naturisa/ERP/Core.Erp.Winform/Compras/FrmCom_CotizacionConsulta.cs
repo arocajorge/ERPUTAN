@@ -83,5 +83,52 @@ namespace Core.Erp.Winform.Compras
 
             }
         }
+
+        private void gv_consulta_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedido_Info row = (com_CotizacionPedido_Info)gv_consulta.GetRow(e.RowHandle);
+                if (row != null)
+                {
+                    if (row.EstadoJC == "A")
+                        e.Appearance.ForeColor = Color.Blue;
+                    else
+                        if (row.EstadoJC == "X")
+                            e.Appearance.ForeColor = Color.Red;
+
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void gv_consulta_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedido_Info row = (com_CotizacionPedido_Info)gv_consulta.GetRow(e.FocusedRowHandle);
+                if (row != null)
+                {
+                    if (row.EstadoJC == "A")
+                    {
+                        gv_consulta.Appearance.FocusedRow.ForeColor = Color.Blue;
+                        gv_consulta.Appearance.FocusedCell.ForeColor = Color.Blue;
+                    }
+                    else
+                        if (row.EstadoJC == "X")
+                        {
+                            gv_consulta.Appearance.FocusedRow.ForeColor = Color.Red;
+                            gv_consulta.Appearance.FocusedCell.ForeColor = Color.Red;
+                        }
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
     }
 }

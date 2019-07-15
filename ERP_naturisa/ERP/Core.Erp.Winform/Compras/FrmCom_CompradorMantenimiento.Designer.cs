@@ -43,6 +43,8 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_correo = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbIdUsuario = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,8 +52,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
-            this.txt_correo = new DevExpress.XtraEditors.TextEdit();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNombre.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -61,9 +61,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_familia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbIdUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -150,6 +150,7 @@
             this.gv_detalle.Name = "gv_detalle";
             this.gv_detalle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gv_detalle.OptionsView.ShowGroupPanel = false;
+            this.gv_detalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gv_detalle_KeyDown);
             // 
             // gridColumn3
             // 
@@ -225,6 +226,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(920, 161);
             this.panel1.TabIndex = 17;
+            // 
+            // txt_correo
+            // 
+            this.txt_correo.Location = new System.Drawing.Point(117, 112);
+            this.txt_correo.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_correo.Name = "txt_correo";
+            this.txt_correo.Size = new System.Drawing.Size(429, 22);
+            this.txt_correo.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 115);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Correos (;)";
             // 
             // cmbIdUsuario
             // 
@@ -346,24 +365,6 @@
             this.ucGe_Menu_Superior_Mant1.Visible_btnproductos = false;
             this.ucGe_Menu_Superior_Mant1.Load += new System.EventHandler(this.ucGe_Menu_Superior_Mant1_Load);
             // 
-            // txt_correo
-            // 
-            this.txt_correo.Location = new System.Drawing.Point(117, 112);
-            this.txt_correo.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_correo.Name = "txt_correo";
-            this.txt_correo.Size = new System.Drawing.Size(429, 22);
-            this.txt_correo.TabIndex = 18;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 115);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Correos (;)";
-            // 
             // FrmCom_CompradorMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -388,9 +389,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbIdUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_correo.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

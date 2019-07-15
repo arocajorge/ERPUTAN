@@ -82,6 +82,17 @@ namespace Core.Erp.Data.Compras
                             Secuencia = secuencia++
                         });
                     }
+                    secuencia = 1;
+                    foreach (var item in info.ListaDepartamento)
+                    {
+                        Context.com_solicitante_x_com_departamento.Add(new com_solicitante_x_com_departamento
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdSolicitante = info.IdSolicitante,
+                            Secuencia = secuencia++,
+                            IdDepartamento = item.IdDepartamento
+                        });
+                    }
                     Context.SaveChanges();
                 }
                 return true;
@@ -133,7 +144,22 @@ namespace Core.Erp.Data.Compras
                                 Secuencia = secuencia++
                             });
                         }
-
+                        var lstD = context.com_solicitante_x_com_departamento.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSolicitante == info.IdSolicitante).ToList();
+                        foreach (var item in lstD)
+                        {
+                            context.com_solicitante_x_com_departamento.Remove(item);
+                        }
+                        secuencia = 1;
+                        foreach (var item in info.ListaDepartamento)
+                        {
+                            context.com_solicitante_x_com_departamento.Add(new com_solicitante_x_com_departamento
+                            {
+                                IdEmpresa = info.IdEmpresa,
+                                IdSolicitante = info.IdSolicitante,
+                                Secuencia = secuencia++,
+                                IdDepartamento = item.IdDepartamento
+                            });
+                        }
                         context.SaveChanges();
                     }
                 }

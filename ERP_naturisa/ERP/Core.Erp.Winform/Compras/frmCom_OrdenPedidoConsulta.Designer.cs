@@ -38,8 +38,10 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtIdOrdenPedido = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Mantenimiento_x_usuario1
@@ -67,8 +69,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 6, 3, 9, 59, 56, 67);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 8, 3, 9, 59, 56, 67);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 6, 15, 7, 29, 36, 480);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 8, 15, 7, 29, 36, 480);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -122,6 +124,8 @@
             this.gc_Consulta.Location = new System.Drawing.Point(0, 177);
             this.gc_Consulta.MainView = this.gv_Consulta;
             this.gc_Consulta.Name = "gc_Consulta";
+            this.gc_Consulta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.txtIdOrdenPedido});
             this.gc_Consulta.Size = new System.Drawing.Size(1229, 460);
             this.gc_Consulta.TabIndex = 1;
             this.gc_Consulta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -148,6 +152,7 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "# Pedido";
+            this.gridColumn1.ColumnEdit = this.txtIdOrdenPedido;
             this.gridColumn1.FieldName = "IdOrdenPedido";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
@@ -208,6 +213,12 @@
             this.gridColumn7.VisibleIndex = 4;
             this.gridColumn7.Width = 278;
             // 
+            // txtIdOrdenPedido
+            // 
+            this.txtIdOrdenPedido.AutoHeight = false;
+            this.txtIdOrdenPedido.Name = "txtIdOrdenPedido";
+            this.txtIdOrdenPedido.DoubleClick += new System.EventHandler(this.txtIdOrdenPedido_DoubleClick);
+            // 
             // frmCom_OrdenPedidoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,6 +231,7 @@
             this.Load += new System.EventHandler(this.frmCom_OrdenPedidoConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Consulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,5 +248,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtIdOrdenPedido;
     }
 }

@@ -43,5 +43,6 @@ namespace Core.Erp.Data
         public int IdSucursalDestino { get; set; }
         public int IdSucursalOrigen { get; set; }
         public Nullable<int> SecuenciaCot { get; set; }
+        public string cd_DetallePorItem { get; set; }
     }
 }

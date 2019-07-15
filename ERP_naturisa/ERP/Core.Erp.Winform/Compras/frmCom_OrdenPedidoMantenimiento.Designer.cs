@@ -94,6 +94,7 @@
             this.col_Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Comprador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnBuscarPlantilla = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
@@ -187,6 +188,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBuscarPlantilla);
             this.panel1.Controls.Add(this.labelControl5);
             this.panel1.Controls.Add(this.txt_ObservacionGA);
             this.panel1.Controls.Add(this.labelControl3);
@@ -833,6 +835,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnBuscarPlantilla
+            // 
+            this.btnBuscarPlantilla.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarPlantilla.Image")));
+            this.btnBuscarPlantilla.Location = new System.Drawing.Point(872, 15);
+            this.btnBuscarPlantilla.Name = "btnBuscarPlantilla";
+            this.btnBuscarPlantilla.Size = new System.Drawing.Size(137, 41);
+            this.btnBuscarPlantilla.TabIndex = 23;
+            this.btnBuscarPlantilla.Text = "Buscar plantilla";
+            this.btnBuscarPlantilla.Click += new System.EventHandler(this.btnBuscarPlantilla_Click);
+            // 
             // frmCom_OrdenPedidoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -942,5 +954,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.MemoEdit txt_ObservacionGA;
+        private DevExpress.XtraEditors.SimpleButton btnBuscarPlantilla;
     }
 }

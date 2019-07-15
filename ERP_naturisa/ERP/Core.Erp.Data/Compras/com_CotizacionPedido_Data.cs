@@ -38,6 +38,7 @@ namespace Core.Erp.Data.Compras
             {
                 EntitiesInventario dbi = new EntitiesInventario();
                 EntitiesGeneral dbg = new EntitiesGeneral();
+
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     db.com_CotizacionPedido.Add(new com_CotizacionPedido
@@ -49,7 +50,7 @@ namespace Core.Erp.Data.Compras
                         IdTerminoPago = info.IdTerminoPago,
                         cp_Fecha = info.cp_Fecha,
                         cp_Plazo = info.cp_Plazo,
-                        
+                        IdOrdenPedido = info.IdOrdenPedido,
                         cp_Observacion = info.cp_Observacion,
                         IdComprador = info.IdComprador,
                         IdDepartamento = info.IdDepartamento,
@@ -93,15 +94,17 @@ namespace Core.Erp.Data.Compras
                             det_op.opd_EstadoProceso = "AC";
                             if (det_op.IdProducto == null)
                             {
-                                det_op.pr_descripcion = dbi.in_Producto.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdProducto == item.IdProducto).FirstOrDefault().pr_descripcion;                                
+                                det_op.pr_descripcion = dbi.in_Producto.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdProducto == item.IdProducto).FirstOrDefault().pr_descripcion;
+                                det_op.IdUnidadMedida = item.IdUnidadMedida;
+                                det_op.IdProducto = item.IdProducto;
                             }
-                            det_op.IdUnidadMedida = item.IdUnidadMedida;
-                            det_op.IdProducto = item.IdProducto;
-                        } 
+                            det_op.FechaCotizacion = DateTime.Now;
+                            det_op.IdUsuarioCotizacion = info.IdUsuario;
+                        }
                     }
                     var persona = dbg.tb_persona.Where(q => q.IdPersona == info.IdPersona).FirstOrDefault();
                     if (persona != null)
-                        persona.pe_correo = info.pe_correo;
+                        persona.pe_correo_secundario1 = info.pe_correo;
                     db.SaveChanges();
                     dbg.SaveChanges();
                 }
@@ -128,7 +131,12 @@ namespace Core.Erp.Data.Compras
                             return false;
 
                         if (Cargo == "JC")
+                        {
                             Entity.EstadoJC = info.EstadoJC;
+                            Entity.IdUsuarioJC = info.IdUsuario;
+                            Entity.FechaJC = DateTime.Now;
+                            Entity.cp_Observacion = info.cp_Observacion;
+                        }
                         else
                             Entity.EstadoGA = info.EstadoGA;
 
@@ -455,7 +463,7 @@ namespace Core.Erp.Data.Compras
 
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lista = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == (Cargo == "JC" ? "P" : "A") && q.EstadoGA == (Cargo == "JC" ? q.EstadoGA : "P")).Select(q => new com_CotizacionPedido_Info
+                    Lista = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "P" && q.EstadoGA == "P").Select(q => new com_CotizacionPedido_Info
                     {
                         IdEmpresa = q.IdEmpresa,
                         IdCotizacion = q.IdCotizacion,
@@ -479,8 +487,40 @@ namespace Core.Erp.Data.Compras
                         nom_departamento = q.nom_departamento,
                         cp_PlazoEntrega = q.cp_PlazoEntrega,
                         Pasado = q.Pasado,
-                        opd_IdOrdenPedido = q.opd_IdOrdenPedido
+                        IdOrdenPedido = q.opd_IdOrdenPedido,
+                        Cargo = "JC"
                     }).ToList();
+
+                    if (Cargo == "HIS")
+                    {
+                        Lista.AddRange(db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC != "P").Select(q => new com_CotizacionPedido_Info
+                       {
+                           IdEmpresa = q.IdEmpresa,
+                           IdCotizacion = q.IdCotizacion,
+                           IdSucursal = q.IdSucursal,
+                           IdProveedor = q.IdProveedor,
+                           IdTerminoPago = q.IdTerminoPago,
+                           cp_Fecha = q.cp_Fecha,
+                           cp_Plazo = q.cp_Plazo,
+                           cp_Observacion = q.cp_Observacion,
+                           IdComprador = q.IdComprador,
+                           IdSolicitante = q.IdSolicitante,
+                           IdDepartamento = q.IdDepartamento,
+                           EstadoJC = q.EstadoJC,
+                           EstadoGA = q.EstadoGA,
+
+                           Su_Descripcion = q.Su_Descripcion,
+                           pe_nombreCompleto = q.pe_nombreCompleto,
+                           TerminoPago = q.TerminoPago,
+                           Comprador = q.Comprador,
+                           nom_solicitante = q.nom_solicitante,
+                           nom_departamento = q.nom_departamento,
+                           cp_PlazoEntrega = q.cp_PlazoEntrega,
+                           Pasado = q.Pasado,
+                           IdOrdenPedido = q.opd_IdOrdenPedido,
+                           Cargo = "HIS"
+                       }).ToList());   
+                    }
                 }
 
                 return Lista;
