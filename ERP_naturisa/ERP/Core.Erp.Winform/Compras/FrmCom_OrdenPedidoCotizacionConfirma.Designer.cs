@@ -53,8 +53,8 @@
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtFocus = new DevExpress.XtraEditors.TextEdit();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtFocus = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal)).BeginInit();
@@ -388,6 +388,16 @@
             this.gridColumn15.VisibleIndex = 10;
             this.gridColumn15.Width = 101;
             // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "# Pedido";
+            this.gridColumn16.FieldName = "IdOrdenPedido";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 0;
+            this.gridColumn16.Width = 64;
+            // 
             // txtFocus
             // 
             this.txtFocus.Location = new System.Drawing.Point(390, 1);
@@ -395,16 +405,6 @@
             this.txtFocus.Properties.ReadOnly = true;
             this.txtFocus.Size = new System.Drawing.Size(100, 22);
             this.txtFocus.TabIndex = 2;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "# Pedido";
-            this.gridColumn16.FieldName = "opd_IdOrdenPedido";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.OptionsColumn.AllowEdit = false;
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 0;
-            this.gridColumn16.Width = 64;
             // 
             // FrmCom_OrdenPedidoCotizacionConfirma
             // 

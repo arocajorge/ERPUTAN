@@ -13,7 +13,25 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
-                return new List<com_OrdenPedidoPlantillaDet_Info>();
+                List<com_OrdenPedidoPlantillaDet_Info> Lista;
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    Lista = db.com_OrdenPedidoPlantillaDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdPlantilla == IdPlantilla).Select(q => new com_OrdenPedidoPlantillaDet_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdPlantilla = q.IdPlantilla,
+                        Secuencia = q.Secuencia,
+                        IdProducto = q.IdProducto,
+                        pr_descripcion = q.pr_descripcion,
+                        IdUnidadMedida = q.IdUnidadMedida,
+                        IdSucursalOrigen = q.IdSucursalOrigen,
+                        IdSucursalDestino = q.IdSucursalDestino,
+                        IdPunto_cargo = q.IdPunto_cargo,
+                        opd_Cantidad = q.opd_Cantidad,
+                        opd_Detalle = q.opd_Detalle
+                    }).ToList();
+                }
+                return Lista;
             }
             catch (Exception)
             {

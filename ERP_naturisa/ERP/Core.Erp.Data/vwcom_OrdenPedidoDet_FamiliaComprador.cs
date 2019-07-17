@@ -19,5 +19,6 @@ namespace Core.Erp.Data
         public int Secuencia { get; set; }
         public string Familia { get; set; }
         public string Comprador { get; set; }
+        public string Producto { get; set; }
     }
 }

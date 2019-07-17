@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCom_OrdenPedidoMantenimiento));
             this.uc_menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBuscarPlantilla = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txt_ObservacionGA = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -94,7 +95,6 @@
             this.col_Estado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Comprador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnBuscarPlantilla = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ObservacionGA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_PuntoCargoCab.Properties)).BeginInit();
@@ -210,6 +210,16 @@
             this.panel1.Size = new System.Drawing.Size(1161, 194);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnBuscarPlantilla
+            // 
+            this.btnBuscarPlantilla.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarPlantilla.Image")));
+            this.btnBuscarPlantilla.Location = new System.Drawing.Point(872, 15);
+            this.btnBuscarPlantilla.Name = "btnBuscarPlantilla";
+            this.btnBuscarPlantilla.Size = new System.Drawing.Size(263, 41);
+            this.btnBuscarPlantilla.TabIndex = 23;
+            this.btnBuscarPlantilla.Text = "Buscar plantilla";
+            this.btnBuscarPlantilla.Click += new System.EventHandler(this.btnBuscarPlantilla_Click);
             // 
             // labelControl5
             // 
@@ -834,16 +844,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnBuscarPlantilla
-            // 
-            this.btnBuscarPlantilla.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarPlantilla.Image")));
-            this.btnBuscarPlantilla.Location = new System.Drawing.Point(872, 15);
-            this.btnBuscarPlantilla.Name = "btnBuscarPlantilla";
-            this.btnBuscarPlantilla.Size = new System.Drawing.Size(137, 41);
-            this.btnBuscarPlantilla.TabIndex = 23;
-            this.btnBuscarPlantilla.Text = "Buscar plantilla";
-            this.btnBuscarPlantilla.Click += new System.EventHandler(this.btnBuscarPlantilla_Click);
             // 
             // frmCom_OrdenPedidoMantenimiento
             // 

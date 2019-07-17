@@ -33,6 +33,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_consulta)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +54,8 @@
             this.gv_consulta.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn4});
             this.gv_consulta.GridControl = this.gc_consulta;
             this.gv_consulta.Name = "gv_consulta";
             this.gv_consulta.OptionsBehavior.ReadOnly = true;
@@ -68,7 +70,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 171;
+            this.gridColumn1.Width = 163;
             // 
             // gridColumn2
             // 
@@ -77,7 +79,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 781;
+            this.gridColumn2.Width = 517;
             // 
             // gridColumn3
             // 
@@ -85,8 +87,17 @@
             this.gridColumn3.FieldName = "Comprador";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 782;
+            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.Width = 454;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Producto";
+            this.gridColumn4.FieldName = "Producto";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 600;
             // 
             // FrmCom_OrdenPedidoCompradorFamilia
             // 
@@ -111,5 +122,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

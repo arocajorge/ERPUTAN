@@ -592,7 +592,6 @@ namespace Core.Erp.Winform.Compras
                         if (frm.info_plantilla != null)
                         {
                             txt_Observacion.Text = frm.info_plantilla.op_Observacion;
-                            cmb_Departamento.EditValue = frm.info_plantilla.IdDepartamento;
                             txt_codigo.Text = frm.info_plantilla.op_Codigo;
                             chk_EsCompraUrgente.Checked = frm.info_plantilla.EsCompraUrgente;
                             cmb_PuntoCargoCab.EditValue = frm.info_plantilla.IdPunto_cargo;

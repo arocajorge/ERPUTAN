@@ -248,7 +248,7 @@ namespace Core.Erp.Winform.Compras
                 if (proveedor == null)
                     return false;
                 var Pedido = blst.Where(q => q.opd_IdOrdenPedido == item.opd_IdOrdenPedido).FirstOrDefault();
-                string Observacion = Pedido == null ? Pedido.op_Observacion : string.Empty;
+                string Observacion = (Pedido != null ? Pedido.op_Observacion : string.Empty);
                 com_CotizacionPedido_Info cab = new com_CotizacionPedido_Info
                 {
                     IdEmpresa = param.IdEmpresa,
@@ -443,6 +443,9 @@ namespace Core.Erp.Winform.Compras
                     row.IdCod_Impuesto = infoP.IdCod_Impuesto_Iva;
                     row.Add = false;
                     row.Selec = false;
+
+                    bus_pedido_det.ActualizarProducto(row.opd_IdEmpresa, row.opd_IdOrdenPedido, row.opd_Secuencia, row.IdProducto ?? 0, row.IdUnidadMedida, row.pr_descripcion);
+
                     gc_detalle.RefreshDataSource();
                     btn_Buscar.Focus();
                 }
@@ -473,6 +476,9 @@ namespace Core.Erp.Winform.Compras
                     row.IdCod_Impuesto = infoP.IdCod_Impuesto_Iva;
                     row.Add = false;
                     row.Selec = false;
+
+                    bus_pedido_det.ActualizarProducto(row.opd_IdEmpresa, row.opd_IdOrdenPedido, row.opd_Secuencia, row.IdProducto ?? 0, row.IdUnidadMedida, row.pr_descripcion);
+
                     gc_detalle.RefreshDataSource();
                     btn_Buscar.Focus();
                 }

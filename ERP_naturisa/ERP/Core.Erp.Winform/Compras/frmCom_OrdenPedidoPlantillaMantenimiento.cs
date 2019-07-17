@@ -69,7 +69,6 @@ using Core.Erp.Info.Inventario;
         {
             try
             {
-                cmb_Departamento.Properties.DataSource = bus_departamento.Get_List_Departamento(param.IdEmpresa);
                 var lstSucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
                 cmb_SucursalDestino.DataSource = lstSucursal;
                 cmb_SucursalOrdigen.DataSource = lstSucursal;
@@ -110,17 +109,6 @@ using Core.Erp.Info.Inventario;
                         MessageBox.Show("No tiene un usuario solicitante configurado para el módulo de compras, comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     else
                     {
-                        if (solicitante.IdDepartamento != null)
-                        {
-                            cmb_Departamento.Visible = false;
-                            lblDepartamento.Visible = false;                            
-                        }
-                        else
-                        {
-                            cmb_Departamento.Visible = true;
-                            lblDepartamento.Visible = true;                    
-                        }
-                        cmb_Departamento.EditValue = solicitante.IdDepartamento;
                         param.IdSolicitante = solicitante.IdSolicitante;
                     }
                 
@@ -174,7 +162,6 @@ using Core.Erp.Info.Inventario;
                 {
                     txt_IdOrdenPedido.Text = info_pedido.IdPlantilla.ToString();
                     txt_Observacion.Text = info_pedido.op_Observacion;
-                    cmb_Departamento.EditValue = info_pedido.IdDepartamento;
                     txt_codigo.Text = info_pedido.op_Codigo;
                     chk_EsCompraUrgente.Checked = info_pedido.EsCompraUrgente;
                     cmb_PuntoCargoCab.EditValue = info_pedido.IdPunto_cargo;
@@ -192,11 +179,6 @@ using Core.Erp.Info.Inventario;
         {
             try
             {
-                if (cmb_Departamento.EditValue == null)
-                {
-                    MessageBox.Show("El campo departamento es obligatorio", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
 
                 return true;
             }
@@ -213,7 +195,6 @@ using Core.Erp.Info.Inventario;
                 info_pedido = new com_OrdenPedidoPlantilla_Info();
                 txt_IdOrdenPedido.Text = string.Empty;
                 txt_Observacion.Text = string.Empty;
-                cmb_Departamento.EditValue = null;
                 Accion = Cl_Enumeradores.eTipo_action.grabar;
                 txt_codigo.Text = string.Empty;
                 blst_det = new BindingList<com_OrdenPedidoPlantillaDet_Info>();
@@ -250,7 +231,6 @@ using Core.Erp.Info.Inventario;
                 {
                     IdEmpresa = param.IdEmpresa,
                     IdPlantilla = Accion == Cl_Enumeradores.eTipo_action.grabar ? 0 : Convert.ToDecimal(txt_IdOrdenPedido.Text),
-                    IdDepartamento = Convert.ToInt32(cmb_Departamento.EditValue),
                     IdUsuarioCreacion = param.IdUsuario,
                     op_Codigo = txt_codigo.Text,
                     op_Observacion = txt_Observacion.Text,

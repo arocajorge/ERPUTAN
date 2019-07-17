@@ -48,7 +48,7 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                     else
                         PbFirma.Visible = true;
 
-                    lblPedido.Text = Primero.IdOrdenPedido == null ? "" : ("SOLPED #" + Primero.IdOrdenPedido);
+                    lblPedido.Text = Primero.IdOrdenPedido == null ? "" : ("SOL #" + Primero.IdOrdenPedido);
                 }
                 this.DataSource = listDataRpt.ToArray();
             }

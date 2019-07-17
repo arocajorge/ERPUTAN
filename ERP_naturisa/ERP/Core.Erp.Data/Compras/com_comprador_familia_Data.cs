@@ -47,7 +47,8 @@ namespace Core.Erp.Data.Compras
                       IdEmpresa = q.IdEmpresa,
                       IdOrdenPedido = q.IdOrdenPedido,
                       Familia = q.Familia,
-                      Comprador = q.Comprador
+                      Comprador = q.Comprador,
+                      Producto = q.Producto
                     }).ToList();
 
                 }

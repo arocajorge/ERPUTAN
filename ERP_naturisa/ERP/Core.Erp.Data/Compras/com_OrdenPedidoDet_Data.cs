@@ -65,10 +65,9 @@ namespace Core.Erp.Data.Compras
 
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lista = db.vwcom_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdPlantilla).Select(q => new com_OrdenPedidoDet_Info
+                    Lista = db.com_OrdenPedidoPlantillaDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdPlantilla == IdPlantilla).Select(q => new com_OrdenPedidoDet_Info
                     {
                         IdEmpresa = q.IdEmpresa,
-                        IdOrdenPedido = q.IdOrdenPedido,
                         Secuencia = q.Secuencia,
                         IdProducto = q.IdProducto,
                         pr_descripcion = q.pr_descripcion,
@@ -77,15 +76,8 @@ namespace Core.Erp.Data.Compras
                         IdSucursalOrigen = q.IdSucursalOrigen,
                         IdPunto_cargo = q.IdPunto_cargo,
                         opd_Cantidad = q.opd_Cantidad,
-                        opd_CantidadApro = q.opd_CantidadApro,
-                        opd_EstadoProceso = q.opd_EstadoProceso,
                         opd_Detalle = q.opd_Detalle,
-                        IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo,
-                        Stock = q.Stock,
-                        Adjunto = q.Adjunto,
-                        EstadoDetalle = q.EstadoDetalle,
-                        NombreArchivo = q.NombreArchivo,
-                        NomComprador = q.NomComprador
+                        IdUnidadMedida_Consumo = q.IdUnidadMedida,
                     }).ToList();
                 }
                 in_Producto_data odata = new in_Producto_data();
@@ -222,6 +214,31 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public bool ActualizarProducto(int IdEmpresa, decimal IdOrdenPedido, int Secuencia, decimal IdProducto, string IdUnidadMedida, string pr_descripcion)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var Entity = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.Secuencia == Secuencia).FirstOrDefault();
+                    if (Entity == null)
+                        return false;
+
+                    Entity.IdProducto = IdProducto;
+                    Entity.pr_descripcion = pr_descripcion;
+                    Entity.IdUnidadMedida = IdUnidadMedida;
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

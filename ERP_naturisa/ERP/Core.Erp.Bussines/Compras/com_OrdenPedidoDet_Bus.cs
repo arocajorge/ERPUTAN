@@ -76,5 +76,18 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public bool ActualizarProducto(int IdEmpresa, decimal IdOrdenPedido, int Secuencia, decimal IdProducto, string IdUnidadMedida, string pr_descripcion)
+        {
+            try
+            {
+                return odata.ActualizarProducto(IdEmpresa,IdOrdenPedido,Secuencia,IdProducto,IdUnidadMedida,pr_descripcion);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

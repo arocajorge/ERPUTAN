@@ -111,15 +111,18 @@ namespace Core.Erp.Data
         public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
         public DbSet<vwcom_CotizacionPedidoDet> vwcom_CotizacionPedidoDet { get; set; }
         public DbSet<vwcom_CotizacionPedidoDetAprobacion> vwcom_CotizacionPedidoDetAprobacion { get; set; }
-        public DbSet<vwcom_OrdenPedidoDet_FamiliaComprador> vwcom_OrdenPedidoDet_FamiliaComprador { get; set; }
         public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
         public DbSet<com_CotizacionPedido> com_CotizacionPedido { get; set; }
         public DbSet<com_ordencompra_local_det> com_ordencompra_local_det { get; set; }
-        public DbSet<com_OrdenPedidoPlantilla> com_OrdenPedidoPlantilla { get; set; }
-        public DbSet<com_OrdenPedidoPlantillaDet> com_OrdenPedidoPlantillaDet { get; set; }
         public DbSet<vwcom_ordencompra_local_det> vwcom_ordencompra_local_det { get; set; }
         public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
         public DbSet<vwcom_OrdenPedidoPlantilla> vwcom_OrdenPedidoPlantilla { get; set; }
+        public DbSet<com_OrdenPedidoPlantilla> com_OrdenPedidoPlantilla { get; set; }
+        public DbSet<com_OrdenPedidoPlantillaDet> com_OrdenPedidoPlantillaDet { get; set; }
+        public DbSet<vwcom_OrdenPedidoDet_FamiliaComprador> vwcom_OrdenPedidoDet_FamiliaComprador { get; set; }
+        public DbSet<com_ConvenioPreciosPorProducto> com_ConvenioPreciosPorProducto { get; set; }
+        public DbSet<vwcom_OrdenPedidoDetConvenioPrecios> vwcom_OrdenPedidoDetConvenioPrecios { get; set; }
+        public DbSet<vwcom_ConvenioPreciosPorProducto> vwcom_ConvenioPreciosPorProducto { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

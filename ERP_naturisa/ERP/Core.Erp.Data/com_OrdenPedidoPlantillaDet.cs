@@ -24,8 +24,6 @@ namespace Core.Erp.Data
         public int IdSucursalDestino { get; set; }
         public Nullable<int> IdPunto_cargo { get; set; }
         public double opd_Cantidad { get; set; }
-        public double opd_CantidadApro { get; set; }
-        public string opd_EstadoProceso { get; set; }
         public string opd_Detalle { get; set; }
     
         public virtual com_OrdenPedidoPlantilla com_OrdenPedidoPlantilla { get; set; }

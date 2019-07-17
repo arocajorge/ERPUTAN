@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionConsulta));
             this.gc_consulta = new DevExpress.XtraGrid.GridControl();
             this.gv_consulta = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -39,7 +40,7 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_imagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_consulta)).BeginInit();
@@ -166,7 +167,7 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "# Pedido";
-            this.gridColumn8.FieldName = "opd_IdOrdenPedido";
+            this.gridColumn8.FieldName = "IdOrdenPedido";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;

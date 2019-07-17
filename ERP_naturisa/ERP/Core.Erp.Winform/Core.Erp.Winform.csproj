@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>116</ApplicationRevision>
+    <ApplicationRevision>120</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -298,6 +298,18 @@
     </Compile>
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.Designer.cs">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_ConvenioPreciosConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_ConvenioPreciosConsulta.Designer.cs">
+      <DependentUpon>FrmCom_ConvenioPreciosConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_ConvenioPreciosMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_ConvenioPreciosMantenimiento.Designer.cs">
+      <DependentUpon>FrmCom_ConvenioPreciosMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmCom_OrdenPedidoPlantillaAsignar.cs">
       <SubType>Form</SubType>
@@ -6396,6 +6408,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_ConvenioPreciosConsulta.resx">
+      <DependentUpon>FrmCom_ConvenioPreciosConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_ConvenioPreciosMantenimiento.resx">
+      <DependentUpon>FrmCom_ConvenioPreciosMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmCom_OrdenPedidoPlantillaAsignar.resx">
       <DependentUpon>frmCom_OrdenPedidoPlantillaAsignar.cs</DependentUpon>

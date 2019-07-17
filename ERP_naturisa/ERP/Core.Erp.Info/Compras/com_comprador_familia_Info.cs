@@ -18,5 +18,7 @@ namespace Core.Erp.Info.Compras
         public string Familia { get; set; }
         public string Comprador { get; set; }
         #endregion
+
+        public string Producto { get; set; }
     }
 }

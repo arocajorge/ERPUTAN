@@ -123,7 +123,18 @@ namespace Core.Erp.Data.Compras
                         op_Fecha = q.op_Fecha,
                         NombreArchivo = q.NombreArchivo,
                         opd_EstadoProceso = q.opd_EstadoProceso,
-                        FechaCantidad = q.FechaCantidad
+                        FechaCantidad = q.FechaCantidad,
+
+                        IdProveedor = q.IdProveedor,
+                        cd_precioCompra = q.cd_precioCompra ?? 0,
+                        cd_porc_des = q.cd_porc_des ?? 0,
+                        cd_descuento = q.cd_descuento ?? 0,
+                        cd_precioFinal = q.cd_precioFinal ?? 0,
+                        cd_subtotal = q.cd_subtotal ?? 0,
+                        Por_Iva = q.Por_Iva ?? 0,
+                        cd_iva = q.cd_iva ?? 0,
+                        cd_total = q.cd_total ?? 0,
+                        cd_DetallePorItem = q.cd_DetallePorItem
                     }).ToList();
                     else
                         Lista = db.vwcom_OrdenPedidoDet_Cotizacion.Where(q => q.IdEmpresa == IdEmpresa && q.opd_EstadoProceso == "A" && (q.IdUsuario_com ?? IdUsuario_com) == IdUsuario_com && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_CotizacionPedidoDet_Info

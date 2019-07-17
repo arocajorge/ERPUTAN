@@ -10,6 +10,7 @@
           <EntitySet Name="com_catalogo_tipo" EntityType="DBERPModelCompras.Store.com_catalogo_tipo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_comprador" EntityType="DBERPModelCompras.Store.com_comprador" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_comprador_familia" EntityType="DBERPModelCompras.Store.com_comprador_familia" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="com_ConvenioPreciosPorProducto" EntityType="DBERPModelCompras.Store.com_ConvenioPreciosPorProducto" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_cotizacion_compra" EntityType="DBERPModelCompras.Store.com_cotizacion_compra" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_cotizacion_compra_det" EntityType="DBERPModelCompras.Store.com_cotizacion_compra_det" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="com_CotizacionPedido" EntityType="DBERPModelCompras.Store.com_CotizacionPedido" store:Type="Tables" Schema="dbo" />
@@ -86,6 +87,31 @@
       [vwcom_Catalogo_IdAuto_numeric].[IdCatalogocompra] AS [IdCatalogocompra], 
       [vwcom_Catalogo_IdAuto_numeric].[observacion] AS [observacion]
       FROM [dbo].[vwcom_Catalogo_IdAuto_numeric] AS [vwcom_Catalogo_IdAuto_numeric]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_ConvenioPreciosPorProducto" EntityType="DBERPModelCompras.Store.vwcom_ConvenioPreciosPorProducto" store:Type="Views" store:Schema="dbo" store:Name="vwcom_ConvenioPreciosPorProducto">
+            <DefiningQuery>SELECT 
+      [vwcom_ConvenioPreciosPorProducto].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_ConvenioPreciosPorProducto].[IdProducto] AS [IdProducto], 
+      [vwcom_ConvenioPreciosPorProducto].[IdProveedor] AS [IdProveedor], 
+      [vwcom_ConvenioPreciosPorProducto].[IdComprador] AS [IdComprador], 
+      [vwcom_ConvenioPreciosPorProducto].[IdTerminoPago] AS [IdTerminoPago], 
+      [vwcom_ConvenioPreciosPorProducto].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwcom_ConvenioPreciosPorProducto].[PrecioUnitario] AS [PrecioUnitario], 
+      [vwcom_ConvenioPreciosPorProducto].[PorDescuento] AS [PorDescuento], 
+      [vwcom_ConvenioPreciosPorProducto].[Descuento] AS [Descuento], 
+      [vwcom_ConvenioPreciosPorProducto].[PrecioFinal] AS [PrecioFinal], 
+      [vwcom_ConvenioPreciosPorProducto].[TiempoEntrega] AS [TiempoEntrega], 
+      [vwcom_ConvenioPreciosPorProducto].[FechaFin] AS [FechaFin], 
+      [vwcom_ConvenioPreciosPorProducto].[SaltaPaso2] AS [SaltaPaso2], 
+      [vwcom_ConvenioPreciosPorProducto].[SaltaPaso3] AS [SaltaPaso3], 
+      [vwcom_ConvenioPreciosPorProducto].[SaltoPaso4] AS [SaltoPaso4], 
+      [vwcom_ConvenioPreciosPorProducto].[Producto] AS [Producto], 
+      [vwcom_ConvenioPreciosPorProducto].[Comprador] AS [Comprador], 
+      [vwcom_ConvenioPreciosPorProducto].[UnidadMedida] AS [UnidadMedida], 
+      [vwcom_ConvenioPreciosPorProducto].[TerminoPago] AS [TerminoPago], 
+      [vwcom_ConvenioPreciosPorProducto].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwcom_ConvenioPreciosPorProducto].[SaltoPaso5] AS [SaltoPaso5]
+      FROM [dbo].[vwcom_ConvenioPreciosPorProducto] AS [vwcom_ConvenioPreciosPorProducto]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwcom_cotizacion_compra" EntityType="DBERPModelCompras.Store.vwcom_cotizacion_compra" store:Type="Views" store:Schema="dbo" store:Name="vwcom_cotizacion_compra">
             <DefiningQuery>SELECT 
@@ -1092,8 +1118,43 @@
       [vwcom_OrdenPedidoDet_FamiliaComprador].[IdOrdenPedido] AS [IdOrdenPedido], 
       [vwcom_OrdenPedidoDet_FamiliaComprador].[Secuencia] AS [Secuencia], 
       [vwcom_OrdenPedidoDet_FamiliaComprador].[Familia] AS [Familia], 
-      [vwcom_OrdenPedidoDet_FamiliaComprador].[Comprador] AS [Comprador]
+      [vwcom_OrdenPedidoDet_FamiliaComprador].[Comprador] AS [Comprador], 
+      [vwcom_OrdenPedidoDet_FamiliaComprador].[Producto] AS [Producto]
       FROM [dbo].[vwcom_OrdenPedidoDet_FamiliaComprador] AS [vwcom_OrdenPedidoDet_FamiliaComprador]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcom_OrdenPedidoDetConvenioPrecios" EntityType="DBERPModelCompras.Store.vwcom_OrdenPedidoDetConvenioPrecios" store:Type="Views" store:Schema="dbo" store:Name="vwcom_OrdenPedidoDetConvenioPrecios">
+            <DefiningQuery>SELECT 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdEmpresa] AS [IdEmpresa], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdOrdenPedido] AS [IdOrdenPedido], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[Secuencia] AS [Secuencia], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdProducto] AS [IdProducto], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[pr_descripcion] AS [pr_descripcion], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdSucursalOrigen] AS [IdSucursalOrigen], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdSucursalDestino] AS [IdSucursalDestino], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[opd_Cantidad] AS [opd_Cantidad], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[opd_CantidadApro] AS [opd_CantidadApro], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[opd_EstadoProceso] AS [opd_EstadoProceso], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[opd_Detalle] AS [opd_Detalle], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdDepartamento] AS [IdDepartamento], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[op_Observacion] AS [op_Observacion], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdProveedor] AS [IdProveedor], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdComprador] AS [IdComprador], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[IdTerminoPago] AS [IdTerminoPago], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[Expr1] AS [Expr1], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[PrecioUnitario] AS [PrecioUnitario], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[PorDescuento] AS [PorDescuento], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[Descuento] AS [Descuento], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[PrecioFinal] AS [PrecioFinal], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[TiempoEntrega] AS [TiempoEntrega], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[FechaFin] AS [FechaFin], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[SaltaPaso2] AS [SaltaPaso2], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[SaltaPaso3] AS [SaltaPaso3], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[SaltoPaso4] AS [SaltoPaso4], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[Dias] AS [Dias], 
+      [vwcom_OrdenPedidoDetConvenioPrecios].[SaltoPaso5] AS [SaltoPaso5]
+      FROM [dbo].[vwcom_OrdenPedidoDetConvenioPrecios] AS [vwcom_OrdenPedidoDetConvenioPrecios]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwcom_OrdenPedidoPlantilla" EntityType="DBERPModelCompras.Store.vwcom_OrdenPedidoPlantilla" store:Type="Views" store:Schema="dbo" store:Name="vwcom_OrdenPedidoPlantilla">
             <DefiningQuery>SELECT 
@@ -1292,6 +1353,14 @@
           <AssociationSet Name="FK_com_comprador_familia_com_comprador" Association="DBERPModelCompras.Store.FK_com_comprador_familia_com_comprador">
             <End Role="com_comprador" EntitySet="com_comprador" />
             <End Role="com_comprador_familia" EntitySet="com_comprador_familia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_ConvenioPreciosPorProducto_com_comprador" Association="DBERPModelCompras.Store.FK_com_ConvenioPreciosPorProducto_com_comprador">
+            <End Role="com_comprador" EntitySet="com_comprador" />
+            <End Role="com_ConvenioPreciosPorProducto" EntitySet="com_ConvenioPreciosPorProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_ConvenioPreciosPorProducto_com_TerminoPago" Association="DBERPModelCompras.Store.FK_com_ConvenioPreciosPorProducto_com_TerminoPago">
+            <End Role="com_TerminoPago" EntitySet="com_TerminoPago" />
+            <End Role="com_ConvenioPreciosPorProducto" EntitySet="com_ConvenioPreciosPorProducto" />
           </AssociationSet>
           <AssociationSet Name="FK_com_cotizacion_compra_det_com_cotizacion_compra" Association="DBERPModelCompras.Store.FK_com_cotizacion_compra_det_com_cotizacion_compra">
             <End Role="com_cotizacion_compra" EntitySet="com_cotizacion_compra" />
@@ -1540,6 +1609,28 @@
           <Property Name="IdComprador" Type="numeric" Nullable="false" />
           <Property Name="Secuencia" Type="int" Nullable="false" />
           <Property Name="IdFamilia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="com_ConvenioPreciosPorProducto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="IdComprador" Type="numeric" Nullable="false" />
+          <Property Name="IdTerminoPago" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="PrecioUnitario" Type="float" Nullable="false" />
+          <Property Name="PorDescuento" Type="float" Nullable="false" />
+          <Property Name="Descuento" Type="float" Nullable="false" />
+          <Property Name="PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="TiempoEntrega" Type="int" Nullable="false" />
+          <Property Name="FechaFin" Type="date" Nullable="false" />
+          <Property Name="SaltaPaso2" Type="bit" Nullable="false" />
+          <Property Name="SaltaPaso3" Type="bit" Nullable="false" />
+          <Property Name="SaltoPaso4" Type="bit" Nullable="false" />
+          <Property Name="SaltoPaso5" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="com_cotizacion_compra">
           <Key>
@@ -2071,8 +2162,6 @@
           <Property Name="IdSucursalDestino" Type="int" Nullable="false" />
           <Property Name="IdPunto_cargo" Type="int" />
           <Property Name="opd_Cantidad" Type="float" Nullable="false" />
-          <Property Name="opd_CantidadApro" Type="float" Nullable="false" />
-          <Property Name="opd_EstadoProceso" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="opd_Detalle" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="com_parametro">
@@ -2330,6 +2419,55 @@
           </Key>
           <Property Name="IdCatalogocompra" Type="varchar" MaxLength="4" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ConvenioPreciosPorProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcom_ConvenioPreciosPorProducto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdComprador" />
+            <PropertyRef Name="IdTerminoPago" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="PorDescuento" />
+            <PropertyRef Name="Descuento" />
+            <PropertyRef Name="PrecioFinal" />
+            <PropertyRef Name="TiempoEntrega" />
+            <PropertyRef Name="FechaFin" />
+            <PropertyRef Name="SaltaPaso2" />
+            <PropertyRef Name="SaltaPaso3" />
+            <PropertyRef Name="SaltoPaso4" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="Comprador" />
+            <PropertyRef Name="UnidadMedida" />
+            <PropertyRef Name="TerminoPago" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="SaltoPaso5" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="IdComprador" Type="numeric" Nullable="false" />
+          <Property Name="IdTerminoPago" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="PrecioUnitario" Type="float" Nullable="false" />
+          <Property Name="PorDescuento" Type="float" Nullable="false" />
+          <Property Name="Descuento" Type="float" Nullable="false" />
+          <Property Name="PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="TiempoEntrega" Type="int" Nullable="false" />
+          <Property Name="FechaFin" Type="date" Nullable="false" />
+          <Property Name="SaltaPaso2" Type="bit" Nullable="false" />
+          <Property Name="SaltaPaso3" Type="bit" Nullable="false" />
+          <Property Name="SaltoPaso4" Type="bit" Nullable="false" />
+          <Property Name="Producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Comprador" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="UnidadMedida" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="TerminoPago" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="SaltoPaso5" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_cotizacion_compra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -3930,12 +4068,75 @@
             <PropertyRef Name="Secuencia" />
             <PropertyRef Name="Familia" />
             <PropertyRef Name="Comprador" />
+            <PropertyRef Name="Producto" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
           <Property Name="Secuencia" Type="int" Nullable="false" />
           <Property Name="Familia" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="Comprador" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDetConvenioPrecios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcom_OrdenPedidoDetConvenioPrecios">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdSucursalDestino" />
+            <PropertyRef Name="opd_Cantidad" />
+            <PropertyRef Name="opd_CantidadApro" />
+            <PropertyRef Name="opd_EstadoProceso" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdComprador" />
+            <PropertyRef Name="IdTerminoPago" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="PorDescuento" />
+            <PropertyRef Name="Descuento" />
+            <PropertyRef Name="PrecioFinal" />
+            <PropertyRef Name="TiempoEntrega" />
+            <PropertyRef Name="FechaFin" />
+            <PropertyRef Name="SaltaPaso2" />
+            <PropertyRef Name="SaltaPaso3" />
+            <PropertyRef Name="SaltoPaso4" />
+            <PropertyRef Name="Dias" />
+            <PropertyRef Name="SaltoPaso5" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" />
+          <Property Name="pr_descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="IdUnidadMedida" Type="varchar" MaxLength="25" />
+          <Property Name="IdSucursalOrigen" Type="int" Nullable="false" />
+          <Property Name="IdSucursalDestino" Type="int" Nullable="false" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="opd_Cantidad" Type="float" Nullable="false" />
+          <Property Name="opd_CantidadApro" Type="float" Nullable="false" />
+          <Property Name="opd_EstadoProceso" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="opd_Detalle" Type="varchar(max)" />
+          <Property Name="IdDepartamento" Type="numeric" Nullable="false" />
+          <Property Name="op_Observacion" Type="varchar(max)" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="IdComprador" Type="numeric" Nullable="false" />
+          <Property Name="IdTerminoPago" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Expr1" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="PrecioUnitario" Type="float" Nullable="false" />
+          <Property Name="PorDescuento" Type="float" Nullable="false" />
+          <Property Name="Descuento" Type="float" Nullable="false" />
+          <Property Name="PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="TiempoEntrega" Type="int" Nullable="false" />
+          <Property Name="FechaFin" Type="date" Nullable="false" />
+          <Property Name="SaltaPaso2" Type="bit" Nullable="false" />
+          <Property Name="SaltaPaso3" Type="bit" Nullable="false" />
+          <Property Name="SaltoPaso4" Type="bit" Nullable="false" />
+          <Property Name="Dias" Type="int" Nullable="false" />
+          <Property Name="SaltoPaso5" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoPlantilla' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -4244,6 +4445,32 @@
             <Dependent Role="com_comprador_familia">
               <PropertyRef Name="IdEmpresa" />
               <PropertyRef Name="IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_ConvenioPreciosPorProducto_com_comprador">
+          <End Role="com_comprador" Type="DBERPModelCompras.Store.com_comprador" Multiplicity="1" />
+          <End Role="com_ConvenioPreciosPorProducto" Type="DBERPModelCompras.Store.com_ConvenioPreciosPorProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_comprador">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="com_ConvenioPreciosPorProducto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_ConvenioPreciosPorProducto_com_TerminoPago">
+          <End Role="com_TerminoPago" Type="DBERPModelCompras.Store.com_TerminoPago" Multiplicity="1" />
+          <End Role="com_ConvenioPreciosPorProducto" Type="DBERPModelCompras.Store.com_ConvenioPreciosPorProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_TerminoPago">
+              <PropertyRef Name="IdTerminoPago" />
+            </Principal>
+            <Dependent Role="com_ConvenioPreciosPorProducto">
+              <PropertyRef Name="IdTerminoPago" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5172,12 +5399,9 @@
           </AssociationSet>
           <EntitySet Name="vwcom_CotizacionPedidoDet" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDet" />
           <EntitySet Name="vwcom_CotizacionPedidoDetAprobacion" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDetAprobacion" />
-          <EntitySet Name="vwcom_OrdenPedidoDet_FamiliaComprador" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_FamiliaComprador" />
           <EntitySet Name="vwcom_OrdenPedidoDet_Cotizacion" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion" />
           <EntitySet Name="com_CotizacionPedido" EntityType="DBERPModelCompras.com_CotizacionPedido" />
           <EntitySet Name="com_ordencompra_local_det" EntityType="DBERPModelCompras.com_ordencompra_local_det" />
-          <EntitySet Name="com_OrdenPedidoPlantilla" EntityType="DBERPModelCompras.com_OrdenPedidoPlantilla" />
-          <EntitySet Name="com_OrdenPedidoPlantillaDet" EntityType="DBERPModelCompras.com_OrdenPedidoPlantillaDet" />
           <EntitySet Name="vwcom_ordencompra_local_det" EntityType="DBERPModelCompras.vwcom_ordencompra_local_det" />
           <EntitySet Name="vwcom_OrdenPedido" EntityType="DBERPModelCompras.vwcom_OrdenPedido" />
           <EntitySet Name="vwcom_OrdenPedidoPlantilla" EntityType="DBERPModelCompras.vwcom_OrdenPedidoPlantilla" />
@@ -5209,10 +5433,24 @@
             <End Role="com_ordencompra_local_det" EntitySet="com_ordencompra_local_det" />
             <End Role="com_ordencompra_local_det_x_com_solicitud_compra_det" EntitySet="com_ordencompra_local_det_x_com_solicitud_compra_det" />
           </AssociationSet>
+          <EntitySet Name="com_OrdenPedidoPlantilla" EntityType="DBERPModelCompras.com_OrdenPedidoPlantilla" />
+          <EntitySet Name="com_OrdenPedidoPlantillaDet" EntityType="DBERPModelCompras.com_OrdenPedidoPlantillaDet" />
           <AssociationSet Name="FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido" Association="DBERPModelCompras.FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido">
             <End Role="com_OrdenPedidoPlantilla" EntitySet="com_OrdenPedidoPlantilla" />
             <End Role="com_OrdenPedidoPlantillaDet" EntitySet="com_OrdenPedidoPlantillaDet" />
           </AssociationSet>
+          <EntitySet Name="vwcom_OrdenPedidoDet_FamiliaComprador" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_FamiliaComprador" />
+          <EntitySet Name="com_ConvenioPreciosPorProducto" EntityType="DBERPModelCompras.com_ConvenioPreciosPorProducto" />
+          <AssociationSet Name="FK_com_ConvenioPreciosPorProducto_com_comprador" Association="DBERPModelCompras.FK_com_ConvenioPreciosPorProducto_com_comprador">
+            <End Role="com_comprador" EntitySet="com_comprador" />
+            <End Role="com_ConvenioPreciosPorProducto" EntitySet="com_ConvenioPreciosPorProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_com_ConvenioPreciosPorProducto_com_TerminoPago" Association="DBERPModelCompras.FK_com_ConvenioPreciosPorProducto_com_TerminoPago">
+            <End Role="com_TerminoPago" EntitySet="com_TerminoPago" />
+            <End Role="com_ConvenioPreciosPorProducto" EntitySet="com_ConvenioPreciosPorProducto" />
+          </AssociationSet>
+          <EntitySet Name="vwcom_OrdenPedidoDetConvenioPrecios" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDetConvenioPrecios" />
+          <EntitySet Name="vwcom_ConvenioPreciosPorProducto" EntityType="DBERPModelCompras.vwcom_ConvenioPreciosPorProducto" />
           </EntityContainer>
         <EntityType Name="com_catalogo">
           <Key>
@@ -7191,6 +7429,7 @@
           <Property Type="String" Name="MotiAnula" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_TerminoPago" FromRole="com_TerminoPago" ToRole="com_ordencompra_local" />
           <NavigationProperty Name="com_CotizacionPedido" Relationship="DBERPModelCompras.FK_com_CotizacionPedido_com_TerminoPago" FromRole="com_TerminoPago" ToRole="com_CotizacionPedido" />
+          <NavigationProperty Name="com_ConvenioPreciosPorProducto" Relationship="DBERPModelCompras.FK_com_ConvenioPreciosPorProducto_com_TerminoPago" FromRole="com_TerminoPago" ToRole="com_ConvenioPreciosPorProducto" />
         </EntityType>
         <Association Name="FK_com_ordencompra_local_com_TerminoPago">
           <End Type="DBERPModelCompras.com_TerminoPago" Role="com_TerminoPago" Multiplicity="1" />
@@ -7780,6 +8019,7 @@
           <NavigationProperty Name="com_comprador_familia" Relationship="DBERPModelCompras.FK_com_comprador_familia_com_comprador" FromRole="com_comprador" ToRole="com_comprador_familia" />
           <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_com_comprador" FromRole="com_comprador" ToRole="com_ordencompra_local" />
           <NavigationProperty Name="com_solicitud_compra" Relationship="DBERPModelCompras.FK_com_solicitud_compra_com_comprador" FromRole="com_comprador" ToRole="com_solicitud_compra" />
+          <NavigationProperty Name="com_ConvenioPreciosPorProducto" Relationship="DBERPModelCompras.FK_com_ConvenioPreciosPorProducto_com_comprador" FromRole="com_comprador" ToRole="com_ConvenioPreciosPorProducto" />
         </EntityType>
         <Association Name="FK_com_comprador_familia_com_comprador">
           <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
@@ -8198,20 +8438,6 @@
           <Property Type="Int32" Name="SecuenciaCot" />
           <Property Type="String" Name="cd_DetallePorItem" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="vwcom_OrdenPedidoDet_FamiliaComprador">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdOrdenPedido" />
-            <PropertyRef Name="Secuencia" />
-            <PropertyRef Name="Familia" />
-            <PropertyRef Name="Comprador" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="String" Name="Familia" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="vwcom_OrdenPedidoDet_Cotizacion">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -8331,48 +8557,6 @@
           <NavigationProperty Name="com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider" Relationship="DBERPModelCompras.FK_com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_com_ordencompra_local_det" FromRole="com_ordencompra_local_det" ToRole="com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider" />
           <NavigationProperty Name="com_ordencompra_local" Relationship="DBERPModelCompras.FK_com_ordencompra_local_det_com_ordencompra_local" FromRole="com_ordencompra_local_det" ToRole="com_ordencompra_local" />
           <NavigationProperty Name="com_ordencompra_local_det_x_com_solicitud_compra_det" Relationship="DBERPModelCompras.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_ordencompra_local_det" FromRole="com_ordencompra_local_det" ToRole="com_ordencompra_local_det_x_com_solicitud_compra_det" />
-        </EntityType>
-        <EntityType Name="com_OrdenPedidoPlantilla">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdPlantilla" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdPlantilla" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="op_Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="op_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Estado" Nullable="false" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="String" Name="IdUsuarioCreacion" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaCreacion" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltModi" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaUltModi" Precision="3" />
-          <Property Type="String" Name="IdUsuarioAnu" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaUltAnu" Precision="3" />
-          <Property Type="String" Name="MotivoAnu" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="EsCompraUrgente" />
-          <NavigationProperty Name="com_OrdenPedidoPlantillaDet" Relationship="DBERPModelCompras.FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido" FromRole="com_OrdenPedidoPlantilla" ToRole="com_OrdenPedidoPlantillaDet" />
-        </EntityType>
-        <EntityType Name="com_OrdenPedidoPlantillaDet">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdPlantilla" />
-            <PropertyRef Name="Secuencia" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdPlantilla" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
-          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
-          <Property Type="String" Name="opd_EstadoProceso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="com_OrdenPedidoPlantilla" Relationship="DBERPModelCompras.FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido" FromRole="com_OrdenPedidoPlantillaDet" ToRole="com_OrdenPedidoPlantilla" />
         </EntityType>
         <EntityType Name="vwcom_ordencompra_local_det">
           <Key>
@@ -8594,6 +8778,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="com_OrdenPedidoPlantilla">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPlantilla" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPlantilla" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="op_Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="op_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="IdUsuarioCreacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaCreacion" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltModi" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaUltModi" Precision="3" />
+          <Property Type="String" Name="IdUsuarioAnu" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaUltAnu" Precision="3" />
+          <Property Type="String" Name="MotivoAnu" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EsCompraUrgente" />
+          <NavigationProperty Name="com_OrdenPedidoPlantillaDet" Relationship="DBERPModelCompras.FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido" FromRole="com_OrdenPedidoPlantilla" ToRole="com_OrdenPedidoPlantillaDet" />
+        </EntityType>
+        <EntityType Name="com_OrdenPedidoPlantillaDet">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPlantilla" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPlantilla" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
+          <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="com_OrdenPedidoPlantilla" Relationship="DBERPModelCompras.FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido" FromRole="com_OrdenPedidoPlantillaDet" ToRole="com_OrdenPedidoPlantilla" />
+        </EntityType>
         <Association Name="FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido">
           <End Type="DBERPModelCompras.com_OrdenPedidoPlantilla" Role="com_OrdenPedidoPlantilla" Multiplicity="1" />
           <End Type="DBERPModelCompras.com_OrdenPedidoPlantillaDet" Role="com_OrdenPedidoPlantillaDet" Multiplicity="*" />
@@ -8608,6 +8832,176 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vwcom_OrdenPedidoDet_FamiliaComprador">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="Familia" />
+            <PropertyRef Name="Comprador" />
+            <PropertyRef Name="Producto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="Familia" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="com_ConvenioPreciosPorProducto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PrecioUnitario" Nullable="false" />
+          <Property Type="Double" Name="PorDescuento" Nullable="false" />
+          <Property Type="Double" Name="Descuento" Nullable="false" />
+          <Property Type="Double" Name="PrecioFinal" Nullable="false" />
+          <Property Type="Int32" Name="TiempoEntrega" Nullable="false" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="false" Precision="0" />
+          <Property Type="Boolean" Name="SaltaPaso2" Nullable="false" />
+          <Property Type="Boolean" Name="SaltaPaso3" Nullable="false" />
+          <Property Type="Boolean" Name="SaltoPaso4" Nullable="false" />
+          <Property Type="Boolean" Name="SaltoPaso5" Nullable="false" />
+          <NavigationProperty Name="com_comprador" Relationship="DBERPModelCompras.FK_com_ConvenioPreciosPorProducto_com_comprador" FromRole="com_ConvenioPreciosPorProducto" ToRole="com_comprador" />
+          <NavigationProperty Name="com_TerminoPago" Relationship="DBERPModelCompras.FK_com_ConvenioPreciosPorProducto_com_TerminoPago" FromRole="com_ConvenioPreciosPorProducto" ToRole="com_TerminoPago" />
+        </EntityType>
+        <Association Name="FK_com_ConvenioPreciosPorProducto_com_comprador">
+          <End Type="DBERPModelCompras.com_comprador" Role="com_comprador" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_ConvenioPreciosPorProducto" Role="com_ConvenioPreciosPorProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_comprador">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="com_ConvenioPreciosPorProducto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_com_ConvenioPreciosPorProducto_com_TerminoPago">
+          <End Type="DBERPModelCompras.com_TerminoPago" Role="com_TerminoPago" Multiplicity="1" />
+          <End Type="DBERPModelCompras.com_ConvenioPreciosPorProducto" Role="com_ConvenioPreciosPorProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="com_TerminoPago">
+              <PropertyRef Name="IdTerminoPago" />
+            </Principal>
+            <Dependent Role="com_ConvenioPreciosPorProducto">
+              <PropertyRef Name="IdTerminoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwcom_OrdenPedidoDetConvenioPrecios">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdSucursalDestino" />
+            <PropertyRef Name="opd_Cantidad" />
+            <PropertyRef Name="opd_CantidadApro" />
+            <PropertyRef Name="opd_EstadoProceso" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdComprador" />
+            <PropertyRef Name="IdTerminoPago" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="PorDescuento" />
+            <PropertyRef Name="Descuento" />
+            <PropertyRef Name="PrecioFinal" />
+            <PropertyRef Name="TiempoEntrega" />
+            <PropertyRef Name="FechaFin" />
+            <PropertyRef Name="SaltaPaso2" />
+            <PropertyRef Name="SaltaPaso3" />
+            <PropertyRef Name="SaltoPaso4" />
+            <PropertyRef Name="Dias" />
+            <PropertyRef Name="SaltoPaso5" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
+          <Property Type="String" Name="opd_EstadoProceso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="op_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Expr1" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PrecioUnitario" Nullable="false" />
+          <Property Type="Double" Name="PorDescuento" Nullable="false" />
+          <Property Type="Double" Name="Descuento" Nullable="false" />
+          <Property Type="Double" Name="PrecioFinal" Nullable="false" />
+          <Property Type="Int32" Name="TiempoEntrega" Nullable="false" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="false" Precision="0" />
+          <Property Type="Boolean" Name="SaltaPaso2" Nullable="false" />
+          <Property Type="Boolean" Name="SaltaPaso3" Nullable="false" />
+          <Property Type="Boolean" Name="SaltoPaso4" Nullable="false" />
+          <Property Type="Int32" Name="Dias" Nullable="false" />
+          <Property Type="Boolean" Name="SaltoPaso5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwcom_ConvenioPreciosPorProducto">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdComprador" />
+            <PropertyRef Name="IdTerminoPago" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="PrecioUnitario" />
+            <PropertyRef Name="PorDescuento" />
+            <PropertyRef Name="Descuento" />
+            <PropertyRef Name="PrecioFinal" />
+            <PropertyRef Name="TiempoEntrega" />
+            <PropertyRef Name="FechaFin" />
+            <PropertyRef Name="SaltaPaso2" />
+            <PropertyRef Name="SaltaPaso3" />
+            <PropertyRef Name="SaltoPaso4" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="Comprador" />
+            <PropertyRef Name="UnidadMedida" />
+            <PropertyRef Name="TerminoPago" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="SaltoPaso5" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTerminoPago" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PrecioUnitario" Nullable="false" />
+          <Property Type="Double" Name="PorDescuento" Nullable="false" />
+          <Property Type="Double" Name="Descuento" Nullable="false" />
+          <Property Type="Double" Name="PrecioFinal" Nullable="false" />
+          <Property Type="Int32" Name="TiempoEntrega" Nullable="false" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="false" Precision="0" />
+          <Property Type="Boolean" Name="SaltaPaso2" Nullable="false" />
+          <Property Type="Boolean" Name="SaltaPaso3" Nullable="false" />
+          <Property Type="Boolean" Name="SaltoPaso4" Nullable="false" />
+          <Property Type="String" Name="Producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UnidadMedida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TerminoPago" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="SaltoPaso5" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10501,17 +10895,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwcom_OrdenPedidoDet_FamiliaComprador">
-            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_FamiliaComprador">
-              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_FamiliaComprador">
-                <ScalarProperty Name="Comprador" ColumnName="Comprador" />
-                <ScalarProperty Name="Familia" ColumnName="Familia" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
-                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcom_OrdenPedidoDet_Cotizacion">
             <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion">
               <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_Cotizacion">
@@ -10611,45 +10994,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="com_OrdenPedidoPlantilla">
-            <EntityTypeMapping TypeName="DBERPModelCompras.com_OrdenPedidoPlantilla">
-              <MappingFragment StoreEntitySet="com_OrdenPedidoPlantilla">
-                <ScalarProperty Name="EsCompraUrgente" ColumnName="EsCompraUrgente" />
-                <ScalarProperty Name="MotivoAnu" ColumnName="MotivoAnu" />
-                <ScalarProperty Name="FechaUltAnu" ColumnName="FechaUltAnu" />
-                <ScalarProperty Name="IdUsuarioAnu" ColumnName="IdUsuarioAnu" />
-                <ScalarProperty Name="FechaUltModi" ColumnName="FechaUltModi" />
-                <ScalarProperty Name="IdUsuarioUltModi" ColumnName="IdUsuarioUltModi" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
-                <ScalarProperty Name="op_Codigo" ColumnName="op_Codigo" />
-                <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="com_OrdenPedidoPlantillaDet">
-            <EntityTypeMapping TypeName="DBERPModelCompras.com_OrdenPedidoPlantillaDet">
-              <MappingFragment StoreEntitySet="com_OrdenPedidoPlantillaDet">
-                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
-                <ScalarProperty Name="opd_EstadoProceso" ColumnName="opd_EstadoProceso" />
-                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
-                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
-                <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcom_ordencompra_local_det">
             <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_ordencompra_local_det">
               <MappingFragment StoreEntitySet="vwcom_ordencompra_local_det">
@@ -10722,6 +11066,140 @@
                 <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
                 <ScalarProperty Name="op_Codigo" ColumnName="op_Codigo" />
                 <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_OrdenPedidoPlantilla">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_OrdenPedidoPlantilla">
+              <MappingFragment StoreEntitySet="com_OrdenPedidoPlantilla">
+                <ScalarProperty Name="EsCompraUrgente" ColumnName="EsCompraUrgente" />
+                <ScalarProperty Name="MotivoAnu" ColumnName="MotivoAnu" />
+                <ScalarProperty Name="FechaUltAnu" ColumnName="FechaUltAnu" />
+                <ScalarProperty Name="IdUsuarioAnu" ColumnName="IdUsuarioAnu" />
+                <ScalarProperty Name="FechaUltModi" ColumnName="FechaUltModi" />
+                <ScalarProperty Name="IdUsuarioUltModi" ColumnName="IdUsuarioUltModi" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
+                <ScalarProperty Name="op_Codigo" ColumnName="op_Codigo" />
+                <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_OrdenPedidoPlantillaDet">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_OrdenPedidoPlantillaDet">
+              <MappingFragment StoreEntitySet="com_OrdenPedidoPlantillaDet">
+                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdPlantilla" ColumnName="IdPlantilla" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_OrdenPedidoDet_FamiliaComprador">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_FamiliaComprador">
+              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_FamiliaComprador">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Comprador" ColumnName="Comprador" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="com_ConvenioPreciosPorProducto">
+            <EntityTypeMapping TypeName="DBERPModelCompras.com_ConvenioPreciosPorProducto">
+              <MappingFragment StoreEntitySet="com_ConvenioPreciosPorProducto">
+                <ScalarProperty Name="SaltoPaso5" ColumnName="SaltoPaso5" />
+                <ScalarProperty Name="SaltoPaso4" ColumnName="SaltoPaso4" />
+                <ScalarProperty Name="SaltaPaso3" ColumnName="SaltaPaso3" />
+                <ScalarProperty Name="SaltaPaso2" ColumnName="SaltaPaso2" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="TiempoEntrega" ColumnName="TiempoEntrega" />
+                <ScalarProperty Name="PrecioFinal" ColumnName="PrecioFinal" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="PorDescuento" ColumnName="PorDescuento" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_OrdenPedidoDetConvenioPrecios">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDetConvenioPrecios">
+              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDetConvenioPrecios">
+                <ScalarProperty Name="SaltoPaso5" ColumnName="SaltoPaso5" />
+                <ScalarProperty Name="Dias" ColumnName="Dias" />
+                <ScalarProperty Name="SaltoPaso4" ColumnName="SaltoPaso4" />
+                <ScalarProperty Name="SaltaPaso3" ColumnName="SaltaPaso3" />
+                <ScalarProperty Name="SaltaPaso2" ColumnName="SaltaPaso2" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="TiempoEntrega" ColumnName="TiempoEntrega" />
+                <ScalarProperty Name="PrecioFinal" ColumnName="PrecioFinal" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="PorDescuento" ColumnName="PorDescuento" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="opd_EstadoProceso" ColumnName="opd_EstadoProceso" />
+                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
+                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_ConvenioPreciosPorProducto">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_ConvenioPreciosPorProducto">
+              <MappingFragment StoreEntitySet="vwcom_ConvenioPreciosPorProducto">
+                <ScalarProperty Name="SaltoPaso5" ColumnName="SaltoPaso5" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="TerminoPago" ColumnName="TerminoPago" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="Comprador" ColumnName="Comprador" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="SaltoPaso4" ColumnName="SaltoPaso4" />
+                <ScalarProperty Name="SaltaPaso3" ColumnName="SaltaPaso3" />
+                <ScalarProperty Name="SaltaPaso2" ColumnName="SaltaPaso2" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="TiempoEntrega" ColumnName="TiempoEntrega" />
+                <ScalarProperty Name="PrecioFinal" ColumnName="PrecioFinal" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="PorDescuento" ColumnName="PorDescuento" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdTerminoPago" ColumnName="IdTerminoPago" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
