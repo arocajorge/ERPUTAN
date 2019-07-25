@@ -71,5 +71,19 @@ namespace Core.Erp.Info.Compras
         public string opd_EstadoProceso { get; set; }
 
         public DateTime? FechaCantidad { get; set; }
+
+        public string CodigoOC { get; set; }
+
+        public string su_Descripcion { get; set; }
+
+        public string ObservacionGA { get; set; }
+
+        public string cp_ObservacionAdicional { get; set; }
+
+        public string Comprador { get; set; }
+
+        public DateTime cp_Fecha { get; set; }
+
+        public string cp_Observacion { get; set; }
     }
 }

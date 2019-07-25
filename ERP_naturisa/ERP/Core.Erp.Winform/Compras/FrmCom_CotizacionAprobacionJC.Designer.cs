@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionAprobacionJC));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBuscarHistorico = new DevExpress.XtraEditors.SimpleButton();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblIva = new System.Windows.Forms.Label();
             this.lblSubtotal = new System.Windows.Forms.Label();
@@ -83,7 +85,11 @@
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_punto_cargo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnBuscarHistorico = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txtObservacionAdicional = new DevExpress.XtraEditors.MemoEdit();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cmb_adjunto = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolicitante.Properties)).BeginInit();
@@ -100,10 +106,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_punto_cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacionAdicional.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelControl10);
+            this.panel1.Controls.Add(this.txtObservacionAdicional);
             this.panel1.Controls.Add(this.btnBuscarHistorico);
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.lblIva);
@@ -137,15 +147,25 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1431, 263);
+            this.panel1.Size = new System.Drawing.Size(1431, 324);
             this.panel1.TabIndex = 0;
+            // 
+            // btnBuscarHistorico
+            // 
+            this.btnBuscarHistorico.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarHistorico.Image")));
+            this.btnBuscarHistorico.Location = new System.Drawing.Point(1021, 12);
+            this.btnBuscarHistorico.Name = "btnBuscarHistorico";
+            this.btnBuscarHistorico.Size = new System.Drawing.Size(137, 41);
+            this.btnBuscarHistorico.TabIndex = 29;
+            this.btnBuscarHistorico.Text = "Buscar todo";
+            this.btnBuscarHistorico.Click += new System.EventHandler(this.btnBuscarHistorico_Click);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotal.Location = new System.Drawing.Point(1289, 184);
+            this.lblTotal.Location = new System.Drawing.Point(1313, 183);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(32, 32);
             this.lblTotal.TabIndex = 28;
@@ -157,7 +177,7 @@
             this.lblIva.AutoSize = true;
             this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIva.ForeColor = System.Drawing.Color.Blue;
-            this.lblIva.Location = new System.Drawing.Point(1289, 139);
+            this.lblIva.Location = new System.Drawing.Point(1313, 138);
             this.lblIva.Name = "lblIva";
             this.lblIva.Size = new System.Drawing.Size(32, 32);
             this.lblIva.TabIndex = 27;
@@ -169,7 +189,7 @@
             this.lblSubtotal.AutoSize = true;
             this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblSubtotal.Location = new System.Drawing.Point(1289, 94);
+            this.lblSubtotal.Location = new System.Drawing.Point(1313, 93);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(32, 32);
             this.lblSubtotal.TabIndex = 26;
@@ -180,7 +200,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(999, 184);
+            this.label3.Location = new System.Drawing.Point(1020, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 32);
             this.label3.TabIndex = 25;
@@ -190,7 +210,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(999, 139);
+            this.label2.Location = new System.Drawing.Point(1020, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 32);
             this.label2.TabIndex = 24;
@@ -200,7 +220,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(999, 94);
+            this.label1.Location = new System.Drawing.Point(1020, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 32);
             this.label1.TabIndex = 23;
@@ -209,7 +229,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(817, 13);
+            this.btnBuscar.Location = new System.Drawing.Point(838, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(152, 41);
             this.btnBuscar.TabIndex = 22;
@@ -227,7 +247,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
-            this.btnSalir.Location = new System.Drawing.Point(817, 202);
+            this.btnSalir.Location = new System.Drawing.Point(838, 201);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(152, 41);
             this.btnSalir.TabIndex = 19;
@@ -237,7 +257,7 @@
             // btnAnular
             // 
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
-            this.btnAnular.Location = new System.Drawing.Point(817, 108);
+            this.btnAnular.Location = new System.Drawing.Point(838, 107);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(152, 41);
             this.btnAnular.TabIndex = 18;
@@ -247,7 +267,7 @@
             // btnPasar
             // 
             this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
-            this.btnPasar.Location = new System.Drawing.Point(817, 155);
+            this.btnPasar.Location = new System.Drawing.Point(838, 154);
             this.btnPasar.Name = "btnPasar";
             this.btnPasar.Size = new System.Drawing.Size(152, 41);
             this.btnPasar.TabIndex = 17;
@@ -257,7 +277,7 @@
             // btnAprobar
             // 
             this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
-            this.btnAprobar.Location = new System.Drawing.Point(817, 60);
+            this.btnAprobar.Location = new System.Drawing.Point(838, 59);
             this.btnAprobar.Name = "btnAprobar";
             this.btnAprobar.Size = new System.Drawing.Size(152, 41);
             this.btnAprobar.TabIndex = 16;
@@ -274,7 +294,7 @@
             // 
             // txtComprador
             // 
-            this.txtComprador.Location = new System.Drawing.Point(159, 135);
+            this.txtComprador.Location = new System.Drawing.Point(189, 135);
             this.txtComprador.Name = "txtComprador";
             this.txtComprador.Properties.ReadOnly = true;
             this.txtComprador.Size = new System.Drawing.Size(607, 22);
@@ -290,7 +310,7 @@
             // 
             // txtSolicitante
             // 
-            this.txtSolicitante.Location = new System.Drawing.Point(159, 107);
+            this.txtSolicitante.Location = new System.Drawing.Point(189, 107);
             this.txtSolicitante.Name = "txtSolicitante";
             this.txtSolicitante.Properties.ReadOnly = true;
             this.txtSolicitante.Size = new System.Drawing.Size(607, 22);
@@ -306,7 +326,7 @@
             // 
             // txtSucursal
             // 
-            this.txtSucursal.Location = new System.Drawing.Point(159, 51);
+            this.txtSucursal.Location = new System.Drawing.Point(189, 51);
             this.txtSucursal.Name = "txtSucursal";
             this.txtSucursal.Properties.ReadOnly = true;
             this.txtSucursal.Size = new System.Drawing.Size(607, 22);
@@ -315,7 +335,7 @@
             // deFecha
             // 
             this.deFecha.EditValue = null;
-            this.deFecha.Location = new System.Drawing.Point(388, 20);
+            this.deFecha.Location = new System.Drawing.Point(418, 20);
             this.deFecha.Name = "deFecha";
             this.deFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -327,7 +347,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(300, 26);
+            this.labelControl5.Location = new System.Drawing.Point(330, 26);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(39, 16);
             this.labelControl5.TabIndex = 8;
@@ -335,7 +355,7 @@
             // 
             // txtPlazo
             // 
-            this.txtPlazo.Location = new System.Drawing.Point(660, 20);
+            this.txtPlazo.Location = new System.Drawing.Point(690, 20);
             this.txtPlazo.Name = "txtPlazo";
             this.txtPlazo.Properties.ReadOnly = true;
             this.txtPlazo.Size = new System.Drawing.Size(106, 22);
@@ -343,7 +363,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(541, 23);
+            this.labelControl4.Location = new System.Drawing.Point(571, 23);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(83, 16);
             this.labelControl4.TabIndex = 6;
@@ -359,7 +379,7 @@
             // 
             // txtTerminoPago
             // 
-            this.txtTerminoPago.Location = new System.Drawing.Point(159, 163);
+            this.txtTerminoPago.Location = new System.Drawing.Point(189, 163);
             this.txtTerminoPago.Name = "txtTerminoPago";
             this.txtTerminoPago.Properties.ReadOnly = true;
             this.txtTerminoPago.Size = new System.Drawing.Size(607, 22);
@@ -375,7 +395,7 @@
             // 
             // txtProveedor
             // 
-            this.txtProveedor.Location = new System.Drawing.Point(159, 79);
+            this.txtProveedor.Location = new System.Drawing.Point(189, 79);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Properties.ReadOnly = true;
             this.txtProveedor.Size = new System.Drawing.Size(607, 22);
@@ -383,7 +403,7 @@
             // 
             // txtIdCotizacion
             // 
-            this.txtIdCotizacion.Location = new System.Drawing.Point(159, 23);
+            this.txtIdCotizacion.Location = new System.Drawing.Point(189, 23);
             this.txtIdCotizacion.Name = "txtIdCotizacion";
             this.txtIdCotizacion.Properties.ReadOnly = true;
             this.txtIdCotizacion.Size = new System.Drawing.Size(114, 22);
@@ -399,7 +419,7 @@
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(159, 191);
+            this.txtObservacion.Location = new System.Drawing.Point(189, 191);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(607, 54);
             this.txtObservacion.TabIndex = 20;
@@ -407,13 +427,14 @@
             // gc_detalle
             // 
             this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.Location = new System.Drawing.Point(0, 263);
+            this.gc_detalle.Location = new System.Drawing.Point(0, 324);
             this.gc_detalle.MainView = this.gv_detalle;
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.txtProducto,
-            this.cmb_punto_cargo});
-            this.gc_detalle.Size = new System.Drawing.Size(1431, 270);
+            this.cmb_punto_cargo,
+            this.cmb_adjunto});
+            this.gc_detalle.Size = new System.Drawing.Size(1431, 209);
             this.gc_detalle.TabIndex = 1;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -439,9 +460,11 @@
             this.gridColumn13,
             this.gridColumn14,
             this.gridColumn15,
-            this.gridColumn16});
+            this.gridColumn16,
+            this.gridColumn17});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.GroupCount = 1;
+            this.gv_detalle.Images = this.imageList1;
             this.gv_detalle.Name = "gv_detalle";
             this.gv_detalle.OptionsBehavior.AutoExpandAllGroups = true;
             this.gv_detalle.OptionsView.ShowFooter = true;
@@ -458,7 +481,7 @@
             this.colA.Name = "colA";
             this.colA.Visible = true;
             this.colA.VisibleIndex = 0;
-            this.colA.Width = 66;
+            this.colA.Width = 60;
             // 
             // colR
             // 
@@ -475,8 +498,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 5;
-            this.gridColumn3.Width = 435;
+            this.gridColumn3.VisibleIndex = 6;
+            this.gridColumn3.Width = 323;
             // 
             // txtProducto
             // 
@@ -492,8 +515,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 8;
-            this.gridColumn4.Width = 100;
+            this.gridColumn4.VisibleIndex = 9;
+            this.gridColumn4.Width = 92;
             // 
             // gridColumn5
             // 
@@ -502,8 +525,8 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 9;
-            this.gridColumn5.Width = 84;
+            this.gridColumn5.VisibleIndex = 10;
+            this.gridColumn5.Width = 77;
             // 
             // gridColumn6
             // 
@@ -512,8 +535,8 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 10;
-            this.gridColumn6.Width = 69;
+            this.gridColumn6.VisibleIndex = 11;
+            this.gridColumn6.Width = 63;
             // 
             // gridColumn7
             // 
@@ -522,8 +545,8 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 11;
-            this.gridColumn7.Width = 71;
+            this.gridColumn7.VisibleIndex = 12;
+            this.gridColumn7.Width = 65;
             // 
             // gridColumn8
             // 
@@ -532,8 +555,8 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 12;
-            this.gridColumn8.Width = 71;
+            this.gridColumn8.VisibleIndex = 13;
+            this.gridColumn8.Width = 65;
             // 
             // gridColumn9
             // 
@@ -542,8 +565,8 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 13;
-            this.gridColumn9.Width = 70;
+            this.gridColumn9.VisibleIndex = 14;
+            this.gridColumn9.Width = 64;
             // 
             // gridColumn10
             // 
@@ -552,8 +575,8 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 14;
-            this.gridColumn10.Width = 80;
+            this.gridColumn10.VisibleIndex = 15;
+            this.gridColumn10.Width = 73;
             // 
             // gridColumn11
             // 
@@ -564,8 +587,8 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "cd_total", "{0:n2}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 15;
-            this.gridColumn11.Width = 130;
+            this.gridColumn11.VisibleIndex = 16;
+            this.gridColumn11.Width = 119;
             // 
             // gridColumn1
             // 
@@ -575,7 +598,7 @@
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 2;
-            this.gridColumn1.Width = 179;
+            this.gridColumn1.Width = 164;
             // 
             // col_Color
             // 
@@ -583,8 +606,8 @@
             this.col_Color.Name = "col_Color";
             this.col_Color.OptionsColumn.AllowEdit = false;
             this.col_Color.Visible = true;
-            this.col_Color.VisibleIndex = 7;
-            this.col_Color.Width = 40;
+            this.col_Color.VisibleIndex = 8;
+            this.col_Color.Width = 36;
             // 
             // gridColumn2
             // 
@@ -594,7 +617,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 63;
+            this.gridColumn2.Width = 57;
             // 
             // gridColumn12
             // 
@@ -603,8 +626,8 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 6;
-            this.gridColumn12.Width = 76;
+            this.gridColumn12.VisibleIndex = 7;
+            this.gridColumn12.Width = 69;
             // 
             // gridColumn13
             // 
@@ -613,8 +636,8 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 4;
-            this.gridColumn13.Width = 61;
+            this.gridColumn13.VisibleIndex = 5;
+            this.gridColumn13.Width = 56;
             // 
             // gridColumn14
             // 
@@ -633,7 +656,7 @@
             this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 3;
-            this.gridColumn15.Width = 139;
+            this.gridColumn15.Width = 127;
             // 
             // gridColumn16
             // 
@@ -642,7 +665,8 @@
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 16;
+            this.gridColumn16.VisibleIndex = 17;
+            this.gridColumn16.Width = 92;
             // 
             // cmb_punto_cargo
             // 
@@ -661,15 +685,53 @@
             this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // btnBuscarHistorico
+            // labelControl10
             // 
-            this.btnBuscarHistorico.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarHistorico.Image")));
-            this.btnBuscarHistorico.Location = new System.Drawing.Point(1000, 13);
-            this.btnBuscarHistorico.Name = "btnBuscarHistorico";
-            this.btnBuscarHistorico.Size = new System.Drawing.Size(137, 41);
-            this.btnBuscarHistorico.TabIndex = 29;
-            this.btnBuscarHistorico.Text = "Buscar todo";
-            this.btnBuscarHistorico.Click += new System.EventHandler(this.btnBuscarHistorico_Click);
+            this.labelControl10.Location = new System.Drawing.Point(40, 254);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(129, 16);
+            this.labelControl10.TabIndex = 31;
+            this.labelControl10.Text = "Observación adicional:";
+            // 
+            // txtObservacionAdicional
+            // 
+            this.txtObservacionAdicional.Location = new System.Drawing.Point(189, 251);
+            this.txtObservacionAdicional.Name = "txtObservacionAdicional";
+            this.txtObservacionAdicional.Size = new System.Drawing.Size(607, 54);
+            this.txtObservacionAdicional.TabIndex = 30;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Adjunto_16x16.png");
+            this.imageList1.Images.SetKeyName(1, "Image1.png");
+            // 
+            // cmb_adjunto
+            // 
+            this.cmb_adjunto.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmb_adjunto.AutoHeight = false;
+            this.cmb_adjunto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_adjunto.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmb_adjunto.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", false, 1)});
+            this.cmb_adjunto.LargeImages = this.imageList1;
+            this.cmb_adjunto.Name = "cmb_adjunto";
+            this.cmb_adjunto.ReadOnly = true;
+            this.cmb_adjunto.Click += new System.EventHandler(this.cmb_adjunto_Click);
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.ColumnEdit = this.cmb_adjunto;
+            this.gridColumn17.FieldName = "Adjunto";
+            this.gridColumn17.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn17.ImageIndex = 0;
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 4;
+            this.gridColumn17.Width = 43;
             // 
             // FrmCom_CotizacionAprobacionJC
             // 
@@ -698,6 +760,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_punto_cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacionAdicional.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -759,5 +823,10 @@
         private System.Windows.Forms.Label lblSubtotal;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraEditors.SimpleButton btnBuscarHistorico;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.MemoEdit txtObservacionAdicional;
+        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_adjunto;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
     }
 }

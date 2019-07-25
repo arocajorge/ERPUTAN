@@ -382,77 +382,71 @@ namespace Core.Erp.Data.Compras
             {
                 #region Antigua consulta
             List<com_ordencompra_local_Info> Lst = new List<com_ordencompra_local_Info>();
-            EntitiesCompras OEComp = new EntitiesCompras();
             
                 FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
                 FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
 
                 string Aprob_Estado = (EstadoAprob == "TODOS") ? "" : EstadoAprob;
-                OEComp.SetCommandTimeOut(10000);
+                
 
-
-                var Select = from q in OEComp.vwcom_ordencompra_local
-                                where q.IdEmpresa == IdEmpresa
-                                && q.oc_fecha <= FechaFin
-                                && q.oc_fecha >= FechaIni
-                                && q.Estado.Contains(Estado)
-                                && q.IdEstadoAprobacion_cat.StartsWith(EstadoAprob)
-                                select q;
-
-                foreach (var item in Select)
+                using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    com_ordencompra_local_Info OrdCompInfo = new com_ordencompra_local_Info();
-                    OrdCompInfo.IdEmpresa = item.IdEmpresa;
-                    OrdCompInfo.IdSucursal = item.IdSucursal;
-                    OrdCompInfo.IdOrdenCompra = item.IdOrdenCompra;
-                    OrdCompInfo.IdProveedor = item.IdProveedor;                     
-                    OrdCompInfo.oc_NumDocumento =item.oc_NumDocumento;
-                    OrdCompInfo.Tipo = item.Tipo;
-                    OrdCompInfo.IdTerminoPago = item.IdTerminoPago;
-                    OrdCompInfo.oc_plazo = item.oc_plazo;
-                    OrdCompInfo.oc_fecha = item.oc_fecha;
-                    OrdCompInfo.oc_flete = item.oc_flete;
-                    OrdCompInfo.oc_observacion = item.oc_observacion;
-                    OrdCompInfo.Estado = item.Estado;
-                    OrdCompInfo.IdEstadoAprobacion_cat = item.IdEstadoAprobacion_cat;
-                    OrdCompInfo.IdEstadoAprobacion_AUX = item.IdEstadoAprobacion_cat;
-                    OrdCompInfo.co_fecha_aprobacion = item.co_fecha_aprobacion;
-                    OrdCompInfo.IdUsuario_Aprueba = item.IdUsuario_Aprueba;
-                    OrdCompInfo.IdUsuario_Reprue = item.IdUsuario_Reprue;
-                    OrdCompInfo.co_fechaReproba = item.co_fechaReproba;
-                    OrdCompInfo.Fecha_Transac = item.Fecha_Transac;
-                    OrdCompInfo.Fecha_UltMod = item.Fecha_UltMod;
-                    OrdCompInfo.IdUsuarioUltMod = item.IdUsuarioUltMod;
-                    OrdCompInfo.FechaHoraAnul = item.FechaHoraAnul;
-                    OrdCompInfo.IdUsuarioUltAnu = item.IdUsuarioUltAnu;
-                    OrdCompInfo.IdEstadoRecepcion_cat = item.IdEstadoRecepcion_cat;
-                    OrdCompInfo.AfectaCosto = item.AfectaCosto;
-                    OrdCompInfo.iva = item.iva;
-                    OrdCompInfo.total = item.total;
-                    OrdCompInfo.peso = item.peso;
-                    OrdCompInfo.ap_descripcion = item.ap_descripcion;
-                    OrdCompInfo.tp_descripcion = item.tp_descripcion;
-                    OrdCompInfo.rec_descripcion = item.rec_descripcion;
-                    OrdCompInfo.pr_nombre = item.pr_nombre;
-                    OrdCompInfo.Su_Descripcion = item.Su_Descripcion;
-                    OrdCompInfo.MotivoReprobacion = item.MotivoReprobacion;
-                    OrdCompInfo.Solicitante = item.Solicitante;
-                    OrdCompInfo.IdDepartamento = item.IdDepartamento;
-                    OrdCompInfo.IdComprador = item.IdComprador;
-                    OrdCompInfo.IdSolicitante = item.IdSolicitante;
-                    OrdCompInfo.Nom_Comprador = item.Nom_Comprador;
-                    OrdCompInfo.Nom_Solicita = item.Nom_Solicita;
-                    OrdCompInfo.SDepartamento = item.SDepartamento;
-                    OrdCompInfo.IdMotivo = item.IdMotivo;
-                    OrdCompInfo.oc_fechaVencimiento = Convert.ToDateTime(item.oc_fechaVencimiento);
-                    OrdCompInfo.IdEstado_cierre = item.IdEstado_cierre;
-                    OrdCompInfo.Mostrar_Solicitud = true;
-                    OrdCompInfo.subtotal = item.subtotal;
-                    OrdCompInfo.nom_motivo_OC = item.nom_motivo_OC;
-                    OrdCompInfo.nom_EstadoCierre = item.nom_EstadoCerrado;
-                    OrdCompInfo.En_guia = item.En_guia;
-                    Lst.Add(OrdCompInfo);
+                    db.SetCommandTimeOut(10000);
+
+                    Lst = db.vwcom_ordencompra_local.Where(q => q.IdEmpresa == IdEmpresa && FechaIni <= q.oc_fecha && q.oc_fecha <= FechaFin && q.Estado.Contains(Estado) && q.IdEstadoAprobacion_cat.StartsWith(EstadoAprob)).Select(q => new com_ordencompra_local_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdSucursal = q.IdSucursal,
+                        IdOrdenCompra = q.IdOrdenCompra,
+                        IdProveedor = q.IdProveedor,
+                        oc_NumDocumento = q.oc_NumDocumento,
+                        Tipo = q.Tipo,
+                        IdTerminoPago = q.IdTerminoPago,
+                        oc_plazo = q.oc_plazo,
+                        oc_fecha = q.oc_fecha,
+                        oc_flete = q.oc_flete,
+                        oc_observacion = q.oc_observacion,
+                        Estado = q.Estado,
+                        IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
+                        IdEstadoAprobacion_AUX = q.IdEstadoAprobacion_cat,
+                        co_fecha_aprobacion = q.co_fecha_aprobacion,
+                        IdUsuario_Aprueba = q.IdUsuario_Aprueba,
+                        IdUsuario_Reprue = q.IdUsuario_Reprue,
+                        co_fechaReproba = q.co_fechaReproba,
+                        Fecha_Transac = q.Fecha_Transac,
+                        Fecha_UltMod = q.Fecha_UltMod,
+                        IdUsuarioUltMod = q.IdUsuarioUltMod,
+                        FechaHoraAnul = q.FechaHoraAnul,
+                        IdUsuarioUltAnu = q.IdUsuarioUltAnu,
+                        IdEstadoRecepcion_cat = q.IdEstadoRecepcion_cat,
+                        AfectaCosto = q.AfectaCosto,
+                        iva = q.iva,
+                        total = q.total,
+                        peso = q.peso,
+                        ap_descripcion = q.ap_descripcion,
+                        tp_descripcion = q.tp_descripcion,
+                        rec_descripcion = q.rec_descripcion,
+                        pr_nombre = q.pr_nombre,
+                        Su_Descripcion = q.Su_Descripcion,
+                        MotivoReprobacion = q.MotivoReprobacion,
+                        Solicitante = q.Solicitante,
+                        IdDepartamento = q.IdDepartamento,
+                        IdComprador = q.IdComprador,
+                        IdSolicitante = q.IdSolicitante,
+                        Nom_Comprador = q.Nom_Comprador,
+                        Nom_Solicita = q.Nom_Solicita,
+                        SDepartamento = q.SDepartamento,
+                        IdMotivo = q.IdMotivo,
+                        oc_fechaVencimiento = q.oc_fechaVencimiento,
+                        IdEstado_cierre = q.IdEstado_cierre,
+                        Mostrar_Solicitud = true,
+                        subtotal = q.subtotal,
+                        nom_motivo_OC = q.nom_motivo_OC,
+                        nom_EstadoCierre = q.nom_EstadoCerrado,
+                        En_guia = q.En_guia,
+                    }).ToList();
                 }
+
              
                 return Lst;
                 #endregion

@@ -190,6 +190,8 @@ namespace Core.Erp.Data.Compras
                             IdPunto_cargo = item.IdPunto_cargo,
                             IdUnidadMedida = item.IdUnidadMedida,
                             opd_EstadoProceso = item.opd_EstadoProceso = (info.EsCompraUrgente == true ? "A" : "P"),
+                            FechaCantidad = (info.EsCompraUrgente == true ? DateTime.Now : (Nullable<DateTime>) null),
+                            IdUsuarioCantidad = (info.EsCompraUrgente == true ? info.IdUsuarioCreacion : null),
                             pr_descripcion = item.pr_descripcion,
                             opd_Detalle = item.opd_Detalle,
                             opd_Cantidad = item.opd_Cantidad,
@@ -263,10 +265,13 @@ namespace Core.Erp.Data.Compras
                             IdProducto = item.IdProducto,
                             IdPunto_cargo = item.IdPunto_cargo,
                             IdUnidadMedida = item.IdUnidadMedida,
-                            opd_EstadoProceso = item.opd_EstadoProceso = "P",
+                            opd_EstadoProceso = item.opd_EstadoProceso = (info.EsCompraUrgente == true ? "A" : "P"),
+                            FechaCantidad = (info.EsCompraUrgente == true ? DateTime.Now : (Nullable<DateTime>)null),
+                            IdUsuarioCantidad = (info.EsCompraUrgente == true ? info.IdUsuarioCreacion : null),
                             pr_descripcion = item.pr_descripcion,
                             opd_Detalle = item.opd_Detalle,
                             opd_Cantidad = item.opd_Cantidad,
+                            opd_CantidadApro = info.EsCompraUrgente == true ? item.opd_Cantidad : 0,
                             Adjunto = !string.IsNullOrEmpty(item.NombreArchivo) ? true : false,
                             NombreArchivo = item.NuevoAdjunto ? Path.GetFileName(item.NombreArchivo) : item.NombreArchivo
                         });
@@ -348,8 +353,10 @@ namespace Core.Erp.Data.Compras
                             Estado = Entity.Estado,
                             EsCompraUrgente = Entity.EsCompraUrgente ?? false,
                             IdPunto_cargo = Entity.IdPunto_cargo,
-                            ObservacionGA = Entity.ObservacionGA
+                            ObservacionGA = Entity.ObservacionGA,
+                            IdUsuarioAprobacion = Entity.IdUsuarioAprobacion
                         };
+                        info.ObservacionGA = (info.IdUsuarioAprobacion ?? "") +".- "+ (info.ObservacionGA ?? "");
                         return info;
                     }
                 }

@@ -234,6 +234,22 @@ namespace Core.Erp.Winform.Compras
                     return false;
                 }
 
+                if (blst_det.Where(q=> q.opd_Cantidad == 0).Count() > 0)
+                {
+                    MessageBox.Show("No se puede guardar solicitudes con cantidad 0", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                if (blst_det.Where(q => q.IdSucursalDestino == 0).Count() > 0)
+                {
+                    MessageBox.Show("No se puede guardar solicitudes sin sucursal destino", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                if (blst_det.Where(q => q.IdSucursalOrigen == 0).Count() > 0)
+                {
+                    MessageBox.Show("No se puede guardar solicitudes sin sucursal destino", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
                 return true;
             }
             catch (Exception)

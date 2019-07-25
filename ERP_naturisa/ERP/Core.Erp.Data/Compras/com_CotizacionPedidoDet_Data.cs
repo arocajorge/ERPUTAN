@@ -49,8 +49,9 @@ namespace Core.Erp.Data.Compras
                         cd_DetallePorItem = q.cd_DetallePorItem,
                         op_Observacion = q.op_Observacion,
                         opd_Detalle = q.opd_Detalle,
-                        FechaCantidad = q.FechaCantidad
-                        
+                        FechaCantidad = q.FechaCantidad,
+                        Adjunto = q.Adjunto ?? false,
+                        NombreArchivo = q.NombreArchivo
                     }).ToList();
                 }
 
@@ -134,7 +135,12 @@ namespace Core.Erp.Data.Compras
                         Por_Iva = q.Por_Iva ?? 0,
                         cd_iva = q.cd_iva ?? 0,
                         cd_total = q.cd_total ?? 0,
-                        cd_DetallePorItem = q.cd_DetallePorItem
+                        cd_DetallePorItem = q.cd_DetallePorItem,
+
+                        EstadoDetalle = q.EstadoDetalle,
+                        CodigoOC = q.CodigoOC,
+                        su_Descripcion = q.su_Descripcion,
+                        ObservacionGA = q.ObservacionGA
                     }).ToList();
                     else
                         Lista = db.vwcom_OrdenPedidoDet_Cotizacion.Where(q => q.IdEmpresa == IdEmpresa && q.opd_EstadoProceso == "A" && (q.IdUsuario_com ?? IdUsuario_com) == IdUsuario_com && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_CotizacionPedidoDet_Info
@@ -182,7 +188,12 @@ namespace Core.Erp.Data.Compras
                             Por_Iva = q.Por_Iva ?? 0,
                             cd_iva = q.cd_iva ?? 0,
                             cd_total = q.cd_total ?? 0,
-                            cd_DetallePorItem = q.cd_DetallePorItem
+                            cd_DetallePorItem = q.cd_DetallePorItem,
+
+                            EstadoDetalle = q.EstadoDetalle,
+                            CodigoOC = q.CodigoOC,
+                            su_Descripcion = q.su_Descripcion,
+                            ObservacionGA = q.ObservacionGA
 
                         }).ToList();
                     Lista.ForEach(q => { q.op_Observacion = "Pedido #" + q.opd_IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion; q.IdComprador = q.IdComprador == 0 ? Comprador.IdComprador : q.IdComprador; });    
@@ -250,12 +261,16 @@ namespace Core.Erp.Data.Compras
                         opd_EstadoProceso = q.opd_EstadoProceso,
                         cd_DetallePorItem = q.cd_DetallePorItem,
                         A = true,
+                        cp_ObservacionAdicional = q.cp_ObservacionAdicional,
+                        opd_Detalle = q.opd_Detalle,
+                        Comprador = q.Comprador,
+                        cp_Fecha = q.cp_Fecha,
+                        cp_Observacion = q.cp_Observacion,
                         
-
                     }).ToList();
 
                 }
-                Lista.ForEach(q => q.op_Observacion = "Pedido #" + q.opd_IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion);
+                Lista.ForEach(q => q.cp_Observacion = "Comprador: "+q.Comprador + " Fecha cotización: " + q.cp_Fecha.ToString("dd/MM/yyyy") + " Observación: " + q.cp_Observacion);
 
                 in_Producto_data odata = new in_Producto_data();
                 foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())

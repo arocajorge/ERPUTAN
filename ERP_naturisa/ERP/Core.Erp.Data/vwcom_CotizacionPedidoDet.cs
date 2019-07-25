@@ -43,5 +43,7 @@ namespace Core.Erp.Data
         public string opd_Detalle { get; set; }
         public string op_Observacion { get; set; }
         public Nullable<System.DateTime> FechaCantidad { get; set; }
+        public Nullable<bool> Adjunto { get; set; }
+        public string NombreArchivo { get; set; }
     }
 }

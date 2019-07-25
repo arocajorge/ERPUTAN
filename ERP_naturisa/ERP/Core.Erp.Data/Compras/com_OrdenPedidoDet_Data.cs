@@ -11,7 +11,7 @@ namespace Core.Erp.Data.Compras
     using Core.Erp.Info.General;
     public class com_OrdenPedidoDet_Data
     {
-        
+        com_OrdenPedido_Data odata_c = new com_OrdenPedido_Data();
         public List<com_OrdenPedidoDet_Info> GetList(int IdEmpresa, decimal IdOrdenPedido)
         {
             try
@@ -161,17 +161,17 @@ namespace Core.Erp.Data.Compras
                         }
                     }
                     db.SaveChanges();
-                    var Ordenes = Lista.GroupBy(q => new { q.IdEmpresa, q.IdOrdenPedido }).Select(q => new { IdEmpresa = q.Key.IdEmpresa, IdOrdenPedido = q.Key.IdOrdenPedido }).ToList();
+                    var Ordenes = Lista.GroupBy(q => new { q.IdEmpresa, q.IdOrdenPedido }).Select(q => new
+                    {
+                        IdEmpresa = q.Key.IdEmpresa,
+                        IdOrdenPedido = q.Key.IdOrdenPedido
+                    }).ToList();
                     foreach (var item in Ordenes)
                     {
-                        var cab = db.com_OrdenPedido.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdOrdenPedido == item.IdOrdenPedido).FirstOrDefault();
-                        if (cab != null)
-                        {
-                            cab.IdCatalogoEstado = Cl_Enumeradores.eCatalogoEstadoSolicitudPedido.EST_OP_PRO.ToString();
-                        }
+                        odata_c.ValidarProceso(item.IdEmpresa, item.IdOrdenPedido);
                     }
-                    db.SaveChanges();
                 }
+                
 
                 return true;
             }
@@ -199,16 +199,15 @@ namespace Core.Erp.Data.Compras
                         }
                         db.SaveChanges();
                     }
-                    var Ordenes = Lista.GroupBy(q => new { q.IdEmpresa, q.IdOrdenPedido }).Select(q => new { IdEmpresa = q.Key.IdEmpresa, IdOrdenPedido = q.Key.IdOrdenPedido }).ToList();
+                    var Ordenes = Lista.GroupBy(q => new { q.IdEmpresa, q.IdOrdenPedido }).Select(q => new
+                    {
+                        IdEmpresa = q.Key.IdEmpresa,
+                        IdOrdenPedido = q.Key.IdOrdenPedido
+                    }).ToList();
                     foreach (var item in Ordenes)
                     {
-                        var cab = db.com_OrdenPedido.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdOrdenPedido == item.IdOrdenPedido).FirstOrDefault();
-                        if (cab != null)
-                        {
-                            cab.IdCatalogoEstado = Cl_Enumeradores.eCatalogoEstadoSolicitudPedido.EST_OP_PRO.ToString();
-                        }
+                        odata_c.ValidarProceso(item.IdEmpresa, item.IdOrdenPedido);
                     }
-                    db.SaveChanges();
                 }
                 return true;
             }

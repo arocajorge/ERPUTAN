@@ -198,7 +198,33 @@ namespace Core.Erp.Data.Compras
                 mensaje = ex.InnerException + " " + ex.Message;
                 throw new Exception(ex.ToString());
             }
-        }     
+        }
+
+        public com_comprador_Info GetInfo(int IdEmpresa, string IdUsuario)
+        {
+            try
+            {
+                com_comprador_Info info;
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    info = db.com_comprador.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario_com == IdUsuario).Select(q => new com_comprador_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdComprador = q.IdComprador,
+                        IdUsuario_com = q.IdUsuario_com,
+                        Descripcion = q.Descripcion
+                    }).FirstOrDefault();
+                }
+
+                return info;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
     }
 }

@@ -493,12 +493,7 @@ namespace Core.Erp.Winform.SeguridadAcceso
                     return true;
                 }
 
-                if (this.chk_cambio_contrasenia_sigt_sesion.Checked == false)
-                {
-                    MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Seleccione_el) + " cambio de contraseña en el siguiente inicio de sesión del usuario", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    chk_cambio_contrasenia_sigt_sesion.Focus();
-                    return true;
-                }
+               
                 return false;
             }
             catch (Exception ex)

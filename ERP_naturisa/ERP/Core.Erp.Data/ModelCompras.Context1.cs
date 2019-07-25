@@ -98,21 +98,16 @@ namespace Core.Erp.Data
         public DbSet<vwcom_OrdenPedidoDet_Aprobacion> vwcom_OrdenPedidoDet_Aprobacion { get; set; }
         public DbSet<com_solicitante> com_solicitante { get; set; }
         public DbSet<vwcom_OrdenPedidoDet> vwcom_OrdenPedidoDet { get; set; }
-        public DbSet<vwcom_CotizacionPedido> vwcom_CotizacionPedido { get; set; }
         public DbSet<com_ordencompra_local_correo> com_ordencompra_local_correo { get; set; }
         public DbSet<com_parametro> com_parametro { get; set; }
         public DbSet<com_comprador> com_comprador { get; set; }
         public DbSet<vwcom_ordencompra_local_correo> vwcom_ordencompra_local_correo { get; set; }
         public DbSet<com_solicitante_aprobador> com_solicitante_aprobador { get; set; }
         public DbSet<com_OrdenPedido> com_OrdenPedido { get; set; }
-        public DbSet<vwcom_OrdenPedidoAprobar> vwcom_OrdenPedidoAprobar { get; set; }
         public DbSet<vwcom_solicitante> vwcom_solicitante { get; set; }
         public DbSet<com_solicitante_x_com_departamento> com_solicitante_x_com_departamento { get; set; }
         public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
-        public DbSet<vwcom_CotizacionPedidoDet> vwcom_CotizacionPedidoDet { get; set; }
         public DbSet<vwcom_CotizacionPedidoDetAprobacion> vwcom_CotizacionPedidoDetAprobacion { get; set; }
-        public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
-        public DbSet<com_CotizacionPedido> com_CotizacionPedido { get; set; }
         public DbSet<com_ordencompra_local_det> com_ordencompra_local_det { get; set; }
         public DbSet<vwcom_ordencompra_local_det> vwcom_ordencompra_local_det { get; set; }
         public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
@@ -123,6 +118,11 @@ namespace Core.Erp.Data
         public DbSet<com_ConvenioPreciosPorProducto> com_ConvenioPreciosPorProducto { get; set; }
         public DbSet<vwcom_OrdenPedidoDetConvenioPrecios> vwcom_OrdenPedidoDetConvenioPrecios { get; set; }
         public DbSet<vwcom_ConvenioPreciosPorProducto> vwcom_ConvenioPreciosPorProducto { get; set; }
+        public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
+        public DbSet<com_CotizacionPedido> com_CotizacionPedido { get; set; }
+        public DbSet<vwcom_OrdenPedidoAprobar> vwcom_OrdenPedidoAprobar { get; set; }
+        public DbSet<vwcom_CotizacionPedido> vwcom_CotizacionPedido { get; set; }
+        public DbSet<vwcom_CotizacionPedidoDet> vwcom_CotizacionPedidoDet { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

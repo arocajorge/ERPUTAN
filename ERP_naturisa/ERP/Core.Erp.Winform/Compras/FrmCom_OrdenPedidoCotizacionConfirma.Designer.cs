@@ -55,6 +55,7 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtFocus = new DevExpress.XtraEditors.TextEdit();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal)).BeginInit();
@@ -144,19 +145,21 @@
             // gv_detalle
             // 
             this.gv_detalle.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn16,
             this.gridColumn7,
             this.gridColumn8,
+            this.gridColumn12,
             this.col_TerminoPago,
             this.gridColumn10,
-            this.gridColumn11,
             this.gridColumn9,
-            this.gridColumn12,
+            this.gridColumn11,
             this.gridColumn13,
             this.gridColumn14,
             this.gridColumn15,
-            this.gridColumn16});
+            this.gridColumn17});
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.Name = "gv_detalle";
+            this.gv_detalle.OptionsView.ColumnAutoWidth = false;
             this.gv_detalle.OptionsView.ShowAutoFilterRow = true;
             this.gv_detalle.OptionsView.ShowDetailButtons = false;
             this.gv_detalle.OptionsView.ShowFooter = true;
@@ -172,7 +175,7 @@
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 1;
-            this.gridColumn7.Width = 174;
+            this.gridColumn7.Width = 100;
             // 
             // cmb_Sucursal
             // 
@@ -232,7 +235,7 @@
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 2;
-            this.gridColumn8.Width = 385;
+            this.gridColumn8.Width = 300;
             // 
             // cmb_Proveedor
             // 
@@ -259,7 +262,7 @@
             this.col_TerminoPago.Name = "col_TerminoPago";
             this.col_TerminoPago.Visible = true;
             this.col_TerminoPago.VisibleIndex = 4;
-            this.col_TerminoPago.Width = 206;
+            this.col_TerminoPago.Width = 200;
             // 
             // cmb_TerminoPago
             // 
@@ -317,7 +320,6 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 5;
-            this.gridColumn10.Width = 91;
             // 
             // gridColumn11
             // 
@@ -326,7 +328,7 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 7;
-            this.gridColumn11.Width = 240;
+            this.gridColumn11.Width = 200;
             // 
             // gridColumn9
             // 
@@ -335,7 +337,6 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 6;
-            this.gridColumn9.Width = 78;
             // 
             // gridColumn12
             // 
@@ -344,7 +345,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 3;
-            this.gridColumn12.Width = 227;
+            this.gridColumn12.Width = 200;
             // 
             // gridColumn13
             // 
@@ -358,7 +359,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Subtotal", "{0:n2}")});
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 8;
-            this.gridColumn13.Width = 84;
+            this.gridColumn13.Width = 200;
             // 
             // gridColumn14
             // 
@@ -372,7 +373,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "IVA", "{0:n2}")});
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 9;
-            this.gridColumn14.Width = 84;
+            this.gridColumn14.Width = 100;
             // 
             // gridColumn15
             // 
@@ -386,7 +387,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")});
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 10;
-            this.gridColumn15.Width = 101;
+            this.gridColumn15.Width = 100;
             // 
             // gridColumn16
             // 
@@ -396,7 +397,7 @@
             this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 0;
-            this.gridColumn16.Width = 64;
+            this.gridColumn16.Width = 50;
             // 
             // txtFocus
             // 
@@ -405,6 +406,15 @@
             this.txtFocus.Properties.ReadOnly = true;
             this.txtFocus.Size = new System.Drawing.Size(100, 22);
             this.txtFocus.TabIndex = 2;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Observación adicional";
+            this.gridColumn17.FieldName = "cp_Observacion";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 11;
+            this.gridColumn17.Width = 200;
             // 
             // FrmCom_OrdenPedidoCotizacionConfirma
             // 
@@ -460,5 +470,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
     }
 }

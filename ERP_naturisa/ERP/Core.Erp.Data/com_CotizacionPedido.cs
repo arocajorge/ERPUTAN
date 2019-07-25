@@ -28,6 +28,7 @@ namespace Core.Erp.Data
         public int cp_Plazo { get; set; }
         public int cp_PlazoEntrega { get; set; }
         public string cp_Observacion { get; set; }
+        public string cp_ObservacionAdicional { get; set; }
         public decimal IdComprador { get; set; }
         public decimal IdSolicitante { get; set; }
         public decimal IdDepartamento { get; set; }

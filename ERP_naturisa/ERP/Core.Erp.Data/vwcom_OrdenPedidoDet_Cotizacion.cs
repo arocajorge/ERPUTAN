@@ -52,5 +52,9 @@ namespace Core.Erp.Data
         public Nullable<double> cd_iva { get; set; }
         public Nullable<double> cd_total { get; set; }
         public string cd_DetallePorItem { get; set; }
+        public string EstadoDetalle { get; set; }
+        public string ObservacionGA { get; set; }
+        public string su_Descripcion { get; set; }
+        public string CodigoOC { get; set; }
     }
 }

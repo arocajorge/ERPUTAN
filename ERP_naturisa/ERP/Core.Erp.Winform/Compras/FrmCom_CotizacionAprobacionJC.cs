@@ -13,7 +13,8 @@ namespace Core.Erp.Winform.Compras
     using Core.Erp.Info.General;
     using Core.Erp.Business.General;
     using Core.Erp.Info.Compras;
-    using Core.Erp.Business.Compras;    
+    using Core.Erp.Business.Compras;
+    using System.Diagnostics;    
 
     public partial class FrmCom_CotizacionAprobacionJC : Form
     {
@@ -23,6 +24,9 @@ namespace Core.Erp.Winform.Compras
         BindingList<com_CotizacionPedidoDet_Info> blst;
         cl_parametrosGenerales_Bus param;
         com_CotizacionPedido_Info info;
+        Funciones Fx;
+        com_parametro_Info com_param;
+        com_parametro_Bus bus_param;
         #endregion
 
         public FrmCom_CotizacionAprobacionJC()
@@ -32,11 +36,15 @@ namespace Core.Erp.Winform.Compras
             bus_det = new com_CotizacionPedidoDet_Bus();
             param = cl_parametrosGenerales_Bus.Instance;
             info = new com_CotizacionPedido_Info();
+            Fx = new Funciones();
+            com_param = new com_parametro_Info();
+            bus_param = new com_parametro_Bus();
             InitializeComponent();
         }
 
         private void FrmCom_CotizacionAprobacionJC_Load(object sender, EventArgs e)
         {
+            com_param = bus_param.Get_Info_parametro(param.IdEmpresa);
             CargarCotizacion();
         }
 
@@ -55,6 +63,7 @@ namespace Core.Erp.Winform.Compras
                     txtSucursal.Text = info.Su_Descripcion;
                     txtTerminoPago.Text = info.TerminoPago;
                     deFecha.DateTime = info.cp_Fecha;
+                    txtObservacionAdicional.Text = info.cp_ObservacionAdicional;
 
                     info.ListaDetalle = bus_det.GetList(info.IdEmpresa, info.IdCotizacion,"JC");
                     blst = new BindingList<com_CotizacionPedidoDet_Info>(info.ListaDetalle);
@@ -116,6 +125,7 @@ namespace Core.Erp.Winform.Compras
                 txtSucursal.Text = string.Empty;
                 txtTerminoPago.Text = string.Empty;
                 deFecha.DateTime = DateTime.Now.Date;
+                txtObservacionAdicional.Text = string.Empty;
 
                 blst = new BindingList<com_CotizacionPedidoDet_Info>();
                 gc_detalle.DataSource = blst;
@@ -283,6 +293,32 @@ namespace Core.Erp.Winform.Compras
             catch (Exception)
             {
                 
+            }
+        }
+
+        private void cmb_adjunto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if (!row.Adjunto)
+                    return;
+
+                string Comando = "/c Net Use " + com_param.FileDominio + " /USER:" + com_param.FileUsuario + " " + com_param.FileContrasenia;
+                Fx.ExecuteCommand(@"" + Comando);
+
+                var ruta = com_param.UbicacionArchivosPedido + @"\" + row.opd_IdOrdenPedido.ToString() + @"\" + row.NombreArchivo;
+                Process.Start(@"" + ruta);
+
+                Comando = "/c Net Use /DELETE " + com_param.FileDominio + " /USER:" + com_param.FileUsuario + " " + com_param.FileContrasenia;
+                Fx.ExecuteCommand(@"" + Comando);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo no se encuentra en el servidor", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

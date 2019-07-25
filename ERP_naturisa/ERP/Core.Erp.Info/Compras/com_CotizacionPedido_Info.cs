@@ -53,5 +53,7 @@ namespace Core.Erp.Info.Compras
         public string IdUsuario { get; set; }
 
         public decimal? IdOrdenPedido { get; set; }
+
+        public string cp_ObservacionAdicional { get; set; }
     }
 }

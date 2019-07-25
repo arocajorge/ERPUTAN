@@ -57,7 +57,8 @@ namespace Core.Erp.Data.Compras
                         IdSolicitante = Convert.ToInt32(info.IdSolicitante),
                         EstadoGA = "P",
                         EstadoJC = "P",
-                        cp_PlazoEntrega = info.cp_PlazoEntrega
+                        cp_PlazoEntrega = info.cp_PlazoEntrega,
+                        cp_ObservacionAdicional = info.cp_ObservacionAdicional
                     });
 
                     int Secuencia = 1;
@@ -318,7 +319,8 @@ namespace Core.Erp.Data.Compras
                         nom_solicitante = q.nom_solicitante,
                         nom_departamento = q.nom_departamento,
                         cp_PlazoEntrega = q.cp_PlazoEntrega,
-                        Pasado = q.Pasado
+                        Pasado = q.Pasado,
+                        cp_ObservacionAdicional = q.cp_ObservacionAdicional
                     }).OrderBy(q=> q.IdCotizacion).FirstOrDefault();
                         else
                         info = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "A" && q.EstadoGA == "P" && q.Pasado == false).Select(q => new com_CotizacionPedido_Info
@@ -344,7 +346,8 @@ namespace Core.Erp.Data.Compras
                             nom_solicitante = q.nom_solicitante,
                             nom_departamento = q.nom_departamento,
                             cp_PlazoEntrega = q.cp_PlazoEntrega,
-                            Pasado = q.Pasado
+                            Pasado = q.Pasado,
+                            cp_ObservacionAdicional = q.cp_ObservacionAdicional
                         }).OrderBy(q => q.IdCotizacion).FirstOrDefault();
                     if (info == null)
                     {
@@ -379,7 +382,8 @@ namespace Core.Erp.Data.Compras
                                 nom_solicitante = q.nom_solicitante,
                                 nom_departamento = q.nom_departamento,
                                 cp_PlazoEntrega = q.cp_PlazoEntrega,
-                                Pasado = q.Pasado
+                                Pasado = q.Pasado,
+                                cp_ObservacionAdicional = q.cp_ObservacionAdicional
                             }).OrderBy(q => q.IdCotizacion).FirstOrDefault();
                         else
                             info = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "A" && q.EstadoGA == "P" && q.Pasado == false).Select(q => new com_CotizacionPedido_Info
@@ -405,7 +409,8 @@ namespace Core.Erp.Data.Compras
                                 nom_solicitante = q.nom_solicitante,
                                 nom_departamento = q.nom_departamento,
                                 cp_PlazoEntrega = q.cp_PlazoEntrega,
-                                Pasado = q.Pasado
+                                Pasado = q.Pasado,
+                                cp_ObservacionAdicional = q.cp_ObservacionAdicional
                             }).OrderBy(q => q.IdCotizacion).FirstOrDefault();
                     }
                 }
@@ -442,7 +447,8 @@ namespace Core.Erp.Data.Compras
                         IdDepartamento = q.IdDepartamento,
                         EstadoJC = q.EstadoJC,
                         EstadoGA = q.EstadoGA,
-                        cp_PlazoEntrega = q.cp_PlazoEntrega                        
+                        cp_PlazoEntrega = q.cp_PlazoEntrega,
+                        cp_ObservacionAdicional = q.cp_ObservacionAdicional
                     }).FirstOrDefault();
                 }
 

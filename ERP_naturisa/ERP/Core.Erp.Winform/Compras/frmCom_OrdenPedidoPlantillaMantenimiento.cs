@@ -28,7 +28,6 @@ using Core.Erp.Info.Inventario;
         com_departamento_Bus bus_departamento;
         com_OrdenPedidoPlantilla_Info info_pedido;
         Cl_Enumeradores.eTipo_action Accion;
-        com_solicitante_Bus bus_solicitante;
         com_OrdenPedidoPlantillaDet_Bus bus_detalle;
         BindingList<com_OrdenPedidoPlantillaDet_Info> blst_det;
         tb_Sucursal_Bus bus_sucursal;
@@ -48,7 +47,6 @@ using Core.Erp.Info.Inventario;
             InitializeComponent();
             bus_orden = new com_OrdenPedidoPlantilla_Bus();
             bus_departamento = new com_departamento_Bus();
-            bus_solicitante = new com_solicitante_Bus();
             bus_detalle = new com_OrdenPedidoPlantillaDet_Bus();
             blst_det = new BindingList<com_OrdenPedidoPlantillaDet_Info>();
             bus_sucursal = new tb_Sucursal_Bus();
@@ -104,13 +102,7 @@ using Core.Erp.Info.Inventario;
             try
             {
                 CargarCombos();
-                    var solicitante = bus_solicitante.GetInfo(param.IdEmpresa, param.IdUsuario);
-                    if (solicitante == null)
-                        MessageBox.Show("No tiene un usuario solicitante configurado para el módulo de compras, comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    else
-                    {
-                        param.IdSolicitante = solicitante.IdSolicitante;
-                    }
+                   
                 
                 switch (Accion)
                 {

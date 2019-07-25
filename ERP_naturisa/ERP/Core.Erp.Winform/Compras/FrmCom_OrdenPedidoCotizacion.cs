@@ -587,7 +587,7 @@ namespace Core.Erp.Winform.Compras
             }
             catch (Exception)
             {
-                
+                MessageBox.Show("El archivo no se encuentra en el servidor",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
         }
 

@@ -17,7 +17,18 @@ namespace Core.Erp.Business.Compras
       com_comprador_Data odata = new com_comprador_Data();
       tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
       string mensaje = "";
-      
+      public com_comprador_Info GetInfo(int IdEmpresa, string IdUsuario)
+      {
+          try
+          {
+              return odata.GetInfo(IdEmpresa, IdUsuario);
+          }
+          catch (Exception)
+          {
+              
+              throw;
+          }
+      }
       public Boolean GuardarDB(com_comprador_Info info, ref string mensaje)
         {
             try

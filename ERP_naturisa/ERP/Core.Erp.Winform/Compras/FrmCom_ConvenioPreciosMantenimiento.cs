@@ -93,6 +93,11 @@ namespace Core.Erp.Winform.Compras
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
+                        var comprador = bus_comp.GetInfo(param.IdEmpresa, param.IdUsuario);
+                        if (comprador != null)
+                        {
+                            cmbComprador.EditValue = comprador.IdComprador;
+                        }
                         cmbProducto.Properties.ReadOnly = false;
                         ucMenu.Visible_bntAnular = false;
                         ucMenu.Visible_bntGuardar_y_Salir = true;
@@ -147,6 +152,7 @@ namespace Core.Erp.Winform.Compras
                     chkPaso2.Checked = info.SaltaPaso2;
                     chkPaso3.Checked = info.SaltaPaso3;
                     chkPaso4.Checked = info.SaltoPaso4;
+                    chkPaso5.Checked = info.SaltoPaso5;
                 }
             }
             catch (Exception)
@@ -205,7 +211,8 @@ namespace Core.Erp.Winform.Compras
                     TiempoEntrega = Convert.ToInt32(string.IsNullOrEmpty(txtDiasEntrega.Text) ? "0" : txtDiasEntrega.Text),
                     SaltaPaso2 = chkPaso2.Checked,
                     SaltaPaso3 = chkPaso3.Checked,
-                    SaltoPaso4 = chkPaso4.Checked
+                    SaltoPaso4 = chkPaso4.Checked,
+                    SaltoPaso5 = chkPaso5.Checked
                 };
             }
             catch (Exception)
