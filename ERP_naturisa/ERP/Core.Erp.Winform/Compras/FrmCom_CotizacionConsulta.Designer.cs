@@ -42,6 +42,7 @@
             this.cmb_imagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_imagen)).BeginInit();
@@ -70,7 +71,8 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn9});
             this.gv_consulta.GridControl = this.gc_consulta;
             this.gv_consulta.Images = this.imageList1;
             this.gv_consulta.Name = "gv_consulta";
@@ -141,7 +143,7 @@
             this.gridColumn7.ImageIndex = 0;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.VisibleIndex = 8;
             this.gridColumn7.Width = 72;
             // 
             // cmb_imagen
@@ -172,6 +174,14 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;
             this.gridColumn8.Width = 105;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "UR";
+            this.gridColumn9.FieldName = "EsCompraUrgente";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 7;
             // 
             // FrmCom_CotizacionConsulta
             // 
@@ -204,5 +214,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_imagen;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }

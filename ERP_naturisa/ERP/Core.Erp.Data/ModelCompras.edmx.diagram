@@ -147,8 +147,10 @@
         <AssociationConnector Association="DBERPModelCompras.FK_com_CotizacionPedido_com_departamento" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_CotizacionPedido_com_TerminoPago" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_CotizacionPedido" />
-        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_CotizacionPedido" Width="1.5" PointX="11.516295946909253" PointY="5.6296140130747174" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDet" Width="1.5" PointX="8.1592620071765332" PointY="27.61777440999531" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_CotizacionPedido" Width="1.5" PointX="9.0146236815557916" PointY="26.610763741010224" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_OrdenPedidoConvenioPrecios" Width="1.5" PointX="1.036501016950468" PointY="18.33151915032953" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_CotizacionPedidoConvenioPrecios" Width="1.5" PointX="9.50895872596137" PointY="15.715730003880211" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

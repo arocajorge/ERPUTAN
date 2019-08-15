@@ -154,6 +154,7 @@ namespace Core.Erp.Winform.Compras
                 txtIdCotizacion.Focus();
                 info.ListaDetalle = new List<com_CotizacionPedidoDet_Info>(blst);
                 info.cp_Observacion = txtObservacion.Text;
+                info.IdUsuario = param.IdUsuario;
                 info.EstadoJC = info.ListaDetalle.Where(q=>q.A == true).Count() > 0 ? "A" : "R";
                 if (bus_cotizacion.AprobarDB(info,"JC"))
                 {
@@ -173,6 +174,7 @@ namespace Core.Erp.Winform.Compras
                 txtIdCotizacion.Focus();
                 info.ListaDetalle.ForEach(q => q.A = false);
                 info.EstadoJC = "R";
+                info.IdUsuario = param.IdUsuario;
                 if (bus_cotizacion.AprobarDB(info, "JC"))
                 {
                     CargarCotizacion();

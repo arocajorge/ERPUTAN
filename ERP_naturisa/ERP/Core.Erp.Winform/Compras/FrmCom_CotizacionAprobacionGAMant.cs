@@ -169,7 +169,8 @@ namespace Core.Erp.Winform.Compras
                             IdPunto_cargo = q.IdPunto_cargo,
                             EstadoGA = q.A,
                             A = q.A,
-                            cd_DetallePorItem = q.cd_DetallePorItem
+                            cd_DetallePorItem = q.cd_DetallePorItem,
+                            IdSucursalDestino = q.IdSucursalDestino
                         }).ToList());
 
                         if (!bus_cotizacion.AprobarDB(cotizacion, "GA"))

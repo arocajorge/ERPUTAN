@@ -1,4 +1,5 @@
-﻿using Core.Erp.Info.Compras;
+﻿using Core.Erp.Data.CuentasxPagar;
+using Core.Erp.Info.Compras;
 using Core.Erp.Info.General;
 using System;
 using System.Collections.Generic;
@@ -219,7 +220,10 @@ namespace Core.Erp.Data.Compras
                         Fx.ExecuteCommand(@"" + Comando);
                     }
                     #endregion
-                    
+                }
+                if (SaltarPaso2(info.IdEmpresa, info.IdOrdenPedido, info.IdUsuarioCreacion))
+                {
+                    ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
                 }
                 return true;
             }
@@ -296,6 +300,12 @@ namespace Core.Erp.Data.Compras
                     }
                     #endregion
                 }
+
+                if (SaltarPaso2(info.IdEmpresa,info.IdOrdenPedido,info.IdUsuarioCreacion))
+                {
+                    ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
+                }
+
                 return true;
             }
             catch (Exception)
@@ -378,6 +388,7 @@ namespace Core.Erp.Data.Compras
                     var cont = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && (q.opd_EstadoProceso == "A" || q.opd_EstadoProceso == "AC" || q.opd_EstadoProceso == "AJC")).Count();
                     var contR = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && (q.opd_EstadoProceso == "RA" || q.opd_EstadoProceso == "RC" || q.opd_EstadoProceso == "RGA")).Count();
                     var contT = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).Count();
+                    var contP = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.opd_EstadoProceso == "P").Count();
 
 
                     if (cont == 0 && contR != contT)
@@ -397,12 +408,198 @@ namespace Core.Erp.Data.Compras
 
                         db.SaveChanges();
                     }
+
+                    if ((cont > 0 || contR > 0) && contR != contT)
+                    {
+                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                        if (pedido != null)
+                            pedido.IdCatalogoEstado = "EST_OP_PRO";
+
+                        db.SaveChanges();
+                    }
+
+                    if (contP == contT)
+                    {
+                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                        if (pedido != null)
+                            pedido.IdCatalogoEstado = "EST_OP_ABI";
+
+                        db.SaveChanges();
+                    }
                 }
                 return true;
             }
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public bool SaltarPaso2(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var Lista = db.vwcom_OrdenPedidoConvenioPrecios.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.opd_EstadoProceso == "P" && q.SaltaPaso2).ToList();
+                    foreach (var item in Lista)
+                    {
+                        var Entity = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdOrdenPedido == item.IdOrdenPedido && q.Secuencia == item.Secuencia).FirstOrDefault();
+                        if (Entity != null)
+                        {
+                            Entity.opd_EstadoProceso = "A";
+                            Entity.FechaCantidad = DateTime.Now;
+                            Entity.IdUsuarioCantidad = IdUsuario;
+                            Entity.opd_CantidadApro = Entity.opd_Cantidad;
+                        }
+                    }
+                    db.SaveChanges();
+                }
+
+                if (SaltarPaso3(IdEmpresa,IdOrdenPedido,IdUsuario))
+                {
+                    
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool SaltarPaso3(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                cp_proveedor_Data data_prov = new cp_proveedor_Data();
+                com_CotizacionPedido_Data data_cot = new com_CotizacionPedido_Data();
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var Lista = db.vwcom_OrdenPedidoConvenioPrecios.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.opd_EstadoProceso == "A" && q.SaltaPaso3).ToList();
+                   
+                    var ListaAgrupada = Lista.GroupBy(q => new { q.IdProveedor, q.IdDepartamento, q.IdSolicitante, q.IdSucursalOrigen, q.IdComprador, q.IdOrdenPedido, q.IdSucursalDestino, q.IdTerminoPago, q.TiempoEntrega, q.SaltoPaso4 }).Select(q => new
+                    {
+                        q.Key.IdSolicitante,
+                        q.Key.IdDepartamento,
+                        q.Key.IdProveedor,
+                        q.Key.IdSucursalOrigen,
+                        q.Key.IdComprador,
+                        q.Key.IdOrdenPedido,
+                        q.Key.IdSucursalDestino,
+                        q.Key.IdTerminoPago,
+                        q.Key.TiempoEntrega,
+                        q.Key.SaltoPaso4
+                    }).ToList();
+
+                    var lst_termino = db.com_TerminoPago.Where(q => q.Estado == "A").ToList();
+                    foreach (var item in ListaAgrupada)
+                    {
+                        var proveedor = data_prov.Get_Info_Proveedor(IdEmpresa, item.IdProveedor);
+                        if (proveedor == null)
+                            return false;
+                        var Pedido = Lista.Where(q => q.IdOrdenPedido == item.IdOrdenPedido).FirstOrDefault();
+                        string Observacion = (Pedido != null ? Pedido.op_Observacion : string.Empty);
+                        com_CotizacionPedido_Info cab = new com_CotizacionPedido_Info
+                        {
+                            IdEmpresa = IdEmpresa,
+                            IdSucursal = item.IdSucursalOrigen,
+                            IdProveedor = item.IdProveedor,
+                            cp_Fecha = DateTime.Now.Date,
+                            cp_Observacion = Observacion,
+                            IdDepartamento = item.IdDepartamento,
+                            IdSolicitante = item.IdSolicitante,
+                            IdComprador = item.IdComprador,
+                            IdTerminoPago = item.IdTerminoPago,
+                            cp_Plazo = proveedor.pr_plazo ?? 0,
+                            pe_correo = proveedor.Persona_Info.pe_correo_secundario1,
+                            IdPersona = proveedor.IdPersona,                            
+                            IdUsuario = IdUsuario,
+                            IdOrdenPedido = item.IdOrdenPedido,
+                            cp_PlazoEntrega = item.TiempoEntrega,
+                            ListaDetalle = new List<com_CotizacionPedidoDet_Info>()
+                        };
+
+                        cab.ListaDetalle = Lista.Where(q => q.IdProveedor == item.IdProveedor 
+                            && q.IdDepartamento == item.IdDepartamento 
+                            && q.IdSolicitante == item.IdSolicitante 
+                            && q.IdSucursalOrigen == item.IdSucursalOrigen 
+                            && q.IdOrdenPedido == item.IdOrdenPedido
+                            && q.IdSucursalDestino == item.IdSucursalDestino
+                            && q.IdTerminoPago == item.IdTerminoPago
+                            && q.TiempoEntrega == item.TiempoEntrega
+                            && q.SaltoPaso4 == item.SaltoPaso4).Select(q => new com_CotizacionPedidoDet_Info
+                        {
+                            IdEmpresa = IdEmpresa,
+                            opd_IdEmpresa = q.IdEmpresa,
+                            opd_IdOrdenPedido = q.IdOrdenPedido,
+                            opd_Secuencia = q.Secuencia,
+                            IdProducto = q.IdProducto ?? 0,
+                            cd_Cantidad = q.opd_CantidadApro,
+                            cd_precioCompra = q.PrecioUnitario,
+                            cd_porc_des = q.PorDescuento,
+                            cd_descuento = q.Descuento,
+                            cd_precioFinal = q.PrecioFinal,
+                            cd_subtotal = q.Subtotal,
+                            IdCod_Impuesto = q.IdCod_Impuesto_Iva,
+                            Por_Iva = q.porcentaje,
+                            cd_iva = q.Iva,
+                            cd_total = q.Total,
+                            IdUnidadMedida = q.IdUnidadMedida,
+                            IdPunto_cargo = q.IdPunto_cargo,
+                            cd_DetallePorItem = q.opd_Detalle,
+                            IdSucursalDestino = q.IdSucursalDestino,
+                            IdSucursalOrigen = q.IdSucursalOrigen
+                        }).ToList();
+
+                        data_cot.GuardarDB(cab);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool SaltarPaso4(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var Lista = db.vwcom_CotizacionPedidoConvenioPrecios.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).ToList();
+                    foreach (var item in Lista)
+                    {
+                        var cab = db.com_CotizacionPedido.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdCotizacion == item.IdCotizacion).FirstOrDefault();
+                        if (cab != null)
+                        {
+                            cab.IdUsuarioJC = IdUsuario;
+                            cab.FechaJC = DateTime.Now;
+                            cab.EstadoJC = "A";
+
+                            var ListaDet = db.com_CotizacionPedidoDet.Where(q => q.IdEmpresa == cab.IdEmpresa && q.IdCotizacion == cab.IdCotizacion).ToList();
+                            foreach (var det in ListaDet)
+                            {
+                                det.EstadoJC = true;
+
+                                var detOP = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == det.opd_IdEmpresa && q.IdOrdenPedido == det.opd_IdOrdenPedido && q.Secuencia == det.opd_Secuencia).FirstOrDefault();
+                                if (detOP != null)
+                                {
+                                    detOP.opd_EstadoProceso = "AJC";
+                                }
+                            }
+                        }
+                    }
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

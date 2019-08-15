@@ -271,12 +271,12 @@ namespace Core.Erp.Data.Compras
 
                 }
                 Lista.ForEach(q => q.cp_Observacion = "Comprador: "+q.Comprador + " Fecha cotización: " + q.cp_Fecha.ToString("dd/MM/yyyy") + " Observación: " + q.cp_Observacion);
-
+                /*
                 in_Producto_data odata = new in_Producto_data();
                 foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())
                 {
                     item.Stock = odata.GetStockProductoPorEmpresa(item.IdEmpresa, item.IdProducto ?? 0);
-                }
+                }*/
 
                 return Lista;
             }
@@ -286,7 +286,5 @@ namespace Core.Erp.Data.Compras
                 throw;
             }
         }
-
-        
     }
 }

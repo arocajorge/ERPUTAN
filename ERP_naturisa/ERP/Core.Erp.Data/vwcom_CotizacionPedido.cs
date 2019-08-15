@@ -37,5 +37,6 @@ namespace Core.Erp.Data
         public int cp_PlazoEntrega { get; set; }
         public Nullable<decimal> opd_IdOrdenPedido { get; set; }
         public string cp_ObservacionAdicional { get; set; }
+        public Nullable<bool> EsCompraUrgente { get; set; }
     }
 }

@@ -108,6 +108,14 @@ namespace Core.Erp.Data.Compras
                         persona.pe_correo_secundario1 = info.pe_correo;
                     db.SaveChanges();
                     dbg.SaveChanges();
+
+                    
+                }
+
+                com_OrdenPedido_Data data_ped = new com_OrdenPedido_Data();
+                if (data_ped.SaltarPaso4(info.IdEmpresa, info.IdOrdenPedido ?? 0, info.IdUsuario))
+                {
+
                 }
 
                 return true;
@@ -233,7 +241,8 @@ namespace Core.Erp.Data.Compras
                                     IdUnidadMedida = item.IdUnidadMedida,
                                     Por_Iva = item.Por_Iva,
                                     IdCod_Impuesto = item.IdCod_Impuesto,
-                                    do_observacion = item.op_Observacion ?? ""
+                                    do_observacion = string.IsNullOrEmpty(item.cd_DetallePorItem) ? " " : item.cd_DetallePorItem,
+                                    IdSucursalDestino = item.IdSucursalDestino
                                 });
                             }
 
@@ -494,7 +503,8 @@ namespace Core.Erp.Data.Compras
                         cp_PlazoEntrega = q.cp_PlazoEntrega,
                         Pasado = q.Pasado,
                         IdOrdenPedido = q.opd_IdOrdenPedido,
-                        Cargo = "JC"
+                        Cargo = "JC",
+                        EsCompraUrgente = q.EsCompraUrgente
                     }).ToList();
 
                     if (Cargo == "HIS")
@@ -524,7 +534,8 @@ namespace Core.Erp.Data.Compras
                            cp_PlazoEntrega = q.cp_PlazoEntrega,
                            Pasado = q.Pasado,
                            IdOrdenPedido = q.opd_IdOrdenPedido,
-                           Cargo = "HIS"
+                           Cargo = "HIS",
+                           EsCompraUrgente = q.EsCompraUrgente
                        }).ToList());   
                     }
                 }

@@ -210,5 +210,23 @@ namespace Core.Erp.Winform.Compras
                 
             }
         }
+
+        private void txtEstadoProceso_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                com_OrdenPedido_Info row = (com_OrdenPedido_Info)gv_Consulta.GetFocusedRow();
+                if (row != null)
+                {
+                    bus_Orden.ValidarProceso(param.IdEmpresa, row.IdOrdenPedido);
+                    Buscar();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

@@ -4149,6 +4149,9 @@
     <Compile Include="vwcom_CotizacionPedido.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcom_CotizacionPedidoConvenioPrecios.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcom_CotizacionPedidoDet.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
@@ -4258,6 +4261,9 @@
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_OrdenPedidoAprobar.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcom_OrdenPedidoConvenioPrecios.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcom_OrdenPedidoDet.cs">

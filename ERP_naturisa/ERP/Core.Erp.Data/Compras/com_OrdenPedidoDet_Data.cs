@@ -129,11 +129,12 @@ namespace Core.Erp.Data.Compras
                     }).ToList();
                 }
                 Lista.ForEach(q => q.op_Observacion = "Pedido #" + q.IdOrdenPedido.ToString() + " " + q.op_Fecha.ToString("dd/MM/yyyy") + " " + q.op_Observacion);
-                in_Producto_data odata = new in_Producto_data();
+                /*
+                in_Producto_data odata = new in_Producto_data();                
                 foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())
                 {
-                    item.Stock = odata.GetStockProductoPorEmpresa(item.IdEmpresa, item.IdProducto ?? 0);
-                }
+                    item.Stock = 0;//odata.GetStockProductoPorEmpresa(item.IdEmpresa, item.IdProducto ?? 0);
+                }*/
 
                 return Lista;
             }
