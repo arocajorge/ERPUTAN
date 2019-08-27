@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -141,12 +142,15 @@
             this.PIdEmpresa = new DevExpress.XtraReports.Parameters.Parameter();
             this.PIdSucursal = new DevExpress.XtraReports.Parameters.Parameter();
             this.PIdOrdenCompra = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource();
             this.PROVEEDOR = new DevExpress.XtraReports.UI.CalculatedField();
             this.DESCUENTOTOTAL = new DevExpress.XtraReports.UI.CalculatedField();
             this.NUMEROOC = new DevExpress.XtraReports.UI.CalculatedField();
             this.POR_IVA = new DevExpress.XtraReports.UI.CalculatedField();
             this.XSUBTOTAL = new DevExpress.XtraReports.UI.CalculatedField();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.xrTableRow6 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell21 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell22 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
@@ -344,7 +348,7 @@
             // 
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable7});
-            this.BottomMargin.HeightF = 25.354F;
+            this.BottomMargin.HeightF = 43.01036F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -355,8 +359,9 @@
             this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable7.Name = "xrTable7";
             this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow5});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(800F, 18F);
+            this.xrTableRow5,
+            this.xrTableRow6});
+            this.xrTable7.SizeF = new System.Drawing.SizeF(800F, 36F);
             this.xrTable7.StylePriority.UseFont = false;
             // 
             // xrTableRow5
@@ -1394,10 +1399,6 @@
             this.PIdOrdenCompra.Name = "PIdOrdenCompra";
             this.PIdOrdenCompra.Type = typeof(int);
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(Cus.Erp.Reports.Naturisa.Compras.XCOMP_NATU_Rpt007_Info);
-            // 
             // PROVEEDOR
             // 
             this.PROVEEDOR.Expression = "CONCAT(\'[\',[pr_codigo],\'] \',[nom_proveedor])";
@@ -1423,6 +1424,36 @@
             this.XSUBTOTAL.Expression = "[cantidad]*[precio]";
             this.XSUBTOTAL.Name = "XSUBTOTAL";
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(Cus.Erp.Reports.Naturisa.Compras.XCOMP_NATU_Rpt007_Info);
+            // 
+            // xrTableRow6
+            // 
+            this.xrTableRow6.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell21,
+            this.xrTableCell22});
+            this.xrTableRow6.Name = "xrTableRow6";
+            this.xrTableRow6.Weight = 1D;
+            // 
+            // xrTableCell21
+            // 
+            this.xrTableCell21.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell21.Name = "xrTableCell21";
+            this.xrTableCell21.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
+            this.xrTableCell21.StylePriority.UseFont = false;
+            this.xrTableCell21.StylePriority.UsePadding = false;
+            this.xrTableCell21.Text = "Comentario";
+            this.xrTableCell21.Weight = 0.8D;
+            // 
+            // xrTableCell22
+            // 
+            this.xrTableCell22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "ObservacionGA")});
+            this.xrTableCell22.Name = "xrTableCell22";
+            this.xrTableCell22.Text = "xrTableCell22";
+            this.xrTableCell22.Weight = 7.2D;
+            // 
             // XCOMP_NATU_Rpt007_Rpt
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1438,7 +1469,7 @@
             this.POR_IVA,
             this.XSUBTOTAL});
             this.DataSource = this.bindingSource1;
-            this.Margins = new System.Drawing.Printing.Margins(13, 12, 18, 25);
+            this.Margins = new System.Drawing.Printing.Margins(13, 12, 18, 43);
             this.PageHeight = 550;
             this.PageWidth = 825;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
@@ -1575,5 +1606,8 @@
         private DevExpress.XtraReports.UI.XRTableCell lbl_usuario;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell19;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell20;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow6;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell21;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell22;
     }
 }

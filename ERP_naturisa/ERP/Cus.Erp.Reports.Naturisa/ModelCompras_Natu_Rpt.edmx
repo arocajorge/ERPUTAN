@@ -319,7 +319,8 @@
       [vwCOMP_NATU_Rpt007].[SucursalDestino] AS [SucursalDestino], 
       [vwCOMP_NATU_Rpt007].[EsProcesoSolicitud] AS [EsProcesoSolicitud], 
       [vwCOMP_NATU_Rpt007].[IdOrdenPedido] AS [IdOrdenPedido], 
-      [vwCOMP_NATU_Rpt007].[oc_fechaVencimiento] AS [oc_fechaVencimiento]
+      [vwCOMP_NATU_Rpt007].[oc_fechaVencimiento] AS [oc_fechaVencimiento], 
+      [vwCOMP_NATU_Rpt007].[ObservacionGA] AS [ObservacionGA]
       FROM [Naturisa].[vwCOMP_NATU_Rpt007] AS [vwCOMP_NATU_Rpt007]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="ModelCompras_Natu_Rpt.Store.vwCONTA_NATU_Rpt003" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt003">
@@ -879,6 +880,7 @@
           <Property Name="EsProcesoSolicitud" Type="bit" />
           <Property Name="IdOrdenPedido" Type="numeric" />
           <Property Name="oc_fechaVencimiento" Type="datetime" />
+          <Property Name="ObservacionGA" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1480,6 +1482,7 @@
           <Property Type="Boolean" Name="EsProcesoSolicitud" />
           <Property Type="Decimal" Name="IdOrdenPedido" Precision="18" Scale="0" />
           <Property Type="DateTime" Name="oc_fechaVencimiento" Precision="3" />
+          <Property Type="String" Name="ObservacionGA" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1783,6 +1786,7 @@
           <EntitySetMapping Name="vwCOMP_NATU_Rpt007">
             <EntityTypeMapping TypeName="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt007">
               <MappingFragment StoreEntitySet="vwCOMP_NATU_Rpt007">
+                <ScalarProperty Name="ObservacionGA" ColumnName="ObservacionGA" />
                 <ScalarProperty Name="oc_fechaVencimiento" ColumnName="oc_fechaVencimiento" />
                 <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
                 <ScalarProperty Name="EsProcesoSolicitud" ColumnName="EsProcesoSolicitud" />

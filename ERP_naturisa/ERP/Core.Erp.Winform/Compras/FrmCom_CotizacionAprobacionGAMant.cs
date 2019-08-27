@@ -315,7 +315,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                lblTotal.Text = "$ " + blst.Sum(q => q.cd_total).ToString("n2");
+                lblTotal.Text = "$ " + blst.Sum(q => q.cd_subtotal).ToString("n2");
             }
             catch (Exception)
             {

@@ -268,7 +268,7 @@ namespace Core.Erp.Winform.Compras
                     ListaDetalle = new List<com_CotizacionPedidoDet_Info>()
                 };
 
-                cab.ListaDetalle = lst.Where(q => q.IdProveedor == item.IdProveedor && q.IdDepartamento == item.IdDepartamento && q.IdSolicitante == item.IdSolicitante && q.IdSucursalOrigen == item.IdSucursalOrigen && q.opd_IdOrdenPedido == item.opd_IdOrdenPedido).Select(q=> new com_CotizacionPedidoDet_Info{
+                cab.ListaDetalle = lst.Where(q => q.IdProveedor == item.IdProveedor && q.IdDepartamento == item.IdDepartamento && q.IdSolicitante == item.IdSolicitante && q.IdSucursalOrigen == item.IdSucursalOrigen && q.opd_IdOrdenPedido == item.opd_IdOrdenPedido && q.IdSucursalDestino == item.IdSucursalDestino).Select(q=> new com_CotizacionPedidoDet_Info{
                     IdEmpresa = param.IdEmpresa,
                     opd_IdEmpresa = q.opd_IdEmpresa,
                     opd_IdOrdenPedido = q.opd_IdOrdenPedido,

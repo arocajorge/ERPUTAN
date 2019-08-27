@@ -181,9 +181,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 530);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 652);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1110, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1480, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
             // 
             // ucGe_Menu
@@ -213,8 +214,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1110, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1480, 36);
             this.ucGe_Menu.TabIndex = 1;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -248,9 +250,10 @@
             // 
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(0, 36);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1110, 173);
+            this.panel1.Size = new System.Drawing.Size(1480, 213);
             this.panel1.TabIndex = 2;
             // 
             // groupBox1
@@ -288,8 +291,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1110, 173);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1480, 213);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales:";
@@ -297,48 +302,53 @@
             // de_FechaVctoAuto
             // 
             this.de_FechaVctoAuto.EditValue = new System.DateTime(2015, 4, 27, 0, 0, 0, 0);
-            this.de_FechaVctoAuto.Location = new System.Drawing.Point(679, 46);
+            this.de_FechaVctoAuto.Location = new System.Drawing.Point(905, 57);
+            this.de_FechaVctoAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.de_FechaVctoAuto.Name = "de_FechaVctoAuto";
             this.de_FechaVctoAuto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_FechaVctoAuto.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_FechaVctoAuto.Size = new System.Drawing.Size(79, 20);
+            this.de_FechaVctoAuto.Size = new System.Drawing.Size(105, 22);
             this.de_FechaVctoAuto.TabIndex = 45;
             this.de_FechaVctoAuto.Visible = false;
             // 
             // lblFechaVctoAuto
             // 
             this.lblFechaVctoAuto.AutoSize = true;
-            this.lblFechaVctoAuto.Location = new System.Drawing.Point(588, 49);
+            this.lblFechaVctoAuto.Location = new System.Drawing.Point(784, 60);
+            this.lblFechaVctoAuto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaVctoAuto.Name = "lblFechaVctoAuto";
-            this.lblFechaVctoAuto.Size = new System.Drawing.Size(91, 13);
+            this.lblFechaVctoAuto.Size = new System.Drawing.Size(117, 17);
             this.lblFechaVctoAuto.TabIndex = 44;
             this.lblFechaVctoAuto.Text = "Fecha vcto. auto.";
             this.lblFechaVctoAuto.Visible = false;
             // 
             // txtSerie2
             // 
-            this.txtSerie2.Location = new System.Drawing.Point(153, 46);
+            this.txtSerie2.Location = new System.Drawing.Point(204, 57);
+            this.txtSerie2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSerie2.Name = "txtSerie2";
-            this.txtSerie2.Size = new System.Drawing.Size(25, 20);
+            this.txtSerie2.Size = new System.Drawing.Size(33, 22);
             this.txtSerie2.TabIndex = 4;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(139, 46);
+            this.label17.Location = new System.Drawing.Point(185, 57);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 20);
+            this.label17.Size = new System.Drawing.Size(20, 25);
             this.label17.TabIndex = 31;
             this.label17.Text = "-";
             // 
             // btnBuscarIngresos
             // 
-            this.btnBuscarIngresos.Location = new System.Drawing.Point(670, 17);
+            this.btnBuscarIngresos.Location = new System.Drawing.Point(893, 21);
+            this.btnBuscarIngresos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscarIngresos.Name = "btnBuscarIngresos";
-            this.btnBuscarIngresos.Size = new System.Drawing.Size(88, 23);
+            this.btnBuscarIngresos.Size = new System.Drawing.Size(117, 28);
             this.btnBuscarIngresos.TabIndex = 43;
             this.btnBuscarIngresos.Text = "Buscar ingresos";
             this.btnBuscarIngresos.Click += new System.EventHandler(this.btnBuscarIngresos_Click);
@@ -346,9 +356,10 @@
             // chk_seleccionar_visibles
             // 
             this.chk_seleccionar_visibles.AutoSize = true;
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(12, 156);
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(16, 192);
+            this.chk_seleccionar_visibles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
-            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(119, 17);
+            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
             this.chk_seleccionar_visibles.TabIndex = 42;
             this.chk_seleccionar_visibles.Text = "Seleccionar visibles";
             this.chk_seleccionar_visibles.UseVisualStyleBackColor = true;
@@ -357,17 +368,19 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(838, 103);
+            this.label29.Location = new System.Drawing.Point(1117, 127);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(36, 13);
+            this.label29.Size = new System.Drawing.Size(47, 17);
             this.label29.TabIndex = 41;
             this.label29.Text = "Plazo:";
             // 
             // txt_plazo
             // 
-            this.txt_plazo.Location = new System.Drawing.Point(910, 100);
+            this.txt_plazo.Location = new System.Drawing.Point(1213, 123);
+            this.txt_plazo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_plazo.Name = "txt_plazo";
-            this.txt_plazo.Size = new System.Drawing.Size(49, 20);
+            this.txt_plazo.Size = new System.Drawing.Size(64, 22);
             this.txt_plazo.TabIndex = 40;
             this.txt_plazo.Text = "0";
             this.txt_plazo.TextChanged += new System.EventHandler(this.txt_plazo_TextChanged);
@@ -375,60 +388,66 @@
             // dtpFecVtc
             // 
             this.dtpFecVtc.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtpFecVtc.Location = new System.Drawing.Point(880, 126);
+            this.dtpFecVtc.Location = new System.Drawing.Point(1173, 155);
+            this.dtpFecVtc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFecVtc.Name = "dtpFecVtc";
             this.dtpFecVtc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpFecVtc.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpFecVtc.Size = new System.Drawing.Size(79, 20);
+            this.dtpFecVtc.Size = new System.Drawing.Size(105, 22);
             this.dtpFecVtc.TabIndex = 35;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(769, 129);
+            this.label5.Location = new System.Drawing.Point(1025, 159);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 13);
+            this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 34;
             this.label5.Text = "Fec.Vct/Pago:";
             // 
             // dtp_fecha_contabilizacion
             // 
             this.dtp_fecha_contabilizacion.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtp_fecha_contabilizacion.Location = new System.Drawing.Point(880, 45);
+            this.dtp_fecha_contabilizacion.Location = new System.Drawing.Point(1173, 55);
+            this.dtp_fecha_contabilizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_fecha_contabilizacion.Name = "dtp_fecha_contabilizacion";
             this.dtp_fecha_contabilizacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_fecha_contabilizacion.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtp_fecha_contabilizacion.Size = new System.Drawing.Size(79, 20);
+            this.dtp_fecha_contabilizacion.Size = new System.Drawing.Size(105, 22);
             this.dtp_fecha_contabilizacion.TabIndex = 33;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(769, 48);
+            this.label18.Location = new System.Drawing.Point(1025, 59);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(105, 13);
+            this.label18.Size = new System.Drawing.Size(138, 17);
             this.label18.TabIndex = 32;
             this.label18.Text = "Fec. Contabilizacion:";
             // 
             // ucCp_Proveedor1
             // 
-            this.ucCp_Proveedor1.Location = new System.Drawing.Point(265, 16);
+            this.ucCp_Proveedor1.Location = new System.Drawing.Point(353, 20);
+            this.ucCp_Proveedor1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucCp_Proveedor1.Name = "ucCp_Proveedor1";
-            this.ucCp_Proveedor1.Size = new System.Drawing.Size(399, 27);
+            this.ucCp_Proveedor1.Size = new System.Drawing.Size(532, 33);
             this.ucCp_Proveedor1.TabIndex = 2;
             // 
             // cmbTipoDocu
             // 
-            this.cmbTipoDocu.Location = new System.Drawing.Point(520, 74);
+            this.cmbTipoDocu.Location = new System.Drawing.Point(693, 91);
+            this.cmbTipoDocu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTipoDocu.Name = "cmbTipoDocu";
             this.cmbTipoDocu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTipoDocu.Properties.View = this.searchLookUpEdit2View;
-            this.cmbTipoDocu.Size = new System.Drawing.Size(238, 20);
+            this.cmbTipoDocu.Size = new System.Drawing.Size(317, 22);
             this.cmbTipoDocu.TabIndex = 9;
             // 
             // searchLookUpEdit2View
@@ -461,12 +480,13 @@
             // 
             // cmbSustTrib
             // 
-            this.cmbSustTrib.Location = new System.Drawing.Point(114, 74);
+            this.cmbSustTrib.Location = new System.Drawing.Point(152, 91);
+            this.cmbSustTrib.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbSustTrib.Name = "cmbSustTrib";
             this.cmbSustTrib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSustTrib.Properties.View = this.gridView1;
-            this.cmbSustTrib.Size = new System.Drawing.Size(290, 20);
+            this.cmbSustTrib.Size = new System.Drawing.Size(387, 22);
             this.cmbSustTrib.TabIndex = 8;
             this.cmbSustTrib.EditValueChanged += new System.EventHandler(this.cmbSustTrib_EditValueChanged);
             // 
@@ -511,96 +531,106 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(410, 77);
+            this.label16.Location = new System.Drawing.Point(547, 95);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(104, 13);
+            this.label16.Size = new System.Drawing.Size(136, 17);
             this.label16.TabIndex = 27;
             this.label16.Text = "Tipo de Documento:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(11, 74);
+            this.label15.Location = new System.Drawing.Point(15, 91);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 13);
+            this.label15.Size = new System.Drawing.Size(133, 17);
             this.label15.TabIndex = 26;
             this.label15.Text = "Sustento Tributario:";
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(114, 100);
+            this.txtObservacion.Location = new System.Drawing.Point(152, 123);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(644, 50);
+            this.txtObservacion.Size = new System.Drawing.Size(859, 62);
             this.txtObservacion.TabIndex = 10;
             // 
             // dtpFecFactura
             // 
             this.dtpFecFactura.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtpFecFactura.Location = new System.Drawing.Point(880, 74);
+            this.dtpFecFactura.Location = new System.Drawing.Point(1173, 91);
+            this.dtpFecFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFecFactura.Name = "dtpFecFactura";
             this.dtpFecFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpFecFactura.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpFecFactura.Size = new System.Drawing.Size(79, 20);
+            this.dtpFecFactura.Size = new System.Drawing.Size(105, 22);
             this.dtpFecFactura.TabIndex = 24;
             // 
             // dtpFecAproba
             // 
             this.dtpFecAproba.EditValue = new System.DateTime(2015, 4, 27, 0, 0, 0, 0);
-            this.dtpFecAproba.Location = new System.Drawing.Point(880, 19);
+            this.dtpFecAproba.Location = new System.Drawing.Point(1173, 23);
+            this.dtpFecAproba.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFecAproba.Name = "dtpFecAproba";
             this.dtpFecAproba.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpFecAproba.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpFecAproba.Size = new System.Drawing.Size(79, 20);
+            this.dtpFecAproba.Size = new System.Drawing.Size(105, 22);
             this.dtpFecAproba.TabIndex = 23;
             this.dtpFecAproba.EditValueChanged += new System.EventHandler(this.dtpFecAproba_EditValueChanged);
             // 
             // txtNumAutProve
             // 
-            this.txtNumAutProve.Location = new System.Drawing.Point(386, 45);
+            this.txtNumAutProve.Location = new System.Drawing.Point(515, 55);
+            this.txtNumAutProve.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumAutProve.Name = "txtNumAutProve";
             this.txtNumAutProve.Properties.Mask.EditMask = "\\d{0,50}";
             this.txtNumAutProve.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNumAutProve.Size = new System.Drawing.Size(193, 20);
+            this.txtNumAutProve.Size = new System.Drawing.Size(257, 22);
             this.txtNumAutProve.TabIndex = 6;
             // 
             // txtIdAprobacion
             // 
-            this.txtIdAprobacion.Location = new System.Drawing.Point(114, 19);
+            this.txtIdAprobacion.Location = new System.Drawing.Point(152, 23);
+            this.txtIdAprobacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdAprobacion.Name = "txtIdAprobacion";
-            this.txtIdAprobacion.Size = new System.Drawing.Size(88, 20);
+            this.txtIdAprobacion.Size = new System.Drawing.Size(117, 22);
             this.txtIdAprobacion.TabIndex = 1;
             // 
             // txtNumDocu
             // 
-            this.txtNumDocu.Location = new System.Drawing.Point(185, 46);
+            this.txtNumDocu.Location = new System.Drawing.Point(247, 57);
+            this.txtNumDocu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumDocu.Name = "txtNumDocu";
             this.txtNumDocu.Properties.Mask.EditMask = "\\d{0,9}";
             this.txtNumDocu.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNumDocu.Size = new System.Drawing.Size(130, 20);
+            this.txtNumDocu.Size = new System.Drawing.Size(173, 22);
             this.txtNumDocu.TabIndex = 5;
             this.txtNumDocu.EditValueChanged += new System.EventHandler(this.txtNumDocu_EditValueChanged);
             // 
             // txtSerie
             // 
             this.txtSerie.EditValue = "";
-            this.txtSerie.Location = new System.Drawing.Point(114, 46);
+            this.txtSerie.Location = new System.Drawing.Point(152, 57);
+            this.txtSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Properties.Mask.EditMask = "\\d{0,3}";
             this.txtSerie.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtSerie.Size = new System.Drawing.Size(25, 20);
+            this.txtSerie.Size = new System.Drawing.Size(33, 22);
             this.txtSerie.TabIndex = 3;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(769, 22);
+            this.label14.Location = new System.Drawing.Point(1025, 27);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 13);
+            this.label14.Size = new System.Drawing.Size(57, 17);
             this.label14.TabIndex = 15;
             this.label14.Text = "Fecha:";
             // 
@@ -608,61 +638,68 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(3, 16);
+            this.label13.Location = new System.Drawing.Point(4, 19);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(74, 13);
+            this.label13.Size = new System.Drawing.Size(96, 17);
             this.label13.TabIndex = 14;
             this.label13.Text = "# Aprobación:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(769, 77);
+            this.label6.Location = new System.Drawing.Point(1025, 95);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.Size = new System.Drawing.Size(103, 17);
             this.label6.TabIndex = 7;
             this.label6.Text = "Fec.Docu/Fact:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 49);
+            this.label4.Location = new System.Drawing.Point(421, 60);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.Size = new System.Drawing.Size(90, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "#Aut.Provee:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 49);
+            this.label3.Location = new System.Drawing.Point(16, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.Size = new System.Drawing.Size(88, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Serie/#Fact.:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 102);
+            this.label2.Location = new System.Drawing.Point(15, 126);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.Size = new System.Drawing.Size(92, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Observación:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(208, 22);
+            this.label1.Location = new System.Drawing.Point(277, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Proveedor:";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 202);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 249);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -684,15 +721,18 @@
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Size = new System.Drawing.Size(1110, 328);
-            this.splitContainer1.SplitterDistance = 246;
+            this.splitContainer1.Size = new System.Drawing.Size(1480, 403);
+            this.splitContainer1.SplitterDistance = 302;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
             // gridControlAproIngEgrxOC
             // 
             this.gridControlAproIngEgrxOC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlAproIngEgrxOC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlAproIngEgrxOC.Location = new System.Drawing.Point(0, 0);
             this.gridControlAproIngEgrxOC.MainView = this.gridViewAproIngEgrxOC;
+            this.gridControlAproIngEgrxOC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlAproIngEgrxOC.Name = "gridControlAproIngEgrxOC";
             this.gridControlAproIngEgrxOC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCtaCtble_Gasto_x_cxp,
@@ -700,7 +740,7 @@
             this.CmbPuntoCargo,
             this.cmbSubcentro,
             this.cmb_centroCosoto});
-            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1110, 246);
+            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1480, 302);
             this.gridControlAproIngEgrxOC.TabIndex = 0;
             this.gridControlAproIngEgrxOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAproIngEgrxOC});
@@ -1045,7 +1085,7 @@
             // 
             this.ColIdSubcentroCosoto.Caption = "SunCentro";
             this.ColIdSubcentroCosoto.ColumnEdit = this.cmbSubcentro;
-            this.ColIdSubcentroCosoto.FieldName = "IdCentroCosto_sub_centro_costo";
+            this.ColIdSubcentroCosoto.FieldName = "IdRegistro";
             this.ColIdSubcentroCosoto.Name = "ColIdSubcentroCosoto";
             this.ColIdSubcentroCosoto.Visible = true;
             this.ColIdSubcentroCosoto.VisibleIndex = 15;
@@ -1057,7 +1097,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSubcentro.DisplayMember = "Centro_costo";
             this.cmbSubcentro.Name = "cmbSubcentro";
-            this.cmbSubcentro.ValueMember = "IdCentroCosto_sub_centro_costo";
+            this.cmbSubcentro.ValueMember = "IdRegistro";
             this.cmbSubcentro.View = this.gridView3;
             // 
             // gridView3
@@ -1115,109 +1155,121 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(697, 45);
+            this.txtTotal.Location = new System.Drawing.Point(929, 55);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Mask.EditMask = "n6";
             this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.Size = new System.Drawing.Size(133, 22);
             this.txtTotal.TabIndex = 17;
             // 
             // txtSubtotal
             // 
-            this.txtSubtotal.Location = new System.Drawing.Point(417, 49);
+            this.txtSubtotal.Location = new System.Drawing.Point(556, 60);
+            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Properties.Mask.EditMask = "n6";
             this.txtSubtotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
+            this.txtSubtotal.Size = new System.Drawing.Size(133, 22);
             this.txtSubtotal.TabIndex = 16;
             // 
             // txtSubtotalIva
             // 
-            this.txtSubtotalIva.Location = new System.Drawing.Point(117, 45);
+            this.txtSubtotalIva.Location = new System.Drawing.Point(156, 55);
+            this.txtSubtotalIva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSubtotalIva.Name = "txtSubtotalIva";
             this.txtSubtotalIva.Properties.Mask.EditMask = "n6";
             this.txtSubtotalIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtSubtotalIva.Size = new System.Drawing.Size(100, 20);
+            this.txtSubtotalIva.Size = new System.Drawing.Size(133, 22);
             this.txtSubtotalIva.TabIndex = 15;
             // 
             // txtTotalIva
             // 
-            this.txtTotalIva.Location = new System.Drawing.Point(697, 18);
+            this.txtTotalIva.Location = new System.Drawing.Point(929, 22);
+            this.txtTotalIva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTotalIva.Name = "txtTotalIva";
             this.txtTotalIva.Properties.Mask.EditMask = "n6";
             this.txtTotalIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotalIva.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalIva.Size = new System.Drawing.Size(133, 22);
             this.txtTotalIva.TabIndex = 14;
             // 
             // txtTotDescuento
             // 
-            this.txtTotDescuento.Location = new System.Drawing.Point(417, 23);
+            this.txtTotDescuento.Location = new System.Drawing.Point(556, 28);
+            this.txtTotDescuento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTotDescuento.Name = "txtTotDescuento";
             this.txtTotDescuento.Properties.Mask.EditMask = "n6";
             this.txtTotDescuento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotDescuento.Size = new System.Drawing.Size(100, 20);
+            this.txtTotDescuento.Size = new System.Drawing.Size(133, 22);
             this.txtTotDescuento.TabIndex = 13;
             // 
             // txtSubtotal0
             // 
-            this.txtSubtotal0.Location = new System.Drawing.Point(117, 18);
+            this.txtSubtotal0.Location = new System.Drawing.Point(156, 22);
+            this.txtSubtotal0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSubtotal0.Name = "txtSubtotal0";
             this.txtSubtotal0.Properties.Mask.EditMask = "n6";
             this.txtSubtotal0.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtSubtotal0.Size = new System.Drawing.Size(100, 20);
+            this.txtSubtotal0.Size = new System.Drawing.Size(133, 22);
             this.txtSubtotal0.TabIndex = 12;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(648, 49);
+            this.label12.Location = new System.Drawing.Point(864, 60);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.Size = new System.Drawing.Size(44, 17);
             this.label12.TabIndex = 5;
             this.label12.Text = "Total:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(630, 18);
+            this.label11.Location = new System.Drawing.Point(840, 22);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.Size = new System.Drawing.Size(66, 17);
             this.label11.TabIndex = 4;
             this.label11.Text = "Total Iva:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(359, 52);
+            this.label10.Location = new System.Drawing.Point(479, 64);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.Size = new System.Drawing.Size(64, 17);
             this.label10.TabIndex = 3;
             this.label10.Text = "Subtotal:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(322, 26);
+            this.label9.Location = new System.Drawing.Point(429, 32);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 13);
+            this.label9.Size = new System.Drawing.Size(116, 17);
             this.label9.TabIndex = 2;
             this.label9.Text = "Total Descuento:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 49);
+            this.label8.Location = new System.Drawing.Point(48, 60);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.Size = new System.Drawing.Size(86, 17);
             this.label8.TabIndex = 1;
             this.label8.Text = "Subtotal Iva:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 21);
+            this.label7.Location = new System.Drawing.Point(44, 26);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.Size = new System.Drawing.Size(88, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Subtotal 0%:";
             // 
@@ -1247,13 +1299,14 @@
             // 
             // frmCP_Aprobacion_Ing_Bod_x_OC_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 556);
+            this.ClientSize = new System.Drawing.Size(1480, 684);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCP_Aprobacion_Ing_Bod_x_OC_Mant";
             this.Text = "Mantenimiento Aprobación Ingreso Bodega por Orden Compra";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCP_Aprobacion_Ing_Bod_x_OC_Mant_FormClosing);

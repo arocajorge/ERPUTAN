@@ -75,7 +75,8 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                                       EsProcesoSolicitud = q.EsProcesoSolicitud,
                                       oc_fechaVencimiento = q.oc_fechaVencimiento,
                                       SucursalDestino = q.SucursalDestino,
-                                      IdOrdenPedido = q.IdOrdenPedido
+                                      IdOrdenPedido = q.IdOrdenPedido,
+                                      ObservacionGA = q.ObservacionGA
                                   }).ToList();
                 }
 

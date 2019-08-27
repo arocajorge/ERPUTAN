@@ -77,7 +77,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public decimal IdOrdenCompra { get; set; }
         #endregion
 
-
+        public string IdRegistro { get; set; }
         public ein_Inventario_O_Consumo es_Inven_o_Consumo { get; set; }
         public string S_es_Inven_o_Consumo { get; set; }
                        

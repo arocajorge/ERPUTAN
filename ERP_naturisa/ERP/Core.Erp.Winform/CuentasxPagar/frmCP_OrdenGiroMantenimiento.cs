@@ -1724,7 +1724,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (_Accion != Cl_Enumeradores.eTipo_action.grabar)
                 {
                     string s1=Info_OrdenGiro.co_serie.Substring(0,3);
-                    string s2 = Info_OrdenGiro.co_serie.Substring(4, 3);
+
+                    string s2 = Info_OrdenGiro.co_serie.Length == 7 ? Info_OrdenGiro.co_serie.Substring(4, 3) : "";
                     if (Info_OrdenGiro.Num_Autorizacion != "11111")
                     {
                         info_autorizacion = bus_autorizacion.Get_Info_proveedor_Autorizacion(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdProveedor, s1, s2, info_autorizacion.Serie2);

@@ -38,8 +38,9 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtEstadoProceso = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).BeginInit();
@@ -71,8 +72,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 7, 1, 11, 7, 1, 287);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 9, 1, 11, 7, 1, 287);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 7, 23, 18, 38, 8, 937);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 9, 23, 18, 38, 8, 937);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -143,7 +144,8 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
-            this.gridColumn7});
+            this.gridColumn7,
+            this.gridColumn8});
             this.gv_Consulta.GridControl = this.gc_Consulta;
             this.gv_Consulta.Name = "gv_Consulta";
             this.gv_Consulta.OptionsBehavior.ReadOnly = true;
@@ -160,7 +162,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 129;
+            this.gridColumn1.Width = 123;
             // 
             // txtIdOrdenPedido
             // 
@@ -175,7 +177,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 170;
+            this.gridColumn2.Width = 162;
             // 
             // gridColumn3
             // 
@@ -183,8 +185,8 @@
             this.gridColumn3.FieldName = "op_Observacion";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 560;
+            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.Width = 467;
             // 
             // gridColumn4
             // 
@@ -192,8 +194,8 @@
             this.gridColumn4.FieldName = "nom_departamento";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 269;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 224;
             // 
             // gridColumn5
             // 
@@ -201,8 +203,8 @@
             this.gridColumn5.FieldName = "Estado";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 6;
-            this.gridColumn5.Width = 164;
+            this.gridColumn5.VisibleIndex = 7;
+            this.gridColumn5.Width = 143;
             // 
             // gridColumn6
             // 
@@ -211,8 +213,14 @@
             this.gridColumn6.FieldName = "CatalogoEstado";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 164;
+            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.Width = 136;
+            // 
+            // txtEstadoProceso
+            // 
+            this.txtEstadoProceso.AutoHeight = false;
+            this.txtEstadoProceso.Name = "txtEstadoProceso";
+            this.txtEstadoProceso.DoubleClick += new System.EventHandler(this.txtEstadoProceso_DoubleClick);
             // 
             // gridColumn7
             // 
@@ -220,14 +228,17 @@
             this.gridColumn7.FieldName = "nom_punto_cargo";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 4;
-            this.gridColumn7.Width = 278;
+            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.Width = 232;
             // 
-            // txtEstadoProceso
+            // gridColumn8
             // 
-            this.txtEstadoProceso.AutoHeight = false;
-            this.txtEstadoProceso.Name = "txtEstadoProceso";
-            this.txtEstadoProceso.DoubleClick += new System.EventHandler(this.txtEstadoProceso_DoubleClick);
+            this.gridColumn8.Caption = "Solicitante";
+            this.gridColumn8.FieldName = "nom_solicitante";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 247;
             // 
             // frmCom_OrdenPedidoConsulta
             // 
@@ -261,5 +272,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtIdOrdenPedido;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtEstadoProceso;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
     }
 }

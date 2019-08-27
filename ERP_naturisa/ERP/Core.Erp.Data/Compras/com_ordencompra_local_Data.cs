@@ -796,7 +796,7 @@ namespace Core.Erp.Data.Compras
                         contact.IdUsuario_Aprueba = Info.IdUsuario_Aprueba;
                         contact.IdUsuario_Reprue = Info.IdUsuario_Reprue;
                         contact.co_fechaReproba = Info.co_fechaReproba;
-                        contact.Fecha_UltMod = Info.Fecha_UltMod;
+                        contact.Fecha_UltMod = DateTime.Now;
                         contact.IdUsuarioUltMod = Info.IdUsuarioUltMod;
                         contact.IdEstadoRecepcion_cat = Info.IdEstadoRecepcion_cat;
                         contact.AfectaCosto = Info.AfectaCosto;

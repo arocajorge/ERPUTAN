@@ -97,6 +97,9 @@
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_adjunto = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chk_MostrarAR = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -105,9 +108,6 @@
             this.de_Desde = new DevExpress.XtraEditors.DateEdit();
             this.btn_Buscar = new DevExpress.XtraEditors.SimpleButton();
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
-            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalOrdigen)).BeginInit();
@@ -234,6 +234,7 @@
             this.cmb_SucursalOrdigen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_SucursalOrdigen.DisplayMember = "codigo";
+            this.cmb_SucursalOrdigen.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
             this.cmb_SucursalOrdigen.Name = "cmb_SucursalOrdigen";
             this.cmb_SucursalOrdigen.ValueMember = "IdSucursal";
             this.cmb_SucursalOrdigen.View = this.repositoryItemSearchLookUpEdit1View;
@@ -294,6 +295,7 @@
             this.cmb_SucursalDestino.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_SucursalDestino.DisplayMember = "codigo";
+            this.cmb_SucursalDestino.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
             this.cmb_SucursalDestino.Name = "cmb_SucursalDestino";
             this.cmb_SucursalDestino.ValueMember = "IdSucursal";
             this.cmb_SucursalDestino.View = this.gridView1;
@@ -371,6 +373,7 @@
             this.cmb_UnidadMedida.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_UnidadMedida.DisplayMember = "Descripcion";
+            this.cmb_UnidadMedida.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
             this.cmb_UnidadMedida.Name = "cmb_UnidadMedida";
             this.cmb_UnidadMedida.ValueMember = "IdUnidadMedida";
             this.cmb_UnidadMedida.View = this.gridView3;
@@ -430,6 +433,7 @@
             this.cmb_PuntoCargo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_PuntoCargo.DisplayMember = "nom_punto_cargo";
+            this.cmb_PuntoCargo.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
             this.cmb_PuntoCargo.Name = "cmb_PuntoCargo";
             this.cmb_PuntoCargo.ValueMember = "IdPunto_cargo";
             this.cmb_PuntoCargo.View = this.gridView2;
@@ -544,6 +548,7 @@
             this.cmb_proveedor.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_proveedor.DisplayMember = "pe_nombreCompleto";
+            this.cmb_proveedor.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
             this.cmb_proveedor.Name = "cmb_proveedor";
             this.cmb_proveedor.ValueMember = "IdProveedor";
             this.cmb_proveedor.View = this.gridView4;
@@ -607,6 +612,7 @@
             this.cmb_impuesto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_impuesto.DisplayMember = "nom_impuesto";
+            this.cmb_impuesto.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.DisplayText;
             this.cmb_impuesto.Name = "cmb_impuesto";
             this.cmb_impuesto.ValueMember = "IdCod_Impuesto";
             this.cmb_impuesto.View = this.gridView5;
@@ -908,6 +914,35 @@
             this.gridColumn36.Visible = true;
             this.gridColumn36.VisibleIndex = 4;
             // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "Estado";
+            this.gridColumn37.FieldName = "EstadoDetalle";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.OptionsColumn.AllowEdit = false;
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 24;
+            this.gridColumn37.Width = 100;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "OC";
+            this.gridColumn38.FieldName = "CodigoOC";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.OptionsColumn.AllowEdit = false;
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 25;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "Gerente Area";
+            this.gridColumn39.FieldName = "ObservacionGA";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.OptionsColumn.AllowEdit = false;
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 26;
+            this.gridColumn39.Width = 200;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.chk_MostrarAR);
@@ -1041,35 +1076,6 @@
             this.ucGe_Menu_Superior_Mant1.event_btnAprobar_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAprobar_Click(this.ucGe_Menu_Superior_Mant1_event_btnAprobar_Click);
             this.ucGe_Menu_Superior_Mant1.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.ucGe_Menu_Superior_Mant1_event_btnAnular_Click);
             this.ucGe_Menu_Superior_Mant1.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucGe_Menu_Superior_Mant1_event_btnSalir_Click);
-            // 
-            // gridColumn37
-            // 
-            this.gridColumn37.Caption = "Estado";
-            this.gridColumn37.FieldName = "EstadoDetalle";
-            this.gridColumn37.Name = "gridColumn37";
-            this.gridColumn37.OptionsColumn.AllowEdit = false;
-            this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 24;
-            this.gridColumn37.Width = 100;
-            // 
-            // gridColumn38
-            // 
-            this.gridColumn38.Caption = "OC";
-            this.gridColumn38.FieldName = "CodigoOC";
-            this.gridColumn38.Name = "gridColumn38";
-            this.gridColumn38.OptionsColumn.AllowEdit = false;
-            this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 25;
-            // 
-            // gridColumn39
-            // 
-            this.gridColumn39.Caption = "Gerente Area";
-            this.gridColumn39.FieldName = "ObservacionGA";
-            this.gridColumn39.Name = "gridColumn39";
-            this.gridColumn39.OptionsColumn.AllowEdit = false;
-            this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 26;
-            this.gridColumn39.Width = 200;
             // 
             // FrmCom_OrdenPedidoCotizacion
             // 

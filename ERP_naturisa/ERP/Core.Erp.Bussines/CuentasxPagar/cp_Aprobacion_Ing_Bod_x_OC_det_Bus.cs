@@ -63,6 +63,7 @@ namespace Core.Erp.Business.CuentasxPagar
                    {
                        InfoSub_CC = BusSub_x_CC.Get_Info_in_subgrupo(IdEmpresa, item.IdCategoria, item.IdLinea, item.IdGrupo, item.IdSubGrupo, item.IdCentro_Costo, item.IdCentroCosto_sub_centro_costo);
                        item.IdCtaCble_Gasto = InfoSub_CC.IdCtaCble;
+                       item.IdRegistro = item.IdCentro_Costo + '-' + item.IdCentroCosto_sub_centro_costo;
                    }
 
                    if (item.es_Inven_o_Consumo == ein_Inventario_O_Consumo.TIC_INVEN)

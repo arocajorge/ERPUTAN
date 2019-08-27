@@ -71,5 +71,6 @@ namespace Cus.Erp.Reports.Naturisa
         public Nullable<bool> EsProcesoSolicitud { get; set; }
         public Nullable<decimal> IdOrdenPedido { get; set; }
         public Nullable<System.DateTime> oc_fechaVencimiento { get; set; }
+        public string ObservacionGA { get; set; }
     }
 }

@@ -246,7 +246,6 @@ namespace Core.Erp.Data.Compras
                         Entity.op_Fecha = info.op_Fecha;
                         Entity.op_Observacion = info.op_Observacion;
                         Entity.IdDepartamento = info.IdDepartamento;
-                        Entity.IdSolicitante = info.IdSolicitante;
                         Entity.IdUsuarioUltModi = info.IdUsuarioCreacion;
                         Entity.FechaUltModi = DateTime.Now;
                         Entity.IdPunto_cargo = info.IdPunto_cargo;
