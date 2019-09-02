@@ -49,151 +49,173 @@
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.chk_estado = new DevExpress.XtraEditors.CheckEdit();
             this.chk_es_Establecimiento = new DevExpress.XtraEditors.CheckEdit();
+            this.chk_estado = new DevExpress.XtraEditors.CheckEdit();
+            this.cmbSucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefono.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEstablecimiento.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_estado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_es_Establecimiento.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_estado.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(129, 175);
+            this.txtTelefono.Location = new System.Drawing.Point(172, 248);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Properties.Mask.EditMask = "(\\d?\\d?\\d?)\\d\\d\\d\\d-\\d\\d\\d";
             this.txtTelefono.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular;
-            this.txtTelefono.Size = new System.Drawing.Size(263, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(351, 22);
             this.txtTelefono.TabIndex = 10;
             // 
             // txtUbicacion
             // 
-            this.txtUbicacion.Location = new System.Drawing.Point(129, 250);
+            this.txtUbicacion.Location = new System.Drawing.Point(172, 341);
+            this.txtUbicacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUbicacion.MaxLength = 20;
             this.txtUbicacion.Multiline = true;
             this.txtUbicacion.Name = "txtUbicacion";
             this.txtUbicacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtUbicacion.Size = new System.Drawing.Size(263, 43);
+            this.txtUbicacion.Size = new System.Drawing.Size(349, 52);
             this.txtUbicacion.TabIndex = 8;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(129, 201);
+            this.txtDireccion.Location = new System.Drawing.Point(172, 280);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDireccion.Size = new System.Drawing.Size(263, 43);
+            this.txtDireccion.Size = new System.Drawing.Size(349, 52);
             this.txtDireccion.TabIndex = 7;
             // 
             // txtEstablecimiento
             // 
-            this.txtEstablecimiento.Location = new System.Drawing.Point(129, 123);
+            this.txtEstablecimiento.Location = new System.Drawing.Point(172, 184);
+            this.txtEstablecimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEstablecimiento.Name = "txtEstablecimiento";
             this.txtEstablecimiento.Properties.Appearance.Options.UseTextOptions = true;
             this.txtEstablecimiento.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtEstablecimiento.Properties.Mask.BeepOnError = true;
             this.txtEstablecimiento.Properties.Mask.SaveLiteral = false;
             this.txtEstablecimiento.Properties.MaxLength = 3;
-            this.txtEstablecimiento.Size = new System.Drawing.Size(98, 20);
+            this.txtEstablecimiento.Size = new System.Drawing.Size(131, 22);
             this.txtEstablecimiento.TabIndex = 4;
             this.txtEstablecimiento.Validating += new System.ComponentModel.CancelEventHandler(this.txtEstablecimiento_Validating);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(45, 126);
+            this.label9.Location = new System.Drawing.Point(60, 188);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 13);
+            this.label9.Size = new System.Drawing.Size(111, 17);
             this.label9.TabIndex = 5;
             this.label9.Text = "Establecimiento:";
             // 
             // txtJefeSucursal
             // 
-            this.txtJefeSucursal.Location = new System.Drawing.Point(129, 149);
+            this.txtJefeSucursal.Location = new System.Drawing.Point(172, 216);
+            this.txtJefeSucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtJefeSucursal.MaxLength = 100;
             this.txtJefeSucursal.Name = "txtJefeSucursal";
-            this.txtJefeSucursal.Size = new System.Drawing.Size(263, 20);
+            this.txtJefeSucursal.Size = new System.Drawing.Size(349, 22);
             this.txtJefeSucursal.TabIndex = 5;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(45, 263);
+            this.label8.Location = new System.Drawing.Point(60, 357);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.Size = new System.Drawing.Size(74, 17);
             this.label8.TabIndex = 1;
             this.label8.Text = "Ubicación:";
             // 
             // txtRuc
             // 
-            this.txtRuc.Location = new System.Drawing.Point(129, 95);
+            this.txtRuc.Location = new System.Drawing.Point(172, 150);
+            this.txtRuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRuc.MaxLength = 15;
             this.txtRuc.Name = "txtRuc";
-            this.txtRuc.Size = new System.Drawing.Size(263, 20);
+            this.txtRuc.Size = new System.Drawing.Size(349, 22);
             this.txtRuc.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(45, 213);
+            this.label7.Location = new System.Drawing.Point(60, 295);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.Size = new System.Drawing.Size(71, 17);
             this.label7.TabIndex = 1;
             this.label7.Text = "Dirección:";
             // 
             // txtCodSucursal
             // 
-            this.txtCodSucursal.Location = new System.Drawing.Point(129, 47);
+            this.txtCodSucursal.Location = new System.Drawing.Point(172, 58);
+            this.txtCodSucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodSucursal.MaxLength = 5;
             this.txtCodSucursal.Name = "txtCodSucursal";
-            this.txtCodSucursal.Size = new System.Drawing.Size(170, 20);
+            this.txtCodSucursal.Size = new System.Drawing.Size(225, 22);
             this.txtCodSucursal.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 152);
+            this.label5.Location = new System.Drawing.Point(60, 220);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.Size = new System.Drawing.Size(98, 17);
             this.label5.TabIndex = 1;
             this.label5.Text = "Jefe Sucursal:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 178);
+            this.label6.Location = new System.Drawing.Point(60, 252);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "Teléfono:";
             // 
             // txt_vendedor
             // 
-            this.txt_vendedor.Location = new System.Drawing.Point(129, 69);
+            this.txt_vendedor.Location = new System.Drawing.Point(172, 118);
+            this.txt_vendedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_vendedor.MaxLength = 60;
             this.txt_vendedor.Name = "txt_vendedor";
-            this.txt_vendedor.Size = new System.Drawing.Size(263, 20);
+            this.txt_vendedor.Size = new System.Drawing.Size(349, 22);
             this.txt_vendedor.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 98);
+            this.label3.Location = new System.Drawing.Point(60, 154);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(41, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "RUC:";
             // 
             // lbl_id_sucursal
             // 
             this.lbl_id_sucursal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_id_sucursal.Location = new System.Drawing.Point(129, 21);
+            this.lbl_id_sucursal.Location = new System.Drawing.Point(172, 26);
+            this.lbl_id_sucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_id_sucursal.Name = "lbl_id_sucursal";
-            this.lbl_id_sucursal.Size = new System.Drawing.Size(100, 23);
+            this.lbl_id_sucursal.Size = new System.Drawing.Size(133, 28);
             this.lbl_id_sucursal.TabIndex = 0;
             this.lbl_id_sucursal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_id_sucursal.Visible = false;
@@ -201,27 +223,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 50);
+            this.label1.Location = new System.Drawing.Point(60, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Código:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 72);
+            this.label2.Location = new System.Drawing.Point(60, 122);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Sucursal:";
             // 
             // lbl_title_id_sucursal
             // 
             this.lbl_title_id_sucursal.AutoSize = true;
-            this.lbl_title_id_sucursal.Location = new System.Drawing.Point(45, 26);
+            this.lbl_title_id_sucursal.Location = new System.Drawing.Point(60, 32);
+            this.lbl_title_id_sucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_title_id_sucursal.Name = "lbl_title_id_sucursal";
-            this.lbl_title_id_sucursal.Size = new System.Drawing.Size(63, 13);
+            this.lbl_title_id_sucursal.Size = new System.Drawing.Size(82, 17);
             this.lbl_title_id_sucursal.TabIndex = 0;
             this.lbl_title_id_sucursal.Text = "Id Sucursal:";
             this.lbl_title_id_sucursal.Visible = false;
@@ -253,8 +278,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(486, 35);
+            this.ucGe_Menu.Size = new System.Drawing.Size(648, 43);
             this.ucGe_Menu.TabIndex = 0;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -287,13 +313,16 @@
             // 
             this.panel1.Controls.Add(this.groupControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 35);
+            this.panel1.Location = new System.Drawing.Point(0, 43);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 322);
+            this.panel1.Size = new System.Drawing.Size(648, 489);
             this.panel1.TabIndex = 6;
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.label4);
+            this.groupControl1.Controls.Add(this.cmbSucursal);
             this.groupControl1.Controls.Add(this.chk_es_Establecimiento);
             this.groupControl1.Controls.Add(this.chk_estado);
             this.groupControl1.Controls.Add(this.lbl_id_sucursal);
@@ -316,34 +345,90 @@
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(486, 322);
+            this.groupControl1.Size = new System.Drawing.Size(648, 489);
             this.groupControl1.TabIndex = 11;
             this.groupControl1.Text = "Datos de la Sucursal";
             // 
-            // chk_estado
-            // 
-            this.chk_estado.Location = new System.Drawing.Point(336, 25);
-            this.chk_estado.Name = "chk_estado";
-            this.chk_estado.Properties.Caption = "Activo";
-            this.chk_estado.Size = new System.Drawing.Size(75, 19);
-            this.chk_estado.TabIndex = 11;
-            // 
             // chk_es_Establecimiento
             // 
-            this.chk_es_Establecimiento.Location = new System.Drawing.Point(336, 44);
+            this.chk_es_Establecimiento.Location = new System.Drawing.Point(448, 54);
+            this.chk_es_Establecimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chk_es_Establecimiento.Name = "chk_es_Establecimiento";
             this.chk_es_Establecimiento.Properties.Caption = "Es establecimiento SRI";
-            this.chk_es_Establecimiento.Size = new System.Drawing.Size(138, 19);
+            this.chk_es_Establecimiento.Size = new System.Drawing.Size(184, 21);
             this.chk_es_Establecimiento.TabIndex = 12;
+            // 
+            // chk_estado
+            // 
+            this.chk_estado.Location = new System.Drawing.Point(448, 31);
+            this.chk_estado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chk_estado.Name = "chk_estado";
+            this.chk_estado.Properties.Caption = "Activo";
+            this.chk_estado.Size = new System.Drawing.Size(100, 21);
+            this.chk_estado.TabIndex = 11;
+            // 
+            // cmbSucursal
+            // 
+            this.cmbSucursal.EditValue = "Mantenimiento de punto de venta";
+            this.cmbSucursal.Location = new System.Drawing.Point(172, 88);
+            this.cmbSucursal.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbSucursal.Name = "cmbSucursal";
+            this.cmbSucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSucursal.Properties.DisplayMember = "Su_Descripcion2";
+            this.cmbSucursal.Properties.ValueMember = "IdSucursal";
+            this.cmbSucursal.Properties.View = this.searchLookUpEdit1View;
+            this.cmbSucursal.Size = new System.Drawing.Size(349, 22);
+            this.cmbSucursal.TabIndex = 13;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "IdSucursal";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 71;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Sucursal";
+            this.gridColumn2.FieldName = "Su_Descripcion";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 1091;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(60, 91);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Padre:";
             // 
             // frmFa_Sucursal_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 357);
+            this.ClientSize = new System.Drawing.Size(648, 532);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmFa_Sucursal_Mant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Sucursales";
@@ -355,8 +440,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_estado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_es_Establecimiento.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_estado.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,6 +473,11 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.CheckEdit chk_estado;
         private DevExpress.XtraEditors.CheckEdit chk_es_Establecimiento;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbSucursal;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
 
     }
 }

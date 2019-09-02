@@ -317,7 +317,7 @@ namespace Core.Erp.Winform.Facturacion
                 txtTelefono.Text = info_sucursal.Su_Telefonos;
                 txtDireccion.Text = info_sucursal.Su_Direccion;
                 txtEstablecimiento.Text = info_sucursal.Su_CodigoEstablecimiento;
-                
+                cmbSucursal.EditValue = info_sucursal.IdSucursalContabilizacion;
                 info = info_sucursal;
             }
             catch (Exception ex)
@@ -351,7 +351,7 @@ namespace Core.Erp.Winform.Facturacion
                 info.Su_Telefonos= txtTelefono.Text;
                 info.Su_Direccion = txtDireccion.Text;
                 info.Su_CodigoEstablecimiento = txtEstablecimiento.Text;
-
+                info.IdSucursalContabilizacion = cmbSucursal.EditValue == null ? null : (int?)cmbSucursal.EditValue;
                 info.Estado = this.chk_estado.Checked;
                 return info;
             }
@@ -383,6 +383,9 @@ namespace Core.Erp.Winform.Facturacion
         {
             try
             {
+                var List_Sucursal = bus.Get_List_Sucursal(param.IdEmpresa);
+                cmbSucursal.Properties.DataSource = List_Sucursal;
+
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -391,7 +394,6 @@ namespace Core.Erp.Winform.Facturacion
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         ucGe_Menu.Enabled_bntAnular = false;
-                        txtCodSucursal.Enabled = false;
                         this.chk_estado.Enabled = true;
                         this.lbl_title_id_sucursal.Visible = true;
                         this.lbl_id_sucursal.Visible = true;

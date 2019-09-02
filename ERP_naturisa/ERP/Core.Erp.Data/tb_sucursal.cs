@@ -40,6 +40,7 @@ namespace Core.Erp.Data
         public string Estado { get; set; }
         public string MotiAnula { get; set; }
         public Nullable<bool> Es_establecimiento { get; set; }
+        public Nullable<int> IdSucursalContabilizacion { get; set; }
     
         public virtual ICollection<tb_bodega> tb_bodega { get; set; }
         public virtual tb_empresa tb_empresa { get; set; }

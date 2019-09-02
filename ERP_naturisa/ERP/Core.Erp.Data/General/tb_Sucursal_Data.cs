@@ -18,22 +18,25 @@ namespace Core.Erp.Data.General
                 List<tb_Sucursal_Info> lM = new List<tb_Sucursal_Info>();
                 using (EntitiesGeneral db = new EntitiesGeneral())
                 {
-                    lM = db.tb_sucursal.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new tb_Sucursal_Info
-                    {
-                        IdEmpresa = q.IdEmpresa,
-                        IdSucursal = q.IdSucursal,
-                        Su_CodigoEstablecimiento = q.Su_CodigoEstablecimiento,
-                        Su_Descripcion = q.Su_Descripcion,
-                        Su_Ubicacion = q.Su_Ubicacion,
-                        Su_Ruc = q.Su_Ruc,
-                        Su_JefeSucursal = q.Su_JefeSucursal,
-                        Su_Direccion = q.Su_Direccion,
-                        Es_establecimiento = q.Es_establecimiento,
-                        Su_Telefonos = q.Su_Telefonos,
-                        Estado = q.Estado == "A" ? true : false,
-                        SEstado = q.Estado == "A" ? "ACTIVO" : "*ANULADO*",
-                        codigo = q.codigo
-                    }).ToList();
+                    var lst = db.tb_sucursal.Where(q => q.IdEmpresa == IdEmpresa).ToList();
+
+                    lM = lst.Select(q => new tb_Sucursal_Info
+                {
+                    IdEmpresa = q.IdEmpresa,
+                    IdSucursal = q.IdSucursal,
+                    Su_CodigoEstablecimiento = q.Su_CodigoEstablecimiento,
+                    Su_Descripcion = q.Su_Descripcion,
+                    Su_Ubicacion = q.Su_Ubicacion,
+                    Su_Ruc = q.Su_Ruc,
+                    Su_JefeSucursal = q.Su_JefeSucursal,
+                    Su_Direccion = q.Su_Direccion,
+                    Es_establecimiento = q.Es_establecimiento,
+                    Su_Telefonos = q.Su_Telefonos,
+                    Estado = q.Estado == "A" ? true : false,
+                    SEstado = q.Estado == "A" ? "ACTIVO" : "*ANULADO*",
+                    codigo = q.codigo,
+                    IdSucursalContabilizacion = q.IdSucursalContabilizacion
+                }).ToList();
                 }
                 lM.ForEach(q => q.Su_Descripcion2 = "[" + q.IdSucursal.ToString() + "] " + q.Su_Descripcion.Trim());
                 return (lM);
@@ -157,6 +160,7 @@ namespace Core.Erp.Data.General
                         contact.Es_establecimiento = info.Es_establecimiento;
                         contact.ip = info.ip;
                         contact.Estado = (info.Estado == true) ? "A" : "I";
+                        contact.IdSucursalContabilizacion = info.IdSucursalContabilizacion;
                         context.SaveChanges();
                         msg = "Se ha procedido actualizar el registro de la sucursal #: " + info.IdSucursal.ToString() + " exitosamente";
                     }
@@ -234,7 +238,7 @@ namespace Core.Erp.Data.General
                     address.Su_JefeSucursal = info.Su_JefeSucursal;
                     address.Su_Telefonos = info.Su_Telefonos;
                     address.Su_Direccion = info.Su_Direccion;
-
+                    address.IdSucursalContabilizacion = info.IdSucursalContabilizacion;
                     address.codigo = (info.codigo == "" || info.codigo == null) ? "S_" + idsucur : info.codigo;
 
                     address.Estado = "A";

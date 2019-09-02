@@ -102,11 +102,13 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
-                List<com_OrdenPedido_Info> Lista;
+                List<com_OrdenPedido_Info> Lista = new List<com_OrdenPedido_Info>();
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lista = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).Select(q => new com_OrdenPedido_Info
-                    {
+
+                    var lst = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).ToList();
+
+                    Lista.AddRange(lst.Select(q=> new com_OrdenPedido_Info{
                         IdEmpresa = q.IdEmpresa,
                         IdOrdenPedido = q.IdOrdenPedido,
                         op_Codigo = q.op_Codigo,
@@ -120,8 +122,7 @@ namespace Core.Erp.Data.Compras
                         EsCompraUrgente = q.EsCompraUrgente ?? false,
                         nom_punto_cargo = q.nom_punto_cargo,
                         cd_total = q.cd_total
-                    }).ToList();
-
+                    }).ToList());
                 }
 
                 return Lista;

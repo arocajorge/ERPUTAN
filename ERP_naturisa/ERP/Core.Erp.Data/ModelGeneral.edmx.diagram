@@ -92,9 +92,6 @@
         <EntityTypeShape EntityType="DBERPModelGeneral.vwtb_sis_Documento_Tipo_x_Empresa_Anulados" Width="1.5" PointX="1.1606703797172151" PointY="19.673149267059355" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_banco_estado_reg__resp_bancaria" Width="1.5" PointX="5.2995773001106352" PointY="20.284235457090769" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_banco_estado_reg__resp_bancaria_tb_banco" />
-        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sucursal" Width="1.5" PointX="9.6778814670061148" PointY="1.0199245219211675" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_bodega_tb_sucursal" />
-        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sucursal_tb_empresa" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_region" Width="1.5" PointX="10.223500012524193" PointY="17.101671137428688" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_provincia_tb_region" />
         <EntityTypeShape EntityType="DBERPModelGeneral.tb_provincia" Width="1.5" PointX="6.8332760663858032" PointY="26.324224573711039" />
@@ -112,6 +109,9 @@
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_tb_Catalogo6" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_contacto_tb_persona" />
         <AssociationConnector Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona" />
+        <EntityTypeShape EntityType="DBERPModelGeneral.tb_sucursal" Width="1.5" PointX="8.86413935053355" PointY="29.606225012618221" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_bodega_tb_sucursal" />
+        <AssociationConnector Association="DBERPModelGeneral.FK_tb_sucursal_tb_empresa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

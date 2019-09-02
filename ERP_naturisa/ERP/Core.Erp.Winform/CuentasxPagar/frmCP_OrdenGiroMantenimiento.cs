@@ -1315,6 +1315,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 CbteCble_I.cb_FechaTransac = param.Fecha_Transac;
                 CbteCble_I.cb_FechaUltModi = param.Fecha_Transac;
                 CbteCble_I.Mayorizado = "N";
+                CbteCble_I.IdSucursal = cmb_sucursal.EditValue == null ? 1 : (int)cmb_sucursal.EditValue;
                 CbteCble_I.IdCbteCble = (txt_NOrdeG.Text == "") ? 0 : Convert.ToDecimal(txt_NOrdeG.Text);
                 
                 return CbteCble_I;

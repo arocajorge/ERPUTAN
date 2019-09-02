@@ -51,5 +51,7 @@ namespace Core.Erp.Info.General
             Estado = true;
             codigo = _IdSucursal.ToString();
         }
+
+        public int? IdSucursalContabilizacion { get; set; }
     }
 }

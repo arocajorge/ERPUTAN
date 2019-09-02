@@ -21,7 +21,7 @@ namespace Core.Erp.Data.Inventario
 
         prd_parametros_CusCidersus_Data dataParam = new prd_parametros_CusCidersus_Data();
         prd_parametros_CusCidersus_Info paramCUS = new prd_parametros_CusCidersus_Info();
-
+        tb_Sucursal_Data odata_su = new tb_Sucursal_Data();
         public List<in_movi_inve_Info> Get_list_Movi_inven
             (int idcompany,int idSucursalIni ,int idSucursalFin ,int IdBodegaIni,int IdBodegaFin,
             int TipoMoviIni, int TipoMoviFin, DateTime FechaIni, DateTime FechaFin ,string Signo_Ing_Egre="")
@@ -1420,6 +1420,7 @@ item.Centro_costo.Trim() : "",
                     #endregion
 
                     #region Cabecera del diario
+                    var suc = odata_su.Get_Info_Sucursal(IdEmpresa, IdSucursal);
                     var diario = new ct_cbtecble
                     {
                         IdEmpresa = movimiento.IdEmpresa,
@@ -1436,7 +1437,7 @@ item.Centro_costo.Trim() : "",
                         IdUsuario = IdUsuario,
                         cb_FechaTransac = DateTime.Now,
                         cb_para_conciliar = false,
-                        IdSucursal = 1,
+                        IdSucursal = suc.IdSucursalContabilizacion ?? suc.IdSucursal,
                         cb_Mayorizado = "N",
                         cb_Estado = "A"
                     };

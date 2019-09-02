@@ -93,10 +93,10 @@ namespace Core.Erp.Data
         public DbSet<tb_empresa> tb_empresa { get; set; }
         public DbSet<vwtb_sis_Documento_Tipo_x_Empresa_Anulados> vwtb_sis_Documento_Tipo_x_Empresa_Anulados { get; set; }
         public DbSet<tb_banco_estado_reg__resp_bancaria> tb_banco_estado_reg__resp_bancaria { get; set; }
-        public DbSet<tb_sucursal> tb_sucursal { get; set; }
         public DbSet<tb_provincia> tb_provincia { get; set; }
         public DbSet<tb_region> tb_region { get; set; }
         public DbSet<tb_persona> tb_persona { get; set; }
+        public DbSet<tb_sucursal> tb_sucursal { get; set; }
     
         public virtual ObjectResult<spSys_ObtenerFecha_SinFeriadoTampocoSabDom_Result> spSys_ObtenerFecha_SinFeriadoTampocoSabDom(Nullable<System.DateTime> fechaInicial, Nullable<int> dias)
         {

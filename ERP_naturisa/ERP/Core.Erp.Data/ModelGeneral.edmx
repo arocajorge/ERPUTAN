@@ -1253,6 +1253,7 @@
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="MotiAnula" Type="varchar" MaxLength="200" />
           <Property Name="Es_establecimiento" Type="bit" />
+          <Property Name="IdSucursalContabilizacion" Type="int" />
         </EntityType>
         <EntityType Name="tb_tarjeta">
           <Key>
@@ -2489,15 +2490,6 @@
             <End Role="tb_banco" EntitySet="tb_banco" />
             <End Role="tb_banco_estado_reg__resp_bancaria" EntitySet="tb_banco_estado_reg__resp_bancaria" />
           </AssociationSet>
-          <EntitySet Name="tb_sucursal" EntityType="DBERPModelGeneral.tb_sucursal" />
-          <AssociationSet Name="FK_tb_bodega_tb_sucursal" Association="DBERPModelGeneral.FK_tb_bodega_tb_sucursal">
-            <End Role="tb_sucursal" EntitySet="tb_sucursal" />
-            <End Role="tb_bodega" EntitySet="tb_bodega" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tb_sucursal_tb_empresa" Association="DBERPModelGeneral.FK_tb_sucursal_tb_empresa">
-            <End Role="tb_empresa" EntitySet="tb_empresa" />
-            <End Role="tb_sucursal" EntitySet="tb_sucursal" />
-          </AssociationSet>
           <EntitySet Name="tb_provincia" EntityType="DBERPModelGeneral.tb_provincia" />
           <EntitySet Name="tb_region" EntityType="DBERPModelGeneral.tb_region" />
           <AssociationSet Name="FK_tb_ciudad_tb_provincia" Association="DBERPModelGeneral.FK_tb_ciudad_tb_provincia">
@@ -2556,6 +2548,15 @@
           <AssociationSet Name="FK_tb_persona_direccion_tb_persona" Association="DBERPModelGeneral.FK_tb_persona_direccion_tb_persona">
             <End Role="tb_persona" EntitySet="tb_persona" />
             <End Role="tb_persona_direccion" EntitySet="tb_persona_direccion" />
+          </AssociationSet>
+          <EntitySet Name="tb_sucursal" EntityType="DBERPModelGeneral.tb_sucursal" />
+          <AssociationSet Name="FK_tb_bodega_tb_sucursal" Association="DBERPModelGeneral.FK_tb_bodega_tb_sucursal">
+            <End Role="tb_sucursal" EntitySet="tb_sucursal" />
+            <End Role="tb_bodega" EntitySet="tb_bodega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_sucursal_tb_empresa" Association="DBERPModelGeneral.FK_tb_sucursal_tb_empresa">
+            <End Role="tb_empresa" EntitySet="tb_empresa" />
+            <End Role="tb_sucursal" EntitySet="tb_sucursal" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="spSys_ObtenerFecha_SinFeriadoTampocoSabDom_Result">
@@ -4077,61 +4078,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="tb_sucursal">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursal" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="String" Name="codigo" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Su_CodigoEstablecimiento" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_Ubicacion" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_Ruc" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_JefeSucursal" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_Telefonos" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
-          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="MotiAnula" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Es_establecimiento" />
-          <NavigationProperty Name="tb_bodega" Relationship="DBERPModelGeneral.FK_tb_bodega_tb_sucursal" FromRole="tb_sucursal" ToRole="tb_bodega" />
-          <NavigationProperty Name="tb_empresa" Relationship="DBERPModelGeneral.FK_tb_sucursal_tb_empresa" FromRole="tb_sucursal" ToRole="tb_empresa" />
-        </EntityType>
-        <Association Name="FK_tb_bodega_tb_sucursal">
-          <End Type="DBERPModelGeneral.tb_sucursal" Role="tb_sucursal" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_bodega" Role="tb_bodega" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_sucursal">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursal" />
-            </Principal>
-            <Dependent Role="tb_bodega">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tb_sucursal_tb_empresa">
-          <End Type="DBERPModelGeneral.tb_empresa" Role="tb_empresa" Multiplicity="1" />
-          <End Type="DBERPModelGeneral.tb_sucursal" Role="tb_sucursal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_empresa">
-              <PropertyRef Name="IdEmpresa" />
-            </Principal>
-            <Dependent Role="tb_sucursal">
-              <PropertyRef Name="IdEmpresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="tb_provincia">
           <Key>
             <PropertyRef Name="IdProvincia" />
@@ -4379,6 +4325,62 @@
             </Principal>
             <Dependent Role="tb_persona_direccion">
               <PropertyRef Name="IdPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_sucursal">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="codigo" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Su_CodigoEstablecimiento" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Ubicacion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Ruc" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_JefeSucursal" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Telefonos" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MotiAnula" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Es_establecimiento" />
+          <Property Type="Int32" Name="IdSucursalContabilizacion" />
+          <NavigationProperty Name="tb_bodega" Relationship="DBERPModelGeneral.FK_tb_bodega_tb_sucursal" FromRole="tb_sucursal" ToRole="tb_bodega" />
+          <NavigationProperty Name="tb_empresa" Relationship="DBERPModelGeneral.FK_tb_sucursal_tb_empresa" FromRole="tb_sucursal" ToRole="tb_empresa" />
+        </EntityType>
+        <Association Name="FK_tb_bodega_tb_sucursal">
+          <End Type="DBERPModelGeneral.tb_sucursal" Role="tb_sucursal" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_bodega" Role="tb_bodega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_sucursal">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+            </Principal>
+            <Dependent Role="tb_bodega">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_sucursal_tb_empresa">
+          <End Type="DBERPModelGeneral.tb_empresa" Role="tb_empresa" Multiplicity="1" />
+          <End Type="DBERPModelGeneral.tb_sucursal" Role="tb_sucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_empresa">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="tb_sucursal">
+              <PropertyRef Name="IdEmpresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5511,33 +5513,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_sucursal">
-            <EntityTypeMapping TypeName="DBERPModelGeneral.tb_sucursal">
-              <MappingFragment StoreEntitySet="tb_sucursal">
-                <ScalarProperty Name="Es_establecimiento" ColumnName="Es_establecimiento" />
-                <ScalarProperty Name="MotiAnula" ColumnName="MotiAnula" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
-                <ScalarProperty Name="Su_Telefonos" ColumnName="Su_Telefonos" />
-                <ScalarProperty Name="Su_JefeSucursal" ColumnName="Su_JefeSucursal" />
-                <ScalarProperty Name="Su_Ruc" ColumnName="Su_Ruc" />
-                <ScalarProperty Name="Su_Ubicacion" ColumnName="Su_Ubicacion" />
-                <ScalarProperty Name="Su_CodigoEstablecimiento" ColumnName="Su_CodigoEstablecimiento" />
-                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_provincia">
             <EntityTypeMapping TypeName="DBERPModelGeneral.tb_provincia">
               <MappingFragment StoreEntitySet="tb_provincia">
@@ -5605,6 +5580,34 @@
                 <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
                 <ScalarProperty Name="CodPersona" ColumnName="CodPersona" />
                 <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_sucursal">
+            <EntityTypeMapping TypeName="DBERPModelGeneral.tb_sucursal">
+              <MappingFragment StoreEntitySet="tb_sucursal">
+                <ScalarProperty Name="IdSucursalContabilizacion" ColumnName="IdSucursalContabilizacion" />
+                <ScalarProperty Name="Es_establecimiento" ColumnName="Es_establecimiento" />
+                <ScalarProperty Name="MotiAnula" ColumnName="MotiAnula" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
+                <ScalarProperty Name="Su_Telefonos" ColumnName="Su_Telefonos" />
+                <ScalarProperty Name="Su_JefeSucursal" ColumnName="Su_JefeSucursal" />
+                <ScalarProperty Name="Su_Ruc" ColumnName="Su_Ruc" />
+                <ScalarProperty Name="Su_Ubicacion" ColumnName="Su_Ubicacion" />
+                <ScalarProperty Name="Su_CodigoEstablecimiento" ColumnName="Su_CodigoEstablecimiento" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
