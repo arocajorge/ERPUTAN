@@ -637,7 +637,8 @@ namespace Core.Erp.Data.Inventario
             try
             {
                 List<in_transferencia_Info> lst = new List<in_transferencia_Info>();
-
+                FechaIni = FechaIni.Date;
+                FechaFin = FechaFin.Date;
                 EntitiesInventario OEInventario = new EntitiesInventario();
                 lst = OEInventario.vwin_Transferencias.Where(q => q.IdEmpresa == IdEmpresa
                              && IdSucursalIni <= q.IdSucursalOrigen && q.IdSucursalOrigen <= idSucursalFin

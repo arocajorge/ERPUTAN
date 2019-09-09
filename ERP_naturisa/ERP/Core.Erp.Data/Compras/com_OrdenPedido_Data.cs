@@ -105,7 +105,7 @@ namespace Core.Erp.Data.Compras
                 List<com_OrdenPedido_Info> Lista = new List<com_OrdenPedido_Info>();
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-
+                    db.SetCommandTimeOut(3000);
                     var lst = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).ToList();
 
                     Lista.AddRange(lst.Select(q=> new com_OrdenPedido_Info{
