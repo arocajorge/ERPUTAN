@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cus.Erp.Reports.Naturisa.Compras;
 
 namespace Core.Erp.Winform.Compras
 {
@@ -301,6 +302,14 @@ namespace Core.Erp.Winform.Compras
                     row.cd_subtotal = row.cd_precioFinal * row.cd_Cantidad;
                     row.cd_iva = row.cd_subtotal * (row.Por_Iva / 100);
                     row.cd_total = row.cd_subtotal + row.cd_iva;
+
+                    if (row.cd_Cantidad == 0)
+                    {
+                        row.A = false;
+                    }
+                    else
+                        row.A = true;
+
                     gc_detalle.RefreshDataSource();
                     SetTotal();
                 }
@@ -316,6 +325,22 @@ namespace Core.Erp.Winform.Compras
             try
             {
                 lblTotal.Text = "$ " + blst.Sum(q => q.cd_subtotal).ToString("n2");
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        private void uc_menu_event_btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XCOMP_NATU_Rpt008_Rpt rpt = new XCOMP_NATU_Rpt008_Rpt();
+                rpt.Empresa = param.NombreEmpresa;
+                rpt.p_IdEmpresa.Value = param.IdEmpresa;
+                rpt.p_IdOrdenPedido.Value = Convert.ToDecimal(txt_IdOrdenPedido.Text);
+                rpt.ShowPreviewDialog();
             }
             catch (Exception)
             {

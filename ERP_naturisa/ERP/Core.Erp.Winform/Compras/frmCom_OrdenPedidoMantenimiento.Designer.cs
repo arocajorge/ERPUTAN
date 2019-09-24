@@ -644,11 +644,13 @@
             // 
             // cmb_UnidadMedida
             // 
+            this.cmb_UnidadMedida.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
             this.cmb_UnidadMedida.AutoHeight = false;
             this.cmb_UnidadMedida.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_UnidadMedida.DisplayMember = "Descripcion";
             this.cmb_UnidadMedida.Name = "cmb_UnidadMedida";
+            this.cmb_UnidadMedida.ReadOnly = true;
             this.cmb_UnidadMedida.ValueMember = "IdUnidadMedida";
             this.cmb_UnidadMedida.View = this.gridView3;
             // 

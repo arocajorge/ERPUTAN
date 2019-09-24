@@ -1280,7 +1280,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     Info_CbteCble_x_Ret.Estado = "A";       
                     Info_CbteCble_x_Ret.Anio = ucCp_Retencion1.dtp_fechaEmisionRetencion.Value.Year;
                     Info_CbteCble_x_Ret.Mes = ucCp_Retencion1.dtp_fechaEmisionRetencion.Value.Month;
-
+                    Info_CbteCble_x_Ret.IdSucursal = cmb_sucursal.EditValue == null ? 1 : (int)cmb_sucursal.EditValue;
                     Info_CbteCble_x_Ret.IdUsuario = param.IdUsuario;
                     Info_CbteCble_x_Ret.IdUsuarioUltModi = param.IdUsuario;
                     Info_CbteCble_x_Ret.cb_FechaTransac = param.Fecha_Transac;

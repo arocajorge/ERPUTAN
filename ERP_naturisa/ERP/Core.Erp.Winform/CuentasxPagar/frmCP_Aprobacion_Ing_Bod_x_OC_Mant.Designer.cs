@@ -33,45 +33,48 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmb_Sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.de_FechaVctoAuto = new DevExpress.XtraEditors.DateEdit();
             this.lblFechaVctoAuto = new System.Windows.Forms.Label();
             this.txtSerie2 = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnBuscarIngresos = new DevExpress.XtraEditors.SimpleButton();
-            this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txt_plazo = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.dtpFecVtc = new DevExpress.XtraEditors.DateEdit();
+            this.txtSerie = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtNumDocu = new DevExpress.XtraEditors.TextEdit();
             this.dtp_fecha_contabilizacion = new DevExpress.XtraEditors.DateEdit();
+            this.txtIdAprobacion = new DevExpress.XtraEditors.TextEdit();
             this.label18 = new System.Windows.Forms.Label();
+            this.txtNumAutProve = new DevExpress.XtraEditors.TextEdit();
             this.ucCp_Proveedor1 = new Core.Erp.Winform.Controles.UCCp_Proveedor();
+            this.dtpFecAproba = new DevExpress.XtraEditors.DateEdit();
             this.cmbTipoDocu = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodTipoDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dtpFecFactura = new DevExpress.XtraEditors.DateEdit();
             this.cmbSustTrib = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdCodigo_SRI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colco_estado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtObservacion = new DevExpress.XtraEditors.MemoEdit();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtObservacion = new DevExpress.XtraEditors.MemoEdit();
-            this.dtpFecFactura = new DevExpress.XtraEditors.DateEdit();
-            this.dtpFecAproba = new DevExpress.XtraEditors.DateEdit();
-            this.txtNumAutProve = new DevExpress.XtraEditors.TextEdit();
-            this.txtIdAprobacion = new DevExpress.XtraEditors.TextEdit();
-            this.txtNumDocu = new DevExpress.XtraEditors.TextEdit();
-            this.txtSerie = new DevExpress.XtraEditors.TextEdit();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gridControlAproIngEgrxOC = new DevExpress.XtraGrid.GridControl();
             this.gridViewAproIngEgrxOC = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -132,28 +135,30 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_FechaVctoAuto.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_FechaVctoAuto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFecVtc.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFecVtc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumDocu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fecha_contabilizacion.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fecha_contabilizacion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdAprobacion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumAutProve.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoDocu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSustTrib.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumAutProve.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdAprobacion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumDocu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -182,7 +187,7 @@
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 652);
-            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
             this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1480, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
@@ -214,7 +219,7 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
             this.ucGe_Menu.Size = new System.Drawing.Size(1480, 36);
             this.ucGe_Menu.TabIndex = 1;
@@ -248,62 +253,113 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.chk_seleccionar_visibles);
+            this.panel1.Controls.Add(this.cmb_Sucursal);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.de_FechaVctoAuto);
+            this.panel1.Controls.Add(this.lblFechaVctoAuto);
+            this.panel1.Controls.Add(this.txtSerie2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnBuscarIngresos);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label29);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.txt_plazo);
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.dtpFecVtc);
+            this.panel1.Controls.Add(this.txtSerie);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txtNumDocu);
+            this.panel1.Controls.Add(this.dtp_fecha_contabilizacion);
+            this.panel1.Controls.Add(this.txtIdAprobacion);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.txtNumAutProve);
+            this.panel1.Controls.Add(this.ucCp_Proveedor1);
+            this.panel1.Controls.Add(this.dtpFecAproba);
+            this.panel1.Controls.Add(this.cmbTipoDocu);
+            this.panel1.Controls.Add(this.dtpFecFactura);
+            this.panel1.Controls.Add(this.cmbSustTrib);
+            this.panel1.Controls.Add(this.txtObservacion);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label15);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 36);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1480, 213);
+            this.panel1.Size = new System.Drawing.Size(1480, 284);
             this.panel1.TabIndex = 2;
             // 
-            // groupBox1
+            // cmb_Sucursal
             // 
-            this.groupBox1.Controls.Add(this.de_FechaVctoAuto);
-            this.groupBox1.Controls.Add(this.lblFechaVctoAuto);
-            this.groupBox1.Controls.Add(this.txtSerie2);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.btnBuscarIngresos);
-            this.groupBox1.Controls.Add(this.chk_seleccionar_visibles);
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.txt_plazo);
-            this.groupBox1.Controls.Add(this.dtpFecVtc);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dtp_fecha_contabilizacion);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.ucCp_Proveedor1);
-            this.groupBox1.Controls.Add(this.cmbTipoDocu);
-            this.groupBox1.Controls.Add(this.cmbSustTrib);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtObservacion);
-            this.groupBox1.Controls.Add(this.dtpFecFactura);
-            this.groupBox1.Controls.Add(this.dtpFecAproba);
-            this.groupBox1.Controls.Add(this.txtNumAutProve);
-            this.groupBox1.Controls.Add(this.txtIdAprobacion);
-            this.groupBox1.Controls.Add(this.txtNumDocu);
-            this.groupBox1.Controls.Add(this.txtSerie);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1480, 213);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos Generales:";
+            this.cmb_Sucursal.Location = new System.Drawing.Point(179, 25);
+            this.cmb_Sucursal.Margin = new System.Windows.Forms.Padding(4);
+            this.cmb_Sucursal.Name = "cmb_Sucursal";
+            this.cmb_Sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_Sucursal.Properties.DisplayMember = "Su_Descripcion";
+            this.cmb_Sucursal.Properties.ValueMember = "IdSucursal";
+            this.cmb_Sucursal.Properties.View = this.gridView5;
+            this.cmb_Sucursal.Size = new System.Drawing.Size(1125, 22);
+            this.cmb_Sucursal.TabIndex = 48;
+            // 
+            // gridView5
+            // 
+            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn4,
+            this.gridColumn5});
+            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView5.OptionsView.ShowAutoFilterRow = true;
+            this.gridView5.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Sucursal";
+            this.gridColumn4.FieldName = "Su_Descripcion";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 0;
+            this.gridColumn4.Width = 1474;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "ID";
+            this.gridColumn5.FieldName = "IdSucursal";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 1;
+            this.gridColumn5.Width = 260;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(48, 24);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 17);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "Sucursal:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(46, 63);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(92, 17);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "# Aprobación";
             // 
             // de_FechaVctoAuto
             // 
             this.de_FechaVctoAuto.EditValue = new System.DateTime(2015, 4, 27, 0, 0, 0, 0);
-            this.de_FechaVctoAuto.Location = new System.Drawing.Point(905, 57);
-            this.de_FechaVctoAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.de_FechaVctoAuto.Location = new System.Drawing.Point(932, 93);
+            this.de_FechaVctoAuto.Margin = new System.Windows.Forms.Padding(4);
             this.de_FechaVctoAuto.Name = "de_FechaVctoAuto";
             this.de_FechaVctoAuto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -316,7 +372,7 @@
             // lblFechaVctoAuto
             // 
             this.lblFechaVctoAuto.AutoSize = true;
-            this.lblFechaVctoAuto.Location = new System.Drawing.Point(784, 60);
+            this.lblFechaVctoAuto.Location = new System.Drawing.Point(811, 96);
             this.lblFechaVctoAuto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaVctoAuto.Name = "lblFechaVctoAuto";
             this.lblFechaVctoAuto.Size = new System.Drawing.Size(117, 17);
@@ -326,70 +382,119 @@
             // 
             // txtSerie2
             // 
-            this.txtSerie2.Location = new System.Drawing.Point(204, 57);
-            this.txtSerie2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSerie2.Location = new System.Drawing.Point(231, 93);
+            this.txtSerie2.Margin = new System.Windows.Forms.Padding(4);
             this.txtSerie2.Name = "txtSerie2";
             this.txtSerie2.Size = new System.Drawing.Size(33, 22);
             this.txtSerie2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(304, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Proveedor:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(185, 57);
+            this.label17.Location = new System.Drawing.Point(212, 93);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(20, 25);
             this.label17.TabIndex = 31;
             this.label17.Text = "-";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(42, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Observación:";
+            // 
             // btnBuscarIngresos
             // 
-            this.btnBuscarIngresos.Location = new System.Drawing.Point(893, 21);
-            this.btnBuscarIngresos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarIngresos.Location = new System.Drawing.Point(920, 57);
+            this.btnBuscarIngresos.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarIngresos.Name = "btnBuscarIngresos";
             this.btnBuscarIngresos.Size = new System.Drawing.Size(117, 28);
             this.btnBuscarIngresos.TabIndex = 43;
             this.btnBuscarIngresos.Text = "Buscar ingresos";
             this.btnBuscarIngresos.Click += new System.EventHandler(this.btnBuscarIngresos_Click);
             // 
-            // chk_seleccionar_visibles
+            // label3
             // 
-            this.chk_seleccionar_visibles.AutoSize = true;
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(16, 192);
-            this.chk_seleccionar_visibles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
-            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
-            this.chk_seleccionar_visibles.TabIndex = 42;
-            this.chk_seleccionar_visibles.Text = "Seleccionar visibles";
-            this.chk_seleccionar_visibles.UseVisualStyleBackColor = true;
-            this.chk_seleccionar_visibles.CheckedChanged += new System.EventHandler(this.chk_seleccionar_visibles_CheckedChanged);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 96);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Serie/#Fact.:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(448, 96);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 17);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "#Aut.Provee:";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(1117, 127);
+            this.label29.Location = new System.Drawing.Point(1144, 163);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(47, 17);
             this.label29.TabIndex = 41;
             this.label29.Text = "Plazo:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1052, 131);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 17);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Fec.Docu/Fact:";
+            // 
             // txt_plazo
             // 
-            this.txt_plazo.Location = new System.Drawing.Point(1213, 123);
-            this.txt_plazo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_plazo.Location = new System.Drawing.Point(1240, 159);
+            this.txt_plazo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_plazo.Name = "txt_plazo";
             this.txt_plazo.Size = new System.Drawing.Size(64, 22);
             this.txt_plazo.TabIndex = 40;
             this.txt_plazo.Text = "0";
             this.txt_plazo.TextChanged += new System.EventHandler(this.txt_plazo_TextChanged);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(1052, 63);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 17);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Fecha:";
+            // 
             // dtpFecVtc
             // 
             this.dtpFecVtc.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtpFecVtc.Location = new System.Drawing.Point(1173, 155);
-            this.dtpFecVtc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFecVtc.Location = new System.Drawing.Point(1200, 191);
+            this.dtpFecVtc.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecVtc.Name = "dtpFecVtc";
             this.dtpFecVtc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -398,21 +503,43 @@
             this.dtpFecVtc.Size = new System.Drawing.Size(105, 22);
             this.dtpFecVtc.TabIndex = 35;
             // 
+            // txtSerie
+            // 
+            this.txtSerie.EditValue = "";
+            this.txtSerie.Location = new System.Drawing.Point(179, 93);
+            this.txtSerie.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSerie.Name = "txtSerie";
+            this.txtSerie.Properties.Mask.EditMask = "\\d{0,3}";
+            this.txtSerie.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtSerie.Size = new System.Drawing.Size(33, 22);
+            this.txtSerie.TabIndex = 3;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1025, 159);
+            this.label5.Location = new System.Drawing.Point(1052, 195);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 34;
             this.label5.Text = "Fec.Vct/Pago:";
             // 
+            // txtNumDocu
+            // 
+            this.txtNumDocu.Location = new System.Drawing.Point(274, 93);
+            this.txtNumDocu.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumDocu.Name = "txtNumDocu";
+            this.txtNumDocu.Properties.Mask.EditMask = "\\d{0,9}";
+            this.txtNumDocu.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtNumDocu.Size = new System.Drawing.Size(173, 22);
+            this.txtNumDocu.TabIndex = 5;
+            this.txtNumDocu.EditValueChanged += new System.EventHandler(this.txtNumDocu_EditValueChanged);
+            // 
             // dtp_fecha_contabilizacion
             // 
             this.dtp_fecha_contabilizacion.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtp_fecha_contabilizacion.Location = new System.Drawing.Point(1173, 55);
-            this.dtp_fecha_contabilizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_fecha_contabilizacion.Location = new System.Drawing.Point(1200, 91);
+            this.dtp_fecha_contabilizacion.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_fecha_contabilizacion.Name = "dtp_fecha_contabilizacion";
             this.dtp_fecha_contabilizacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -421,28 +548,60 @@
             this.dtp_fecha_contabilizacion.Size = new System.Drawing.Size(105, 22);
             this.dtp_fecha_contabilizacion.TabIndex = 33;
             // 
+            // txtIdAprobacion
+            // 
+            this.txtIdAprobacion.Location = new System.Drawing.Point(179, 59);
+            this.txtIdAprobacion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdAprobacion.Name = "txtIdAprobacion";
+            this.txtIdAprobacion.Size = new System.Drawing.Size(117, 22);
+            this.txtIdAprobacion.TabIndex = 1;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1025, 59);
+            this.label18.Location = new System.Drawing.Point(1052, 95);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(138, 17);
             this.label18.TabIndex = 32;
             this.label18.Text = "Fec. Contabilizacion:";
             // 
+            // txtNumAutProve
+            // 
+            this.txtNumAutProve.Location = new System.Drawing.Point(542, 91);
+            this.txtNumAutProve.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumAutProve.Name = "txtNumAutProve";
+            this.txtNumAutProve.Properties.Mask.EditMask = "\\d{0,50}";
+            this.txtNumAutProve.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtNumAutProve.Size = new System.Drawing.Size(257, 22);
+            this.txtNumAutProve.TabIndex = 6;
+            // 
             // ucCp_Proveedor1
             // 
-            this.ucCp_Proveedor1.Location = new System.Drawing.Point(353, 20);
-            this.ucCp_Proveedor1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucCp_Proveedor1.Location = new System.Drawing.Point(380, 56);
+            this.ucCp_Proveedor1.Margin = new System.Windows.Forms.Padding(5);
             this.ucCp_Proveedor1.Name = "ucCp_Proveedor1";
             this.ucCp_Proveedor1.Size = new System.Drawing.Size(532, 33);
             this.ucCp_Proveedor1.TabIndex = 2;
             // 
+            // dtpFecAproba
+            // 
+            this.dtpFecAproba.EditValue = new System.DateTime(2015, 4, 27, 0, 0, 0, 0);
+            this.dtpFecAproba.Location = new System.Drawing.Point(1200, 59);
+            this.dtpFecAproba.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFecAproba.Name = "dtpFecAproba";
+            this.dtpFecAproba.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpFecAproba.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtpFecAproba.Size = new System.Drawing.Size(105, 22);
+            this.dtpFecAproba.TabIndex = 23;
+            this.dtpFecAproba.EditValueChanged += new System.EventHandler(this.dtpFecAproba_EditValueChanged);
+            // 
             // cmbTipoDocu
             // 
-            this.cmbTipoDocu.Location = new System.Drawing.Point(693, 91);
-            this.cmbTipoDocu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoDocu.Location = new System.Drawing.Point(720, 127);
+            this.cmbTipoDocu.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoDocu.Name = "cmbTipoDocu";
             this.cmbTipoDocu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -478,10 +637,23 @@
             this.colDescripcion.VisibleIndex = 0;
             this.colDescripcion.Width = 977;
             // 
+            // dtpFecFactura
+            // 
+            this.dtpFecFactura.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
+            this.dtpFecFactura.Location = new System.Drawing.Point(1200, 127);
+            this.dtpFecFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFecFactura.Name = "dtpFecFactura";
+            this.dtpFecFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpFecFactura.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dtpFecFactura.Size = new System.Drawing.Size(105, 22);
+            this.dtpFecFactura.TabIndex = 24;
+            // 
             // cmbSustTrib
             // 
-            this.cmbSustTrib.Location = new System.Drawing.Point(152, 91);
-            this.cmbSustTrib.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSustTrib.Location = new System.Drawing.Point(179, 127);
+            this.cmbSustTrib.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSustTrib.Name = "cmbSustTrib";
             this.cmbSustTrib.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -528,10 +700,18 @@
             this.colco_estado.VisibleIndex = 2;
             this.colco_estado.Width = 188;
             // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(179, 159);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(859, 62);
+            this.txtObservacion.TabIndex = 10;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(547, 95);
+            this.label16.Location = new System.Drawing.Point(574, 131);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(136, 17);
@@ -541,165 +721,18 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 91);
+            this.label15.Location = new System.Drawing.Point(42, 127);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(133, 17);
             this.label15.TabIndex = 26;
             this.label15.Text = "Sustento Tributario:";
             // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Location = new System.Drawing.Point(152, 123);
-            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(859, 62);
-            this.txtObservacion.TabIndex = 10;
-            // 
-            // dtpFecFactura
-            // 
-            this.dtpFecFactura.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtpFecFactura.Location = new System.Drawing.Point(1173, 91);
-            this.dtpFecFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dtpFecFactura.Name = "dtpFecFactura";
-            this.dtpFecFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpFecFactura.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpFecFactura.Size = new System.Drawing.Size(105, 22);
-            this.dtpFecFactura.TabIndex = 24;
-            // 
-            // dtpFecAproba
-            // 
-            this.dtpFecAproba.EditValue = new System.DateTime(2015, 4, 27, 0, 0, 0, 0);
-            this.dtpFecAproba.Location = new System.Drawing.Point(1173, 23);
-            this.dtpFecAproba.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dtpFecAproba.Name = "dtpFecAproba";
-            this.dtpFecAproba.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpFecAproba.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpFecAproba.Size = new System.Drawing.Size(105, 22);
-            this.dtpFecAproba.TabIndex = 23;
-            this.dtpFecAproba.EditValueChanged += new System.EventHandler(this.dtpFecAproba_EditValueChanged);
-            // 
-            // txtNumAutProve
-            // 
-            this.txtNumAutProve.Location = new System.Drawing.Point(515, 55);
-            this.txtNumAutProve.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNumAutProve.Name = "txtNumAutProve";
-            this.txtNumAutProve.Properties.Mask.EditMask = "\\d{0,50}";
-            this.txtNumAutProve.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNumAutProve.Size = new System.Drawing.Size(257, 22);
-            this.txtNumAutProve.TabIndex = 6;
-            // 
-            // txtIdAprobacion
-            // 
-            this.txtIdAprobacion.Location = new System.Drawing.Point(152, 23);
-            this.txtIdAprobacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtIdAprobacion.Name = "txtIdAprobacion";
-            this.txtIdAprobacion.Size = new System.Drawing.Size(117, 22);
-            this.txtIdAprobacion.TabIndex = 1;
-            // 
-            // txtNumDocu
-            // 
-            this.txtNumDocu.Location = new System.Drawing.Point(247, 57);
-            this.txtNumDocu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNumDocu.Name = "txtNumDocu";
-            this.txtNumDocu.Properties.Mask.EditMask = "\\d{0,9}";
-            this.txtNumDocu.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNumDocu.Size = new System.Drawing.Size(173, 22);
-            this.txtNumDocu.TabIndex = 5;
-            this.txtNumDocu.EditValueChanged += new System.EventHandler(this.txtNumDocu_EditValueChanged);
-            // 
-            // txtSerie
-            // 
-            this.txtSerie.EditValue = "";
-            this.txtSerie.Location = new System.Drawing.Point(152, 57);
-            this.txtSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtSerie.Name = "txtSerie";
-            this.txtSerie.Properties.Mask.EditMask = "\\d{0,3}";
-            this.txtSerie.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtSerie.Size = new System.Drawing.Size(33, 22);
-            this.txtSerie.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1025, 27);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 17);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Fecha:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(4, 19);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(96, 17);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "# Aprobación:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1025, 95);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 17);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Fec.Docu/Fact:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(421, 60);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 17);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "#Aut.Provee:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 60);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Serie/#Fact.:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 126);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Observación:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(277, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Proveedor:";
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 249);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 320);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -721,18 +754,18 @@
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Size = new System.Drawing.Size(1480, 403);
-            this.splitContainer1.SplitterDistance = 302;
+            this.splitContainer1.Size = new System.Drawing.Size(1480, 332);
+            this.splitContainer1.SplitterDistance = 248;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
             // gridControlAproIngEgrxOC
             // 
             this.gridControlAproIngEgrxOC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlAproIngEgrxOC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlAproIngEgrxOC.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlAproIngEgrxOC.Location = new System.Drawing.Point(0, 0);
             this.gridControlAproIngEgrxOC.MainView = this.gridViewAproIngEgrxOC;
-            this.gridControlAproIngEgrxOC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlAproIngEgrxOC.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlAproIngEgrxOC.Name = "gridControlAproIngEgrxOC";
             this.gridControlAproIngEgrxOC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCtaCtble_Gasto_x_cxp,
@@ -740,7 +773,7 @@
             this.CmbPuntoCargo,
             this.cmbSubcentro,
             this.cmb_centroCosoto});
-            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1480, 302);
+            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1480, 248);
             this.gridControlAproIngEgrxOC.TabIndex = 0;
             this.gridControlAproIngEgrxOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAproIngEgrxOC});
@@ -1156,7 +1189,7 @@
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(929, 55);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Mask.EditMask = "n6";
             this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1166,7 +1199,7 @@
             // txtSubtotal
             // 
             this.txtSubtotal.Location = new System.Drawing.Point(556, 60);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Properties.Mask.EditMask = "n6";
             this.txtSubtotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1176,7 +1209,7 @@
             // txtSubtotalIva
             // 
             this.txtSubtotalIva.Location = new System.Drawing.Point(156, 55);
-            this.txtSubtotalIva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubtotalIva.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubtotalIva.Name = "txtSubtotalIva";
             this.txtSubtotalIva.Properties.Mask.EditMask = "n6";
             this.txtSubtotalIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1186,7 +1219,7 @@
             // txtTotalIva
             // 
             this.txtTotalIva.Location = new System.Drawing.Point(929, 22);
-            this.txtTotalIva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalIva.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalIva.Name = "txtTotalIva";
             this.txtTotalIva.Properties.Mask.EditMask = "n6";
             this.txtTotalIva.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1196,7 +1229,7 @@
             // txtTotDescuento
             // 
             this.txtTotDescuento.Location = new System.Drawing.Point(556, 28);
-            this.txtTotDescuento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotDescuento.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotDescuento.Name = "txtTotDescuento";
             this.txtTotDescuento.Properties.Mask.EditMask = "n6";
             this.txtTotDescuento.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1206,7 +1239,7 @@
             // txtSubtotal0
             // 
             this.txtSubtotal0.Location = new System.Drawing.Point(156, 22);
-            this.txtSubtotal0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubtotal0.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubtotal0.Name = "txtSubtotal0";
             this.txtSubtotal0.Properties.Mask.EditMask = "n6";
             this.txtSubtotal0.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1297,6 +1330,16 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
+            // chk_seleccionar_visibles
+            // 
+            this.chk_seleccionar_visibles.AutoSize = true;
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(40, 244);
+            this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
+            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
+            this.chk_seleccionar_visibles.TabIndex = 49;
+            this.chk_seleccionar_visibles.Text = "Seleccionar visibles";
+            this.chk_seleccionar_visibles.UseVisualStyleBackColor = true;
+            // 
             // frmCP_Aprobacion_Ing_Bod_x_OC_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1306,34 +1349,35 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCP_Aprobacion_Ing_Bod_x_OC_Mant";
             this.Text = "Mantenimiento Aprobación Ingreso Bodega por Orden Compra";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCP_Aprobacion_Ing_Bod_x_OC_Mant_FormClosing);
             this.Load += new System.EventHandler(this.frmCP_Aprobacion_Ing_Bod_x_OC_Mant_Load);
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_FechaVctoAuto.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_FechaVctoAuto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSerie2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFecVtc.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpFecVtc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumDocu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fecha_contabilizacion.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_fecha_contabilizacion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdAprobacion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumAutProve.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoDocu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSustTrib.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecFactura.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpFecAproba.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumAutProve.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdAprobacion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumDocu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSerie.Properties)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -1365,7 +1409,6 @@
         private Controles.UCGe_BarraEstadoInferior_Forms ucGe_BarraEstadoInferior_Forms1;
         private Controles.UCGe_Menu_Superior_Mant ucGe_Menu;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -1379,7 +1422,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private DevExpress.XtraGrid.Columns.GridColumn colIdEmpresa_Ing_Egr_Inv;
         private DevExpress.XtraGrid.Columns.GridColumn colIdSucursal_Ing_Egr_Inv;
@@ -1444,7 +1486,6 @@
         private System.Windows.Forms.TextBox txt_plazo;
         private DevExpress.XtraGrid.Columns.GridColumn colpc_clave_corta;
         private DevExpress.XtraGrid.Columns.GridColumn colCantidad;
-        private System.Windows.Forms.CheckBox chk_seleccionar_visibles;
         private DevExpress.XtraGrid.Columns.GridColumn colnom_producto;
         private DevExpress.XtraEditors.SimpleButton btnBuscarIngresos;
         private DevExpress.XtraEditors.DateEdit de_FechaVctoAuto;
@@ -1464,5 +1505,12 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_centroCosoto;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraGrid.Columns.GridColumn Col_Centro_costo_;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmb_Sucursal;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.CheckBox chk_seleccionar_visibles;
     }
 }

@@ -301,7 +301,7 @@ namespace Core.Erp.Business.CuentasxPagar
               info_CbteCble.Anio = Info.Fecha_Factura.Year;
               info_CbteCble.Mes = Info.Fecha_Factura.Month;
               info_CbteCble.Mayorizado = "N";
-
+              info_CbteCble.IdSucursal = Info.IdSucursal ?? 1;
               //detalle
               List<ct_Cbtecble_det_Info> lista = new List<ct_Cbtecble_det_Info>();
               int Secuencia = 0;
@@ -424,7 +424,7 @@ namespace Core.Erp.Business.CuentasxPagar
               Info_Ogiro.IdCbteCble_Anulacion = null;
               Info_Ogiro.IdTipoCbte_Anulacion = null;
               Info_Ogiro.IdCentroCosto = null;
-              Info_Ogiro.IdSucursal = 1;
+              Info_Ogiro.IdSucursal = Info.IdSucursal;
               Info_Ogiro.PagoLocExt = "LOC";
               Info_Ogiro.PaisPago = null;
               Info_Ogiro.ConvenioTributacion = "NO";

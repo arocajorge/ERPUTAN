@@ -106,7 +106,14 @@ namespace Core.Erp.Data.Compras
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     db.SetCommandTimeOut(3000);
-                    var lst = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).ToList();
+
+
+                    string sql = "select IdEmpresa,IdOrdenPedido,EsCompraUrgente,op_Codigo,op_Fecha,op_Observacion,IdDepartamento,IdSolicitante,IdCatalogoEstado,Estado,IdPunto_cargo,IdUsuario,nom_punto_cargo,nom_departamento,nom_solicitante,cd_total ";
+                    sql += "from vwcom_ordenpedidoaprobar where idempresa = "+IdEmpresa.ToString()+" and IdUsuario = '"+IdUsuario+"'";
+                    var result = db.Database.SqlQuery<com_OrdenPedido_Info>(sql).ToList();
+                    Lista = result;
+                    /*
+                    var lst = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario.Equals(IdUsuario)).ToList();
 
                     Lista.AddRange(lst.Select(q=> new com_OrdenPedido_Info{
                         IdEmpresa = q.IdEmpresa,
@@ -123,6 +130,7 @@ namespace Core.Erp.Data.Compras
                         nom_punto_cargo = q.nom_punto_cargo,
                         cd_total = q.cd_total
                     }).ToList());
+                     * */
                 }
 
                 return Lista;
@@ -160,6 +168,7 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
+                com_parametro_Info param = new com_parametro_Data().Get_Info_parametro(info.IdEmpresa);
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     db.com_OrdenPedido.Add(new com_OrdenPedido
@@ -192,20 +201,23 @@ namespace Core.Erp.Data.Compras
                             IdPunto_cargo = item.IdPunto_cargo,
                             IdUnidadMedida = item.IdUnidadMedida,
                             opd_EstadoProceso = item.opd_EstadoProceso = (info.EsCompraUrgente == true ? "A" : "P"),
-                            FechaCantidad = (info.EsCompraUrgente == true ? DateTime.Now : (Nullable<DateTime>) null),
+                            FechaCantidad = (info.EsCompraUrgente == true ? DateTime.Now : (Nullable<DateTime>)null),
                             IdUsuarioCantidad = (info.EsCompraUrgente == true ? info.IdUsuarioCreacion : null),
                             pr_descripcion = item.pr_descripcion,
                             opd_Detalle = item.opd_Detalle,
                             opd_Cantidad = item.opd_Cantidad,
                             opd_CantidadApro = info.EsCompraUrgente == true ? item.opd_Cantidad : 0,
                             Adjunto = item.Adjunto,
-                            NombreArchivo = !string.IsNullOrEmpty(item.NombreArchivo) ? Path.GetFileName(item.NombreArchivo): item.NombreArchivo
+                            NombreArchivo = !string.IsNullOrEmpty(item.NombreArchivo) ? Path.GetFileName(item.NombreArchivo) : item.NombreArchivo
                         });
                     }
-                    db.SaveChanges();
+                    db.SaveChanges();                    
+                }
+                try
+                {
                     #region Adjuntos
                     var lst_adjuntos = info.ListaDetalle.Where(q => q.Adjunto == true).ToList();
-                    var param = db.com_parametro.Where(q => q.IdEmpresa == info.IdEmpresa).FirstOrDefault();
+                    
                     if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosPedido))
                     {
                         string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
@@ -222,10 +234,16 @@ namespace Core.Erp.Data.Compras
                     }
                     #endregion
                 }
+                catch (Exception)
+                {
+
+                }
+                
                 if (SaltarPaso2(info.IdEmpresa, info.IdOrdenPedido, info.IdUsuarioCreacion))
                 {
                     ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
                 }
+
                 return true;
             }
             catch (Exception ex)
@@ -238,6 +256,7 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
+                com_parametro_Info param = new com_parametro_Data().Get_Info_parametro(info.IdEmpresa);
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     com_OrdenPedido Entity = db.com_OrdenPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == info.IdOrdenPedido).FirstOrDefault();
@@ -281,9 +300,12 @@ namespace Core.Erp.Data.Compras
                         });
                     }
                     db.SaveChanges();
+                    
+                }
+                try
+                {
                     #region Adjuntos
                     var lst_adjuntos = info.ListaDetalle.Where(q => q.NuevoAdjunto == true).ToList();
-                    var param = db.com_parametro.Where(q => q.IdEmpresa == info.IdEmpresa).FirstOrDefault();
                     if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosPedido))
                     {
                         string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
@@ -299,6 +321,10 @@ namespace Core.Erp.Data.Compras
                         Fx.ExecuteCommand(@"" + Comando);
                     }
                     #endregion
+                }
+                catch (Exception)
+                {
+                    
                 }
 
                 if (SaltarPaso2(info.IdEmpresa,info.IdOrdenPedido,info.IdUsuarioCreacion))
@@ -492,6 +518,7 @@ namespace Core.Erp.Data.Compras
                         q.Key.SaltoPaso4
                     }).ToList();
 
+
                     var lst_termino = db.com_TerminoPago.Where(q => q.Estado == "A").ToList();
                     foreach (var item in ListaAgrupada)
                     {
@@ -511,7 +538,7 @@ namespace Core.Erp.Data.Compras
                             IdSolicitante = item.IdSolicitante,
                             IdComprador = item.IdComprador,
                             IdTerminoPago = item.IdTerminoPago,
-                            cp_Plazo = proveedor.pr_plazo ?? 0,
+                            cp_Plazo = lst_termino.Where(q=> q.IdTerminoPago == item.IdTerminoPago).FirstOrDefault().Dias,
                             pe_correo = proveedor.Persona_Info.pe_correo_secundario1,
                             IdPersona = proveedor.IdPersona,                            
                             IdUsuario = IdUsuario,

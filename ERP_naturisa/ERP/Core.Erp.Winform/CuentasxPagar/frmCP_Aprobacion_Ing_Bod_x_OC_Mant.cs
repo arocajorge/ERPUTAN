@@ -231,12 +231,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                 listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
                 cmbCtaCtble_Gasto_x_cxp.DataSource = listPlanCta;
 
-
-
                 listPuntoCargo = bus_puntoCargo.Get_List_PuntoCargo(param.IdEmpresa);
                 CmbPuntoCargo.DataSource = listPuntoCargo;
 
-
+                tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
+                cmb_Sucursal.Properties.DataSource = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
+                cmb_Sucursal.EditValue = param.IdSucursal;
 
                 list_centroCosto = new List<ct_Centro_costo_Info>();
                 list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
@@ -245,10 +245,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 listaSubcentero = bus_subcentro.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmbSubcentro.DataSource = listaSubcentero;
-
-
-                
-
             }
             catch (Exception ex)
             {
@@ -262,8 +258,6 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-
-
                 txtSerie.Properties.MaxLength = 3;
                 txtSerie2.Properties.MaxLength = 3;
 
@@ -339,7 +333,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 Info.co_FechaContabilizacion = Convert.ToDateTime(Convert.ToDateTime(dtp_fecha_contabilizacion.EditValue).ToShortDateString());
                 Info.Fecha_vcto = Convert.ToDateTime(dtpFecVtc.EditValue);
                 Info.co_plazo = Convert.ToInt32(txt_plazo.Text);
-
+                Info.IdSucursal = cmb_Sucursal.EditValue != null ? (int?)cmb_Sucursal.EditValue : null; 
 
 
                 Info.IdOrden_giro_Tipo = Convert.ToString(cmbTipoDocu.EditValue).Trim();
@@ -496,6 +490,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                         break;                 
                 }
 
+                if (cmb_Sucursal.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione la sucursal", param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return false;
+                }
 
 
                 if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.CXP, Convert.ToDateTime(dtpFecAproba.EditValue)))

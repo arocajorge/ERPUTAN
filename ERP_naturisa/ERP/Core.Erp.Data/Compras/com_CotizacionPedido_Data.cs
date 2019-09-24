@@ -185,6 +185,15 @@ namespace Core.Erp.Data.Compras
                         if (Cargo == "GA" && info.ListaDetalle.Where(q => q.EstadoGA).Count() > 0)
                         {
                             com_ordencompra_local_Data odataCom = new com_ordencompra_local_Data();
+                            int workDays = info.cp_PlazoEntrega;
+                            DateTime tmpDate = DateTime.Now.Date;
+                            while (workDays > 0)
+                            {
+                                tmpDate = tmpDate.AddDays(1);
+                                if (tmpDate.DayOfWeek < DayOfWeek.Saturday &&
+                                    tmpDate.DayOfWeek > DayOfWeek.Sunday)
+                                    workDays--;
+                            }
 
                             db.com_ordencompra_local.Add(new com_ordencompra_local
                             {
@@ -206,7 +215,7 @@ namespace Core.Erp.Data.Compras
                                 AfectaCosto = "S",
                                 IdDepartamento = info.IdDepartamento,
                                 IdMotivo = null,
-                                oc_fechaVencimiento = DateTime.Now.Date.AddDays(info.cp_PlazoEntrega),
+                                oc_fechaVencimiento = tmpDate,
                                 IdEstado_cierre = "ABI",
                                 IdComprador = info.IdComprador,
                                 IdUsuario = info.IdUsuario,
@@ -214,7 +223,8 @@ namespace Core.Erp.Data.Compras
                                 IdUsuario_Aprueba = info.IdUsuario
                             });
                             int Secuencia = 1;
-                            foreach (var item in info.ListaDetalle)
+                            var lstGeneracion = info.ListaDetalle.Where(q=> q.A && q.cd_Cantidad > 0).ToList();
+                            foreach (var item in lstGeneracion)
                             {
                                 db.com_ordencompra_local_det.Add(new com_ordencompra_local_det
                                 {

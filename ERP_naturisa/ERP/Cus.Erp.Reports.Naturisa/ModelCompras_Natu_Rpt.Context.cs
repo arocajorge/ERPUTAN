@@ -34,5 +34,6 @@ namespace Cus.Erp.Reports.Naturisa
         public DbSet<vwCOMP_Rpt002> vwCOMP_Rpt002 { get; set; }
         public DbSet<vwCOMP_NATU_Rpt001> vwCOMP_NATU_Rpt001 { get; set; }
         public DbSet<vwCOMP_NATU_Rpt007> vwCOMP_NATU_Rpt007 { get; set; }
+        public DbSet<vwCOMP_NATU_Rpt008> vwCOMP_NATU_Rpt008 { get; set; }
     }
 }

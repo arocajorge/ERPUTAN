@@ -485,6 +485,7 @@ namespace Core.Erp.Winform.Bancos
         {
             try
             {
+                ucGe_Sucursal.set_SucursalInfo(param.IdSucursal);
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:

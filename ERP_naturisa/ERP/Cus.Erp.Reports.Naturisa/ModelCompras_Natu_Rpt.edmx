@@ -323,6 +323,51 @@
       [vwCOMP_NATU_Rpt007].[ObservacionGA] AS [ObservacionGA]
       FROM [Naturisa].[vwCOMP_NATU_Rpt007] AS [vwCOMP_NATU_Rpt007]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwCOMP_NATU_Rpt008" EntityType="ModelCompras_Natu_Rpt.Store.vwCOMP_NATU_Rpt008" store:Type="Views" store:Schema="Naturisa" store:Name="vwCOMP_NATU_Rpt008">
+            <DefiningQuery>SELECT 
+      [vwCOMP_NATU_Rpt008].[IdEmpresa] AS [IdEmpresa], 
+      [vwCOMP_NATU_Rpt008].[IdOrdenPedido] AS [IdOrdenPedido], 
+      [vwCOMP_NATU_Rpt008].[Secuencia] AS [Secuencia], 
+      [vwCOMP_NATU_Rpt008].[IdProducto] AS [IdProducto], 
+      [vwCOMP_NATU_Rpt008].[pr_descripcion] AS [pr_descripcion], 
+      [vwCOMP_NATU_Rpt008].[IdCotizacion] AS [IdCotizacion], 
+      [vwCOMP_NATU_Rpt008].[cd_cantidad] AS [cd_cantidad], 
+      [vwCOMP_NATU_Rpt008].[cd_precioCompra] AS [cd_precioCompra], 
+      [vwCOMP_NATU_Rpt008].[cd_porc_des] AS [cd_porc_des], 
+      [vwCOMP_NATU_Rpt008].[cd_descuento] AS [cd_descuento], 
+      [vwCOMP_NATU_Rpt008].[cd_precioFinal] AS [cd_precioFinal], 
+      [vwCOMP_NATU_Rpt008].[cd_subtotal] AS [cd_subtotal], 
+      [vwCOMP_NATU_Rpt008].[IdCod_Impuesto] AS [IdCod_Impuesto], 
+      [vwCOMP_NATU_Rpt008].[Por_Iva] AS [Por_Iva], 
+      [vwCOMP_NATU_Rpt008].[cd_iva] AS [cd_iva], 
+      [vwCOMP_NATU_Rpt008].[cd_total] AS [cd_total], 
+      [vwCOMP_NATU_Rpt008].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwCOMP_NATU_Rpt008].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwCOMP_NATU_Rpt008].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwCOMP_NATU_Rpt008].[IdSolicitante] AS [IdSolicitante], 
+      [vwCOMP_NATU_Rpt008].[IdDepartamento] AS [IdDepartamento], 
+      [vwCOMP_NATU_Rpt008].[nom_solicitante] AS [nom_solicitante], 
+      [vwCOMP_NATU_Rpt008].[nomUnidadMedida] AS [nomUnidadMedida], 
+      [vwCOMP_NATU_Rpt008].[EstadoDetalle] AS [EstadoDetalle], 
+      [vwCOMP_NATU_Rpt008].[opd_EstadoProceso] AS [opd_EstadoProceso], 
+      [vwCOMP_NATU_Rpt008].[IdSucursalDestino] AS [IdSucursalDestino], 
+      [vwCOMP_NATU_Rpt008].[IdSucursalOrigen] AS [IdSucursalOrigen], 
+      [vwCOMP_NATU_Rpt008].[SecuenciaCot] AS [SecuenciaCot], 
+      [vwCOMP_NATU_Rpt008].[cd_DetallePorItem] AS [cd_DetallePorItem], 
+      [vwCOMP_NATU_Rpt008].[cp_Observacion] AS [cp_Observacion], 
+      [vwCOMP_NATU_Rpt008].[cp_ObservacionAdicional] AS [cp_ObservacionAdicional], 
+      [vwCOMP_NATU_Rpt008].[cp_Fecha] AS [cp_Fecha], 
+      [vwCOMP_NATU_Rpt008].[Comprador] AS [Comprador], 
+      [vwCOMP_NATU_Rpt008].[opd_Detalle] AS [opd_Detalle], 
+      [vwCOMP_NATU_Rpt008].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwCOMP_NATU_Rpt008].[SucursalOrigen] AS [SucursalOrigen], 
+      [vwCOMP_NATU_Rpt008].[SucursalDestino] AS [SucursalDestino], 
+      [vwCOMP_NATU_Rpt008].[SubtotalIva] AS [SubtotalIva], 
+      [vwCOMP_NATU_Rpt008].[SubtotalSinIva] AS [SubtotalSinIva], 
+      [vwCOMP_NATU_Rpt008].[op_Fecha] AS [op_Fecha], 
+      [vwCOMP_NATU_Rpt008].[op_Observacion] AS [op_Observacion]
+      FROM [Naturisa].[vwCOMP_NATU_Rpt008] AS [vwCOMP_NATU_Rpt008]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="ModelCompras_Natu_Rpt.Store.vwCONTA_NATU_Rpt003" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt003">
             <DefiningQuery>SELECT 
       [vwCONTA_NATU_Rpt003].[IdEmpresa] AS [IdEmpresa], 
@@ -883,6 +928,65 @@
           <Property Name="ObservacionGA" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt008' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwCOMP_NATU_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="cd_cantidad" />
+            <PropertyRef Name="IdSolicitante" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="nom_solicitante" />
+            <PropertyRef Name="opd_EstadoProceso" />
+            <PropertyRef Name="IdSucursalDestino" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="op_Fecha" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" />
+          <Property Name="pr_descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="IdCotizacion" Type="numeric" />
+          <Property Name="cd_cantidad" Type="float" Nullable="false" />
+          <Property Name="cd_precioCompra" Type="float" />
+          <Property Name="cd_porc_des" Type="float" />
+          <Property Name="cd_descuento" Type="float" />
+          <Property Name="cd_precioFinal" Type="float" />
+          <Property Name="cd_subtotal" Type="float" />
+          <Property Name="IdCod_Impuesto" Type="varchar" MaxLength="25" />
+          <Property Name="Por_Iva" Type="float" />
+          <Property Name="cd_iva" Type="float" />
+          <Property Name="cd_total" Type="float" />
+          <Property Name="IdUnidadMedida" Type="varchar" MaxLength="25" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="IdSolicitante" Type="numeric" Nullable="false" />
+          <Property Name="IdDepartamento" Type="numeric" Nullable="false" />
+          <Property Name="nom_solicitante" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="nomUnidadMedida" Type="varchar" MaxLength="500" />
+          <Property Name="EstadoDetalle" Type="varchar" MaxLength="23" />
+          <Property Name="opd_EstadoProceso" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdSucursalDestino" Type="int" Nullable="false" />
+          <Property Name="IdSucursalOrigen" Type="int" Nullable="false" />
+          <Property Name="SecuenciaCot" Type="int" />
+          <Property Name="cd_DetallePorItem" Type="varchar(max)" />
+          <Property Name="cp_Observacion" Type="varchar(max)" />
+          <Property Name="cp_ObservacionAdicional" Type="varchar(max)" />
+          <Property Name="cp_Fecha" Type="date" />
+          <Property Name="Comprador" Type="varchar" MaxLength="100" />
+          <Property Name="opd_Detalle" Type="varchar(max)" />
+          <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="200" />
+          <Property Name="SucursalOrigen" Type="varchar" MaxLength="10" />
+          <Property Name="SucursalDestino" Type="varchar" MaxLength="10" />
+          <Property Name="SubtotalIva" Type="float" />
+          <Property Name="SubtotalSinIva" Type="float" />
+          <Property Name="op_Fecha" Type="date" Nullable="false" />
+          <Property Name="op_Observacion" Type="varchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCONTA_NATU_Rpt003">
@@ -935,6 +1039,7 @@
           <EntitySet Name="vwCOMP_Rpt002" EntityType="ModelCompras_Natu_Rpt.vwCOMP_Rpt002" />
           <EntitySet Name="vwCOMP_NATU_Rpt001" EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt001" />
           <EntitySet Name="vwCOMP_NATU_Rpt007" EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt007" />
+          <EntitySet Name="vwCOMP_NATU_Rpt008" EntityType="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt008" />
         </EntityContainer>
         <EntityType Name="vwCOMP_NATU_Rpt002">
           <Key>
@@ -1484,6 +1589,62 @@
           <Property Type="DateTime" Name="oc_fechaVencimiento" Precision="3" />
           <Property Type="String" Name="ObservacionGA" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="vwCOMP_NATU_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="cd_cantidad" />
+            <PropertyRef Name="IdSolicitante" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="nom_solicitante" />
+            <PropertyRef Name="opd_EstadoProceso" />
+            <PropertyRef Name="IdSucursalDestino" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="op_Fecha" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdCotizacion" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cd_cantidad" Nullable="false" />
+          <Property Type="Double" Name="cd_precioCompra" />
+          <Property Type="Double" Name="cd_porc_des" />
+          <Property Type="Double" Name="cd_descuento" />
+          <Property Type="Double" Name="cd_precioFinal" />
+          <Property Type="Double" Name="cd_subtotal" />
+          <Property Type="String" Name="IdCod_Impuesto" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Por_Iva" />
+          <Property Type="Double" Name="cd_iva" />
+          <Property Type="Double" Name="cd_total" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nomUnidadMedida" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EstadoDetalle" MaxLength="23" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="opd_EstadoProceso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="SecuenciaCot" />
+          <Property Type="String" Name="cd_DetallePorItem" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cp_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cp_ObservacionAdicional" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cp_Fecha" Precision="0" />
+          <Property Type="String" Name="Comprador" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SucursalOrigen" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SucursalDestino" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="SubtotalIva" />
+          <Property Type="Double" Name="SubtotalSinIva" />
+          <Property Type="DateTime" Name="op_Fecha" Nullable="false" Precision="0" />
+          <Property Type="String" Name="op_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1843,6 +2004,53 @@
                 <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
                 <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
                 <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCOMP_NATU_Rpt008">
+            <EntityTypeMapping TypeName="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt008">
+              <MappingFragment StoreEntitySet="vwCOMP_NATU_Rpt008">
+                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
+                <ScalarProperty Name="op_Fecha" ColumnName="op_Fecha" />
+                <ScalarProperty Name="SubtotalSinIva" ColumnName="SubtotalSinIva" />
+                <ScalarProperty Name="SubtotalIva" ColumnName="SubtotalIva" />
+                <ScalarProperty Name="SucursalDestino" ColumnName="SucursalDestino" />
+                <ScalarProperty Name="SucursalOrigen" ColumnName="SucursalOrigen" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="Comprador" ColumnName="Comprador" />
+                <ScalarProperty Name="cp_Fecha" ColumnName="cp_Fecha" />
+                <ScalarProperty Name="cp_ObservacionAdicional" ColumnName="cp_ObservacionAdicional" />
+                <ScalarProperty Name="cp_Observacion" ColumnName="cp_Observacion" />
+                <ScalarProperty Name="cd_DetallePorItem" ColumnName="cd_DetallePorItem" />
+                <ScalarProperty Name="SecuenciaCot" ColumnName="SecuenciaCot" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
+                <ScalarProperty Name="opd_EstadoProceso" ColumnName="opd_EstadoProceso" />
+                <ScalarProperty Name="EstadoDetalle" ColumnName="EstadoDetalle" />
+                <ScalarProperty Name="nomUnidadMedida" ColumnName="nomUnidadMedida" />
+                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdSolicitante" ColumnName="IdSolicitante" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="cd_total" ColumnName="cd_total" />
+                <ScalarProperty Name="cd_iva" ColumnName="cd_iva" />
+                <ScalarProperty Name="Por_Iva" ColumnName="Por_Iva" />
+                <ScalarProperty Name="IdCod_Impuesto" ColumnName="IdCod_Impuesto" />
+                <ScalarProperty Name="cd_subtotal" ColumnName="cd_subtotal" />
+                <ScalarProperty Name="cd_precioFinal" ColumnName="cd_precioFinal" />
+                <ScalarProperty Name="cd_descuento" ColumnName="cd_descuento" />
+                <ScalarProperty Name="cd_porc_des" ColumnName="cd_porc_des" />
+                <ScalarProperty Name="cd_precioCompra" ColumnName="cd_precioCompra" />
+                <ScalarProperty Name="cd_cantidad" ColumnName="cd_cantidad" />
+                <ScalarProperty Name="IdCotizacion" ColumnName="IdCotizacion" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

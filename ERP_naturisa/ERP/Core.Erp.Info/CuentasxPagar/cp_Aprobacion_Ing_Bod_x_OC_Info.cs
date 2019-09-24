@@ -60,5 +60,7 @@ namespace Core.Erp.Info.CuentasxPagar
         {
             listDetalle = new List<cp_Aprobacion_Ing_Bod_x_OC_det_Info>();
         }
+
+        public int? IdSucursal { get; set; }
     }
 }

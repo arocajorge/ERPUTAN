@@ -311,6 +311,12 @@ namespace Core.Erp.Winform.Inventario
                         return;
                     }
 
+                    if (Accion == Cl_Enumeradores.eTipo_action.Anular && !string.IsNullOrEmpty(info.co_factura))
+                    {
+                        MessageBox.Show("No se puede anular el registro porque tiene facturas asociadas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
                     if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (info.co_factura != null || info.IdEstadoAproba == "APRO"))
                     {
                         Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;

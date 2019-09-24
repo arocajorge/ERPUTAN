@@ -144,7 +144,7 @@
             this.uc_menu.Visible_bntAprobar = false;
             this.uc_menu.Visible_bntDiseñoReporte = false;
             this.uc_menu.Visible_bntGuardar_y_Salir = false;
-            this.uc_menu.Visible_bntImprimir = false;
+            this.uc_menu.Visible_bntImprimir = true;
             this.uc_menu.Visible_bntImprimir_Guia = false;
             this.uc_menu.Visible_bntLimpiar = false;
             this.uc_menu.Visible_bntReImprimir = false;
@@ -167,6 +167,7 @@
             this.uc_menu.Visible_btnModificar = false;
             this.uc_menu.Visible_btnproductos = false;
             this.uc_menu.event_btnAprobarGuardarSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAprobarGuardarSalir_Click(this.uc_menu_event_btnAprobarGuardarSalir_Click);
+            this.uc_menu.event_btnImprimir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnImprimir_Click(this.uc_menu_event_btnImprimir_Click);
             this.uc_menu.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.uc_menu_event_btnAnular_Click);
             this.uc_menu.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.uc_menu_event_btnSalir_Click);
             // 

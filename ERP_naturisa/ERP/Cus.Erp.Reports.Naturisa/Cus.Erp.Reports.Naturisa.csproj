@@ -172,6 +172,15 @@
     <Compile Include="Compras\XCOMP_NATU_Rpt007_Rpt.Designer.cs">
       <DependentUpon>XCOMP_NATU_Rpt007_Rpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Info.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt008_Rpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\XCOMP_Rpt001_Bus.cs" />
     <Compile Include="Compras\XCOMP_Rpt001_Data.cs" />
     <Compile Include="Compras\XCOMP_Rpt001_Info.cs" />
@@ -662,6 +671,9 @@
     <Compile Include="vwCOMP_NATU_Rpt007.cs">
       <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt008.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwCOMP_Rpt001.cs">
       <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
     </Compile>
@@ -772,6 +784,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt007_Rpt.resx">
       <DependentUpon>XCOMP_NATU_Rpt007_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt008_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt008_Rpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\XCOMP_Rpt001_Rpt.resx">
       <DependentUpon>XCOMP_Rpt001_Rpt.cs</DependentUpon>
@@ -1031,6 +1046,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Compras.XCOMP_NATU_Rpt003_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Compras.XCOMP_NATU_Rpt008_Info.datasource" />
     <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Contabilidad.XCONTA_NATU_Rpt001_Info.datasource" />
     <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Contabilidad.XCONTA_NATU_Rpt002_Info.datasource" />
     <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt007_Info.datasource" />

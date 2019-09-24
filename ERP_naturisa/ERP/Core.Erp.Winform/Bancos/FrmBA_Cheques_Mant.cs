@@ -235,7 +235,7 @@ namespace Core.Erp.Winform.Bancos
                 UCMenu.Enabled_bntAnular = false;
                 UCMenu.Enabled_btn_Imprimir_Cbte = false;
                 UCMenu.Enabled_btn_Imprimir_Cheq = false;
-
+                UCSucursal.set_SucursalInfo(param.IdSucursal);
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
