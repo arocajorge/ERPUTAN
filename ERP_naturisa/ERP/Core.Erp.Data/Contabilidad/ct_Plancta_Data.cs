@@ -374,52 +374,41 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
-
-                string ClaveCorta = "";
-                IQueryable<vwct_plancta> selectPlancta;
-
+                List<vwct_plancta> selectPlancta;
                 EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
-
-
                 if (Mostrar_Todo_El_Plan_cta == true)
                 {
-                    selectPlancta = from C in OEselectPlancta.vwct_plancta
-                                    where C.IdEmpresa == IdEmpresa
-                                    select C;
+                    selectPlancta = OEselectPlancta.vwct_plancta.Where(C => C.IdEmpresa == IdEmpresa).ToList();
                 }
                 else
                 {
 
-                    selectPlancta = from C in OEselectPlancta.vwct_plancta
-                                    where C.IdEmpresa == IdEmpresa
-                                    && C.pc_EsMovimiento == "S"
-                                    select C;
+                    selectPlancta = OEselectPlancta.vwct_plancta.Where(C => C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "S").ToList();
                 }
 
 
                 foreach (var item in selectPlancta)
                 {
-                    ct_Plancta_Info _PlantaCtaInfo = new ct_Plancta_Info();
+                    lM.Add(new ct_Plancta_Info
+                    {
 
-                    ClaveCorta = (item.pc_clave_corta == null) ? "" : "{" + item.pc_clave_corta + "}";
-
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble.Trim();
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 = ClaveCorta + "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCblePadre = item.IdCtaCblePadre;
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble;
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
-                    _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
-                    _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.CuentaPadre = item.CuentaPadre;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.SEstado = (item.pc_Estado == "A") ? "ACTIVO" : "*ANULADO*";
-                    lM.Add(_PlantaCtaInfo);
+                        IdCtaCble = item.IdCtaCble.Trim(),
+                        pc_Cuenta = item.pc_Cuenta.Trim(),
+                        pc_Cuenta2 = (item.pc_clave_corta == null) ? "" : "{" + item.pc_clave_corta + "}" + "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim(),
+                        IdEmpresa = item.IdEmpresa,
+                        IdCtaCblePadre = item.IdCtaCblePadre,
+                        IdCatalogo = Convert.ToDecimal(item.IdCatalogo),
+                        pc_Naturaleza = item.pc_Naturaleza,
+                        IdNivelCta = item.IdNivelCta,
+                        IdGrupoCble = item.IdGrupoCble,
+                        pc_Estado = item.pc_Estado,
+                        pc_EsMovimiento = item.pc_EsMovimiento,
+                        pc_es_flujo_efectivo = item.pc_es_flujo_efectivo,
+                        pc_clave_corta = item.pc_clave_corta,
+                        CuentaPadre = item.CuentaPadre,
+                        IdTipoCtaCble = item.IdTipoCtaCble,
+                        SEstado = (item.pc_Estado == "A") ? "ACTIVO" : "*ANULADO*",
+                    });
                 }
                 return lM;
             }

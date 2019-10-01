@@ -507,8 +507,6 @@ namespace Core.Erp.Data.General
             }
         }
        
-        
-        
         public decimal getIdPersona()
         {
             try

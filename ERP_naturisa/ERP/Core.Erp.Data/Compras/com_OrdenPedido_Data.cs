@@ -211,7 +211,12 @@ namespace Core.Erp.Data.Compras
                             NombreArchivo = !string.IsNullOrEmpty(item.NombreArchivo) ? Path.GetFileName(item.NombreArchivo) : item.NombreArchivo
                         });
                     }
-                    db.SaveChanges();                    
+                    db.SaveChanges();
+
+                    if (SaltarPaso2(info.IdEmpresa, info.IdOrdenPedido, info.IdUsuarioCreacion))
+                    {
+                        ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
+                    }
                 }
                 try
                 {
@@ -237,11 +242,6 @@ namespace Core.Erp.Data.Compras
                 catch (Exception)
                 {
 
-                }
-                
-                if (SaltarPaso2(info.IdEmpresa, info.IdOrdenPedido, info.IdUsuarioCreacion))
-                {
-                    ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
                 }
 
                 return true;
@@ -300,7 +300,11 @@ namespace Core.Erp.Data.Compras
                         });
                     }
                     db.SaveChanges();
-                    
+
+                    if (SaltarPaso2(info.IdEmpresa, info.IdOrdenPedido, info.IdUsuarioCreacion))
+                    {
+                        ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
+                    }
                 }
                 try
                 {
@@ -325,11 +329,6 @@ namespace Core.Erp.Data.Compras
                 catch (Exception)
                 {
                     
-                }
-
-                if (SaltarPaso2(info.IdEmpresa,info.IdOrdenPedido,info.IdUsuarioCreacion))
-                {
-                    ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
                 }
 
                 return true;
@@ -483,6 +482,11 @@ namespace Core.Erp.Data.Compras
                 }
 
                 if (SaltarPaso3(IdEmpresa,IdOrdenPedido,IdUsuario))
+                {
+                    
+                }
+
+                if (ValidarProceso(IdEmpresa,IdOrdenPedido))
                 {
                     
                 }

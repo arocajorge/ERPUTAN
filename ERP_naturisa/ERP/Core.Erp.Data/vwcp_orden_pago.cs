@@ -35,5 +35,6 @@ namespace Core.Erp.Data
         public string nom_tipoFlujo { get; set; }
         public string EstadoCancelacion { get; set; }
         public string Descripcion { get; set; }
+        public Nullable<int> IdSucursal { get; set; }
     }
 }

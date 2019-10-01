@@ -45,7 +45,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_orden_pago_tipo_Bus Bus_OrdenTipPago = new cp_orden_pago_tipo_Bus();
         ct_Cbtecble_Bus BusCbteCble = new ct_Cbtecble_Bus();
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
-        
+        tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
+        List<tb_Sucursal_Info> lst_sucursal = new List<tb_Sucursal_Info>();
 
         //Listas 
         cp_orden_pago_det_Info infoDet = new cp_orden_pago_det_Info();
@@ -358,6 +359,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                 lista_FormaPago = Bus_FormaPago.Get_List_orden_pago_formapago();
                 cmbFormaPago.Properties.DataSource = lista_FormaPago;
                 cmbFormaPago.EditValue = lista_FormaPago.Select(q=>q.IdFormaPago).FirstOrDefault();
+
+                lst_sucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
+                cmb_sucursal.Properties.DataSource = lst_sucursal;
+                cmb_sucursal.EditValue = param.IdSucursal;
             }
             catch (Exception ex)
             {
@@ -726,7 +731,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 this.cmbBanco.EditValue = Info_Orden_Pago.IdBanco == 0 ? null : Info_Orden_Pago.IdBanco;
                 this.dteFecha.EditValue = (Info_Orden_Pago.Fecha);
                 this.dteFechaPago.EditValue = Info_Orden_Pago.Fecha_Pago;
-
+                cmb_sucursal.EditValue = Info_Orden_Pago.IdSucursal;
                 this.txtSaldoOP.Text = Convert.ToString(Info_Orden_Pago.Saldo);
              
                 cp_orden_pago_det_Bus bus = new cp_orden_pago_det_Bus();
@@ -804,7 +809,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         Cab.IdPersona = obj_cmbProve.IdPersona;
                         Cab.IdTipo_Persona = obj_cmbProve.IdTipo_Persona;
                         Cab.IdEntidad = obj_cmbProve.IdEntidad;
-
+                        Cab.IdSucursal = cmb_sucursal.EditValue == null ? 1 : (int?)cmb_sucursal.EditValue;
                         Cab.IdUsuario = param.IdUsuario;
                         Cab.nom_pc = param.nom_pc;
                         Cab.ip = param.ip;
@@ -826,7 +831,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         Cab.IdBanco = Convert.ToInt32(cmbBanco.EditValue);
                         Cab.Fecha_Pago = Convert.ToDateTime(this.dteFechaPago.EditValue);
-
+                        Cab.IdSucursal = cmb_sucursal.EditValue == null ? 1 : (int?)cmb_sucursal.EditValue;
                         if (ucBa_TipoFlujo.get_TipoFlujoInfo() != null)                        
                             Cab.IdTipoFlujo = ucBa_TipoFlujo.get_TipoFlujoInfo().IdTipoFlujo;                        
                         else Cab.IdTipoFlujo = null;
@@ -941,6 +946,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 InfoCbteCble.Anio = InfoCbteCble.cb_Fecha.Year;
                 InfoCbteCble.Mes = InfoCbteCble.cb_Fecha.Month;
                 InfoCbteCble.cb_Observacion = "";
+                InfoCbteCble.IdSucursal = cmb_sucursal.EditValue == null ? 1 : (int)cmb_sucursal.EditValue;
 
             
                 InfoCbteCble.cb_FechaTransac = param.Fecha_Transac;

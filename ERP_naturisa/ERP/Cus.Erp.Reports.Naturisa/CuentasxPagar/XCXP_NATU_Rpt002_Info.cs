@@ -34,5 +34,9 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
         public XCXP_NATU_Rpt002_Info()
         {
         }
+
+        public string Su_Descripcion { get; set; }
+
+        public int? IdSucursal { get; set; }
     }
 }

@@ -41,10 +41,10 @@ namespace Core.Erp.Data
     
         public virtual ICollection<cp_Aprobacion_Orden_pago_det> cp_Aprobacion_Orden_pago_det { get; set; }
         public virtual ICollection<cp_conciliacion_det> cp_conciliacion_det { get; set; }
-        public virtual cp_orden_pago cp_orden_pago { get; set; }
         public virtual ICollection<cp_orden_pago_cancelaciones> cp_orden_pago_cancelaciones { get; set; }
         public virtual ICollection<cp_orden_pago_cancelaciones> cp_orden_pago_cancelaciones1 { get; set; }
         public virtual cp_orden_pago_formapago cp_orden_pago_formapago { get; set; }
         public virtual ICollection<cp_cuotas_x_doc_det> cp_cuotas_x_doc_det { get; set; }
+        public virtual cp_orden_pago cp_orden_pago { get; set; }
     }
 }

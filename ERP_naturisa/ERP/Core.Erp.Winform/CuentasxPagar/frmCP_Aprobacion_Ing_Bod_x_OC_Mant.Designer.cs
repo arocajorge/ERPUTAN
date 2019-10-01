@@ -33,6 +33,7 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
             this.cmb_Sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,7 +136,6 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
@@ -292,6 +292,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1480, 284);
             this.panel1.TabIndex = 2;
+            // 
+            // chk_seleccionar_visibles
+            // 
+            this.chk_seleccionar_visibles.AutoSize = true;
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(40, 244);
+            this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
+            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
+            this.chk_seleccionar_visibles.TabIndex = 49;
+            this.chk_seleccionar_visibles.Text = "Seleccionar visibles";
+            this.chk_seleccionar_visibles.UseVisualStyleBackColor = true;
+            this.chk_seleccionar_visibles.CheckedChanged += new System.EventHandler(this.chk_seleccionar_visibles_CheckedChanged);
             // 
             // cmb_Sucursal
             // 
@@ -1329,16 +1340,6 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
-            // 
-            // chk_seleccionar_visibles
-            // 
-            this.chk_seleccionar_visibles.AutoSize = true;
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(40, 244);
-            this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
-            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
-            this.chk_seleccionar_visibles.TabIndex = 49;
-            this.chk_seleccionar_visibles.Text = "Seleccionar visibles";
-            this.chk_seleccionar_visibles.UseVisualStyleBackColor = true;
             // 
             // frmCP_Aprobacion_Ing_Bod_x_OC_Mant
             // 

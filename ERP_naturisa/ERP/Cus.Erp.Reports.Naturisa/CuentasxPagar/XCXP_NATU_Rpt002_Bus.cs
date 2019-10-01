@@ -12,11 +12,11 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
     {
         XCXP_NATU_Rpt002_Data saldoProvedata = new XCXP_NATU_Rpt002_Data();
         public List<XCXP_NATU_Rpt002_Info> consultar_data
-        (int IdEmpresa, Decimal IdProveedorIni, Decimal IdProveedorFin, DateTime Fecha_Ini, DateTime Fecha_Fin, int IdClaseProveedorIni, int IdClaseProveedorFin, bool Filtrar_fecha_emi, ref String mensaje)
+        (int IdEmpresa, Decimal IdProveedorIni, Decimal IdProveedorFin, DateTime Fecha_Ini, DateTime Fecha_Fin, int IdClaseProveedorIni, int IdClaseProveedorFin, bool Filtrar_fecha_emi, ref String mensaje, int IdSucursal)
         {
             try 
 	{	        
-		return saldoProvedata.consultar_data(IdEmpresa, IdProveedorIni, IdProveedorFin, Fecha_Ini, Fecha_Fin, IdClaseProveedorIni, IdClaseProveedorFin,Filtrar_fecha_emi, ref mensaje);
+		return saldoProvedata.consultar_data(IdEmpresa, IdProveedorIni, IdProveedorFin, Fecha_Ini, Fecha_Fin, IdClaseProveedorIni, IdClaseProveedorFin,Filtrar_fecha_emi, ref mensaje, IdSucursal);
 	}
 	catch (Exception ex)
 	{

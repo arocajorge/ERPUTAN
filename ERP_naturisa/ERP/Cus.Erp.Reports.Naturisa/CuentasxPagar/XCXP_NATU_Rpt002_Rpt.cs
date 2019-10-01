@@ -60,13 +60,13 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                 IdClaseProveedor_ini = Convert.ToInt32(IdClaseProveedorIni.Value);
                 IdClaseProveedor_fin = Convert.ToInt32(IdClaseProveedorFin.Value);
                 Filtrar_fecha_emi = Convert.ToBoolean(PFiltro_fecha_emi.Value);
-
+                int IdSucursal = string.IsNullOrEmpty(P_IdSucursal.Value.ToString()) ? 0 : Convert.ToInt32(P_IdSucursal.Value);
                 if (Convert.ToBoolean(PObservacion_completa.Value))
                     celObservacion.WordWrap = true;
                 else
                     celObservacion.WordWrap = false;
 
-                ListDataRpt = repbus.consultar_data(IdEmpresa, IdProveedorIni, IdProveedorFin, Fecha_Ini, Fecha_Fin,IdClaseProveedor_ini,IdClaseProveedor_fin,Filtrar_fecha_emi, ref mensaje);
+                ListDataRpt = repbus.consultar_data(IdEmpresa, IdProveedorIni, IdProveedorFin, Fecha_Ini, Fecha_Fin,IdClaseProveedor_ini,IdClaseProveedor_fin,Filtrar_fecha_emi, ref mensaje, IdSucursal);
                 this.DataSource = ListDataRpt.ToArray();
 
             }

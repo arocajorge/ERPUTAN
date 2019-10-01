@@ -96,10 +96,13 @@ namespace Core.Erp.Winform.Controles
                 {  
                    IdTipo_Persona = Cl_Enumeradores.eTipoPersona.PROVEE;
                 }
-                
 
 
-                Cargar_combo_beneficiario();
+
+                if ((cmb_Persona_Tipo.EditValue.ToString() ?? "") != IdTipo_Persona.ToString() || list_Beneficiario.Count == 0)
+                {
+                    Cargar_combo_beneficiario();
+                }
 
             }
             catch (Exception ex)
@@ -145,8 +148,11 @@ namespace Core.Erp.Winform.Controles
                     IdTipo_Persona = Info.General.Cl_Enumeradores.eTipoPersona.TODOS;
                 }
 
-
-                Cargar_combo_beneficiario();
+                if ((cmb_Persona_Tipo.EditValue.ToString() ?? "") != IdTipo_Persona.ToString())
+                {
+                    Cargar_combo_beneficiario();    
+                }
+                
             }
             catch (Exception ex)
             {

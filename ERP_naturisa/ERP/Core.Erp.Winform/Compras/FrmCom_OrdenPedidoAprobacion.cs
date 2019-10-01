@@ -122,6 +122,15 @@ namespace Core.Erp.Winform.Compras
                 lst.ForEach(q => q.IdUsuario = param.IdUsuario);
                 if (bus_detalle.ActualizarEstadoAprobacion(lst))
                 {
+                    var lstGrupo = blst_det.Where(q => q.A && q.opd_CantidadApro > 0).GroupBy(q => q.IdOrdenPedido).Select(q => new
+                    {
+                        IdOrdenPedido = q.Key
+                    });
+                    foreach (var item in lstGrupo)
+                    {
+                        bus_orden.SaltarPaso4(param.IdEmpresa, item.IdOrdenPedido, param.IdUsuario);
+                    }
+
                     MessageBox.Show("Registros actualizados exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                     return true;
                 }

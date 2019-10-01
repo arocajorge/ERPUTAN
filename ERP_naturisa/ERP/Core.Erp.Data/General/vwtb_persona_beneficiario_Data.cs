@@ -70,41 +70,34 @@ namespace Core.Erp.Data.General
       {
           try
           {
-              if (IdTipo_Persona == "TODOS")
-              {
-                  IdTipo_Persona = "";
-              }
-
-
               List<vwtb_persona_beneficiario_Info> lM = new List<vwtb_persona_beneficiario_Info>();
               EntitiesGeneral OEUs = new EntitiesGeneral();
-              var selectBeneficiario = from selec in OEUs.vwtb_persona_beneficiario
-                                           where selec.IdEmpresa == IdEmpresa
-                                           && selec.IdTipo_Persona.Contains(IdTipo_Persona)
-                                           select selec;
+
+              var selectBeneficiario = OEUs.vwtb_persona_beneficiario.Where(selec => selec.IdEmpresa == IdEmpresa
+                                           && selec.IdTipo_Persona == (IdTipo_Persona == "TODOS" ? selec.IdTipo_Persona : IdTipo_Persona)).ToList();
               
               foreach (var item in selectBeneficiario)
               {
-                  vwtb_persona_beneficiario_Info info = new vwtb_persona_beneficiario_Info();
-                  info.IdEmpresa = item.IdEmpresa;
-                  info.IdBeneficiario = item.IdBeneficiario;
-                  info.IdTipo_Persona = item.IdTipo_Persona;
-                  info.IdPersona = item.IdPersona;
-                  info.IdEntidad = item.IdEntidad;
-                  info.Codigo = item.Codigo;
-                  info.Nombre = item.Nombre;
-                  info.pr_girar_cheque_a = item.pr_girar_cheque_a;
-                  info.pe_razonSocial = item.pe_razonSocial;
-                  info.pe_cedulaRuc = item.pe_cedulaRuc;
-                  info.pe_Naturaleza = item.pe_Naturaleza;
-                  info.IdCtaCble = item.IdCtaCble;
-                  info.IdCentroCosto = item.IdCentroCosto;
-                  info.IdSubCentroCosto = item.IdSubCentroCosto;
-                  info.NombreCompleto = "[" + info.IdTipo_Persona + "]" + "[" + item.IdEntidad + "]" + "[" + item.Nombre + "]";
-                  info.IdCtaCble_Anticipo = item.IdCtaCble_Anticipo;
-                  info.IdCtaCble_Gasto = item.IdCtaCble_Gasto;
-                  info.Estado = item.Estado;
-                  lM.Add(info);
+                  lM.Add(new vwtb_persona_beneficiario_Info{
+                   IdEmpresa = item.IdEmpresa,
+                   IdBeneficiario = item.IdBeneficiario,
+                   IdTipo_Persona = item.IdTipo_Persona,
+                   IdPersona = item.IdPersona,
+                   IdEntidad = item.IdEntidad,
+                   Codigo = item.Codigo,
+                   Nombre = item.Nombre,
+                   pr_girar_cheque_a = item.pr_girar_cheque_a,
+                   pe_razonSocial = item.pe_razonSocial,
+                   pe_cedulaRuc = item.pe_cedulaRuc,
+                   pe_Naturaleza = item.pe_Naturaleza,
+                   IdCtaCble = item.IdCtaCble,
+                   IdCentroCosto = item.IdCentroCosto,
+                   IdSubCentroCosto = item.IdSubCentroCosto,
+                   NombreCompleto = "[" +  IdTipo_Persona + "]" + "[" + item.IdEntidad + "]" + "[" + item.Nombre + "]",
+                   IdCtaCble_Anticipo = item.IdCtaCble_Anticipo,
+                   IdCtaCble_Gasto = item.IdCtaCble_Gasto,
+                   Estado = item.Estado
+                  });
               }
               return (lM);
           }

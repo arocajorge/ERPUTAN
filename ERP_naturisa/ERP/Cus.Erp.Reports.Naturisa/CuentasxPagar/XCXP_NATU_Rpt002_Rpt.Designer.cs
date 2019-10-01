@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -111,8 +110,9 @@
             this.PFiltro_fecha_emi = new DevExpress.XtraReports.Parameters.Parameter();
             this.PFiltro_fecha_vcto = new DevExpress.XtraReports.Parameters.Parameter();
             this.PObservacion_completa = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.PROVEEDOR = new DevExpress.XtraReports.UI.CalculatedField();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource();
+            this.P_IdSucursal = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -878,14 +878,19 @@
             this.PObservacion_completa.Name = "PObservacion_completa";
             this.PObservacion_completa.Type = typeof(bool);
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt002_Info);
-            // 
             // PROVEEDOR
             // 
             this.PROVEEDOR.Expression = "CONCAT(\'[\',[IdProveedor],\'] \',[Nom_Proveedor])";
             this.PROVEEDOR.Name = "PROVEEDOR";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt002_Info);
+            // 
+            // P_IdSucursal
+            // 
+            this.P_IdSucursal.Name = "P_IdSucursal";
+            this.P_IdSucursal.Visible = false;
             // 
             // XCXP_NATU_Rpt002_Rpt
             // 
@@ -925,7 +930,8 @@
             this.S_fechaHasta,
             this.PFiltro_fecha_emi,
             this.PFiltro_fecha_vcto,
-            this.PObservacion_completa});
+            this.PObservacion_completa,
+            this.P_IdSucursal});
             this.Version = "12.1";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.XCXP_NATU_Rpt002_Rpt_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
@@ -1021,5 +1027,6 @@
         public DevExpress.XtraReports.Parameters.Parameter PFiltro_fecha_vcto;
         public DevExpress.XtraReports.Parameters.Parameter PObservacion_completa;
         private DevExpress.XtraReports.UI.CalculatedField PROVEEDOR;
+        public DevExpress.XtraReports.Parameters.Parameter P_IdSucursal;
     }
 }

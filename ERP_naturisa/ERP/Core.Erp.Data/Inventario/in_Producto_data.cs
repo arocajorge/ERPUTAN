@@ -770,71 +770,67 @@ namespace Core.Erp.Data.Inventario
 
                 List<in_Producto_Info> lM = new List<in_Producto_Info>();
                 EntitiesInventario OEInventario = new EntitiesInventario();
-                var select_Inventario = from C in OEInventario.vwin_producto_x_tb_bodega
-                                        where C.IdEmpresa == IdEmpresa 
+                var select_Inventario = OEInventario.vwin_producto_x_tb_bodega.Where(C => C.IdEmpresa == IdEmpresa
                                         && C.IdSucursal == IdSucursal
-                                        && IdBodega_ini <= C.IdBodega  && C.IdBodega <= IdBodega_fin
-                                        && C.Aparece_modu_Inventario == true
-                                        orderby C.IdEmpresa,C.IdSucursal,C.IdBodega,C.nom_Categoria,C.nom_linea
-                                        select C;
+                                        && IdBodega_ini <= C.IdBodega && C.IdBodega <= IdBodega_fin
+                                        && C.Aparece_modu_Inventario == true).ToList();
 
                 foreach (var item in select_Inventario)
                 {
-                    in_Producto_Info info = new in_Producto_Info();
-                    info.pr_costo_promedio = item.pr_costo_promedio;
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdProducto = item.IdProducto;
-                    info.IdSucursal = item.IdSucursal;
-                    info.IdBodega = item.IdBodega;
+                    lM.Add(new in_Producto_Info
+                    {
+                        pr_costo_promedio = item.pr_costo_promedio,
+                        IdEmpresa = item.IdEmpresa,
+                        IdProducto = item.IdProducto,
+                        IdSucursal = item.IdSucursal,
+                        IdBodega = item.IdBodega,
 
-                    info.pr_codigo = item.pr_codigo.Trim();
-                    info.pr_descripcion = item.pr_descripcion;
-                    info.pr_descripcion_2 = "[" + item.pr_codigo + "] - " + item.pr_descripcion;
+                        pr_codigo = item.pr_codigo.Trim(),
+                        pr_descripcion = item.pr_descripcion,
+                        pr_descripcion_2 = "[" + item.pr_codigo + "] - " + item.pr_descripcion,
 
-                    info.pr_peso = item.pr_peso;
-                    info.pr_stock = item.pr_stock;
-                    info.pr_Pedidos_inv = item.pr_Pedidos_inv;
-                    info.pr_disponible = item.pr_Disponible;
-                    info.pr_Disponible = item.pr_Disponible;
-                    info.pr_Pedidos_fact = item.pr_Pedidos_fact;
+                        pr_peso = item.pr_peso,
+                        pr_stock = item.pr_stock,
+                        pr_Pedidos_inv = item.pr_Pedidos_inv,
+                        pr_disponible = item.pr_Disponible,
+                        pr_Disponible = item.pr_Disponible,
+                        pr_Pedidos_fact = item.pr_Pedidos_fact,
 
-                    info.pr_precio_publico = item.pr_precio_publico;
-                    info.pr_precio_minimo = item.pr_precio_minimo;
-                    info.pr_stock_minimo = item.pr_stock_minimo;
-                    info.pr_ManejaIva = item.pr_ManejaIva.Trim() == "S" ? "S" : item.pr_ManejaIva;
-                    info.pr_ManejaSeries = item.pr_ManejaSeries.Trim() == "S" ? "S" : item.pr_ManejaSeries;
-                    info.IdSucursal = item.IdSucursal;
-                    info.ManejaKardex = item.ManejaKardex;
-                    info.IdUnidadMedida = item.IdUnidadMedida;
-                    info.nom_Linea = item.nom_linea;
-                    info.nom_Categoria = item.nom_Categoria;
-                    info.IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo;
-                    info.nom_UnidadMedida = item.Descripcion_UniMedida;
-                    info.nom_UnidadMedida_Consumo = item.Descripcion_TipoConsumo;
+                        pr_precio_publico = item.pr_precio_publico,
+                        pr_precio_minimo = item.pr_precio_minimo,
+                        pr_stock_minimo = item.pr_stock_minimo,
+                        pr_ManejaIva = item.pr_ManejaIva.Trim() == "S" ? "S" : item.pr_ManejaIva,
+                        pr_ManejaSeries = item.pr_ManejaSeries.Trim() == "S" ? "S" : item.pr_ManejaSeries,
+                        ManejaKardex = item.ManejaKardex,
+                        IdUnidadMedida = item.IdUnidadMedida,
+                        nom_Linea = item.nom_linea,
+                        nom_Categoria = item.nom_Categoria,
+                        IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo,
+                        nom_UnidadMedida = item.Descripcion_UniMedida,
+                        nom_UnidadMedida_Consumo = item.Descripcion_TipoConsumo,
 
-                    info.IdCtaCble_Inventario = item.IdCtaCble_Inventario;
-                    info.IdCtaCble_Costo = item.IdCtaCble_Costo;
-                    info.IdCtaCble_Vta = item.IdCtaCble_Vta;
-                    
+                        IdCtaCble_Inventario = item.IdCtaCble_Inventario,
+                        IdCtaCble_Costo = item.IdCtaCble_Costo,
+                        IdCtaCble_Vta = item.IdCtaCble_Vta,
 
-                    info.IdCtaCble_Ven0 = item.IdCtaCble_Ven0;
-                    info.IdCtaCble_VenIva = item.IdCtaCble_VenIva;
-                    info.IdCtaCble_CosBase0 = item.IdCtaCble_CosBase0;
-                    info.IdCtaCble_CosBaseIva = item.IdCtaCble_CosBaseIva;
-                    info.IdCtaCble_Des0 = item.IdCtaCble_Des0;
-                    info.IdCtaCble_DesIva = item.IdCtaCble_DesIva;
-                    info.IdCtaCble_Dev0 = item.IdCtaCble_Dev0;
-                    info.IdCtaCble_DevIva = item.IdCtaCble_DevIva;
 
-                    info.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
-                    info.IdCod_Impuesto_Ice = item.IdCod_Impuesto_Ice;
+                        IdCtaCble_Ven0 = item.IdCtaCble_Ven0,
+                        IdCtaCble_VenIva = item.IdCtaCble_VenIva,
+                        IdCtaCble_CosBase0 = item.IdCtaCble_CosBase0,
+                        IdCtaCble_CosBaseIva = item.IdCtaCble_CosBaseIva,
+                        IdCtaCble_Des0 = item.IdCtaCble_Des0,
+                        IdCtaCble_DesIva = item.IdCtaCble_DesIva,
+                        IdCtaCble_Dev0 = item.IdCtaCble_Dev0,
+                        IdCtaCble_DevIva = item.IdCtaCble_DevIva,
 
-                    info.Aparece_modu_Ventas = item.Aparece_modu_Ventas;
-                    info.Aparece_modu_Compras = item.Aparece_modu_Compras;
-                    info.Aparece_modu_Inventario = item.Aparece_modu_Inventario;
-                    info.Aparece_modu_Activo_F = item.Aparece_modu_Activo_F;
+                        IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva,
+                        IdCod_Impuesto_Ice = item.IdCod_Impuesto_Ice,
 
-                    lM.Add(info);
+                        Aparece_modu_Ventas = item.Aparece_modu_Ventas,
+                        Aparece_modu_Compras = item.Aparece_modu_Compras,
+                        Aparece_modu_Inventario = item.Aparece_modu_Inventario,
+                        Aparece_modu_Activo_F = item.Aparece_modu_Activo_F,
+                    });
                 }
                 return (lM);
             }

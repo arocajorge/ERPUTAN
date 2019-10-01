@@ -118,6 +118,11 @@ namespace Core.Erp.Data.Compras
 
                 }
 
+                if (data_ped.ValidarProceso(info.IdEmpresa, info.IdOrdenPedido ?? 0))
+                {
+
+                }
+
                 return true;
             }
             catch (Exception)

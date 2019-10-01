@@ -29,7 +29,6 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_giro_x_com_ordencompra_local" Width="1.5" PointX="18.75" PointY="35.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_giro_x_com_ordencompra_local_det" Width="1.5" PointX="18.75" PointY="39" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_giro_x_imp_ordencompra_ext" Width="1.5" PointX="18.75" PointY="42.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_pago" Width="1.5" PointX="3" PointY="32.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_pago_cancelaciones" Width="1.5" PointX="7.5" PointY="56.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_pago_det" Width="1.5" PointX="5.25" PointY="31.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_pago_estado_aprob" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
@@ -75,7 +74,6 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_SRI" Width="1.5" PointX="17.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_total_saldo" Width="1.5" PointX="13.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_x_com_ordencompra_local_det_consulta" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_Anticipo_Saldo" Width="1.5" PointX="26.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_cancelacion_Saldos" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" Width="1.5" PointX="26.75" PointY="27.75" IsExpanded="true" />
@@ -122,16 +120,12 @@
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_proveedor_cp_codigo_SRI2" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_retencion_det_cp_codigo_SRI" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_det_cp_conciliacion" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_cp_conciliacion_Caja" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_Ing_Caja_cp_conciliacion_Caja" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_x_ValeCaja_cp_conciliacion_Caja" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_det_cp_orden_pago_det" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_nota_DebCre_cp_proveedor" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_giro_pagos_sri_cp_pagos_sri" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cancelaciones_cp_orden_pago_det" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cancelaciones_cp_orden_pago_det1" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago_formapago" ManuallyRouted="false" />
@@ -169,6 +163,12 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_parametros" Width="1.5" PointX="5.8880194639265628" PointY="24.427963938763348" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_consulta" Width="1.5" PointX="7.6547004597516271" PointY="7.8448093570046167" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_proveedor_combo" Width="1.5" PointX="5.7362108369060838" PointY="11.785660808806149" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_pago" Width="1.5" PointX="2.3211118273069671" PointY="19.45684451770822" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago" Width="1.5" PointX="11.519842128977107" PointY="14.127022168658218" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

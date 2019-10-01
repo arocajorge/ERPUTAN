@@ -8,7 +8,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
     public class XCXP_NATU_Rpt002_Data
     {
         public List<XCXP_NATU_Rpt002_Info> consultar_data
-            (int IdEmpresa, Decimal IdProveedorIni, Decimal IdProveedorFin, DateTime Fecha_Ini, DateTime Fecha_Fin, int IdClaseProveedorIni, int IdClaseProveedorFin, bool Filtrar_fecha_emi, ref String mensaje)
+            (int IdEmpresa, Decimal IdProveedorIni, Decimal IdProveedorFin, DateTime Fecha_Ini, DateTime Fecha_Fin, int IdClaseProveedorIni, int IdClaseProveedorFin, bool Filtrar_fecha_emi, ref String mensaje, int IdSucursal)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                 string SNombreProveedorFiltro = "";
                 decimal ProveIni = 0;
                 decimal ProveFin = 0;
-
+                int IdSucursalFin = IdSucursal == 0 ? 99999 : IdSucursal;
                 if (IdProveedorIni == 0 && IdProveedorFin == 0)
                 {
                     ProveIni = 1;
@@ -48,6 +48,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                                                                where h.IdEmpresa == IdEmpresa
                                                                && h.IdProveedor >= ProveIni && h.IdProveedor <= ProveFin
                                                                && h.Fecha >= FechaIni && h.Fecha <= FechaFin
+                                                               && IdSucursal <= h.IdSucursal && h.IdSucursal <= IdSucursalFin
                                                                && IdClaseProveedorIni <= h.IdClaseProveedor && h.IdClaseProveedor <= IdClaseProveedorFin
                                                                && (h.Saldo_x_pagar > 0 || h.Saldo_x_pagar < 0)
                                                                select h;    
@@ -55,6 +56,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                         select = from h in saldosdeproveedor.vwCXP_NATU_Rpt002
                                  where h.IdEmpresa == IdEmpresa
                                  && h.IdProveedor >= ProveIni && h.IdProveedor <= ProveFin
+                                 && IdSucursal <= h.IdSucursal && h.IdSucursal <= IdSucursalFin
                                  && h.co_FechaFactura_vct >= FechaIni && h.co_FechaFactura_vct <= FechaFin
                                  && IdClaseProveedorIni <= h.IdClaseProveedor && h.IdClaseProveedor <= IdClaseProveedorFin
                                  && (h.Saldo_x_pagar > 0 || h.Saldo_x_pagar < 0)
@@ -86,8 +88,8 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                         itemInfo.descripcion_clas_prove = item.descripcion_clas_prove;
                         item.IdOrdenPago = item.IdOrdenPago;
                         itemInfo.IdPersona = item.IdPersona;
-
-
+                        itemInfo.IdSucursal = item.IdSucursal;
+                        itemInfo.Su_Descripcion = item.Su_Descripcion;
                         listadedatos.Add(itemInfo);
                     }
                 }

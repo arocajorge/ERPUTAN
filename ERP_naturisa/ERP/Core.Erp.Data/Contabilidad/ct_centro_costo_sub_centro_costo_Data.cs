@@ -20,30 +20,25 @@ namespace Core.Erp.Data.Contabilidad
                 List<ct_centro_costo_sub_centro_costo_Info> lst = new List<ct_centro_costo_sub_centro_costo_Info>();
                 using (EntitiesDBConta conta = new EntitiesDBConta())
                 {
-                    var consulta = from q in conta.vwct_centro_costo_sub_centro_costo
-                                   where q.IdEmpresa == IdEmpresa
-                                   select q;
+                    var consulta = conta.vwct_centro_costo_sub_centro_costo.Where(q => q.IdEmpresa == IdEmpresa).ToList();
 
                     foreach (var item in consulta)
                     {
-                        ct_centro_costo_sub_centro_costo_Info info = new ct_centro_costo_sub_centro_costo_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdCentroCosto = item.IdCentroCosto;
-                        info.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                        info.cod_subcentroCosto = item.cod_subcentroCosto;
-                        info.Centro_costo = item.nom_Centro_costo_sub_centro_costo;
-                        info.Centro_costo2 = "[" + item.IdCentroCosto_sub_centro_costo + "] - " + item.nom_Centro_costo_sub_centro_costo;
-                        info.pc_Estado = item.pc_Estado;
-                        
-                        info.IdCtaCble = item.IdCtaCble;
-                        
-                        info.nom_Centro_costo = item.nom_Centro_costo;
-                        info.nom_cuenta = item.pc_Cuenta;
-                        info.pc_clave_corta = item.pc_clave_corta;
-
-                        info.IdRegistro = item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo;
-
-                        lst.Add(info);
+                        lst.Add(new ct_centro_costo_sub_centro_costo_Info
+                           {
+                               IdEmpresa = item.IdEmpresa,
+                               IdCentroCosto = item.IdCentroCosto,
+                               IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                               cod_subcentroCosto = item.cod_subcentroCosto,
+                               Centro_costo = item.nom_Centro_costo_sub_centro_costo,
+                               Centro_costo2 = "[" + item.IdCentroCosto_sub_centro_costo + "] - " + item.nom_Centro_costo_sub_centro_costo,
+                               pc_Estado = item.pc_Estado,
+                               IdCtaCble = item.IdCtaCble,
+                               nom_Centro_costo = item.nom_Centro_costo,
+                               nom_cuenta = item.pc_Cuenta,
+                               pc_clave_corta = item.pc_clave_corta,
+                               IdRegistro = item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo,
+                           });
                     }
                 }
                 return lst;
@@ -58,7 +53,6 @@ namespace Core.Erp.Data.Contabilidad
                 mensaje = ex.ToString();
                 throw new Exception(ex.ToString());
             }
-        
         }
 
         public List<ct_centro_costo_sub_centro_costo_Info> Get_list_centro_costo_sub_centro_costo(int IdEmpresa, string IdCentroCosto)

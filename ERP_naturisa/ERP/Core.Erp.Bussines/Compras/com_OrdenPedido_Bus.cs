@@ -103,5 +103,44 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public bool SaltarPaso2(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                return odata.SaltarPaso2(IdEmpresa, IdOrdenPedido, IdUsuario);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool SaltarPaso3(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                return odata.SaltarPaso3(IdEmpresa, IdOrdenPedido, IdUsuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool SaltarPaso4(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                return odata.SaltarPaso4(IdEmpresa, IdOrdenPedido, IdUsuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

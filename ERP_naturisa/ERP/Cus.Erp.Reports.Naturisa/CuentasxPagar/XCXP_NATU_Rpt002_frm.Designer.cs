@@ -112,9 +112,10 @@
             this.panel1.Controls.Add(this.printControlReporte);
             this.panel1.Controls.Add(this.uccp_menu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 53);
+            this.panel1.Location = new System.Drawing.Point(0, 62);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(905, 333);
+            this.panel1.Size = new System.Drawing.Size(1207, 418);
             this.panel1.TabIndex = 2;
             // 
             // printControlReporte
@@ -123,9 +124,10 @@
             this.printControlReporte.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printControlReporte.ForeColor = System.Drawing.Color.Empty;
             this.printControlReporte.IsMetric = true;
-            this.printControlReporte.Location = new System.Drawing.Point(0, 76);
+            this.printControlReporte.Location = new System.Drawing.Point(0, 94);
+            this.printControlReporte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.printControlReporte.Name = "printControlReporte";
-            this.printControlReporte.Size = new System.Drawing.Size(905, 257);
+            this.printControlReporte.Size = new System.Drawing.Size(1207, 324);
             this.printControlReporte.TabIndex = 5;
             this.printControlReporte.TooltipFont = new System.Drawing.Font("Tahoma", 8.25F);
             // 
@@ -136,12 +138,14 @@
             this.uccp_menu.CaptionCheck3 = "Mostrar observación completa      ";
             this.uccp_menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.uccp_menu.Location = new System.Drawing.Point(0, 0);
+            this.uccp_menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.uccp_menu.Name = "uccp_menu";
-            this.uccp_menu.Size = new System.Drawing.Size(905, 76);
+            this.uccp_menu.Size = new System.Drawing.Size(1207, 94);
             this.uccp_menu.TabIndex = 6;
             this.uccp_menu.Text_dtpDesde = "Desde: ";
             this.uccp_menu.Text_dtpHasta = "Hasta:  ";
             this.uccp_menu.Visble_bei_clase_proveedor = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.uccp_menu.Visble_beiSucursal = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccp_menu.Visble_dtpHasta = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccp_menu.Visible_dtpDesde = DevExpress.XtraBars.BarItemVisibility.Always;
             this.uccp_menu.Visible_groupCheck = true;
@@ -739,28 +743,32 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(905, 53);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1207, 62);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 386);
-            this.barDockControlBottom.Size = new System.Drawing.Size(905, 28);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 480);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1207, 30);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 53);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 333);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 62);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 418);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(905, 53);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 333);
+            this.barDockControlRight.Location = new System.Drawing.Point(1207, 62);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 418);
             // 
             // printPreviewBarCheckItem1
             // 
@@ -936,14 +944,15 @@
             // 
             // XCXP_NATU_Rpt002_frm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 414);
+            this.ClientSize = new System.Drawing.Size(1207, 510);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "XCXP_NATU_Rpt002_frm";
             this.Text = "Reporte de Saldo de Documentos";
             this.Load += new System.EventHandler(this.XCXP_NATU_Rpt002_frm_Load);

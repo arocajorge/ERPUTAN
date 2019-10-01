@@ -99,6 +99,11 @@
             this.UC_DiarioContPago = new Core.Erp.Winform.Controles.UCCon_GridDiarioContable();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmb_sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.ucBa_TipoFlujo = new Core.Erp.Winform.Controles.UCBa_TipoFlujo();
             this.ucGe_Beneficiario = new Core.Erp.Winform.Controles.UCGe_Beneficiario();
@@ -161,6 +166,8 @@
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaPago.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaPago.Properties)).BeginInit();
@@ -178,18 +185,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(609, 16);
+            this.label3.Location = new System.Drawing.Point(812, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Fecha:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 98);
+            this.label4.Location = new System.Drawing.Point(31, 121);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Observación:";
             // 
@@ -208,27 +217,30 @@
             // dteFecha
             // 
             this.dteFecha.EditValue = null;
-            this.dteFecha.Location = new System.Drawing.Point(670, 13);
+            this.dteFecha.Location = new System.Drawing.Point(893, 16);
+            this.dteFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dteFecha.Name = "dteFecha";
             this.dteFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteFecha.Size = new System.Drawing.Size(126, 20);
+            this.dteFecha.Size = new System.Drawing.Size(168, 22);
             this.dteFecha.TabIndex = 8;
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(100, 95);
+            this.txtObservacion.Location = new System.Drawing.Point(133, 117);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservacion.Size = new System.Drawing.Size(696, 38);
+            this.txtObservacion.Size = new System.Drawing.Size(927, 46);
             this.txtObservacion.TabIndex = 9;
             // 
             // cmbOrdTipPag
             // 
-            this.cmbOrdTipPag.Location = new System.Drawing.Point(100, 69);
+            this.cmbOrdTipPag.Location = new System.Drawing.Point(133, 85);
+            this.cmbOrdTipPag.Margin = new System.Windows.Forms.Padding(4);
             this.cmbOrdTipPag.Name = "cmbOrdTipPag";
             this.cmbOrdTipPag.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.cmbOrdTipPag.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -237,7 +249,7 @@
             this.cmbOrdTipPag.Properties.DisplayMember = "Descripcion";
             this.cmbOrdTipPag.Properties.ValueMember = "IdTipo_op";
             this.cmbOrdTipPag.Properties.View = this.gridView1;
-            this.cmbOrdTipPag.Size = new System.Drawing.Size(286, 20);
+            this.cmbOrdTipPag.Size = new System.Drawing.Size(381, 22);
             this.cmbOrdTipPag.TabIndex = 10;
             this.cmbOrdTipPag.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbOrdTipPag_Closed);
             this.cmbOrdTipPag.EditValueChanged += new System.EventHandler(this.cmbOrdTipPag_EditValueChanged);
@@ -346,26 +358,29 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 72);
+            this.label5.Location = new System.Drawing.Point(27, 89);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Tipo de pago:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(2, 16);
+            this.label6.Location = new System.Drawing.Point(3, 20);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.Size = new System.Drawing.Size(120, 17);
             this.label6.TabIndex = 12;
             this.label6.Text = "Orden de pago #:";
             // 
             // txtNumOrden
             // 
-            this.txtNumOrden.Location = new System.Drawing.Point(101, 13);
+            this.txtNumOrden.Location = new System.Drawing.Point(135, 16);
+            this.txtNumOrden.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumOrden.Name = "txtNumOrden";
-            this.txtNumOrden.Size = new System.Drawing.Size(97, 20);
+            this.txtNumOrden.Size = new System.Drawing.Size(129, 22);
             this.txtNumOrden.TabIndex = 13;
             // 
             // tabControl1
@@ -373,20 +388,22 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 16);
+            this.tabControl1.Location = new System.Drawing.Point(4, 19);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1048, 388);
+            this.tabControl1.Size = new System.Drawing.Size(1397, 529);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gridControlDeudas);
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1040, 362);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1389, 500);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Deudas a Cancelar";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -395,10 +412,12 @@
             // 
             this.gridControlDeudas.DataSource = this.vwcpCbtexpagarOGInfoBindingSource;
             this.gridControlDeudas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlDeudas.Location = new System.Drawing.Point(3, 3);
+            this.gridControlDeudas.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gridControlDeudas.Location = new System.Drawing.Point(4, 4);
             this.gridControlDeudas.MainView = this.gridViewDeudas;
+            this.gridControlDeudas.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlDeudas.Name = "gridControlDeudas";
-            this.gridControlDeudas.Size = new System.Drawing.Size(1034, 317);
+            this.gridControlDeudas.Size = new System.Drawing.Size(1381, 444);
             this.gridControlDeudas.TabIndex = 17;
             this.gridControlDeudas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDeudas});
@@ -683,34 +702,38 @@
             this.panel2.Controls.Add(this.txtTotPagar);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 320);
+            this.panel2.Location = new System.Drawing.Point(4, 448);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1034, 39);
+            this.panel2.Size = new System.Drawing.Size(1381, 48);
             this.panel2.TabIndex = 16;
             // 
             // txtTotPagar
             // 
-            this.txtTotPagar.Location = new System.Drawing.Point(706, 3);
+            this.txtTotPagar.Location = new System.Drawing.Point(941, 4);
+            this.txtTotPagar.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotPagar.Name = "txtTotPagar";
-            this.txtTotPagar.Size = new System.Drawing.Size(97, 20);
+            this.txtTotPagar.Size = new System.Drawing.Size(129, 22);
             this.txtTotPagar.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(615, 6);
+            this.label7.Location = new System.Drawing.Point(820, 7);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.Size = new System.Drawing.Size(97, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Total a pagar:";
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.UC_DiarioContPago);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1040, 362);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1389, 500);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asiento Contable";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -719,9 +742,10 @@
             // 
             this.UC_DiarioContPago.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_DiarioContPago.IdCtaCble_x_Banco = null;
-            this.UC_DiarioContPago.Location = new System.Drawing.Point(3, 3);
+            this.UC_DiarioContPago.Location = new System.Drawing.Point(4, 4);
+            this.UC_DiarioContPago.Margin = new System.Windows.Forms.Padding(5);
             this.UC_DiarioContPago.Name = "UC_DiarioContPago";
-            this.UC_DiarioContPago.Size = new System.Drawing.Size(1034, 356);
+            this.UC_DiarioContPago.Size = new System.Drawing.Size(1381, 492);
             this.UC_DiarioContPago.TabIndex = 0;
             this.UC_DiarioContPago.Visible_Botones = true;
             this.UC_DiarioContPago.Visible_Cabecera = false;
@@ -733,14 +757,18 @@
             this.groupBox1.Controls.Add(this.tabControl1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1054, 407);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1405, 552);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle:";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.cmb_sucursal);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.ucBa_TipoFlujo);
             this.groupBox2.Controls.Add(this.label5);
@@ -759,59 +787,120 @@
             this.groupBox2.Controls.Add(this.dteFecha);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1054, 216);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1405, 216);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(315, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 17);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Sucursal:";
+            // 
+            // cmb_sucursal
+            // 
+            this.cmb_sucursal.Location = new System.Drawing.Point(457, 16);
+            this.cmb_sucursal.Margin = new System.Windows.Forms.Padding(4);
+            this.cmb_sucursal.Name = "cmb_sucursal";
+            this.cmb_sucursal.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+            this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
+            this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
+            this.cmb_sucursal.Properties.View = this.gridView3;
+            this.cmb_sucursal.Size = new System.Drawing.Size(251, 22);
+            this.cmb_sucursal.TabIndex = 22;
+            // 
+            // gridView3
+            // 
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowAutoFilterRow = true;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Sucursal";
+            this.gridColumn1.FieldName = "Su_Descripcion";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 1503;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "ID";
+            this.gridColumn2.FieldName = "IdSucursal";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 231;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(452, 72);
+            this.label11.Location = new System.Drawing.Point(603, 89);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 13);
+            this.label11.Size = new System.Drawing.Size(94, 17);
             this.label11.TabIndex = 20;
             this.label11.Text = "Tipo de Flujo:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // ucBa_TipoFlujo
             // 
-            this.ucBa_TipoFlujo.Location = new System.Drawing.Point(531, 65);
+            this.ucBa_TipoFlujo.Location = new System.Drawing.Point(708, 80);
+            this.ucBa_TipoFlujo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucBa_TipoFlujo.Name = "ucBa_TipoFlujo";
-            this.ucBa_TipoFlujo.Size = new System.Drawing.Size(311, 26);
+            this.ucBa_TipoFlujo.Size = new System.Drawing.Size(415, 32);
             this.ucBa_TipoFlujo.TabIndex = 19;
             this.ucBa_TipoFlujo.Load += new System.EventHandler(this.ucBa_TipoFlujo_Load);
             // 
             // ucGe_Beneficiario
             // 
-            this.ucGe_Beneficiario.IdTipo_Persona = Core.Erp.Info.General.Cl_Enumeradores.eTipoPersona.CLIENTE;
-            this.ucGe_Beneficiario.Location = new System.Drawing.Point(95, 39);
+            this.ucGe_Beneficiario.IdTipo_Persona = Core.Erp.Info.General.Cl_Enumeradores.eTipoPersona.PROVEE;
+            this.ucGe_Beneficiario.Location = new System.Drawing.Point(127, 48);
+            this.ucGe_Beneficiario.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Beneficiario.Name = "ucGe_Beneficiario";
-            this.ucGe_Beneficiario.Size = new System.Drawing.Size(747, 34);
+            this.ucGe_Beneficiario.Size = new System.Drawing.Size(996, 42);
             this.ucGe_Beneficiario.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 45);
+            this.label2.Location = new System.Drawing.Point(43, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 20;
             this.label2.Text = "Buscar por:";
             // 
             // txtSaldoOP
             // 
-            this.txtSaldoOP.Location = new System.Drawing.Point(742, 152);
+            this.txtSaldoOP.Location = new System.Drawing.Point(989, 187);
+            this.txtSaldoOP.Margin = new System.Windows.Forms.Padding(4);
             this.txtSaldoOP.Name = "txtSaldoOP";
-            this.txtSaldoOP.Size = new System.Drawing.Size(100, 20);
+            this.txtSaldoOP.Size = new System.Drawing.Size(132, 22);
             this.txtSaldoOP.TabIndex = 17;
             // 
             // lblSaldoOP
             // 
             this.lblSaldoOP.AutoSize = true;
-            this.lblSaldoOP.Location = new System.Drawing.Point(672, 159);
+            this.lblSaldoOP.Location = new System.Drawing.Point(896, 196);
+            this.lblSaldoOP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSaldoOP.Name = "lblSaldoOP";
-            this.lblSaldoOP.Size = new System.Drawing.Size(55, 13);
+            this.lblSaldoOP.Size = new System.Drawing.Size(72, 17);
             this.lblSaldoOP.TabIndex = 15;
             this.lblSaldoOP.Text = "Saldo OP:";
             // 
@@ -820,9 +909,10 @@
             this.lblAnulado.AutoSize = true;
             this.lblAnulado.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnulado.ForeColor = System.Drawing.Color.Red;
-            this.lblAnulado.Location = new System.Drawing.Point(331, 10);
+            this.lblAnulado.Location = new System.Drawing.Point(1093, 95);
+            this.lblAnulado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAnulado.Name = "lblAnulado";
-            this.lblAnulado.Size = new System.Drawing.Size(172, 26);
+            this.lblAnulado.Size = new System.Drawing.Size(219, 33);
             this.lblAnulado.TabIndex = 15;
             this.lblAnulado.Text = "*** ANULADO ***";
             // 
@@ -834,9 +924,11 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.cmbBanco);
-            this.groupBox3.Location = new System.Drawing.Point(101, 139);
+            this.groupBox3.Location = new System.Drawing.Point(135, 171);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(564, 67);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(752, 82);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle de Cancelación:";
@@ -844,18 +936,20 @@
             // dteFechaPago
             // 
             this.dteFechaPago.EditValue = null;
-            this.dteFechaPago.Location = new System.Drawing.Point(408, 17);
+            this.dteFechaPago.Location = new System.Drawing.Point(544, 21);
+            this.dteFechaPago.Margin = new System.Windows.Forms.Padding(4);
             this.dteFechaPago.Name = "dteFechaPago";
             this.dteFechaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteFechaPago.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteFechaPago.Size = new System.Drawing.Size(146, 20);
+            this.dteFechaPago.Size = new System.Drawing.Size(195, 22);
             this.dteFechaPago.TabIndex = 5;
             // 
             // cmbFormaPago
             // 
-            this.cmbFormaPago.Location = new System.Drawing.Point(98, 17);
+            this.cmbFormaPago.Location = new System.Drawing.Point(131, 21);
+            this.cmbFormaPago.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFormaPago.Name = "cmbFormaPago";
             this.cmbFormaPago.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -864,7 +958,7 @@
             this.cmbFormaPago.Properties.DisplayMember = "descripcion";
             this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
             this.cmbFormaPago.Properties.View = this.gridView2;
-            this.cmbFormaPago.Size = new System.Drawing.Size(188, 20);
+            this.cmbFormaPago.Size = new System.Drawing.Size(251, 22);
             this.cmbFormaPago.TabIndex = 3;
             this.cmbFormaPago.EditValueChanged += new System.EventHandler(this.cmbFormaPago_EditValueChanged);
             // 
@@ -919,33 +1013,37 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(320, 20);
+            this.label9.Location = new System.Drawing.Point(427, 25);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 13);
+            this.label9.Size = new System.Drawing.Size(107, 17);
             this.label9.TabIndex = 1;
             this.label9.Text = "Fecha de pago:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 20);
+            this.label8.Location = new System.Drawing.Point(9, 25);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 13);
+            this.label8.Size = new System.Drawing.Size(108, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Forma de pago:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 44);
+            this.label10.Location = new System.Drawing.Point(9, 54);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.Size = new System.Drawing.Size(52, 17);
             this.label10.TabIndex = 2;
             this.label10.Text = "Banco:";
             // 
             // cmbBanco
             // 
-            this.cmbBanco.Location = new System.Drawing.Point(98, 41);
+            this.cmbBanco.Location = new System.Drawing.Point(131, 50);
+            this.cmbBanco.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBanco.Name = "cmbBanco";
             this.cmbBanco.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -953,7 +1051,7 @@
             this.cmbBanco.Properties.DisplayMember = "ba_descripcion";
             this.cmbBanco.Properties.ValueMember = "IdBanco";
             this.cmbBanco.Properties.View = this.searchLookUpEdit2View;
-            this.cmbBanco.Size = new System.Drawing.Size(188, 20);
+            this.cmbBanco.Size = new System.Drawing.Size(251, 22);
             this.cmbBanco.TabIndex = 4;
             // 
             // baBancoCuentaInfoBindingSource
@@ -1080,21 +1178,23 @@
             this.panel1.Controls.Add(this.ucGe_Menu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1054, 680);
+            this.panel1.Size = new System.Drawing.Size(1405, 837);
             this.panel1.TabIndex = 17;
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 26);
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 32);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1054, 628);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1405, 773);
             this.splitContainerControl1.SplitterPosition = 216;
             this.splitContainerControl1.TabIndex = 18;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -1103,9 +1203,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 654);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 805);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1054, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1405, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 17;
             // 
             // ucGe_Menu
@@ -1135,8 +1236,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1054, 26);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1405, 32);
             this.ucGe_Menu.TabIndex = 16;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -1168,10 +1270,11 @@
             // 
             // frmCP_Orden_Pago_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 680);
+            this.ClientSize = new System.Drawing.Size(1405, 837);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCP_Orden_Pago_Mant";
             this.Text = "Mantenimiento Orden de Pago";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCP_Orden_Pago_Mant_FormClosing);
@@ -1197,6 +1300,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dteFechaPago.Properties.VistaTimeProperties)).EndInit();
@@ -1329,5 +1434,10 @@
         private Controles.UCBa_TipoFlujo ucBa_TipoFlujo;
         private Controles.UCGe_Beneficiario ucGe_Beneficiario;
         private DevExpress.XtraGrid.Columns.GridColumn colIdCtaCble_Credito;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmb_sucursal;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private System.Windows.Forms.Label label1;
     }
 }

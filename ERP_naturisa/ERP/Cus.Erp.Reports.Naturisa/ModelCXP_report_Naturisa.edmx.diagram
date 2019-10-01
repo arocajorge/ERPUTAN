@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt006" Width="2.5" PointX="9.5" PointY="0.5" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt007" Width="2.375" PointX="12.125" PointY="0.5" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt005" Width="2.125" PointX="7.25" PointY="0.5" />
-        <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt002" Width="2" PointX="2.625" PointY="0.5" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt003" Width="2.125" PointX="5" PointY="0.5" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt008" Width="1.5" PointX="10.039269105549561" PointY="26.478757557682115" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt001" Width="1.875" PointX="0.5" PointY="0.5" />
@@ -17,6 +16,7 @@
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt010" Width="1.875" PointX="0.5" PointY="9" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt011" Width="1.5" PointX="5.4246189619529153" PointY="2.8007507784295598" />
         <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt012" Width="1.5" PointX="5.26299385226471" PointY="10.313471038971782" />
+        <EntityTypeShape EntityType="DBERPModel1.vwCXP_NATU_Rpt002" Width="1.5" PointX="0.86710412840689721" PointY="30.780661999611493" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

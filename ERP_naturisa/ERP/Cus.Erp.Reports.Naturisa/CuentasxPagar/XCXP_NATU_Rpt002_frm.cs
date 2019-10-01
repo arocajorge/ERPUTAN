@@ -56,6 +56,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                 Reporte.IdClaseProveedorIni.Value = uccp_menu.Get_info_clase_proveedor() == null ? 0 : uccp_menu.Get_info_clase_proveedor().IdClaseProveedor;
                 Reporte.IdClaseProveedorFin.Value = uccp_menu.Get_info_clase_proveedor() == null ? 99999 : uccp_menu.Get_info_clase_proveedor().IdClaseProveedor;
                 Reporte.S_claseProveedor.Value = uccp_menu.Get_info_clase_proveedor() == null ? "TODOS" : uccp_menu.Get_info_clase_proveedor().descripcion_clas_prove2.Trim();
+                Reporte.P_IdSucursal.Value = uccp_menu.beiSucursal.EditValue ?? 0;
                 Reporte.PFiltro_fecha_emi.Value = Convert.ToBoolean(uccp_menu.beiCheck1.EditValue);
                 Reporte.PObservacion_completa.Value = Convert.ToBoolean(uccp_menu.beiCheck3.EditValue);
                 printControlReporte.PrintingSystem = Reporte.PrintingSystem;

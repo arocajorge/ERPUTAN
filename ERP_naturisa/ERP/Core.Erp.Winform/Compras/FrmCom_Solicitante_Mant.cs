@@ -605,6 +605,14 @@ namespace Core.Erp.Winform.Compras
             }
         }
 
+        private void gv_d_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                gv_d.DeleteSelectedRows();
+            }
+        }
+
     
     }
 }

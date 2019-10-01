@@ -532,6 +532,7 @@
             this.gv_d.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gv_d.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gv_d.OptionsView.ShowGroupPanel = false;
+            this.gv_d.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gv_d_KeyDown);
             // 
             // gridColumn16
             // 

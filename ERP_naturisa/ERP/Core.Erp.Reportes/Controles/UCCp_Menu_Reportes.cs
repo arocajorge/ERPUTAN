@@ -22,6 +22,7 @@ namespace Core.Erp.Reportes.Controles
         public DevExpress.XtraBars.BarItemVisibility Visible_dtpDesde { get { return this.dtpDesde.Visibility; } set { this.dtpDesde.Visibility = value; } }
         public DevExpress.XtraBars.BarItemVisibility Visble_dtpHasta { get { return this.dtpHasta.Visibility; } set { this.dtpHasta.Visibility = value; } }
         public DevExpress.XtraBars.BarItemVisibility Visble_bei_clase_proveedor { get { return this.bei_clase_proveedor.Visibility; } set { this.bei_clase_proveedor.Visibility = value; } }
+        public DevExpress.XtraBars.BarItemVisibility Visble_beiSucursal { get { return this.beiSucursal.Visibility; } set { this.beiSucursal.Visibility = value; } }
         public string Text_dtpHasta { get { return this.dtpHasta.Caption; } set { this.dtpHasta.Caption = value; } }
         public string Text_dtpDesde { get { return this.dtpDesde.Caption; } set { this.dtpDesde.Caption = value; } }
         public Boolean Visible_groupCheck { get { return this.groupCheck.Visible; } set { this.groupCheck.Visible = value; } }
@@ -51,7 +52,8 @@ namespace Core.Erp.Reportes.Controles
         cp_proveedor_clase_Bus bus_clase_prov = new cp_proveedor_clase_Bus();
         List<cp_proveedor_clase_Info> lst_clase_prov = new List<cp_proveedor_clase_Info>();
         cp_proveedor_clase_Info info_clase_prov = new cp_proveedor_clase_Info();
-
+        tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
+        List<tb_Sucursal_Info> lst_sucursal = new List<tb_Sucursal_Info>();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         #endregion
 
@@ -202,7 +204,10 @@ namespace Core.Erp.Reportes.Controles
 
                 lst_clase_prov = bus_clase_prov.Get_List_proveedor_clase(param.IdEmpresa);
                 this.risClase.DataSource = lst_clase_prov;
-                
+
+                lst_sucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
+                this.cmb_sucursal.DataSource = lst_sucursal;
+
             }
             catch (Exception ex)
             {

@@ -53,6 +53,11 @@
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.beiCheck3 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.beiSucursal = new DevExpress.XtraBars.BarEditItem();
+            this.cmb_sucursal = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.groupProveedor = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.groupFechas = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -74,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,9 +100,11 @@
             this.bei_clase_proveedor,
             this.beiCheck1,
             this.beiCheck2,
-            this.beiCheck3});
+            this.beiCheck3,
+            this.beiSucursal});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 15;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -107,11 +116,12 @@
             this.repositoryItemCheckEdit1,
             this.repositoryItemTextEdit1,
             this.repositoryItemCheckEdit2,
-            this.repositoryItemCheckEdit3});
+            this.repositoryItemCheckEdit3,
+            this.cmb_sucursal});
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
-            this.ribbonControl1.Size = new System.Drawing.Size(788, 94);
+            this.ribbonControl1.Size = new System.Drawing.Size(1051, 116);
             this.ribbonControl1.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
@@ -311,6 +321,54 @@
             this.repositoryItemCheckEdit3.AutoHeight = false;
             this.repositoryItemCheckEdit3.Name = "repositoryItemCheckEdit3";
             // 
+            // beiSucursal
+            // 
+            this.beiSucursal.Caption = "Sucursal:";
+            this.beiSucursal.Edit = this.cmb_sucursal;
+            this.beiSucursal.Id = 15;
+            this.beiSucursal.Name = "beiSucursal";
+            this.beiSucursal.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.beiSucursal.Width = 200;
+            // 
+            // cmb_sucursal
+            // 
+            this.cmb_sucursal.AutoHeight = false;
+            this.cmb_sucursal.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_sucursal.DisplayMember = "Su_Descripcion";
+            this.cmb_sucursal.Name = "cmb_sucursal";
+            this.cmb_sucursal.ValueMember = "IdSucursal";
+            this.cmb_sucursal.View = this.gridView2;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowAutoFilterRow = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "ID";
+            this.gridColumn3.FieldName = "IdSucursal";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 251;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Sucursal";
+            this.gridColumn4.FieldName = "Su_Descripcion";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 0;
+            this.gridColumn4.Width = 1483;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -325,6 +383,7 @@
             // 
             // groupProveedor
             // 
+            this.groupProveedor.ItemLinks.Add(this.beiSucursal);
             this.groupProveedor.ItemLinks.Add(this.bei_clase_proveedor);
             this.groupProveedor.ItemLinks.Add(this.cmbProveedor);
             this.groupProveedor.Name = "groupProveedor";
@@ -375,11 +434,12 @@
             // 
             // UCCp_Menu_Reportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCCp_Menu_Reportes";
-            this.Size = new System.Drawing.Size(788, 94);
+            this.Size = new System.Drawing.Size(1051, 116);
             this.Load += new System.EventHandler(this.UCCp_Menu_Reportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).EndInit();
@@ -393,6 +453,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
 
@@ -433,5 +495,10 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup groupCheck;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_sucursal;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        public DevExpress.XtraBars.BarEditItem beiSucursal;
     }
 }

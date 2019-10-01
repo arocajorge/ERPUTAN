@@ -77,6 +77,7 @@ namespace Core.Erp.Data.CuentasxPagar
                    Cabe.nom_pc = Item.nom_pc;
                    Cabe.ip = Item.ip;
                    Cabe.IdTipoFlujo = Item.IdTipoFlujo;
+                   Cabe.IdSucursal = Item.IdSucursal;
                    Cabe.Fecha_Transac = DateTime.Now;
 
 
@@ -120,6 +121,7 @@ namespace Core.Erp.Data.CuentasxPagar
                        contact.IdBanco = Info.IdBanco == 0 ? null : Info.IdBanco;
                        contact.IdTipoFlujo = Info.IdTipoFlujo;
                        contact.IdTipo_op = Info.IdTipo_op;
+                       contact.IdSucursal = Info.IdSucursal;
                        context.SaveChanges();
 
                        if (Info.Detalle != null)
@@ -234,6 +236,7 @@ namespace Core.Erp.Data.CuentasxPagar
                    info.IdUsuario = item.IdUsuario;
                    info.nom_pc = item.nom_pc;
                    info.ip = item.ip;
+                   info.IdSucursal = item.IdSucursal;
 
                    info.IdTipoFlujo = item.IdTipoFlujo;
 
@@ -293,7 +296,7 @@ namespace Core.Erp.Data.CuentasxPagar
                    info.Total_cancelado = Convert.ToDecimal(item.Total_cancelado);
                    info.Saldo = Convert.ToDecimal(item.Saldo);
                    info.IdTipoFlujo = item.IdTipoFlujo;
-                   
+                   info.IdSucursal = item.IdSucursal;
                    info.EstadoCancelacion = item.EstadoCancelacion;
                    info.Descripcion = item.Descripcion;
                    lM.Add(info);

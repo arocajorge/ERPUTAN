@@ -33,8 +33,8 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                {
                      facturaProvee.SetCommandTimeOut(3000);
 
-                   var select = from h in facturaProvee.spCXP_NATU_Rpt004(IdEmpresa,ProveIni,ProveFin,Fecha_Ini,Fecha_Fin,IdClase_ini,IdClase_fin, IdUsuario)
-                              select h;
+                     var select = facturaProvee.spCXP_NATU_Rpt004(IdEmpresa, ProveIni, ProveFin, Fecha_Ini, Fecha_Fin, IdClase_ini, IdClase_fin, IdUsuario).ToList();
+                              
                           
                    foreach (var item in select)
                    {

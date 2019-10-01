@@ -26,7 +26,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -56,7 +55,6 @@ namespace Core.Erp.Data
         public DbSet<cp_orden_giro_x_com_ordencompra_local> cp_orden_giro_x_com_ordencompra_local { get; set; }
         public DbSet<cp_orden_giro_x_com_ordencompra_local_det> cp_orden_giro_x_com_ordencompra_local_det { get; set; }
         public DbSet<cp_orden_giro_x_imp_ordencompra_ext> cp_orden_giro_x_imp_ordencompra_ext { get; set; }
-        public DbSet<cp_orden_pago> cp_orden_pago { get; set; }
         public DbSet<cp_orden_pago_cancelaciones> cp_orden_pago_cancelaciones { get; set; }
         public DbSet<cp_orden_pago_det> cp_orden_pago_det { get; set; }
         public DbSet<cp_orden_pago_estado_aprob> cp_orden_pago_estado_aprob { get; set; }
@@ -102,7 +100,6 @@ namespace Core.Erp.Data
         public DbSet<vwcp_orden_giro_SRI> vwcp_orden_giro_SRI { get; set; }
         public DbSet<vwcp_orden_giro_total_saldo> vwcp_orden_giro_total_saldo { get; set; }
         public DbSet<vwcp_orden_giro_x_com_ordencompra_local_det_consulta> vwcp_orden_giro_x_com_ordencompra_local_det_consulta { get; set; }
-        public DbSet<vwcp_orden_pago> vwcp_orden_pago { get; set; }
         public DbSet<vwcp_orden_pago_Anticipo_Saldo> vwcp_orden_pago_Anticipo_Saldo { get; set; }
         public DbSet<vwcp_orden_pago_cancelacion_Saldos> vwcp_orden_pago_cancelacion_Saldos { get; set; }
         public DbSet<vwcp_orden_pago_con_cancelacion_para_conciliacion> vwcp_orden_pago_con_cancelacion_para_conciliacion { get; set; }
@@ -139,6 +136,8 @@ namespace Core.Erp.Data
         public DbSet<cp_parametros> cp_parametros { get; set; }
         public DbSet<vwcp_orden_giro_consulta> vwcp_orden_giro_consulta { get; set; }
         public DbSet<vwcp_proveedor_combo> vwcp_proveedor_combo { get; set; }
+        public DbSet<cp_orden_pago> cp_orden_pago { get; set; }
+        public DbSet<vwcp_orden_pago> vwcp_orden_pago { get; set; }
     
         public virtual ObjectResult<string> spCXP_eliminar_factura_vale_conciliacion_caja(Nullable<int> idEmpresa, Nullable<int> idTipoCbte, Nullable<decimal> idCbteCble, string tipoCbte_conci, Nullable<bool> borrar_o_desvincular)
         {

@@ -1199,7 +1199,8 @@
       [vwcp_orden_pago].[IdTipoFlujo] AS [IdTipoFlujo], 
       [vwcp_orden_pago].[nom_tipoFlujo] AS [nom_tipoFlujo], 
       [vwcp_orden_pago].[EstadoCancelacion] AS [EstadoCancelacion], 
-      [vwcp_orden_pago].[Descripcion] AS [Descripcion]
+      [vwcp_orden_pago].[Descripcion] AS [Descripcion], 
+      [vwcp_orden_pago].[IdSucursal] AS [IdSucursal]
       FROM [dbo].[vwcp_orden_pago] AS [vwcp_orden_pago]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwcp_orden_pago_Anticipo_Saldo" EntityType="ModelCuentasxPagar.Store.vwcp_orden_pago_Anticipo_Saldo" store:Type="Views" store:Schema="dbo" store:Name="vwcp_orden_pago_Anticipo_Saldo">
@@ -2709,6 +2710,7 @@
           <Property Name="ip" Type="varchar" MaxLength="50" />
           <Property Name="IdTipoFlujo" Type="numeric" />
           <Property Name="Fecha_Transac" Type="datetime" />
+          <Property Name="IdSucursal" Type="int" />
         </EntityType>
         <EntityType Name="cp_orden_pago_cancelaciones">
           <Key>
@@ -4987,6 +4989,7 @@
           <Property Name="nom_tipoFlujo" Type="varchar" MaxLength="50" />
           <Property Name="EstadoCancelacion" Type="varchar" MaxLength="9" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="IdSucursal" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Anticipo_Saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -6765,7 +6768,6 @@
           <EntitySet Name="cp_orden_giro_x_com_ordencompra_local" EntityType="ModelCuentasxPagar.cp_orden_giro_x_com_ordencompra_local" />
           <EntitySet Name="cp_orden_giro_x_com_ordencompra_local_det" EntityType="ModelCuentasxPagar.cp_orden_giro_x_com_ordencompra_local_det" />
           <EntitySet Name="cp_orden_giro_x_imp_ordencompra_ext" EntityType="ModelCuentasxPagar.cp_orden_giro_x_imp_ordencompra_ext" />
-          <EntitySet Name="cp_orden_pago" EntityType="ModelCuentasxPagar.cp_orden_pago" />
           <EntitySet Name="cp_orden_pago_cancelaciones" EntityType="ModelCuentasxPagar.cp_orden_pago_cancelaciones" />
           <EntitySet Name="cp_orden_pago_det" EntityType="ModelCuentasxPagar.cp_orden_pago_det" />
           <EntitySet Name="cp_orden_pago_estado_aprob" EntityType="ModelCuentasxPagar.cp_orden_pago_estado_aprob" />
@@ -6811,7 +6813,6 @@
           <EntitySet Name="vwcp_orden_giro_SRI" EntityType="ModelCuentasxPagar.vwcp_orden_giro_SRI" />
           <EntitySet Name="vwcp_orden_giro_total_saldo" EntityType="ModelCuentasxPagar.vwcp_orden_giro_total_saldo" />
           <EntitySet Name="vwcp_orden_giro_x_com_ordencompra_local_det_consulta" EntityType="ModelCuentasxPagar.vwcp_orden_giro_x_com_ordencompra_local_det_consulta" />
-          <EntitySet Name="vwcp_orden_pago" EntityType="ModelCuentasxPagar.vwcp_orden_pago" />
           <EntitySet Name="vwcp_orden_pago_Anticipo_Saldo" EntityType="ModelCuentasxPagar.vwcp_orden_pago_Anticipo_Saldo" />
           <EntitySet Name="vwcp_orden_pago_cancelacion_Saldos" EntityType="ModelCuentasxPagar.vwcp_orden_pago_cancelacion_Saldos" />
           <EntitySet Name="vwcp_orden_pago_con_cancelacion_para_conciliacion" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" />
@@ -6921,10 +6922,6 @@
             <End Role="cp_conciliacion" EntitySet="cp_conciliacion" />
             <End Role="cp_conciliacion_det" EntitySet="cp_conciliacion_det" />
           </AssociationSet>
-          <AssociationSet Name="FK_cp_conciliacion_Caja_cp_orden_pago" Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago">
-            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
-            <End Role="cp_conciliacion_Caja" EntitySet="cp_conciliacion_Caja" />
-          </AssociationSet>
           <AssociationSet Name="FK_cp_conciliacion_Caja_det_cp_conciliacion_Caja" Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_cp_conciliacion_Caja">
             <End Role="cp_conciliacion_Caja" EntitySet="cp_conciliacion_Caja" />
             <End Role="cp_conciliacion_Caja_det" EntitySet="cp_conciliacion_Caja_det" />
@@ -6948,18 +6945,6 @@
           <AssociationSet Name="FK_cp_orden_giro_pagos_sri_cp_pagos_sri" Association="ModelCuentasxPagar.FK_cp_orden_giro_pagos_sri_cp_pagos_sri">
             <End Role="cp_pagos_sri" EntitySet="cp_pagos_sri" />
             <End Role="cp_orden_giro_pagos_sri" EntitySet="cp_orden_giro_pagos_sri" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cp_orden_pago_cp_orden_pago_formapago" Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago">
-            <End Role="cp_orden_pago_formapago" EntitySet="cp_orden_pago_formapago" />
-            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cp_orden_pago_cp_orden_pago_tipo" Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo">
-            <End Role="cp_orden_pago_tipo" EntitySet="cp_orden_pago_tipo" />
-            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cp_orden_pago_det_cp_orden_pago" Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago">
-            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
-            <End Role="cp_orden_pago_det" EntitySet="cp_orden_pago_det" />
           </AssociationSet>
           <AssociationSet Name="FK_cp_orden_pago_cancelaciones_cp_orden_pago_det" Association="ModelCuentasxPagar.FK_cp_orden_pago_cancelaciones_cp_orden_pago_det">
             <End Role="cp_orden_pago_det" EntitySet="cp_orden_pago_det" />
@@ -7101,6 +7086,24 @@
           </FunctionImport>
           <EntitySet Name="vwcp_orden_giro_consulta" EntityType="ModelCuentasxPagar.vwcp_orden_giro_consulta" />
           <EntitySet Name="vwcp_proveedor_combo" EntityType="ModelCuentasxPagar.vwcp_proveedor_combo" />
+          <EntitySet Name="cp_orden_pago" EntityType="ModelCuentasxPagar.cp_orden_pago" />
+          <EntitySet Name="vwcp_orden_pago" EntityType="ModelCuentasxPagar.vwcp_orden_pago" />
+          <AssociationSet Name="FK_cp_conciliacion_Caja_cp_orden_pago" Association="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago">
+            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
+            <End Role="cp_conciliacion_Caja" EntitySet="cp_conciliacion_Caja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cp_orden_pago_cp_orden_pago_formapago" Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago">
+            <End Role="cp_orden_pago_formapago" EntitySet="cp_orden_pago_formapago" />
+            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cp_orden_pago_cp_orden_pago_tipo" Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo">
+            <End Role="cp_orden_pago_tipo" EntitySet="cp_orden_pago_tipo" />
+            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cp_orden_pago_det_cp_orden_pago" Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago">
+            <End Role="cp_orden_pago" EntitySet="cp_orden_pago" />
+            <End Role="cp_orden_pago_det" EntitySet="cp_orden_pago_det" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -7415,10 +7418,10 @@
           <Property Name="IdTipoCbte_mov_caj" Type="Int32" />
           <Property Name="IdCbteCble_mov_caj" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="cp_catalogo" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_catalogo" FromRole="cp_conciliacion_Caja" ToRole="cp_catalogo" />
-          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago" FromRole="cp_conciliacion_Caja" ToRole="cp_orden_pago" />
           <NavigationProperty Name="cp_conciliacion_Caja_det" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_cp_conciliacion_Caja" FromRole="cp_conciliacion_Caja" ToRole="cp_conciliacion_Caja_det" />
           <NavigationProperty Name="cp_conciliacion_Caja_det_Ing_Caja" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_Ing_Caja_cp_conciliacion_Caja" FromRole="cp_conciliacion_Caja" ToRole="cp_conciliacion_Caja_det_Ing_Caja" />
           <NavigationProperty Name="cp_conciliacion_Caja_det_x_ValeCaja" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_det_x_ValeCaja_cp_conciliacion_Caja" FromRole="cp_conciliacion_Caja" ToRole="cp_conciliacion_Caja_det_x_ValeCaja" />
+          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago" FromRole="cp_conciliacion_Caja" ToRole="cp_orden_pago" />
         </EntityType>
         <EntityType Name="cp_conciliacion_Caja_det">
           <Key>
@@ -7666,37 +7669,6 @@
           <Property Name="IdGastoImp" Type="Int32" />
           <NavigationProperty Name="cp_orden_giro" Relationship="ModelCuentasxPagar.FK_cp_orden_giro_x_imp_ordencompra_ext_cp_orden_giro" FromRole="cp_orden_giro_x_imp_ordencompra_ext" ToRole="cp_orden_giro" />
         </EntityType>
-        <EntityType Name="cp_orden_pago">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdOrdenPago" />
-          </Key>
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdTipo_Persona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEntidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Pago" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="IdBanco" Type="Int32" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="IdUsuario" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdUsuarioUltAnu" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="MotivoAnu" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_UltAnu" Type="DateTime" Precision="3" />
-          <Property Name="nom_pc" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="ip" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="IdTipoFlujo" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha_Transac" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="cp_conciliacion_Caja" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago" FromRole="cp_orden_pago" ToRole="cp_conciliacion_Caja" />
-          <NavigationProperty Name="cp_orden_pago_formapago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" FromRole="cp_orden_pago" ToRole="cp_orden_pago_formapago" />
-          <NavigationProperty Name="cp_orden_pago_tipo" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" FromRole="cp_orden_pago" ToRole="cp_orden_pago_tipo" />
-          <NavigationProperty Name="cp_orden_pago_det" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" FromRole="cp_orden_pago" ToRole="cp_orden_pago_det" />
-        </EntityType>
         <EntityType Name="cp_orden_pago_cancelaciones">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -7749,11 +7721,11 @@
           <Property Name="Motivo_aproba" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="cp_Aprobacion_Orden_pago_det" Relationship="ModelCuentasxPagar.FK_cp_Aprobacion_Orden_pago_det_cp_orden_pago_det" FromRole="cp_orden_pago_det" ToRole="cp_Aprobacion_Orden_pago_det" />
           <NavigationProperty Name="cp_conciliacion_det" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_det_cp_orden_pago_det" FromRole="cp_orden_pago_det" ToRole="cp_conciliacion_det" />
-          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" FromRole="cp_orden_pago_det" ToRole="cp_orden_pago" />
           <NavigationProperty Name="cp_orden_pago_cancelaciones" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cancelaciones_cp_orden_pago_det" FromRole="cp_orden_pago_det" ToRole="cp_orden_pago_cancelaciones" />
           <NavigationProperty Name="cp_orden_pago_cancelaciones1" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cancelaciones_cp_orden_pago_det1" FromRole="cp_orden_pago_det" ToRole="cp_orden_pago_cancelaciones" />
           <NavigationProperty Name="cp_orden_pago_formapago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago_formapago" FromRole="cp_orden_pago_det" ToRole="cp_orden_pago_formapago" />
           <NavigationProperty Name="cp_cuotas_x_doc_det" Relationship="ModelCuentasxPagar.FK_cp_cuotas_x_doc_det_cp_orden_pago_det1" FromRole="cp_orden_pago_det" ToRole="cp_cuotas_x_doc_det" />
+          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" FromRole="cp_orden_pago_det" ToRole="cp_orden_pago" />
         </EntityType>
         <EntityType Name="cp_orden_pago_estado_aprob">
           <Key>
@@ -7771,9 +7743,9 @@
           <Property Name="IdTipoTransaccion" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="CodModulo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="IdTipoMovi_caj" Type="Int32" />
-          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" FromRole="cp_orden_pago_formapago" ToRole="cp_orden_pago" />
           <NavigationProperty Name="cp_orden_pago_det" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago_formapago" FromRole="cp_orden_pago_formapago" ToRole="cp_orden_pago_det" />
           <NavigationProperty Name="cp_trans_a_generar_x_FormaPago_OP" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_formapago_cp_trans_a_generar_x_FormaPago_OP" FromRole="cp_orden_pago_formapago" ToRole="cp_trans_a_generar_x_FormaPago_OP" />
+          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" FromRole="cp_orden_pago_formapago" ToRole="cp_orden_pago" />
         </EntityType>
         <EntityType Name="cp_orden_pago_tipo">
           <Key>
@@ -7783,8 +7755,8 @@
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
           <Property Name="GeneraDiario" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" FromRole="cp_orden_pago_tipo" ToRole="cp_orden_pago" />
           <NavigationProperty Name="cp_orden_pago_tipo_x_empresa" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_tipo_x_empresa_cp_orden_pago_tipo" FromRole="cp_orden_pago_tipo" ToRole="cp_orden_pago_tipo_x_empresa" />
+          <NavigationProperty Name="cp_orden_pago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" FromRole="cp_orden_pago_tipo" ToRole="cp_orden_pago" />
         </EntityType>
         <EntityType Name="cp_orden_pago_tipo_x_empresa">
           <Key>
@@ -9393,44 +9365,6 @@
           <Property Name="IdTipoCbte_Ogiro" Type="Int32" Nullable="false" />
           <Property Name="Observacion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
         </EntityType>
-        <EntityType Name="vwcp_orden_pago">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdOrdenPago" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdFormaPago" />
-            <PropertyRef Name="Fecha_Pago" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="pe_nombreCompleto" />
-            <PropertyRef Name="Total_cancelado" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Descripcion" />
-          </Key>
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdTipo_Persona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEntidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Pago" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="IdBanco" Type="Int32" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="pe_nombreCompleto" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Total_OP" Type="Double" />
-          <Property Name="Total_cancelado" Type="Double" Nullable="false" />
-          <Property Name="Saldo" Type="Double" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="IdTipoFlujo" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="nom_tipoFlujo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="EstadoCancelacion" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
-          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
-        </EntityType>
         <EntityType Name="vwcp_orden_pago_Anticipo_Saldo">
           <Key>
             <PropertyRef Name="Fecha" />
@@ -10552,20 +10486,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_cp_conciliacion_Caja_cp_orden_pago">
-          <End Role="cp_orden_pago" Type="ModelCuentasxPagar.cp_orden_pago" Multiplicity="0..1" />
-          <End Role="cp_conciliacion_Caja" Type="ModelCuentasxPagar.cp_conciliacion_Caja" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_orden_pago">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdOrdenPago" />
-            </Principal>
-            <Dependent Role="cp_conciliacion_Caja">
-              <PropertyRef Name="IdEmpresa_op" />
-              <PropertyRef Name="IdOrdenPago_op" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_cp_conciliacion_Caja_det_cp_conciliacion_Caja">
           <End Role="cp_conciliacion_Caja" Type="ModelCuentasxPagar.cp_conciliacion_Caja" Multiplicity="1" />
           <End Role="cp_conciliacion_Caja_det" Type="ModelCuentasxPagar.cp_conciliacion_Caja_det" Multiplicity="*" />
@@ -10647,44 +10567,6 @@
             </Principal>
             <Dependent Role="cp_orden_giro_pagos_sri">
               <PropertyRef Name="codigo_pago_sri" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cp_orden_pago_cp_orden_pago_formapago">
-          <End Role="cp_orden_pago_formapago" Type="ModelCuentasxPagar.cp_orden_pago_formapago" Multiplicity="1" />
-          <End Role="cp_orden_pago" Type="ModelCuentasxPagar.cp_orden_pago" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_orden_pago_formapago">
-              <PropertyRef Name="IdFormaPago" />
-            </Principal>
-            <Dependent Role="cp_orden_pago">
-              <PropertyRef Name="IdFormaPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cp_orden_pago_cp_orden_pago_tipo">
-          <End Role="cp_orden_pago_tipo" Type="ModelCuentasxPagar.cp_orden_pago_tipo" Multiplicity="1" />
-          <End Role="cp_orden_pago" Type="ModelCuentasxPagar.cp_orden_pago" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_orden_pago_tipo">
-              <PropertyRef Name="IdTipo_op" />
-            </Principal>
-            <Dependent Role="cp_orden_pago">
-              <PropertyRef Name="IdTipo_op" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cp_orden_pago_det_cp_orden_pago">
-          <End Role="cp_orden_pago" Type="ModelCuentasxPagar.cp_orden_pago" Multiplicity="1" />
-          <End Role="cp_orden_pago_det" Type="ModelCuentasxPagar.cp_orden_pago_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_orden_pago">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdOrdenPago" />
-            </Principal>
-            <Dependent Role="cp_orden_pago_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdOrdenPago" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -11765,6 +11647,129 @@
           <Property Type="String" Name="pe_nombrecompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="pe_cedularuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="cp_orden_pago">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPago" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipo_Persona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdBanco" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MotivoAnu" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ip" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="Int32" Name="IdSucursal" />
+          <NavigationProperty Name="cp_conciliacion_Caja" Relationship="ModelCuentasxPagar.FK_cp_conciliacion_Caja_cp_orden_pago" FromRole="cp_orden_pago" ToRole="cp_conciliacion_Caja" />
+          <NavigationProperty Name="cp_orden_pago_formapago" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" FromRole="cp_orden_pago" ToRole="cp_orden_pago_formapago" />
+          <NavigationProperty Name="cp_orden_pago_tipo" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" FromRole="cp_orden_pago" ToRole="cp_orden_pago_tipo" />
+          <NavigationProperty Name="cp_orden_pago_det" Relationship="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" FromRole="cp_orden_pago" ToRole="cp_orden_pago_det" />
+        </EntityType>
+        <EntityType Name="vwcp_orden_pago">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenPago" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="Fecha_Pago" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="Total_cancelado" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipo_Persona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Nullable="false" Precision="0" />
+          <Property Type="Int32" Name="IdBanco" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Total_OP" />
+          <Property Type="Double" Name="Total_cancelado" Nullable="false" />
+          <Property Type="Double" Name="Saldo" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_tipoFlujo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EstadoCancelacion" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" />
+        </EntityType>
+        <Association Name="FK_cp_conciliacion_Caja_cp_orden_pago">
+          <End Type="ModelCuentasxPagar.cp_orden_pago" Role="cp_orden_pago" Multiplicity="0..1" />
+          <End Type="ModelCuentasxPagar.cp_conciliacion_Caja" Role="cp_conciliacion_Caja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_orden_pago">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdOrdenPago" />
+            </Principal>
+            <Dependent Role="cp_conciliacion_Caja">
+              <PropertyRef Name="IdEmpresa_op" />
+              <PropertyRef Name="IdOrdenPago_op" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cp_orden_pago_cp_orden_pago_formapago">
+          <End Type="ModelCuentasxPagar.cp_orden_pago_formapago" Role="cp_orden_pago_formapago" Multiplicity="1" />
+          <End Type="ModelCuentasxPagar.cp_orden_pago" Role="cp_orden_pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_orden_pago_formapago">
+              <PropertyRef Name="IdFormaPago" />
+            </Principal>
+            <Dependent Role="cp_orden_pago">
+              <PropertyRef Name="IdFormaPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cp_orden_pago_cp_orden_pago_tipo">
+          <End Type="ModelCuentasxPagar.cp_orden_pago_tipo" Role="cp_orden_pago_tipo" Multiplicity="1" />
+          <End Type="ModelCuentasxPagar.cp_orden_pago" Role="cp_orden_pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_orden_pago_tipo">
+              <PropertyRef Name="IdTipo_op" />
+            </Principal>
+            <Dependent Role="cp_orden_pago">
+              <PropertyRef Name="IdTipo_op" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cp_orden_pago_det_cp_orden_pago">
+          <End Type="ModelCuentasxPagar.cp_orden_pago" Role="cp_orden_pago" Multiplicity="1" />
+          <End Type="ModelCuentasxPagar.cp_orden_pago_det" Role="cp_orden_pago_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_orden_pago">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdOrdenPago" />
+            </Principal>
+            <Dependent Role="cp_orden_pago_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdOrdenPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -12263,33 +12268,6 @@
                 <ScalarProperty Name="imp_IdSucursal" ColumnName="imp_IdSucursal" />
                 <ScalarProperty Name="imp_IdOrdenCompraExt" ColumnName="imp_IdOrdenCompraExt" />
                 <ScalarProperty Name="IdGastoImp" ColumnName="IdGastoImp" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cp_orden_pago">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_orden_pago">
-              <MappingFragment StoreEntitySet="cp_orden_pago">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="IdTipo_Persona" ColumnName="IdTipo_Persona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="MotivoAnu" ColumnName="MotivoAnu" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -13517,33 +13495,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_orden_pago">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago">
-              <MappingFragment StoreEntitySet="vwcp_orden_pago">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="IdTipo_Persona" ColumnName="IdTipo_Persona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="Total_OP" ColumnName="Total_OP" />
-                <ScalarProperty Name="Total_cancelado" ColumnName="Total_cancelado" />
-                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
-                <ScalarProperty Name="nom_tipoFlujo" ColumnName="nom_tipoFlujo" />
-                <ScalarProperty Name="EstadoCancelacion" ColumnName="EstadoCancelacion" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcp_orden_pago_Anticipo_Saldo">
             <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_Anticipo_Saldo">
               <MappingFragment StoreEntitySet="vwcp_orden_pago_Anticipo_Saldo">
@@ -14763,6 +14714,62 @@
                 <ScalarProperty Name="pe_cedularuc" ColumnName="pe_cedularuc" />
                 <ScalarProperty Name="pe_nombrecompleto" ColumnName="pe_nombrecompleto" />
                 <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cp_orden_pago">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_orden_pago">
+              <MappingFragment StoreEntitySet="cp_orden_pago">
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="MotivoAnu" ColumnName="MotivoAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipo_Persona" ColumnName="IdTipo_Persona" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_orden_pago">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago">
+              <MappingFragment StoreEntitySet="vwcp_orden_pago">
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="EstadoCancelacion" ColumnName="EstadoCancelacion" />
+                <ScalarProperty Name="nom_tipoFlujo" ColumnName="nom_tipoFlujo" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Total_cancelado" ColumnName="Total_cancelado" />
+                <ScalarProperty Name="Total_OP" ColumnName="Total_OP" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipo_Persona" ColumnName="IdTipo_Persona" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

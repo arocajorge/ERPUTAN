@@ -41,6 +41,7 @@ namespace Core.Erp.Data
         public string ip { get; set; }
         public Nullable<decimal> IdTipoFlujo { get; set; }
         public Nullable<System.DateTime> Fecha_Transac { get; set; }
+        public Nullable<int> IdSucursal { get; set; }
     
         public virtual ICollection<cp_conciliacion_Caja> cp_conciliacion_Caja { get; set; }
         public virtual cp_orden_pago_formapago cp_orden_pago_formapago { get; set; }
