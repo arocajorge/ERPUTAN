@@ -170,7 +170,12 @@ namespace Core.Erp.Data.CuentasxPagar
                        nom_proveedor = item.pe_nombreCompleto,
                        Dias = item.oc_Plazo,
                        IdCtaCble_Gasto = item.IdCtaCble_Gasto,
-
+                       IdRegistro = item.idcentrocosto+"-"+item.idcentrocosto_sub_centro_costo,
+                       SubTotal = item.Subtotal ?? 0,
+                       valor_Iva = item.ValorIVA ?? 0,
+                       Total = item.Total ?? 0,
+                       subtotal0 = (item.ValorIVA == 0 ? item.Subtotal : 0) ?? 0,
+                        subtotaliva = (item.ValorIVA > 0 ? item.Subtotal : 0) ?? 0
                        /**
                        Obj.IdCtaCtble_Gasto_x_cxp_x_Produc = item.IdCtaCtble_Gasto_x_cxp_x_Produc;
                        Obj.IdCtaCble_Inven_x_Produc = item.IdCtaCble_Inven_x_Produc;
