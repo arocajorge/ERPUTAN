@@ -56,7 +56,7 @@ namespace Core.Erp.Business.CuentasxPagar
 
                lista =odata.Get_List_Aprobacion_Ing_Bod_x_OC_det_x_Proveedor(IdEmpresa, IdProveedor);
 
-
+               /*
                foreach (var item in lista)
                {
                    if (item.es_Inven_o_Consumo == ein_Inventario_O_Consumo.TIC_CONSU)
@@ -87,9 +87,10 @@ namespace Core.Erp.Business.CuentasxPagar
                            }
                        }
                    }
+               
                    
                }
-
+                * */
 
 
                return lista;

@@ -202,13 +202,14 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 // carga proveedor    
                 string MensajeError = "";
+                /*
                 cp_proveedor_Bus bus_Provee = new cp_proveedor_Bus();
                 List<cp_proveedor_Info> list_Provee = new List<cp_proveedor_Info>();
                 list_Provee = bus_Provee.Get_List_proveedor(param.IdEmpresa);
                 foreach (var item in list_Provee)
                 {
                     item.pr_nombre = "[" + item.IdProveedor + "]" + item.pr_nombre;
-                }
+                }*/
 
                 // carga combo Sustento Tributario
                 cp_codigo_SRI_Bus dat_ti = new cp_codigo_SRI_Bus();
@@ -832,7 +833,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     MessageBox.Show("No existen Datos de Consulta para el Proveedor: " + ucCp_Proveedor1.get_ProveedorInfo().IdProveedor + "");
                     return;
                 }
-
+                /*
                 foreach (var item in list_Aprob)
                 {
                     //calculos
@@ -867,7 +868,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                    
                     item.Total = item.SubTotal + item.valor_Iva;
                 }
-
+                */
                 lstBind = new BindingList<cp_Aprobacion_Ing_Bod_x_OC_det_Info>(list_Aprob);
               
                 gridControlAproIngEgrxOC.DataSource = lstBind;

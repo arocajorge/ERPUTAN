@@ -4317,6 +4317,9 @@
     <Compile Include="vwcp_Aprobacion_Ing_Bod_x_OC_det.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcp_ba_Archivo_Transferencia_Det.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>

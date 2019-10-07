@@ -124,76 +124,74 @@ namespace Core.Erp.Data.CuentasxPagar
            try
            {
                List<cp_Aprobacion_Ing_Bod_x_OC_det_Info> Lst = new List<cp_Aprobacion_Ing_Bod_x_OC_det_Info>();
-               EntitiesInventario oEnti = new EntitiesInventario();
+               EntitiesCuentasxPagar oEnti = new EntitiesCuentasxPagar();
 
-               oEnti.SetCommandTimeOut(3000);
+               oEnti.SetCommandTimeOut(5000);
 
-               var Query = from q in oEnti.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det_x_cp_Aprobacion_Ing_Bod_x_OC_det
-                           where q.IdEmpresa == IdEmpresa
-                           && q.IdProveedor == IdProveedor
-                           select q;
+               var Query = oEnti.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar.Where(q => q.idempresa == IdEmpresa
+                           && q.IdProveedor == IdProveedor).ToList();
 
                foreach (var item in Query)
                {
-                   cp_Aprobacion_Ing_Bod_x_OC_det_Info Obj = new cp_Aprobacion_Ing_Bod_x_OC_det_Info();
-
-                   Obj.IdEmpresa_Ing_Egr_Inv = item.IdEmpresa;
-                   Obj.IdSucursal_Ing_Egr_Inv = item.IdSucursal;
-                   Obj.IdMovi_inven_tipo_Ing_Egr_Inv = Convert.ToInt32(item.IdMovi_inven_tipo);
-                   Obj.IdNumMovi_Ing_Egr_Inv = item.IdNumMovi;
-                   Obj.Secuencia_Ing_Egr_Inv = item.Secuencia;
-                   Obj.IdBodega = item.IdBodega;
-                   Obj.Fecha_Ing_Bod = (item.cm_fecha == null) ? DateTime.Now : Convert.ToDateTime(item.cm_fecha);
-                   Obj.IdProducto = item.IdProducto;
-                   Obj.nom_producto = item.nom_producto;
-                   Obj.IdUnidadMedida = item.IdUnidadMedida;
-                   Obj.nom_medida = item.nom_medida;
-                   Obj.nom_bodega = item.nom_bodega;
-                   Obj.nom_sucursal = item.nom_sucursal;                  
-                   Obj.Cantidad = item.dm_cantidad;
-                   Obj.Costo_uni = Convert.ToDouble((item.mv_costo==null)?0: item.mv_costo);
-                   Obj.do_porc_des = item.do_porc_des;
-                   Obj.PorIva = item.Por_Iva;                   
-                   Obj.IdProveedor = item.IdProveedor;
-                   Obj.nom_proveedor = item.nom_proveedor;
-                   Obj.PorIva = item.Por_Iva;
-
-                   ein_Inventario_O_Consumo Tipo_Inve_o_Consu;
-
-                   try
+                   Lst.Add(new cp_Aprobacion_Ing_Bod_x_OC_det_Info
                    {
-                       Tipo_Inve_o_Consu = (ein_Inventario_O_Consumo)Enum.Parse(typeof(ein_Inventario_O_Consumo), item.es_Inven_o_Consumo);
-                   }
-                   catch (Exception ex)
-                   {
-                       Tipo_Inve_o_Consu = ein_Inventario_O_Consumo.TIC_INVEN;
-                   }
 
-                   Obj.S_es_Inven_o_Consumo = item.es_Inven_o_Consumo;
-                   Obj.es_Inven_o_Consumo = Tipo_Inve_o_Consu;
+                       IdEmpresa_Ing_Egr_Inv = item.idempresa,
+                       IdSucursal_Ing_Egr_Inv = item.idsucursal,
+                       IdMovi_inven_tipo_Ing_Egr_Inv = item.idmovi_inven_tipo,
+                       IdNumMovi_Ing_Egr_Inv = item.IdNumMovi,
+                       Secuencia_Ing_Egr_Inv = item.Secuencia,
+                       IdBodega = item.IdBodega,
+                       Fecha_Ing_Bod = item.cm_fecha,
+                       IdProducto = item.IdProducto,
+                       nom_producto = item.pr_descripcion,
+                       Cantidad = item.dm_cantidad_sinConversion,
+                       Costo_uni = item.mv_costo_sinConversion ?? 0,
+                       //Campos para contabilizacion de Naturisa
+                       IdCategoria = item.idcategoria,
+                       IdLinea = item.IdLinea,
+                       IdGrupo = item.IdGrupo,
+                       IdSubGrupo = item.IdSubGrupo,
+                       nom_bodega = item.bo_Descripcion,
+                       nom_sucursal = item.su_descripcion,
+                       do_porc_des = item.do_porc_des,
+                       //Campos para el diario de gastos
+                       IdCentro_Costo = item.idcentrocosto,
+                       IdCentroCosto_sub_centro_costo = item.idcentrocosto_sub_centro_costo,
+                       IdPunto_cargo_grupo = item.idpunto_cargo_grupo,
+                       IdPunto_cargo = item.idpunto_cargo,
+                       Secuencia_OC = item.Secuencia_oc,
+                       IdSucursal_OC = item.IdSucursal_oc,
+                       IdOrdenCompra = item.IdOrdenCompra,
+                       PorIva = item.Por_Iva,
+                       IdUnidadMedida = item.IdUnidadMedida_sinConversion,
+                       //  nom_medida = item.nom_medida,
+                       IdProveedor = item.IdProveedor,
+                       nom_proveedor = item.pe_nombreCompleto,
+                       Dias = item.oc_Plazo,
+                       IdCtaCble_Gasto = item.IdCtaCble_Gasto,
 
+                       /**
+                       Obj.IdCtaCtble_Gasto_x_cxp_x_Produc = item.IdCtaCtble_Gasto_x_cxp_x_Produc;
+                       Obj.IdCtaCble_Inven_x_Produc = item.IdCtaCble_Inven_x_Produc;
+                       Obj.IdCtaCtble_Inve_x_Bodega = item.IdCtaCtble_Inve_x_Bodega;
+                       Obj.IdCtaCble_Inven_x_Motivo = item.IdCtaCble_Inven_x_Motivo;
+                       Obj.IdCtaCble_Costo_x_Motivo = item.IdCtaCble_Costo_x_Motivo;
+                       ein_Inventario_O_Consumo Tipo_Inve_o_Consu;
 
-                   Obj.IdCtaCtble_Gasto_x_cxp_x_Produc = item.IdCtaCtble_Gasto_x_cxp_x_Produc;
-                   Obj.IdCtaCble_Inven_x_Produc = item.IdCtaCble_Inven_x_Produc;
-                   Obj.IdCtaCtble_Inve_x_Bodega = item.IdCtaCtble_Inve_x_Bodega;
-                   Obj.IdCtaCble_Inven_x_Motivo = item.IdCtaCble_Inven_x_Motivo;
-                   Obj.IdCtaCble_Costo_x_Motivo = item.IdCtaCble_Costo_x_Motivo;
-                   //Campos para contabilizacion de Naturisa
-                   Obj.IdCategoria = item.IdCategoria;
-                   Obj.IdLinea = item.IdLinea;
-                   Obj.IdGrupo = item.IdGrupo;
-                   Obj.IdSubGrupo = item.IdSubGrupo;
-                   //Campos para el diario de gastos
-                   Obj.IdCentro_Costo = item.IdCentroCosto;
-                   Obj.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                   Obj.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                   Obj.IdPunto_cargo = item.IdPunto_cargo;
-                   
-                   Obj.Secuencia_OC = item.Secuencia_oc == null ? 1 : (int)item.Secuencia_oc;
-                   Obj.IdSucursal_OC = item.IdSucursal_oc == null ? 1 : (int)item.IdSucursal_oc;
-                   Obj.IdOrdenCompra = Convert.ToDecimal(item.IdOrdenCompra);
-                   Obj.Dias = item.Dias;          
-                   Lst.Add(Obj);
+                       try
+                       {
+                           Tipo_Inve_o_Consu = (ein_Inventario_O_Consumo)Enum.Parse(typeof(ein_Inventario_O_Consumo), item.es_Inven_o_Consumo);
+                       }
+                       catch (Exception ex)
+                       {
+                           Tipo_Inve_o_Consu = ein_Inventario_O_Consumo.TIC_INVEN;
+                       }
+
+                       Obj.S_es_Inven_o_Consumo = item.es_Inven_o_Consumo;
+                       Obj.es_Inven_o_Consumo = Tipo_Inve_o_Consu;
+                          */
+                   });
                }
 
                return Lst;

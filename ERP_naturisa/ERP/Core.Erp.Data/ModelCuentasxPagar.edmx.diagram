@@ -169,6 +169,7 @@
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_formapago" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar" Width="1.5" PointX="7.7374984360008963" PointY="4.4400004318170252" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
