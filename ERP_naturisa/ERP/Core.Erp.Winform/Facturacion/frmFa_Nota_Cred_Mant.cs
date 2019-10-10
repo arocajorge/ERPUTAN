@@ -1193,11 +1193,11 @@ namespace Core.Erp.Winform.Facturacion
                         MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Por_Favor_ingrese_el) + " valor a aplicar del documento."+item.num_doc, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return false;
                     }
-                    if (item.Valor_Aplicado > item.vt_total)
-                    {
-                        MessageBox.Show("El valor a aplicar es mayor al valor del documento "+item.num_doc+", por favor ingrese un valor a aplicar apropiado.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
-                    }
+                }
+                if (Math.Round(BList_Documentos_relacionados.Sum(q => q.Valor_Aplicado), 2, MidpointRounding.AwayFromZero) > Math.Round(BindiList_det_NC.Sum(q=> q.sc_total), 2, MidpointRounding.AwayFromZero))
+                {
+                    MessageBox.Show("El valor a aplicar es mayor al valor del documento ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
                 }
 
                 return true;

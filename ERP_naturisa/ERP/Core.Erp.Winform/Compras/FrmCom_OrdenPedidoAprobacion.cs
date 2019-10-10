@@ -128,7 +128,7 @@ namespace Core.Erp.Winform.Compras
                     });
                     foreach (var item in lstGrupo)
                     {
-                        bus_orden.SaltarPaso4(param.IdEmpresa, item.IdOrdenPedido, param.IdUsuario);
+                        bus_orden.SaltarPaso3(param.IdEmpresa, item.IdOrdenPedido, param.IdUsuario);
                     }
 
                     MessageBox.Show("Registros actualizados exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
