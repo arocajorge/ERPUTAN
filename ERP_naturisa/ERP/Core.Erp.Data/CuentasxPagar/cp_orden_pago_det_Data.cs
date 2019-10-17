@@ -383,39 +383,35 @@ namespace Core.Erp.Data.CuentasxPagar
                    Context.SetCommandTimeOut(5000);
                    foreach (var item_op in list_op)
                    {
-                       var lst = from q in Context.vwcp_orden_pago_det_con_cta_acreedora
-                                 where q.IdEmpresa == IdEmpresa
-                                 && q.IdOrdenPago == item_op
-                                 select q;
+                       var lst = Context.vwcp_orden_pago_det_con_cta_acreedora.Where(q => q.IdEmpresa == IdEmpresa
+                                 && q.IdOrdenPago == item_op).FirstOrDefault();
 
-                       foreach (var item in lst)
+                       if (lst != null)
                        {
-                           cp_orden_pago_det_Info info = new cp_orden_pago_det_Info();
+                           Lista.Add(new cp_orden_pago_det_Info
+                           {
 
-                           info.IdEmpresa = item.IdEmpresa;
-                           info.IdOrdenPago = item.IdOrdenPago == null ? 0 : Convert.ToDecimal(item.IdOrdenPago);
-                           info.Secuencia = item.Secuencia == null ? 0 : Convert.ToInt32(item.Secuencia);
-                           info.IdEmpresa_cxp = item.IdEmpresa_cxp;
-                           info.IdCbteCble_cxp = item.IdCbteCble_cxp;
-                           info.IdTipoCbte_cxp = item.IdTipoCbte_cxp;
-                           info.Valor_a_pagar = item.Valor_a_pagar;
-                           info.Referencia = item.Referencia;
-                           info.IdFormaPago = item.IdFormaPago;
-                           info.Fecha_Pago = item.Fecha_Pago == null ? DateTime.Now.Date : Convert.ToDateTime(item.Fecha_Pago);
-                           info.pr_nombre = item.Nombre;
-                           info.IdCtaCble_Acreedora = item.IdCtaCble_Acreedora;
-                           info.Observacion = item.Observacion;
-                           info.IdTipo_op = item.IdTipo_op;
-                           info.IdTipo_Persona = item.IdTipo_Persona;
-                           info.IdPersona = item.IdPersona;
-                           info.IdEntidad = item.IdEntidad == null ? 0 : Convert.ToDecimal(item.IdEntidad);
-
-                           Lista.Add(info);
+                               IdEmpresa = lst.IdEmpresa,
+                               IdOrdenPago = lst.IdOrdenPago,
+                               Secuencia = lst.Secuencia,
+                               IdEmpresa_cxp = lst.IdEmpresa_cxp,
+                               IdCbteCble_cxp = lst.IdCbteCble_cxp,
+                               IdTipoCbte_cxp = lst.IdTipoCbte_cxp,
+                               Valor_a_pagar = lst.Valor_a_pagar,
+                               Referencia = lst.Referencia,
+                               IdFormaPago = lst.IdFormaPago,
+                               Fecha_Pago = lst.Fecha_Pago == null ? DateTime.Now.Date : Convert.ToDateTime(lst.Fecha_Pago),
+                               pr_nombre = lst.Nombre,
+                               IdCtaCble_Acreedora = lst.IdCtaCble_Acreedora,
+                               Observacion = lst.Observacion,
+                               IdTipo_op = lst.IdTipo_op,
+                               IdTipo_Persona = lst.IdTipo_Persona,
+                               IdPersona = lst.IdPersona,
+                               IdEntidad = lst.IdEntidad ?? 0,
+                           });
                        }
                    }
-                   
                }
-
                return Lista;
            }
            catch (Exception ex)

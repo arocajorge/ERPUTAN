@@ -57,6 +57,7 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlConsulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewConsulta)).BeginInit();
@@ -87,15 +88,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2017, 2, 12, 10, 19, 58, 518);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2017, 4, 12, 10, 19, 58, 518);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 9, 17, 13, 4, 10, 671);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 11, 17, 13, 4, 10, 672);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(913, 156);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1217, 192);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 0;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -115,6 +117,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_fechas = true;
@@ -134,9 +137,10 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 440);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 547);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(913, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1217, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -144,18 +148,21 @@
             // 
             this.panel1.Controls.Add(this.gridControlConsulta);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 156);
+            this.panel1.Location = new System.Drawing.Point(0, 192);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(913, 284);
+            this.panel1.Size = new System.Drawing.Size(1217, 355);
             this.panel1.TabIndex = 2;
             // 
             // gridControlConsulta
             // 
             this.gridControlConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlConsulta.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlConsulta.Location = new System.Drawing.Point(0, 0);
             this.gridControlConsulta.MainView = this.gridViewConsulta;
+            this.gridControlConsulta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlConsulta.Name = "gridControlConsulta";
-            this.gridControlConsulta.Size = new System.Drawing.Size(913, 284);
+            this.gridControlConsulta.Size = new System.Drawing.Size(1217, 355);
             this.gridControlConsulta.TabIndex = 0;
             this.gridControlConsulta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewConsulta});
@@ -186,7 +193,8 @@
             this.colIdMotivo_Inv,
             this.gridColumn2,
             this.gridColumn3,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5});
             this.gridViewConsulta.GridControl = this.gridControlConsulta;
             this.gridViewConsulta.Name = "gridViewConsulta";
             this.gridViewConsulta.OptionsBehavior.ReadOnly = true;
@@ -374,14 +382,21 @@
             this.gridColumn4.VisibleIndex = 9;
             this.gridColumn4.Width = 166;
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Usuario";
+            this.gridColumn5.FieldName = "IdUsuario";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
             // FrmIn_Ingreso_x_OrdenCompra_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 462);
+            this.ClientSize = new System.Drawing.Size(1217, 569);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_Ingreso_x_OrdenCompra_Cons";
             this.Text = "Consulta Ingreso a Inventario por Orden de Compra";
             this.Load += new System.EventHandler(this.FrmIn_Ingreso_x_OrdenCompra_Cons_Load);
@@ -424,5 +439,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

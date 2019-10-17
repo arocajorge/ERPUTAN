@@ -270,100 +270,165 @@ namespace Core.Erp.Data.CuentasxPagar
         {
             try
             {
-                
+
                 List<cp_orden_giro_Info> lM = new List<cp_orden_giro_Info>();
                 EntitiesCuentasxPagar Base = new EntitiesCuentasxPagar();
-                IQueryable<vwcp_orden_giro_x_pagar> select_;
+                Base.SetCommandTimeOut(5000);
                 if (!Mostrar_fact_conci_caja)
                 {
-                    select_ = from T in Base.vwcp_orden_giro_x_pagar
-                              where T.IdEmpresa == IdEmpresa
+                    var lst1 = Base.vwcp_orden_giro_x_pagar.Where(T => T.IdEmpresa == IdEmpresa
                               && T.Saldo_OG != 0
                               && T.Estado == "A"
-                              && T.en_conci_caja == false
-                              orderby T.IdCbteCble_Ogiro descending
-                              select T;
-                } 
-                else
-                    select_ = from T in Base.vwcp_orden_giro_x_pagar                            
-                               where T.IdEmpresa == IdEmpresa  
-                               && T.Saldo_OG != 0    
-                               && T.Estado=="A"
-                               orderby T.IdCbteCble_Ogiro descending
-                              select T;
-                                                   
-                foreach (var item in select_)
-                {
-                    cp_orden_giro_Info dat = new cp_orden_giro_Info();
-                   
-                    dat.IdEmpresa = item.IdEmpresa;
-                    dat.IdCbteCble_Ogiro = item.IdCbteCble_Ogiro;
-                    dat.IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro;
-                    dat.IdOrden_giro_Tipo = item.IdOrden_giro_Tipo;
-                    dat.IdProveedor = item.IdProveedor;
-                    dat.co_fechaOg = item.co_fechaOg;
-                    dat.co_serie = item.co_serie;
-                    dat.co_factura = item.co_factura;
-                    dat.co_FechaFactura = item.co_FechaFactura.Date;
-                    dat.co_FechaFactura_vct = item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct);
-                    dat.co_observacion = item.co_observacion;
-                    dat.co_subtotal_iva = item.co_subtotal_iva;
-                    dat.co_subtotal_siniva = item.co_subtotal_siniva;
-                    dat.co_baseImponible = item.co_baseImponible;
-                    dat.co_Por_iva = item.co_Por_iva;
-                    dat.co_valoriva = item.co_valoriva;                
-                    dat.co_total = item.co_total;
-                    dat.co_valorpagar = item.co_valorpagar;                   
-                    dat.InfoProveedor.pr_nombre = item.nom_proveedor;                             
-                    dat.tc_TipoCbte = item.tc_TipoCbte;
-                    dat.IdSucursal = item.IdSucursal;
-                    dat.nom_tipo_Documento=item.nom_tipo_Documento;
-                    dat.tc_TipoCbte = item.tc_TipoCbte;
-                    dat.IdTipo_op = item.IdTipo_op;
-                    dat.IdEstadoAprobacion = item.IdEstadoAprobacion;
-                    dat.cod_Documento = item.cod_Documento;
-                    dat.IdEstadoAprobacion_aux = item.IdEstadoAprobacion;
-                    dat.cod_Documento = item.cod_Documento;
-                    dat.nom_flujo = item.nom_flujo;
-                    dat.co_FechaFactura_vct = item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct);
-                    dat.IdPersona = item.IdPersona;
-                    dat.IdTipoMovi = item.IdTipoMovi;
-                    dat.Total_Pagado = item.Total_Pagado;
-                    dat.Saldo_OG = item.Saldo_OG == null ? 0 : Convert.ToDouble(item.Saldo_OG);
-                    dat.Saldo_OG_AUX = item.Saldo_OG == null ? 0 : Convert.ToDouble(item.Saldo_OG);
-                    dat.InfoProveedor.pr_nombre = item.nom_proveedor;
+                              && T.en_conci_caja == false).OrderByDescending(T => T.IdCbteCble_Ogiro).ToList();
 
-                    
-
-                    dat.Referencia = item.cod_Documento + "-" + item.co_serie + "-" + item.co_factura;
-
-                    TimeSpan ts = Convert.ToDateTime(item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct)) - Convert.ToDateTime(DateTime.Now);
-                    int dias = ts.Days;
-                    //Info cuota
-                    dat.Info_cuotas_x_doc.Valor_cuota = item.Valor_cuota;
-                    dat.Info_cuotas_x_doc.IdCuota = item.IdCuota == null ? 0 : Convert.ToDecimal(item.IdCuota);
-                    dat.Info_cuotas_x_doc.Secuencia = item.Secuencia == null ? 0 : Convert.ToInt32(item.Secuencia);
-
-                    dat.Dias_Vencidos = dias;
-
-
-                    if (dias < 0) //Por vencer
+                    foreach (var item in lst1)
                     {
-                        dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.VENCIDO;
-                      
-                    }
-                    if (dias == 0) //normal
-                    {
-                        dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.VENCE_HOY;
-                       
-                    }
-                    if (dias > 0) // vencido
-                    {
-                        dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.X_VENCER;
-                    }
+                        cp_orden_giro_Info dat = new cp_orden_giro_Info
+                        {
 
-                    lM.Add(dat);
+                            IdEmpresa = item.IdEmpresa,
+                            IdCbteCble_Ogiro = item.IdCbteCble_Ogiro,
+                            IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro,
+                            IdOrden_giro_Tipo = item.IdOrden_giro_Tipo,
+                            IdProveedor = item.IdProveedor,
+                            co_fechaOg = item.co_fechaOg,
+                            co_serie = item.co_serie,
+                            co_factura = item.co_factura,
+                            co_FechaFactura = item.co_FechaFactura.Date,
+                            co_FechaFactura_vct = item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct),
+                            co_observacion = item.co_observacion,
+                            co_subtotal_iva = item.co_subtotal_iva,
+                            co_subtotal_siniva = item.co_subtotal_siniva,
+                            co_baseImponible = item.co_baseImponible,
+                            co_Por_iva = item.co_Por_iva,
+                            co_valoriva = item.co_valoriva,
+                            co_total = item.co_total,
+                            co_valorpagar = item.co_valorpagar,
+                            InfoProveedor = new cp_proveedor_Info { pr_nombre = item.nom_proveedor },
+                            tc_TipoCbte = item.tc_TipoCbte,
+                            IdSucursal = item.IdSucursal,
+                            nom_tipo_Documento = item.nom_tipo_Documento,
+                            IdTipo_op = item.IdTipo_op,
+                            IdEstadoAprobacion = item.IdEstadoAprobacion,
+                            cod_Documento = item.cod_Documento,
+                            IdEstadoAprobacion_aux = item.IdEstadoAprobacion,
+                            nom_flujo = item.nom_flujo,
+                            IdPersona = item.IdPersona,
+                            IdTipoMovi = item.IdTipoMovi,
+                            Total_Pagado = item.Total_Pagado,
+                            Saldo_OG = item.Saldo_OG == null ? 0 : Convert.ToDouble(item.Saldo_OG),
+                            Saldo_OG_AUX = item.Saldo_OG == null ? 0 : Convert.ToDouble(item.Saldo_OG),
+
+                            Referencia = item.cod_Documento + "-" + item.co_serie + "-" + item.co_factura,
+
+
+                        };
+
+                        TimeSpan ts = Convert.ToDateTime(item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct)) - Convert.ToDateTime(DateTime.Now);
+                        int dias = ts.Days;
+                        //Info cuota
+                        dat.Info_cuotas_x_doc.Valor_cuota = item.Valor_cuota;
+                        dat.Info_cuotas_x_doc.IdCuota = item.IdCuota == null ? 0 : Convert.ToDecimal(item.IdCuota);
+                        dat.Info_cuotas_x_doc.Secuencia = item.Secuencia == null ? 0 : Convert.ToInt32(item.Secuencia);
+
+                        dat.Dias_Vencidos = dias;
+
+
+                        if (dias < 0) //Por vencer
+                        {
+                            dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.VENCIDO;
+
+                        }
+                        if (dias == 0) //normal
+                        {
+                            dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.VENCE_HOY;
+
+                        }
+                        if (dias > 0) // vencido
+                        {
+                            dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.X_VENCER;
+                        }
+                        lM.Add(dat);
+                    }
                 }
+                else
+                {
+                    var ls2 = Base.vwcp_orden_giro_x_pagar.Where(T => T.IdEmpresa == IdEmpresa
+                              && T.Saldo_OG != 0
+                              && T.Estado == "A"
+                              && T.en_conci_caja == false).OrderByDescending(T => T.IdCbteCble_Ogiro).ToList();
+                    foreach (var item in ls2)
+                    {
+                        cp_orden_giro_Info dat = new cp_orden_giro_Info
+                        {
+
+                            IdEmpresa = item.IdEmpresa,
+                            IdCbteCble_Ogiro = item.IdCbteCble_Ogiro,
+                            IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro,
+                            IdOrden_giro_Tipo = item.IdOrden_giro_Tipo,
+                            IdProveedor = item.IdProveedor,
+                            co_fechaOg = item.co_fechaOg,
+                            co_serie = item.co_serie,
+                            co_factura = item.co_factura,
+                            co_FechaFactura = item.co_FechaFactura.Date,
+                            co_FechaFactura_vct = item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct),
+                            co_observacion = item.co_observacion,
+                            co_subtotal_iva = item.co_subtotal_iva,
+                            co_subtotal_siniva = item.co_subtotal_siniva,
+                            co_baseImponible = item.co_baseImponible,
+                            co_Por_iva = item.co_Por_iva,
+                            co_valoriva = item.co_valoriva,
+                            co_total = item.co_total,
+                            co_valorpagar = item.co_valorpagar,
+                            InfoProveedor = new cp_proveedor_Info { pr_nombre = item.nom_proveedor },
+                            tc_TipoCbte = item.tc_TipoCbte,
+                            IdSucursal = item.IdSucursal,
+                            nom_tipo_Documento = item.nom_tipo_Documento,
+                            IdTipo_op = item.IdTipo_op,
+                            IdEstadoAprobacion = item.IdEstadoAprobacion,
+                            cod_Documento = item.cod_Documento,
+                            IdEstadoAprobacion_aux = item.IdEstadoAprobacion,
+                            nom_flujo = item.nom_flujo,
+                            IdPersona = item.IdPersona,
+                            IdTipoMovi = item.IdTipoMovi,
+                            Total_Pagado = item.Total_Pagado,
+                            Saldo_OG = item.Saldo_OG == null ? 0 : Convert.ToDouble(item.Saldo_OG),
+                            Saldo_OG_AUX = item.Saldo_OG == null ? 0 : Convert.ToDouble(item.Saldo_OG),
+
+                            Referencia = item.cod_Documento + "-" + item.co_serie + "-" + item.co_factura,
+
+
+                        };
+
+                        TimeSpan ts = Convert.ToDateTime(item.co_FechaFactura_vct == null ? DateTime.Now.Date : Convert.ToDateTime(item.co_FechaFactura_vct)) - Convert.ToDateTime(DateTime.Now);
+                        int dias = ts.Days;
+                        //Info cuota
+                        dat.Info_cuotas_x_doc.Valor_cuota = item.Valor_cuota;
+                        dat.Info_cuotas_x_doc.IdCuota = item.IdCuota == null ? 0 : Convert.ToDecimal(item.IdCuota);
+                        dat.Info_cuotas_x_doc.Secuencia = item.Secuencia == null ? 0 : Convert.ToInt32(item.Secuencia);
+
+                        dat.Dias_Vencidos = dias;
+
+
+                        if (dias < 0) //Por vencer
+                        {
+                            dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.VENCIDO;
+
+                        }
+                        if (dias == 0) //normal
+                        {
+                            dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.VENCE_HOY;
+
+                        }
+                        if (dias > 0) // vencido
+                        {
+                            dat.Tipo_Vcto = Cl_Enumeradores.eTipoVencimiento_x_OG.X_VENCER;
+                        }
+                        lM.Add(dat);
+                    }
+                }
+
+               
                 return (lM);
             }
             catch (Exception ex)

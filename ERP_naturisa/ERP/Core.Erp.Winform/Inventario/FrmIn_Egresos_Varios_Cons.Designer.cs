@@ -52,6 +52,7 @@
             this.colIdMotivo_Inv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesc_mov_inv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Col_CodMoviInven = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Egresos_Varios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Egreso_varios)).BeginInit();
@@ -61,9 +62,10 @@
             // 
             this.ucGe_BarraEstado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstado.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstado.Location = new System.Drawing.Point(0, 457);
+            this.ucGe_BarraEstado.Location = new System.Drawing.Point(0, 562);
+            this.ucGe_BarraEstado.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstado.Name = "ucGe_BarraEstado";
-            this.ucGe_BarraEstado.Size = new System.Drawing.Size(967, 26);
+            this.ucGe_BarraEstado.Size = new System.Drawing.Size(1289, 32);
             this.ucGe_BarraEstado.TabIndex = 0;
             // 
             // ucGe_Menu_Mantenimiento_x_usuario
@@ -91,15 +93,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2017, 5, 21, 14, 35, 32, 257);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2017, 7, 21, 14, 35, 32, 257);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2019, 9, 17, 13, 5, 20, 550);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2019, 11, 17, 13, 5, 20, 550);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Mantenimiento_x_usuario.Name = "ucGe_Menu_Mantenimiento_x_usuario";
             this.ucGe_Menu_Mantenimiento_x_usuario.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(967, 155);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1289, 191);
             this.ucGe_Menu_Mantenimiento_x_usuario.TabIndex = 1;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_bodega = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -137,18 +140,21 @@
             // 
             this.panel1.Controls.Add(this.gridControl_Egresos_Varios);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 155);
+            this.panel1.Location = new System.Drawing.Point(0, 191);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(967, 302);
+            this.panel1.Size = new System.Drawing.Size(1289, 371);
             this.panel1.TabIndex = 2;
             // 
             // gridControl_Egresos_Varios
             // 
             this.gridControl_Egresos_Varios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_Egresos_Varios.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl_Egresos_Varios.Location = new System.Drawing.Point(0, 0);
             this.gridControl_Egresos_Varios.MainView = this.gridView_Egreso_varios;
+            this.gridControl_Egresos_Varios.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl_Egresos_Varios.Name = "gridControl_Egresos_Varios";
-            this.gridControl_Egresos_Varios.Size = new System.Drawing.Size(967, 302);
+            this.gridControl_Egresos_Varios.Size = new System.Drawing.Size(1289, 371);
             this.gridControl_Egresos_Varios.TabIndex = 0;
             this.gridControl_Egresos_Varios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Egreso_varios});
@@ -174,7 +180,8 @@
             this.colIdNumMovi_inv,
             this.colIdMotivo_Inv,
             this.colDesc_mov_inv,
-            this.Col_CodMoviInven});
+            this.Col_CodMoviInven,
+            this.gridColumn1});
             this.gridView_Egreso_varios.GridControl = this.gridControl_Egresos_Varios;
             this.gridView_Egreso_varios.Name = "gridView_Egreso_varios";
             this.gridView_Egreso_varios.OptionsView.ShowAutoFilterRow = true;
@@ -188,7 +195,7 @@
             this.colnom_sucursal.OptionsColumn.AllowEdit = false;
             this.colnom_sucursal.Visible = true;
             this.colnom_sucursal.VisibleIndex = 0;
-            this.colnom_sucursal.Width = 92;
+            this.colnom_sucursal.Width = 94;
             // 
             // colnom_bodega
             // 
@@ -198,7 +205,7 @@
             this.colnom_bodega.OptionsColumn.AllowEdit = false;
             this.colnom_bodega.Visible = true;
             this.colnom_bodega.VisibleIndex = 1;
-            this.colnom_bodega.Width = 94;
+            this.colnom_bodega.Width = 96;
             // 
             // colnom_tipo_inv
             // 
@@ -208,7 +215,7 @@
             this.colnom_tipo_inv.OptionsColumn.AllowEdit = false;
             this.colnom_tipo_inv.Visible = true;
             this.colnom_tipo_inv.VisibleIndex = 4;
-            this.colnom_tipo_inv.Width = 88;
+            this.colnom_tipo_inv.Width = 89;
             // 
             // colIdNumMovi
             // 
@@ -218,7 +225,7 @@
             this.colIdNumMovi.OptionsColumn.AllowEdit = false;
             this.colIdNumMovi.Visible = true;
             this.colIdNumMovi.VisibleIndex = 2;
-            this.colIdNumMovi.Width = 65;
+            this.colIdNumMovi.Width = 66;
             // 
             // colcm_fecha
             // 
@@ -228,7 +235,7 @@
             this.colcm_fecha.OptionsColumn.AllowEdit = false;
             this.colcm_fecha.Visible = true;
             this.colcm_fecha.VisibleIndex = 3;
-            this.colcm_fecha.Width = 60;
+            this.colcm_fecha.Width = 61;
             // 
             // colcm_observacion
             // 
@@ -238,7 +245,7 @@
             this.colcm_observacion.OptionsColumn.AllowEdit = false;
             this.colcm_observacion.Visible = true;
             this.colcm_observacion.VisibleIndex = 6;
-            this.colcm_observacion.Width = 365;
+            this.colcm_observacion.Width = 373;
             // 
             // colEstado
             // 
@@ -248,7 +255,7 @@
             this.colEstado.OptionsColumn.AllowEdit = false;
             this.colEstado.Visible = true;
             this.colEstado.VisibleIndex = 7;
-            this.colEstado.Width = 64;
+            this.colEstado.Width = 65;
             // 
             // colIdEstadoAproba
             // 
@@ -258,7 +265,7 @@
             this.colIdEstadoAproba.OptionsColumn.AllowEdit = false;
             this.colIdEstadoAproba.Visible = true;
             this.colIdEstadoAproba.VisibleIndex = 9;
-            this.colIdEstadoAproba.Width = 167;
+            this.colIdEstadoAproba.Width = 160;
             // 
             // colnom_motivo
             // 
@@ -275,7 +282,7 @@
             this.colsigno_tipo_inv.Name = "colsigno_tipo_inv";
             this.colsigno_tipo_inv.Visible = true;
             this.colsigno_tipo_inv.VisibleIndex = 5;
-            this.colsigno_tipo_inv.Width = 77;
+            this.colsigno_tipo_inv.Width = 78;
             // 
             // colIdMotivo_oc
             // 
@@ -319,7 +326,7 @@
             this.colDesc_mov_inv.Name = "colDesc_mov_inv";
             this.colDesc_mov_inv.Visible = true;
             this.colDesc_mov_inv.VisibleIndex = 8;
-            this.colDesc_mov_inv.Width = 96;
+            this.colDesc_mov_inv.Width = 98;
             // 
             // Col_CodMoviInven
             // 
@@ -327,14 +334,22 @@
             this.Col_CodMoviInven.FieldName = "CodMoviInven";
             this.Col_CodMoviInven.Name = "Col_CodMoviInven";
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Usuario";
+            this.gridColumn1.FieldName = "IdUsuario";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Width = 91;
+            // 
             // FrmIn_Egresos_Varios_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 483);
+            this.ClientSize = new System.Drawing.Size(1289, 594);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario);
             this.Controls.Add(this.ucGe_BarraEstado);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Egresos_Varios_Cons";
             this.Text = "Consulta Egresos Varios";
             this.Load += new System.EventHandler(this.FrmIn_Egresos_Varios_Cons_Load);
@@ -371,5 +386,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIdMotivo_Inv;
         private DevExpress.XtraGrid.Columns.GridColumn colDesc_mov_inv;
         private DevExpress.XtraGrid.Columns.GridColumn Col_CodMoviInven;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

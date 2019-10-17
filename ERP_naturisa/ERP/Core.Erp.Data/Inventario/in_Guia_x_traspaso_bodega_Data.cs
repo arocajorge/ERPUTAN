@@ -398,7 +398,8 @@ namespace Core.Erp.Data.Inventario
                               NumDocumento_Guia = q.NumDocumento_Guia,
                               NombreDestinatario = q.NombreDestinatario,
                               IdentificacionDestinatario = q.IdentificacionDestinatario,
-                              Placa = q.Placa
+                              Placa = q.Placa,
+                              IdUsuario= q.IdUsuario
                           }).ToList();
 
              return Lst;

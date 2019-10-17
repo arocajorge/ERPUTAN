@@ -131,14 +131,14 @@ namespace Core.Erp.Business.CuentasxPagar
 
               Lista_Info = Bus_info_detalle.Get_List_Aprobacion_Ing_Bod_x_OC_det(IdEmpresa, IdAprobacion);
               info.listDetalle = Lista_Info;
-
+              /*
               //para guargar en la tabla cp_Aprobacion_Ing_Bod_x_OC_Eliminados cabecera y detalle
               cp_Aprobacion_Ing_Bod_x_OC_Eliminados_Info Info_Eliminado = new cp_Aprobacion_Ing_Bod_x_OC_Eliminados_Info();
               cp_Aprobacion_Ing_Bod_x_OC_Eliminados_Bus bus_Aprobar_Eliminado = new cp_Aprobacion_Ing_Bod_x_OC_Eliminados_Bus();
               List<cp_Aprobacion_Ing_Bod_x_OC_det_Eliminados_Info> Lista = new List<cp_Aprobacion_Ing_Bod_x_OC_det_Eliminados_Info>();
-
-              bool respuesta = false;
-
+              */
+              bool respuesta = true;
+              /*
               Info_Eliminado.IdEmpresa = info.IdEmpresa;
               Info_Eliminado.IdAprobacion = info.IdAprobacion;
               Info_Eliminado.Fecha_aprobacion = info.Fecha_aprobacion;
@@ -195,7 +195,7 @@ namespace Core.Erp.Business.CuentasxPagar
               Info_Eliminado.listDetalle = Lista;
 
               respuesta = bus_Aprobar_Eliminado.GuardarDB(Info_Eliminado, ref msg);
-              
+              */
               #endregion
 
               if (respuesta)

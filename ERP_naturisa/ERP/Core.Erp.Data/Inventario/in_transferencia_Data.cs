@@ -673,6 +673,7 @@ namespace Core.Erp.Data.Inventario
                                  IdNumMovi_Ing_Egr_Inven_Origen = q.IdNumMovi_Ing_Egr_Inven_Origen,
                                  IdEstadoAproba_egr = q.IdEstadoAproba_egr,
                                  IdEstadoAproba_ing = q.IdEstadoAproba_ing,
+                                 IdUsuario = q.IdUsuario
                              }).ToList();
 
 

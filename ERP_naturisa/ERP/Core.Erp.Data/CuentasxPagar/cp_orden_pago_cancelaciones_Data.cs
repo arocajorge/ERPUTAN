@@ -359,21 +359,17 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 decimal Id;
                 EntitiesCuentasxPagar ECXP = new EntitiesCuentasxPagar();
-
-                var select = ECXP.cp_orden_pago_cancelaciones.Count(q => q.IdEmpresa == IdEmpresa);
-                if (select == 0)
+                ECXP.SetCommandTimeOut(3000);
+                try
                 {
-                    return Id = 1;
+                    Id = (ECXP.cp_orden_pago_cancelaciones.Where(q => q.IdEmpresa == IdEmpresa).Max(q => q.Idcancelacion)) + 1;
+                }
+                catch (Exception)
+                {
+                    return 1;
                 }
 
-                else
-                {
-                    var select_ = (from t in ECXP.cp_orden_pago_cancelaciones
-                                   where t.IdEmpresa == IdEmpresa
-                                  select t.Idcancelacion).Max();
-                    Id = Convert.ToDecimal(select_.ToString()) + 1;
-                    return Id;
-                }
+                return Id;                
             }
             catch (Exception ex)
             {

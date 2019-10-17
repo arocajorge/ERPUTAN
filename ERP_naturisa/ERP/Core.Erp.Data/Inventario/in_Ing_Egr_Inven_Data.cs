@@ -292,6 +292,7 @@ namespace Core.Erp.Data.Inventario
                    nom_proveedor = q.pr_nombre,
                    nom_estado_cierre_oc = q.Descripcion,
                    IdEstadoCierre_oc = q.IdEstado_cierre,
+                   IdUsuario = q.IdUsuario
                   });});
                   }
               else
@@ -337,6 +338,7 @@ namespace Core.Erp.Data.Inventario
                    nom_proveedor = q.pr_nombre,
                    nom_estado_cierre_oc = q.Descripcion,
                    IdEstadoCierre_oc = q.IdEstado_cierre,
+                   IdUsuario = q.IdUsuario
                   });});
               }
               return Lst;
@@ -361,69 +363,55 @@ namespace Core.Erp.Data.Inventario
               FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
               FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
               EntitiesInventario oEnti = new EntitiesInventario();
+              oEnti.SetCommandTimeOut(3000);
+              var Query = oEnti.vwin_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa
+                                  && q.cm_fecha >= FechaIni
+                                  && q.cm_fecha <= FechaFin
+                                  && q.signo_tipo_inv == Tipo_ing_egr
+                                  && q.IdSucursal >= IdSucursalIni
+                                  && q.IdSucursal <= IdSucursalFin
+                                  && IdBodegaIni <= q.IdBodega
+                                  && q.IdBodega <= IdBodegaFin
+                                  && q.IdBodega != null
+                                  ).ToList();
 
-              IQueryable<vwin_Ing_Egr_Inven> Query;
-              if(IdBodegaIni == 0)
-              Query = from q in oEnti.vwin_Ing_Egr_Inven
-                              where q.IdEmpresa == IdEmpresa
-                              && q.cm_fecha >= FechaIni
-                              && q.cm_fecha <= FechaFin
-                              && q.signo_tipo_inv.Contains(Tipo_ing_egr)
-                              && q.IdSucursal >= IdSucursalIni
-                              && q.IdSucursal <= IdSucursalFin
-                              && q.IdBodega >=IdBodegaIni
-                              && q.IdBodega <= IdBodegaFin                              
-                              || q.IdBodega == null
-                              select q;
-              else
-                  Query = from q in oEnti.vwin_Ing_Egr_Inven
-                          where q.IdEmpresa == IdEmpresa
-                          && q.IdSucursal >= IdSucursalIni
-                          && q.IdSucursal <= IdSucursalFin
-                          && q.IdBodega >= IdBodegaIni
-                          && q.IdBodega <= IdBodegaFin
-                          && q.cm_fecha >= FechaIni
-                          && q.cm_fecha <= FechaFin
-                          && q.signo_tipo_inv.Contains(Tipo_ing_egr)
-                          select q;
-
-                  foreach (var item in Query)
+              foreach (var item in Query)
+              {
+                  Lst.Add(new in_Ing_Egr_Inven_Info
                   {
-                      in_Ing_Egr_Inven_Info Obj = new in_Ing_Egr_Inven_Info();
-
-                      Obj.IdEmpresa = item.IdEmpresa;
-                      Obj.IdSucursal = item.IdSucursal;
-                      Obj.IdBodega = item.IdBodega;
-                      Obj.IdMovi_inven_tipo = item.IdMovi_inven_tipo;
-                      Obj.IdNumMovi = item.IdNumMovi;
-                      Obj.CodMoviInven = item.CodMoviInven;
-                      Obj.cm_observacion = item.cm_observacion;
-                      Obj.cm_fecha = item.cm_fecha;
-                      Obj.Estado = item.Estado;
-                      Obj.IdCentroCosto = item.IdCentroCosto;
-                      Obj.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                      Obj.signo = item.signo;
-                      Obj.IdMotivo_oc = Convert.ToInt32(item.IdMotivo_oc);
-                      Obj.nom_bodega = item.nom_bodega;
-                      Obj.nom_sucursal = item.nom_sucursal;
-                      Obj.Desc_mov_inv = item.Desc_mov_inv;
-                      Obj.nom_tipo_inv = item.nom_tipo_inv;
-                      Obj.cod_tipo_inv = item.cod_tipo_inv;
-                      Obj.signo_tipo_inv = item.signo_tipo_inv;
-                      Obj.IdOrdenCompra = item.IdOrdenCompra;
-                      Obj.IdMotivo_Inv = item.IdMotivo_Inv;
-                      Obj.IdResponsable = item.IdResponsable;
-                      Obj.IdEstadoAproba = item.IdEstadoAproba;
-                      Obj.nom_EstadoAproba = item.nom_EstadoAproba;
-                      Obj.IdEstadoDespacho_cat = item.IdEstadoDespacho_cat;
-                      Obj.Fecha_registro = item.Fecha_registro;
-                      Obj.co_factura = item.co_factura;
-                      Obj.nom_proveedor = item.pr_nombre;
-                      Obj.nom_estado_cierre_oc = item.Descripcion;
-                      Obj.IdEstadoCierre_oc = item.IdEstado_cierre;
-                      Obj.CodMoviInven = item.CodMoviInven;
-                      Lst.Add(Obj);
-                  } 
+                      IdEmpresa = item.IdEmpresa,
+                      IdSucursal = item.IdSucursal,
+                      IdBodega = item.IdBodega,
+                      IdMovi_inven_tipo = item.IdMovi_inven_tipo,
+                      IdNumMovi = item.IdNumMovi,
+                      CodMoviInven = item.CodMoviInven,
+                      cm_observacion = item.cm_observacion,
+                      cm_fecha = item.cm_fecha,
+                      Estado = item.Estado,
+                      IdCentroCosto = item.IdCentroCosto,
+                      IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                      signo = item.signo,
+                      IdMotivo_oc = Convert.ToInt32(item.IdMotivo_oc),
+                      nom_bodega = item.nom_bodega,
+                      nom_sucursal = item.nom_sucursal,
+                      Desc_mov_inv = item.Desc_mov_inv,
+                      nom_tipo_inv = item.nom_tipo_inv,
+                      cod_tipo_inv = item.cod_tipo_inv,
+                      signo_tipo_inv = item.signo_tipo_inv,
+                      IdOrdenCompra = item.IdOrdenCompra,
+                      IdMotivo_Inv = item.IdMotivo_Inv,
+                      IdResponsable = item.IdResponsable,
+                      IdEstadoAproba = item.IdEstadoAproba,
+                      nom_EstadoAproba = item.nom_EstadoAproba,
+                      IdEstadoDespacho_cat = item.IdEstadoDespacho_cat,
+                      Fecha_registro = item.Fecha_registro,
+                      co_factura = item.co_factura,
+                      nom_proveedor = item.pr_nombre,
+                      nom_estado_cierre_oc = item.Descripcion,
+                      IdEstadoCierre_oc = item.IdEstado_cierre,
+                      IdUsuario = item.IdUsuario
+                  });
+              } 
                                                                       
               return Lst;
           }
@@ -570,50 +558,47 @@ namespace Core.Erp.Data.Inventario
               FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
               EntitiesInventario oEnti = new EntitiesInventario();
 
-              IQueryable<vwin_Ing_Egr_Inven> Query;
-              
-                  Query = from q in oEnti.vwin_Ing_Egr_Inven
-                          where q.IdEmpresa == IdEmpresa
-                          && q.cm_fecha >= FechaIni
-                          && q.cm_fecha <= FechaFin
-                          && q.signo_tipo_inv.Contains(Tipo_ing_egr)
-                          && q.IdSucursal >= IdSucursalIni
-                          && q.IdSucursal <= IdSucursalFin
-                          && q.IdBodega == null
-                          select q;
+              var Query = oEnti.vwin_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa
+                      && q.cm_fecha >= FechaIni
+                      && q.cm_fecha <= FechaFin
+                      && q.signo_tipo_inv == Tipo_ing_egr
+                      && q.IdSucursal >= IdSucursalIni
+                      && q.IdSucursal <= IdSucursalFin
+                      && q.IdBodega == null).ToList();
               
               foreach (var item in Query)
               {
-                  in_Ing_Egr_Inven_Info Obj = new in_Ing_Egr_Inven_Info();
+                  Lst.Add(new in_Ing_Egr_Inven_Info{
 
-                  Obj.IdEmpresa = item.IdEmpresa;
-                  Obj.IdSucursal = item.IdSucursal;
-                  Obj.IdBodega = item.IdBodega;
-                  Obj.IdMovi_inven_tipo = item.IdMovi_inven_tipo;
-                  Obj.IdNumMovi = item.IdNumMovi;
-                  Obj.CodMoviInven = item.CodMoviInven;
-                  Obj.cm_observacion = item.cm_observacion;
-                  Obj.cm_fecha = item.cm_fecha;
-                  Obj.Estado = item.Estado;
-                  Obj.IdCentroCosto = item.IdCentroCosto;
-                  Obj.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                  Obj.signo = item.signo;
-                  Obj.IdMotivo_oc = Convert.ToInt32(item.IdMotivo_oc);
-                  Obj.nom_bodega = item.nom_bodega;
-                  Obj.nom_sucursal = item.nom_sucursal;
-                  Obj.Desc_mov_inv = item.Desc_mov_inv;
-                  Obj.nom_tipo_inv = item.nom_tipo_inv;
-                  Obj.cod_tipo_inv = item.cod_tipo_inv;
-                  Obj.signo_tipo_inv = item.signo_tipo_inv;
-                  Obj.IdOrdenCompra = item.IdOrdenCompra;
-                  Obj.IdMotivo_Inv = item.IdMotivo_Inv;
-                  Obj.IdEstadoAproba = item.IdEstadoAproba;
-                  Obj.nom_EstadoAproba = item.nom_EstadoAproba;
-                  Obj.IdEstadoDespacho_cat = item.IdEstadoDespacho_cat;
-                  Obj.Fecha_registro = item.Fecha_registro;
-                  Obj.co_factura = item.co_factura;
-                  Lst.Add(Obj);
-              }
+                   IdEmpresa = item.IdEmpresa,
+                   IdSucursal = item.IdSucursal,
+                   IdBodega = item.IdBodega,
+                   IdMovi_inven_tipo = item.IdMovi_inven_tipo,
+                   IdNumMovi = item.IdNumMovi,
+                   CodMoviInven = item.CodMoviInven,
+                   cm_observacion = item.cm_observacion,
+                   cm_fecha = item.cm_fecha,
+                   Estado = item.Estado,
+                   IdCentroCosto = item.IdCentroCosto,
+                   IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                   signo = item.signo,
+                   IdMotivo_oc = Convert.ToInt32(item.IdMotivo_oc),
+                   nom_bodega = item.nom_bodega,
+                   nom_sucursal = item.nom_sucursal,
+                   Desc_mov_inv = item.Desc_mov_inv,
+                   nom_tipo_inv = item.nom_tipo_inv,
+                   cod_tipo_inv = item.cod_tipo_inv,
+                   signo_tipo_inv = item.signo_tipo_inv,
+                   IdOrdenCompra = item.IdOrdenCompra,
+                   IdMotivo_Inv = item.IdMotivo_Inv,
+                   IdEstadoAproba = item.IdEstadoAproba,
+                   nom_EstadoAproba = item.nom_EstadoAproba,
+                   IdEstadoDespacho_cat = item.IdEstadoDespacho_cat,
+                   Fecha_registro = item.Fecha_registro,
+                   co_factura = item.co_factura,
+                   IdUsuario = item.IdUsuario
+              });
+          }
 
               return Lst;
           }

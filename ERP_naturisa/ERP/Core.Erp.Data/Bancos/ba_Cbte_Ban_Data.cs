@@ -545,9 +545,10 @@ namespace Core.Erp.Data.Bancos
         {
             try
             {
+                /*
                 decimal secuencia;
                 EntitiesBanco base_ = new EntitiesBanco();
-
+                
                 var q = from C in base_.ba_Cbte_Ban
                         select C;
 
@@ -560,7 +561,8 @@ namespace Core.Erp.Data.Bancos
                                    select T.cb_secuencia).Max();
                     secuencia = Convert.ToInt32(select_.ToString()) + 1;
                     return secuencia;
-                }
+                }*/
+                return 1;
             }
             catch (Exception ex)
             {

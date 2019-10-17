@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmb_tipocomprobante = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.ctCbtecbletipoInfoBindingSource = new System.Windows.Forms.BindingSource();
+            this.ctCbtecbletipoInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbvwtipoComp = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.coltc_TipoCbte = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colidTipoCbte = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,20 +54,26 @@
             this.UC_Diario = new Core.Erp.Winform.Controles.UCCon_GridDiarioContable();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmb_sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lbl_descargar_excel = new System.Windows.Forms.LinkLabel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.frmConTipoCbteCbleBindingSource = new System.Windows.Forms.BindingSource();
+            this.frmConTipoCbteCbleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipocomprobante.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctCbtecbletipoInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbvwtipoComp)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmConTipoCbteCbleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmb_tipocomprobante
             // 
-            this.cmb_tipocomprobante.Location = new System.Drawing.Point(456, 32);
+            this.cmb_tipocomprobante.Location = new System.Drawing.Point(608, 67);
+            this.cmb_tipocomprobante.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_tipocomprobante.Name = "cmb_tipocomprobante";
             this.cmb_tipocomprobante.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -74,7 +81,7 @@
             this.cmb_tipocomprobante.Properties.DisplayMember = "tc_TipoCbte";
             this.cmb_tipocomprobante.Properties.ValueMember = "IdTipoCbte";
             this.cmb_tipocomprobante.Properties.View = this.cmbvwtipoComp;
-            this.cmb_tipocomprobante.Size = new System.Drawing.Size(452, 20);
+            this.cmb_tipocomprobante.Size = new System.Drawing.Size(603, 22);
             this.cmb_tipocomprobante.TabIndex = 23;
             this.cmb_tipocomprobante.EditValueChanged += new System.EventHandler(this.cmb_tipocomprobante_EditValueChanged);
             // 
@@ -153,9 +160,10 @@
             // btn_bucarPLantilla
             // 
             this.btn_bucarPLantilla.AutoSize = true;
-            this.btn_bucarPLantilla.Location = new System.Drawing.Point(858, 6);
+            this.btn_bucarPLantilla.Location = new System.Drawing.Point(1144, 7);
+            this.btn_bucarPLantilla.Margin = new System.Windows.Forms.Padding(4);
             this.btn_bucarPLantilla.Name = "btn_bucarPLantilla";
-            this.btn_bucarPLantilla.Size = new System.Drawing.Size(50, 23);
+            this.btn_bucarPLantilla.Size = new System.Drawing.Size(83, 33);
             this.btn_bucarPLantilla.TabIndex = 0;
             this.btn_bucarPLantilla.Text = "Buscar";
             this.btn_bucarPLantilla.UseVisualStyleBackColor = true;
@@ -163,80 +171,89 @@
             // 
             // txt_codCbteCble
             // 
-            this.txt_codCbteCble.Location = new System.Drawing.Point(125, 35);
+            this.txt_codCbteCble.Location = new System.Drawing.Point(167, 67);
+            this.txt_codCbteCble.Margin = new System.Windows.Forms.Padding(4);
             this.txt_codCbteCble.MaxLength = 20;
             this.txt_codCbteCble.Name = "txt_codCbteCble";
-            this.txt_codCbteCble.Size = new System.Drawing.Size(122, 20);
+            this.txt_codCbteCble.Size = new System.Drawing.Size(161, 22);
             this.txt_codCbteCble.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 39);
+            this.label6.Location = new System.Drawing.Point(16, 72);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.Size = new System.Drawing.Size(145, 17);
             this.label6.TabIndex = 20;
             this.label6.Text = "Código Comprobante:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(312, 10);
+            this.label5.Location = new System.Drawing.Point(416, 12);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 13);
+            this.label5.Size = new System.Drawing.Size(160, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "Fecha de Comprobante:";
             // 
             // dtFecha
             // 
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(456, 7);
+            this.dtFecha.Location = new System.Drawing.Point(608, 9);
+            this.dtFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(133, 20);
+            this.dtFecha.Size = new System.Drawing.Size(176, 22);
             this.dtFecha.TabIndex = 8;
             // 
             // txt_concepto
             // 
-            this.txt_concepto.Location = new System.Drawing.Point(125, 75);
+            this.txt_concepto.Location = new System.Drawing.Point(167, 116);
+            this.txt_concepto.Margin = new System.Windows.Forms.Padding(4);
             this.txt_concepto.MaxLength = 250;
             this.txt_concepto.Multiline = true;
             this.txt_concepto.Name = "txt_concepto";
             this.txt_concepto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_concepto.Size = new System.Drawing.Size(783, 51);
+            this.txt_concepto.Size = new System.Drawing.Size(1043, 62);
             this.txt_concepto.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 65);
+            this.label4.Location = new System.Drawing.Point(16, 104);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Concepto:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(312, 36);
+            this.label3.Location = new System.Drawing.Point(416, 72);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.Size = new System.Drawing.Size(149, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tipo de Comprobante:";
             // 
             // txt_no_plantillacomprobante
             // 
-            this.txt_no_plantillacomprobante.Location = new System.Drawing.Point(743, 7);
+            this.txt_no_plantillacomprobante.Location = new System.Drawing.Point(991, 9);
+            this.txt_no_plantillacomprobante.Margin = new System.Windows.Forms.Padding(4);
             this.txt_no_plantillacomprobante.Name = "txt_no_plantillacomprobante";
-            this.txt_no_plantillacomprobante.Size = new System.Drawing.Size(109, 20);
+            this.txt_no_plantillacomprobante.Size = new System.Drawing.Size(144, 22);
             this.txt_no_plantillacomprobante.TabIndex = 3;
             this.txt_no_plantillacomprobante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_no_plantillacomprobante_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(608, 10);
+            this.label2.Location = new System.Drawing.Point(811, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 13);
+            this.label2.Size = new System.Drawing.Size(176, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "No. Plantilla Comprobante:";
             // 
@@ -244,18 +261,20 @@
             // 
             this.lbl_no_comprobante.BackColor = System.Drawing.Color.White;
             this.lbl_no_comprobante.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_no_comprobante.Location = new System.Drawing.Point(125, 5);
+            this.lbl_no_comprobante.Location = new System.Drawing.Point(167, 9);
+            this.lbl_no_comprobante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_no_comprobante.Name = "lbl_no_comprobante";
-            this.lbl_no_comprobante.Size = new System.Drawing.Size(122, 23);
+            this.lbl_no_comprobante.Size = new System.Drawing.Size(162, 22);
             this.lbl_no_comprobante.TabIndex = 1;
             this.lbl_no_comprobante.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(16, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(123, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "No. Comprobante:";
             // 
@@ -263,9 +282,10 @@
             // 
             this.UC_Diario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_Diario.IdCtaCble_x_Banco = null;
-            this.UC_Diario.Location = new System.Drawing.Point(0, 177);
+            this.UC_Diario.Location = new System.Drawing.Point(0, 245);
+            this.UC_Diario.Margin = new System.Windows.Forms.Padding(5);
             this.UC_Diario.Name = "UC_Diario";
-            this.UC_Diario.Size = new System.Drawing.Size(946, 277);
+            this.UC_Diario.Size = new System.Drawing.Size(1261, 314);
             this.UC_Diario.TabIndex = 0;
             this.UC_Diario.Visible_Botones = false;
             this.UC_Diario.Visible_Cabecera = false;
@@ -299,8 +319,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(946, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1261, 36);
             this.ucGe_Menu.TabIndex = 5;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -331,6 +352,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.cmb_sucursal);
             this.panel1.Controls.Add(this.lblEstado);
             this.panel1.Controls.Add(this.lbl_descargar_excel);
             this.panel1.Controls.Add(this.label1);
@@ -347,18 +370,47 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(0, 36);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(946, 148);
+            this.panel1.Size = new System.Drawing.Size(1261, 209);
             this.panel1.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 41);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 17);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "Sucursal:";
+            // 
+            // cmb_sucursal
+            // 
+            this.cmb_sucursal.Location = new System.Drawing.Point(167, 38);
+            this.cmb_sucursal.Name = "cmb_sucursal";
+            this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
+            this.cmb_sucursal.Size = new System.Drawing.Size(617, 22);
+            this.cmb_sucursal.TabIndex = 47;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.ForeColor = System.Drawing.Color.Red;
-            this.lblEstado.Location = new System.Drawing.Point(312, 59);
+            this.lblEstado.Location = new System.Drawing.Point(416, 97);
+            this.lblEstado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(35, 13);
+            this.lblEstado.Size = new System.Drawing.Size(46, 17);
             this.lblEstado.TabIndex = 46;
             this.lblEstado.Text = "label7";
             this.lblEstado.Visible = false;
@@ -366,9 +418,10 @@
             // lbl_descargar_excel
             // 
             this.lbl_descargar_excel.AutoSize = true;
-            this.lbl_descargar_excel.Location = new System.Drawing.Point(12, 129);
+            this.lbl_descargar_excel.Location = new System.Drawing.Point(16, 183);
+            this.lbl_descargar_excel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descargar_excel.Name = "lbl_descargar_excel";
-            this.lbl_descargar_excel.Size = new System.Drawing.Size(194, 13);
+            this.lbl_descargar_excel.Size = new System.Drawing.Size(261, 17);
             this.lbl_descargar_excel.TabIndex = 45;
             this.lbl_descargar_excel.TabStop = true;
             this.lbl_descargar_excel.Text = "Descargar plantilla de excel para diarios";
@@ -385,12 +438,13 @@
             // 
             // frmCon_CbteCble_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 454);
+            this.ClientSize = new System.Drawing.Size(1261, 559);
             this.Controls.Add(this.UC_Diario);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCon_CbteCble_Mant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comprobante Contable";
@@ -401,6 +455,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbvwtipoComp)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_sucursal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmConTipoCbteCbleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -437,5 +493,8 @@
         private System.Windows.Forms.LinkLabel lbl_descargar_excel;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmb_sucursal;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
     }
 }

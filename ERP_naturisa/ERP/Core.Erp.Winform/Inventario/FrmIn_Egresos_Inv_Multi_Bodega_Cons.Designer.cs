@@ -43,6 +43,7 @@
             this.colIdEstadoAproba = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdMotivo_Inv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesc_mov_inv = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMovi_Inv_Egre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMovi_Inv_Egre)).BeginInit();
@@ -52,14 +53,16 @@
             // 
             this.ucGe_BarraEstado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstado.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstado.Location = new System.Drawing.Point(0, 443);
+            this.ucGe_BarraEstado.Location = new System.Drawing.Point(0, 545);
+            this.ucGe_BarraEstado.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstado.Name = "ucGe_BarraEstado";
-            this.ucGe_BarraEstado.Size = new System.Drawing.Size(945, 26);
+            this.ucGe_BarraEstado.Size = new System.Drawing.Size(1260, 32);
             this.ucGe_BarraEstado.TabIndex = 0;
             // 
             // ucGe_Menu
             // 
             this.ucGe_Menu.CargarTodasBodegas = false;
+            this.ucGe_Menu.CargarTodasSucursales = true;
             this.ucGe_Menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucGe_Menu.Enable_boton_anular = true;
             this.ucGe_Menu.Enable_boton_CancelarCuotas = true;
@@ -81,15 +84,16 @@
             this.ucGe_Menu.Enable_boton_salir = true;
             this.ucGe_Menu.Enable_btnImpExcel = true;
             this.ucGe_Menu.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu.fecha_desde = new System.DateTime(2016, 4, 23, 11, 31, 56, 302);
-            this.ucGe_Menu.fecha_hasta = new System.DateTime(2016, 5, 24, 11, 31, 56, 302);
+            this.ucGe_Menu.fecha_desde = new System.DateTime(2019, 9, 17, 13, 5, 28, 175);
+            this.ucGe_Menu.fecha_hasta = new System.DateTime(2019, 11, 17, 13, 5, 28, 175);
             this.ucGe_Menu.FormConsulta = null;
             this.ucGe_Menu.FormMain = null;
             this.ucGe_Menu.GridControlConsulta = null;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
             this.ucGe_Menu.Perfil_x_usuario = null;
-            this.ucGe_Menu.Size = new System.Drawing.Size(945, 155);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1260, 191);
             this.ucGe_Menu.TabIndex = 1;
             this.ucGe_Menu.Visible_bodega = true;
             this.ucGe_Menu.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -109,6 +113,7 @@
             this.ucGe_Menu.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_fechas = true;
@@ -119,24 +124,28 @@
             this.ucGe_Menu.Visible_Grupo_Otras_Trans = true;
             this.ucGe_Menu.Visible_Grupo_Transacciones = true;
             this.ucGe_Menu.Visible_Pie_fechas_Boton_buscar = true;
+            this.ucGe_Menu.Visible_ribbon_control = true;
             this.ucGe_Menu.Visible_sucursal = false;
             // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.gridControlMovi_Inv_Egre);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 155);
+            this.panelMain.Location = new System.Drawing.Point(0, 191);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(945, 288);
+            this.panelMain.Size = new System.Drawing.Size(1260, 354);
             this.panelMain.TabIndex = 2;
             // 
             // gridControlMovi_Inv_Egre
             // 
             this.gridControlMovi_Inv_Egre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlMovi_Inv_Egre.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlMovi_Inv_Egre.Location = new System.Drawing.Point(0, 0);
             this.gridControlMovi_Inv_Egre.MainView = this.gridViewMovi_Inv_Egre;
+            this.gridControlMovi_Inv_Egre.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlMovi_Inv_Egre.Name = "gridControlMovi_Inv_Egre";
-            this.gridControlMovi_Inv_Egre.Size = new System.Drawing.Size(945, 288);
+            this.gridControlMovi_Inv_Egre.Size = new System.Drawing.Size(1260, 354);
             this.gridControlMovi_Inv_Egre.TabIndex = 0;
             this.gridControlMovi_Inv_Egre.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMovi_Inv_Egre});
@@ -153,7 +162,8 @@
             this.colEstado,
             this.colIdEstadoAproba,
             this.colIdMotivo_Inv,
-            this.colDesc_mov_inv});
+            this.colDesc_mov_inv,
+            this.gridColumn1});
             this.gridViewMovi_Inv_Egre.GridControl = this.gridControlMovi_Inv_Egre;
             this.gridViewMovi_Inv_Egre.Name = "gridViewMovi_Inv_Egre";
             this.gridViewMovi_Inv_Egre.OptionsLayout.Columns.StoreAllOptions = true;
@@ -247,14 +257,21 @@
             this.colDesc_mov_inv.VisibleIndex = 3;
             this.colDesc_mov_inv.Width = 115;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Usuario";
+            this.gridColumn1.FieldName = "IdUsuario";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
             // FrmIn_Egresos_Inv_Multi_Bodega_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 469);
+            this.ClientSize = new System.Drawing.Size(1260, 577);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.ucGe_BarraEstado);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Egresos_Inv_Multi_Bodega_Cons";
             this.Text = "Egresos de Inventario Multibodega";
             this.Load += new System.EventHandler(this.FrmIn_Egresos_Inv_Multi_Bodega_Cons_Load);
@@ -282,5 +299,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIdEstadoAproba;
         private DevExpress.XtraGrid.Columns.GridColumn colIdMotivo_Inv;
         private DevExpress.XtraGrid.Columns.GridColumn colDesc_mov_inv;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

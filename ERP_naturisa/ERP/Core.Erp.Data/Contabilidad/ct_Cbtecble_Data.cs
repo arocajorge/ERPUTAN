@@ -532,6 +532,7 @@ namespace Core.Erp.Data.Contabilidad
         {
             try
             {
+                /*
                 decimal Idsecuencia;
                 EntitiesDBConta OECbtecble = new EntitiesDBConta();
 
@@ -550,6 +551,8 @@ namespace Core.Erp.Data.Contabilidad
                     Idsecuencia = Convert.ToDecimal(selectCbtecble.ToString()) + 1;
                 }
                 return Idsecuencia;
+                 * */
+                return 1;
             }
             catch (Exception ex)
             {

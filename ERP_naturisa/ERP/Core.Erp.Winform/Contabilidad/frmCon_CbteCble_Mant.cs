@@ -92,6 +92,7 @@ namespace Core.Erp.Winform.Contabilidad
                         ucGe_Menu.Visible_bntGuardar_y_Salir = true;
                         ucGe_Menu.Visible_btnGuardar = true;
                         UC_Diario.setAccion(Cl_Enumeradores.eTipo_action.grabar);
+                        cmb_sucursal.EditValue = param.IdSucursal;
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         this.Text = this.Text + "***Actualizar***";
@@ -387,6 +388,7 @@ namespace Core.Erp.Winform.Contabilidad
                     InfoCbteCble.CodCbteCble = txt_codCbteCble.Text;
                     InfoCbteCble.cb_Fecha = Convert.ToDateTime(this.dtFecha.Value.ToShortDateString());
                     InfoCbteCble.cb_FechaTransac = param.GetDateServer();
+                    InfoCbteCble.IdSucursal = (cmb_sucursal.EditValue == null ? 0 : Convert.ToInt32(cmb_sucursal.EditValue));
                     InfoCbteCble.Mayorizado = "N";
                     InfoCbteCble.cb_Observacion = this.txt_concepto.Text;
                     InfoCbteCble.Secuencia = BusCbteCble.Get_IdSecuencia(ref MensajeError);
@@ -420,6 +422,9 @@ namespace Core.Erp.Winform.Contabilidad
                 List_Tipo_Comprobante.ForEach(var => var.tc_TipoCbte = "[" + var.CodTipoCbte + "]- " + var.tc_TipoCbte + " -[" + var.IdTipoCbte + "]");
                 this.cmb_tipocomprobante.Properties.DataSource = List_Tipo_Comprobante;
                 this.cmb_tipocomprobante.EditValue = List_Tipo_Comprobante.First().IdTipoCbte;
+
+                tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
+                cmb_sucursal.Properties.DataSource = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
             }
             catch (Exception ex)
             {
@@ -476,6 +481,12 @@ namespace Core.Erp.Winform.Contabilidad
 
                 if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa,Cl_Enumeradores.eModulos.CONTA, Convert.ToDateTime(dtFecha.Value)))
                     return false;
+
+                if (cmb_sucursal.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione la sucursal", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    respuesta= false;
+                }
 
                 return respuesta;
             }
@@ -653,7 +664,7 @@ namespace Core.Erp.Winform.Contabilidad
                         cmb_tipocomprobante.EditValue = InfoCbteCble.IdTipoCbte;
 
                         ct_Cbtecble_tipo_Info a = List_Tipo_Comprobante.FirstOrDefault(q => q.IdTipoCbte == InfoCbteCble.IdTipoCbte);
-
+                        cmb_sucursal.EditValue = InfoCbteCble.IdSucursal;
                         dtFecha.Value = InfoCbteCble.cb_Fecha;
                         txt_concepto.Text = InfoCbteCble.cb_Observacion;
                         UC_Diario.setInfo(param.IdEmpresa, InfoCbteCble.IdTipoCbte, InfoCbteCble.IdCbteCble);

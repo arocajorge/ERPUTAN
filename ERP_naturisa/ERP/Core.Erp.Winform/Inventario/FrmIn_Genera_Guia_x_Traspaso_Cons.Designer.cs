@@ -50,6 +50,7 @@
             this.colFecha_llegada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNumDocumento_Guia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlGuiaCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGuiaCons)).BeginInit();
@@ -80,13 +81,13 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 9, 17, 11, 17, 9, 179);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 11, 17, 11, 17, 9, 180);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 9, 17, 13, 6, 23, 513);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 11, 17, 13, 6, 23, 514);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1372, 191);
@@ -138,7 +139,7 @@
             this.panel1.Controls.Add(this.gridControlGuiaCons);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 191);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1372, 400);
             this.panel1.TabIndex = 2;
@@ -146,10 +147,10 @@
             // gridControlGuiaCons
             // 
             this.gridControlGuiaCons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlGuiaCons.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlGuiaCons.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlGuiaCons.Location = new System.Drawing.Point(0, 0);
             this.gridControlGuiaCons.MainView = this.gridViewGuiaCons;
-            this.gridControlGuiaCons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlGuiaCons.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlGuiaCons.Name = "gridControlGuiaCons";
             this.gridControlGuiaCons.Size = new System.Drawing.Size(1372, 400);
             this.gridControlGuiaCons.TabIndex = 0;
@@ -175,7 +176,8 @@
             this.colFecha_Traslado,
             this.colFecha_llegada,
             this.colNumDocumento_Guia,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn2});
             this.gridViewGuiaCons.GridControl = this.gridControlGuiaCons;
             this.gridViewGuiaCons.Name = "gridViewGuiaCons";
             this.gridViewGuiaCons.OptionsView.ShowAutoFilterRow = true;
@@ -321,6 +323,12 @@
             this.gridColumn1.VisibleIndex = 3;
             this.gridColumn1.Width = 192;
             // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Usuario";
+            this.gridColumn2.FieldName = "IdUsuario";
+            this.gridColumn2.Name = "gridColumn2";
+            // 
             // FrmIn_Genera_Guia_x_Traspaso_Cons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -329,7 +337,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Genera_Guia_x_Traspaso_Cons";
             this.Text = "Consulta de Guías por Traspaso";
             this.Load += new System.EventHandler(this.FrmIn_Genera_Guia_x_Traspaso_Cons_Load);
@@ -365,5 +373,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFecha_llegada;
         private DevExpress.XtraGrid.Columns.GridColumn colNumDocumento_Guia;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

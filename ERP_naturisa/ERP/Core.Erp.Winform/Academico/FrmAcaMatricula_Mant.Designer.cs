@@ -228,9 +228,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(4);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(801, 32);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1068, 39);
             this.ucGe_Menu.TabIndex = 3;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -267,10 +267,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms.Location = new System.Drawing.Point(0, 573);
-            this.ucGe_BarraEstadoInferior_Forms.Margin = new System.Windows.Forms.Padding(4);
+            this.ucGe_BarraEstadoInferior_Forms.Location = new System.Drawing.Point(0, 706);
+            this.ucGe_BarraEstadoInferior_Forms.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_BarraEstadoInferior_Forms.Name = "ucGe_BarraEstadoInferior_Forms";
-            this.ucGe_BarraEstadoInferior_Forms.Size = new System.Drawing.Size(801, 23);
+            this.ucGe_BarraEstadoInferior_Forms.Size = new System.Drawing.Size(1068, 28);
             this.ucGe_BarraEstadoInferior_Forms.TabIndex = 4;
             // 
             // panelControl1
@@ -290,53 +290,59 @@
             this.panelControl1.Controls.Add(this.txtIdMatricula);
             this.panelControl1.Controls.Add(this.txtObservacion);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 32);
+            this.panelControl1.Location = new System.Drawing.Point(0, 39);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(801, 131);
+            this.panelControl1.Size = new System.Drawing.Size(1068, 161);
             this.panelControl1.TabIndex = 5;
             // 
             // deFechaMatricula
             // 
             this.deFechaMatricula.EditValue = null;
-            this.deFechaMatricula.Location = new System.Drawing.Point(427, 43);
+            this.deFechaMatricula.Location = new System.Drawing.Point(569, 53);
+            this.deFechaMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deFechaMatricula.Name = "deFechaMatricula";
             this.deFechaMatricula.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaMatricula.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaMatricula.Size = new System.Drawing.Size(136, 20);
+            this.deFechaMatricula.Size = new System.Drawing.Size(181, 22);
             this.deFechaMatricula.TabIndex = 17;
             // 
             // lblFechaMatricula
             // 
-            this.lblFechaMatricula.Location = new System.Drawing.Point(342, 46);
+            this.lblFechaMatricula.Location = new System.Drawing.Point(456, 57);
+            this.lblFechaMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblFechaMatricula.Name = "lblFechaMatricula";
-            this.lblFechaMatricula.Size = new System.Drawing.Size(79, 13);
+            this.lblFechaMatricula.Size = new System.Drawing.Size(95, 16);
             this.lblFechaMatricula.TabIndex = 16;
             this.lblFechaMatricula.Text = "Fecha Matricula:";
             // 
             // lblEstudiante
             // 
-            this.lblEstudiante.Location = new System.Drawing.Point(8, 69);
+            this.lblEstudiante.Location = new System.Drawing.Point(11, 85);
+            this.lblEstudiante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblEstudiante.Name = "lblEstudiante";
-            this.lblEstudiante.Size = new System.Drawing.Size(55, 13);
+            this.lblEstudiante.Size = new System.Drawing.Size(64, 16);
             this.lblEstudiante.TabIndex = 15;
             this.lblEstudiante.Text = "Estudiante:";
             // 
             // lblObservacion
             // 
-            this.lblObservacion.Location = new System.Drawing.Point(8, 94);
+            this.lblObservacion.Location = new System.Drawing.Point(11, 116);
+            this.lblObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblObservacion.Name = "lblObservacion";
-            this.lblObservacion.Size = new System.Drawing.Size(64, 13);
+            this.lblObservacion.Size = new System.Drawing.Size(75, 16);
             this.lblObservacion.TabIndex = 13;
             this.lblObservacion.Text = "Observación:";
             // 
             // chkEstado
             // 
-            this.chkEstado.Location = new System.Drawing.Point(722, 66);
+            this.chkEstado.Location = new System.Drawing.Point(963, 81);
+            this.chkEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Properties.Caption = "Activo";
-            this.chkEstado.Size = new System.Drawing.Size(64, 19);
+            this.chkEstado.Size = new System.Drawing.Size(85, 21);
             this.chkEstado.TabIndex = 12;
             // 
             // lblAnulado
@@ -344,24 +350,26 @@
             this.lblAnulado.AutoSize = true;
             this.lblAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnulado.ForeColor = System.Drawing.Color.Red;
-            this.lblAnulado.Location = new System.Drawing.Point(580, 66);
+            this.lblAnulado.Location = new System.Drawing.Point(773, 81);
+            this.lblAnulado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAnulado.Name = "lblAnulado";
-            this.lblAnulado.Size = new System.Drawing.Size(136, 20);
+            this.lblAnulado.Size = new System.Drawing.Size(170, 25);
             this.lblAnulado.TabIndex = 11;
             this.lblAnulado.Text = "***ANULADO***";
             this.lblAnulado.Visible = false;
             // 
             // ucAca_Estudiante
             // 
-            this.ucAca_Estudiante.Location = new System.Drawing.Point(101, 63);
-            this.ucAca_Estudiante.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAca_Estudiante.Location = new System.Drawing.Point(135, 78);
+            this.ucAca_Estudiante.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucAca_Estudiante.Name = "ucAca_Estudiante";
-            this.ucAca_Estudiante.Size = new System.Drawing.Size(280, 26);
+            this.ucAca_Estudiante.Size = new System.Drawing.Size(373, 32);
             this.ucAca_Estudiante.TabIndex = 10;
             // 
             // cmbAnioLectivo
             // 
-            this.cmbAnioLectivo.Location = new System.Drawing.Point(104, 43);
+            this.cmbAnioLectivo.Location = new System.Drawing.Point(139, 53);
+            this.cmbAnioLectivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbAnioLectivo.Name = "cmbAnioLectivo";
             this.cmbAnioLectivo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -369,7 +377,7 @@
             this.cmbAnioLectivo.Properties.DisplayMember = "Descripcion";
             this.cmbAnioLectivo.Properties.ValueMember = "IdPeriodoLectivo";
             this.cmbAnioLectivo.Properties.View = this.searchLookUpEdit1View;
-            this.cmbAnioLectivo.Size = new System.Drawing.Size(193, 20);
+            this.cmbAnioLectivo.Size = new System.Drawing.Size(257, 22);
             this.cmbAnioLectivo.TabIndex = 5;
             // 
             // acaPeriodoLectivoInfoBindingSource
@@ -434,58 +442,65 @@
             // 
             // lblPeriodoLectivo
             // 
-            this.lblPeriodoLectivo.Location = new System.Drawing.Point(8, 46);
+            this.lblPeriodoLectivo.Location = new System.Drawing.Point(11, 57);
+            this.lblPeriodoLectivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblPeriodoLectivo.Name = "lblPeriodoLectivo";
-            this.lblPeriodoLectivo.Size = new System.Drawing.Size(60, 13);
+            this.lblPeriodoLectivo.Size = new System.Drawing.Size(70, 16);
             this.lblPeriodoLectivo.TabIndex = 4;
             this.lblPeriodoLectivo.Text = "Año Lectivo:";
             // 
             // lblCodMatricula
             // 
-            this.lblCodMatricula.Location = new System.Drawing.Point(8, 20);
+            this.lblCodMatricula.Location = new System.Drawing.Point(11, 25);
+            this.lblCodMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblCodMatricula.Name = "lblCodMatricula";
-            this.lblCodMatricula.Size = new System.Drawing.Size(58, 13);
+            this.lblCodMatricula.Size = new System.Drawing.Size(70, 16);
             this.lblCodMatricula.TabIndex = 3;
             this.lblCodMatricula.Text = "# Matricula:";
             // 
             // lblIdMatricula
             // 
-            this.lblIdMatricula.Location = new System.Drawing.Point(668, 20);
+            this.lblIdMatricula.Location = new System.Drawing.Point(891, 25);
+            this.lblIdMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblIdMatricula.Name = "lblIdMatricula";
-            this.lblIdMatricula.Size = new System.Drawing.Size(60, 13);
+            this.lblIdMatricula.Size = new System.Drawing.Size(72, 16);
             this.lblIdMatricula.TabIndex = 2;
             this.lblIdMatricula.Text = "Id Matricula:";
             // 
             // txtCodMatricula
             // 
             this.txtCodMatricula.EditValue = "";
-            this.txtCodMatricula.Location = new System.Drawing.Point(104, 17);
+            this.txtCodMatricula.Location = new System.Drawing.Point(139, 21);
+            this.txtCodMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodMatricula.Name = "txtCodMatricula";
-            this.txtCodMatricula.Size = new System.Drawing.Size(192, 20);
+            this.txtCodMatricula.Size = new System.Drawing.Size(256, 22);
             this.txtCodMatricula.TabIndex = 1;
             // 
             // txtIdMatricula
             // 
             this.txtIdMatricula.EditValue = "0";
-            this.txtIdMatricula.Location = new System.Drawing.Point(734, 13);
+            this.txtIdMatricula.Location = new System.Drawing.Point(979, 16);
+            this.txtIdMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdMatricula.Name = "txtIdMatricula";
-            this.txtIdMatricula.Size = new System.Drawing.Size(52, 20);
+            this.txtIdMatricula.Size = new System.Drawing.Size(69, 22);
             this.txtIdMatricula.TabIndex = 0;
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(104, 94);
+            this.txtObservacion.Location = new System.Drawing.Point(139, 116);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(682, 31);
+            this.txtObservacion.Size = new System.Drawing.Size(909, 38);
             this.txtObservacion.TabIndex = 14;
             // 
             // xtraTabControlMatricula
             // 
             this.xtraTabControlMatricula.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControlMatricula.Location = new System.Drawing.Point(0, 163);
+            this.xtraTabControlMatricula.Location = new System.Drawing.Point(0, 200);
+            this.xtraTabControlMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabControlMatricula.Name = "xtraTabControlMatricula";
             this.xtraTabControlMatricula.SelectedTabPage = this.xtraTabPageAsignacionDeClases;
-            this.xtraTabControlMatricula.Size = new System.Drawing.Size(801, 410);
+            this.xtraTabControlMatricula.Size = new System.Drawing.Size(1068, 506);
             this.xtraTabControlMatricula.TabIndex = 6;
             this.xtraTabControlMatricula.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageAsignacionDeClases,
@@ -506,63 +521,70 @@
             this.xtraTabPageAsignacionDeClases.Controls.Add(this.lblJornada);
             this.xtraTabPageAsignacionDeClases.Controls.Add(this.lblSede);
             this.xtraTabPageAsignacionDeClases.Controls.Add(this.ucAca_SedeJornadaSeccionCurso);
+            this.xtraTabPageAsignacionDeClases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageAsignacionDeClases.Name = "xtraTabPageAsignacionDeClases";
-            this.xtraTabPageAsignacionDeClases.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageAsignacionDeClases.Size = new System.Drawing.Size(1062, 475);
             this.xtraTabPageAsignacionDeClases.Text = "Asignación de Clases";
             // 
             // lblParalelo
             // 
-            this.lblParalelo.Location = new System.Drawing.Point(33, 154);
+            this.lblParalelo.Location = new System.Drawing.Point(44, 190);
+            this.lblParalelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblParalelo.Name = "lblParalelo";
-            this.lblParalelo.Size = new System.Drawing.Size(42, 13);
+            this.lblParalelo.Size = new System.Drawing.Size(51, 16);
             this.lblParalelo.TabIndex = 20;
             this.lblParalelo.Text = "Paralelo:";
             // 
             // lblCurso
             // 
-            this.lblCurso.Location = new System.Drawing.Point(33, 130);
+            this.lblCurso.Location = new System.Drawing.Point(44, 160);
+            this.lblCurso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblCurso.Name = "lblCurso";
-            this.lblCurso.Size = new System.Drawing.Size(32, 13);
+            this.lblCurso.Size = new System.Drawing.Size(38, 16);
             this.lblCurso.TabIndex = 19;
             this.lblCurso.Text = "Curso:";
             // 
             // lblSeccion
             // 
-            this.lblSeccion.Location = new System.Drawing.Point(33, 103);
+            this.lblSeccion.Location = new System.Drawing.Point(44, 127);
+            this.lblSeccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblSeccion.Name = "lblSeccion";
-            this.lblSeccion.Size = new System.Drawing.Size(40, 13);
+            this.lblSeccion.Size = new System.Drawing.Size(49, 16);
             this.lblSeccion.TabIndex = 18;
             this.lblSeccion.Text = "Sección:";
             // 
             // lblJornada
             // 
-            this.lblJornada.Location = new System.Drawing.Point(30, 75);
+            this.lblJornada.Location = new System.Drawing.Point(40, 92);
+            this.lblJornada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblJornada.Name = "lblJornada";
-            this.lblJornada.Size = new System.Drawing.Size(43, 13);
+            this.lblJornada.Size = new System.Drawing.Size(50, 16);
             this.lblJornada.TabIndex = 17;
             this.lblJornada.Text = "Jornada:";
             // 
             // lblSede
             // 
-            this.lblSede.Location = new System.Drawing.Point(32, 49);
+            this.lblSede.Location = new System.Drawing.Point(43, 60);
+            this.lblSede.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblSede.Name = "lblSede";
-            this.lblSede.Size = new System.Drawing.Size(28, 13);
+            this.lblSede.Size = new System.Drawing.Size(34, 16);
             this.lblSede.TabIndex = 16;
             this.lblSede.Text = "Sede:";
             // 
             // ucAca_SedeJornadaSeccionCurso
             // 
-            this.ucAca_SedeJornadaSeccionCurso.Location = new System.Drawing.Point(103, 42);
-            this.ucAca_SedeJornadaSeccionCurso.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAca_SedeJornadaSeccionCurso.Location = new System.Drawing.Point(137, 52);
+            this.ucAca_SedeJornadaSeccionCurso.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucAca_SedeJornadaSeccionCurso.Name = "ucAca_SedeJornadaSeccionCurso";
-            this.ucAca_SedeJornadaSeccionCurso.Size = new System.Drawing.Size(416, 132);
+            this.ucAca_SedeJornadaSeccionCurso.Size = new System.Drawing.Size(555, 162);
             this.ucAca_SedeJornadaSeccionCurso.TabIndex = 12;
             // 
             // xtraTabPagePadre
             // 
             this.xtraTabPagePadre.Controls.Add(this.ucAca_Familiar_x_EstudiantePadre);
+            this.xtraTabPagePadre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPagePadre.Name = "xtraTabPagePadre";
-            this.xtraTabPagePadre.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPagePadre.Size = new System.Drawing.Size(1062, 475);
             this.xtraTabPagePadre.Text = "Padre";
             // 
             // ucAca_Familiar_x_EstudiantePadre
@@ -580,19 +602,20 @@
             0});
             this.ucAca_Familiar_x_EstudiantePadre.IdParentestoFamiliar = "PADR";
             this.ucAca_Familiar_x_EstudiantePadre.Location = new System.Drawing.Point(0, 0);
-            this.ucAca_Familiar_x_EstudiantePadre.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAca_Familiar_x_EstudiantePadre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucAca_Familiar_x_EstudiantePadre.matriculaInfo = null;
             this.ucAca_Familiar_x_EstudiantePadre.Mostrar_historico = false;
             this.ucAca_Familiar_x_EstudiantePadre.Name = "ucAca_Familiar_x_EstudiantePadre";
-            this.ucAca_Familiar_x_EstudiantePadre.Size = new System.Drawing.Size(795, 382);
+            this.ucAca_Familiar_x_EstudiantePadre.Size = new System.Drawing.Size(1062, 475);
             this.ucAca_Familiar_x_EstudiantePadre.TabIndex = 0;
             this.ucAca_Familiar_x_EstudiantePadre.Visible_Page_InfoFinanciera = false;
             // 
             // xtraTabPageMadre
             // 
             this.xtraTabPageMadre.Controls.Add(this.ucAca_Familiar_x_EstudianteMadre);
+            this.xtraTabPageMadre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageMadre.Name = "xtraTabPageMadre";
-            this.xtraTabPageMadre.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageMadre.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageMadre.Text = "Madre";
             // 
             // ucAca_Familiar_x_EstudianteMadre
@@ -610,19 +633,20 @@
             0});
             this.ucAca_Familiar_x_EstudianteMadre.IdParentestoFamiliar = "MADR";
             this.ucAca_Familiar_x_EstudianteMadre.Location = new System.Drawing.Point(0, 0);
-            this.ucAca_Familiar_x_EstudianteMadre.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAca_Familiar_x_EstudianteMadre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucAca_Familiar_x_EstudianteMadre.matriculaInfo = null;
             this.ucAca_Familiar_x_EstudianteMadre.Mostrar_historico = false;
             this.ucAca_Familiar_x_EstudianteMadre.Name = "ucAca_Familiar_x_EstudianteMadre";
-            this.ucAca_Familiar_x_EstudianteMadre.Size = new System.Drawing.Size(795, 382);
+            this.ucAca_Familiar_x_EstudianteMadre.Size = new System.Drawing.Size(1062, 474);
             this.ucAca_Familiar_x_EstudianteMadre.TabIndex = 0;
             this.ucAca_Familiar_x_EstudianteMadre.Visible_Page_InfoFinanciera = false;
             // 
             // xtraTabPageRepresentanteLegal
             // 
             this.xtraTabPageRepresentanteLegal.Controls.Add(this.ucAca_Familiar_x_EstudianteRL);
+            this.xtraTabPageRepresentanteLegal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageRepresentanteLegal.Name = "xtraTabPageRepresentanteLegal";
-            this.xtraTabPageRepresentanteLegal.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageRepresentanteLegal.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageRepresentanteLegal.Text = "Representante Legal";
             // 
             // ucAca_Familiar_x_EstudianteRL
@@ -640,11 +664,11 @@
             0});
             this.ucAca_Familiar_x_EstudianteRL.IdParentestoFamiliar = "REP_LEGAL";
             this.ucAca_Familiar_x_EstudianteRL.Location = new System.Drawing.Point(0, 0);
-            this.ucAca_Familiar_x_EstudianteRL.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAca_Familiar_x_EstudianteRL.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucAca_Familiar_x_EstudianteRL.matriculaInfo = null;
             this.ucAca_Familiar_x_EstudianteRL.Mostrar_historico = true;
             this.ucAca_Familiar_x_EstudianteRL.Name = "ucAca_Familiar_x_EstudianteRL";
-            this.ucAca_Familiar_x_EstudianteRL.Size = new System.Drawing.Size(795, 382);
+            this.ucAca_Familiar_x_EstudianteRL.Size = new System.Drawing.Size(1062, 474);
             this.ucAca_Familiar_x_EstudianteRL.TabIndex = 0;
             this.ucAca_Familiar_x_EstudianteRL.Visible_Page_InfoFinanciera = false;
             this.ucAca_Familiar_x_EstudianteRL.Load += new System.EventHandler(this.ucAca_Familiar_x_EstudianteRL_Load);
@@ -652,8 +676,9 @@
             // xtraTabPageRespresentanteEco
             // 
             this.xtraTabPageRespresentanteEco.Controls.Add(this.ucAca_Familiar_x_EstudianteRE);
+            this.xtraTabPageRespresentanteEco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageRespresentanteEco.Name = "xtraTabPageRespresentanteEco";
-            this.xtraTabPageRespresentanteEco.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageRespresentanteEco.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageRespresentanteEco.Text = "Representante Economico";
             // 
             // ucAca_Familiar_x_EstudianteRE
@@ -671,11 +696,11 @@
             0});
             this.ucAca_Familiar_x_EstudianteRE.IdParentestoFamiliar = "REP_ECO";
             this.ucAca_Familiar_x_EstudianteRE.Location = new System.Drawing.Point(0, 0);
-            this.ucAca_Familiar_x_EstudianteRE.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAca_Familiar_x_EstudianteRE.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucAca_Familiar_x_EstudianteRE.matriculaInfo = null;
             this.ucAca_Familiar_x_EstudianteRE.Mostrar_historico = true;
             this.ucAca_Familiar_x_EstudianteRE.Name = "ucAca_Familiar_x_EstudianteRE";
-            this.ucAca_Familiar_x_EstudianteRE.Size = new System.Drawing.Size(795, 382);
+            this.ucAca_Familiar_x_EstudianteRE.Size = new System.Drawing.Size(1062, 474);
             this.ucAca_Familiar_x_EstudianteRE.TabIndex = 0;
             this.ucAca_Familiar_x_EstudianteRE.Visible_Page_InfoFinanciera = false;
             this.ucAca_Familiar_x_EstudianteRE.Load += new System.EventHandler(this.ucAca_Familiar_x_EstudianteRE_Load);
@@ -683,15 +708,18 @@
             // xtraTabPageDocBancRepEco
             // 
             this.xtraTabPageDocBancRepEco.Controls.Add(this.gridControl_Dco_bancario);
+            this.xtraTabPageDocBancRepEco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageDocBancRepEco.Name = "xtraTabPageDocBancRepEco";
-            this.xtraTabPageDocBancRepEco.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageDocBancRepEco.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageDocBancRepEco.Text = "Doc. Bancario Rep. Economico";
             // 
             // gridControl_Dco_bancario
             // 
             this.gridControl_Dco_bancario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_Dco_bancario.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_Dco_bancario.Location = new System.Drawing.Point(0, 0);
             this.gridControl_Dco_bancario.MainView = this.gridView_Dco_bancario;
+            this.gridControl_Dco_bancario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_Dco_bancario.Name = "gridControl_Dco_bancario";
             this.gridControl_Dco_bancario.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageComboBox1,
@@ -699,7 +727,7 @@
             this.cmb_tipo_Doc,
             this.repositoryItemCheckEdit1,
             this.cmb_forma_pago});
-            this.gridControl_Dco_bancario.Size = new System.Drawing.Size(795, 382);
+            this.gridControl_Dco_bancario.Size = new System.Drawing.Size(1062, 474);
             this.gridControl_Dco_bancario.TabIndex = 2;
             this.gridControl_Dco_bancario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Dco_bancario});
@@ -890,8 +918,9 @@
             this.xtraTabPageAcuerdos.Controls.Add(this.lblCodConvivencia);
             this.xtraTabPageAcuerdos.Controls.Add(this.lblDeclaracion);
             this.xtraTabPageAcuerdos.Controls.Add(this.chkCodigoConvivencia);
+            this.xtraTabPageAcuerdos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageAcuerdos.Name = "xtraTabPageAcuerdos";
-            this.xtraTabPageAcuerdos.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageAcuerdos.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageAcuerdos.Text = "Acuerdos";
             // 
             // groupControl1
@@ -902,17 +931,19 @@
             this.groupControl1.Controls.Add(this.rdb_No_estoy_deacuerdo_foto);
             this.groupControl1.Controls.Add(this.textBox2);
             this.groupControl1.Controls.Add(this.textBox1);
-            this.groupControl1.Location = new System.Drawing.Point(16, 78);
+            this.groupControl1.Location = new System.Drawing.Point(21, 96);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(776, 132);
+            this.groupControl1.Size = new System.Drawing.Size(1035, 162);
             this.groupControl1.TabIndex = 13;
             // 
             // rdb_Si_estoy_deacuerdo_foto
             // 
             this.rdb_Si_estoy_deacuerdo_foto.AutoSize = true;
-            this.rdb_Si_estoy_deacuerdo_foto.Location = new System.Drawing.Point(16, 24);
+            this.rdb_Si_estoy_deacuerdo_foto.Location = new System.Drawing.Point(21, 30);
+            this.rdb_Si_estoy_deacuerdo_foto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdb_Si_estoy_deacuerdo_foto.Name = "rdb_Si_estoy_deacuerdo_foto";
-            this.rdb_Si_estoy_deacuerdo_foto.Size = new System.Drawing.Size(14, 13);
+            this.rdb_Si_estoy_deacuerdo_foto.Size = new System.Drawing.Size(17, 16);
             this.rdb_Si_estoy_deacuerdo_foto.TabIndex = 11;
             this.rdb_Si_estoy_deacuerdo_foto.TabStop = true;
             this.rdb_Si_estoy_deacuerdo_foto.UseVisualStyleBackColor = true;
@@ -920,9 +951,10 @@
             // rdb_No_estoy_deacuerdo_foto
             // 
             this.rdb_No_estoy_deacuerdo_foto.AutoSize = true;
-            this.rdb_No_estoy_deacuerdo_foto.Location = new System.Drawing.Point(16, 92);
+            this.rdb_No_estoy_deacuerdo_foto.Location = new System.Drawing.Point(21, 113);
+            this.rdb_No_estoy_deacuerdo_foto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdb_No_estoy_deacuerdo_foto.Name = "rdb_No_estoy_deacuerdo_foto";
-            this.rdb_No_estoy_deacuerdo_foto.Size = new System.Drawing.Size(14, 13);
+            this.rdb_No_estoy_deacuerdo_foto.Size = new System.Drawing.Size(17, 16);
             this.rdb_No_estoy_deacuerdo_foto.TabIndex = 12;
             this.rdb_No_estoy_deacuerdo_foto.TabStop = true;
             this.rdb_No_estoy_deacuerdo_foto.UseVisualStyleBackColor = true;
@@ -931,11 +963,12 @@
             // 
             this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(36, 92);
+            this.textBox2.Location = new System.Drawing.Point(48, 113);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(713, 24);
+            this.textBox2.Size = new System.Drawing.Size(951, 30);
             this.textBox2.TabIndex = 9;
             this.textBox2.Text = "No estoy de acuerdo y no deseo que se utilicen fotos o video de ningún tipo para " +
     "ni uno de los canales anteriormente descritos.";
@@ -944,11 +977,12 @@
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(36, 24);
+            this.textBox1.Location = new System.Drawing.Point(48, 30);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(713, 50);
+            this.textBox1.Size = new System.Drawing.Size(951, 62);
             this.textBox1.TabIndex = 8;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -956,57 +990,64 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(41, 246);
+            this.textBox3.Location = new System.Drawing.Point(55, 303);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(744, 65);
+            this.textBox3.Size = new System.Drawing.Size(992, 80);
             this.textBox3.TabIndex = 10;
             this.textBox3.Text = resources.GetString("textBox3.Text");
             // 
             // lblCodConvivencia
             // 
             this.lblCodConvivencia.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblCodConvivencia.Location = new System.Drawing.Point(19, 216);
+            this.lblCodConvivencia.Location = new System.Drawing.Point(25, 266);
+            this.lblCodConvivencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblCodConvivencia.Name = "lblCodConvivencia";
-            this.lblCodConvivencia.Size = new System.Drawing.Size(126, 13);
+            this.lblCodConvivencia.Size = new System.Drawing.Size(156, 17);
             this.lblCodConvivencia.TabIndex = 5;
             this.lblCodConvivencia.Text = "Código de Convivencia";
             // 
             // lblDeclaracion
             // 
             this.lblDeclaracion.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblDeclaracion.Location = new System.Drawing.Point(19, 53);
+            this.lblDeclaracion.Location = new System.Drawing.Point(25, 65);
+            this.lblDeclaracion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblDeclaracion.Name = "lblDeclaracion";
-            this.lblDeclaracion.Size = new System.Drawing.Size(345, 13);
+            this.lblDeclaracion.Size = new System.Drawing.Size(415, 17);
             this.lblDeclaracion.TabIndex = 4;
             this.lblDeclaracion.Text = "Declaración de consentimiento de información de multimedia";
             // 
             // chkCodigoConvivencia
             // 
-            this.chkCodigoConvivencia.Location = new System.Drawing.Point(14, 244);
+            this.chkCodigoConvivencia.Location = new System.Drawing.Point(19, 300);
+            this.chkCodigoConvivencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkCodigoConvivencia.Name = "chkCodigoConvivencia";
             this.chkCodigoConvivencia.Properties.Caption = "";
-            this.chkCodigoConvivencia.Size = new System.Drawing.Size(21, 19);
+            this.chkCodigoConvivencia.Size = new System.Drawing.Size(28, 21);
             this.chkCodigoConvivencia.TabIndex = 2;
             // 
             // xtraTabPageDocumentos
             // 
             this.xtraTabPageDocumentos.Controls.Add(this.gridControlMatriculaDocumentos);
+            this.xtraTabPageDocumentos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabPageDocumentos.Name = "xtraTabPageDocumentos";
-            this.xtraTabPageDocumentos.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageDocumentos.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageDocumentos.Text = "Documentos";
             // 
             // gridControlMatriculaDocumentos
             // 
             this.gridControlMatriculaDocumentos.DataSource = this.acaMatriculaxDocumentoInfoBindingSource;
             this.gridControlMatriculaDocumentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlMatriculaDocumentos.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlMatriculaDocumentos.Location = new System.Drawing.Point(0, 0);
             this.gridControlMatriculaDocumentos.MainView = this.gridViewMatriculaDocumento;
+            this.gridControlMatriculaDocumentos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlMatriculaDocumentos.Name = "gridControlMatriculaDocumentos";
             this.gridControlMatriculaDocumentos.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Link});
-            this.gridControlMatriculaDocumentos.Size = new System.Drawing.Size(795, 382);
+            this.gridControlMatriculaDocumentos.Size = new System.Drawing.Size(1062, 474);
             this.gridControlMatriculaDocumentos.TabIndex = 0;
             this.gridControlMatriculaDocumentos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMatriculaDocumento});
@@ -1133,19 +1174,19 @@
             // xtraTabPageSistemaDual
             // 
             this.xtraTabPageSistemaDual.Controls.Add(this.xtraTabControl1);
-            this.xtraTabPageSistemaDual.Margin = new System.Windows.Forms.Padding(2);
+            this.xtraTabPageSistemaDual.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPageSistemaDual.Name = "xtraTabPageSistemaDual";
-            this.xtraTabPageSistemaDual.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabPageSistemaDual.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabPageSistemaDual.Text = "Sistema Dual";
             // 
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPageSistemaDualRepEco;
-            this.xtraTabControl1.Size = new System.Drawing.Size(795, 382);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1062, 474);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageSistemaDualRepEco});
@@ -1164,84 +1205,87 @@
             this.xtraTabPageSistemaDualRepEco.Controls.Add(this.cmbInstitucionFinanciera);
             this.xtraTabPageSistemaDualRepEco.Controls.Add(this.lblCliente);
             this.xtraTabPageSistemaDualRepEco.Controls.Add(this.ucFa_ClienteCmb1);
-            this.xtraTabPageSistemaDualRepEco.Margin = new System.Windows.Forms.Padding(2);
+            this.xtraTabPageSistemaDualRepEco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPageSistemaDualRepEco.Name = "xtraTabPageSistemaDualRepEco";
-            this.xtraTabPageSistemaDualRepEco.Size = new System.Drawing.Size(789, 354);
+            this.xtraTabPageSistemaDualRepEco.Size = new System.Drawing.Size(1056, 443);
             this.xtraTabPageSistemaDualRepEco.Text = "Representante Economico Sistema Dual";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(372, 138);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl5.Location = new System.Drawing.Point(496, 170);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(76, 13);
+            this.labelControl5.Size = new System.Drawing.Size(90, 16);
             this.labelControl5.TabIndex = 22;
             this.labelControl5.Text = "Porcentaje Dual";
             // 
             // txtPorecentajeDual
             // 
-            this.txtPorecentajeDual.Location = new System.Drawing.Point(475, 135);
+            this.txtPorecentajeDual.Location = new System.Drawing.Point(633, 166);
+            this.txtPorecentajeDual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPorecentajeDual.Name = "txtPorecentajeDual";
             this.txtPorecentajeDual.Properties.Mask.EditMask = "P0";
             this.txtPorecentajeDual.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtPorecentajeDual.Size = new System.Drawing.Size(125, 20);
+            this.txtPorecentajeDual.Size = new System.Drawing.Size(167, 22);
             this.txtPorecentajeDual.TabIndex = 21;
             // 
             // txtNumDocumentoBancario
             // 
-            this.txtNumDocumentoBancario.Location = new System.Drawing.Point(143, 100);
+            this.txtNumDocumentoBancario.Location = new System.Drawing.Point(191, 123);
+            this.txtNumDocumentoBancario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumDocumentoBancario.Name = "txtNumDocumentoBancario";
-            this.txtNumDocumentoBancario.Size = new System.Drawing.Size(457, 20);
+            this.txtNumDocumentoBancario.Size = new System.Drawing.Size(609, 22);
             this.txtNumDocumentoBancario.TabIndex = 20;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(12, 142);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl4.Location = new System.Drawing.Point(16, 175);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(81, 13);
+            this.labelControl4.Size = new System.Drawing.Size(96, 16);
             this.labelControl4.TabIndex = 19;
             this.labelControl4.Text = "Fecha Expiracion";
             // 
             // dtFechaExpiracion
             // 
             this.dtFechaExpiracion.EditValue = null;
-            this.dtFechaExpiracion.Location = new System.Drawing.Point(143, 135);
+            this.dtFechaExpiracion.Location = new System.Drawing.Point(191, 166);
+            this.dtFechaExpiracion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtFechaExpiracion.Name = "dtFechaExpiracion";
             this.dtFechaExpiracion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtFechaExpiracion.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtFechaExpiracion.Size = new System.Drawing.Size(159, 20);
+            this.dtFechaExpiracion.Size = new System.Drawing.Size(212, 22);
             this.dtFechaExpiracion.TabIndex = 18;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(14, 98);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl3.Location = new System.Drawing.Point(19, 121);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(82, 13);
+            this.labelControl3.Size = new System.Drawing.Size(98, 16);
             this.labelControl3.TabIndex = 6;
             this.labelControl3.Text = "Num. Documento";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(14, 72);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl2.Location = new System.Drawing.Point(19, 89);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(79, 13);
+            this.labelControl2.Size = new System.Drawing.Size(96, 16);
             this.labelControl2.TabIndex = 5;
             this.labelControl2.Text = "Mecanismo Pago";
             // 
             // cmbTipoMecanismoPago
             // 
-            this.cmbTipoMecanismoPago.Location = new System.Drawing.Point(143, 70);
-            this.cmbTipoMecanismoPago.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbTipoMecanismoPago.Location = new System.Drawing.Point(191, 86);
+            this.cmbTipoMecanismoPago.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbTipoMecanismoPago.Name = "cmbTipoMecanismoPago";
             this.cmbTipoMecanismoPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTipoMecanismoPago.Properties.View = this.gridView3;
-            this.cmbTipoMecanismoPago.Size = new System.Drawing.Size(457, 20);
+            this.cmbTipoMecanismoPago.Size = new System.Drawing.Size(609, 22);
             this.cmbTipoMecanismoPago.TabIndex = 4;
             // 
             // gridView3
@@ -1300,22 +1344,22 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(14, 46);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl1.Location = new System.Drawing.Point(19, 57);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(102, 13);
+            this.labelControl1.Size = new System.Drawing.Size(121, 16);
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "Institucion Financiera";
             // 
             // cmbInstitucionFinanciera
             // 
-            this.cmbInstitucionFinanciera.Location = new System.Drawing.Point(143, 43);
-            this.cmbInstitucionFinanciera.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbInstitucionFinanciera.Location = new System.Drawing.Point(191, 53);
+            this.cmbInstitucionFinanciera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbInstitucionFinanciera.Name = "cmbInstitucionFinanciera";
             this.cmbInstitucionFinanciera.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbInstitucionFinanciera.Properties.View = this.gridView2;
-            this.cmbInstitucionFinanciera.Size = new System.Drawing.Size(457, 20);
+            this.cmbInstitucionFinanciera.Size = new System.Drawing.Size(609, 22);
             this.cmbInstitucionFinanciera.TabIndex = 2;
             this.cmbInstitucionFinanciera.EditValueChanged += new System.EventHandler(this.cmbInstitucionFinanciera_EditValueChanged);
             // 
@@ -1361,29 +1405,31 @@
             // 
             // lblCliente
             // 
-            this.lblCliente.Location = new System.Drawing.Point(14, 18);
-            this.lblCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.lblCliente.Location = new System.Drawing.Point(19, 22);
+            this.lblCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(125, 13);
+            this.lblCliente.Size = new System.Drawing.Size(148, 16);
             this.lblCliente.TabIndex = 1;
             this.lblCliente.Text = "Representante Economico";
             // 
             // ucFa_ClienteCmb1
             // 
-            this.ucFa_ClienteCmb1.Location = new System.Drawing.Point(143, 9);
+            this.ucFa_ClienteCmb1.Location = new System.Drawing.Point(191, 11);
+            this.ucFa_ClienteCmb1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucFa_ClienteCmb1.Name = "ucFa_ClienteCmb1";
-            this.ucFa_ClienteCmb1.Size = new System.Drawing.Size(467, 26);
+            this.ucFa_ClienteCmb1.Size = new System.Drawing.Size(623, 32);
             this.ucFa_ClienteCmb1.TabIndex = 0;
             // 
             // FrmAcaMatricula_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 596);
+            this.ClientSize = new System.Drawing.Size(1068, 734);
             this.Controls.Add(this.xtraTabControlMatricula);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms);
             this.Controls.Add(this.ucGe_Menu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmAcaMatricula_Mant";
             this.Text = "FrmAcaMatricula_Mant";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAcaMatricula_Mant_FormClosing);
