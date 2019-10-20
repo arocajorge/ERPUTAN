@@ -19,7 +19,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <PublishUrl>C:\Users\aroca\Desktop\Publicacion\</PublishUrl>
+    <PublishUrl>\\192.168.50.1\Instalador VZEN ERP 2017\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -29,13 +29,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>\\192.168.50.1\Instalador VZEN ERP 2017\</InstallUrl>
     <ProductName>Vzen Erp 2017</ProductName>
     <PublisherName>Vzen Erp 2017</PublisherName>
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>170</ApplicationRevision>
+    <ApplicationRevision>173</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -9833,6 +9832,7 @@
     <None Include="Resources\Carpeta_16x16.png" />
     <None Include="Resources\Dinero_16x16.png" />
     <None Include="Resources\Copiar_doc_20_x_20.ico" />
+    <None Include="Resources\Candado_32x32.png" />
     <Content Include="Resources\ico_anular1.png" />
     <Content Include="Resources\ico_anular2.png" />
     <None Include="Resources\ico_anular3.png" />

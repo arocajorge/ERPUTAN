@@ -547,6 +547,19 @@ namespace Core.Erp.Business.Compras
         
         }
 
+        public bool CerrarOC(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
+        {
+            try
+            {
+                return BusOC.CerrarOC(IdEmpresa, IdSucursal, IdOrdenCompra);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public Boolean AnularDB(com_ordencompra_local_Info Info, ref  string msg)
         {
             try

@@ -404,5 +404,40 @@ namespace Core.Erp.Winform.Compras
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ucGe_Menu_Mantenimiento_x_usuario_event_delegate_beiCerrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                Info_OC = (com_ordencompra_local_consulta)gridViewOrdenCompra.GetFocusedRow();
+                
+                if (Info_OC == null)
+                {
+                    MessageBox.Show("Seleccione un registro",param.NombreEmpresa,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (Info_OC.IdEstado_cierre == "CERR")
+                {
+                    MessageBox.Show("La orden de compra "+Info_OC.Codigo+" ya se encuentra cerrada",param.NombreEmpresa,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (MessageBox.Show("¿ Está seguro que desea cerrar la orden de compra " + Info_OC.Codigo + "?", param.NombreEmpresa, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (Bus_OC.CerrarOC(Info_OC.IdEmpresa, Info_OC.IdSucursal, Info_OC.IdOrdenCompra))
+                    {
+                        Info_OC.IdEstado_cierre = "CERR";
+                        Info_OC.EstadoCierre = "Cerrado";
+                        gridControlOrdenCompra.RefreshDataSource();
+                        MessageBox.Show("Registro actualizado exitósamente", param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        //cargagrid();
+                    }    
+                }
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

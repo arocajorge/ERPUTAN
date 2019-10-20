@@ -458,7 +458,7 @@ namespace Core.Erp.Winform.Compras
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
-                        ucGe_Menu_Superior_Mant1.Enabled_btnGuardar = true;
+                        ucGe_Menu_Superior_Mant1.Visible_btnGuardar = false;
                         ucGe_Menu_Superior_Mant1.Visible_bntGuardar_y_Salir = true;
                         ucGe_Menu_Superior_Mant1.Visible_bntAnular = false;
                         this.colIco1.Visible = false;

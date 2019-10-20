@@ -80,7 +80,7 @@ namespace Core.Erp.Winform.Compras
                     return;
                 }
 
-                if (Accion != Cl_Enumeradores.eTipo_action.grabar && Accion != Cl_Enumeradores.eTipo_action.consultar && row != null)
+                if (Accion != Cl_Enumeradores.eTipo_action.grabar && Accion != Cl_Enumeradores.eTipo_action.consultar && Accion != Cl_Enumeradores.eTipo_action.duplicar)
                 {
                     var orden = bus_Orden.GetInfo(row.IdEmpresa, row.IdOrdenPedido);
                     if (orden.IdCatalogoEstado != Cl_Enumeradores.eCatalogoEstadoSolicitudPedido.EST_OP_ABI.ToString())
@@ -221,6 +221,32 @@ namespace Core.Erp.Winform.Compras
                     bus_Orden.ValidarProceso(param.IdEmpresa, row.IdOrdenPedido);
                     Buscar();
                 }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnDuplicar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                LlamarFormulario(Cl_Enumeradores.eTipo_action.duplicar);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnAnular_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                LlamarFormulario(Cl_Enumeradores.eTipo_action.Anular);
             }
             catch (Exception)
             {

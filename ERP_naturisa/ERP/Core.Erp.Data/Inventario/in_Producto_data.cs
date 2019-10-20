@@ -1913,53 +1913,32 @@ namespace Core.Erp.Data.Inventario
         {
             try
             {
-                List<in_Producto_Info> Lista;
+                List<in_Producto_Info> Lista = new List<in_Producto_Info>();
 
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
+                    string sql = "select IdEmpresa,IdProducto,pr_descripcion,IdUnidadMedida,IdUnidadMedida_Consumo ";
+                    sql += "from in_Producto where IdEmpresa = " + IdEmpresa.ToString() + " and Estado = 'A' ";
+                    
+                    
+
                     switch (Modulo)
                     {
                         case Cl_Enumeradores.eModulos.COMP:
-                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A" && q.Aparece_modu_Compras == true).Select(q => new in_Producto_Info
-                            {
-                                IdEmpresa = q.IdEmpresa,
-                                IdProducto = q.IdProducto,
-                                pr_descripcion = q.pr_descripcion,
-                                IdUnidadMedida = q.IdUnidadMedida,
-                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
-                            }).ToList();
+                            sql += " AND Aparece_modu_Compras = 1";
                             break;
                         case Cl_Enumeradores.eModulos.FAC:
-                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A" && q.Aparece_modu_Ventas == true).Select(q => new in_Producto_Info
-                            {
-                                IdEmpresa = q.IdEmpresa,
-                                IdProducto = q.IdProducto,
-                                IdUnidadMedida = q.IdUnidadMedida,
-                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo,
-                                pr_descripcion = q.pr_descripcion,
-                            }).ToList();
+                            sql += " AND Aparece_modu_Ventas = 1";
                             break;
                         case Cl_Enumeradores.eModulos.INV:
-                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A" && q.Aparece_modu_Inventario == true).Select(q => new in_Producto_Info
-                            {
-                                IdEmpresa = q.IdEmpresa,
-                                IdProducto = q.IdProducto,
-                                pr_descripcion = q.pr_descripcion,
-                                IdUnidadMedida = q.IdUnidadMedida,
-                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
-                            }).ToList();
+                            sql += " AND Aparece_modu_Inventario = 1";
                             break;
-                        default:
-                            Lista = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A").Select(q => new in_Producto_Info
-                            {
-                                IdEmpresa = q.IdEmpresa,
-                                IdProducto = q.IdProducto,
-                                pr_descripcion = q.pr_descripcion,
-                                IdUnidadMedida = q.IdUnidadMedida,
-                                IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
-                            }).ToList();
+                        default:                           
                             break;
                     }
+
+                    var result = db.Database.SqlQuery<in_Producto_Info>(sql).ToList();
+                    Lista = result;
                     
                 }
 

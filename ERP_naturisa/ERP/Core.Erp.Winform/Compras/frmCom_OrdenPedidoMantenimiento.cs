@@ -108,7 +108,10 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                CargarCombos();
+                if (Accion != Cl_Enumeradores.eTipo_action.duplicar)
+                {
+                    CargarCombos();
+
                     var solicitante = bus_solicitante.GetInfo(param.IdEmpresa, param.IdUsuario);
                     if (solicitante == null)
                         MessageBox.Show("No tiene un usuario solicitante configurado para el módulo de compras, comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -117,17 +120,17 @@ namespace Core.Erp.Winform.Compras
                         if (solicitante.IdDepartamento != null)
                         {
                             cmb_Departamento.Visible = false;
-                            lblDepartamento.Visible = false;                            
+                            lblDepartamento.Visible = false;
                         }
                         else
                         {
                             cmb_Departamento.Visible = true;
-                            lblDepartamento.Visible = true;                    
+                            lblDepartamento.Visible = true;
                         }
                         cmb_Departamento.EditValue = solicitante.IdDepartamento;
                         param.IdSolicitante = solicitante.IdSolicitante;
                     }
-                
+                }
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -150,6 +153,19 @@ namespace Core.Erp.Winform.Compras
                         col_Estado.Visible = true;
                         col_Comprador.Visible = true;
                         btnBuscarPlantilla.Text = "Compradores por familia";
+                        break;
+                    case Cl_Enumeradores.eTipo_action.duplicar:
+                        lbl_IdOrdenPedido.Visible = true;
+                        txt_IdOrdenPedido.Visible = true;
+                        uc_menu.btnGuardar.Visible = true;
+                        uc_menu.btnGuardar_y_Salir.Visible = true;
+                        uc_menu.Visible_bntAnular = false;
+                        SetInfoInControls();
+                        col_Estado.Visible = true;
+                        col_Comprador.Visible = true;
+                        btnBuscarPlantilla.Text = "Compradores por familia";
+                        Accion = Cl_Enumeradores.eTipo_action.grabar;
+                        SetAccionInControls();
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
                         lbl_IdOrdenPedido.Visible = true;
@@ -188,15 +204,31 @@ namespace Core.Erp.Winform.Compras
                 info_pedido = bus_orden.GetInfo(info_pedido.IdEmpresa, info_pedido.IdOrdenPedido);
                 if (info_pedido != null)
                 {
-                    txt_IdOrdenPedido.Text = info_pedido.IdOrdenPedido.ToString();
+                    if (Accion != Cl_Enumeradores.eTipo_action.duplicar)
+                    {
+                        txt_IdOrdenPedido.Text = info_pedido.IdOrdenPedido.ToString();
+                        txt_ObservacionGA.Text = info_pedido.ObservacionGA;
+                    }
+
                     txt_Observacion.Text = info_pedido.op_Observacion;
                     cmb_Departamento.EditValue = info_pedido.IdDepartamento;
-                    de_Fecha.DateTime = info_pedido.op_Fecha.Date;
+                    de_Fecha.DateTime = Accion != Cl_Enumeradores.eTipo_action.duplicar ? info_pedido.op_Fecha.Date : DateTime.Now.Date;
                     txt_codigo.Text = info_pedido.op_Codigo;
                     chk_EsCompraUrgente.Checked = info_pedido.EsCompraUrgente;
                     cmb_PuntoCargoCab.EditValue = info_pedido.IdPunto_cargo;
-                    txt_ObservacionGA.Text = info_pedido.ObservacionGA;
+                    
                     blst_det = new BindingList<com_OrdenPedidoDet_Info>(bus_detalle.GetList(info_pedido.IdEmpresa,info_pedido.IdOrdenPedido));
+                    if (Accion == Cl_Enumeradores.eTipo_action.duplicar)
+                    {
+                        foreach (var item in blst_det)
+                        {
+                            item.opd_EstadoProceso = "P";
+                            item.opd_CantidadApro = 0;
+                            item.Adjunto = false;
+                            item.NombreArchivo = null;
+                        }    
+                    }
+                    
                     gc_detalle.DataSource = blst_det;
                 }
             }

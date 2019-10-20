@@ -1741,7 +1741,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             try
             {
 
-                Info_Tipo_OP = new cp_orden_pago_tipo_Info();
+                Info_Tipo_OP = null;
 
                 if (cmbOrdTipPag.EditValue != null)
                 {
@@ -1776,8 +1776,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 if (Info_Tipo_OP != null)
                 {
-                    info.IdTipoCbte = Convert.ToInt32(Info_Tipo_OP.IdTipoCbte_OP);
-                    IdTipoCbte_OP = Convert.ToInt32(Info_Tipo_OP.IdTipoCbte_OP);
+                    info.IdTipoCbte = Convert.ToInt32(Info_Tipo_OP.IdTipoCbte_OP ?? 17);
+                    IdTipoCbte_OP = Convert.ToInt32(Info_Tipo_OP.IdTipoCbte_OP ?? 17);
 
                 }
 
@@ -1791,7 +1791,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 info = new ct_Cbtecble_det_Info();
                 info.IdEmpresa = param.IdEmpresa;
                 info.IdTipoCbte = IdTipoCbte_OP;
-                info.IdCtaCble = (Info_Tipo_OP.IdCtaCble_Credito == null) ? Info_Persona_Beneficiario.IdCtaCble : Info_Tipo_OP.IdCtaCble_Credito;
+                info.IdCtaCble = (Info_Persona_Beneficiario != null) ? Info_Persona_Beneficiario.IdCtaCble : info.IdCtaCble;
                 info.dc_Valor = Total_OP * -1;
                 ListDetCbteCble.Add(info);
                 UC_DiarioContPago.setDetalle(ListDetCbteCble);

@@ -53,6 +53,7 @@
             this.btnDisenioReport = new DevExpress.XtraBars.BarButtonItem();
             this.btnDescargar_Marca_Base_exter = new DevExpress.XtraBars.BarButtonItem();
             this.btn_imprimir_lote = new DevExpress.XtraBars.BarButtonItem();
+            this.beiCerrar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_Transacciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup_Cancelaciones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -121,10 +122,11 @@
             this.btn_Importar_XML,
             this.btnDisenioReport,
             this.btnDescargar_Marca_Base_exter,
-            this.btn_imprimir_lote});
+            this.btn_imprimir_lote,
+            this.beiCerrar});
             this.ribbonControl_mantenimiento.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl_mantenimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl_mantenimiento.MaxItemId = 68;
+            this.ribbonControl_mantenimiento.MaxItemId = 69;
             this.ribbonControl_mantenimiento.Name = "ribbonControl_mantenimiento";
             this.ribbonControl_mantenimiento.OptionsCustomizationForm.FormIcon = ((System.Drawing.Icon)(resources.GetObject("resource.FormIcon")));
             this.ribbonControl_mantenimiento.PageHeaderItemLinks.Add(this.btnGuardarLayoutGrid);
@@ -360,6 +362,16 @@
             this.btn_imprimir_lote.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btn_imprimir_lote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_imprimir_lote_ItemClick);
             // 
+            // beiCerrar
+            // 
+            this.beiCerrar.Caption = "Cerrar";
+            this.beiCerrar.Glyph = global::Core.Erp.Winform.Properties.Resources.Candado_32x32;
+            this.beiCerrar.Id = 68;
+            this.beiCerrar.LargeGlyph = global::Core.Erp.Winform.Properties.Resources.Candado_32x32;
+            this.beiCerrar.Name = "beiCerrar";
+            this.beiCerrar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.beiCerrar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.beiCerrar_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -389,6 +401,7 @@
             this.ribbonPageGroup_Transacciones.ItemLinks.Add(this.btn_Habilitar_Reg);
             this.ribbonPageGroup_Transacciones.ItemLinks.Add(this.btn_Importar_XML);
             this.ribbonPageGroup_Transacciones.ItemLinks.Add(this.btnDescargar_Marca_Base_exter);
+            this.ribbonPageGroup_Transacciones.ItemLinks.Add(this.beiCerrar);
             this.ribbonPageGroup_Transacciones.Name = "ribbonPageGroup_Transacciones";
             this.ribbonPageGroup_Transacciones.Text = "Transacciones";
             // 
@@ -717,6 +730,7 @@
         public DevExpress.XtraBars.BarButtonItem btnLoteChq;
         public DevExpress.XtraBars.BarButtonItem btnCancelarCuotas;
         private DevExpress.XtraBars.BarButtonItem btn_imprimir_lote;
+        private DevExpress.XtraBars.BarButtonItem beiCerrar;
 
     }
 }

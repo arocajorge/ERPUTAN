@@ -89,6 +89,8 @@ namespace Core.Erp.Winform.Controles
         public delegate void delegate_btnDisenioReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e);
         public event delegate_btnDisenioReport_ItemClick event_btnDisenioReport_ItemClick;
 
+        public delegate void delegate_beiCerrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e);
+        public event delegate_beiCerrar_ItemClick event_delegate_beiCerrar_ItemClick;
         #endregion
 
         #region Declaración de variables
@@ -149,6 +151,7 @@ namespace Core.Erp.Winform.Controles
                 event_btnDescargar_Marca_Base_exter_ItemClick += UCGe_Menu_Mantenimiento_x_usuario_event_btnDescargar_Marca_Base_exter_ItemClick;
                 event_btn_imprimir_lote_ItemClick += UCGe_Menu_Mantenimiento_x_usuario_event_btn_imprimir_lote_ItemClick;
                 this.Dock = DockStyle.Top;
+                event_delegate_beiCerrar_ItemClick += UCGe_Menu_Mantenimiento_x_usuario_event_delegate_beiCerrar_ItemClick;
             }
             catch (Exception ex)
             {
@@ -159,6 +162,11 @@ namespace Core.Erp.Winform.Controles
             }
 
 
+        }
+
+        void UCGe_Menu_Mantenimiento_x_usuario_event_delegate_beiCerrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
         }
 
         void UCGe_Menu_Mantenimiento_x_usuario_event_btn_imprimir_lote_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -512,6 +520,12 @@ namespace Core.Erp.Winform.Controles
         {
             get { return this.btnDescargar_Marca_Base_exter.Visibility; }
             set { this.btnDescargar_Marca_Base_exter.Visibility = value; }
+        }
+
+        public DevExpress.XtraBars.BarItemVisibility Visible_beiCerrar
+        {
+            get { return this.beiCerrar.Visibility; }
+            set { this.beiCerrar.Visibility = value; }
         }
 
         public DevExpress.XtraBars.BarItemVisibility Visible_btn_imprimir_lote
@@ -1492,6 +1506,20 @@ namespace Core.Erp.Winform.Controles
             try
             {
                 event_btn_imprimir_lote_ItemClick(sender, e);
+            }
+            catch (Exception ex)
+            {
+                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
+            }
+        }
+
+        private void beiCerrar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                event_delegate_beiCerrar_ItemClick(sender, e);
             }
             catch (Exception ex)
             {

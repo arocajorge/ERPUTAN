@@ -1126,5 +1126,27 @@ namespace Core.Erp.Data.Compras
                 throw new Exception(ex.ToString());
             }
         }
+
+        public bool CerrarOC(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var Entity = db.com_ordencompra_local.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdOrdenCompra == IdOrdenCompra).FirstOrDefault();
+                    if (Entity != null)
+                    {
+                        Entity.IdEstado_cierre = "CERR";
+                    }
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
