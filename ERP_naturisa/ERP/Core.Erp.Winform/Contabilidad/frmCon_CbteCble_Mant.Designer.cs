@@ -61,6 +61,8 @@
             this.lbl_descargar_excel = new System.Windows.Forms.LinkLabel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.frmConTipoCbteCbleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipocomprobante.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctCbtecbletipoInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbvwtipoComp)).BeginInit();
@@ -392,15 +394,21 @@
             this.cmb_sucursal.Name = "cmb_sucursal";
             this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
+            this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
             this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
             this.cmb_sucursal.Size = new System.Drawing.Size(617, 22);
             this.cmb_sucursal.TabIndex = 47;
             // 
             // searchLookUpEdit1View
             // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // lblEstado
@@ -435,6 +443,24 @@
             // frmConTipoCbteCbleBindingSource
             // 
             this.frmConTipoCbteCbleBindingSource.DataSource = typeof(Core.Erp.Winform.Contabilidad.frmCon_TipoCbteCble_Cons);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Sucursal";
+            this.gridColumn1.FieldName = "Su_Descripcion";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 949;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "ID";
+            this.gridColumn2.FieldName = "IdSucursal";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 267;
             // 
             // frmCon_CbteCble_Mant
             // 
@@ -496,5 +522,7 @@
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.SearchLookUpEdit cmb_sucursal;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

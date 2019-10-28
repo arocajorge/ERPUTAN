@@ -40,7 +40,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                 using (EntitiesCXP_Rpt_Naturisa saldosdeproveedor = new EntitiesCXP_Rpt_Naturisa())
                 {
                     IQueryable<vwCXP_NATU_Rpt002> select;
-
+                    saldosdeproveedor.SetCommandTimeOut(5000);
 
                     if (Filtrar_fecha_emi)
                     {

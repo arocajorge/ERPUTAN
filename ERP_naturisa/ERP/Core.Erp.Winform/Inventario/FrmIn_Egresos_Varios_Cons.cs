@@ -310,11 +310,11 @@ namespace Core.Erp.Winform.Inventario
                 fecha_hasta= ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta;
                 listEgresos = new List<in_Ing_Egr_Inven_Info>();
                 bus_IngEgr = new in_Ing_Egr_Inven_Bus();
-                listEgresos = bus_IngEgr.Get_List_Ing_Egr_Inven(param.IdEmpresa, IdSucursalIni, IdSucursalFin, IdBodegaIni, IdBodegaFin, fecha_desde, fecha_hasta);
+                listEgresos = bus_IngEgr.Get_List_Ing_Egr_Inven(param.IdEmpresa, IdSucursalIni, IdSucursalFin, IdBodegaIni, IdBodegaFin, fecha_desde, fecha_hasta,"-");
 
-                var listaEgr = listEgresos.Where(q => q.signo == "-").ToList();
+                var listaEgr = listEgresos.Where(q => q.signo == "-").ToList(); 
                 gridControl_Egresos_Varios.DataSource = null;
-                gridControl_Egresos_Varios.DataSource = listaEgr.ToList().OrderByDescending(x=> x.IdNumMovi);
+                gridControl_Egresos_Varios.DataSource = listaEgr.ToList().OrderByDescending(x => x.cm_fecha).ThenByDescending(q => q.IdNumMovi).ToList();
             }
             catch (Exception ex)
             {

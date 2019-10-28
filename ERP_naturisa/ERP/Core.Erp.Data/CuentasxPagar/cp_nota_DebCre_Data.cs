@@ -655,6 +655,7 @@ namespace Core.Erp.Data.CuentasxPagar
                                      && q.cn_Nota == secuencial 
                                      && q.DebCre == Tipo
                                      && q.IdTipoNota == IdTipoNota
+                                     && q.Estado == "A"
                                      select q;
 
                         if (result.Count() != 0)
