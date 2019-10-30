@@ -770,6 +770,7 @@ namespace Core.Erp.Data.Inventario
 
                 List<in_Producto_Info> lM = new List<in_Producto_Info>();
                 EntitiesInventario OEInventario = new EntitiesInventario();
+                OEInventario.SetCommandTimeOut(3000);
                 var select_Inventario = OEInventario.vwin_producto_x_tb_bodega.Where(C => C.IdEmpresa == IdEmpresa
                                         && C.IdSucursal == IdSucursal
                                         && IdBodega_ini <= C.IdBodega && C.IdBodega <= IdBodega_fin

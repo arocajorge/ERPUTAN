@@ -132,11 +132,11 @@ namespace Core.Erp.Data.Inventario
             try
             {
 
-               IQueryable<in_movi_inven_tipo> selectCbtecble;
+               
                 List<in_movi_inven_tipo_Info> lM = new List<in_movi_inven_tipo_Info>();
                 EntitiesInventario OECbtecble_Info = new EntitiesInventario();
                 if(IdBodega == 0) IdBodega = 1;
-                selectCbtecble = from C in OECbtecble_Info.in_movi_inven_tipo
+                var selectCbtecble = (from C in OECbtecble_Info.in_movi_inven_tipo
                                      join D in OECbtecble_Info.in_movi_inven_tipo_x_tb_bodega
                                      on new { C.IdEmpresa, C.IdMovi_inven_tipo } equals new { D.IdEmpresa, D.IdMovi_inven_tipo }
                                      where C.IdEmpresa == IdEmpresa
@@ -144,7 +144,7 @@ namespace Core.Erp.Data.Inventario
                                      && C.cm_interno.Contains(Interno)
                                      && D.IdBodega == IdBodega
                                      && D.IdSucucursal==IdSucursal
-                                     select C;
+                                     select C).ToList();
 
                 foreach (var item in selectCbtecble)
                 {
