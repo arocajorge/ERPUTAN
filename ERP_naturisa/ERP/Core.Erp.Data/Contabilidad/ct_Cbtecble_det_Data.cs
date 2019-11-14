@@ -65,49 +65,29 @@ namespace Core.Erp.Data.Contabilidad
             {
                 List<ct_Cbtecble_det_Info> lM = new List<ct_Cbtecble_det_Info>();
                 EntitiesDBConta OECbtecble_det = new EntitiesDBConta();
-                var selectCbtecble_det = from C in OECbtecble_det.ct_cbtecble_det
-                                         join Cc in OECbtecble_det.ct_centro_costo on new { C.IdEmpresa, C.IdCentroCosto } equals new { Cc.IdEmpresa, Cc.IdCentroCosto } into cen
-                                         from subquerry in cen.DefaultIfEmpty()
-                                         join Ct in OECbtecble_det.ct_plancta on new { C.IdEmpresa, C.IdCtaCble } equals new { Ct.IdEmpresa, Ct.IdCtaCble }
-                                         where C.IdEmpresa == IdEmpresa && C.IdCbteCble == IdCbteCble && C.IdTipoCbte == IdTipoCbte
-                                         select new
-                                         {
-                                             C.IdEmpresa,
-                                             C.IdTipoCbte,
-                                             C.IdCbteCble,
-                                             C.secuencia,
-                                             C.IdCtaCble,
-                                             C.IdCentroCosto,
-                                             C.IdCentroCosto_sub_centro_costo,
-                                             C.dc_Valor,
-                                             C.dc_Observacion,
-                                             subquerry.Centro_costo,
-                                             Ct.pc_Cuenta,
-                                             C.IdPunto_cargo,
-                                             C.IdPunto_cargo_grupo,
-                                             C.dc_para_conciliar 
+                OECbtecble_det.SetCommandTimeOut(5000);
 
-                                         };
-
-                foreach (var item in selectCbtecble_det)
+                var lst = OECbtecble_det.ct_cbtecble_det.Include("ct_plancta").Include("ct_centro_costo").Where(q => q.IdEmpresa == IdEmpresa && q.IdTipoCbte == IdTipoCbte && q.IdCbteCble == IdCbteCble).OrderBy(q => q.secuencia).ToList();
+                
+                foreach (var item in lst)
                 {
-                    ct_Cbtecble_det_Info Cbt = new ct_Cbtecble_det_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdTipoCbte = item.IdTipoCbte;
-                    Cbt.IdCbteCble = item.IdCbteCble;
-                    Cbt.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                    Cbt.IdCtaCble = item.IdCtaCble;
-                    Cbt.secuencia = item.secuencia;
-                    Cbt.IdCentroCosto = item.IdCentroCosto;
-                    Cbt.dc_Valor = item.dc_Valor;
-                    Cbt.dc_Observacion = item.dc_Observacion;
-                    Cbt.NomCtaCble =item.pc_Cuenta ;
-                    Cbt.NomCentroCosto=(item.Centro_costo!=null)? item.Centro_costo : "" ;
-                    Cbt.IdPunto_cargo = item.IdPunto_cargo;
-                    Cbt.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                    Cbt.IdRegistro = item.IdCentroCosto_sub_centro_costo == null ? null : item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo;
-                    Cbt.dc_para_conciliar = (item.dc_para_conciliar == null) ? false : Convert.ToBoolean(item.dc_para_conciliar);
-                    lM.Add(Cbt);
+                    lM.Add(new ct_Cbtecble_det_Info{
+                     IdEmpresa = item.IdEmpresa,
+                     IdTipoCbte = item.IdTipoCbte,
+                     IdCbteCble = item.IdCbteCble,
+                     IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                     IdCtaCble = item.IdCtaCble,
+                     secuencia = item.secuencia,
+                     IdCentroCosto = item.IdCentroCosto,
+                     dc_Valor = item.dc_Valor,
+                     dc_Observacion = item.dc_Observacion,
+                     NomCtaCble =item.ct_plancta.pc_Cuenta ,
+                     NomCentroCosto= string.IsNullOrEmpty(item.IdCentroCosto) ? null : item.ct_centro_costo.Centro_costo,
+                     IdPunto_cargo = item.IdPunto_cargo,
+                     IdPunto_cargo_grupo = item.IdPunto_cargo_grupo,
+                     IdRegistro = item.IdCentroCosto_sub_centro_costo == null ? null : item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo,
+                     dc_para_conciliar = (item.dc_para_conciliar == null) ? false : Convert.ToBoolean(item.dc_para_conciliar),
+                });
                 }
 
                 return (lM);

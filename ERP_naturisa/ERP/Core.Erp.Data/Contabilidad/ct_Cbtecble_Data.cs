@@ -497,6 +497,7 @@ namespace Core.Erp.Data.Contabilidad
                 decimal IdcbteCble = 0;
                 EntitiesDBConta OECbtecble = new EntitiesDBConta();
 
+                OECbtecble.SetCommandTimeOut(5000);
 
                 var selecte = OECbtecble.ct_cbtecble.Count(q =>q.IdEmpresa == idempresa && q.IdTipoCbte == idTipoCbte);
                              
@@ -508,10 +509,9 @@ namespace Core.Erp.Data.Contabilidad
                 else
                 {
                     OECbtecble = new EntitiesDBConta();
-                    var selectCbtecble = (from CbtCble in OECbtecble.ct_cbtecble
-                                          where CbtCble.IdEmpresa == idempresa
-                                          && CbtCble.IdTipoCbte == idTipoCbte
-                                          select CbtCble.IdCbteCble).Max();
+                    var selectCbtecble = OECbtecble.ct_cbtecble.Where(CbtCble => CbtCble.IdEmpresa == idempresa
+                                          && CbtCble.IdTipoCbte == idTipoCbte).Max(q => q.IdCbteCble);
+
                     IdcbteCble = Convert.ToDecimal(selectCbtecble.ToString()) + 1;
                 }
                 return IdcbteCble;

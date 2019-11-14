@@ -374,16 +374,16 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
-                List<vwct_plancta> selectPlancta;
+                List<ct_plancta> selectPlancta;
                 EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
                 if (Mostrar_Todo_El_Plan_cta == true)
                 {
-                    selectPlancta = OEselectPlancta.vwct_plancta.Where(C => C.IdEmpresa == IdEmpresa).ToList();
+                    selectPlancta = OEselectPlancta.ct_plancta.Include("ct_plancta2").Where(C => C.IdEmpresa == IdEmpresa).ToList();
                 }
                 else
                 {
 
-                    selectPlancta = OEselectPlancta.vwct_plancta.Where(C => C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "S").ToList();
+                    selectPlancta = OEselectPlancta.ct_plancta.Include("ct_plancta2").Where(C => C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "S").ToList();
                 }
 
 
@@ -405,7 +405,7 @@ namespace Core.Erp.Data.Contabilidad
                         pc_EsMovimiento = item.pc_EsMovimiento,
                         pc_es_flujo_efectivo = item.pc_es_flujo_efectivo,
                         pc_clave_corta = item.pc_clave_corta,
-                        CuentaPadre = item.CuentaPadre,
+                        CuentaPadre = string.IsNullOrEmpty(item.IdCtaCblePadre) ? null : item.ct_plancta2.pc_Cuenta,
                         IdTipoCtaCble = item.IdTipoCtaCble,
                         SEstado = (item.pc_Estado == "A") ? "ACTIVO" : "*ANULADO*",
                     });

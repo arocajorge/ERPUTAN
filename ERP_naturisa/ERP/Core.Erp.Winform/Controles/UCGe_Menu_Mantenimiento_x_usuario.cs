@@ -876,8 +876,8 @@ namespace Core.Erp.Winform.Controles
                 Habilitar_botones_x_usuario_x_menu();
                 Cargar_sucursal();
                 cmb_CriterioBusqueda.SelectedIndex = 0;
-                dtpFechaDesde.Value = DateTime.Now.AddMonths(-1);
-                dtpFechaHasta.Value = DateTime.Now.AddMonths(1);
+                dtpFechaDesde.Value = DateTime.Now.AddDays(-7).Date;
+                dtpFechaHasta.Value = DateTime.Now.Date;
 
             }
             catch (Exception ex)
