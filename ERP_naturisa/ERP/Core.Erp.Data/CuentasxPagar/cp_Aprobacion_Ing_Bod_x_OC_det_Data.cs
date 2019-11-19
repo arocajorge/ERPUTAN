@@ -128,7 +128,7 @@ namespace Core.Erp.Data.CuentasxPagar
 
                oEnti.SetCommandTimeOut(5000);
 
-               var Query = oEnti.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar.Where(q => q.idempresa == IdEmpresa
+               var Query = oEnti.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar.Where(q => q.IdEmpresa == IdEmpresa
                            && q.IdProveedor == IdProveedor).ToList();
 
                foreach (var item in Query)
@@ -136,9 +136,9 @@ namespace Core.Erp.Data.CuentasxPagar
                    Lst.Add(new cp_Aprobacion_Ing_Bod_x_OC_det_Info
                    {
 
-                       IdEmpresa_Ing_Egr_Inv = item.idempresa,
-                       IdSucursal_Ing_Egr_Inv = item.idsucursal,
-                       IdMovi_inven_tipo_Ing_Egr_Inv = item.idmovi_inven_tipo,
+                       IdEmpresa_Ing_Egr_Inv = item.IdEmpresa,
+                       IdSucursal_Ing_Egr_Inv = item.IdSucursal,
+                       IdMovi_inven_tipo_Ing_Egr_Inv = item.IdMovi_inven_tipo,
                        IdNumMovi_Ing_Egr_Inv = item.IdNumMovi,
                        Secuencia_Ing_Egr_Inv = item.Secuencia,
                        IdBodega = item.IdBodega,
@@ -148,18 +148,18 @@ namespace Core.Erp.Data.CuentasxPagar
                        Cantidad = item.dm_cantidad_sinConversion,
                        Costo_uni = item.mv_costo_sinConversion ?? 0,
                        //Campos para contabilizacion de Naturisa
-                       IdCategoria = item.idcategoria,
+                       IdCategoria = item.IdCategoria,
                        IdLinea = item.IdLinea,
                        IdGrupo = item.IdGrupo,
                        IdSubGrupo = item.IdSubGrupo,
                        nom_bodega = item.bo_Descripcion,
-                       nom_sucursal = item.su_descripcion,
+                       nom_sucursal = item.Su_Descripcion,
                        do_porc_des = item.do_porc_des,
                        //Campos para el diario de gastos
-                       IdCentro_Costo = item.idcentrocosto,
-                       IdCentroCosto_sub_centro_costo = item.idcentrocosto_sub_centro_costo,
-                       IdPunto_cargo_grupo = item.idpunto_cargo_grupo,
-                       IdPunto_cargo = item.idpunto_cargo,
+                       IdCentro_Costo = item.IdCentroCosto,
+                       IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                       IdPunto_cargo_grupo = item.IdPunto_cargo_grupo,
+                       IdPunto_cargo = item.IdPunto_cargo,
                        Secuencia_OC = item.Secuencia_oc,
                        IdSucursal_OC = item.IdSucursal_oc,
                        IdOrdenCompra = item.IdOrdenCompra,
@@ -168,9 +168,9 @@ namespace Core.Erp.Data.CuentasxPagar
                        //  nom_medida = item.nom_medida,
                        IdProveedor = item.IdProveedor,
                        nom_proveedor = item.pe_nombreCompleto,
-                       Dias = item.oc_Plazo,
+                       Dias = item.oc_plazo,
                        IdCtaCble_Gasto = item.IdCtaCble_Gasto,
-                       IdRegistro = item.idcentrocosto+"-"+item.idcentrocosto_sub_centro_costo,
+                       IdRegistro = item.IdCentroCosto+"-"+item.IdCentroCosto_sub_centro_costo,
                        SubTotal = item.Subtotal ?? 0,
                        valor_Iva = item.ValorIVA ?? 0,
                        Total = item.Total ?? 0,

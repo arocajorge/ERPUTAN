@@ -1189,7 +1189,7 @@ namespace Core.Erp.Data.Inventario
                         contact.IdPresentacion = Convert.ToString(prI.IdPresentacion);//15
                         contact.IdProductoTipo = prI.IdProductoTipo;//18
                         contact.IdUnidadMedida = prI.IdUnidadMedida;//19
-                        contact.IdUsuarioUltMod = (prI.IdUsuarioUltMod == null) ? "" : prI.IdUsuarioUltMod.Trim();//22
+                        contact.IdUsuarioUltMod = string.IsNullOrEmpty(prI.IdUsuario) == true ? (string.IsNullOrEmpty(prI.IdUsuarioUltMod) ? " " : prI.IdUsuarioUltMod) : " ";//22
                         contact.pr_alto = prI.pr_alto;//25
                         contact.pr_codigo = (prI.pr_codigo == null) ? Convert.ToString(contact.IdProducto) : prI.pr_codigo;//26
                         contact.pr_codigo_barra = prI.pr_codigo_barra == null ? "" : prI.pr_codigo_barra;//27

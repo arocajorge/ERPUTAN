@@ -161,6 +161,8 @@
     <Compile Include="Contabilidad_Fj\ct_punto_cargo_FJ_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_Info.cs" />
+    <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Info.cs" />
+    <Compile Include="CuentasxPagar\cp_XML_Documento_Info.cs" />
     <Compile Include="Factuarcion_CAH\fa_notaCredDeb_aca_Info.cs" />
     <Compile Include="Academico\vwAca_AnioPeriodo_Activo_Info.cs" />
     <Compile Include="Academico\vwAca_Contrato_x_Estudiante_x_Rubro_y_Beca_Info.cs" />

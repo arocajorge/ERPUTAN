@@ -493,6 +493,8 @@ namespace Core.Erp.Data.Compras
                         Estado = q.Estado,
                         TerminoPago = q.TerminoPago,
                         oc_plazo = q.oc_plazo,
+                        Fecha_UltMod = q.Fecha_UltMod,
+                        IdUsuarioUltMod = q.IdUsuarioUltMod
                     }).ToList();
                 }
 
@@ -1127,7 +1129,7 @@ namespace Core.Erp.Data.Compras
             }
         }
 
-        public bool CerrarOC(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
+        public bool CerrarOC(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra, string IdUsuarioUltMod)
         {
             try
             {
@@ -1137,6 +1139,8 @@ namespace Core.Erp.Data.Compras
                     if (Entity != null)
                     {
                         Entity.IdEstado_cierre = "CERR";
+                        Entity.IdUsuarioUltMod = IdUsuarioUltMod;
+                        Entity.Fecha_UltMod = DateTime.Now;
                     }
                     db.SaveChanges();
                 }

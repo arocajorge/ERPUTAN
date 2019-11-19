@@ -334,7 +334,11 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
-
+                if (cmb_familia.EditValue == null)
+                {
+                    MessageBox.Show("El campo familia es obligatorio", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
                 return Valido;
             }
             catch (Exception ex)
@@ -392,9 +396,9 @@ namespace Core.Erp.Winform.Inventario
                     in_producto_x_cp_proveedor_Bus pxpbus = new in_producto_x_cp_proveedor_Bus();
                     in_Producto_Composicion_Bus busComposicion = new in_Producto_Composicion_Bus();
                     in_producto_x_tb_bodega_Bus busProductoBodega = new in_producto_x_tb_bodega_Bus();
-                    
 
 
+                    Info_Producto.IdUsuario = param.IdUsuario;
                     perBu.ModificarDB(Info_Producto, ref MensajeError);
 
                     busComposicion.eliminarRegistro_x_producto(param.IdEmpresa, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);

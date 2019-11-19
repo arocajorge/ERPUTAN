@@ -139,7 +139,7 @@ namespace Core.Erp.Data.Compras
 
                         EstadoDetalle = q.EstadoDetalle,
                         CodigoOC = q.CodigoOC,
-                        su_Descripcion = q.su_Descripcion,
+                        su_Descripcion = q.Su_Descripcion,
                         ObservacionGA = q.ObservacionGA
                     }).ToList();
                     else
@@ -192,7 +192,7 @@ namespace Core.Erp.Data.Compras
 
                             EstadoDetalle = q.EstadoDetalle,
                             CodigoOC = q.CodigoOC,
-                            su_Descripcion = q.su_Descripcion,
+                            su_Descripcion = q.Su_Descripcion,
                             ObservacionGA = q.ObservacionGA
 
                         }).ToList();

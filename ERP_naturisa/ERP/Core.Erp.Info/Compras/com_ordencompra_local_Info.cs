@@ -157,5 +157,9 @@ namespace Core.Erp.Info.Compras
         public string Estado { get; set; }
         public string TerminoPago { get; set; }
         public int oc_plazo { get; set; }
+
+        public DateTime? Fecha_UltMod { get; set; }
+
+        public string IdUsuarioUltMod { get; set; }
     }
 }

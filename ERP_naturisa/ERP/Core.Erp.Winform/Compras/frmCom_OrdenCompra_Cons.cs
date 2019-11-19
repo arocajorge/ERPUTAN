@@ -423,10 +423,13 @@ namespace Core.Erp.Winform.Compras
                 }
                 if (MessageBox.Show("¿ Está seguro que desea cerrar la orden de compra " + Info_OC.Codigo + "?", param.NombreEmpresa, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (Bus_OC.CerrarOC(Info_OC.IdEmpresa, Info_OC.IdSucursal, Info_OC.IdOrdenCompra))
+                    Info_OC.IdUsuarioUltMod = param.IdUsuario;
+                    if (Bus_OC.CerrarOC(Info_OC.IdEmpresa, Info_OC.IdSucursal, Info_OC.IdOrdenCompra, param.IdUsuario))
                     {
                         Info_OC.IdEstado_cierre = "CERR";
                         Info_OC.EstadoCierre = "Cerrado";
+                        
+
                         gridControlOrdenCompra.RefreshDataSource();
                         MessageBox.Show("Registro actualizado exitósamente", param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //cargagrid();

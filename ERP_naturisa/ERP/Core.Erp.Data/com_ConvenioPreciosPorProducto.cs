@@ -30,6 +30,10 @@ namespace Core.Erp.Data
         public bool SaltaPaso3 { get; set; }
         public bool SaltoPaso4 { get; set; }
         public bool SaltoPaso5 { get; set; }
+        public string IdUsuarioCreacion { get; set; }
+        public Nullable<System.DateTime> FechaTransaccion { get; set; }
+        public string IdUsuarioModificacion { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual com_comprador com_comprador { get; set; }
         public virtual com_TerminoPago com_TerminoPago { get; set; }

@@ -547,11 +547,11 @@ namespace Core.Erp.Business.Compras
         
         }
 
-        public bool CerrarOC(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra)
+        public bool CerrarOC(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra, string IdUsuarioUltMod)
         {
             try
             {
-                return BusOC.CerrarOC(IdEmpresa, IdSucursal, IdOrdenCompra);
+                return BusOC.CerrarOC(IdEmpresa, IdSucursal, IdOrdenCompra, IdUsuarioUltMod);
             }
             catch (Exception)
             {

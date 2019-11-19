@@ -54,7 +54,7 @@ namespace Core.Erp.Data
         public string cd_DetallePorItem { get; set; }
         public string EstadoDetalle { get; set; }
         public string ObservacionGA { get; set; }
-        public string su_Descripcion { get; set; }
+        public string Su_Descripcion { get; set; }
         public string CodigoOC { get; set; }
     }
 }

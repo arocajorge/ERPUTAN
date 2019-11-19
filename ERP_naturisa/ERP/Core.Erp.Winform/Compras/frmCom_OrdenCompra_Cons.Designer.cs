@@ -55,6 +55,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOrdenCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrdenCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImgGuia)).BeginInit();
@@ -98,7 +100,9 @@
             this.colEstado_pendiente,
             this.colEn_guia,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5});
             this.gridViewOrdenCompra.CustomizationFormBounds = new System.Drawing.Rectangle(538, 416, 216, 185);
             this.gridViewOrdenCompra.GridControl = this.gridControlOrdenCompra;
             this.gridViewOrdenCompra.Images = this.imageListIconos;
@@ -339,8 +343,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2019, 9, 19, 21, 3, 58, 438);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2019, 11, 19, 21, 3, 58, 438);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2019, 11, 12, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2019, 11, 19, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
@@ -415,6 +419,18 @@
             this.panel2.Size = new System.Drawing.Size(1555, 345);
             this.panel2.TabIndex = 16;
             // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Usuario ult modificación";
+            this.gridColumn4.FieldName = "IdUsuarioUltMod";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Fecha ult modificación";
+            this.gridColumn5.FieldName = "Fecha_UltMod";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
             // frmCom_OrdenCompra_Cons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -466,5 +482,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_imprimir;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

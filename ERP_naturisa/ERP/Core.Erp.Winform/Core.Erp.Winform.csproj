@@ -443,6 +443,12 @@
     <Compile Include="Controles\UCIn_Responsable.Designer.cs">
       <DependentUpon>UCIn_Responsable.cs</DependentUpon>
     </Compile>
+    <Compile Include="CuentasxPagar\frmCP_DigitalizacionXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_DigitalizacionXML.Designer.cs">
+      <DependentUpon>frmCP_DigitalizacionXML.cs</DependentUpon>
+    </Compile>
     <Compile Include="CuentasxPagar\frmCP_OrdenGiroMantenimiento_simplificada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -454,6 +460,18 @@
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_Retenciones_masiva_sin_talonario.Designer.cs">
       <DependentUpon>frmCP_Retenciones_masiva_sin_talonario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_Consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_Consulta.Designer.cs">
+      <DependentUpon>frmCP_XML_Consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_Mantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_Mantenimiento.Designer.cs">
+      <DependentUpon>frmCP_XML_Mantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion_CAH\frmAca_Nota_Cred_Consulta.cs">
       <SubType>Form</SubType>
@@ -6482,11 +6500,20 @@
     <EmbeddedResource Include="Controles\UCIn_Responsable.resx">
       <DependentUpon>UCIn_Responsable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\frmCP_DigitalizacionXML.resx">
+      <DependentUpon>frmCP_DigitalizacionXML.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_OrdenGiroMantenimiento_simplificada.resx">
       <DependentUpon>frmCP_OrdenGiroMantenimiento_simplificada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_Retenciones_masiva_sin_talonario.resx">
       <DependentUpon>frmCP_Retenciones_masiva_sin_talonario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\frmCP_XML_Consulta.resx">
+      <DependentUpon>frmCP_XML_Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\frmCP_XML_Mantenimiento.resx">
+      <DependentUpon>frmCP_XML_Mantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion_CAH\frmAca_Nota_Cred_Consulta.resx">
       <DependentUpon>frmAca_Nota_Cred_Consulta.cs</DependentUpon>
