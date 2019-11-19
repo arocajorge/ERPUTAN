@@ -86,5 +86,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                 throw;
             }
         }
+
+        private void ucGe_Menu_Superior_Mant1_event_btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

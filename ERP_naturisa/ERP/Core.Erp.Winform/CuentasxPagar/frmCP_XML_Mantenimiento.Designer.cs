@@ -60,12 +60,12 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtTipo = new DevExpress.XtraEditors.TextEdit();
             this.txtID = new DevExpress.XtraEditors.TextEdit();
+            this.txtDireccion = new DevExpress.XtraEditors.MemoEdit();
             this.gcRetencion = new DevExpress.XtraGrid.GridControl();
             this.gvRetencion = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtDireccion = new DevExpress.XtraEditors.MemoEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIVA.Properties)).BeginInit();
@@ -84,9 +84,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEstablecimiento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcRetencion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvRetencion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -146,6 +146,7 @@
             this.ucGe_Menu_Superior_Mant1.Visible_btnImprimirSoporte = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnModificar = false;
             this.ucGe_Menu_Superior_Mant1.Visible_btnproductos = false;
+            this.ucGe_Menu_Superior_Mant1.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucGe_Menu_Superior_Mant1_event_btnSalir_Click);
             // 
             // panel1
             // 
@@ -431,6 +432,14 @@
             this.txtID.Size = new System.Drawing.Size(83, 22);
             this.txtID.TabIndex = 0;
             // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(143, 216);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Properties.ReadOnly = true;
+            this.txtDireccion.Size = new System.Drawing.Size(706, 67);
+            this.txtDireccion.TabIndex = 19;
+            // 
             // gcRetencion
             // 
             this.gcRetencion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -474,14 +483,6 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(143, 216);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Properties.ReadOnly = true;
-            this.txtDireccion.Size = new System.Drawing.Size(706, 67);
-            this.txtDireccion.TabIndex = 19;
-            // 
             // frmCP_XML_Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -512,9 +513,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEstablecimiento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTipo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcRetencion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvRetencion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDireccion.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

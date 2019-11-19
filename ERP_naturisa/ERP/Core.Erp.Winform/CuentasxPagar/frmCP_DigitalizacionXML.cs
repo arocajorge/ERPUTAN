@@ -95,7 +95,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                             Tipo = infoTributaria.Element("codDoc").Value == "01" ? "FACTURA" : "NOTA DE CREDITO",
                             emi_Ruc = infoTributaria.Element("ruc").Value,
                             emi_RazonSocial = infoTributaria.Element("razonSocial").Value,
-                            emi_NombreComercial = infoTributaria.Element("nombreComercial").Value,
+                            emi_NombreComercial = infoTributaria.Element("nombreComercial") == null ? infoTributaria.Element("razonSocial").Value : infoTributaria.Element("nombreComercial").Value,
                             ClaveAcceso = infoTributaria.Element("claveAcceso").Value,
                             
                             CodDocumento = infoTributaria.Element("codDoc").Value,
@@ -109,8 +109,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                             rec_RazonSocial = infoFactura.Element("razonSocialComprador").Value,
                             rec_Identificacion = infoFactura.Element("identificacionComprador").Value    
                         };
-                        Documento.FormaPago = infoFactura.Element("pagos").Element("pago").Element("formaPago").Value;
-                        Documento.Plazo = infoFactura.Element("pagos").Element("pago").Element("plazo") == null ? 0 : Convert.ToInt32(infoFactura.Element("pagos").Element("pago").Element("plazo").Value);
+                        Documento.FormaPago = infoFactura.Element("pagos") == null ? null : infoFactura.Element("pagos").Element("pago") == null ? null : (infoFactura.Element("pagos").Element("pago").Element("formaPago") == null ? null : infoFactura.Element("pagos").Element("pago").Element("formaPago").Value);
+                        Documento.Plazo = infoFactura.Element("pagos").Element("pago").Element("plazo") == null ? 0 : Convert.ToInt32(Convert.ToDecimal(infoFactura.Element("pagos").Element("pago").Element("plazo").Value));
 
                         var list = infoFactura.Element("totalConImpuestos").Elements("totalImpuesto")
                            .Select(element => element)
@@ -138,6 +138,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                         Documento.Comprobante = Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
                         Documento.Imagen = bus_xml.Existe(param.IdEmpresa, Documento.emi_Ruc, Documento.CodDocumento, Documento.Establecimiento, Documento.PuntoEmision, Documento.NumeroDocumento);
                         blst.Add(Documento);
+                        gcDetalle.DataSource = null;
+                        gcDetalle.DataSource = blst;
                     }
                 }
 
