@@ -365,43 +365,6 @@ BEGIN --REGISTROS DE SOLO CABECERAS DE IN_MOVI_INVE QUE TIENEN RELACION CON DIAR
 		)
 END
 
-BEGIN --MOVIMIENTOS NO CONTABILIZADO
-SELECT 'MOVIMIENTOS NO CONTABILIZADO'
-SELECT        in_Ing_Egr_Inven_det.*
-FROM            in_movi_inve_detalle INNER JOIN
-                         in_movi_inve ON in_movi_inve_detalle.IdEmpresa = in_movi_inve.IdEmpresa AND in_movi_inve_detalle.IdSucursal = in_movi_inve.IdSucursal AND in_movi_inve_detalle.IdBodega = in_movi_inve.IdBodega AND
-                          in_movi_inve_detalle.IdMovi_inven_tipo = in_movi_inve.IdMovi_inven_tipo AND in_movi_inve_detalle.IdNumMovi = in_movi_inve.IdNumMovi INNER JOIN
-                         in_movi_inven_tipo ON in_movi_inve.IdEmpresa = in_movi_inven_tipo.IdEmpresa AND in_movi_inve.IdMovi_inven_tipo = in_movi_inven_tipo.IdMovi_inven_tipo
-						 inner join in_Ing_Egr_Inven_det ON in_Ing_Egr_Inven_det.IdEmpresa_inv = in_movi_inve_detalle.IdEmpresa
-						 and in_Ing_Egr_Inven_det.IdSucursal_inv = in_movi_inve_detalle.IdSucursal
-						 and in_Ing_Egr_Inven_det.IdBodega_inv = in_movi_inve_detalle.IdBodega
-						 and in_Ing_Egr_Inven_det.IdMovi_inven_tipo_inv = in_movi_inve_detalle.IdMovi_inven_tipo
-						 and in_Ing_Egr_Inven_det.IdNumMovi_inv = in_movi_inve_detalle.IdNumMovi
-						 and in_Ing_Egr_Inven_det.secuencia_inv = in_movi_inve_detalle.Secuencia
-where in_movi_inven_tipo.Genera_Diario_Contable = 1 and not exists(
-	select IdEmpresa_inv from in_movi_inve_detalle_x_ct_cbtecble_det ct
-	where ct.IdEmpresa_inv = in_movi_inve_detalle.IdEmpresa
-	and ct.IdSucursal_inv = in_movi_inve_detalle.IdSucursal
-	and ct.IdBodega_inv = in_movi_inve_detalle.IdBodega
-	and ct.IdMovi_inven_tipo_inv = in_movi_inve_detalle.IdMovi_inven_tipo
-	and ct.IdNumMovi_inv = in_movi_inve_detalle.IdNumMovi
-)
-END
 
-BEGIN --DIARIOS QUE NO TIENEN RELACION CON INVENTARIO PERO SI DEBERIAN -- in_movi_inve_detalle_x_ct_cbtecble_det
-SELECT 'DIARIOS QUE NO TIENEN RELACION CON INVENTARIO PERO SI DEBERIAN -- in_movi_inve_detalle_x_ct_cbtecble_det'
-SELECT * FROM ct_cbtecble_det det
-WHERE EXISTS(
-		SELECT tipo.IdEmpresa FROM in_movi_inven_tipo TIPO
-		where det.IdEmpresa = tipo.IdEmpresa and det.IdTipoCbte = tipo.IdTipoCbte
-) and not exists(
-		select * from in_movi_inve_detalle_x_ct_cbtecble_det conta
-		where conta.IdEmpresa_ct = det.IdEmpresa
-		and conta.IdTipoCbte_ct = det.IdTipoCbte
-		and conta.IdCbteCble_ct = det.IdCbteCble
-		and conta.secuencia_ct = det.secuencia
-		)
-		AND det.dc_Observacion like 'Ing/Egr#%'
-END
 
 END

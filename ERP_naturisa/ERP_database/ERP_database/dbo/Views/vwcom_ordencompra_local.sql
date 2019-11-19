@@ -1,59 +1,39 @@
-﻿CREATE VIEW [dbo].[vwcom_ordencompra_local]
+﻿CREATE VIEW dbo.vwcom_ordencompra_local
 AS
-SELECT        OC.IdEmpresa, OC.IdSucursal, OC.IdOrdenCompra, OC.IdProveedor, OC.oc_NumDocumento, OC.Tipo, OC.IdTerminoPago, OC.oc_plazo, OC.oc_fecha, OC.oc_flete, 
-                         OC.oc_observacion, OC.Estado, OC.IdEstadoAprobacion_cat, OC.co_fecha_aprobacion, OC.IdUsuario_Aprueba, OC.IdUsuario_Reprue, OC.co_fechaReproba, 
-                         OC.Fecha_Transac, OC.Fecha_UltMod, OC.IdUsuarioUltMod, OC.FechaHoraAnul, OC.IdUsuarioUltAnu, OC.IdEstadoRecepcion_cat, OC.AfectaCosto, 
-                         OC.MotivoReprobacion, SUM(OCDet.do_subtotal) AS subtotal, SUM(OCDet.do_iva) AS iva, SUM(OCDet.do_total) AS total, SUM(OCDet.do_peso) AS peso, 
-                         Apr.descripcion AS ap_descripcion, REc.descripcion AS rec_descripcion, Prov.pr_nombre, dbo.tb_sucursal.Su_Descripcion, OC.IdDepartamento, OC.Solicitante, 
-                         OC.IdSolicitante, OC.IdComprador, OC.MotivoAnulacion, dbo.ro_Departamento.de_descripcion AS SDepartamento, OC.IdMotivo, OC.oc_fechaVencimiento, 
-                         dbo.com_comprador.Descripcion AS Nom_Comprador, OC.IdEstado_cierre, dbo.com_Motivo_Orden_Compra.Descripcion AS nom_motivo_OC, 
-                         dbo.com_solicitante.nom_solicitante AS Nom_Solicita, dbo.com_TerminoPago.Descripcion AS tp_descripcion, 
-                         dbo.com_estado_cierre.Descripcion AS nom_EstadoCerrado, A.En_guia
-FROM            dbo.com_ordencompra_local AS OC INNER JOIN
-                         dbo.com_ordencompra_local_det AS OCDet ON OC.IdEmpresa = OCDet.IdEmpresa AND OC.IdSucursal = OCDet.IdSucursal AND 
-                         OC.IdOrdenCompra = OCDet.IdOrdenCompra INNER JOIN
-                         dbo.cp_proveedor AS Prov ON OC.IdEmpresa = Prov.IdEmpresa AND OC.IdProveedor = Prov.IdProveedor INNER JOIN
-                         dbo.tb_sucursal ON OC.IdSucursal = dbo.tb_sucursal.IdSucursal AND OC.IdEmpresa = dbo.tb_sucursal.IdEmpresa INNER JOIN
-                         dbo.vwcom_EstadoRecibido AS REc ON OC.IdEstadoRecepcion_cat = REc.Id INNER JOIN
-                         dbo.vwcom_EstadoAprobacion AS Apr ON OC.IdEstadoAprobacion_cat = Apr.Id INNER JOIN
-                         dbo.com_comprador ON OC.IdEmpresa = dbo.com_comprador.IdEmpresa AND OC.IdComprador = dbo.com_comprador.IdComprador INNER JOIN
-                         dbo.com_estado_cierre ON OC.IdEstado_cierre = dbo.com_estado_cierre.IdEstado_cierre LEFT OUTER JOIN
-                         dbo.com_Motivo_Orden_Compra ON OC.IdEmpresa = dbo.com_Motivo_Orden_Compra.IdEmpresa AND 
-                         OC.IdMotivo = dbo.com_Motivo_Orden_Compra.IdMotivo LEFT OUTER JOIN
-                             (
-								SELECT        oc.IdEmpresa, oc.IdSucursal, oc.IdOrdenCompra, 'TIENE GUIA' AS En_guia
-								FROM            in_Guia_x_traspaso_bodega_det AS guia INNER JOIN
-								com_ordencompra_local_det AS oc ON guia.IdEmpresa_OC = oc.IdEmpresa AND guia.IdSucursal_OC = oc.IdSucursal AND 
-								guia.IdOrdenCompra_OC = oc.IdOrdenCompra AND guia.Secuencia_OC = oc.Secuencia
-								GROUP BY oc.IdEmpresa, oc.IdSucursal, oc.IdOrdenCompra
-							) AS A ON OC.IdOrdenCompra = A.IdOrdenCompra AND A.IdEmpresa = OC.IdEmpresa AND 
-                         A.IdSucursal = OC.IdSucursal LEFT OUTER JOIN
-                         dbo.com_TerminoPago ON OC.IdTerminoPago = dbo.com_TerminoPago.IdTerminoPago LEFT OUTER JOIN
-                         dbo.com_solicitante ON OC.IdEmpresa = dbo.com_solicitante.IdEmpresa AND OC.IdSolicitante = dbo.com_solicitante.IdSolicitante LEFT OUTER JOIN
-                         dbo.ro_Departamento ON OC.IdDepartamento = dbo.ro_Departamento.IdDepartamento AND OC.IdEmpresa = dbo.ro_Departamento.IdEmpresa
-GROUP BY OC.IdEmpresa, OC.IdSucursal, OC.IdOrdenCompra, OC.IdProveedor, OC.oc_NumDocumento, OC.Tipo, OC.IdTerminoPago, OC.oc_plazo, OC.oc_fecha, OC.oc_flete, 
-                         OC.oc_observacion, OC.Estado, OC.IdEstadoAprobacion_cat, OC.co_fecha_aprobacion, OC.IdUsuario_Aprueba, OC.IdUsuario_Reprue, OC.co_fechaReproba, 
-                         OC.Fecha_Transac, OC.Fecha_UltMod, OC.IdUsuarioUltMod, OC.FechaHoraAnul, OC.IdUsuarioUltAnu, OC.IdEstadoRecepcion_cat, OC.AfectaCosto, 
-                         OC.MotivoReprobacion, Apr.descripcion, REc.descripcion, Prov.pr_nombre, dbo.tb_sucursal.Su_Descripcion, OC.IdDepartamento, OC.Solicitante, OC.IdSolicitante, 
-                         OC.IdComprador, OC.MotivoAnulacion, dbo.ro_Departamento.de_descripcion, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion, 
-                         OC.IdEstado_cierre, dbo.com_Motivo_Orden_Compra.Descripcion, dbo.com_solicitante.nom_solicitante, dbo.com_TerminoPago.Descripcion, 
-                         dbo.com_estado_cierre.Descripcion, A.En_guia
+SELECT OC.IdEmpresa, OC.IdSucursal, OC.IdOrdenCompra, OC.IdProveedor, ISNULL(dbo.tb_sucursal.codigo, '') + '-' + CAST(OC.IdOrdenCompra AS varchar(20)) AS oc_NumDocumento, OC.Tipo, OC.IdTerminoPago, OC.oc_plazo, OC.oc_fecha, 
+                  OC.oc_flete, OC.oc_observacion, OC.Estado, OC.IdEstadoAprobacion_cat, OC.co_fecha_aprobacion, OC.IdUsuario_Aprueba, OC.IdUsuario_Reprue, OC.co_fechaReproba, OC.Fecha_Transac, OC.Fecha_UltMod, OC.IdUsuarioUltMod, 
+                  OC.FechaHoraAnul, OC.IdUsuarioUltAnu, OC.IdEstadoRecepcion_cat, OC.AfectaCosto, OC.MotivoReprobacion, SUM(OCDet.do_subtotal) AS subtotal, SUM(OCDet.do_iva) AS iva, SUM(OCDet.do_total) AS total, SUM(OCDet.do_peso) 
+                  AS peso, Apr.descripcion AS ap_descripcion, REc.descripcion AS rec_descripcion, Prov.pr_nombre, dbo.tb_sucursal.Su_Descripcion, OC.IdDepartamento, OC.Solicitante, OC.IdSolicitante, OC.IdComprador, OC.MotivoAnulacion, 
+                  dbo.ro_Departamento.de_descripcion AS SDepartamento, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion AS Nom_Comprador, OC.IdEstado_cierre, 
+                  dbo.com_Motivo_Orden_Compra.Descripcion AS nom_motivo_OC, dbo.com_solicitante.nom_solicitante AS Nom_Solicita, dbo.com_TerminoPago.Descripcion AS tp_descripcion, 
+                  dbo.com_estado_cierre.Descripcion AS nom_EstadoCerrado, A.En_guia
+FROM     dbo.com_ordencompra_local AS OC INNER JOIN
+                  dbo.com_ordencompra_local_det AS OCDet ON OC.IdEmpresa = OCDet.IdEmpresa AND OC.IdSucursal = OCDet.IdSucursal AND OC.IdOrdenCompra = OCDet.IdOrdenCompra INNER JOIN
+                  dbo.cp_proveedor AS Prov ON OC.IdEmpresa = Prov.IdEmpresa AND OC.IdProveedor = Prov.IdProveedor INNER JOIN
+                  dbo.tb_sucursal ON OC.IdSucursal = dbo.tb_sucursal.IdSucursal AND OC.IdEmpresa = dbo.tb_sucursal.IdEmpresa INNER JOIN
+                  dbo.vwcom_EstadoRecibido AS REc ON OC.IdEstadoRecepcion_cat = REc.Id INNER JOIN
+                  dbo.vwcom_EstadoAprobacion AS Apr ON OC.IdEstadoAprobacion_cat = Apr.Id INNER JOIN
+                  dbo.com_comprador ON OC.IdEmpresa = dbo.com_comprador.IdEmpresa AND OC.IdComprador = dbo.com_comprador.IdComprador INNER JOIN
+                  dbo.com_estado_cierre ON OC.IdEstado_cierre = dbo.com_estado_cierre.IdEstado_cierre LEFT OUTER JOIN
+                  dbo.com_Motivo_Orden_Compra ON OC.IdEmpresa = dbo.com_Motivo_Orden_Compra.IdEmpresa AND OC.IdMotivo = dbo.com_Motivo_Orden_Compra.IdMotivo LEFT OUTER JOIN
+                      (SELECT oc.IdEmpresa, oc.IdSucursal, oc.IdOrdenCompra, 'TIENE GUIA' AS En_guia
+                       FROM      dbo.in_Guia_x_traspaso_bodega_det AS guia INNER JOIN
+                                         dbo.com_ordencompra_local_det AS oc ON guia.IdEmpresa_OC = oc.IdEmpresa AND guia.IdSucursal_OC = oc.IdSucursal AND guia.IdOrdenCompra_OC = oc.IdOrdenCompra AND guia.Secuencia_OC = oc.Secuencia
+                       GROUP BY oc.IdEmpresa, oc.IdSucursal, oc.IdOrdenCompra) AS A ON OC.IdOrdenCompra = A.IdOrdenCompra AND A.IdEmpresa = OC.IdEmpresa AND A.IdSucursal = OC.IdSucursal LEFT OUTER JOIN
+                  dbo.com_TerminoPago ON OC.IdTerminoPago = dbo.com_TerminoPago.IdTerminoPago LEFT OUTER JOIN
+                  dbo.com_solicitante ON OC.IdEmpresa = dbo.com_solicitante.IdEmpresa AND OC.IdSolicitante = dbo.com_solicitante.IdSolicitante LEFT OUTER JOIN
+                  dbo.ro_Departamento ON OC.IdDepartamento = dbo.ro_Departamento.IdDepartamento AND OC.IdEmpresa = dbo.ro_Departamento.IdEmpresa
+GROUP BY OC.IdEmpresa, OC.IdSucursal, OC.IdOrdenCompra, OC.IdProveedor, dbo.tb_sucursal.codigo, OC.Tipo, OC.IdTerminoPago, OC.oc_plazo, OC.oc_fecha, OC.oc_flete, OC.oc_observacion, OC.Estado, OC.IdEstadoAprobacion_cat, 
+                  OC.co_fecha_aprobacion, OC.IdUsuario_Aprueba, OC.IdUsuario_Reprue, OC.co_fechaReproba, OC.Fecha_Transac, OC.Fecha_UltMod, OC.IdUsuarioUltMod, OC.FechaHoraAnul, OC.IdUsuarioUltAnu, OC.IdEstadoRecepcion_cat, 
+                  OC.AfectaCosto, OC.MotivoReprobacion, Apr.descripcion, REc.descripcion, Prov.pr_nombre, dbo.tb_sucursal.Su_Descripcion, OC.IdDepartamento, OC.Solicitante, OC.IdSolicitante, OC.IdComprador, OC.MotivoAnulacion, 
+                  dbo.ro_Departamento.de_descripcion, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion, OC.IdEstado_cierre, dbo.com_Motivo_Orden_Compra.Descripcion, dbo.com_solicitante.nom_solicitante, 
+                  dbo.com_TerminoPago.Descripcion, dbo.com_estado_cierre.Descripcion, A.En_guia
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_ordencompra_local';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'TopColumn = 0
-         End
-         Begin Table = "com_Motivo_Orden_Compra"
-            Begin Extent = 
-               Top = 998
-               Left = 748
-               Bottom = 1127
-               Right = 973
-            End
-            DisplayFlags = 280
-            TopColumn = 0
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N' TopColumn = 0
          End
          Begin Table = "com_estado_cierre"
             Begin Extent = 
@@ -65,12 +45,12 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'TopColumn 
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "A"
+         Begin Table = "com_Motivo_Orden_Compra"
             Begin Extent = 
-               Top = 897
-               Left = 27
-               Bottom = 1026
-               Right = 252
+               Top = 998
+               Left = 748
+               Bottom = 1127
+               Right = 973
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -105,6 +85,16 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'TopColumn 
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "A"
+            Begin Extent = 
+               Top = 1351
+               Left = 311
+               Bottom = 1514
+               Right = 529
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
       End
    End
    Begin SQLPane = 
@@ -117,14 +107,14 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'TopColumn 
       Begin ColumnWidths = 12
          Column = 1440
          Alias = 900
-         Table = 1170
+         Table = 1176
          Output = 720
          Append = 1400
          NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
+         SortType = 1356
+         SortOrder = 1416
          GroupBy = 1350
-         Filter = 1350
+         Filter = 1356
          Or = 1350
          Or = 1350
          Or = 1350
@@ -134,13 +124,15 @@ End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_ordencompra_local';
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[85] 4[4] 2[4] 3) )"
+         Configuration = "(H (1[51] 4[3] 2[41] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -274,5 +266,7 @@ Begin DesignProperties =
                Right = 263
             End
             DisplayFlags = 280
-            ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_ordencompra_local';
+           ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_ordencompra_local';
+
+
 

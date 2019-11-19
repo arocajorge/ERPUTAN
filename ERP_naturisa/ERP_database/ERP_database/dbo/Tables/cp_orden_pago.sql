@@ -20,10 +20,13 @@
     [ip]                 VARCHAR (50)  NULL,
     [IdTipoFlujo]        NUMERIC (18)  NULL,
     [Fecha_Transac]      DATETIME      NULL,
+    [IdSucursal]         INT           NULL,
     CONSTRAINT [PK_cp_orden_pago] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdOrdenPago] ASC),
     CONSTRAINT [FK_cp_orden_pago_ba_Banco_Cuenta] FOREIGN KEY ([IdEmpresa], [IdBanco]) REFERENCES [dbo].[ba_Banco_Cuenta] ([IdEmpresa], [IdBanco]),
     CONSTRAINT [FK_cp_orden_pago_cp_orden_pago_formapago] FOREIGN KEY ([IdFormaPago]) REFERENCES [dbo].[cp_orden_pago_formapago] ([IdFormaPago]),
     CONSTRAINT [FK_cp_orden_pago_cp_orden_pago_tipo] FOREIGN KEY ([IdTipo_op]) REFERENCES [dbo].[cp_orden_pago_tipo] ([IdTipo_op]),
     CONSTRAINT [FK_cp_orden_pago_tb_persona] FOREIGN KEY ([IdPersona]) REFERENCES [dbo].[tb_persona] ([IdPersona])
 );
+
+
 

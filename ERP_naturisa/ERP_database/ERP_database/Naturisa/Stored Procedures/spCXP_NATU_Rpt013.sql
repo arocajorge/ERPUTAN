@@ -297,7 +297,7 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 								ct_cbtecble_det AS det ON cab.IdEmpresa = det.IdEmpresa AND cab.IdTipoCbte = det.IdTipoCbte AND cab.IdCbteCble = det.IdCbteCble ON 
 								ct_plancta_1.IdEmpresa = det.IdEmpresa AND ct_plancta_1.IdCtaCble = det.IdCtaCble ON ct_cbtecble_tipo.IdEmpresa = cab.IdEmpresa AND 
 								ct_cbtecble_tipo.IdTipoCbte = cab.IdTipoCbte ON cp_orden_pago_cancelaciones.IdEmpresa_pago = cab.IdEmpresa AND 
-								cp_orden_pago_cancelaciones.IdTipoCbte_pago = cab.IdTipoCbte AND cp_orden_pago_cancelaciones.IdCbteCble_pago = cab.IdCbteCble and cp_orden_pago_cancelaciones.Secuencia = det.secuencia INNER JOIN
+								cp_orden_pago_cancelaciones.IdTipoCbte_pago = cab.IdTipoCbte AND cp_orden_pago_cancelaciones.IdCbteCble_pago = cab.IdCbteCble  INNER JOIN
 								ba_Cbte_Ban ON cab.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND cab.IdTipoCbte = ba_Cbte_Ban.IdTipocbte AND cab.IdCbteCble = ba_Cbte_Ban.IdCbteCble
 				WHERE        (cp_orden_pago.IdTipo_Persona = 'PROVEE') AND (cp_orden_pago.IdEmpresa = @IdEmpresa) AND (cp_orden_pago.IdEntidad between @IdProveedor_ini and @IdProveedor_fin) and cp_proveedor.IdClaseProveedor between @IdClaseProveedor_ini and @IdClaseProveedor_fin
 							 AND (ba_Cbte_Ban.cb_Fecha BETWEEN 

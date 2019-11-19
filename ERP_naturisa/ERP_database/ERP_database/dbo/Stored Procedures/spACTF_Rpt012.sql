@@ -1,4 +1,5 @@
-﻿--exec [dbo].[spACTF_Rpt012] 1, '28/02/2017', 'admin'
+﻿
+--exec [dbo].[spACTF_Rpt012] 1, '01/01/2018', 'admin'
 CREATE PROCEDURE [dbo].[spACTF_Rpt012]
 @IdEmpresa int,
 @Fecha_corte datetime,
@@ -155,3 +156,4 @@ SELECT [IdEmpresa]
   FROM [DBERP_NAT_PROD].[dbo].[Af_spACTF_Rpt012]
   where IdEmpresa = @IdEmpresa 
   and IdUsuario = @IdUsuario
+  and Af_fecha_compra <= @Fecha_corte

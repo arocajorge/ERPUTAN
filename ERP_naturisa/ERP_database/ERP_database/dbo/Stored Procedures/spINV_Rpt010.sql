@@ -158,7 +158,7 @@ SELECT * FROM (
 						over(partition by 
 						det.IdEmpresa, det.IdSucursal,det.IdBodega, det.IdProducto
 						order by det.IdEmpresa asc, det.IdSucursal asc ,det.IdBodega asc, det.IdProducto asc,cab.cm_fecha asc,det.dm_cantidad desc, det.IdNumMovi ASC,det.Secuencia ASC
-						rows unbounded preceding)) < 0.1, 0,
+						rows unbounded preceding)) < 0.01, 0,
 
 
 						(in_INV_Rpt010.Saldo_ini_cost + sum(isnull(det.mv_costo*det.dm_cantidad,0))

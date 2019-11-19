@@ -1,11 +1,14 @@
-﻿CREATE VIEW dbo.vwcom_solicitud_compra_x_items_con_saldos
+﻿CREATE VIEW [dbo].[vwcom_solicitud_compra_x_items_con_saldos]
 AS
 SELECT SC.IdEmpresa, SC.IdSucursal, SC.IdSolicitudCompra, SC.NumDocumento, SC.IdSolicitante AS IdPersona_Solicita, SC.IdDepartamento, SC.fecha, SC.plazo, SC.fecha_vtc, SC.observacion, SC.Estado, sucu.Su_Descripcion AS Sucursal, 
                   dbo.vwcom_EstadoAprobacion_sol_compra.descripcion AS nom_EstadoAprobacion, SC.IdUsuarioAprobo, SC.MotivoAprobacion, dbo.com_solicitud_compra_det.Secuencia, dbo.com_solicitud_compra_det.IdProducto, 
                   dbo.com_solicitud_compra_det.NomProducto, dbo.in_Producto.pr_codigo AS cod_producto, dbo.in_Producto.pr_descripcion AS nom_producto, dbo.com_solicitud_compra_det.IdCentroCosto, 
                   dbo.com_solicitud_compra_det.IdCentroCosto_sub_centro_costo, dbo.com_solicitud_compra_det.IdPunto_cargo_grupo, dbo.com_solicitud_compra_det.IdPunto_cargo, dbo.com_solicitud_compra_det.do_Cantidad AS cant_solicitada, 
                   dbo.com_solicitud_compra_det_aprobacion.Cantidad_aprobada, ISNULL(dbo.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra.do_CantidadPedida_Oc, 0) AS cant_aprobada_OC, 
-                  dbo.com_solicitud_compra_det.do_Cantidad - ISNULL(dbo.com_solicitud_compra_det_aprobacion.Cantidad_aprobada, 0) AS Saldo_can_SolCom, dbo.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra.IdProveedor, 
+                  
+				  dbo.com_solicitud_compra_det.do_Cantidad - ISNULL(dbo.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra.do_CantidadPedida_Oc, 0) AS Saldo_can_SolCom, 
+				  
+				  dbo.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra.IdProveedor, 
                   dbo.com_solicitud_compra_det_aprobacion.IdEstadoAprobacion, dbo.com_solicitud_compra_det_aprobacion.IdUsuarioAprueba, dbo.com_solicitud_compra_det_aprobacion.FechaHoraAprobacion, 
                   dbo.com_solicitud_compra_det_aprobacion.observacion AS observacion_Aprob, dbo.com_solicitud_compra_det_aprobacion.IdProveedor_SC, dbo.vwcom_ordencompra_local_det_x_cant_pedida_solic_compra.IdMotivo, 
                   dbo.com_solicitud_compra_det.IdUnidadMedida, SC.IdComprador, dbo.com_comprador.Descripcion AS Comprador, dbo.in_Producto.pr_ManejaIva, dbo.ct_centro_costo_sub_centro_costo.Centro_costo AS Nomsub_centro_costo, 
@@ -13,7 +16,7 @@ SELECT SC.IdEmpresa, SC.IdSucursal, SC.IdSolicitudCompra, SC.NumDocumento, SC.Id
                   dbo.com_solicitud_compra_det_aprobacion.do_subtotal, dbo.com_solicitud_compra_det_aprobacion.do_iva, dbo.com_solicitud_compra_det_aprobacion.do_total, dbo.com_solicitud_compra_det_aprobacion.do_ManejaIva, 
                   dbo.com_solicitud_compra_det_aprobacion.do_observacion, dbo.vwcom_solicitud_compra_det_x_Orden_Compra.ocd_IdEmpresa, dbo.vwcom_solicitud_compra_det_x_Orden_Compra.ocd_IdSucursal, 
                   dbo.vwcom_solicitud_compra_det_x_Orden_Compra.ocd_IdOrdenCompra, dbo.com_solicitud_compra_det_pre_aprobacion.IdEstadoAprobacion AS IdEstadoPreAprobacion, dbo.com_solicitante.nom_solicitante AS Solicitante, 
-                  dbo.ct_centro_costo.Centro_costo AS Nom_Centro_costo, dbo.com_departamento.nom_departamento AS departamento, dbo.vwin_Producto_Stock_x_Sucursal.Stock
+                  dbo.ct_centro_costo.Centro_costo AS Nom_Centro_costo, dbo.com_departamento.nom_departamento AS departamento, CAST(0 AS FLOAT) AS Stock, dbo.in_Producto.IdCod_Impuesto_Iva, sucu.IdEmpresa AS Expr1
 FROM     dbo.com_comprador RIGHT OUTER JOIN
                   dbo.com_solicitud_compra AS SC INNER JOIN
                   dbo.com_solicitud_compra_det ON SC.IdEmpresa = dbo.com_solicitud_compra_det.IdEmpresa AND SC.IdSucursal = dbo.com_solicitud_compra_det.IdSucursal AND 
@@ -27,8 +30,6 @@ FROM     dbo.com_comprador RIGHT OUTER JOIN
                   dbo.com_solicitante ON SC.IdEmpresa = dbo.com_solicitante.IdEmpresa AND SC.IdSolicitante = dbo.com_solicitante.IdSolicitante ON dbo.com_comprador.IdEmpresa = SC.IdEmpresa AND 
                   dbo.com_comprador.IdComprador = SC.IdComprador LEFT OUTER JOIN
                   dbo.tb_sucursal AS sucu ON SC.IdEmpresa = sucu.IdEmpresa AND SC.IdSucursal = sucu.IdSucursal LEFT OUTER JOIN
-                  dbo.vwin_Producto_Stock_x_Sucursal ON dbo.com_solicitud_compra_det.IdEmpresa = dbo.vwin_Producto_Stock_x_Sucursal.IdEmpresa AND 
-                  dbo.com_solicitud_compra_det.IdSucursal = dbo.vwin_Producto_Stock_x_Sucursal.IdSucursal AND dbo.com_solicitud_compra_det.IdProducto = dbo.vwin_Producto_Stock_x_Sucursal.IdProducto LEFT OUTER JOIN
                   dbo.ct_centro_costo ON dbo.com_solicitud_compra_det.IdEmpresa = dbo.ct_centro_costo.IdEmpresa AND dbo.com_solicitud_compra_det.IdCentroCosto = dbo.ct_centro_costo.IdCentroCosto LEFT OUTER JOIN
                   dbo.com_solicitud_compra_det_pre_aprobacion ON dbo.com_solicitud_compra_det.IdEmpresa = dbo.com_solicitud_compra_det_pre_aprobacion.IdEmpresa AND 
                   dbo.com_solicitud_compra_det.IdSucursal = dbo.com_solicitud_compra_det_pre_aprobacion.IdSucursal_SC AND 
@@ -51,28 +52,18 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @leve
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'ottom = 945
-               Right = 1484
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'    Bottom = 210
+               Right = 1590
             End
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "com_departamento"
+         Begin Table = "sucu"
             Begin Extent = 
-               Top = 930
-               Left = 38
-               Bottom = 1060
-               Right = 247
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "vwin_Producto_Stock_x_Sucursal"
-            Begin Extent = 
-               Top = 18
-               Left = 952
-               Bottom = 198
-               Right = 1161
+               Top = 343
+               Left = 1024
+               Bottom = 473
+               Right = 1254
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -179,6 +170,8 @@ End
 
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
@@ -247,36 +240,26 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = -360
+         Top = 0
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "com_solicitante"
+         Begin Table = "com_comprador"
             Begin Extent = 
-               Top = 80
-               Left = 1381
-               Bottom = 210
-               Right = 1590
+               Top = 446
+               Left = 1363
+               Bottom = 576
+               Right = 1572
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "SC"
             Begin Extent = 
-               Top = 331
-               Left = 730
-               Bottom = 461
-               Right = 939
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "sucu"
-            Begin Extent = 
-               Top = 343
-               Left = 1024
-               Bottom = 473
-               Right = 1254
+               Top = 38
+               Left = 958
+               Bottom = 168
+               Right = 1167
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -291,12 +274,12 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "com_comprador"
+         Begin Table = "com_departamento"
             Begin Extent = 
-               Top = 446
-               Left = 1363
-               Bottom = 576
-               Right = 1572
+               Top = 930
+               Left = 38
+               Bottom = 1060
+               Right = 247
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -313,9 +296,21 @@ Begin DesignProperties =
          End
          Begin Table = "com_solicitud_compra_det_aprobacion"
             Begin Extent = 
-               Top = 815
-               Left = 1221
-               B', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_solicitud_compra_x_items_con_saldos';
+               Top = 609
+               Left = 705
+               Bottom = 739
+               Right = 968
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "com_solicitante"
+            Begin Extent = 
+               Top = 80
+               Left = 1381
+           ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_solicitud_compra_x_items_con_saldos';
+
+
 
 
 

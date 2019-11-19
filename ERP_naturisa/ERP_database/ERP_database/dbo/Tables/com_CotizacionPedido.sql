@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[com_CotizacionPedido] (
+    [IdEmpresa]               INT           NOT NULL,
+    [IdCotizacion]            NUMERIC (18)  NOT NULL,
+    [IdSucursal]              INT           NOT NULL,
+    [IdProveedor]             NUMERIC (18)  NOT NULL,
+    [IdTerminoPago]           VARCHAR (25)  NOT NULL,
+    [cp_Fecha]                DATE          NOT NULL,
+    [cp_Plazo]                INT           NOT NULL,
+    [cp_PlazoEntrega]         INT           NOT NULL,
+    [cp_Observacion]          VARCHAR (MAX) NULL,
+    [cp_ObservacionAdicional] VARCHAR (MAX) NULL,
+    [IdComprador]             NUMERIC (18)  NOT NULL,
+    [IdSolicitante]           NUMERIC (18)  NOT NULL,
+    [IdDepartamento]          NUMERIC (18)  NOT NULL,
+    [EstadoJC]                VARCHAR (1)   NOT NULL,
+    [EstadoGA]                VARCHAR (1)   NOT NULL,
+    [oc_IdOrdenCompra]        INT           NULL,
+    [IdUsuarioJC]             VARCHAR (50)  NULL,
+    [FechaJC]                 DATETIME      NULL,
+    [IdOrdenPedido]           NUMERIC (18)  NULL,
+    CONSTRAINT [PK_com_CotizacionPedido] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdCotizacion] ASC),
+    CONSTRAINT [FK_com_CotizacionPedido_com_departamento] FOREIGN KEY ([IdEmpresa], [IdDepartamento]) REFERENCES [dbo].[com_departamento] ([IdEmpresa], [IdDepartamento]),
+    CONSTRAINT [FK_com_CotizacionPedido_com_TerminoPago] FOREIGN KEY ([IdTerminoPago]) REFERENCES [dbo].[com_TerminoPago] ([IdTerminoPago]),
+    CONSTRAINT [FK_com_CotizacionPedido_cp_proveedor] FOREIGN KEY ([IdEmpresa], [IdProveedor]) REFERENCES [dbo].[cp_proveedor] ([IdEmpresa], [IdProveedor]),
+    CONSTRAINT [FK_com_CotizacionPedido_tb_sucursal] FOREIGN KEY ([IdEmpresa], [IdSucursal]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal])
+);
+

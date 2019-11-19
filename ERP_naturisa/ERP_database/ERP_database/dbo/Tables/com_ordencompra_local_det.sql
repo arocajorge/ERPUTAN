@@ -23,6 +23,7 @@
     [IdUnidadMedida]                 VARCHAR (25)   NOT NULL,
     [Por_Iva]                        FLOAT (53)     NOT NULL,
     [IdCod_Impuesto]                 VARCHAR (25)   NOT NULL,
+    [IdSucursalDestino]              INT            NULL,
     CONSTRAINT [PK_com_ordencompra_local_det] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdSucursal] ASC, [IdOrdenCompra] ASC, [Secuencia] ASC),
     CONSTRAINT [FK_com_ordencompra_local_det_com_ordencompra_local] FOREIGN KEY ([IdEmpresa], [IdSucursal], [IdOrdenCompra]) REFERENCES [dbo].[com_ordencompra_local] ([IdEmpresa], [IdSucursal], [IdOrdenCompra]),
     CONSTRAINT [FK_com_ordencompra_local_det_ct_centro_costo] FOREIGN KEY ([IdEmpresa], [IdCentroCosto]) REFERENCES [dbo].[ct_centro_costo] ([IdEmpresa], [IdCentroCosto]),
@@ -31,6 +32,9 @@
     CONSTRAINT [FK_com_ordencompra_local_det_ct_punto_cargo_grupo] FOREIGN KEY ([IdEmpresa], [IdPunto_cargo_grupo]) REFERENCES [dbo].[ct_punto_cargo_grupo] ([IdEmpresa], [IdPunto_cargo_grupo]),
     CONSTRAINT [FK_com_ordencompra_local_det_in_Producto] FOREIGN KEY ([IdEmpresa], [IdProducto]) REFERENCES [dbo].[in_Producto] ([IdEmpresa], [IdProducto]),
     CONSTRAINT [FK_com_ordencompra_local_det_in_UnidadMedida] FOREIGN KEY ([IdUnidadMedida]) REFERENCES [dbo].[in_UnidadMedida] ([IdUnidadMedida]),
-    CONSTRAINT [FK_com_ordencompra_local_det_tb_sis_Impuesto] FOREIGN KEY ([IdCod_Impuesto]) REFERENCES [dbo].[tb_sis_Impuesto] ([IdCod_Impuesto])
+    CONSTRAINT [FK_com_ordencompra_local_det_tb_sis_Impuesto] FOREIGN KEY ([IdCod_Impuesto]) REFERENCES [dbo].[tb_sis_Impuesto] ([IdCod_Impuesto]),
+    CONSTRAINT [FK_com_ordencompra_local_det_tb_sucursal] FOREIGN KEY ([IdEmpresa], [IdSucursalDestino]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal])
 );
+
+
 

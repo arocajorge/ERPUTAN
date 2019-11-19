@@ -15,7 +15,7 @@
     [pe_telefonoInter]           VARCHAR (50)  NULL,
     [pe_telfono_Contacto]        VARCHAR (50)  NULL,
     [pe_celular]                 VARCHAR (50)  NULL,
-    [pe_correo]                  VARCHAR (100) NULL,
+    [pe_correo]                  VARCHAR (MAX) NULL,
     [pe_fax]                     VARCHAR (50)  NULL,
     [pe_casilla]                 VARCHAR (50)  NULL,
     [pe_sexo]                    VARCHAR (25)  NOT NULL,
@@ -44,6 +44,8 @@
     CONSTRAINT [FK_tb_persona_tb_Catalogo5] FOREIGN KEY ([pe_Naturaleza]) REFERENCES [dbo].[tb_Catalogo] ([CodCatalogo]),
     CONSTRAINT [FK_tb_persona_tb_Catalogo6] FOREIGN KEY ([IdTipoCta_acreditacion_cat]) REFERENCES [dbo].[tb_Catalogo] ([CodCatalogo])
 );
+
+
 
 
 GO

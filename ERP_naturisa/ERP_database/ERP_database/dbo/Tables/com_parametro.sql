@@ -1,12 +1,23 @@
 ﻿CREATE TABLE [dbo].[com_parametro] (
-    [IdEmpresa]                    INT          NOT NULL,
-    [IdEstadoAprobacion_OC]        VARCHAR (25) NOT NULL,
-    [IdMovi_inven_tipo_OC]         INT          NOT NULL,
-    [IdEstadoAnulacion_OC]         VARCHAR (25) NOT NULL,
-    [IdMovi_inven_tipo_dev_compra] INT          NOT NULL,
-    [IdEstadoAprobacion_SolCompra] VARCHAR (25) NOT NULL,
-    [IdSucursal_x_Aprob_x_SolComp] INT          NOT NULL,
-    [IdEstado_cierre]              VARCHAR (25) NOT NULL,
+    [IdEmpresa]                    INT           NOT NULL,
+    [IdEstadoAprobacion_OC]        VARCHAR (25)  NOT NULL,
+    [IdMovi_inven_tipo_OC]         INT           NOT NULL,
+    [IdEstadoAnulacion_OC]         VARCHAR (25)  NOT NULL,
+    [IdMovi_inven_tipo_dev_compra] INT           NOT NULL,
+    [IdEstadoAprobacion_SolCompra] VARCHAR (25)  NOT NULL,
+    [IdSucursal_x_Aprob_x_SolComp] INT           NOT NULL,
+    [IdEstado_cierre]              VARCHAR (25)  NOT NULL,
+    [UbicacionArchivosPedido]      VARCHAR (500) NULL,
+    [Correo]                       VARCHAR (500) NULL,
+    [Contrasenia]                  VARCHAR (500) NULL,
+    [Dominio]                      VARCHAR (500) NULL,
+    [PemitirSSL]                   BIT           NULL,
+    [CorreosCopia]                 VARCHAR (MAX) NULL,
+    [FileUsuario]                  VARCHAR (500) NULL,
+    [FileContrasenia]              VARCHAR (500) NULL,
+    [FileDominio]                  VARCHAR (500) NULL,
+    [Asunto]                       VARCHAR (MAX) NULL,
+    [CuerpoCorreo]                 VARCHAR (MAX) NULL,
     CONSTRAINT [PK_com_parametro] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC),
     CONSTRAINT [FK_com_parametro_com_catalogo] FOREIGN KEY ([IdEstadoAprobacion_OC]) REFERENCES [dbo].[com_catalogo] ([IdCatalogocompra]),
     CONSTRAINT [FK_com_parametro_com_catalogo1] FOREIGN KEY ([IdEstadoAnulacion_OC]) REFERENCES [dbo].[com_catalogo] ([IdCatalogocompra]),
@@ -17,4 +28,6 @@
     CONSTRAINT [FK_com_parametro_tb_empresa] FOREIGN KEY ([IdEmpresa]) REFERENCES [dbo].[tb_empresa] ([IdEmpresa]),
     CONSTRAINT [FK_com_parametro_tb_sucursal] FOREIGN KEY ([IdEmpresa], [IdSucursal_x_Aprob_x_SolComp]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal])
 );
+
+
 

@@ -11,6 +11,9 @@
     [Nombre]                      VARCHAR (50)  NULL,
     [ExigirDirectivaContrasenia]  BIT           NULL,
     [CambiarContraseniaSgtSesion] BIT           NULL,
+    [Correo]                      VARCHAR (500) NULL,
     CONSTRAINT [PK_seg_usuario] PRIMARY KEY CLUSTERED ([IdUsuario] ASC)
 );
+
+
 

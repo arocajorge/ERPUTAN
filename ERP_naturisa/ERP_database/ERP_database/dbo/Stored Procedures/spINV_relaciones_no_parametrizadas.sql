@@ -19,10 +19,11 @@ FROM     dbo.in_movi_inve_detalle AS det LEFT OUTER JOIN
                   dbo.ct_centro_costo AS cen ON cen.IdEmpresa = det.IdEmpresa AND cen.IdCentroCosto = det.IdCentroCosto INNER JOIN
                   dbo.ct_centro_costo_sub_centro_costo AS sub ON sub.IdEmpresa = det.IdEmpresa AND sub.IdCentroCosto = det.IdCentroCosto AND sub.IdCentroCosto_sub_centro_costo = det.IdCentroCosto_sub_centro_costo INNER JOIN
                   dbo.in_movi_inve AS cab ON cab.IdEmpresa = det.IdEmpresa AND cab.IdSucursal = det.IdSucursal AND cab.IdMovi_inven_tipo = det.IdMovi_inven_tipo AND cab.IdNumMovi = det.IdNumMovi AND det.IdBodega = cab.IdBodega
-where det.dm_cantidad < 0 and det.IdEmpresa = @IdEmpresa and det.IdCentroCosto_sub_centro_costo is not null
+where --det.dm_cantidad < 0 and 
+det.IdEmpresa = @IdEmpresa and det.IdCentroCosto_sub_centro_costo is not null
 and cab.cm_fecha between @Fecha_ini and @Fecha_fin
 and not exists(
-select * from in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble f
+select f.IdEmpresa from in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble f
 where f.IdEmpresa = det.IdEmpresa
 and f.IdCategoria = pro.IdCategoria
 and f.IdLinea = pro.IdLinea

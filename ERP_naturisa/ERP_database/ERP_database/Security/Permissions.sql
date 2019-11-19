@@ -1,0 +1,8 @@
+﻿DENY VIEW DEFINITION
+    ON SCHEMA::[sys] TO [db_views_nat2020];
+
+
+GO
+DENY VIEW DEFINITION
+    ON SCHEMA::[INFORMATION_SCHEMA] TO [db_views_nat2020];
+

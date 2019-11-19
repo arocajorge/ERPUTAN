@@ -1,6 +1,4 @@
-﻿-- exec  [dbo].[spCON_Mayorizar_x_fecha_corte] 1,'01/01/2017','31/03/2017','',0,0,1,0,0,'admin'
-
-
+﻿-- exec  [dbo].[spCON_Mayorizar_x_fecha_corte] 1,'01/10/2018','31/10/2018','',0,0,0,0,0,'admin'
 CREATE proc [dbo].[spCON_Mayorizar_x_fecha_corte] 
 (
  @i_IdEmpresa int
@@ -18,7 +16,7 @@ as
 
 
 
-
+declare @Anio int = year(@i_Fecha_Fin)
 
 /*
 
@@ -186,13 +184,18 @@ from 		(
 							FROM         ct_cbtecble AS A INNER JOIN
 							ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 							ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
-							ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+							ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto 
+							inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
+
 							WHERE A.IdEmpresa=@i_IdEmpresa
 							and A.cb_Fecha < @i_Fecha_Ini
 							and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
 							and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 							and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
 							and B.dc_Valor>0 --- suma de debitos
+							
+							AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
+
 							group by A.IdEmpresa, D.IdCtaCble	, D.IdCtaCblePadre, B.IdCentroCosto	, D.pc_Naturaleza
 
 							
@@ -220,12 +223,15 @@ from 		(
 							ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 							ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
 							ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+							inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
+
 							WHERE A.IdEmpresa=@i_IdEmpresa
 							and A.cb_Fecha < @i_Fecha_Ini
 							and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
 							and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 							and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
 							and B.dc_Valor<0 --- suma de credito
+							AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 							group by A.IdEmpresa, D.IdCtaCble	, D.IdCtaCblePadre, B.IdCentroCosto	, D.pc_Naturaleza
 
 
@@ -254,11 +260,13 @@ from 		(
 							ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 							ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
 							ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+							inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 							WHERE A.IdEmpresa=@i_IdEmpresa
 							and A.cb_Fecha < @i_Fecha_Ini
 							and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
 							and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 							and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
+							AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 							group by A.IdEmpresa, D.IdCtaCble	, D.IdCtaCblePadre, B.IdCentroCosto	, D.pc_Naturaleza
 
 
@@ -285,13 +293,16 @@ from 		(
 						ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble INNER JOIN
 						ct_grupocble ON D.IdGrupoCble = ct_grupocble.IdGrupoCble LEFT OUTER JOIN
 						ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+						inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE        (ct_grupocble.gc_estado_financiero = 'ER')
 					AND A.IdEmpresa = @i_IdEmpresa
 					and CAST(A.cb_Fecha as date) < @i_Fecha_Ini
 					and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
 					and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 					and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
+					AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 					group by A.IdEmpresa
+
 
 					
 					) A
@@ -317,12 +328,14 @@ from 		(
 					ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 					ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
 					ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+					inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE A.IdEmpresa = @i_IdEmpresa
 					and CAST(A.cb_Fecha as date) between @i_Fecha_Ini and @i_Fecha_Fin
 					and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
 					and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 					and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
 					and B.dc_Valor>0 --- suma de debitos
+					AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 					group by A.IdEmpresa, D.IdCtaCble	, D.IdCtaCblePadre, B.IdCentroCosto	, D.pc_Naturaleza
 
 					union all
@@ -335,6 +348,7 @@ from 		(
 					ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 					ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
 					ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+					inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE A.IdEmpresa = @i_IdEmpresa
 					and year(A.cb_Fecha ) =year( @i_Fecha_Fin)
 					and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
@@ -343,6 +357,7 @@ from 		(
 					and B.dc_Valor>0 --- suma de debitos
 					and B.IdTipoCbte=@w_IdTipoCbte_AsientoCierre_Anual  -- considero el asiento de cierre pero lo multiplico x negativo para q el efecto sea contrario
 					and @i_Considerar_Asiento_cierre_anual=0 -- logica negativa por q ya esta en el querry anterior 
+					AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 					group by A.IdEmpresa, D.IdCtaCble	, D.IdCtaCblePadre, B.IdCentroCosto	, D.pc_Naturaleza
 
 				) as  A
@@ -366,12 +381,14 @@ from 		(
 					ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 					ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
 					ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+					inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE A.IdEmpresa=@i_IdEmpresa
 					and CAST(A.cb_Fecha as date) between @i_Fecha_Ini and @i_Fecha_Fin
 					and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
 					and isnull(IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 					and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
 					and B.dc_Valor<0 --- suma de credito
+					AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 					group by A.IdEmpresa, D.IdCtaCble	, D.IdCtaCblePadre, B.IdCentroCosto	, D.pc_Naturaleza
 
 
@@ -385,6 +402,7 @@ from 		(
 					ct_cbtecble_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdTipoCbte = B.IdTipoCbte AND A.IdCbteCble = B.IdCbteCble INNER JOIN
 					ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble LEFT OUTER JOIN
 					ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+					inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE A.IdEmpresa=@i_IdEmpresa
 					and year(A.cb_Fecha) =year(@i_Fecha_Fin)
 					and isnull(B.IdCentroCosto,'') like '%' + @i_IdCentroCosto + '%' 
@@ -418,6 +436,7 @@ from 		(
 						ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble INNER JOIN
 						ct_grupocble ON D.IdGrupoCble = ct_grupocble.IdGrupoCble LEFT OUTER JOIN
 						ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+						inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE        (ct_grupocble.gc_estado_financiero = 'ER')
 					AND A.IdEmpresa = @i_IdEmpresa
 					and CAST(A.cb_Fecha as date) between @i_Fecha_Ini and @i_Fecha_Fin
@@ -425,6 +444,7 @@ from 		(
 					and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 					and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
 					and B.dc_Valor>0 --- suma de debitos
+					AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 					group by A.IdEmpresa
 
 
@@ -450,6 +470,7 @@ from 		(
 						ct_plancta AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdCtaCble = D.IdCtaCble INNER JOIN
 						ct_grupocble ON D.IdGrupoCble = ct_grupocble.IdGrupoCble LEFT OUTER JOIN
 						ct_centro_costo ON B.IdEmpresa = ct_centro_costo.IdEmpresa AND B.IdCentroCosto = ct_centro_costo.IdCentroCosto
+						inner join	ct_grupocble as G ON G.IdGrupoCble = D.IdGrupoCble
 					WHERE        (ct_grupocble.gc_estado_financiero = 'ER')
 					AND A.IdEmpresa = @i_IdEmpresa
 					and CAST(A.cb_Fecha as date) between @i_Fecha_Ini and @i_Fecha_Fin
@@ -457,6 +478,7 @@ from 		(
 					and isnull(B.IdPunto_cargo_grupo,0)   between @w_IdPunto_cargo_grupo_ini and @w_IdPunto_cargo_grupo_fin
 					and isnull(B.IdPunto_cargo ,0)   between @w_IdPunto_cargo_ini and @w_IdPunto_cargo_fin
 					and B.dc_Valor<0 --- suma de CREDITO
+					AND @Anio =  CASE WHEN G.gc_estado_financiero = 'ER' THEN YEAR(A.cb_Fecha) ELSE @Anio END
 					group by A.IdEmpresa
 
 				
@@ -590,7 +612,8 @@ select * from ct_Sumatoria_x_Cuenta where idusuario=@i_IdUsuario and IdCtaCble='
 ------- Acumulo por cuentas padre Recursivamente 
 --====================================================================================
 
-
+BEGIN --SUMA RECURSIVA
+/*
     	WITH movi(IdPadre			,IdCta			,SaldoInicial			
 		,[Nivel]					
 		,Debito_Mes					,Credito_Mes
@@ -656,10 +679,75 @@ select * from ct_Sumatoria_x_Cuenta where idusuario=@i_IdUsuario and IdCtaCble='
 		) as total_Saldo_Inicial_acreedor
 		,@i_IdUsuario
 		from movi as v ;
+		*/
 
+		DECLARE @Contador int
+
+select @Contador = max(pc.IdNivelCta) 
+from [dbo].[ct_Sumatoria_x_Cuenta] su left join
+ct_plancta as pc on pc.IdEmpresa = su.IdEmpresa
+and pc.IdCtaCble = su.IdCtaCble
+where su.IdUsuario = @i_IdUsuario
+and SU.IdEmpresa = @I_IdEmpresa
+
+
+	WHILE @Contador > 0
+	BEGIN
+
+		UPDATE [dbo].[ct_Sumatoria_x_Cuenta]
+		SET Saldo_Inicial = A.Saldo_Inicial,
+		dc_Saldo_deudor = A.dc_Saldo_deudor,
+		dc_Saldo_Acreedor = A.dc_Saldo_Acreedor,
+		dc_Saldo = A.dc_Saldo,
+		Saldo_Inicial_deudor = A.Saldo_Inicial_deudor,
+		Saldo_Inicial_acreedor = A.Saldo_Inicial_acreedor,
+		Saldo_fin_deudor = A.Saldo_fin_deudor,
+		Saldo_fin_acreedor =A.Saldo_fin_acreedor
+		FROM(
+		SELECT        IdEmpresa, IdCtaCblePadre
+		   ,SUM(Saldo_Inicial)Saldo_Inicial
+           ,SUM(dc_Saldo_deudor) dc_Saldo_deudor
+           ,SUM(dc_Saldo_Acreedor)dc_Saldo_Acreedor
+           ,SUM(dc_Saldo)dc_Saldo
+           ,SUM(Saldo_Inicial_deudor)Saldo_Inicial_deudor
+           ,SUM(Saldo_Inicial_acreedor)Saldo_Inicial_acreedor
+           ,SUM(Saldo_fin_deudor)Saldo_fin_deudor
+           ,SUM(Saldo_fin_acreedor)Saldo_fin_acreedor
+		FROM            [dbo].[ct_Sumatoria_x_Cuenta]
+		where [dbo].[ct_Sumatoria_x_Cuenta].IdEmpresa = @I_IdEmpresa
+		and [dbo].[ct_Sumatoria_x_Cuenta].IdUsuario = @I_IdUsuario
+		GROUP BY IdEmpresa, IdCtaCblePadre
 		
+		) A where [dbo].[ct_Sumatoria_x_Cuenta].IdEmpresa = a.IdEmpresa
+		and [dbo].[ct_Sumatoria_x_Cuenta].IdCtaCble = a.IdCtaCblePadre
+		and [dbo].[ct_Sumatoria_x_Cuenta].IdUsuario = @i_IdUsuario
+		and [dbo].[ct_Sumatoria_x_Cuenta].IdEmpresa = @I_IdEmpresa
 
+		SET @Contador = @Contador - 1
+	END
 
+	insert into ct_Balance_x_General
+		(IdEmpresa			, [IdCtaCble]	,[IdCtaCblePadre] 
+		,Saldo_Inicial		, Debito_Mes	,Credito_Mes
+		,IdNivelCta			,GrupoCble		,OrderGrupoCble
+		,gc_estado_financiero
+		,Saldo
+		,Saldo_Inicial_deudor	,Saldo_Inicial_acreedor
+		,idusuario
+		)
+		select su.IdEmpresa, su.IdCtaCble, su.IdCtaCblePadre,
+		Saldo_Inicial, su.dc_Saldo_deudor, su.dc_Saldo_Acreedor
+		
+		,PC.IdNivelCta, '',0,
+		0,0,
+		Saldo_Inicial_deudor, Saldo_Inicial_acreedor,
+		su.idusuario
+		FROM            [dbo].[ct_Sumatoria_x_Cuenta] as su
+		inner join ct_plancta as pc on su.IdEmpresa = PC.IdEmpresa
+		AND SU.IdCtaCble = PC.IdCtaCble
+		WHERE SU.IdEmpresa = @i_IdEmpresa
+		AND SU.idusuario = @i_IdUsuario
+END
 
 
 
@@ -857,15 +945,4 @@ SELECT      ISNULL(ROW_NUMBER() OVER(ORDER BY(IdEmpresa)),0) AS IdRow,  IdEmpres
 FROM            ct_Balance_x_General_Data_Final
 where ct_Balance_x_General_Data_Final.idusuario=@i_IdUsuario
 and ct_Balance_x_General_Data_Final.IdEmpresa=@i_IdEmpresa
---and ct_Balance_x_General_Data_Final.IdCtaCble='2010101080010033'
 ORDER BY IdEmpresa, IdCtaCble, orden_fila
-
-
-
-/*
-select '------ct_Sumatoria_x_Cuenta  despues DE ENTRA EN LA RECURSIVIDAD-------------------' ;
-select * from ct_Sumatoria_x_Cuenta where IdCtaCble='2010101080010033' and idusuario=@i_IdUsuario 
-select * from ct_Sumatoria_x_Cuenta_x_Centro_Costo where IdCtaCble='2010101080010033' and  idusuario= @i_IdUsuario 
-select * from ct_Balance_x_General_Data_Final where IdCtaCble='2010101080010033' and idusuario= @i_IdUsuario
-select * from ct_Balance_x_General where IdCtaCble='2010101080010033' and idusuario= @i_IdUsuario 
-*/

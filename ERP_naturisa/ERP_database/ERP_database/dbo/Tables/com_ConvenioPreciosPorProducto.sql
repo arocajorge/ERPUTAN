@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[com_ConvenioPreciosPorProducto] (
+    [IdEmpresa]             INT          NOT NULL,
+    [IdProducto]            NUMERIC (18) NOT NULL,
+    [IdProveedor]           NUMERIC (18) NOT NULL,
+    [IdComprador]           NUMERIC (18) NOT NULL,
+    [IdTerminoPago]         VARCHAR (25) NOT NULL,
+    [IdUnidadMedida]        VARCHAR (25) NOT NULL,
+    [PrecioUnitario]        FLOAT (53)   NOT NULL,
+    [PorDescuento]          FLOAT (53)   NOT NULL,
+    [Descuento]             FLOAT (53)   NOT NULL,
+    [PrecioFinal]           FLOAT (53)   NOT NULL,
+    [TiempoEntrega]         INT          NOT NULL,
+    [FechaFin]              DATE         NOT NULL,
+    [SaltaPaso2]            BIT          NOT NULL,
+    [SaltaPaso3]            BIT          NOT NULL,
+    [SaltoPaso4]            BIT          NOT NULL,
+    [SaltoPaso5]            BIT          NOT NULL,
+    [IdUsuarioCreacion]     VARCHAR (50) NULL,
+    [FechaTransaccion]      DATETIME     NULL,
+    [IdUsuarioModificacion] VARCHAR (50) NULL,
+    [FechaModificacion]     DATETIME     NULL,
+    CONSTRAINT [PK_com_ConvenioPreciosPorProducto] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdProducto] ASC),
+    CONSTRAINT [FK_com_ConvenioPreciosPorProducto_com_comprador] FOREIGN KEY ([IdEmpresa], [IdComprador]) REFERENCES [dbo].[com_comprador] ([IdEmpresa], [IdComprador]),
+    CONSTRAINT [FK_com_ConvenioPreciosPorProducto_com_TerminoPago] FOREIGN KEY ([IdTerminoPago]) REFERENCES [dbo].[com_TerminoPago] ([IdTerminoPago]),
+    CONSTRAINT [FK_com_ConvenioPreciosPorProducto_cp_proveedor] FOREIGN KEY ([IdEmpresa], [IdProveedor]) REFERENCES [dbo].[cp_proveedor] ([IdEmpresa], [IdProveedor]),
+    CONSTRAINT [FK_com_ConvenioPreciosPorProducto_in_UnidadMedida] FOREIGN KEY ([IdUnidadMedida]) REFERENCES [dbo].[in_UnidadMedida] ([IdUnidadMedida])
+);
+

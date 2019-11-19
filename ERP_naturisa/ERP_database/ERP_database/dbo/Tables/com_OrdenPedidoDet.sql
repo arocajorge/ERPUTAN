@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[com_OrdenPedidoDet] (
+    [IdEmpresa]           INT            NOT NULL,
+    [IdOrdenPedido]       NUMERIC (18)   NOT NULL,
+    [Secuencia]           INT            NOT NULL,
+    [IdProducto]          NUMERIC (18)   NULL,
+    [pr_descripcion]      NVARCHAR (500) NULL,
+    [IdUnidadMedida]      VARCHAR (25)   NULL,
+    [IdSucursalOrigen]    INT            NOT NULL,
+    [IdSucursalDestino]   INT            NOT NULL,
+    [IdPunto_cargo]       INT            NULL,
+    [opd_Cantidad]        FLOAT (53)     NOT NULL,
+    [opd_CantidadApro]    FLOAT (53)     NOT NULL,
+    [opd_EstadoProceso]   VARCHAR (50)   NOT NULL,
+    [opd_Detalle]         VARCHAR (MAX)  NULL,
+    [Adjunto]             BIT            NOT NULL,
+    [NombreArchivo]       VARCHAR (1000) NULL,
+    [IdUsuarioCantidad]   VARCHAR (50)   NULL,
+    [FechaCantidad]       DATETIME       NULL,
+    [IdUsuarioCotizacion] VARCHAR (50)   NULL,
+    [FechaCotizacion]     DATETIME       NULL,
+    CONSTRAINT [PK_com_OrdenPedidoDet] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdOrdenPedido] ASC, [Secuencia] ASC),
+    CONSTRAINT [FK_com_OrdenPedidoDet_com_OrdenPedido] FOREIGN KEY ([IdEmpresa], [IdOrdenPedido]) REFERENCES [dbo].[com_OrdenPedido] ([IdEmpresa], [IdOrdenPedido]),
+    CONSTRAINT [FK_com_OrdenPedidoDet_ct_punto_cargo] FOREIGN KEY ([IdEmpresa], [IdPunto_cargo]) REFERENCES [dbo].[ct_punto_cargo] ([IdEmpresa], [IdPunto_cargo]),
+    CONSTRAINT [FK_com_OrdenPedidoDet_in_Producto] FOREIGN KEY ([IdEmpresa], [IdProducto]) REFERENCES [dbo].[in_Producto] ([IdEmpresa], [IdProducto]),
+    CONSTRAINT [FK_com_OrdenPedidoDet_tb_sucursal] FOREIGN KEY ([IdEmpresa], [IdSucursalOrigen]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal]),
+    CONSTRAINT [FK_com_OrdenPedidoDet_tb_sucursal1] FOREIGN KEY ([IdEmpresa], [IdSucursalDestino]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal])
+);
+

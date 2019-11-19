@@ -557,7 +557,24 @@ namespace Core.Erp.Data.Inventario
               FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
               FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
               EntitiesInventario oEnti = new EntitiesInventario();
+              oEnti.SetCommandTimeOut(3000);
+              string FechaIniS = FechaIni.Date.Day.ToString() + "/" + FechaIni.Date.Month.ToString() + "/" + FechaIni.Date.Year.ToString();
+              string FechaFinS = FechaFin.Date.Day.ToString() +"/"+ FechaFin.Date.Month.ToString() + "/" + FechaFin.Date.Year.ToString() ;
+              string sql = "select IdEmpresa,                   IdSucursal,                   IdBodega,                   IdMovi_inven_tipo,                   IdNumMovi,                   CodMoviInven, ";
+              sql += "cm_observacion,                                    Estado,                   IdCentroCosto,                   IdCentroCosto_sub_centro_costo,                   signo, ";  
+              sql += "IdMotivo_oc,                   nom_bodega,                   nom_sucursal,                   Desc_mov_inv,                   nom_tipo_inv,                   cod_tipo_inv, ";
+              sql += "signo_tipo_inv,                   IdOrdenCompra,                   IdMotivo_Inv,                   IdEstadoAproba,                   nom_EstadoAproba,                   IdEstadoDespacho_cat";
+              //sql += " Fecha_registro, 
+              sql += " co_factura,                   IdUsuario, cm_fecha ";
+              sql += " from vwin_Ing_Egr_Inven ";
+              sql += " where Idempresa = " + IdEmpresa.ToString() + " and IdBodega is null ";
+              sql += "and cm_fecha between '" + FechaIniS + "' and '" + FechaFinS + "' ";
+              sql += "and IdSucursal between " + IdSucursalIni.ToString() + " and " + IdSucursalFin.ToString() + " and signo = '-'";
 
+                    var result = oEnti.Database.SqlQuery<in_Ing_Egr_Inven_Info>(sql).ToList();
+                    Lst = result;
+              return Lst;
+             /*
               var Query = oEnti.vwin_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa
                       && q.cm_fecha >= FechaIni
                       && q.cm_fecha <= FechaFin
@@ -582,7 +599,7 @@ namespace Core.Erp.Data.Inventario
                    IdCentroCosto = item.IdCentroCosto,
                    IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
                    signo = item.signo,
-                   IdMotivo_oc = Convert.ToInt32(item.IdMotivo_oc),
+                   IdMotivo_oc = item.IdMotivo_oc,
                    nom_bodega = item.nom_bodega,
                    nom_sucursal = item.nom_sucursal,
                    Desc_mov_inv = item.Desc_mov_inv,
@@ -598,7 +615,8 @@ namespace Core.Erp.Data.Inventario
                    co_factura = item.co_factura,
                    IdUsuario = item.IdUsuario
               });
-          }
+               */
+         // }
 
               return Lst;
           }

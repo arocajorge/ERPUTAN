@@ -1,4 +1,5 @@
-﻿--exec [spACTF_Rpt014] 1,'28/02/2017','admin'
+﻿
+--exec [spACTF_Rpt014] 1,'01/01/2018','admin'
 CREATE PROCEDURE [dbo].[spACTF_Rpt014]
 @IdEmpresa int,
 @Fecha_corte datetime,
@@ -140,6 +141,9 @@ WHERE af.IdEmpresa = @IdEmpresa
 				)
 
 
+delete dbo.Af_spACTF_Rpt012 where IdEmpresa = @IdEmpresa and IdUsuario = @IdUsuario and Af_fecha_compra > @Fecha_corte
+
+
 insert into [dbo].[Af_spACTF_Rpt014]
 SELECT        IdEmpresa, IdActivoFijoTipo, IdUsuario, tipo_AF, SUM(Af_costo_compra) AS Af_costo_compra, SUM(Af_Depreciacion_acum) AS Af_Depreciacion_acum, SUM(valor_ult_depreciacion) AS valor_ult_depreciacion, 
                          SUM(Costo_actual) AS Costo_actual
@@ -158,6 +162,7 @@ SELECT [IdEmpresa]
       ,[Costo_neto]
   FROM [dbo].[Af_spACTF_Rpt014]
   where IdEmpresa = @IdEmpresa and IdUsuario = @IdUsuario
+  
 
   
 END

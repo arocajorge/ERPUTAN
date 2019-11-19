@@ -1,30 +1,21 @@
-﻿CREATE VIEW dbo.vwin_producto_x_tb_bodega
+﻿CREATE VIEW [dbo].[vwin_producto_x_tb_bodega]
 AS
-SELECT        A.IdEmpresa, A.IdProducto, B.IdBodega, A.pr_codigo, A.pr_descripcion, A.pr_peso, A.pr_ManejaIva, A.pr_ManejaSeries, C.bo_Descripcion, C.IdSucursal, D.Su_Descripcion, A.IdMarca, A.IdProductoTipo, 
-                         A.IdPresentacion, A.IdUnidadMedida, B.pr_precio_publico, B.pr_precio_mayor, B.pr_precio_puerta, B.pr_precio_minimo, B.pr_costo_fob, B.pr_costo_CIF, ISNULL(H.pr_Pedidos, 0) AS pr_Pedidos_fact, 
-                         ISNULL(pe_x_egr.cantidad, 0) AS pr_Pedidos_inv, ISNULL(J.Stock, 0) AS pr_stock, ISNULL(ISNULL(J.Stock, 0) + ABS(ISNULL(H.pr_Pedidos, 0) + ISNULL(pe_x_egr.cantidad, 0)) * - 1, 0) AS pr_Disponible, 
-                         B.IdCtaCble_Inven, B.IdCtaCble_Costo, A.ManejaKardex, A.IdNaturaleza, B.IdCtaCble_Inven AS IdCtaCble_Inventario, B.IdCentro_Costo_Inventario, B.IdCentro_Costo_Costo, B.IdCtaCble_Gasto_x_cxp, 
-                         B.IdCentroCosto_x_Gasto_x_cxp, B.IdCentroCosto_sub_centro_costo_inv, B.IdCentroCosto_sub_centro_costo_cost, B.IdCentroCosto_sub_centro_costo_cxp, B.IdCtaCble_CosBaseIva, B.IdCtaCble_CosBase0, 
-                         B.IdCtaCble_VenIva, B.IdCtaCble_Ven0, B.IdCtaCble_DesIva, B.IdCtaCble_Des0, B.IdCtaCble_DevIva, B.IdCtaCble_Dev0, B.IdCtaCble_Vta, uni.Descripcion AS Descripcion_UniMedida, 
-                         consu.Descripcion AS Descripcion_TipoConsumo, A.IdUnidadMedida_Consumo, ISNULL(dbo.vwin_producto_Ult_Costo_Hist_x_Bod.costo, 0) AS pr_costo_promedio, A.pr_stock_minimo, A.IdCod_Impuesto_Iva, 
-                         A.IdCod_Impuesto_Ice, A.Aparece_modu_Ventas, A.Aparece_modu_Compras, A.Aparece_modu_Inventario, A.Aparece_modu_Activo_F, dbo.in_ProductoTipo.tp_descripcion AS nom_Tipo_Producto, 
-                         dbo.in_categorias.ca_Categoria AS nom_Categoria, dbo.in_linea.nom_linea
-FROM            dbo.in_linea INNER JOIN
-                         dbo.in_categorias ON dbo.in_linea.IdEmpresa = dbo.in_categorias.IdEmpresa AND dbo.in_linea.IdCategoria = dbo.in_categorias.IdCategoria INNER JOIN
-                         dbo.in_Producto AS A INNER JOIN
-                         dbo.in_producto_x_tb_bodega AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdProducto = B.IdProducto INNER JOIN
-                         dbo.tb_bodega AS C ON B.IdEmpresa = C.IdEmpresa AND B.IdBodega = C.IdBodega AND B.IdSucursal = C.IdSucursal INNER JOIN
-                         dbo.tb_sucursal AS D ON C.IdEmpresa = D.IdEmpresa AND C.IdSucursal = D.IdSucursal INNER JOIN
-                         dbo.in_UnidadMedida AS uni ON uni.IdUnidadMedida = A.IdUnidadMedida INNER JOIN
-                         dbo.in_UnidadMedida AS consu ON A.IdUnidadMedida_Consumo = consu.IdUnidadMedida INNER JOIN
-                         dbo.in_ProductoTipo ON A.IdEmpresa = dbo.in_ProductoTipo.IdEmpresa AND A.IdProductoTipo = dbo.in_ProductoTipo.IdProductoTipo ON dbo.in_linea.IdEmpresa = A.IdEmpresa AND 
-                         dbo.in_linea.IdCategoria = A.IdCategoria AND dbo.in_linea.IdLinea = A.IdLinea LEFT OUTER JOIN
-                         dbo.vwin_Producto_Pedidos_Egresos_x_Bodega AS pe_x_egr ON B.IdEmpresa = pe_x_egr.IdEmpresa AND B.IdSucursal = pe_x_egr.IdSucursal AND B.IdBodega = pe_x_egr.IdBodega AND 
-                         B.IdProducto = pe_x_egr.IdProducto LEFT OUTER JOIN
-                         dbo.vwin_producto_Ult_Costo_Hist_x_Bod ON B.IdEmpresa = dbo.vwin_producto_Ult_Costo_Hist_x_Bod.IdEmpresa AND B.IdSucursal = dbo.vwin_producto_Ult_Costo_Hist_x_Bod.IdSucursal AND 
-                         B.IdBodega = dbo.vwin_producto_Ult_Costo_Hist_x_Bod.IdBodega AND B.IdProducto = dbo.vwin_producto_Ult_Costo_Hist_x_Bod.IdProducto LEFT OUTER JOIN
-                         dbo.vwin_Producto_Stock AS J ON B.IdEmpresa = J.IdEmpresa AND B.IdSucursal = J.IdSucursal AND B.IdBodega = J.IdBodega AND B.IdProducto = J.IdProducto LEFT OUTER JOIN
-                         dbo.vwFa_Producto_x_Pedidos AS H ON B.IdEmpresa = H.IdEmpresa AND B.IdSucursal = H.IdSucursal AND B.IdBodega = H.IdBodega AND B.IdProducto = H.IdProducto
+SELECT A.IdEmpresa, A.IdProducto, B.IdBodega, A.pr_codigo, A.pr_descripcion, A.pr_peso, A.pr_ManejaIva, A.pr_ManejaSeries, C.bo_Descripcion, C.IdSucursal, D.Su_Descripcion, A.IdMarca, A.IdProductoTipo, A.IdPresentacion, 
+                  A.IdUnidadMedida, B.pr_precio_publico, B.pr_precio_mayor, B.pr_precio_puerta, B.pr_precio_minimo, B.pr_costo_fob, B.pr_costo_CIF, cast(0 as float) AS pr_Pedidos_fact, CAST(0 AS FLOAT) AS pr_Pedidos_inv, CAST(0 AS FLOAT) AS pr_stock, cast(0 as float) AS pr_Disponible, B.IdCtaCble_Inven, B.IdCtaCble_Costo, A.ManejaKardex, A.IdNaturaleza, B.IdCtaCble_Inven AS IdCtaCble_Inventario, B.IdCentro_Costo_Inventario, 
+                  B.IdCentro_Costo_Costo, B.IdCtaCble_Gasto_x_cxp, B.IdCentroCosto_x_Gasto_x_cxp, B.IdCentroCosto_sub_centro_costo_inv, B.IdCentroCosto_sub_centro_costo_cost, B.IdCentroCosto_sub_centro_costo_cxp, 
+                  B.IdCtaCble_CosBaseIva, B.IdCtaCble_CosBase0, B.IdCtaCble_VenIva, B.IdCtaCble_Ven0, B.IdCtaCble_DesIva, B.IdCtaCble_Des0, B.IdCtaCble_DevIva, B.IdCtaCble_Dev0, B.IdCtaCble_Vta, uni.Descripcion AS Descripcion_UniMedida, 
+                  consu.Descripcion AS Descripcion_TipoConsumo, A.IdUnidadMedida_Consumo, CAST(0 AS FLOAT) AS pr_costo_promedio, A.pr_stock_minimo, A.IdCod_Impuesto_Iva, A.IdCod_Impuesto_Ice, A.Aparece_modu_Ventas, 
+                  A.Aparece_modu_Compras, A.Aparece_modu_Inventario, A.Aparece_modu_Activo_F, dbo.in_ProductoTipo.tp_descripcion AS nom_Tipo_Producto, dbo.in_categorias.ca_Categoria AS nom_Categoria, dbo.in_linea.nom_linea
+FROM     dbo.in_linea INNER JOIN
+                  dbo.in_categorias ON dbo.in_linea.IdEmpresa = dbo.in_categorias.IdEmpresa AND dbo.in_linea.IdCategoria = dbo.in_categorias.IdCategoria INNER JOIN
+                  dbo.in_Producto AS A INNER JOIN
+                  dbo.in_producto_x_tb_bodega AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdProducto = B.IdProducto INNER JOIN
+                  dbo.tb_bodega AS C ON B.IdEmpresa = C.IdEmpresa AND B.IdBodega = C.IdBodega AND B.IdSucursal = C.IdSucursal INNER JOIN
+                  dbo.tb_sucursal AS D ON C.IdEmpresa = D.IdEmpresa AND C.IdSucursal = D.IdSucursal INNER JOIN
+                  dbo.in_UnidadMedida AS uni ON uni.IdUnidadMedida = A.IdUnidadMedida INNER JOIN
+                  dbo.in_UnidadMedida AS consu ON A.IdUnidadMedida_Consumo = consu.IdUnidadMedida INNER JOIN
+                  dbo.in_ProductoTipo ON A.IdEmpresa = dbo.in_ProductoTipo.IdEmpresa AND A.IdProductoTipo = dbo.in_ProductoTipo.IdProductoTipo ON dbo.in_linea.IdEmpresa = A.IdEmpresa AND dbo.in_linea.IdCategoria = A.IdCategoria AND 
+                  dbo.in_linea.IdLinea = A.IdLinea
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_producto_x_tb_bodega';
 

@@ -84,3 +84,10 @@
     CONSTRAINT [FK_cp_orden_giro_tb_sucursal] FOREIGN KEY ([IdEmpresa], [IdSucursal]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal])
 );
 
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20181204-150349]
+    ON [dbo].[cp_orden_giro]([IdEmpresa] ASC, [co_fechaOg] ASC);
+
