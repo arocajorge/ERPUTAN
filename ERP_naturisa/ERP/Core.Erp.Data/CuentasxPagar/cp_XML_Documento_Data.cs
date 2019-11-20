@@ -48,6 +48,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         Total = info.Total,
                         FormaPago = info.FormaPago,
                         Plazo = info.Plazo,
+                        Comprobante = info.Establecimiento+"-"+info.PuntoEmision+"-"+info.NumeroDocumento
                     });
                     }
                 }
