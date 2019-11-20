@@ -397,12 +397,12 @@ namespace Core.Erp.Winform.Controles
                             if (info.Tipo == "RTF")
                             {
                                 info.BaseImponible = Convert.ToDouble(BaseImponible);
-                                info.MontoRetencion = info.BaseImponible * (info.co_porRetencion / 100);
+                                info.MontoRetencion = Math.Round(info.BaseImponible * (info.co_porRetencion / 100),2,MidpointRounding.AwayFromZero);
                             }
                             else
                             {
                                 info.BaseImponible = Convert.ToDouble(iva);
-                                info.MontoRetencion = info.BaseImponible * (info.co_porRetencion / 100);
+                                info.MontoRetencion = Math.Round(info.BaseImponible * (info.co_porRetencion / 100),2,MidpointRounding.AwayFromZero);
                             }
 
                             info.codigoSRI = item2.codigoSRI;
@@ -434,12 +434,12 @@ namespace Core.Erp.Winform.Controles
                             if (item.Tipo == "RTF")
                             {
                                 item.BaseImponible = Convert.ToDouble(BaseImponible);
-                                item.MontoRetencion = item.BaseImponible * (item.co_porRetencion / 100);
+                                item.MontoRetencion = Math.Round(item.BaseImponible * (item.co_porRetencion / 100),2,MidpointRounding.AwayFromZero);
                             }
                             else
                             {
                                 item.BaseImponible = Convert.ToDouble(iva);
-                                item.MontoRetencion = item.BaseImponible * (item.co_porRetencion / 100);
+                                item.MontoRetencion = Math.Round(item.BaseImponible * (item.co_porRetencion / 100),2,MidpointRounding.AwayFromZero);
                             }
 
                         }
@@ -497,7 +497,7 @@ namespace Core.Erp.Winform.Controles
 
                         if (item.MontoRetencion > 0)
                         {
-                            valor = Math.Round(item.MontoRetencion, 2);
+                            valor = Math.Round(item.MontoRetencion, 2,MidpointRounding.AwayFromZero);
                         }
                         else
                         {
@@ -506,12 +506,12 @@ namespace Core.Erp.Winform.Controles
                             {
                                 if (item.Tipo == "IVA")
                                 {
-                                    item.MontoRetencion = item.BaseImponible * (item.co_porRetencion / 100);
+                                    item.MontoRetencion = Math.Round(item.BaseImponible * (item.co_porRetencion / 100),2,MidpointRounding.AwayFromZero);
                                     valor = item.MontoRetencion;
                                 }
                                 else
                                 {
-                                    item.MontoRetencion = item.BaseImponible * (item.co_porRetencion / 100);
+                                    item.MontoRetencion = Math.Round(item.BaseImponible * (item.co_porRetencion / 100),2,MidpointRounding.AwayFromZero);
                                     valor = item.MontoRetencion;
                                 }
                             }
@@ -932,8 +932,8 @@ namespace Core.Erp.Winform.Controles
 
                     }
                     decimal prueba = 0;
-                    prueba = Math.Round((Convert.ToDecimal(gridView_SRI.GetFocusedRowCellValue(colBaseImponible)) * (Convert.ToDecimal(gridView_SRI.GetFocusedRowCellValue(colco_porRetencion)) / 100)), 2);
-
+                    prueba = Math.Round((Convert.ToDecimal(gridView_SRI.GetFocusedRowCellValue(colBaseImponible)) * (Convert.ToDecimal(gridView_SRI.GetFocusedRowCellValue(colco_porRetencion)) / 100)), 2,MidpointRounding.AwayFromZero);
+                    
                     gridView_SRI.SetFocusedRowCellValue(colMontoRetencion, prueba);
 
                     GeneraDiarioRetencion();
