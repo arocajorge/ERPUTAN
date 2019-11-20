@@ -2150,8 +2150,6 @@
     <Build Include="dbo\Views\vwcom_CotizacionPedidoConvenioPrecios.sql" />
     <Build Include="dbo\Views\vwcom_CotizacionPedido.sql" />
     <Build Include="dbo\Views\vwcom_ConvenioPreciosPorProducto.sql" />
-    <Build Include="Security\db_views_nat2020.sql" />
-    <Build Include="Security\views2020.sql" />
     <Build Include="dbo\Stored Procedures\SPINV_Stock.sql" />
     <Build Include="dbo\Stored Procedures\SPINV_MejorPrecio.sql" />
     <Build Include="dbo\Stored Procedures\SPINV_ComprasAnteriores.sql" />
@@ -2159,6 +2157,5 @@
     <Build Include="dbo\Stored Procedures\SPCOM_ComprasPorPuntoCargo.sql" />
     <Build Include="dbo\Stored Procedures\SPBAN_TransaccionesAConciliar.sql" />
     <Build Include="Security\Digitalizacion.sql" />
-    <Build Include="Security\Permissions.sql" />
   </ItemGroup>
 </Project>

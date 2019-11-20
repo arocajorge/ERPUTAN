@@ -1,4 +1,0 @@
-﻿CREATE USER [views2020] FOR LOGIN [views2020];
-
-
-

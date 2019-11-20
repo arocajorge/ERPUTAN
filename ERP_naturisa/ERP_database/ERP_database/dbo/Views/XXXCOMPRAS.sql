@@ -27,15 +27,6 @@ FROM     dbo.com_ordencompra_local INNER JOIN
                   dbo.com_ordencompra_local_det.IdSucursal = inv.IdSucursal AND inv.IdEmpresa = dbo.com_ordencompra_local_det.IdEmpresa
 WHERE  (dbo.com_ordencompra_local.IdEmpresa = 3) AND (dbo.com_ordencompra_local.oc_fecha BETWEEN DATEFROMPARTS(2019, 1, 1) AND DATEFROMPARTS(2019, 8, 31)) AND (dbo.com_ordencompra_local.Estado = 'A')
 GO
-GRANT SELECT
-    ON OBJECT::[dbo].[XXXCOMPRAS] TO [db_views_nat2020]
-    AS [dbo];
-
-
-GO
-GRANT CONTROL
-    ON OBJECT::[dbo].[XXXCOMPRAS] TO [db_views_nat2020]
-    AS [dbo];
 
 
 GO

@@ -27,14 +27,3 @@ FROM     dbo.com_ordencompra_local AS oc RIGHT OUTER JOIN
 					   LEFT JOIN SEG_USUARIO AS cant on cant.IdUsuario = d.IdUsuarioCantidad
 					   LEFT JOIN SEG_USUARIO AS jc on jc.IdUsuario = CC.IdUsuarioJC
 					   LEFT JOIN SEG_USUARIO AS ga on ga.IdUsuario = c.IdUsuarioAprobacion
-GO
-GRANT SELECT
-    ON OBJECT::[dbo].[XXXPROCESOSOLICITUD] TO [db_views_nat2020]
-    AS [dbo];
-
-
-GO
-GRANT CONTROL
-    ON OBJECT::[dbo].[XXXPROCESOSOLICITUD] TO [db_views_nat2020]
-    AS [dbo];
-
