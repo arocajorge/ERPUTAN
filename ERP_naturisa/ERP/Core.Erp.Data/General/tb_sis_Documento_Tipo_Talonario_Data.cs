@@ -705,6 +705,42 @@ namespace Core.Erp.Data.General
            }
        }
 
+       public tb_sis_Documento_Tipo_Talonario_Info GetDocumentoElectronicoUpdateUsado(int IdEmpresa, string CodDocumentoTipo, string Establecimiento, string PuntoEmision)
+       {
+           try
+           {
+               tb_sis_Documento_Tipo_Talonario_Info info = new tb_sis_Documento_Tipo_Talonario_Info();
 
+               using (EntitiesGeneral db = new EntitiesGeneral())
+               {
+                   var talonario = db.tb_sis_Documento_Tipo_Talonario.Where(q => q.IdEmpresa == IdEmpresa && q.CodDocumentoTipo == CodDocumentoTipo && q.Establecimiento == Establecimiento && q.PuntoEmision == PuntoEmision && q.es_Documento_Electronico == true && q.Usado == false).OrderBy(q=> q.NumDocumento).FirstOrDefault();
+                   if (talonario == null)
+                   {
+                       //Crear talonario
+                       return null;
+                   }
+                   else
+                   {
+                       talonario.Usado = true;
+                       db.SaveChanges();
+                       info = new tb_sis_Documento_Tipo_Talonario_Info
+                       {
+                           IdEmpresa = talonario.IdEmpresa,
+                           CodDocumentoTipo = talonario.CodDocumentoTipo,
+                           Establecimiento = talonario.Establecimiento,
+                           PuntoEmision = talonario.PuntoEmision,
+                           NumDocumento = talonario.NumDocumento
+                       };
+                   }
+               }
+
+               return info;
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
     }
 }

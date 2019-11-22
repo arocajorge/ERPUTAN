@@ -26,6 +26,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         BindingList<cp_XML_Documento_Info> blst;
         cp_XML_Documento_Bus bus_xml;
         tb_sis_impuesto_Bus bus_impuesto;
+        cp_proveedor_codigo_SRI_Bus bus_codigoProveedor;
+        List<cp_proveedor_codigo_SRI_Info> ListaCodigoProveedor;
         #endregion
 
         public frmCP_DigitalizacionXML()
@@ -35,6 +37,8 @@ namespace Core.Erp.Winform.CuentasxPagar
             blst = new BindingList<cp_XML_Documento_Info>();
             bus_xml = new cp_XML_Documento_Bus();
             bus_impuesto = new tb_sis_impuesto_Bus();
+            bus_codigoProveedor = new cp_proveedor_codigo_SRI_Bus();
+            ListaCodigoProveedor = new List<cp_proveedor_codigo_SRI_Info>();
         }
 
         private void txtRutaXml_Click(object sender, EventArgs e)
@@ -135,18 +139,21 @@ namespace Core.Erp.Winform.CuentasxPagar
                             }
                         }
                         Documento.Total = Documento.Subtotal0 + Documento.SubtotalIVA + Documento.ValorIVA;
-                        Documento.Comprobante = Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
+                        Documento.Comprobante = Documento.CodDocumento + '-' + Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
                         Documento.Imagen = bus_xml.Existe(param.IdEmpresa, Documento.emi_Ruc, Documento.CodDocumento, Documento.Establecimiento, Documento.PuntoEmision, Documento.NumeroDocumento);
-                        blst.Add(Documento);
+                        if(blst.Where(q=> q.Comprobante == Documento.Comprobante && q.emi_Ruc == Documento.emi_Ruc).Count() == 0)
+                            blst.Add(Documento);
                         gcDetalle.DataSource = null;
                         gcDetalle.DataSource = blst;
                     }
                 }
-
+                lblContador.Text = blst.Count.ToString();
                 gcDetalle.DataSource = blst;
             }
             catch (Exception ex)
             {
+                gcDetalle.DataSource = blst;
+                lblContador.Text = blst.Count.ToString();
                 MessageBox.Show(ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -213,10 +220,63 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                
                 foreach (var item in blst)
                 {
                     item.IdEmpresa = param.IdEmpresa;
-                    bus_xml.GuardarDB(item);
+
+                    if (item.Tipo == "FACTURA")
+                    {
+                        item.ret_Establecimiento = param.InfoSucursal.Su_CodigoEstablecimiento;
+                        item.ret_PuntoEmision = "001";
+                        item.lstRetencion = new List<cp_XML_Documento_Retencion_Info>();
+                        var lstDet = ListaCodigoProveedor.Where(q => q.pe_cedulRuc == item.emi_Ruc).ToList();
+                        if (lstDet.Count > 0)
+                        {
+                            foreach (var Detalle in lstDet)
+                            {
+                                item.lstRetencion.Add(new cp_XML_Documento_Retencion_Info
+                                {
+                                    re_tipoRet = Detalle.re_tipo,
+                                    re_baseRetencion = Math.Round(Convert.ToDouble(Detalle.re_tipo == "IVA" ? item.ValorIVA : (item.Subtotal0 + item.SubtotalIVA)), 2, MidpointRounding.AwayFromZero),
+                                    IdCodigo_SRI = Detalle.IdCodigo_SRI,
+                                    re_Codigo_impuesto = Detalle.re_Codigo_impuesto,
+                                    re_Porcen_retencion = Detalle.re_Porcen_retencion,
+                                    re_valor_retencion = Math.Round(Math.Round(Convert.ToDouble(Detalle.re_tipo == "IVA" ? item.ValorIVA : (item.Subtotal0 + item.SubtotalIVA)), 2, MidpointRounding.AwayFromZero) * (Detalle.re_Porcen_retencion / 100), 2, MidpointRounding.AwayFromZero)
+                                });
+                            }
+                        }
+                        else
+                        {
+
+                            var ListaDet = bus_codigoProveedor.GetList(param.IdEmpresa, item.emi_Ruc);
+                            if (ListaDet.Count > 0)
+                            {
+                                ListaCodigoProveedor.AddRange(ListaDet);
+                                foreach (var Detalle in ListaDet)
+                                {
+                                    item.lstRetencion.Add(new cp_XML_Documento_Retencion_Info
+                                    {
+                                        re_tipoRet = Detalle.re_tipo,
+                                        re_baseRetencion = Math.Round(Convert.ToDouble(Detalle.re_tipo == "IVA" ? item.ValorIVA : (item.Subtotal0 + item.SubtotalIVA)), 2, MidpointRounding.AwayFromZero),
+                                        IdCodigo_SRI = Detalle.IdCodigo_SRI,
+                                        re_Codigo_impuesto = Detalle.re_Codigo_impuesto,
+                                        re_Porcen_retencion = Detalle.re_Porcen_retencion,
+                                        re_valor_retencion = Math.Round(Math.Round(Convert.ToDouble(Detalle.re_tipo == "IVA" ? item.ValorIVA : (item.Subtotal0 + item.SubtotalIVA)), 2, MidpointRounding.AwayFromZero) * (Detalle.re_Porcen_retencion / 100), 2, MidpointRounding.AwayFromZero)
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    if (bus_xml.GuardarDB(item))
+                    {
+                        string MensajeError = string.Empty;
+                        if (!bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
+                        {
+                            MessageBox.Show("No se ha podido generar el XML de la retención del documento "+ item.Comprobante+" de "+item.RazonSocial, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
+                        }
+                    }
                     item.Imagen = 2;
                 }
                 gcDetalle.Refresh();

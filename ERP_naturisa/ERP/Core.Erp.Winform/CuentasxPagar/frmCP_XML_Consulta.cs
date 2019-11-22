@@ -101,6 +101,18 @@ namespace Core.Erp.Winform.CuentasxPagar
                     return;
                 }
 
+                if (!(row.Estado ?? false) && Accion != Cl_Enumeradores.eTipo_action.consultar)
+                {
+                    MessageBox.Show("El registro se encuentra anulado",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (!string.IsNullOrEmpty(row.ret_NumeroAutorizacion) && Accion != Cl_Enumeradores.eTipo_action.consultar)
+                {
+                    MessageBox.Show("El registro tiene una retención autorizada", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
                 frmCP_XML_Mantenimiento frm = new frmCP_XML_Mantenimiento();
                 frm.SetInfo(row, Accion);
                 frm.MdiParent = this.MdiParent;
@@ -122,6 +134,63 @@ namespace Core.Erp.Winform.CuentasxPagar
             catch (Exception)
             {
                 
+                throw;
+            }
+        }
+
+        private void gvDetalle_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            try
+            {
+                cp_XML_Documento_Info row = (cp_XML_Documento_Info)gvDetalle.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+
+                if (!string.IsNullOrEmpty(row.ret_NumeroDocumento))
+                    e.Appearance.ForeColor = Color.Blue;
+
+                if (!(row.Estado ?? false))
+                    e.Appearance.ForeColor = Color.Red;
+
+                if (!string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
+                    e.Appearance.ForeColor = Color.Green;
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void gvDetalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                cp_XML_Documento_Info row = (cp_XML_Documento_Info)gvDetalle.GetRow(e.FocusedRowHandle);
+                if (row == null)
+                    return;
+
+                if (!string.IsNullOrEmpty(row.ret_NumeroDocumento))
+                {
+                    gvDetalle.Appearance.FocusedRow.ForeColor = Color.Blue;
+                    gvDetalle.Appearance.FocusedCell.ForeColor = Color.Blue;
+                }
+
+                if (!(row.Estado ?? false))
+                {
+                    gvDetalle.Appearance.FocusedRow.ForeColor = Color.Red;
+                    gvDetalle.Appearance.FocusedCell.ForeColor = Color.Red;
+                }
+                if (!string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
+                {
+                    gvDetalle.Appearance.FocusedRow.ForeColor = Color.Green;
+                    gvDetalle.Appearance.FocusedCell.ForeColor = Color.Green;
+                }
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

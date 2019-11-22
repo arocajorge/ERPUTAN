@@ -170,8 +170,12 @@
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_cp_orden_pago_tipo" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_pago_det_cp_orden_pago" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_RutaPorEmpresaPorUsuario" Width="1.5" PointX="9.4175049315288231" PointY="28.668006314275789" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="8.3622345423150044" PointY="8.8456086408559269" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar" Width="1.5" PointX="11.255824891503819" PointY="2.9446606947782734" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento_Retencion" Width="1.5" PointX="10.331596293641066" PointY="30.776563032891865" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="1.5598412964306032" PointY="24.806711879003192" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_proveedor_codigo_SRI" Width="1.5" PointX="11.99652415327566" PointY="24.729866560888414" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="8.4776881115872822" PointY="1.9568146774344215" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

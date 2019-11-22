@@ -267,5 +267,18 @@ namespace Core.Erp.Business.General
 
             }
         }
+
+        public tb_sis_Documento_Tipo_Talonario_Info GetDocumentoElectronicoUpdateUsado(int IdEmpresa, string CodDocumentoTipo, string Establecimiento, string PuntoEmision)
+        {
+            try
+            {
+                return data.GetDocumentoElectronicoUpdateUsado(IdEmpresa, CodDocumentoTipo, Establecimiento, PuntoEmision);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

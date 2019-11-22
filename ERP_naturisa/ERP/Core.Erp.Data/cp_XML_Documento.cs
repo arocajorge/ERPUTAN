@@ -14,8 +14,14 @@ namespace Core.Erp.Data
     
     public partial class cp_XML_Documento
     {
+        public cp_XML_Documento()
+        {
+            this.cp_XML_Documento_Retencion = new HashSet<cp_XML_Documento_Retencion>();
+        }
+    
         public int IdEmpresa { get; set; }
         public decimal IdDocumento { get; set; }
+        public string Comprobante { get; set; }
         public string XML { get; set; }
         public string Tipo { get; set; }
         public string emi_RazonSocial { get; set; }
@@ -37,5 +43,17 @@ namespace Core.Erp.Data
         public Nullable<double> Total { get; set; }
         public string FormaPago { get; set; }
         public Nullable<int> Plazo { get; set; }
+        public string ret_CodDocumentoTipo { get; set; }
+        public string ret_Establecimiento { get; set; }
+        public string ret_PuntoEmision { get; set; }
+        public string ret_NumeroDocumento { get; set; }
+        public Nullable<System.DateTime> ret_Fecha { get; set; }
+        public Nullable<System.DateTime> ret_FechaAutorizacion { get; set; }
+        public string ret_NumeroAutorizacion { get; set; }
+        public Nullable<bool> Estado { get; set; }
+        public Nullable<int> IdTipoCbte { get; set; }
+        public Nullable<decimal> IdCbteCble { get; set; }
+    
+        public virtual ICollection<cp_XML_Documento_Retencion> cp_XML_Documento_Retencion { get; set; }
     }
 }

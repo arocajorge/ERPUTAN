@@ -1141,6 +1141,9 @@
     <Compile Include="cp_XML_Documento.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="cp_XML_Documento_Retencion.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="ct_anio_fiscal.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
@@ -1360,6 +1363,7 @@
     <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Data.cs" />
     <Compile Include="CuentasxPagar\cp_TipoDocumento_Data.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Data.cs" />
+    <Compile Include="CuentasxPagar\cp_XML_Documento_Retencion_Data.cs" />
     <Compile Include="CuentasxPagar\vwcp_Anticipos_para_Conciliar_Data.cs" />
     <Compile Include="CuentasxPagar\vwcp_cbtes_cxp_para_conciliar_Data.cs" />
     <Compile Include="CuentasxPagar\vwcp_Cbte_x_pagar_OG_Data.cs" />
@@ -4460,6 +4464,9 @@
     <Compile Include="vwcp_ProveedorRuc.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcp_proveedor_codigo_SRI.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcp_proveedor_combo.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
@@ -4491,6 +4498,9 @@
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcp_Tipo_Impresion_Cheq.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcp_XML_Documento.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="vwct_anio_fiscal_x_cuenta_utilidad.cs">

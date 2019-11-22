@@ -22,6 +22,7 @@ namespace Core.Erp.Data
             : base("name=EntitiesCuentasxPagar")
         {
         }
+
         public void SetCommandTimeOut(int TimeOut)
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
@@ -139,8 +140,11 @@ namespace Core.Erp.Data
         public DbSet<cp_orden_pago> cp_orden_pago { get; set; }
         public DbSet<vwcp_orden_pago> vwcp_orden_pago { get; set; }
         public DbSet<cp_RutaPorEmpresaPorUsuario> cp_RutaPorEmpresaPorUsuario { get; set; }
-        public DbSet<cp_XML_Documento> cp_XML_Documento { get; set; }
         public DbSet<vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar> vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar { get; set; }
+        public DbSet<cp_XML_Documento_Retencion> cp_XML_Documento_Retencion { get; set; }
+        public DbSet<vwcp_XML_Documento> vwcp_XML_Documento { get; set; }
+        public DbSet<vwcp_proveedor_codigo_SRI> vwcp_proveedor_codigo_SRI { get; set; }
+        public DbSet<cp_XML_Documento> cp_XML_Documento { get; set; }
     
         public virtual ObjectResult<string> spCXP_eliminar_factura_vale_conciliacion_caja(Nullable<int> idEmpresa, Nullable<int> idTipoCbte, Nullable<decimal> idCbteCble, string tipoCbte_conci, Nullable<bool> borrar_o_desvincular)
         {

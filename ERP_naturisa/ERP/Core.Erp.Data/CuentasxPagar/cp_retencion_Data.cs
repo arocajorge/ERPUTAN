@@ -8,6 +8,8 @@ using Core.Erp.Data.General;
 using Core.Erp.Info.class_sri.Retencion;
 using Core.Erp.Info.class_sri.FacturaV2;
 using Core.Erp.Info.class_sri;
+using Core.Erp.Data.Contabilidad;
+using System.Data.Entity.Validation;
 
 namespace Core.Erp.Data.CuentasxPagar
 {
@@ -732,15 +734,13 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 EntitiesCuentasxPagar base_ = new EntitiesCuentasxPagar();
 
-                Id = base_.cp_retencion.Count(C => C.IdEmpresa == IdEmpresa);
+                Id = base_.cp_retencion.Where(C => C.IdEmpresa == IdEmpresa).Count();
                 
                 if (Id == 0)
                     Id = 1;
                 else
                 {
-                   decimal select_ = (from C in base_.cp_retencion
-                                      where C.IdEmpresa == IdEmpresa
-                                       select C.IdRetencion).Max();
+                   decimal select_ = base_.cp_retencion.Where(C=> C.IdEmpresa == IdEmpresa).Max(C=> C.IdRetencion);
                     Id = select_ + 1;
                 }
                 return Id;
@@ -1439,5 +1439,123 @@ namespace Core.Erp.Data.CuentasxPagar
         }
        
         public cp_retencion_Data() { }
+
+        public bool ContabilizarRetencion(int IdEmpresa, decimal IdRetencion, string IdUsuario)
+        {
+            try
+            {
+                EntitiesCuentasxPagar dbcxp = new EntitiesCuentasxPagar();
+                EntitiesDBConta dbct = new EntitiesDBConta();
+                var Entity = dbcxp.cp_retencion.Where(q=> q.IdEmpresa == IdEmpresa && q.IdRetencion == IdRetencion).FirstOrDefault();
+                if(Entity == null)
+                    return false;
+
+                var OG = dbcxp.cp_orden_giro.Where(q=> q.IdEmpresa == IdEmpresa && q.IdTipoCbte_Ogiro == Entity.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == Entity.IdCbteCble_Ogiro).FirstOrDefault();
+                if(OG == null)
+                    return false;
+
+                var prov = dbcxp.cp_proveedor.Where(q=> q.IdEmpresa == IdEmpresa && q.IdProveedor == OG.IdProveedor).FirstOrDefault();
+                if(prov == null)
+                    return false;
+
+                var lst = (from a in dbcxp.cp_retencion_det
+                           join b in dbcxp.cp_codigo_SRI_x_CtaCble
+                               on new { a.IdEmpresa, IdCodigo_SRI = (int)a.IdCodigo_SRI } equals new { b.IdEmpresa, IdCodigo_SRI = (int)b.idCodigo_SRI }
+                               where a.IdEmpresa == IdEmpresa && a.IdRetencion == IdRetencion
+                           select new
+                           {
+                               b.IdCtaCble,
+                               a.re_valor_retencion
+                           }).ToList();
+
+                var paramcxp = dbcxp.cp_parametros.Where(q => q.IdEmpresa == IdEmpresa).FirstOrDefault();
+                if (paramcxp == null)
+                    return false;
+
+                if (lst.Count == 0)
+                    return false;
+
+                if (lst.Where(q => string.IsNullOrEmpty(q.IdCtaCble)).Count() > 0)
+                    return false;
+
+                ct_Cbtecble_Data odatact = new ct_Cbtecble_Data();
+                decimal IdCbteCble = 0;
+                dbct.ct_cbtecble.Add(new ct_cbtecble
+                {
+                    IdEmpresa = IdEmpresa,
+                    CodCbteCble = "RETEN",
+                    IdTipoCbte = (int)paramcxp.pa_IdTipoCbte_x_Retencion,
+                    IdCbteCble = IdCbteCble = odatact.Get_IdCbteCble(IdEmpresa,(int)paramcxp.pa_IdTipoCbte_x_Retencion,ref mensaje),
+                    IdPeriodo = Convert.ToInt32(Entity.fecha.ToString("yyyyMM")),
+                    cb_Fecha = Entity.fecha,
+                    cb_Valor = Math.Round(lst.Sum(q=> q.re_valor_retencion),2,MidpointRounding.AwayFromZero),
+                    cb_Observacion = Entity.observacion,
+                    cb_Secuencia = 0,
+                    cb_Estado = "A",
+                    cb_Anio = Entity.fecha.Year,
+                    cb_mes = Entity.fecha.Month,
+                    IdUsuario = IdUsuario,
+                    cb_FechaTransac = DateTime.Now,
+                    cb_Mayorizado = "S",
+                    cb_para_conciliar = false,
+                    IdSucursal = OG.IdSucursal ?? 1
+                });
+                int Secuencia = 1;
+
+                dbct.ct_cbtecble_det.Add(new ct_cbtecble_det
+                {
+                    IdEmpresa = IdEmpresa,
+                    IdTipoCbte = (int)paramcxp.pa_IdTipoCbte_x_Retencion,
+                    IdCbteCble = IdCbteCble,
+                    secuencia = Secuencia++,
+                    IdCtaCble = prov.IdCtaCble_CXP,
+                    dc_Valor = Math.Round(lst.Sum(q=> q.re_valor_retencion),2,MidpointRounding.AwayFromZero),
+                    dc_Observacion = ""
+                });
+                foreach (var item in lst)
+                {
+                    dbct.ct_cbtecble_det.Add(new ct_cbtecble_det
+                    {
+                        IdEmpresa = IdEmpresa,
+                        IdTipoCbte = (int)paramcxp.pa_IdTipoCbte_x_Retencion,
+                        IdCbteCble = IdCbteCble,
+                        secuencia = Secuencia++,
+                        IdCtaCble = item.IdCtaCble,
+                        dc_Valor = Math.Round(item.re_valor_retencion*-1,2,MidpointRounding.AwayFromZero),
+                        dc_Observacion = ""    
+                    });
+                }
+
+                dbcxp.cp_retencion_x_ct_cbtecble.Add(new cp_retencion_x_ct_cbtecble
+                {
+                    rt_IdEmpresa = IdEmpresa,
+                    rt_IdRetencion = IdRetencion,
+                    ct_IdEmpresa = IdEmpresa,
+                    ct_IdTipoCbte = (int)paramcxp.pa_IdTipoCbte_x_Retencion,
+                    ct_IdCbteCble = IdCbteCble,
+                    Observacion = ""
+                });
+
+                dbct.SaveChanges();
+                dbcxp.SaveChanges();
+                return true;
+            }
+            catch (DbEntityValidationException ex)
+            {
+                string mensaje = "";
+                string arreglo = ToString();
+                foreach (var item in ex.EntityValidationErrors)
+                {
+                    foreach (var item_validaciones in item.ValidationErrors)
+                    {
+                        mensaje = "Propiedad: " + item_validaciones.PropertyName + " Mensaje: " + item_validaciones.ErrorMessage + "\n";
+                    }
+                }
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(mensaje, "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                throw new Exception(mensaje);
+            }
+        }
     }
 }

@@ -33,6 +33,17 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtTotalXML = new DevExpress.XtraEditors.TextEdit();
+            this.txtValorIVAXML = new DevExpress.XtraEditors.TextEdit();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtSubtotalIVAXML = new DevExpress.XtraEditors.TextEdit();
+            this.txtSubtotal0XML = new DevExpress.XtraEditors.TextEdit();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnBuscarXML = new DevExpress.XtraEditors.SimpleButton();
             this.chk_seleccionar_visibles = new System.Windows.Forms.CheckBox();
             this.cmb_Sucursal = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -137,6 +148,11 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalXML.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValorIVAXML.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSubtotalIVAXML.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0XML.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_FechaVctoAuto.Properties.VistaTimeProperties)).BeginInit();
@@ -189,7 +205,7 @@
             this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 652);
             this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1480, 32);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1595, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
             // 
             // ucGe_Menu
@@ -221,7 +237,7 @@
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
             this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1480, 36);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1595, 28);
             this.ucGe_Menu.TabIndex = 1;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -253,6 +269,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.btnBuscarXML);
             this.panel1.Controls.Add(this.chk_seleccionar_visibles);
             this.panel1.Controls.Add(this.cmb_Sucursal);
             this.panel1.Controls.Add(this.label13);
@@ -287,16 +305,133 @@
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 36);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1480, 284);
+            this.panel1.Size = new System.Drawing.Size(1595, 229);
             this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.txtTotalXML);
+            this.panel2.Controls.Add(this.txtValorIVAXML);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.txtSubtotalIVAXML);
+            this.panel2.Controls.Add(this.txtSubtotal0XML);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Location = new System.Drawing.Point(1317, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(250, 171);
+            this.panel2.TabIndex = 51;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(81, 12);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(98, 17);
+            this.label24.TabIndex = 24;
+            this.label24.Text = "Totales XML";
+            // 
+            // txtTotalXML
+            // 
+            this.txtTotalXML.Location = new System.Drawing.Point(116, 131);
+            this.txtTotalXML.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalXML.Name = "txtTotalXML";
+            this.txtTotalXML.Properties.Mask.EditMask = "n6";
+            this.txtTotalXML.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTotalXML.Size = new System.Drawing.Size(114, 22);
+            this.txtTotalXML.TabIndex = 23;
+            // 
+            // txtValorIVAXML
+            // 
+            this.txtValorIVAXML.Location = new System.Drawing.Point(116, 101);
+            this.txtValorIVAXML.Margin = new System.Windows.Forms.Padding(4);
+            this.txtValorIVAXML.Name = "txtValorIVAXML";
+            this.txtValorIVAXML.Properties.Mask.EditMask = "n6";
+            this.txtValorIVAXML.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtValorIVAXML.Size = new System.Drawing.Size(114, 22);
+            this.txtValorIVAXML.TabIndex = 22;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(10, 134);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 17);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "Total:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(10, 104);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(66, 17);
+            this.label23.TabIndex = 20;
+            this.label23.Text = "Total Iva:";
+            // 
+            // txtSubtotalIVAXML
+            // 
+            this.txtSubtotalIVAXML.Location = new System.Drawing.Point(116, 71);
+            this.txtSubtotalIVAXML.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSubtotalIVAXML.Name = "txtSubtotalIVAXML";
+            this.txtSubtotalIVAXML.Properties.Mask.EditMask = "n6";
+            this.txtSubtotalIVAXML.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtSubtotalIVAXML.Size = new System.Drawing.Size(114, 22);
+            this.txtSubtotalIVAXML.TabIndex = 19;
+            // 
+            // txtSubtotal0XML
+            // 
+            this.txtSubtotal0XML.Location = new System.Drawing.Point(116, 41);
+            this.txtSubtotal0XML.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSubtotal0XML.Name = "txtSubtotal0XML";
+            this.txtSubtotal0XML.Properties.Mask.EditMask = "n6";
+            this.txtSubtotal0XML.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtSubtotal0XML.Size = new System.Drawing.Size(114, 22);
+            this.txtSubtotal0XML.TabIndex = 18;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(10, 74);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(86, 17);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Subtotal Iva:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(10, 44);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 17);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Subtotal 0%:";
+            // 
+            // btnBuscarXML
+            // 
+            this.btnBuscarXML.Location = new System.Drawing.Point(788, 21);
+            this.btnBuscarXML.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarXML.Name = "btnBuscarXML";
+            this.btnBuscarXML.Size = new System.Drawing.Size(249, 28);
+            this.btnBuscarXML.TabIndex = 50;
+            this.btnBuscarXML.Text = "Buscar XML sin contabilizar";
+            this.btnBuscarXML.Click += new System.EventHandler(this.btnBuscarXML_Click);
             // 
             // chk_seleccionar_visibles
             // 
             this.chk_seleccionar_visibles.AutoSize = true;
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(40, 244);
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(45, 202);
             this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
             this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
             this.chk_seleccionar_visibles.TabIndex = 49;
@@ -314,7 +449,7 @@
             this.cmb_Sucursal.Properties.DisplayMember = "Su_Descripcion";
             this.cmb_Sucursal.Properties.ValueMember = "IdSucursal";
             this.cmb_Sucursal.Properties.View = this.gridView5;
-            this.cmb_Sucursal.Size = new System.Drawing.Size(1125, 22);
+            this.cmb_Sucursal.Size = new System.Drawing.Size(531, 22);
             this.cmb_Sucursal.TabIndex = 48;
             // 
             // gridView5
@@ -463,7 +598,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(1144, 163);
+            this.label29.Location = new System.Drawing.Point(1045, 129);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(47, 17);
@@ -473,7 +608,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1052, 131);
+            this.label6.Location = new System.Drawing.Point(1045, 96);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 17);
@@ -482,7 +617,7 @@
             // 
             // txt_plazo
             // 
-            this.txt_plazo.Location = new System.Drawing.Point(1240, 159);
+            this.txt_plazo.Location = new System.Drawing.Point(1233, 124);
             this.txt_plazo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_plazo.Name = "txt_plazo";
             this.txt_plazo.Size = new System.Drawing.Size(64, 22);
@@ -494,7 +629,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1052, 63);
+            this.label14.Location = new System.Drawing.Point(1045, 28);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(57, 17);
@@ -504,7 +639,7 @@
             // dtpFecVtc
             // 
             this.dtpFecVtc.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtpFecVtc.Location = new System.Drawing.Point(1200, 191);
+            this.dtpFecVtc.Location = new System.Drawing.Point(1193, 156);
             this.dtpFecVtc.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecVtc.Name = "dtpFecVtc";
             this.dtpFecVtc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -528,7 +663,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1052, 195);
+            this.label5.Location = new System.Drawing.Point(1045, 160);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
@@ -549,7 +684,7 @@
             // dtp_fecha_contabilizacion
             // 
             this.dtp_fecha_contabilizacion.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtp_fecha_contabilizacion.Location = new System.Drawing.Point(1200, 91);
+            this.dtp_fecha_contabilizacion.Location = new System.Drawing.Point(1193, 56);
             this.dtp_fecha_contabilizacion.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_fecha_contabilizacion.Name = "dtp_fecha_contabilizacion";
             this.dtp_fecha_contabilizacion.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -570,7 +705,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1052, 95);
+            this.label18.Location = new System.Drawing.Point(1045, 60);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(138, 17);
@@ -598,7 +733,7 @@
             // dtpFecAproba
             // 
             this.dtpFecAproba.EditValue = new System.DateTime(2015, 4, 27, 0, 0, 0, 0);
-            this.dtpFecAproba.Location = new System.Drawing.Point(1200, 59);
+            this.dtpFecAproba.Location = new System.Drawing.Point(1193, 24);
             this.dtpFecAproba.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecAproba.Name = "dtpFecAproba";
             this.dtpFecAproba.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -651,7 +786,7 @@
             // dtpFecFactura
             // 
             this.dtpFecFactura.EditValue = new System.DateTime(2015, 4, 27, 10, 39, 5, 0);
-            this.dtpFecFactura.Location = new System.Drawing.Point(1200, 127);
+            this.dtpFecFactura.Location = new System.Drawing.Point(1193, 92);
             this.dtpFecFactura.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecFactura.Name = "dtpFecFactura";
             this.dtpFecFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -716,7 +851,7 @@
             this.txtObservacion.Location = new System.Drawing.Point(179, 159);
             this.txtObservacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(859, 62);
+            this.txtObservacion.Size = new System.Drawing.Size(859, 36);
             this.txtObservacion.TabIndex = 10;
             // 
             // label16
@@ -742,7 +877,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 320);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 257);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -765,8 +900,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Size = new System.Drawing.Size(1480, 332);
-            this.splitContainer1.SplitterDistance = 248;
+            this.splitContainer1.Size = new System.Drawing.Size(1595, 395);
+            this.splitContainer1.SplitterDistance = 293;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -784,7 +919,7 @@
             this.CmbPuntoCargo,
             this.cmbSubcentro,
             this.cmb_centroCosoto});
-            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1480, 248);
+            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1595, 293);
             this.gridControlAproIngEgrxOC.TabIndex = 0;
             this.gridControlAproIngEgrxOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAproIngEgrxOC});
@@ -1345,7 +1480,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1480, 684);
+            this.ClientSize = new System.Drawing.Size(1595, 684);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
@@ -1357,6 +1492,12 @@
             this.Load += new System.EventHandler(this.frmCP_Aprobacion_Ing_Bod_x_OC_Mant_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalXML.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValorIVAXML.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSubtotalIVAXML.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0XML.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_Sucursal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_FechaVctoAuto.Properties.VistaTimeProperties)).EndInit();
@@ -1513,5 +1654,16 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.CheckBox chk_seleccionar_visibles;
+        private DevExpress.XtraEditors.SimpleButton btnBuscarXML;
+        private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraEditors.TextEdit txtSubtotalIVAXML;
+        private DevExpress.XtraEditors.TextEdit txtSubtotal0XML;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label24;
+        private DevExpress.XtraEditors.TextEdit txtTotalXML;
+        private DevExpress.XtraEditors.TextEdit txtValorIVAXML;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

@@ -16,5 +16,13 @@ namespace Core.Erp.Info.CuentasxPagar
         public cp_proveedor_codigo_SRI_Info() {
             Modificado = "G";//los registros con G son los que se van a grabar xprimera vez
         }
+
+        public double re_Porcen_retencion { get; set; }
+
+        public string pe_cedulRuc { get; set; }
+
+        public string re_tipo { get; set; }
+
+        public string re_Codigo_impuesto { get; set; }
     }
 }

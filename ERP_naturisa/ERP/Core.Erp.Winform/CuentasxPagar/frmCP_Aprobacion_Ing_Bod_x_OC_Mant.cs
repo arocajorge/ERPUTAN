@@ -67,7 +67,9 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_parametros_Info info_cpParam;
 
         string proveedor = "";
-
+        cp_XML_Documento_Bus busXML = new cp_XML_Documento_Bus();
+        cp_XML_Documento_Info infoXML = new cp_XML_Documento_Info();
+        cp_XML_Documento_Retencion_Bus busXMLDet = new cp_XML_Documento_Retencion_Bus();
         #endregion
 
         public frmCP_Aprobacion_Ing_Bod_x_OC_Mant()
@@ -106,7 +108,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             try
             {
                 Buscar_Ingresos();
-                if (String.IsNullOrEmpty(ucCp_Proveedor1.get_ProveedorInfo().IdCtaCble_Gasto))
+                if (ucCp_Proveedor1.get_ProveedorInfo() == null || String.IsNullOrEmpty(ucCp_Proveedor1.get_ProveedorInfo().IdCtaCble_Gasto))
                 {
                     info_cpParam = new cp_parametros_Info();
                     info_cpParam = bus_cpParam.Get_Info_parametros(param.IdEmpresa);                   
@@ -189,7 +191,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         void frmCP_Aprobacion_Ing_Bod_x_OC_Mant_event_frmCP_Aprobacion_Ing_Bod_x_OC_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -539,6 +540,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 if (Info.IdCbteCble_Ogiro != null)
                                 {
                                     MessageBox.Show("Se ha procedido a grabar el registro de Aprobación #: " + IdIdAprobacion.ToString() + ", con Factura Proveedor #: " + Info.IdCbteCble_Ogiro + " exitosamente.", "Operación Exitosa");
+                                    if (ValidarExisteXML())
+                                    {
+                                        if (busXML.ContabilizarDocumento(infoXML.IdEmpresa, infoXML.IdDocumento, (int)Info.IdTipoCbte_Ogiro, (int)Info.IdCbteCble_Ogiro, ucCp_Proveedor1.get_ProveedorInfo().IdCtaCble_CXP, param.IdUsuario, true))
+                                        {
+                                            MessageBox.Show("Documento XML contabilizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                        }
+                                    }
+                                    
                                 }
                                 else
                                 {
@@ -603,6 +612,49 @@ namespace Core.Erp.Winform.CuentasxPagar
             try
             {
                 Accion = _Accion;
+                txtSubtotal0XML.Enabled = false;
+                txtSubtotal0XML.BackColor = System.Drawing.Color.White;
+                txtSubtotal0XML.ForeColor = System.Drawing.Color.Black;
+
+                txtSubtotalIVAXML.Enabled = false;
+                txtSubtotalIVAXML.BackColor = System.Drawing.Color.White;
+                txtSubtotalIVAXML.ForeColor = System.Drawing.Color.Black;
+
+                txtValorIVAXML.Enabled = false;
+                txtValorIVAXML.BackColor = System.Drawing.Color.White;
+                txtValorIVAXML.ForeColor = System.Drawing.Color.Black;
+
+                txtTotalXML.Enabled = false;
+                txtTotalXML.BackColor = System.Drawing.Color.White;
+                txtTotalXML.ForeColor = System.Drawing.Color.Black;
+
+                txtIdAprobacion.Enabled = false;
+                txtIdAprobacion.BackColor = System.Drawing.Color.White;
+                txtIdAprobacion.ForeColor = System.Drawing.Color.Black;
+
+                txtTotDescuento.Enabled = false;
+                txtTotDescuento.BackColor = System.Drawing.Color.White;
+                txtTotDescuento.ForeColor = System.Drawing.Color.Black;
+
+                txtTotalIva.Enabled = false;
+                txtTotalIva.BackColor = System.Drawing.Color.White;
+                txtTotalIva.ForeColor = System.Drawing.Color.Black;
+
+                txtSubtotal.Enabled = false;
+                txtSubtotal.BackColor = System.Drawing.Color.White;
+                txtSubtotal.ForeColor = System.Drawing.Color.Black;
+
+                txtTotal.Enabled = false;
+                txtTotal.BackColor = System.Drawing.Color.White;
+                txtTotal.ForeColor = System.Drawing.Color.Black;
+
+                txtSubtotal0.Enabled = false;
+                txtSubtotal0.BackColor = System.Drawing.Color.White;
+                txtSubtotal0.ForeColor = System.Drawing.Color.Black;
+
+                txtSubtotalIva.Enabled = false;
+                txtSubtotalIva.BackColor = System.Drawing.Color.White;
+                txtSubtotalIva.ForeColor = System.Drawing.Color.Black;
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -611,34 +663,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                         dtpFecFactura.EditValue = DateTime.Now;
 
                         ucGe_Menu.Enabled_bntAnular = false;
-
-                        txtIdAprobacion.Enabled = false;
-                        txtIdAprobacion.BackColor = System.Drawing.Color.White;
-                        txtIdAprobacion.ForeColor = System.Drawing.Color.Black;
-
-                        txtTotDescuento.Enabled = false;
-                        txtTotDescuento.BackColor = System.Drawing.Color.White;
-                        txtTotDescuento.ForeColor = System.Drawing.Color.Black;
-
-                        txtTotalIva.Enabled = false;
-                        txtTotalIva.BackColor = System.Drawing.Color.White;
-                        txtTotalIva.ForeColor = System.Drawing.Color.Black;
-
-                        txtSubtotal.Enabled = false;
-                        txtSubtotal.BackColor = System.Drawing.Color.White;
-                        txtSubtotal.ForeColor = System.Drawing.Color.Black;
-
-                        txtTotal.Enabled = false;
-                        txtTotal.BackColor = System.Drawing.Color.White;
-                        txtTotal.ForeColor = System.Drawing.Color.Black;
-
-                        txtSubtotal0.Enabled = false;
-                        txtSubtotal0.BackColor = System.Drawing.Color.White;
-                        txtSubtotal0.ForeColor = System.Drawing.Color.Black;
-
-                        txtSubtotalIva.Enabled = false;
-                        txtSubtotalIva.BackColor = System.Drawing.Color.White;
-                        txtSubtotalIva.ForeColor = System.Drawing.Color.Black;
 
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
@@ -1137,6 +1161,9 @@ namespace Core.Erp.Winform.CuentasxPagar
                 int plazo = 0;
 
                 InfoProveedor = ucCp_Proveedor1.get_ProveedorInfo();
+                if (InfoProveedor == null)
+                    return;
+                
                 plazo = Convert.ToInt32(InfoProveedor.pr_plazo);
 
                 txt_plazo.Text = plazo.ToString();
@@ -1328,6 +1355,84 @@ namespace Core.Erp.Winform.CuentasxPagar
                Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool ValidarExisteXML()
+        {
+            try
+            {
+                var prov = ucCp_Proveedor1.get_ProveedorInfo();
+                if (prov == null)
+                    return false;
+
+                var Documento = LstTipDoc.Where(q => q.CodTipoDocumento == cmbTipoDocu.EditValue.ToString()).FirstOrDefault();
+                if (Documento == null)
+                    return false;
+
+                infoXML = busXML.GetInfo(param.IdEmpresa, Documento.CodSRI, prov.Persona_Info.pe_cedulaRuc, txtSerie.Text, txtSerie2.Text, txtNumDocu.Text);
+                if (infoXML == null)
+                    return false;
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private void btnBuscarXML_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var prov = ucCp_Proveedor1.get_ProveedorInfo();
+                frmCP_XML_DocumentosNoContabilizados frm = new frmCP_XML_DocumentosNoContabilizados();
+                frm.pe_cedulaRuc = prov == null ? "" : prov.Persona_Info.pe_cedulaRuc;
+                frm.ShowDialog();
+                if(frm.infoXML != null)
+                    SetXml(frm.infoXML);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void SetXml(cp_XML_Documento_Info XML)
+        {
+            try
+            {
+                infoXML = XML;
+                cp_proveedor_Bus busProv = new cp_proveedor_Bus();
+                var prov = busProv.Get_Info_Proveedor(param.IdEmpresa, XML.emi_Ruc);
+                if (prov == null)
+                {
+                    MessageBox.Show("El proveedor no se encuentra registrado",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                ucCp_Proveedor1.set_ProveedorInfo(prov.IdProveedor);
+                txtSerie.Text = XML.Establecimiento;
+                txtSerie2.Text = XML.PuntoEmision;
+                txtNumDocu.Text = XML.NumeroDocumento;
+                txtNumAutProve.Text = XML.ClaveAcceso;
+                dtpFecAproba.EditValue = XML.FechaEmision;
+                dtpFecFactura.EditValue = XML.FechaEmision;
+                dtp_fecha_contabilizacion.EditValue = XML.FechaEmision;
+                txt_plazo.Text = XML.Plazo.ToString();
+
+                txtSubtotal0XML.Text = XML.Subtotal0.ToString();
+                txtSubtotalIVAXML.Text = XML.SubtotalIVA.ToString();
+                txtValorIVAXML.Text = XML.ValorIVA.ToString();
+                txtTotalXML.Text = XML.Total.ToString();
+
+                de_FechaVctoAuto.EditValue = DateTime.Now.Date.AddYears(20);
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }

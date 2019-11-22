@@ -499,7 +499,7 @@ namespace Core.Erp.Data.Contabilidad
 
                 OECbtecble.SetCommandTimeOut(5000);
 
-                var selecte = OECbtecble.ct_cbtecble.Count(q =>q.IdEmpresa == idempresa && q.IdTipoCbte == idTipoCbte);
+                var selecte = OECbtecble.ct_cbtecble.Where(q => q.IdEmpresa == idempresa && q.IdTipoCbte == idTipoCbte).Count();
                              
 
                 if (selecte==0)

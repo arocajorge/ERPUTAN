@@ -51,8 +51,9 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.lblContador = new DevExpress.XtraEditors.LabelControl();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaXml.Properties)).BeginInit();
@@ -124,6 +125,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblContador);
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Controls.Add(this.txtRutaXml);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -277,13 +279,6 @@
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 8;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Add_16_x_16.png");
-            this.imageList1.Images.SetKeyName(1, "Doc_16x16.png");
-            // 
             // cmbImagen
             // 
             this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
@@ -297,6 +292,22 @@
             this.cmbImagen.Name = "cmbImagen";
             this.cmbImagen.ReadOnly = true;
             this.cmbImagen.SmallImages = this.imageList1;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add_16_x_16.png");
+            this.imageList1.Images.SetKeyName(1, "Doc_16x16.png");
+            // 
+            // lblContador
+            // 
+            this.lblContador.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContador.Location = new System.Drawing.Point(796, 13);
+            this.lblContador.Name = "lblContador";
+            this.lblContador.Size = new System.Drawing.Size(11, 21);
+            this.lblContador.TabIndex = 50;
+            this.lblContador.Text = "0";
             // 
             // frmCP_DigitalizacionXML
             // 
@@ -347,5 +358,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
+        private DevExpress.XtraEditors.LabelControl lblContador;
     }
 }

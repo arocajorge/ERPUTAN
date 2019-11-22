@@ -32,7 +32,36 @@ namespace Core.Erp.Info.CuentasxPagar
         public Nullable<double> Total { get; set; }
         public string FormaPago { get; set; }
         public Nullable<int> Plazo { get; set; }
+        public string ret_CodDocumentoTipo { get; set; }
+        public string ret_Establecimiento { get; set; }
+        public string ret_PuntoEmision { get; set; }
+        public string ret_NumeroDocumento { get; set; }
+        public Nullable<System.DateTime> ret_Fecha { get; set; }
+        public Nullable<System.DateTime> ret_FechaAutorizacion { get; set; }
+        public string ret_NumeroAutorizacion { get; set; }
+        public Nullable<bool> Estado { get; set; }
 
+        #region Campos que no existen en la tabla
         public int Imagen { get; set; }
+        public List<cp_XML_Documento_Retencion_Info> lstRetencion { get; set; }
+        public string serie { get; set; }
+        public string pe_nombreCompleto { get; set; }
+        public string pe_correo { get; set; }
+        public string pe_direccion { get; set; }
+        public string pe_telfono_Contacto { get; set; }
+        public decimal IdProveedor { get; set; }
+        public string co_serie { get; set; }
+        public string IdTipoDocumento { get; set; }
+        public int IdSucursal { get; set; }
+        public string Su_Descripcion { get; set; }
+        public string Su_Direccion { get; set; }
+        public string RazonSocial { get; set; }
+        public string NombreComercial { get; set; }
+        public string ContribuyenteEspecial { get; set; }
+        public string ObligadoAllevarConta { get; set; }
+        public string em_ruc { get; set; }
+        public string em_direccion { get; set; }
+        #endregion
+        
     }
 }

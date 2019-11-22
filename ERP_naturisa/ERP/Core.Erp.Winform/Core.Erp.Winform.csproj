@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>183</ApplicationRevision>
+    <ApplicationRevision>185</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -466,6 +466,12 @@
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_XML_Consulta.Designer.cs">
       <DependentUpon>frmCP_XML_Consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_DocumentosNoContabilizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_DocumentosNoContabilizados.Designer.cs">
+      <DependentUpon>frmCP_XML_DocumentosNoContabilizados.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_XML_Mantenimiento.cs">
       <SubType>Form</SubType>
@@ -6511,6 +6517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_XML_Consulta.resx">
       <DependentUpon>frmCP_XML_Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\frmCP_XML_DocumentosNoContabilizados.resx">
+      <DependentUpon>frmCP_XML_DocumentosNoContabilizados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_XML_Mantenimiento.resx">
       <DependentUpon>frmCP_XML_Mantenimiento.cs</DependentUpon>

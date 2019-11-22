@@ -234,6 +234,40 @@ namespace Core.Erp.Data.CuentasxPagar
             }
         }
 
+        public List<cp_proveedor_codigo_SRI_Info> GetList(int IdEmpresa, string pe_cedulaRuc)
+        {
+            try
+            {
+                List<cp_proveedor_codigo_SRI_Info> Lista = new List<cp_proveedor_codigo_SRI_Info>();
+
+                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                {
+                    var lst = db.vwcp_proveedor_codigo_SRI.Where(q => q.IdEmpresa == IdEmpresa && q.pe_cedulaRuc == pe_cedulaRuc).ToList();
+
+                    foreach (var item in lst)
+                    {
+                        Lista.Add(new cp_proveedor_codigo_SRI_Info
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdProveedor = item.IdProveedor,
+                            pe_cedulRuc = item.pe_cedulaRuc,
+                            re_tipo = item.re_tipo,
+                            IdCodigo_SRI = item.IdCodigo_SRI,
+                            re_Codigo_impuesto = item.re_Codigo_impuesto,
+                            re_Porcen_retencion = item.re_Porcen_retencion
+                        });
+                    }
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public cp_proveedor_codigo_SRI_Data() { }
     }
 }

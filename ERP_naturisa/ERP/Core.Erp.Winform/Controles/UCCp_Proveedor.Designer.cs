@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCCp_Proveedor));
             this.gridSEstado = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,11 +43,11 @@
             this.colpr_contribuyenteEspecial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdTipoDocumento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_Acciones = new DevExpress.XtraEditors.DropDownButton();
-            this.MenuAcciones = new System.Windows.Forms.ContextMenuStrip();
+            this.MenuAcciones = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_proveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.MenuAcciones.SuspendLayout();
@@ -61,16 +62,15 @@
             // 
             // cmb_proveedor
             // 
-            this.cmb_proveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_proveedor.Location = new System.Drawing.Point(3, 1);
+            this.cmb_proveedor.Location = new System.Drawing.Point(4, 1);
+            this.cmb_proveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_proveedor.Name = "cmb_proveedor";
             this.cmb_proveedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_proveedor.Properties.DisplayMember = "pr_nombre2";
             this.cmb_proveedor.Properties.ValueMember = "IdProveedor";
             this.cmb_proveedor.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_proveedor.Size = new System.Drawing.Size(245, 20);
+            this.cmb_proveedor.Size = new System.Drawing.Size(327, 22);
             this.cmb_proveedor.TabIndex = 0;
             this.cmb_proveedor.EditValueChanged += new System.EventHandler(this.cmb_proveedor_EditValueChanged);
             this.cmb_proveedor.Validating += new System.ComponentModel.CancelEventHandler(this.cmb_proveedor_Validating);
@@ -168,14 +168,14 @@
             // 
             // cmb_Acciones
             // 
-            this.cmb_Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Acciones.ContextMenuStrip = this.MenuAcciones;
             this.cmb_Acciones.ImageIndex = 1;
             this.cmb_Acciones.ImageList = this.imageList1;
-            this.cmb_Acciones.Location = new System.Drawing.Point(255, 0);
+            this.cmb_Acciones.Location = new System.Drawing.Point(340, 0);
+            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Acciones.Name = "cmb_Acciones";
             this.cmb_Acciones.ShowArrowButton = false;
-            this.cmb_Acciones.Size = new System.Drawing.Size(43, 22);
+            this.cmb_Acciones.Size = new System.Drawing.Size(57, 27);
             this.cmb_Acciones.TabIndex = 1;
             this.cmb_Acciones.Click += new System.EventHandler(this.cmb_Acciones_Click);
             // 
@@ -188,7 +188,7 @@
             this.consultarToolStripMenuItem});
             this.MenuAcciones.Name = "MenuAcciones";
             this.MenuAcciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuAcciones.Size = new System.Drawing.Size(126, 70);
+            this.MenuAcciones.Size = new System.Drawing.Size(143, 76);
             this.MenuAcciones.Text = "Acciones";
             this.MenuAcciones.Opening += new System.ComponentModel.CancelEventHandler(this.MenuAcciones_Opening);
             // 
@@ -196,7 +196,7 @@
             // 
             this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
@@ -204,7 +204,7 @@
             // 
             this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -212,7 +212,7 @@
             // 
             this.consultarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarToolStripMenuItem.Image")));
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
@@ -228,12 +228,13 @@
             // 
             // UCCp_Proveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_Acciones);
             this.Controls.Add(this.cmb_proveedor);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCCp_Proveedor";
-            this.Size = new System.Drawing.Size(298, 26);
+            this.Size = new System.Drawing.Size(397, 32);
             this.Load += new System.EventHandler(this.UCCp_Proveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_proveedor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();

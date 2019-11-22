@@ -738,6 +738,18 @@ namespace Core.Erp.Business.CuentasxPagar
 
         public cp_retencion_Bus() { }
 
+        public bool ContabilizarRetencion(int IdEmpresa, decimal IdRetencion, string IdUsuario)
+        {
+            try
+            {
+                return data_retencion.ContabilizarRetencion(IdEmpresa, IdRetencion, IdUsuario);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
 

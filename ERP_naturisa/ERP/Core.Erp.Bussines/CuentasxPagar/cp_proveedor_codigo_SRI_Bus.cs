@@ -107,6 +107,18 @@ namespace Core.Erp.Business.CuentasxPagar
         
         }
 
-
+        public List<cp_proveedor_codigo_SRI_Info> GetList(int IdEmpresa, string pe_cedulaRuc)
+        {
+            try
+            {
+                cp_proveedor_codigo_SRI_Data data = new cp_proveedor_codigo_SRI_Data();
+                return data.GetList(IdEmpresa, pe_cedulaRuc);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
