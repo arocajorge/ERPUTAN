@@ -171,21 +171,25 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (row == null)
                     return;
 
-                if (!string.IsNullOrEmpty(row.ret_NumeroDocumento))
+                if (!string.IsNullOrEmpty(row.ret_NumeroDocumento) && string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
                 {
                     gvDetalle.Appearance.FocusedRow.ForeColor = Color.Blue;
                     gvDetalle.Appearance.FocusedCell.ForeColor = Color.Blue;
-                }
+                }else
 
                 if (!(row.Estado ?? false))
                 {
                     gvDetalle.Appearance.FocusedRow.ForeColor = Color.Red;
                     gvDetalle.Appearance.FocusedCell.ForeColor = Color.Red;
-                }
+                }else
                 if (!string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
                 {
                     gvDetalle.Appearance.FocusedRow.ForeColor = Color.Green;
                     gvDetalle.Appearance.FocusedCell.ForeColor = Color.Green;
+                }else
+                {
+                    gvDetalle.Appearance.FocusedRow.ForeColor = Color.Black;
+                    gvDetalle.Appearance.FocusedCell.ForeColor = Color.Black;
                 }
             }
             catch (Exception)

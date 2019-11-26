@@ -62,6 +62,8 @@ namespace Core.Erp.Info.CuentasxPagar
         public string em_ruc { get; set; }
         public string em_direccion { get; set; }
         #endregion
-        
+
+
+        public decimal? IdCbteCble { get; set; }
     }
 }

@@ -62,7 +62,9 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_FechaAutorizacion = info.ret_FechaAutorizacion,
                         ret_NumeroAutorizacion = info.ret_NumeroAutorizacion,
                         ret_NumeroDocumento = info.ret_NumeroDocumento,
-                        ret_PuntoEmision = info.ret_PuntoEmision
+                        ret_PuntoEmision = info.ret_PuntoEmision,
+
+                        IdCbteCble = info.IdCbteCble
                     });
                     }
                 }
