@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCom_OrdenPedidoConsulta));
             this.ucGe_Menu_Mantenimiento_x_usuario1 = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.gc_Consulta = new DevExpress.XtraGrid.GridControl();
             this.gv_Consulta = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -41,10 +43,15 @@
             this.txtEstadoProceso = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEstadoProceso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Mantenimiento_x_usuario1
@@ -72,8 +79,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 9, 20, 10, 9, 9, 485);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 11, 20, 10, 9, 9, 485);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 11, 21, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 11, 28, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -132,7 +139,8 @@
             this.gc_Consulta.Name = "gc_Consulta";
             this.gc_Consulta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.txtIdOrdenPedido,
-            this.txtEstadoProceso});
+            this.txtEstadoProceso,
+            this.cmbImagen});
             this.gc_Consulta.Size = new System.Drawing.Size(1229, 460);
             this.gc_Consulta.TabIndex = 1;
             this.gc_Consulta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -148,8 +156,10 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn9});
             this.gv_Consulta.GridControl = this.gc_Consulta;
+            this.gv_Consulta.Images = this.imageList1;
             this.gv_Consulta.Name = "gv_Consulta";
             this.gv_Consulta.OptionsBehavior.ReadOnly = true;
             this.gv_Consulta.OptionsView.ShowAutoFilterRow = true;
@@ -243,6 +253,35 @@
             this.gridColumn8.VisibleIndex = 2;
             this.gridColumn8.Width = 247;
             // 
+            // gridColumn9
+            // 
+            this.gridColumn9.ColumnEdit = this.cmbImagen;
+            this.gridColumn9.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn9.ImageIndex = 0;
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 8;
+            // 
+            // cmbImagen
+            // 
+            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImagen.AutoHeight = false;
+            this.cmbImagen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImagen.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImagen.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 0)});
+            this.cmbImagen.LargeImages = this.imageList1;
+            this.cmbImagen.Name = "cmbImagen";
+            this.cmbImagen.ReadOnly = true;
+            this.cmbImagen.Click += new System.EventHandler(this.cmbImagen_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Buscar_docu_16x16.png");
+            // 
             // frmCom_OrdenPedidoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -257,6 +296,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv_Consulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEstadoProceso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +316,9 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtIdOrdenPedido;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtEstadoProceso;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
+        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

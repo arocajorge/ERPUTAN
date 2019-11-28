@@ -248,16 +248,7 @@ namespace Core.Erp.Winform.Compras_FJ
 
                 if (e.HitInfo.Column != null)
                 {
-                    if (gridViewOrdenCompra.FocusedColumn.Name == colSolicitudes_x_OC.Name)
-                    {
-                        com_solicitud_compra_Bus BusSolicitud = new com_solicitud_compra_Bus();
-                        List<com_solicitud_compra_Info> ListSolicitud = new List<com_solicitud_compra_Info>();
-                        ListSolicitud = BusSolicitud.Get_List_Solicitud_x_OC(param.IdEmpresa, Info_OC.IdSucursal, Info_OC.oc_NumDocumento);
-                        FrmCom_Solicitud_x_OC frm = new FrmCom_Solicitud_x_OC();
-                        frm.set_grid_x_oc(ListSolicitud);
-                        //frm.MdiParent = this.MdiParent;
-                        frm.ShowDialog();
-                    }
+                    
                 }
             }
             catch (Exception ex)

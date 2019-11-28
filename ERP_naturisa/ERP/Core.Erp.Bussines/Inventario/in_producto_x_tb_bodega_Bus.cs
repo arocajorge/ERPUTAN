@@ -28,6 +28,17 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+         public List<in_producto_x_tb_bodega_Info> GetListMovimientosSinParametrizacion(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+         {
+             try
+             {
+                 return data.GetListMovimientosSinParametrizacion(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi);
+             }
+             catch (Exception)
+             {
+                 throw;
+             }
+         }
 
         public List<in_producto_x_tb_bodega_Info> Get_List_Producto_x_Bodega(int idempresa, int idbodega)
         {

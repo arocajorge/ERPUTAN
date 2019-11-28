@@ -234,6 +234,7 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_recepcion_material_det_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto" Width="1.5" PointX="4.8383646983831952" PointY="2.9527872218530566" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_SinParametrizacion" Width="1.5" PointX="7.3656084348287472" PointY="8.9737531137530482" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

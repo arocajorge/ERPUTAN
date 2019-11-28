@@ -377,7 +377,57 @@ namespace Core.Erp.Data.Inventario
             }
         }
 
-     
+        public List<in_producto_x_tb_bodega_Info> GetListMovimientosSinParametrizacion(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi )
+        {
+            try
+            {
+                List<in_producto_x_tb_bodega_Info> Lista = new List<in_producto_x_tb_bodega_Info>();
+
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var lst = db.vwin_Ing_Egr_Inven_det_SinParametrizacion.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inven_tipo && q.IdNumMovi == IdNumMovi).ToList();
+                    foreach (var item in lst)
+                    {
+                        Lista.Add(new in_producto_x_tb_bodega_Info
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdSucursal = item.IdSucursal,
+                            Nom_bodega = item.bo_Descripcion,
+                            Nom_sucursal = item.Su_Descripcion,
+                            IdNumMovi = item.IdNumMovi,
+                            pr_descripcion = item.pr_descripcion
+                        });
+
+                        db.in_producto_x_tb_bodega.Add(new in_producto_x_tb_bodega
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdSucursal = item.IdSucursal,
+                            IdBodega = item.IdBodega,
+                            IdProducto = item.IdProducto,
+                            pr_precio_mayor = 0,
+                            pr_precio_minimo = 0,
+                            pr_precio_publico = 0,
+                            pr_precio_puerta = 0,
+                            pr_Por_descuento = 0,
+                            pr_stock_maximo = 0,
+                            pr_stock_minimo = 0,
+                            pr_costo_CIF = 0,
+                            pr_costo_fob = 0,
+                            pr_costo_promedio = 0,
+                            Estado = "A"
+                        });
+                    }
+                    db.SaveChanges();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         
         public Boolean ModificarDB(List<fa_pedido_det_Info> lm)
         {

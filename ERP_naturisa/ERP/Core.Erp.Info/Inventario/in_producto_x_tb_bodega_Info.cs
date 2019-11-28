@@ -99,6 +99,8 @@ namespace Core.Erp.Info.Inventario
         public bool Checked { get; set; }
 
         public in_producto_x_tb_bodega_Info() { }
-        
+
+
+        public decimal IdNumMovi { get; set; }
     }
 }

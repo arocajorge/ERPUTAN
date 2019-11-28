@@ -5337,6 +5337,17 @@
           <Parameter Name="IdEmpresa" Type="int" Mode="In" />
           <Parameter Name="IdPuntoCargo" Type="int" Mode="In" />
         </Function>
+        <Function Name="SPCOM_SeguimientoEntrega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="IdSolicitante" Type="int" Mode="In" />
+          <Parameter Name="IdComprador" Type="int" Mode="In" />
+          <Parameter Name="IdProducto" Type="numeric" Mode="In" />
+          <Parameter Name="IdProveedor" Type="numeric" Mode="In" />
+          <Parameter Name="FechaIni" Type="date" Mode="In" />
+          <Parameter Name="FechaFin" Type="date" Mode="In" />
+          <Parameter Name="IdOrdenPedido" Type="decimal" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -5644,6 +5655,17 @@
           <EntitySet Name="vwcom_CotizacionPedidoConvenioPrecios" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoConvenioPrecios" />
           <EntitySet Name="vwcom_ordencompra_local_consulta" EntityType="DBERPModelCompras.vwcom_ordencompra_local_consulta" />
           <EntitySet Name="vwcom_OrdenPedidoDet_Cotizacion" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion" />
+          <FunctionImport Name="SPCOM_SeguimientoEntrega" ReturnType="Collection(DBERPModelCompras.SPCOM_SeguimientoEntrega_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuario" Mode="In" Type="String" />
+            <Parameter Name="IdSolicitante" Mode="In" Type="Int32" />
+            <Parameter Name="IdComprador" Mode="In" Type="Int32" />
+            <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
+            <Parameter Name="IdProveedor" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdOrdenPedido" Mode="In" Type="Decimal" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="com_catalogo">
           <Key>
@@ -9309,6 +9331,45 @@
           <Property Type="String" Name="Su_Descripcion" MaxLength="60" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="CodigoOC" MaxLength="31" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="SPCOM_SeguimientoEntrega_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="EstadoSolpe" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="String" Name="CodigoSucOrigen" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NombreSucursalOrigen" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="String" Name="CodigoSucDestino" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NombreSucursalDestino" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="EstadoDetalle" Nullable="true" MaxLength="23" />
+          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" />
+          <Property Type="DateTime" Name="op_Fecha" Nullable="false" />
+          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
+          <Property Type="String" Name="IdUsuarioCantidad" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaCantidad" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NombreUsuarioCantidad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NomUnidadMedida" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="op_Observacion" Nullable="true" />
+          <Property Type="String" Name="ObservacionGA" Nullable="true" />
+          <Property Type="String" Name="opd_Detalle" Nullable="true" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
+          <Property Type="Double" Name="CantidadOC" Nullable="true" />
+          <Property Type="DateTime" Name="FechaOC" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaEntrega" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NombreComprador" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="IB_UltIdNumMovi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Double" Name="IB_Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="IB_Fecha" Nullable="true" />
+          <Property Type="Int32" Name="AlertaEntrega" Nullable="true" />
+          <Property Type="Double" Name="CantidadPendiente" Nullable="true" />
+          <Property Type="Int32" Name="DiasPendiente" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -11591,6 +11652,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPCOM_SeguimientoEntrega" FunctionName="DBERPModelCompras.Store.SPCOM_SeguimientoEntrega">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_SeguimientoEntrega_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="EstadoSolpe" ColumnName="EstadoSolpe" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="CodigoSucOrigen" ColumnName="CodigoSucOrigen" />
+                <ScalarProperty Name="NombreSucursalOrigen" ColumnName="NombreSucursalOrigen" />
+                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
+                <ScalarProperty Name="CodigoSucDestino" ColumnName="CodigoSucDestino" />
+                <ScalarProperty Name="NombreSucursalDestino" ColumnName="NombreSucursalDestino" />
+                <ScalarProperty Name="EstadoDetalle" ColumnName="EstadoDetalle" />
+                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
+                <ScalarProperty Name="op_Fecha" ColumnName="op_Fecha" />
+                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
+                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
+                <ScalarProperty Name="IdUsuarioCantidad" ColumnName="IdUsuarioCantidad" />
+                <ScalarProperty Name="FechaCantidad" ColumnName="FechaCantidad" />
+                <ScalarProperty Name="NombreUsuarioCantidad" ColumnName="NombreUsuarioCantidad" />
+                <ScalarProperty Name="NomUnidadMedida" ColumnName="NomUnidadMedida" />
+                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
+                <ScalarProperty Name="ObservacionGA" ColumnName="ObservacionGA" />
+                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="CantidadOC" ColumnName="CantidadOC" />
+                <ScalarProperty Name="FechaOC" ColumnName="FechaOC" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="NombreComprador" ColumnName="NombreComprador" />
+                <ScalarProperty Name="IB_UltIdNumMovi" ColumnName="IB_UltIdNumMovi" />
+                <ScalarProperty Name="IB_Cantidad" ColumnName="IB_Cantidad" />
+                <ScalarProperty Name="IB_Fecha" ColumnName="IB_Fecha" />
+                <ScalarProperty Name="AlertaEntrega" ColumnName="AlertaEntrega" />
+                <ScalarProperty Name="CantidadPendiente" ColumnName="CantidadPendiente" />
+                <ScalarProperty Name="DiasPendiente" ColumnName="DiasPendiente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

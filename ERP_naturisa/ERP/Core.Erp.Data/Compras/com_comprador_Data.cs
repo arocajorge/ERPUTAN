@@ -175,17 +175,22 @@ namespace Core.Erp.Data.Compras
             {
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lst = db.com_comprador.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new com_comprador_Info
+                    var lista = db.com_comprador.Where(q => q.IdEmpresa == IdEmpresa).ToList();
+                    foreach (var q in lista)
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        IdComprador = q.IdComprador,
-                        IdUsuario_com = q.IdUsuario_com,
-                        Descripcion = q.Descripcion,
-                        Estado = q.Estado,
-                        Correo = q.Correo,
-                        SEstado = q.Estado == "A" ? "ACTIVO" : "**ANULADO**",
+                        Lst.Add(new com_comprador_Info
+                        {
+                            IdEmpresa = q.IdEmpresa,
+                            IdComprador = q.IdComprador,
+                            IdUsuario_com = q.IdUsuario_com,
+                            Descripcion = q.Descripcion,
+                            Estado = q.Estado,
+                            Correo = q.Correo,
+                            SEstado = q.Estado == "A" ? "ACTIVO" : "**ANULADO**",
 
-                    }).ToList();
+                        });
+                    }
+                    
                 } 
                 return Lst;
             }

@@ -138,5 +138,46 @@ namespace Core.Erp.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPCOM_ComprasPorPuntoCargo_Result>("SPCOM_ComprasPorPuntoCargo", idEmpresaParameter, idPuntoCargoParameter);
         }
+    
+        public virtual ObjectResult<SPCOM_SeguimientoEntrega_Result> SPCOM_SeguimientoEntrega(Nullable<int> idEmpresa, string idUsuario, Nullable<int> idSolicitante, Nullable<int> idComprador, Nullable<decimal> idProducto, Nullable<decimal> idProveedor, Nullable<System.DateTime> fechaIni, Nullable<System.DateTime> fechaFin, Nullable<decimal> idOrdenPedido)
+        {
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("IdEmpresa", idEmpresa) :
+                new ObjectParameter("IdEmpresa", typeof(int));
+    
+            var idUsuarioParameter = idUsuario != null ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(string));
+    
+            var idSolicitanteParameter = idSolicitante.HasValue ?
+                new ObjectParameter("IdSolicitante", idSolicitante) :
+                new ObjectParameter("IdSolicitante", typeof(int));
+    
+            var idCompradorParameter = idComprador.HasValue ?
+                new ObjectParameter("IdComprador", idComprador) :
+                new ObjectParameter("IdComprador", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("IdProducto", idProducto) :
+                new ObjectParameter("IdProducto", typeof(decimal));
+    
+            var idProveedorParameter = idProveedor.HasValue ?
+                new ObjectParameter("IdProveedor", idProveedor) :
+                new ObjectParameter("IdProveedor", typeof(decimal));
+    
+            var fechaIniParameter = fechaIni.HasValue ?
+                new ObjectParameter("FechaIni", fechaIni) :
+                new ObjectParameter("FechaIni", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            var idOrdenPedidoParameter = idOrdenPedido.HasValue ?
+                new ObjectParameter("IdOrdenPedido", idOrdenPedido) :
+                new ObjectParameter("IdOrdenPedido", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPCOM_SeguimientoEntrega_Result>("SPCOM_SeguimientoEntrega", idEmpresaParameter, idUsuarioParameter, idSolicitanteParameter, idCompradorParameter, idProductoParameter, idProveedorParameter, fechaIniParameter, fechaFinParameter, idOrdenPedidoParameter);
+        }
     }
 }

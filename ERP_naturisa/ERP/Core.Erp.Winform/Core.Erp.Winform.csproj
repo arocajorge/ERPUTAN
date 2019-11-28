@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>185</ApplicationRevision>
+    <ApplicationRevision>186</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -400,6 +400,12 @@
     </Compile>
     <Compile Include="Compras\FrmCom_ProductoComprasAnteriores.Designer.cs">
       <DependentUpon>FrmCom_ProductoComprasAnteriores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_SeguimientoEntregaSolicitante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_SeguimientoEntregaSolicitante.Designer.cs">
+      <DependentUpon>FrmCom_SeguimientoEntregaSolicitante.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\FrmCom_Solicitante_Cons.cs">
       <SubType>Form</SubType>
@@ -1408,12 +1414,6 @@
     <Compile Include="Compras\FrmCom_AdministradorReportes.Designer.cs">
       <DependentUpon>FrmCom_AdministradorReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\FrmCom_Aprob_Gene_Orden_Compra_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Aprob_Gene_Orden_Compra_Mant.Designer.cs">
-      <DependentUpon>FrmCom_Aprob_Gene_Orden_Compra_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Compras\FrmCom_Catalogo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1443,12 +1443,6 @@
     </Compile>
     <Compile Include="Compras\FrmCom_CompradorMantenimiento.Designer.cs">
       <DependentUpon>FrmCom_CompradorMantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Confirmacion_SC_para_OC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Confirmacion_SC_para_OC.Designer.cs">
-      <DependentUpon>FrmCom_Confirmacion_SC_para_OC.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\FrmCom_Consulta_OrdenCompra.cs">
       <SubType>Form</SubType>
@@ -1546,65 +1540,17 @@
     <Compile Include="Compras\FrmCom_OrdenCompra_x_Guia_x_traspaso_Cons.Designer.cs">
       <DependentUpon>FrmCom_OrdenCompra_x_Guia_x_traspaso_Cons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\FrmCom_Ordenes_Compra_x_Solicitud.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Ordenes_Compra_x_Solicitud.Designer.cs">
-      <DependentUpon>FrmCom_Ordenes_Compra_x_Solicitud.cs</DependentUpon>
-    </Compile>
     <Compile Include="Compras\FrmCom_Parametro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Compras\FrmCom_Parametro.Designer.cs">
       <DependentUpon>FrmCom_Parametro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\FrmCom_ProveedorBusqueda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_ProveedorBusqueda.designer.cs">
-      <DependentUpon>FrmCom_ProveedorBusqueda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Compras\FrmCom_Solicitante_Mant.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Compras\FrmCom_Solicitante_Mant.Designer.cs">
       <DependentUpon>FrmCom_Solicitante_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Aprobacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Aprobacion.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_Aprobacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Cons.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_det_pre_Aprobacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_det_pre_Aprobacion.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_det_pre_Aprobacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudCompra_Mant.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudCompra_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_SolicitudConsulta.Designer.cs">
-      <DependentUpon>FrmCom_SolicitudConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitud_x_OC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\FrmCom_Solicitud_x_OC.Designer.cs">
-      <DependentUpon>FrmCom_Solicitud_x_OC.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\FrmCom_TerminoPagos_Mant.cs">
       <SubType>Form</SubType>
@@ -4443,6 +4389,12 @@
     <Compile Include="Inventario\FrmIn_Presentacion_Mant.Designer.cs">
       <DependentUpon>FrmIn_Presentacion_Mant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmIn_ProductoPorBodegaParametrizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_ProductoPorBodegaParametrizados.Designer.cs">
+      <DependentUpon>FrmIn_ProductoPorBodegaParametrizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmIn_ProductoPorBodegaStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -6484,6 +6436,9 @@
     <EmbeddedResource Include="Compras\FrmCom_ProductoComprasAnteriores.resx">
       <DependentUpon>FrmCom_ProductoComprasAnteriores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_SeguimientoEntregaSolicitante.resx">
+      <DependentUpon>FrmCom_SeguimientoEntregaSolicitante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Solicitante_Cons.resx">
       <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -6987,9 +6942,6 @@
     <EmbeddedResource Include="Compras\FrmCom_AdministradorReportes.resx">
       <DependentUpon>FrmCom_AdministradorReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Aprob_Gene_Orden_Compra_Mant.resx">
-      <DependentUpon>FrmCom_Aprob_Gene_Orden_Compra_Mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Catalogo.resx">
       <DependentUpon>FrmCom_Catalogo.cs</DependentUpon>
     </EmbeddedResource>
@@ -7004,9 +6956,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_CompradorMantenimiento.resx">
       <DependentUpon>FrmCom_CompradorMantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Confirmacion_SC_para_OC.resx">
-      <DependentUpon>FrmCom_Confirmacion_SC_para_OC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Consulta_OrdenCompra.resx">
       <DependentUpon>FrmCom_Consulta_OrdenCompra.cs</DependentUpon>
@@ -7057,35 +7006,11 @@
     <EmbeddedResource Include="Compras\FrmCom_OrdenCompra_x_Guia_x_traspaso_Cons.resx">
       <DependentUpon>FrmCom_OrdenCompra_x_Guia_x_traspaso_Cons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Ordenes_Compra_x_Solicitud.resx">
-      <DependentUpon>FrmCom_Ordenes_Compra_x_Solicitud.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Parametro.resx">
       <DependentUpon>FrmCom_Parametro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_ProveedorBusqueda.resx">
-      <DependentUpon>FrmCom_ProveedorBusqueda.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Solicitante_Mant.resx">
       <DependentUpon>FrmCom_Solicitante_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_Aprobacion.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_Aprobacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_Cons.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_det_pre_Aprobacion.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_det_pre_Aprobacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudCompra_Mant.resx">
-      <DependentUpon>FrmCom_SolicitudCompra_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_SolicitudConsulta.resx">
-      <DependentUpon>FrmCom_SolicitudConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\FrmCom_Solicitud_x_OC.resx">
-      <DependentUpon>FrmCom_Solicitud_x_OC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_TerminoPagos_Mant.resx">
       <DependentUpon>FrmCom_TerminoPagos_Mant.cs</DependentUpon>
@@ -8501,6 +8426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Presentacion_Mant.resx">
       <DependentUpon>FrmIn_Presentacion_Mant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_ProductoPorBodegaParametrizados.resx">
+      <DependentUpon>FrmIn_ProductoPorBodegaParametrizados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_ProductoPorBodegaStock.resx">
       <DependentUpon>FrmIn_ProductoPorBodegaStock.cs</DependentUpon>

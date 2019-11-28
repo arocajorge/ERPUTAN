@@ -28,8 +28,9 @@ namespace Core.Erp.Winform.Inventario
         vwin_Ingr_Egr_Inven_det_Bus bus_IngEgrDet = new vwin_Ingr_Egr_Inven_det_Bus();
         in_movi_inve_Bus bus_movi = new in_movi_inve_Bus();
         tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
-
-        string Signo = "";
+        List<in_producto_x_tb_bodega_Info> ListaParametrizacion = new List<in_producto_x_tb_bodega_Info>();
+        in_producto_x_tb_bodega_Bus bus_productoPorBodega = new in_producto_x_tb_bodega_Bus();
+         string Signo = "";
         #endregion
 
         public FrmIn_Aprobacion_Ing_Egr_x_transaccion()
@@ -125,6 +126,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                ListaParametrizacion = new List<in_producto_x_tb_bodega_Info>();
+
                 string mensaje = string.Empty;
                 ProgressBar_recosteo.EditValue = 0;
                 ProgressBar_recosteo.Properties.Minimum = 1;
@@ -132,8 +135,12 @@ namespace Core.Erp.Winform.Inventario
                 ProgressBar_recosteo.Properties.Step = 1;
                 ProgressBar_recosteo.Properties.PercentView = true;
 
+
+
                 foreach (var item in blist_ing_egr.Where(q => q.Checked == true).ToList())
                 {
+                    ListaParametrizacion.AddRange(bus_productoPorBodega.GetListMovimientosSinParametrizacion(item.IdEmpresa, item.IdSucursal, item.IdMovi_inven_tipo, item.IdNumMovi));
+
                     if (!bus_movi.AprobarData(item.IdEmpresa, item.IdSucursal, item.IdMovi_inven_tipo, item.IdNumMovi, item.signo, param.IdUsuario, ref mensaje))                    
                     {
                         MessageBox.Show("Error al Actualizar Estados, " + mensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -145,6 +152,14 @@ namespace Core.Erp.Winform.Inventario
                     Application.DoEvents();
                 }
                 MessageBox.Show("Registros aprobados exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                if (ListaParametrizacion.Count > 0)
+                {
+                    FrmIn_ProductoPorBodegaParametrizados frm = new FrmIn_ProductoPorBodegaParametrizados();
+                    frm.ListaDetalle = ListaParametrizacion;
+                    frm.ShowDialog();
+                }
+
                 Buscar();
                 return true;
             }

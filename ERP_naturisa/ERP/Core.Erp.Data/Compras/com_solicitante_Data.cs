@@ -208,12 +208,15 @@ namespace Core.Erp.Data.Compras
 
         public List<com_solicitante_Info> Get_List_Solicitante(int IdEmpresa)
         {
-            List<com_solicitante_Info> Lst;
+            List<com_solicitante_Info> Lst = new List<com_solicitante_Info>();
             try
             {
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
-                    Lst = db.vwcom_solicitante.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new com_solicitante_Info
+                    var lista = db.vwcom_solicitante.Where(q => q.IdEmpresa == IdEmpresa).ToList();
+                    foreach (var q in lista)
+                    {
+                        Lst.Add(new com_solicitante_Info
                     {
                         IdEmpresa = q.IdEmpresa,
                         IdSolicitante = q.IdSolicitante,
@@ -224,7 +227,8 @@ namespace Core.Erp.Data.Compras
                         IdUsuario = q.IdUsuario,
                         IdDepartamento = q.IdDepartamento,
                         ConsultaDepartamento = q.ConsultaDepartamento
-                    }).ToList();
+                    });
+                    }
                 }
                 return Lst;
             }

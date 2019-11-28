@@ -254,5 +254,30 @@ namespace Core.Erp.Winform.Compras
                 throw;
             }
         }
+
+        private void cmbImagen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (splashScreenManager1.IsSplashFormVisible)
+                    splashScreenManager1.CloseWaitForm();
+                com_OrdenPedido_Info row = (com_OrdenPedido_Info)gv_Consulta.GetFocusedRow();
+                if (row != null)
+                {
+                    splashScreenManager1.ShowWaitForm();
+                    FrmCom_SeguimientoEntregaSolicitante frm = new FrmCom_SeguimientoEntregaSolicitante();
+                    frm.IdOrdenPedido = row.IdOrdenPedido;
+                    frm.MdiParent = this.MdiParent;
+                    splashScreenManager1.CloseWaitForm();
+                    frm.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                if(splashScreenManager1.IsSplashFormVisible)
+                    splashScreenManager1.CloseWaitForm();
+                MessageBox.Show(ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

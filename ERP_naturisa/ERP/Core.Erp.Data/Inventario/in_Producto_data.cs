@@ -20,21 +20,25 @@ namespace Core.Erp.Data.Inventario
         {
             try
             {
-                List<in_Producto_Combo> Lista;
+                List<in_Producto_Combo> Lista = new List<in_Producto_Combo>();
 
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
-                    Lista = db.in_Producto.Include("in_Familia").Where(q => q.IdEmpresa == IdEmpresa).Select(q => new in_Producto_Combo
+                    var lst = db.in_Producto.Include("in_Familia").Where(q => q.IdEmpresa == IdEmpresa).ToList();
+                    foreach (var q in lst)
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        IdProducto = q.IdProducto,
-                        pr_codigo = q.pr_codigo,
-                        pr_descripcion = q.pr_descripcion,
-                        fa_Descripcion = q.in_Familia.fa_Descripcion,
-                        IdUnidadMedida = q.IdUnidadMedida,
-                        IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
-                        IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
-                    }).ToList();
+                        Lista.Add(new in_Producto_Combo
+                     {
+                         IdEmpresa = q.IdEmpresa,
+                         IdProducto = q.IdProducto,
+                         pr_codigo = q.pr_codigo,
+                         pr_descripcion = q.pr_descripcion,
+                         fa_Descripcion = q.in_Familia.fa_Descripcion,
+                         IdUnidadMedida = q.IdUnidadMedida,
+                         IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
+                         IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
+                     });
+                    }
                 }
 
                 return Lista;

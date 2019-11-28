@@ -746,6 +746,7 @@
     <Compile Include="Compras\com_OrdenPedidoPlantilla_Data.cs" />
     <Compile Include="Compras\com_OrdenPedido_Data.cs" />
     <Compile Include="Compras\com_parametro_Data.cs" />
+    <Compile Include="Compras\com_SeguimientoEntrega_Data.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Data.cs" />
     <Compile Include="Compras\com_solicitante_Data.cs" />
     <Compile Include="Compras\com_solicitante_x_com_departamento_Data.cs" />
@@ -3547,6 +3548,9 @@
     <Compile Include="SPCOM_ComprasPorPuntoCargo_Result.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="SPCOM_SeguimientoEntrega_Result.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="spCON_Mayorizar_x_fecha_corte_Result.cs">
       <DependentUpon>ModelConta.tt</DependentUpon>
     </Compile>
@@ -5020,6 +5024,9 @@
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_Ing_Egr_Inven_det.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwin_Ing_Egr_Inven_det_SinParametrizacion.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwIn_Ing_Egr_Inven_det_x_Cbte_Cble.cs">
