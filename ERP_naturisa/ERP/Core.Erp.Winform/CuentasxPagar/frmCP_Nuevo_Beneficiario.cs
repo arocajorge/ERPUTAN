@@ -12,7 +12,6 @@ using Core.Erp.Info.General;
 
 using Core.Erp.Winform.General;
 using Core.Erp.Winform.Facturacion;
-using Core.Erp.Winform.Roles;
 using Core.Erp.Winform.CuentasxPagar;
 
 namespace Core.Erp.Winform.CuentasxPagar
@@ -64,12 +63,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     frmFa_Clientes_Mant frmCliente = new frmFa_Clientes_Mant();
                     frmCliente.ShowDialog();
-                }
-
-                if (obj_pertip.IdTipo_Persona == "EMPLEA")
-                {
-                    frmRo_Empleado_Mant frmEmpleado = new frmRo_Empleado_Mant();
-                    frmEmpleado.ShowDialog();
                 }
 
                 if (obj_pertip.IdTipo_Persona == "PERSONA")

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Core.Erp.Info.Roles;
-using Core.Erp.Winform.Roles;
 using Core.Erp.Business.Roles;
 using Core.Erp.Business.General;
 
@@ -25,7 +24,6 @@ namespace Core.Erp.Winform.Controles
         public List<ro_historico_vacaciones_x_empleado_Info> RoHistoricoVacaInfoLst { get; set; }
         //
         List<ro_historico_vacaciones_x_empleado_Info> lHistorico = new List<ro_historico_vacaciones_x_empleado_Info>();
-        frmRo_Consulta_Historico_vacaciones ConsultaHistorico = new frmRo_Consulta_Historico_vacaciones();
         //frmRo_Solicitud_Vacaciones_Mant frmSolicitudVacaciones = new frmRo_Solicitud_Vacaciones_Mant();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         ro_SolicitudVacaciones_Bus busSolicitudVaca = new ro_SolicitudVacaciones_Bus();
@@ -317,9 +315,7 @@ namespace Core.Erp.Winform.Controles
             {
                 if (e.Column.Name == "colIco")
                 {
-                    ConsultaHistorico = new frmRo_Consulta_Historico_vacaciones();
-                    ConsultaHistorico.Consultar(empinfoVaca,histoinfo);
-                    ConsultaHistorico.Show();
+                  
                 }
             }
             catch (Exception ex)

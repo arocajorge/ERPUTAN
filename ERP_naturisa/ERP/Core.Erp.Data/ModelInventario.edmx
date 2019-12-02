@@ -682,6 +682,37 @@
       [vwin_Ing_Egr_Inven_det].[mv_costo_sinConversion] AS [mv_costo_sinConversion]
       FROM [dbo].[vwin_Ing_Egr_Inven_det] AS [vwin_Ing_Egr_Inven_det]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwin_Ing_Egr_Inven_det_PorIngresar" EntityType="DBERPModelInventario.Store.vwin_Ing_Egr_Inven_det_PorIngresar" store:Type="Views" store:Schema="dbo" store:Name="vwin_Ing_Egr_Inven_det_PorIngresar">
+            <DefiningQuery>SELECT 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdEmpresa] AS [IdEmpresa], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdSucursal] AS [IdSucursal], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[Secuencia] AS [Secuencia], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[oc_NumDocumento] AS [oc_NumDocumento], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdProveedor] AS [IdProveedor], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[oc_fecha] AS [oc_fecha], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[oc_observacion] AS [oc_observacion], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdProducto] AS [IdProducto], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[pr_codigo] AS [pr_codigo], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[pr_descripcion] AS [pr_descripcion], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[do_precioFinal] AS [do_precioFinal], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[do_Cantidad] AS [do_Cantidad], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[CantidadIngresada] AS [CantidadIngresada], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[Saldo] AS [Saldo], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdEstado_cierre] AS [IdEstado_cierre], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[RefOC] AS [RefOC], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[IdUnidadMedida_Consumo] AS [IdUnidadMedida_Consumo], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[CodSucDestino] AS [CodSucDestino], 
+      [vwin_Ing_Egr_Inven_det_PorIngresar].[SucursalDestino] AS [SucursalDestino]
+      FROM [dbo].[vwin_Ing_Egr_Inven_det_PorIngresar] AS [vwin_Ing_Egr_Inven_det_PorIngresar]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwin_Ing_Egr_Inven_det_SinParametrizacion" EntityType="DBERPModelInventario.Store.vwin_Ing_Egr_Inven_det_SinParametrizacion" store:Type="Views" store:Schema="dbo" store:Name="vwin_Ing_Egr_Inven_det_SinParametrizacion">
             <DefiningQuery>SELECT 
       [vwin_Ing_Egr_Inven_det_SinParametrizacion].[IdEmpresa] AS [IdEmpresa], 
@@ -5057,6 +5088,56 @@
           <Property Name="nom_grupo" Type="varchar" MaxLength="150" />
           <Property Name="nom_subgrupo" Type="varchar" MaxLength="150" />
           <Property Name="mv_costo_sinConversion" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_PorIngresar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwin_Ing_Egr_Inven_det_PorIngresar">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="oc_fecha" />
+            <PropertyRef Name="oc_observacion" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="do_precioFinal" />
+            <PropertyRef Name="do_Cantidad" />
+            <PropertyRef Name="CantidadIngresada" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="IdUnidadMedida_Consumo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="oc_NumDocumento" Type="varchar" MaxLength="31" />
+          <Property Name="Su_Descripcion" Type="nchar" MaxLength="60" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="200" />
+          <Property Name="oc_fecha" Type="datetime" Nullable="false" />
+          <Property Name="oc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="do_precioFinal" Type="float" Nullable="false" />
+          <Property Name="do_Cantidad" Type="float" Nullable="false" />
+          <Property Name="CantidadIngresada" Type="float" Nullable="false" />
+          <Property Name="Saldo" Type="float" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="IdPunto_cargo_grupo" Type="int" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdEstado_cierre" Type="varchar" MaxLength="25" />
+          <Property Name="RefOC" Type="varchar" MaxLength="285" />
+          <Property Name="IdUnidadMedida_Consumo" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="CodSucDestino" Type="varchar" MaxLength="10" />
+          <Property Name="SucursalDestino" Type="nchar" MaxLength="60" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Ing_Egr_Inven_det_SinParametrizacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -9635,6 +9716,7 @@
             <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="vwin_Ing_Egr_Inven_det_SinParametrizacion" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_SinParametrizacion" />
+          <EntitySet Name="vwin_Ing_Egr_Inven_det_PorIngresar" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_PorIngresar" />
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
           <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="23" />
@@ -16084,6 +16166,53 @@
           <Property Type="String" Name="Su_Descripcion" MaxLength="60" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="bo_Descripcion" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="vwin_Ing_Egr_Inven_det_PorIngresar">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="oc_fecha" />
+            <PropertyRef Name="oc_observacion" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="do_precioFinal" />
+            <PropertyRef Name="do_Cantidad" />
+            <PropertyRef Name="CantidadIngresada" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="IdUnidadMedida_Consumo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="oc_NumDocumento" MaxLength="31" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Su_Descripcion" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="oc_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="oc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="do_precioFinal" Nullable="false" />
+          <Property Type="Double" Name="do_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="CantidadIngresada" Nullable="false" />
+          <Property Type="Double" Name="Saldo" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstado_cierre" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RefOC" MaxLength="285" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadMedida_Consumo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodSucDestino" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SucursalDestino" MaxLength="60" FixedLength="true" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -19951,6 +20080,39 @@
                 <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
                 <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
                 <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwin_Ing_Egr_Inven_det_PorIngresar">
+            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_Ing_Egr_Inven_det_PorIngresar">
+              <MappingFragment StoreEntitySet="vwin_Ing_Egr_Inven_det_PorIngresar">
+                <ScalarProperty Name="SucursalDestino" ColumnName="SucursalDestino" />
+                <ScalarProperty Name="CodSucDestino" ColumnName="CodSucDestino" />
+                <ScalarProperty Name="IdUnidadMedida_Consumo" ColumnName="IdUnidadMedida_Consumo" />
+                <ScalarProperty Name="RefOC" ColumnName="RefOC" />
+                <ScalarProperty Name="IdEstado_cierre" ColumnName="IdEstado_cierre" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="CantidadIngresada" ColumnName="CantidadIngresada" />
+                <ScalarProperty Name="do_Cantidad" ColumnName="do_Cantidad" />
+                <ScalarProperty Name="do_precioFinal" ColumnName="do_precioFinal" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="oc_observacion" ColumnName="oc_observacion" />
+                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="oc_NumDocumento" ColumnName="oc_NumDocumento" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
                 <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>

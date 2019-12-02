@@ -104,6 +104,19 @@ namespace Core.Erp.Business.Compras
             }
         }
 
+        public bool ValidarProceso(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra, int Secuencia)
+        {
+            try
+            {
+                return odata.ValidarProceso(IdEmpresa, IdSucursal, IdOrdenCompra, Secuencia);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public bool SaltarPaso2(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
         {
             try

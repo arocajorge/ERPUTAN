@@ -1193,6 +1193,17 @@
       [vwcom_OrdenPedidoDet_FamiliaComprador].[Producto] AS [Producto]
       FROM [dbo].[vwcom_OrdenPedidoDet_FamiliaComprador] AS [vwcom_OrdenPedidoDet_FamiliaComprador]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwcom_OrdenPedidoDet_PorOC" EntityType="DBERPModelCompras.Store.vwcom_OrdenPedidoDet_PorOC" store:Type="Views" store:Schema="dbo" store:Name="vwcom_OrdenPedidoDet_PorOC">
+            <DefiningQuery>SELECT 
+      [vwcom_OrdenPedidoDet_PorOC].[IdEmpresa_oc] AS [IdEmpresa_oc], 
+      [vwcom_OrdenPedidoDet_PorOC].[IdSucursal_oc] AS [IdSucursal_oc], 
+      [vwcom_OrdenPedidoDet_PorOC].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwcom_OrdenPedidoDet_PorOC].[Secuencia_oc] AS [Secuencia_oc], 
+      [vwcom_OrdenPedidoDet_PorOC].[IdOrdenPedido] AS [IdOrdenPedido], 
+      [vwcom_OrdenPedidoDet_PorOC].[Secuencia_pd] AS [Secuencia_pd], 
+      [vwcom_OrdenPedidoDet_PorOC].[IdNumMovi] AS [IdNumMovi]
+      FROM [dbo].[vwcom_OrdenPedidoDet_PorOC] AS [vwcom_OrdenPedidoDet_PorOC]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwcom_OrdenPedidoDetConvenioPrecios" EntityType="DBERPModelCompras.Store.vwcom_OrdenPedidoDetConvenioPrecios" store:Type="Views" store:Schema="dbo" store:Name="vwcom_OrdenPedidoDetConvenioPrecios">
             <DefiningQuery>SELECT 
       [vwcom_OrdenPedidoDetConvenioPrecios].[IdEmpresa] AS [IdEmpresa], 
@@ -4269,6 +4280,26 @@
           <Property Name="Producto" Type="nvarchar" Nullable="false" MaxLength="500" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_PorOC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcom_OrdenPedidoDet_PorOC">
+          <Key>
+            <PropertyRef Name="IdEmpresa_oc" />
+            <PropertyRef Name="IdSucursal_oc" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia_oc" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia_pd" />
+          </Key>
+          <Property Name="IdEmpresa_oc" Type="int" Nullable="false" />
+          <Property Name="IdSucursal_oc" Type="int" Nullable="false" />
+          <Property Name="IdOrdenCompra" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia_oc" Type="int" Nullable="false" />
+          <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia_pd" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDetConvenioPrecios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDetConvenioPrecios">
@@ -5666,6 +5697,7 @@
             <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
             <Parameter Name="IdOrdenPedido" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="vwcom_OrdenPedidoDet_PorOC" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC" />
           </EntityContainer>
         <EntityType Name="com_catalogo">
           <Key>
@@ -9370,6 +9402,23 @@
           <Property Type="Double" Name="CantidadPendiente" Nullable="true" />
           <Property Type="Int32" Name="DiasPendiente" Nullable="true" />
         </ComplexType>
+        <EntityType Name="vwcom_OrdenPedidoDet_PorOC">
+          <Key>
+            <PropertyRef Name="IdEmpresa_oc" />
+            <PropertyRef Name="IdSucursal_oc" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="Secuencia_oc" />
+            <PropertyRef Name="IdOrdenPedido" />
+            <PropertyRef Name="Secuencia_pd" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa_oc" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal_oc" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_oc" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_pd" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Precision="18" Scale="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -11695,6 +11744,19 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vwcom_OrdenPedidoDet_PorOC">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC">
+              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_PorOC">
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="Secuencia_pd" ColumnName="Secuencia_pd" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -21,13 +21,10 @@ using Core.Erp.Info.Facturacion;
 using Core.Erp.Business.Facturacion;
 
 
-using Core.Erp.Winform.Roles;
 using Core.Erp.Info.Roles;
 using Core.Erp.Business.Roles;
 
 using Core.Erp.Winform.General;
-using Core.Erp.Info.General;
-using Core.Erp.Business.General;
 
 
 
@@ -40,7 +37,6 @@ namespace Core.Erp.Winform.Controles
         frmCP_Proveedor_Mant frmProvee;
         frmFa_Clientes_Mant frmCliente;
         frmGe_MantPersona frmPersona;
-        frmRo_Empleado_Mant frmEmpleado;
 
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
 
@@ -472,17 +468,7 @@ namespace Core.Erp.Winform.Controles
 
                 if (IdTipo_Persona == Cl_Enumeradores.eTipoPersona.EMPLEA)
                 {
-                    frmEmpleado = new frmRo_Empleado_Mant();
-                    frmEmpleado.event_frmRo_MantEmpleado_FormClosing += frmEmpleado_event_frmRo_MantEmpleado_FormClosing;
-                    if (!(Accion == Cl_Enumeradores.eTipo_action.grabar))
-                    {
-                        frmEmpleado.set_Empleado(Get_Info_Empleado());
-                        frmEmpleado.set_Accion(Accion);
-                    }
-                    else
-                        frmEmpleado.set_Accion(Accion);
-
-                    frmEmpleado.Show();
+                 
                 }
 
 

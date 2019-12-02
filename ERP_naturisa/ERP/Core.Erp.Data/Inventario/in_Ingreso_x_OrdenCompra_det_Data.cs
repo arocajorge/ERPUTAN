@@ -74,7 +74,7 @@ namespace Core.Erp.Data.Inventario
             }
         }
 
-      public List<in_Ingreso_x_OrdenCompra_det_Info> Get_List_Ingreso_x_OrdenCompra_det_x_proveedor(int IdEmpresa, decimal IdProveedor)
+        public List<in_Ing_Egr_Inven_det_Info> Get_List_Ingreso_x_OrdenCompra_det_x_proveedor(int IdEmpresa, decimal IdProveedor)
       {
           try
           {
@@ -85,82 +85,60 @@ namespace Core.Erp.Data.Inventario
               IdProveedorFin = (IdProveedor == 0) ? 9999999 : IdProveedor;
 
 
-              List<in_Ingreso_x_OrdenCompra_det_Info> Lst = new List<in_Ingreso_x_OrdenCompra_det_Info>();            
-              EntitiesCompras oEnti = new EntitiesCompras();
+              List<in_Ing_Egr_Inven_det_Info> Lst = new List<in_Ing_Egr_Inven_det_Info>();            
+              EntitiesInventario oEnti = new EntitiesInventario();
            
-              var Consulta = from q in oEnti.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo
-                             where q.IdEmpresa == IdEmpresa
+              var Consulta = oEnti.vwin_Ing_Egr_Inven_det_PorIngresar.Where(q=> q.IdEmpresa == IdEmpresa
                              && q.IdProveedor >= IdProveedorIni
-                             && q.IdProveedor <= IdProveedorFin
-                             && q.Estado == "A" 
-                             && q.IdEstadoAprobacion_cat == "APRO" 
-                             && q.IdEstado_cierre != "CERR"
-                             && q.Saldo_OC_x_Ing > 0
-                             select q;
+                             && q.IdProveedor <= IdProveedorFin).ToList();
 
 
               foreach (var item in Consulta)
               {
-                  in_Ingreso_x_OrdenCompra_det_Info Obj = new in_Ingreso_x_OrdenCompra_det_Info();
-                  Obj.IdEmpresa = Convert.ToInt32(item.IdEmpresa);
-                  Obj.IdSucursal = Convert.ToInt32(item.IdSucursal);
-                  Obj.IdOrdenCompra = Convert.ToDecimal(item.IdOrdenCompra);
-                  Obj.secuencia_oc_det = Convert.ToInt32(item.secuencia_oc_det);
-                  Obj.nom_sucu = item.nom_sucu;
-                  Obj.IdProveedor = Convert.ToDecimal(item.IdProveedor);
-                  Obj.nom_proveedor = item.nom_proveedor;
-                  Obj.Tipo = item.Tipo;
-                  Obj.oc_fecha = Convert.ToDateTime(item.oc_fecha);
-                  Obj.oc_observacion = item.oc_observacion;
-                  Obj.cod_producto = item.cod_producto;
-                  Obj.nom_producto = item.nom_producto;
-                  Obj.IdProducto = Convert.ToDecimal(item.IdProducto);
-                  Obj.cantidad_ing_a_Inven = 0;
-                  Obj.Estado = item.Estado;
-                  Obj.IdEstadoAprobacion = item.IdEstadoAprobacion_cat;
-                  Obj.oc_NumDocumento = item.oc_NumDocumento;
-                  Obj.oc_precio = Convert.ToDouble(item.oc_precio);
-
-                  Obj.cantidad_pedida_OC = Convert.ToDouble(item.cantidad_pedida_OC);
-                  Obj.Saldo_x_Ing_OC = Convert.ToDouble(item.Saldo_OC_x_Ing);
-                  Obj.Saldo_x_Ing_OC_AUX = Convert.ToDouble(item.Saldo_OC_x_Ing);
-                  Obj.pr_stock = Convert.ToDouble(item.pr_stock);
-                  Obj.pr_peso = Convert.ToDouble(item.pr_peso);
-                  Obj.CostoProducto = Convert.ToDouble(item.CostoProducto);
-                  Obj.IdCentroCosto = item.IdCentroCosto;
-                  Obj.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-
-                  Obj.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                  Obj.IdPunto_cargo = Convert.ToInt32(item.IdPunto_cargo);
-                  Obj.IdUnidadMedida = item.IdUnidadMedida;
-                  Obj.IdMotivo_OC = Convert.ToInt32(item.IdMotivo_oc);
-                  Obj.Nom_Motivo = item.Nom_Motivo;
-                  Obj.cantidad_ingresada = Convert.ToDouble(item.cantidad_ingresada);
-                  Obj.IdEstado_cierre = item.IdEstado_cierre;
-                  Obj.nom_estado_cierre = item.nom_estado_cierre;
-                  Obj.Ref_OC = "OC.# " + Convert.ToDecimal(item.IdOrdenCompra) + " Fecha:" + Convert.ToDateTime(item.oc_fecha) + " Proveedor:" + item.nom_proveedor.Trim();
-                  Obj.do_descuento = Convert.ToDouble(item.do_descuento);
-                  Obj.do_subtotal = Convert.ToDouble(item.do_subtotal);
-                  Obj.do_iva = Convert.ToDouble(item.do_iva);
-                  Obj.do_total = Convert.ToDouble(item.do_total);
-
-                  Obj.Descripcion = item.Descripcion;
-                  Obj.IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo;
-                  
-                  if (item.IdCentroCosto_sub_centro_costo != null)
+                  Lst.Add(new in_Ing_Egr_Inven_det_Info
                   {
-                      Obj.Nomsub_centro_costo = item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo;
-                      
-                  }
-                  Obj.oc_NumDocumento = item.oc_NumDocumento;
+                      IdEmpresa = item.IdEmpresa,
+                      IdSucursal = item.IdSucursal,
+                      IdEmpresa_oc = item.IdEmpresa,
+                      IdSucursal_oc = item.IdSucursal,
+                      IdOrdenCompra = item.IdOrdenCompra,
+                      Secuencia_oc = item.Secuencia,
+                      nom_sucu = item.Su_Descripcion,
+                      IdProveedor = item.IdProveedor,
+                      nom_proveedor = item.pe_nombreCompleto,
+                      oc_fecha = item.oc_fecha,
+                      oc_observacion = item.oc_observacion,
+                      cod_producto = item.pr_codigo,
+                      nom_producto = item.pr_descripcion,
+                      IdProducto = item.IdProducto,
+                      dm_cantidad = 0,
+                      oc_NumDocumento = item.oc_NumDocumento,
+                      dm_precio = item.do_precioFinal,
+                      mv_costo = item.do_precioFinal,
 
-                  Lst.Add(Obj);
+                      cantidad_pedida_OC = item.do_Cantidad,
+                      Saldo_x_Ing_OC = item.Saldo,
+                      Saldo_x_Ing_OC_AUX = item.Saldo,
+                      dm_stock_ante = 0,
+                      dm_stock_actu = 0,
+                      IdCentroCosto = item.IdCentroCosto,
+                      IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+
+                      IdPunto_cargo_grupo = item.IdPunto_cargo_grupo,
+                      IdPunto_cargo = item.IdPunto_cargo,
+                      IdUnidadMedida = item.IdUnidadMedida,
+                      cantidad_ingresada = item.CantidadIngresada,
+                      IdEstado_cierre = item.IdEstado_cierre,
+                      Ref_OC = item.RefOC,
+                      IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo,
+                      Nomsub_centro_costo = item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo,
+                      SucursalDestino = item.SucursalDestino
+                  });
+
               }
 
               return Lst;
-
-             
-          }
+        }
           catch (Exception ex)
           {
               string arreglo = ToString();

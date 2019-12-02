@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Core.Erp.Winform.Produc_Cirdesus;
+
 using Core.Erp.Info.Produc_Cirdesus;
 using Core.Erp.Business.Produc_Cirdesus;
 using Core.Erp.Business.General;
@@ -22,7 +22,6 @@ namespace Core
         public string idEtapaAnterior;
         public int idEtapa;
         public int idProcesoProductivo;
-        FrmPrd_EtapaMantenimiento frm = new FrmPrd_EtapaMantenimiento();
         prd_EtapaProduccion_Bus bus_Etapas = new prd_EtapaProduccion_Bus();
         prd_EtapaProduccion_Info infoEtapa = new prd_EtapaProduccion_Info();
         public cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
@@ -146,13 +145,6 @@ namespace Core
                 get_Etapa();
                 bus_Etapas = new prd_EtapaProduccion_Bus();
 
-                        frm = new FrmPrd_EtapaMantenimiento();
-                        frm.Set_Accion(Cl_Enumeradores.eTipo_action.actualizar);
-                
-                        frm.info.IdEtapa = Convert.ToInt32(idEtapa);
-                        frm.IdProcesoProductivo = this.idProcesoProductivo;
-                        frm.listaEtapas = ls;
-                        frm.Show();
 
                         event_lblEtapa_DoubleClick(sender, e);
             }

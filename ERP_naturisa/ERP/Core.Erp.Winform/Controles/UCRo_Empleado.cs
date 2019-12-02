@@ -10,7 +10,6 @@ using Core.Erp.Info.Roles;
 using Core.Erp.Business.Roles;
 using Core.Erp.Business.General;
 using Core.Erp.Info.General;
-using Core.Erp.Winform.Roles;
 
 namespace Core.Erp.Winform.Controles
 {
@@ -280,17 +279,6 @@ namespace Core.Erp.Winform.Controles
             try
             {
 
-                frmRo_Empleado_Mant frm1 = new frmRo_Empleado_Mant();
-                frm1.event_frmRo_MantEmpleado_FormClosing += frm1_event_frmRo_MantEmpleado_FormClosing;
-                if (!(Accion == Cl_Enumeradores.eTipo_action.grabar))
-                {
-                    frm1.set_Empleado(InfoEmp);
-                    frm1.set_Accion(Accion);
-                }
-                else
-                    frm1.set_Accion(Accion);
-
-                frm1.Show();
             }
             catch (Exception ex)
             {

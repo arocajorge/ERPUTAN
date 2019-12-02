@@ -58,17 +58,17 @@
             // 
             // cmbMotivoInv
             // 
-            this.cmbMotivoInv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbMotivoInv.Location = new System.Drawing.Point(2, 2);
+            this.cmbMotivoInv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmbMotivoInv.Location = new System.Drawing.Point(3, 2);
+            this.cmbMotivoInv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbMotivoInv.Name = "cmbMotivoInv";
             this.cmbMotivoInv.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbMotivoInv.Properties.DisplayMember = "Desc_mov_inv";
             this.cmbMotivoInv.Properties.ValueMember = "IdMotivo_Inv";
             this.cmbMotivoInv.Properties.View = this.gridView4;
-            this.cmbMotivoInv.Size = new System.Drawing.Size(247, 20);
+            this.cmbMotivoInv.Size = new System.Drawing.Size(329, 22);
             this.cmbMotivoInv.TabIndex = 20;
             this.cmbMotivoInv.EditValueChanged += new System.EventHandler(this.cmbMotivoInv_EditValueChanged);
             this.cmbMotivoInv.Validating += new System.ComponentModel.CancelEventHandler(this.cmbMotivoInv_Validating);
@@ -120,14 +120,14 @@
             this.consultarToolStripMenuItem});
             this.MenuAcciones.Name = "MenuAcciones";
             this.MenuAcciones.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuAcciones.Size = new System.Drawing.Size(126, 70);
+            this.MenuAcciones.Size = new System.Drawing.Size(143, 76);
             this.MenuAcciones.Text = "Acciones";
             // 
             // nuevoToolStripMenuItem
             // 
             this.nuevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("nuevoToolStripMenuItem.Image")));
             this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
             // 
@@ -135,7 +135,7 @@
             // 
             this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -143,7 +143,7 @@
             // 
             this.consultarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarToolStripMenuItem.Image")));
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.consultarToolStripMenuItem.Text = "Consultar";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
@@ -159,25 +159,26 @@
             // 
             // cmb_Acciones
             // 
-            this.cmb_Acciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_Acciones.ContextMenuStrip = this.MenuAcciones;
             this.cmb_Acciones.ImageIndex = 1;
             this.cmb_Acciones.ImageList = this.imageList1;
-            this.cmb_Acciones.Location = new System.Drawing.Point(253, 0);
+            this.cmb_Acciones.Location = new System.Drawing.Point(337, 0);
+            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Acciones.Name = "cmb_Acciones";
             this.cmb_Acciones.ShowArrowButton = false;
-            this.cmb_Acciones.Size = new System.Drawing.Size(36, 26);
+            this.cmb_Acciones.Size = new System.Drawing.Size(48, 32);
             this.cmb_Acciones.TabIndex = 111;
             this.cmb_Acciones.Click += new System.EventHandler(this.cmb_Acciones_Click);
             // 
             // UCIn_MotivoInvCmb
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_Acciones);
             this.Controls.Add(this.cmbMotivoInv);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCIn_MotivoInvCmb";
-            this.Size = new System.Drawing.Size(298, 26);
+            this.Size = new System.Drawing.Size(397, 32);
             this.Load += new System.EventHandler(this.UCIn_MotivoInvCmb_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmbMotivoInv.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();

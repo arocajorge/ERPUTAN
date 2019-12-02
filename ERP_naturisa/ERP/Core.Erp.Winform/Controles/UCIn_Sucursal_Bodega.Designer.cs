@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.colEstado_B = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEstado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmb_bodega = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -69,16 +69,15 @@
             // 
             // cmb_bodega
             // 
-            this.cmb_bodega.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_bodega.Location = new System.Drawing.Point(58, 26);
+            this.cmb_bodega.Location = new System.Drawing.Point(77, 32);
+            this.cmb_bodega.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_bodega.Name = "cmb_bodega";
             this.cmb_bodega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_bodega.Properties.DisplayMember = "bo_Descripcion";
             this.cmb_bodega.Properties.ValueMember = "IdBodega";
             this.cmb_bodega.Properties.View = this.searchLookUpEdit2View;
-            this.cmb_bodega.Size = new System.Drawing.Size(399, 20);
+            this.cmb_bodega.Size = new System.Drawing.Size(532, 22);
             this.cmb_bodega.TabIndex = 6;
             this.cmb_bodega.EditValueChanged += new System.EventHandler(this.cmb_bodega1_EditValueChanged);
             // 
@@ -90,14 +89,14 @@
             this.bo_Descripcion,
             this.colEstado_B});
             this.searchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.colEstado_B;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = false;
+            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition3.Appearance.Options.UseForeColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.colEstado_B;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = false;
             this.searchLookUpEdit2View.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1});
+            styleFormatCondition3});
             this.searchLookUpEdit2View.Name = "searchLookUpEdit2View";
             this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
@@ -131,16 +130,15 @@
             // 
             // cmb_sucursal
             // 
-            this.cmb_sucursal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_sucursal.Location = new System.Drawing.Point(58, 3);
+            this.cmb_sucursal.Location = new System.Drawing.Point(77, 4);
+            this.cmb_sucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_sucursal.Name = "cmb_sucursal";
             this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
             this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
             this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_sucursal.Size = new System.Drawing.Size(399, 20);
+            this.cmb_sucursal.Size = new System.Drawing.Size(532, 22);
             this.cmb_sucursal.TabIndex = 5;
             this.cmb_sucursal.EditValueChanged += new System.EventHandler(this.cmb_sucursal1_EditValueChanged);
             // 
@@ -151,14 +149,14 @@
             this.colSu_Descripcion,
             this.colEstado});
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.colEstado;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition2.Value1 = false;
+            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition4.Appearance.Options.UseForeColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.colEstado;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition4.Value1 = false;
             this.searchLookUpEdit1View.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition2});
+            styleFormatCondition4});
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
@@ -184,31 +182,34 @@
             // lblBodega
             // 
             this.lblBodega.AutoSize = true;
-            this.lblBodega.Location = new System.Drawing.Point(1, 30);
+            this.lblBodega.Location = new System.Drawing.Point(1, 37);
+            this.lblBodega.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBodega.Name = "lblBodega";
-            this.lblBodega.Size = new System.Drawing.Size(47, 13);
+            this.lblBodega.Size = new System.Drawing.Size(61, 17);
             this.lblBodega.TabIndex = 1;
             this.lblBodega.Text = "Bodega:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 6);
+            this.label1.Location = new System.Drawing.Point(1, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sucursal:";
             // 
             // UCIn_Sucursal_Bodega
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_bodega);
             this.Controls.Add(this.cmb_sucursal);
             this.Controls.Add(this.lblBodega);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCIn_Sucursal_Bodega";
-            this.Size = new System.Drawing.Size(462, 53);
+            this.Size = new System.Drawing.Size(616, 65);
             this.Load += new System.EventHandler(this.UCIn_Sucursal_Bodega_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cmb_bodega.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).EndInit();

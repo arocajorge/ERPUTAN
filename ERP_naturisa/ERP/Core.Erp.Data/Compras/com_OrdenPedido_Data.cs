@@ -460,6 +460,38 @@ namespace Core.Erp.Data.Compras
             }
         }
 
+        public bool ValidarProceso(int IdEmpresa, int IdSucursal, decimal IdOrdenCompra, int Secuencia)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var lst = db.vwcom_OrdenPedidoDet_PorOC.Where(q => q.IdEmpresa_oc == IdEmpresa && q.IdSucursal_oc == IdSucursal && q.IdOrdenCompra == IdOrdenCompra && q.Secuencia_oc == Secuencia).ToList();
+
+                    var lsg = lst.GroupBy(q => new { q.IdEmpresa_oc, q.IdOrdenPedido, q.Secuencia_pd }).Select(q => new
+                    {
+                        IdEmpresa = q.Key.IdEmpresa_oc,
+                        IdOrdenPedido = q.Key.IdOrdenPedido,
+                        Secuencoia = q.Key.Secuencia_pd,
+                        Contador = q.Count()
+                    }).FirstOrDefault();
+
+                    var pedido = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == lsg.IdEmpresa && q.IdOrdenPedido == lsg.IdOrdenPedido && q.Secuencia == lsg.Secuencoia).FirstOrDefault();
+                    if (pedido != null)
+                    {
+                        pedido.opd_EstadoProceso = lsg.Contador > 0 ? "I" : "C";
+                        db.SaveChanges();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool SaltarPaso2(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
         {
             try

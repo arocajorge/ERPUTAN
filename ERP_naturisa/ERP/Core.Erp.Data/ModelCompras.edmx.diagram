@@ -151,6 +151,7 @@
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_CotizacionPedidoConvenioPrecios" Width="1.5" PointX="9.50895872596137" PointY="15.715730003880211" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_consulta" Width="1.5" PointX="7.2757597133870044" PointY="6.5866603434955051" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion" Width="1.5" PointX="4.2441195641849747" PointY="15.836289994342387" />
+        <EntityTypeShape EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC" Width="1.5" PointX="11.063704780798268" PointY="29.393966807701609" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

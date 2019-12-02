@@ -33,7 +33,7 @@ namespace Core.Erp.Business.Inventario
           }
       }
 
-      public List<in_Ingreso_x_OrdenCompra_det_Info> Get_List_Ingreso_x_OrdenCompra_det_x_proveedor(int IdEmpresa, decimal IdProveedor)
+      public List<in_Ing_Egr_Inven_det_Info> Get_List_Ingreso_x_OrdenCompra_det_x_proveedor(int IdEmpresa, decimal IdProveedor)
       {
           try
           {

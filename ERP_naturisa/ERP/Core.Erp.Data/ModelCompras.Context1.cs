@@ -125,6 +125,7 @@ namespace Core.Erp.Data
         public DbSet<vwcom_CotizacionPedidoConvenioPrecios> vwcom_CotizacionPedidoConvenioPrecios { get; set; }
         public DbSet<vwcom_ordencompra_local_consulta> vwcom_ordencompra_local_consulta { get; set; }
         public DbSet<vwcom_OrdenPedidoDet_Cotizacion> vwcom_OrdenPedidoDet_Cotizacion { get; set; }
+        public DbSet<vwcom_OrdenPedidoDet_PorOC> vwcom_OrdenPedidoDet_PorOC { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

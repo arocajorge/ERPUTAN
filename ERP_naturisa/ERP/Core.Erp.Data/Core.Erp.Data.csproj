@@ -4297,6 +4297,9 @@
     <Compile Include="vwcom_OrdenPedidoDet_FamiliaComprador.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcom_OrdenPedidoDet_PorOC.cs">
+      <DependentUpon>ModelCompras.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcom_OrdenPedidoPlantilla.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
@@ -5024,6 +5027,9 @@
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_Ing_Egr_Inven_det.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwin_Ing_Egr_Inven_det_PorIngresar.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_Ing_Egr_Inven_det_SinParametrizacion.cs">

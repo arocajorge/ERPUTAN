@@ -37,8 +37,8 @@ namespace Core.Erp.Winform.Inventario
         ct_Centro_costo_Bus bus_centro_costo;        
         in_movi_inve_x_ct_cbteCble_Bus bus_InMovxCble;
         in_movi_inve_Bus bus_MovInv;
-
-
+        List<com_ordencompra_local_det_Info> ListaDetOC = new List<com_ordencompra_local_det_Info>();
+        com_OrdenPedido_Bus bus_pedido = new com_OrdenPedido_Bus();
         string MensajeError = "";
         //Listas
         List<in_Producto_Info> listProducto = new List<in_Producto_Info>();
@@ -695,6 +695,14 @@ namespace Core.Erp.Winform.Inventario
                 }
                 ucIn_MotivoInvCmb1.set_MotivoInvInfo((int)info_IngEgr.IdMotivo_Inv);
 
+                ListaDetOC = List_Bind_IngEgrDet.Where(q=> q.IdOrdenCompra != null).GroupBy(q => new { q.IdEmpresa_oc, q.IdSucursal_oc, q.IdOrdenCompra, q.Secuencia_oc }).Select(q=> new com_ordencompra_local_det_Info{
+                  IdEmpresa = q.Key.IdEmpresa_oc ?? 0,
+                  IdSucursal = q.Key.IdSucursal_oc ?? 0,
+                  IdOrdenCompra = q.Key.IdOrdenCompra ?? 0,
+                  Secuencia = q.Key.Secuencia_oc ?? 0
+                }).ToList();
+                
+
                 gridControlProductos.DataSource = List_Bind_IngEgrDet;
             }
             catch (Exception ex)
@@ -754,7 +762,10 @@ namespace Core.Erp.Winform.Inventario
                             {
                                 ucGe_Menu_Superior_Mant1_event_btnImprimir_Click(null, null);
                             }
-
+                            foreach (var detoc in ListaDetOC)
+                            {
+                                bus_pedido.ValidarProceso(detoc.IdEmpresa, detoc.IdSucursal, detoc.IdOrdenCompra, detoc.Secuencia);
+                            }
                             LimpiarDatos();
                         }
                         else
@@ -842,8 +853,11 @@ namespace Core.Erp.Winform.Inventario
                                 if (bus_MovInv.AnularDB(infoMovInv, param.Fecha_Transac, ref msgAnula))
                                 {
                                     MessageBox.Show("Movimiento de Inventario Anulado: " + msgAnula, param.Nombre_sistema);
-                                }          
-
+                                }
+                                foreach (var detoc in ListaDetOC)
+                                {
+                                    bus_pedido.ValidarProceso(detoc.IdEmpresa, detoc.IdSucursal, detoc.IdOrdenCompra, detoc.Secuencia);
+                                }
                                 Accion = Cl_Enumeradores.eTipo_action.consultar;
                             }
                         }

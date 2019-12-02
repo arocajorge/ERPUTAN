@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using Core.Erp.Business.Roles;
 using Core.Erp.Info.Roles;
 using Core.Erp.Business.General;
-using Core.Erp.Winform.Roles;
 using Core.Erp.Info.General;
 
 namespace Core.Erp.Winform.Controles
@@ -25,7 +24,6 @@ namespace Core.Erp.Winform.Controles
         public delegate void delegate_cmb_departamento_EditValueChanged(object sender, EventArgs e);
         public event delegate_cmb_departamento_EditValueChanged event_cmb_departamento_EditValueChanged;
         private int _IdDepartamento;
-        frmRo_Departamento_Mant frm;
         #endregion
 
 
@@ -209,19 +207,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                frm = new frmRo_Departamento_Mant();
-                frm.Event_frmRo_Departamento_Mant_FormClosing += new frmRo_Departamento_Mant.delegate_frmRo_Departamento_Mant_FormClosing(frm_Event_frmRo_Departamento_Mant_FormClosing);
-
-                if (!(Accion == Cl_Enumeradores.eTipo_action.grabar))
-                {
-                    frm.set_Info(InfoDepartamento);
-                    frm.set_Accion(Accion);
-
-                }
-                else
-                    frm.set_Accion(Accion);
-
-                frm.Show();
+               
             }
             catch (Exception ex)
             {

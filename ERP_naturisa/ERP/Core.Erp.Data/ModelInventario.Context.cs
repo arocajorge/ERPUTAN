@@ -175,6 +175,7 @@ namespace Core.Erp.Data
         public DbSet<in_Producto> in_Producto { get; set; }
         public DbSet<vwin_producto> vwin_producto { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_SinParametrizacion> vwin_Ing_Egr_Inven_det_SinParametrizacion { get; set; }
+        public DbSet<vwin_Ing_Egr_Inven_det_PorIngresar> vwin_Ing_Egr_Inven_det_PorIngresar { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {

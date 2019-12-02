@@ -11,7 +11,6 @@ using DevExpress.XtraEditors;
 using Core.Erp.Business.Roles;
 using Core.Erp.Info.Roles;
 using Core.Erp.Business.General;
-using Core.Erp.Winform.Roles;
 using Core.Erp.Info.General;
 
 namespace Core.Erp.Winform.Controles
@@ -22,7 +21,6 @@ namespace Core.Erp.Winform.Controles
         List<ro_Cargo_Info> listTipoCargo = new List<ro_Cargo_Info>();
         ro_Cargo_Bus BusTipoCargo = new ro_Cargo_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
-        frmRo_TipoCargo_Mant frm;
         ro_Cargo_Info InfoTipoCargo = new ro_Cargo_Info();
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
         public delegate void delegate_cmb_Cargo_EditValueChanged(object sender, EventArgs e);
@@ -209,20 +207,6 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                frm = new frmRo_TipoCargo_Mant();
-                frm.event_frmRo_TipoCargo_Mant_FormClosing += frm_event_frmRo_TipoCargo_Mant_FormClosing;
-                
-                if (!(Accion == Cl_Enumeradores.eTipo_action.grabar))
-                {
-                    frm.setTipoCargo = InfoTipoCargo;
-                    frm.set_Accion(Accion);
-                    
-                    
-                }
-                else
-                    frm.set_Accion(Accion);
-
-                frm.Show();
             }
             catch (Exception ex)
             {

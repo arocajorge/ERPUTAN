@@ -44,10 +44,11 @@ namespace Core.Erp.Winform.Inventario
         in_movi_inve_Bus bus_MovInv;
         in_Parametro_Bus parametros_B = new in_Parametro_Bus();
         string MensajeError = "";
+        com_OrdenPedido_Bus bus_pedido = new com_OrdenPedido_Bus();
 
         //Listas
         //List<cp_proveedor_Info> list_Proveedor;
-        List<in_Ingreso_x_OrdenCompra_det_Info> list;
+        List<in_Ing_Egr_Inven_det_Info> list;
         List<ct_Centro_costo_Info> list_centroCosto;
         List<ct_punto_cargo_Info> listPuntoCargo = new List<ct_punto_cargo_Info>();
         List<in_UnidadMedida_Info> list_UniMe;
@@ -220,11 +221,7 @@ namespace Core.Erp.Winform.Inventario
                 info_IngComp.Fecha_UltAnu = param.Fecha_Transac;
                 if (MessageBox.Show("Esta Seguro que desea eliminar el Item","Sistemas ERP",MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
                     return;
-                if (lblAnulado.Visible)
-                {
-                    MessageBox.Show("No se puede Anular un item anulado");
-                    return;
-                }
+                
 
                 Winform.General.FrmGe_MotivoAnulacion ofrm = new General.FrmGe_MotivoAnulacion();
                 ofrm.ShowDialog();
@@ -233,7 +230,6 @@ namespace Core.Erp.Winform.Inventario
                 if (Bus_IngEgr.AnularDB(info_IngComp, ref mensaje))
                 {
                     MessageBox.Show(mensaje, "Sistemas");
-                    lblAnulado.Visible = true;
                   
                 }
                 else
@@ -416,8 +412,6 @@ namespace Core.Erp.Winform.Inventario
                 list_grupo = bus_grupo.Get_List_punto_cargo_grupo(param.IdEmpresa, ref MensajeError);
                 cmb_grupo_punto_cargo.DataSource = list_grupo;
 
-                
-                
                 Bus_Uni_Med = new in_UnidadMedida_Bus();
                 list_UniMe = new List<in_UnidadMedida_Info>();
                 list_UniMe=Bus_Uni_Med.Get_list_UnidadMedida();
@@ -542,7 +536,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>();
                 gridControlIngreso.DataSource = ListaBind;
-                
+                ucIn_Sucursal_Bodega1.set_Idsucursal(param.IdSucursal);
                 carga_Combos();
 
                 switch (param.IdCliente_Ven_x_Default)
@@ -608,8 +602,8 @@ namespace Core.Erp.Winform.Inventario
             {
                 set_Accion(Cl_Enumeradores.eTipo_action.grabar);
                 txtNumIngreso.Text = "";
-                ucCp_Proveedor.set_ProveedorInfo(-1);
-                cmbMotivoInv.Inicializar_cmbMotivoInv();
+                cmbProveedor.EditValue = null;
+                //cmbMotivoInv.Inicializar_cmbMotivoInv();
                 txtObservacion.Text = "";
                 txtCodigo.Text = "";
                 dtpFecha.Value = DateTime.Now;
@@ -676,14 +670,12 @@ namespace Core.Erp.Winform.Inventario
                 int focus = gridViewIngreso.FocusedRowHandle;
                 gridViewIngreso.FocusedRowHandle = focus + 1;
 
-                foreach (var item in ListaBind)
+                foreach (var item in ListaBind.Where(q=> q.Checked == true).ToList())
                 {
                     if (item.IdEstadoAproba == null || item.IdEstadoAproba == Cl_Enumeradores.eEstadoAprobacion_Ing_Egr.PEND.ToString())
                     {
                         in_Ing_Egr_Inven_det_Info info = new in_Ing_Egr_Inven_det_Info();
 
-                        if (item.Checked == true)
-                        {
                             info.Checked = item.Checked;
                             info.IdEmpresa_oc = item.IdEmpresa_oc;
                             info.IdSucursal_oc = item.IdSucursal_oc;
@@ -725,7 +717,7 @@ namespace Core.Erp.Winform.Inventario
                             
 
                             list_IngxComp.Add(info);
-                        }
+                        
                     }
                 }
             }
@@ -752,9 +744,7 @@ namespace Core.Erp.Winform.Inventario
                 
                 txtObservacion.Text = SETINFO_.cm_observacion;
                 txtCodigo.Text = SETINFO_.CodMoviInven;
-           
-                lblAnulado.Visible = SETINFO_.Estado == "I"? true:false;
-                                      
+                                                 
                 //consulta detalle          
                 Bus_IngEgrDet = new in_Ing_Egr_Inven_det_Bus();
                 lista_IngEgrInv = new List<in_Ing_Egr_Inven_det_Info>();
@@ -908,7 +898,12 @@ namespace Core.Erp.Winform.Inventario
                                             bus_oc.Modificar_Estado_Cierre(Convert.ToInt32(item2.IdEmpresa_oc), Convert.ToInt32(item2.IdSucursal_oc), Convert.ToDecimal(item2.IdOrdenCompra), Estado_cierre);
                                         }                                   
                                     }                                                                                                     
-                                }                                                       
+                                }
+                          }
+
+                            foreach (var OCD in list_IngxComp)
+                            {
+                                bus_pedido.ValidarProceso(OCD.IdEmpresa_oc ?? 0, OCD.IdSucursal_oc ?? 0, OCD.IdOrdenCompra ?? 0, OCD.Secuencia_oc ?? 0);
                             }
 
                             if (MessageBox.Show("¿Desea Imprimir el Ingreso a Bodega x OC. # " + IdIngreso_oc + "\n" + "Imprimir", "Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -985,16 +980,15 @@ namespace Core.Erp.Winform.Inventario
                                 {
                                     var asd = gridViewIngreso.GetRow(gridViewIngreso.FocusedRowHandle);
                                 }
-
-                                gridViewIngreso.SetFocusedRowCellValue(colSaldo_x_Ing_OC, gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX));
-                                gridViewIngreso.SetFocusedRowCellValue(coldm_cantidad, 0);
+                                Info.Saldo_x_Ing_OC = Info.Saldo_x_Ing_OC_AUX;
+                                Info.dm_cantidad = 0;
                                 cargarDescripcion();
                                 return;
                             }
                             else
                             {
-                                gridViewIngreso.SetFocusedRowCellValue(colSaldo_x_Ing_OC, 0);
-                                gridViewIngreso.SetFocusedRowCellValue(coldm_cantidad, gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX));
+                                Info.Saldo_x_Ing_OC = 0;
+                                Info.dm_cantidad = Info.Saldo_x_Ing_OC_AUX;
 
                                 gridViewIngreso.SetFocusedRowCellValue(colChecked, true);
 
@@ -1068,8 +1062,9 @@ namespace Core.Erp.Winform.Inventario
                     double cantidad_ing_a_Inven = Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(coldm_cantidad));
 
                     if (Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(coldm_cantidad)) == 0)
-                    {                     
-                        gridViewIngreso.SetFocusedRowCellValue(colSaldo_x_Ing_OC, Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX)));
+                    {
+
+                        Info.Saldo_x_Ing_OC = Info.Saldo_x_Ing_OC_AUX;
                         gridViewIngreso.SetFocusedRowCellValue(colChecked, false);
                        
                         return;
@@ -1086,11 +1081,10 @@ namespace Core.Erp.Winform.Inventario
 
                     if (Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(coldm_cantidad)) > Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colcantidad_pedida_OC)))
                     {
-                        cant_aux = Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX));
-
-                        gridViewIngreso.SetFocusedRowCellValue(colSaldo_x_Ing_OC, Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX)));
-
-                      double  Saldo_x_Ing_OC = Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC));
+                        cant_aux = Info.Saldo_x_Ing_OC_AUX;
+                        Info.Saldo_x_Ing_OC = Info.Saldo_x_Ing_OC_AUX;
+                        
+                        double  Saldo_x_Ing_OC = Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC));
 
                       gridViewIngreso.SetFocusedRowCellValue(coldm_cantidad, 0);
                       gridViewIngreso.SetFocusedRowCellValue(colChecked, false);
@@ -1100,15 +1094,14 @@ namespace Core.Erp.Winform.Inventario
                     if(Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(coldm_cantidad)) <= Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colcantidad_pedida_OC)))
                     {
 
-                        gridViewIngreso.SetFocusedRowCellValue(colSaldo_x_Ing_OC, Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX)) - Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(coldm_cantidad)));
-
+                        Info.Saldo_x_Ing_OC = Info.Saldo_x_Ing_OC_AUX - Info.dm_cantidad;
                         double resul =Convert.ToDouble( gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC));
 
                         if (resul < 0)
                         {
                             gridViewIngreso.SetFocusedRowCellValue(coldm_cantidad, 0);
-                            gridViewIngreso.SetFocusedRowCellValue(colSaldo_x_Ing_OC, Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(colSaldo_x_Ing_OC_AUX)));
-
+                            Info.Saldo_x_Ing_OC = Info.Saldo_x_Ing_OC_AUX;
+                            
                             gridViewIngreso.SetFocusedRowCellValue(colChecked, false);
                         }
                         else
@@ -1154,7 +1147,6 @@ namespace Core.Erp.Winform.Inventario
                         colIdCentroCosto.OptionsColumn.AllowEdit = false;
                         colIdPunto_cargo.OptionsColumn.AllowEdit = false;
                         //colUnidadMedida_Grid.OptionsColumn.AllowEdit = false;
-                        colIdProducto.OptionsColumn.AllowEdit = false;
                         coldm_cantidad.OptionsColumn.AllowEdit = false;
                         colIdPunto_cargo.OptionsColumn.AllowEdit = false;
                     }
@@ -1181,18 +1173,23 @@ namespace Core.Erp.Winform.Inventario
                 for (int i = 0; i < gridViewIngreso.RowCount; i++)
                 {                    
                     {
-                        gridViewIngreso.SetRowCellValue(i, colChecked, checkTodos.Checked);
+                        in_Ing_Egr_Inven_det_Info row = (in_Ing_Egr_Inven_det_Info)gridViewIngreso.GetRow(i);
+                        if (row != null)
+                        {
 
-                        if (checkTodos.Checked)
-                        {
-                            gridViewIngreso.SetRowCellValue(i, coldm_cantidad, gridViewIngreso.GetRowCellValue(i, colSaldo_x_Ing_OC_AUX));
-                            gridViewIngreso.SetRowCellValue(i, colSaldo_x_Ing_OC, 0);
+                            gridViewIngreso.SetRowCellValue(i, colChecked, checkTodos.Checked);
+
+                            if (checkTodos.Checked)
+                            {
+                                row.dm_cantidad = row.Saldo_x_Ing_OC_AUX;
+                                gridViewIngreso.SetRowCellValue(i, colSaldo_x_Ing_OC, 0);
+                            }
+                            else
+                            {
+                                gridViewIngreso.SetRowCellValue(i, colSaldo_x_Ing_OC, gridViewIngreso.GetRowCellValue(i, coldm_cantidad));
+                                gridViewIngreso.SetRowCellValue(i, coldm_cantidad, 0);
+                            }
                         }
-                        else
-                        {
-                            gridViewIngreso.SetRowCellValue(i, colSaldo_x_Ing_OC, gridViewIngreso.GetRowCellValue(i, coldm_cantidad));
-                            gridViewIngreso.SetRowCellValue(i, coldm_cantidad, 0);
-                        }    
                     }                    
                 }
 
@@ -1213,10 +1210,10 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 decimal IdProveedor = 0;
-                IdProveedor=(ucCp_Proveedor.get_ProveedorInfo() == null)?0:ucCp_Proveedor.get_ProveedorInfo().IdProveedor;
+                IdProveedor = Convert.ToDecimal(cmbProveedor.EditValue ?? 0);
 
                 bus_IngxCompDet = new in_Ingreso_x_OrdenCompra_det_Bus();
-                list = new List<in_Ingreso_x_OrdenCompra_det_Info>();
+                list = new List<in_Ing_Egr_Inven_det_Info>();
                 list = bus_IngxCompDet.Get_List_Ingreso_x_OrdenCompra_det_x_proveedor(param.IdEmpresa, IdProveedor);
 
                 if (list.Count() == 0)
@@ -1228,62 +1225,7 @@ namespace Core.Erp.Winform.Inventario
                 }
 
                 // convertir 
-                List<in_Ing_Egr_Inven_det_Info> lista_AUX = new List<in_Ing_Egr_Inven_det_Info>();
-                foreach (var item in list)
-                {
-                    in_Ing_Egr_Inven_det_Info info = new in_Ing_Egr_Inven_det_Info();
-
-                    info.IdEmpresa_oc = item.IdEmpresa;
-                    info.IdSucursal_oc = item.IdSucursal;
-                    info.IdOrdenCompra = item.IdOrdenCompra;
-                    info.Secuencia_oc = item.secuencia_oc_det;
-                    info.nom_sucu = item.nom_sucu;
-                    info.IdProveedor = item.IdProveedor;
-                    info.nom_proveedor = item.nom_proveedor;
-                    info.oc_observacion = item.oc_observacion;
-                    info.cod_producto = item.cod_producto;
-                    info.nom_producto = item.nom_producto;
-                    info.IdProducto = item.IdProducto;
-                    
-                    info.dm_precio = item.oc_precio;
-                    info.mv_costo = item.oc_precio;
-
-
-                    info.cantidad_pedida_OC = item.cantidad_pedida_OC;
-                    info.dm_cantidad = item.cantidad_ing_a_Inven;
-                    info.Saldo_x_Ing_OC = item.Saldo_x_Ing_OC;
-                    info.dm_stock_ante = item.pr_stock;
-                    info.dm_stock_actu = item.pr_stock + info.dm_cantidad;
-                    info.dm_peso = item.pr_peso;
-                    info.IdCentroCosto = item.IdCentroCosto;
-                    info.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                    info.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                    info.IdPunto_cargo = item.IdPunto_cargo;
-                    info.Saldo_x_Ing_OC_AUX = item.Saldo_x_Ing_OC_AUX;
-                    info.IdUnidadMedida = item.IdUnidadMedida;
-                    info.IdMotivo_OC = item.IdMotivo_OC;
-                    info.Nom_Motivo = item.Nom_Motivo;
-                    
-                    info.dm_observacion = "Ingreso por Orden de Compra";
-                    info.oc_fecha = item.oc_fecha;
-
-                    info.IdEstado_cierre = item.IdEstado_cierre;
-                    info.nom_estado_cierre = item.nom_estado_cierre;
-
-                    info.IdRegistro = item.Nomsub_centro_costo;
-                    info.Ref_OC = item.Ref_OC;
-                    info.do_descuento = Convert.ToDouble(item.do_descuento);
-                    info.do_subtotal = Convert.ToDouble(item.do_subtotal);
-                    info.do_iva = Convert.ToDouble(item.do_iva);
-                    info.do_total = Convert.ToDouble(item.do_total);
-
-                    info.nom_UnidadMedida = item.Descripcion;
-                    info.IdUnidadMedida_Consumo = item.IdUnidadMedida;
-                    info.IdUnidadMedida = item.IdUnidadMedida;
-                    info.oc_NumDocumento = item.oc_NumDocumento;
-                    lista_AUX.Add(info);
-                }
-
+                List<in_Ing_Egr_Inven_det_Info> lista_AUX = new List<in_Ing_Egr_Inven_det_Info>(list);
                 ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>(lista_AUX);
                 gridControlIngreso.DataSource = ListaBind;
             }
@@ -1349,7 +1291,7 @@ namespace Core.Erp.Winform.Inventario
                             frm_combo.ShowDialog();
                             info_subcentro = frm_combo.Get_info_centro_sub_centro_costo();
                             gridViewIngreso.SetRowCellValue(RowHandle, colIdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdRegistro);
-                            gridViewIngreso.SetRowCellValue(RowHandle, col_IDSUBCENTRO, info_subcentro == null ? null : info_subcentro.IdCentroCosto_sub_centro_costo);
+                            Row.IdCentroCosto_sub_centro_costo = info_subcentro.IdCentroCosto_sub_centro_costo;
                         }
                     }
                 }

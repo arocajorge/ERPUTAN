@@ -8,14 +8,10 @@ using Core.Erp.Winform.General;
 using Core.Erp.Winform.CuentasxPagar;
 using Core.Erp.Winform.ActivoFijo;
 using Core.Erp.Winform.Academico;
-using Core.Erp.Winform.Inventario_Cidersus;
 using Core.Erp.Winform.Bancos;
 using Core.Erp.Winform.Facturacion;
-using Core.Erp.Winform.Produc_Cirdesus;
-using Core.Erp.Winform.Roles;
 using Core.Erp.Winform.Compras;
 using Core.Erp.Winform.Inventario;
-using Core.Erp.Winform.Produccion_Talme;
 using Core.Erp.Winform.Importacion;
 using Core.Erp.Winform.CuentasxCobrar;
 using Core.Erp.Winform.Compras_cidersus;
@@ -49,7 +45,6 @@ using Core.Erp.Winform.Facturacion_Grafinpren;
 using DevExpress.XtraSplashForm;
 using System.Threading;
 using System.Globalization;
-using Core.Erp.Winform.Roles_Fj;
 using Core.Erp.Winform.CuentasxCobrar_Grafinpren;
 
 using Cus.ERP.Reports.Grafinpren.Facturacion;
@@ -57,8 +52,6 @@ using Cus.Erp.Reports.CAH.Colecturia;
 using Core.Erp.Winform.Compras_FJ;
 using Cus.Erp.Reports.Cidersus.Produccion;
 
-
-using Core.Erp.Winform.Inventario_Fj;
 using Cus.Erp.Reports.FJ.Roles;
 namespace Core.Erp.Winform
 {

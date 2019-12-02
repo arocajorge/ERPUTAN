@@ -136,5 +136,7 @@ namespace Core.Erp.Info.Inventario
         {
             Info_Guia_x_traspaso_bodega_det = new in_Guia_x_traspaso_bodega_det_Info();
         }
+
+        public string SucursalDestino { get; set; }
     }
 }

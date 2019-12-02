@@ -130,7 +130,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                cmb_sucursal.EditValue = null;
+                cmb_sucursal.EditValue = param.IdSucursal;
             }
             catch (Exception ex)
             {

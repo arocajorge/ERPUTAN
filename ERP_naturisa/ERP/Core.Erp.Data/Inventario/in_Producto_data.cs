@@ -33,7 +33,7 @@ namespace Core.Erp.Data.Inventario
                          IdProducto = q.IdProducto,
                          pr_codigo = q.pr_codigo,
                          pr_descripcion = q.pr_descripcion,
-                         fa_Descripcion = q.in_Familia.fa_Descripcion,
+                         fa_Descripcion = q.in_Familia == null ? "" : q.in_Familia.fa_Descripcion,
                          IdUnidadMedida = q.IdUnidadMedida,
                          IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
                          IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
