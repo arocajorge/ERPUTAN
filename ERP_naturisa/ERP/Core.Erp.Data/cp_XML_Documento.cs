@@ -17,6 +17,7 @@ namespace Core.Erp.Data
         public cp_XML_Documento()
         {
             this.cp_XML_Documento_Retencion = new HashSet<cp_XML_Documento_Retencion>();
+            this.cp_XML_DocumentoDet = new HashSet<cp_XML_DocumentoDet>();
         }
     
         public int IdEmpresa { get; set; }
@@ -28,6 +29,7 @@ namespace Core.Erp.Data
         public string emi_NombreComercial { get; set; }
         public string emi_Ruc { get; set; }
         public string emi_DireccionMatriz { get; set; }
+        public string emi_ContribuyenteEspecial { get; set; }
         public string ClaveAcceso { get; set; }
         public string CodDocumento { get; set; }
         public string Establecimiento { get; set; }
@@ -55,5 +57,6 @@ namespace Core.Erp.Data
         public Nullable<decimal> IdCbteCble { get; set; }
     
         public virtual ICollection<cp_XML_Documento_Retencion> cp_XML_Documento_Retencion { get; set; }
+        public virtual ICollection<cp_XML_DocumentoDet> cp_XML_DocumentoDet { get; set; }
     }
 }

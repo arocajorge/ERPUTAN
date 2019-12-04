@@ -55,6 +55,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         Plazo = info.Plazo,
                         Comprobante = info.Comprobante,
                         Estado = info.Estado,
+                        emi_ContribuyenteEspecial = info.emi_ContribuyenteEspecial,
 
                         ret_CodDocumentoTipo = info.ret_CodDocumentoTipo,
                         ret_Establecimiento = info.ret_Establecimiento,
@@ -147,23 +148,45 @@ namespace Core.Erp.Data.CuentasxPagar
                 if (Existe(info.IdEmpresa, info.emi_Ruc, info.CodDocumento, info.Establecimiento, info.PuntoEmision, info.NumeroDocumento) == 2)
                     return true;
 
-                if (info.lstRetencion.Count > 0)
-                {
-                    info.ret_CodDocumentoTipo = info.ret_CodDocumentoTipo = "RETEN";
-                    var talonario = odataTalonario.GetDocumentoElectronicoUpdateUsado(info.IdEmpresa, info.ret_CodDocumentoTipo, info.ret_Establecimiento, info.ret_PuntoEmision);
-                    if (talonario == null)
-                    {
-                        return false;
-                    }
-                    info.ret_NumeroDocumento = talonario.NumDocumento;                    
-                    info.ret_Establecimiento = info.ret_Establecimiento;
-                    info.ret_PuntoEmision = info.ret_PuntoEmision;
-                    info.ret_NumeroDocumento = info.ret_NumeroDocumento;
-                    info.ret_Fecha = info.FechaEmision;
-                }
-
                 using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
                 {
+                    info.ret_CodDocumentoTipo = info.ret_CodDocumentoTipo = "RETEN";
+
+                    #region Validar si existe factura
+                    var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A").FirstOrDefault();
+                    if (OG != null)
+                    {
+                        info.IdTipoCbte = OG.IdTipoCbte_Ogiro;
+                        info.IdCbteCble = OG.IdCbteCble_Ogiro;
+
+                        var retencion = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro).FirstOrDefault();
+                        if (retencion != null)
+                        {
+                            info.ret_Establecimiento = retencion.serie1;
+                            info.ret_PuntoEmision = retencion.serie2;
+                            info.ret_NumeroDocumento = retencion.NumRetencion;
+                            info.ret_Fecha = retencion.fecha;
+                            info.ret_FechaAutorizacion = retencion.Fecha_Autorizacion;
+                            info.ret_NumeroAutorizacion = retencion.NumRetencion;
+                        }
+                    }
+                    #endregion
+
+                    if (info.lstRetencion.Count > 0 && string.IsNullOrEmpty(info.ret_NumeroDocumento))
+                    {
+                        var talonario = odataTalonario.GetDocumentoElectronicoUpdateUsado(info.IdEmpresa, info.ret_CodDocumentoTipo, info.ret_Establecimiento, info.ret_PuntoEmision);
+                        if (talonario == null)
+                        {
+                            return false;
+                        }
+                        info.ret_NumeroDocumento = talonario.NumDocumento;
+                        info.ret_Establecimiento = info.ret_Establecimiento;
+                        info.ret_PuntoEmision = info.ret_PuntoEmision;
+                        info.ret_NumeroDocumento = info.ret_NumeroDocumento;
+                        info.ret_Fecha = info.FechaEmision;
+                    }
+
+                
                     db.cp_XML_Documento.Add(new cp_XML_Documento
                     {
                         IdEmpresa = info.IdEmpresa,
@@ -174,6 +197,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         emi_NombreComercial = info.emi_NombreComercial,
                         emi_Ruc = info.emi_Ruc,
                         emi_DireccionMatriz = info.emi_DireccionMatriz,
+                        emi_ContribuyenteEspecial = info.emi_ContribuyenteEspecial,
                         ClaveAcceso = info.ClaveAcceso,
                         CodDocumento = info.CodDocumento,
                         Establecimiento = info.Establecimiento,
@@ -196,12 +220,16 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_Establecimiento = info.ret_Establecimiento,
                         ret_Fecha = info.ret_Fecha,
                         ret_PuntoEmision = info.ret_PuntoEmision,
-                        ret_NumeroDocumento = info.ret_NumeroDocumento
+                        ret_NumeroDocumento = info.ret_NumeroDocumento,
+                        ret_FechaAutorizacion = info.ret_FechaAutorizacion,
+                        ret_NumeroAutorizacion = info.ret_NumeroAutorizacion,
+                        
+                        IdTipoCbte = info.IdTipoCbte,
+                        IdCbteCble = info.IdCbteCble
                     });
-
+                    int Secuencia = 1;
                     if (info.lstRetencion.Count > 0)
-                    {
-                        int Secuencia = 1;
+                    {                        
                         foreach (var item in info.lstRetencion)
                         {
                             db.cp_XML_Documento_Retencion.Add(new cp_XML_Documento_Retencion
@@ -217,6 +245,22 @@ namespace Core.Erp.Data.CuentasxPagar
                                 re_Porcen_retencion = item.re_Porcen_retencion
                             });
                         }    
+                    }
+                    Secuencia = 1;
+                    foreach (var item in info.lstDetalle)
+                    {
+                        db.cp_XML_DocumentoDet.Add(new cp_XML_DocumentoDet
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdDocumento = info.IdDocumento,
+                            Secuencia = Secuencia++,
+                            NombreProducto = item.NombreProducto,
+                            Cantidad = item.Cantidad,
+                            Precio = item.Precio,
+                            ValorIva = item.ValorIva,
+                            PorcentajeIVA = item.PorcentajeIVA,
+                            Total = item.Total
+                        });
                     }
                     
                     info.Imagen = 2;

@@ -547,7 +547,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         ucCp_Proveedor1.Perfil_Lectura();
                         check_propina.Enabled = false;
-                        btn_Importar_XML.Enabled = false;
                         ListCodigoSRI.FindAll(c => c.co_estado == "A" && (c.IdTipoSRI == "COD_RET_FUE" || c.IdTipoSRI == "COD_RET_IVA"));
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
@@ -567,7 +566,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                         cmb_ICE.Properties.ReadOnly = true;
                         chk_TieneRetencion.Enabled = false;
                         check_propina.Enabled = false;
-                        btn_Importar_XML.Enabled = false;
                         btn_Autoriza.Enabled = false;
                         btn_Buscar.Enabled = false;
 
@@ -582,7 +580,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                         cmb_ICE.Properties.ReadOnly = true;
                         chk_TieneRetencion.Enabled = false;
                         check_propina.Enabled = false;
-                        btn_Importar_XML.Enabled = false;
                         btn_Autoriza.Enabled = false;
                         Inhabilta_Controles();
                         //txeSerie.Properties.ReadOnly = true;
@@ -601,7 +598,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                         cmb_ICE.Properties.ReadOnly = true;
                         chk_TieneRetencion.Enabled = false;
                         check_propina.Enabled = false;
-                        btn_Importar_XML.Enabled = false;
                         btn_Autoriza.Enabled = false;
                         //txeSerie.Properties.ReadOnly = true;
                         txeNumDocum.Properties.ReadOnly = true;
@@ -5014,6 +5010,23 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscarXML_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var prov = ucCp_Proveedor1.get_ProveedorInfo();
+                frmCP_XML_DocumentosNoContabilizados frm = new frmCP_XML_DocumentosNoContabilizados();
+                frm.pe_cedulaRuc = prov == null ? "" : prov.Persona_Info.pe_cedulaRuc;
+                frm.ShowDialog();
+                //if (frm.infoXML != null)
+                    //SetXml(frm.infoXML);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

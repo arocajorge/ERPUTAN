@@ -91,6 +91,7 @@
     <Folder Include="mobileSCI\Stored Procedures\" />
     <Folder Include="Digitalizacion\" />
     <Folder Include="Digitalizacion\Tables\" />
+    <Folder Include="Digitalizacion\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\tbSys_Ge_Comparativo_Modulo_vs_Contas.sql" />
@@ -2157,5 +2158,14 @@
     <Build Include="dbo\Stored Procedures\SPCOM_ComprasPorPuntoCargo.sql" />
     <Build Include="dbo\Stored Procedures\SPBAN_TransaccionesAConciliar.sql" />
     <Build Include="Security\Digitalizacion.sql" />
+    <Build Include="Digitalizacion\Tables\cp_XML_DocumentoDet.sql" />
+    <Build Include="Digitalizacion\Tables\cp_XML_Documento_Retencion_1.sql" />
+    <Build Include="dbo\Tables\com_SPCOM_SeguimientoEntrega_1.sql" />
+    <Build Include="Digitalizacion\Views\vwcp_XML_Documento_1.sql" />
+    <Build Include="dbo\Views\vwin_Ing_Egr_Inven_det_SinParametrizacion_1.sql" />
+    <Build Include="dbo\Views\vwin_Ing_Egr_Inven_det_PorIngresar_1.sql" />
+    <Build Include="dbo\Views\vwcp_proveedor_codigo_SRI_1.sql" />
+    <Build Include="dbo\Views\vwcom_OrdenPedidoDet_PorOC_1.sql" />
+    <Build Include="dbo\Stored Procedures\SPCOM_SeguimientoEntrega_1.sql" />
   </ItemGroup>
 </Project>

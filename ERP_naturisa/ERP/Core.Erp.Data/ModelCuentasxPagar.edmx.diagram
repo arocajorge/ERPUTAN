@@ -174,8 +174,10 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento_Retencion" Width="1.5" PointX="10.331596293641066" PointY="30.776563032891865" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="1.5598412964306032" PointY="24.806711879003192" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_proveedor_codigo_SRI" Width="1.5" PointX="11.99652415327566" PointY="24.729866560888414" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="8.4776881115872822" PointY="1.9568146774344215" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="3.5640886684712436" PointY="17.991806426081716" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_DocumentoDet" Width="1.5" PointX="5.2868372040273792" PointY="0.41500660796417232" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

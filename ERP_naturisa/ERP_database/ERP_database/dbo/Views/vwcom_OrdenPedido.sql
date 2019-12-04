@@ -93,16 +93,6 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "ct_punto_cargo"
-            Begin Extent = 
-               Top = 7
-               Left = 312
-               Bottom = 170
-               Right = 548
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
          Begin Table = "com_OrdenPedido"
             Begin Extent = 
                Top = 7
@@ -143,6 +133,16 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "ct_punto_cargo"
+            Begin Extent = 
+               Top = 7
+               Left = 312
+               Bottom = 170
+               Right = 548
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
       End
    End
    Begin SQLPane = 
@@ -165,4 +165,6 @@ Begin DesignProperties =
          Filter = 1356
          Or = 1350
  ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_OrdenPedido';
+
+
 

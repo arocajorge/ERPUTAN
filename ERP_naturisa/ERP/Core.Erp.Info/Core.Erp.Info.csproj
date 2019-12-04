@@ -163,6 +163,7 @@
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_Info.cs" />
     <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Info.cs" />
+    <Compile Include="CuentasxPagar\cp_XML_DocumentoDet_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Retencion_Info.cs" />
     <Compile Include="Factuarcion_CAH\fa_notaCredDeb_aca_Info.cs" />

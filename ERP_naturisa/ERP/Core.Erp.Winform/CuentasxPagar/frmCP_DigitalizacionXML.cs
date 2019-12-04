@@ -101,7 +101,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                             emi_RazonSocial = infoTributaria.Element("razonSocial").Value,
                             emi_NombreComercial = infoTributaria.Element("nombreComercial") == null ? infoTributaria.Element("razonSocial").Value : infoTributaria.Element("nombreComercial").Value,
                             ClaveAcceso = infoTributaria.Element("claveAcceso").Value,
-                            
+                            emi_ContribuyenteEspecial = infoFactura.Element("contribuyenteEspecial") == null ?  "NO" : infoFactura.Element("contribuyenteEspecial").Value,
                             CodDocumento = infoTributaria.Element("codDoc").Value,
                             Establecimiento = infoTributaria.Element("estab").Value,
                             PuntoEmision = infoTributaria.Element("ptoEmi").Value,
@@ -140,6 +140,31 @@ namespace Core.Erp.Winform.CuentasxPagar
                         }
                         Documento.Total = Documento.Subtotal0 + Documento.SubtotalIVA + Documento.ValorIVA;
                         Documento.Comprobante = Documento.CodDocumento + '-' + Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
+
+                        var listD = rootElement.Element("detalles").Elements("detalle")
+                           .Select(element => element)
+                           .ToList();
+
+                        Documento.lstDetalle = new List<cp_XML_DocumentoDet_Info>();
+                        foreach (var Detalle in listD)
+                        {
+                            var d = new cp_XML_DocumentoDet_Info
+                            {
+                                NombreProducto = Detalle.Element("descripcion").Value.ToString(),
+                                Cantidad = Convert.ToDouble(Detalle.Element("cantidad").Value),
+                                Precio = Convert.ToDouble(Detalle.Element("precioTotalSinImpuesto").Value)  
+                            };
+
+                            var ImpuestoD = Detalle.Element("impuestos").Elements("impuesto")
+                           .Select(element => element)
+                           .FirstOrDefault();
+
+                            d.PorcentajeIVA = Convert.ToDouble(ImpuestoD.Element("tarifa").Value);
+                            d.ValorIva = Convert.ToDouble(ImpuestoD.Element("valor").Value);
+                            d.Total = d.Precio + d.ValorIva;
+                            Documento.lstDetalle.Add(d);
+                        }
+
                         Documento.Imagen = bus_xml.Existe(param.IdEmpresa, Documento.emi_Ruc, Documento.CodDocumento, Documento.Establecimiento, Documento.PuntoEmision, Documento.NumeroDocumento);
                         if(blst.Where(q=> q.Comprobante == Documento.Comprobante && q.emi_Ruc == Documento.emi_Ruc).Count() == 0)
                             blst.Add(Documento);

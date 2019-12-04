@@ -30,6 +30,8 @@
         {
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.txtContribuyente = new DevExpress.XtraEditors.TextEdit();
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtIVA = new DevExpress.XtraEditors.TextEdit();
@@ -74,6 +76,16 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.gcDetalleXML = new DevExpress.XtraGrid.GridControl();
+            this.gvDetalleXML = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
@@ -87,6 +99,7 @@
             this.txtRetEstablecimiento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIVA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPorcentaje.Properties)).BeginInit();
@@ -112,6 +125,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDetalleXML)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDetalleXML)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deRetFechaAutorizacion.Properties.VistaTimeProperties)).BeginInit();
@@ -188,6 +204,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelControl19);
+            this.panel1.Controls.Add(this.txtContribuyente);
             this.panel1.Controls.Add(this.txtTotal);
             this.panel1.Controls.Add(this.labelControl14);
             this.panel1.Controls.Add(this.txtIVA);
@@ -225,10 +243,30 @@
             this.panel1.Size = new System.Drawing.Size(1487, 661);
             this.panel1.TabIndex = 1;
             // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(242, 23);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(92, 16);
+            this.labelControl19.TabIndex = 32;
+            this.labelControl19.Text = "# Contribuyente";
+            // 
+            // txtContribuyente
+            // 
+            this.txtContribuyente.Location = new System.Drawing.Point(362, 20);
+            this.txtContribuyente.Name = "txtContribuyente";
+            this.txtContribuyente.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtContribuyente.Properties.Appearance.Options.UseBackColor = true;
+            this.txtContribuyente.Properties.ReadOnly = true;
+            this.txtContribuyente.Size = new System.Drawing.Size(245, 22);
+            this.txtContribuyente.TabIndex = 31;
+            // 
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(143, 401);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtTotal.Properties.Appearance.Options.UseBackColor = true;
             this.txtTotal.Properties.Mask.EditMask = "n2";
             this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtTotal.Properties.ReadOnly = true;
@@ -247,6 +285,8 @@
             // 
             this.txtIVA.Location = new System.Drawing.Point(143, 373);
             this.txtIVA.Name = "txtIVA";
+            this.txtIVA.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtIVA.Properties.Appearance.Options.UseBackColor = true;
             this.txtIVA.Properties.Mask.EditMask = "n2";
             this.txtIVA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtIVA.Properties.ReadOnly = true;
@@ -265,6 +305,8 @@
             // 
             this.txtPorcentaje.Location = new System.Drawing.Point(143, 345);
             this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtPorcentaje.Properties.Appearance.Options.UseBackColor = true;
             this.txtPorcentaje.Properties.Mask.EditMask = "n2";
             this.txtPorcentaje.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPorcentaje.Properties.ReadOnly = true;
@@ -283,6 +325,8 @@
             // 
             this.txtSubtotalIVA.Location = new System.Drawing.Point(143, 317);
             this.txtSubtotalIVA.Name = "txtSubtotalIVA";
+            this.txtSubtotalIVA.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtSubtotalIVA.Properties.Appearance.Options.UseBackColor = true;
             this.txtSubtotalIVA.Properties.Mask.EditMask = "n2";
             this.txtSubtotalIVA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSubtotalIVA.Properties.ReadOnly = true;
@@ -301,6 +345,8 @@
             // 
             this.txtSubtotal0.Location = new System.Drawing.Point(143, 289);
             this.txtSubtotal0.Name = "txtSubtotal0";
+            this.txtSubtotal0.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtSubtotal0.Properties.Appearance.Options.UseBackColor = true;
             this.txtSubtotal0.Properties.Mask.EditMask = "n2";
             this.txtSubtotal0.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSubtotal0.Properties.ReadOnly = true;
@@ -336,6 +382,8 @@
             this.deFecha.EditValue = null;
             this.deFecha.Location = new System.Drawing.Point(705, 20);
             this.deFecha.Name = "deFecha";
+            this.deFecha.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.deFecha.Properties.Appearance.Options.UseBackColor = true;
             this.deFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFecha.Properties.ReadOnly = true;
@@ -348,6 +396,8 @@
             // 
             this.txtCodDocumento.Location = new System.Drawing.Point(143, 48);
             this.txtCodDocumento.Name = "txtCodDocumento";
+            this.txtCodDocumento.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtCodDocumento.Properties.Appearance.Options.UseBackColor = true;
             this.txtCodDocumento.Properties.ReadOnly = true;
             this.txtCodDocumento.Size = new System.Drawing.Size(83, 22);
             this.txtCodDocumento.TabIndex = 16;
@@ -356,6 +406,8 @@
             // 
             this.txtNumDocumento.Location = new System.Drawing.Point(321, 76);
             this.txtNumDocumento.Name = "txtNumDocumento";
+            this.txtNumDocumento.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtNumDocumento.Properties.Appearance.Options.UseBackColor = true;
             this.txtNumDocumento.Properties.ReadOnly = true;
             this.txtNumDocumento.Size = new System.Drawing.Size(528, 22);
             this.txtNumDocumento.TabIndex = 15;
@@ -364,6 +416,8 @@
             // 
             this.txtPuntoEmision.Location = new System.Drawing.Point(232, 76);
             this.txtPuntoEmision.Name = "txtPuntoEmision";
+            this.txtPuntoEmision.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtPuntoEmision.Properties.Appearance.Options.UseBackColor = true;
             this.txtPuntoEmision.Properties.ReadOnly = true;
             this.txtPuntoEmision.Size = new System.Drawing.Size(83, 22);
             this.txtPuntoEmision.TabIndex = 14;
@@ -404,6 +458,8 @@
             // 
             this.txtNombreComercial.Location = new System.Drawing.Point(143, 188);
             this.txtNombreComercial.Name = "txtNombreComercial";
+            this.txtNombreComercial.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtNombreComercial.Properties.Appearance.Options.UseBackColor = true;
             this.txtNombreComercial.Properties.ReadOnly = true;
             this.txtNombreComercial.Size = new System.Drawing.Size(706, 22);
             this.txtNombreComercial.TabIndex = 9;
@@ -412,6 +468,8 @@
             // 
             this.txtRazonSocial.Location = new System.Drawing.Point(143, 160);
             this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtRazonSocial.Properties.Appearance.Options.UseBackColor = true;
             this.txtRazonSocial.Properties.ReadOnly = true;
             this.txtRazonSocial.Size = new System.Drawing.Size(706, 22);
             this.txtRazonSocial.TabIndex = 8;
@@ -420,6 +478,8 @@
             // 
             this.txtIdentificacion.Location = new System.Drawing.Point(143, 132);
             this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtIdentificacion.Properties.Appearance.Options.UseBackColor = true;
             this.txtIdentificacion.Properties.ReadOnly = true;
             this.txtIdentificacion.Size = new System.Drawing.Size(706, 22);
             this.txtIdentificacion.TabIndex = 7;
@@ -428,6 +488,8 @@
             // 
             this.txtClaveAcceso.Location = new System.Drawing.Point(143, 104);
             this.txtClaveAcceso.Name = "txtClaveAcceso";
+            this.txtClaveAcceso.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtClaveAcceso.Properties.Appearance.Options.UseBackColor = true;
             this.txtClaveAcceso.Properties.ReadOnly = true;
             this.txtClaveAcceso.Size = new System.Drawing.Size(706, 22);
             this.txtClaveAcceso.TabIndex = 6;
@@ -436,6 +498,8 @@
             // 
             this.txtEstablecimiento.Location = new System.Drawing.Point(143, 76);
             this.txtEstablecimiento.Name = "txtEstablecimiento";
+            this.txtEstablecimiento.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtEstablecimiento.Properties.Appearance.Options.UseBackColor = true;
             this.txtEstablecimiento.Properties.ReadOnly = true;
             this.txtEstablecimiento.Size = new System.Drawing.Size(83, 22);
             this.txtEstablecimiento.TabIndex = 5;
@@ -468,6 +532,8 @@
             // 
             this.txtTipo.Location = new System.Drawing.Point(232, 48);
             this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtTipo.Properties.Appearance.Options.UseBackColor = true;
             this.txtTipo.Properties.ReadOnly = true;
             this.txtTipo.Size = new System.Drawing.Size(617, 22);
             this.txtTipo.TabIndex = 1;
@@ -476,6 +542,8 @@
             // 
             this.txtID.Location = new System.Drawing.Point(143, 20);
             this.txtID.Name = "txtID";
+            this.txtID.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtID.Properties.Appearance.Options.UseBackColor = true;
             this.txtID.Properties.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(83, 22);
             this.txtID.TabIndex = 0;
@@ -484,6 +552,8 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(143, 216);
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtDireccion.Properties.Appearance.Options.UseBackColor = true;
             this.txtDireccion.Properties.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(706, 67);
             this.txtDireccion.TabIndex = 19;
@@ -616,6 +686,7 @@
             this.xtraTabControl1.TabIndex = 31;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
+            this.xtraTabPage3,
             this.xtraTabPage2});
             // 
             // xtraTabPage1
@@ -624,6 +695,101 @@
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(1487, 661);
             this.xtraTabPage1.Text = "Datos documento";
+            // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Controls.Add(this.gcDetalleXML);
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(1487, 661);
+            this.xtraTabPage3.Text = "Detalle";
+            // 
+            // gcDetalleXML
+            // 
+            this.gcDetalleXML.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDetalleXML.Location = new System.Drawing.Point(0, 0);
+            this.gcDetalleXML.MainView = this.gvDetalleXML;
+            this.gcDetalleXML.Name = "gcDetalleXML";
+            this.gcDetalleXML.Size = new System.Drawing.Size(1487, 661);
+            this.gcDetalleXML.TabIndex = 0;
+            this.gcDetalleXML.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDetalleXML});
+            // 
+            // gvDetalleXML
+            // 
+            this.gvDetalleXML.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11,
+            this.gridColumn12});
+            this.gvDetalleXML.GridControl = this.gcDetalleXML;
+            this.gvDetalleXML.Name = "gvDetalleXML";
+            this.gvDetalleXML.OptionsBehavior.ReadOnly = true;
+            this.gvDetalleXML.OptionsView.ShowAutoFilterRow = true;
+            this.gvDetalleXML.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Secuencia";
+            this.gridColumn1.FieldName = "Secuencia";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Width = 149;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Cantidad";
+            this.gridColumn2.FieldName = "Cantidad";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 121;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Producto";
+            this.gridColumn8.FieldName = "NombreProducto";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 1;
+            this.gridColumn8.Width = 1060;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Precio total";
+            this.gridColumn9.FieldName = "Precio";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 2;
+            this.gridColumn9.Width = 134;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "% I.V.A.";
+            this.gridColumn10.FieldName = "PorcentajeIVA";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 3;
+            this.gridColumn10.Width = 134;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "I.V.A.";
+            this.gridColumn11.FieldName = "ValorIva";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 4;
+            this.gridColumn11.Width = 134;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Total";
+            this.gridColumn12.FieldName = "Total";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 5;
+            this.gridColumn12.Width = 151;
             // 
             // xtraTabPage2
             // 
@@ -754,6 +920,7 @@
             this.Load += new System.EventHandler(this.frmCP_XML_Mantenimiento_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIVA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPorcentaje.Properties)).EndInit();
@@ -779,6 +946,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcDetalleXML)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDetalleXML)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -854,6 +1024,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.TextEdit txtContribuyente;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraGrid.GridControl gcDetalleXML;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDetalleXML;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
 
     }
 }

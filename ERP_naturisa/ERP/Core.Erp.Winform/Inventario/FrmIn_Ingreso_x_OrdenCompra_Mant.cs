@@ -394,15 +394,17 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-               
                 //carga centro costo                           
                 Bus_CentroCosto = new ct_Centro_costo_Bus();
                 list_centroCosto = new List<ct_Centro_costo_Info>();
                 list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
                 cmbCentroCosto_grid.DataSource = list_centroCosto;
+                cmbCentroCostoD.Properties.DataSource = list_centroCosto;
+
 
                 list_subcentro_combo = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmb_sub_centro_costo.DataSource = list_subcentro_combo;
+                cmbSubcentroCostoD.Properties.DataSource = list_subcentro_combo;
 
                 bus_puntoCargo = new ct_punto_cargo_Bus();
                 listPuntoCargo = new List<ct_punto_cargo_Info>();
@@ -982,7 +984,13 @@ namespace Core.Erp.Winform.Inventario
                                 }
                                 Info.Saldo_x_Ing_OC = Info.Saldo_x_Ing_OC_AUX;
                                 Info.dm_cantidad = 0;
+
                                 cargarDescripcion();
+
+
+                                gridViewIngreso.SetFocusedRowCellValue(colIdCentroCosto, null);
+                                gridViewIngreso.SetRowCellValue(RowHandle, colIdCentroCosto_sub_centro_costo, null);
+                                Info.IdCentroCosto_sub_centro_costo = null;
                                 return;
                             }
                             else
@@ -995,6 +1003,17 @@ namespace Core.Erp.Winform.Inventario
                                 if (Convert.ToDouble(gridViewIngreso.GetFocusedRowCellValue(coldm_cantidad)) == 0)
                                 {
                                     gridViewIngreso.SetFocusedRowCellValue(colChecked, false);
+                                }
+                                if (cmbCentroCostoD.EditValue != null && cmbSubcentroCostoD.EditValue != null)
+                                {
+                                    info_subcentro = list_subcentro_combo.Where(q => q.IdCentroCosto == cmbCentroCostoD.EditValue.ToString() && q.IdCentroCosto_sub_centro_costo == cmbSubcentroCostoD.EditValue.ToString()).FirstOrDefault();
+                                    if (info_subcentro != null)
+                                    {
+                                        gridViewIngreso.SetFocusedRowCellValue(colIdCentroCosto, cmbCentroCostoD.EditValue.ToString());
+                                        gridViewIngreso.SetRowCellValue(RowHandle, colIdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdRegistro);
+                                        Info.IdCentroCosto_sub_centro_costo = cmbSubcentroCostoD.EditValue.ToString();    
+                                    }
+                                    
                                 }
                             }
                         }
@@ -1183,11 +1202,28 @@ namespace Core.Erp.Winform.Inventario
                             {
                                 row.dm_cantidad = row.Saldo_x_Ing_OC_AUX;
                                 gridViewIngreso.SetRowCellValue(i, colSaldo_x_Ing_OC, 0);
+
+                                if (cmbCentroCostoD.EditValue != null && cmbSubcentroCostoD.EditValue != null)
+                                {
+                                    info_subcentro = list_subcentro_combo.Where(q => q.IdCentroCosto == cmbCentroCostoD.EditValue.ToString() && q.IdCentroCosto_sub_centro_costo == cmbSubcentroCostoD.EditValue.ToString()).FirstOrDefault();
+                                    if (info_subcentro != null)
+                                    {
+                                        gridViewIngreso.SetRowCellValue(i, colIdCentroCosto, cmbCentroCostoD.EditValue.ToString());
+                                        gridViewIngreso.SetRowCellValue(i, colIdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdRegistro);
+                                        row.IdCentroCosto_sub_centro_costo = cmbSubcentroCostoD.EditValue.ToString();
+                                    }
+
+                                }
+                                
                             }
                             else
                             {
                                 gridViewIngreso.SetRowCellValue(i, colSaldo_x_Ing_OC, gridViewIngreso.GetRowCellValue(i, coldm_cantidad));
                                 gridViewIngreso.SetRowCellValue(i, coldm_cantidad, 0);
+                                gridViewIngreso.SetRowCellValue(i, colIdCentroCosto, null);
+                                gridViewIngreso.SetRowCellValue(i, colIdCentroCosto_sub_centro_costo, null);
+                                row.IdCentroCosto_sub_centro_costo = null;
+                                
                             }
                         }
                     }                    
@@ -1413,6 +1449,24 @@ namespace Core.Erp.Winform.Inventario
             {
                 MessageBox.Show(ex.ToString());
                 Log_Error_bus.Log_Error(ex.ToString());
+            }
+        }
+
+        private void cmbCentroCostoD_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbCentroCostoD.EditValue == null)
+                    cmbSubcentroCostoD.Properties.DataSource = null;
+                else
+                    cmbSubcentroCostoD.Properties.DataSource = list_subcentro_combo.Where(q => q.IdCentroCosto == cmbCentroCostoD.EditValue.ToString()).ToList();
+
+                cmbSubcentroCostoD.EditValue = null;
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }

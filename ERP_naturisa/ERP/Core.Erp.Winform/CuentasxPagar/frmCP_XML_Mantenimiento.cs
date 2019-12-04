@@ -25,6 +25,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         List<cp_codigo_SRI_Info> lst_codigoSRI;
         cl_parametrosGenerales_Bus param;
         cp_XML_Documento_Bus bus_xml;
+        cp_XML_DocumentoDet_Bus bus_xml_det;
         #endregion
 
         public frmCP_XML_Mantenimiento()
@@ -37,6 +38,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             bus_det = new cp_XML_Documento_Retencion_Bus();
             param = cl_parametrosGenerales_Bus.Instance;
             bus_xml = new cp_XML_Documento_Bus();
+            bus_xml_det = new cp_XML_DocumentoDet_Bus();
         }
 
         private void frmCP_XML_Mantenimiento_Load(object sender, EventArgs e)
@@ -94,7 +96,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txtIVA.Text = info.ValorIVA.ToString();
                 txtTotal.Text = info.Total.ToString();
                 deFecha.DateTime = Convert.ToDateTime(info.FechaEmision).Date;
-                
+                txtContribuyente.Text = info.emi_ContribuyenteEspecial;
                 txtRetEstablecimiento.Text = info.ret_Establecimiento;
                 txtRetPuntoEmision.Text = info.ret_PuntoEmision;
                 txtRetNumeroDocumento.Text = info.ret_NumeroDocumento;
@@ -105,6 +107,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                 deRetFecha.DateTime = Convert.ToDateTime(info.FechaEmision).Date;
                 blst = new BindingList<cp_XML_Documento_Retencion_Info>(bus_det.GetList(param.IdEmpresa, info.IdDocumento));
                 gcRetencion.DataSource = blst;
+
+                gcDetalleXML.DataSource = bus_xml_det.GetList(param.IdEmpresa, info.IdDocumento);
             }
             catch (Exception)
             {

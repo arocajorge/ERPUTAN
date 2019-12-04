@@ -57,6 +57,7 @@
           <EntitySet Name="cp_RutaPorEmpresaPorUsuario" EntityType="ModelCuentasxPagar.Store.cp_RutaPorEmpresaPorUsuario" store:Type="Tables" Schema="Digitalizacion" />
           <EntitySet Name="cp_XML_Documento" EntityType="ModelCuentasxPagar.Store.cp_XML_Documento" store:Type="Tables" Schema="Digitalizacion" />
           <EntitySet Name="cp_XML_Documento_Retencion" EntityType="ModelCuentasxPagar.Store.cp_XML_Documento_Retencion" store:Type="Tables" Schema="Digitalizacion" />
+          <EntitySet Name="cp_XML_DocumentoDet" EntityType="ModelCuentasxPagar.Store.cp_XML_DocumentoDet" store:Type="Tables" Schema="Digitalizacion" />
           <EntitySet Name="vwcp_Anticipos_para_Conciliar" EntityType="ModelCuentasxPagar.Store.vwcp_Anticipos_para_Conciliar" store:Type="Views" store:Schema="dbo" store:Name="vwcp_Anticipos_para_Conciliar">
             <DefiningQuery>SELECT 
       [vwcp_Anticipos_para_Conciliar].[IdEmpresa_cxp] AS [IdEmpresa_cxp], 
@@ -2146,6 +2147,10 @@
             <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
             <End Role="cp_XML_Documento_Retencion" EntitySet="cp_XML_Documento_Retencion" />
           </AssociationSet>
+          <AssociationSet Name="FK_cp_XML_DocumentoDet_cp_XML_Documento" Association="ModelCuentasxPagar.Store.FK_cp_XML_DocumentoDet_cp_XML_Documento">
+            <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
+            <End Role="cp_XML_DocumentoDet" EntitySet="cp_XML_DocumentoDet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -3207,6 +3212,7 @@
           <Property Name="emi_NombreComercial" Type="varchar" MaxLength="2000" />
           <Property Name="emi_Ruc" Type="varchar" MaxLength="20" />
           <Property Name="emi_DireccionMatriz" Type="varchar" MaxLength="2000" />
+          <Property Name="emi_ContribuyenteEspecial" Type="varchar" MaxLength="50" />
           <Property Name="ClaveAcceso" Type="varchar" MaxLength="200" />
           <Property Name="CodDocumento" Type="varchar" MaxLength="20" />
           <Property Name="Establecimiento" Type="varchar" MaxLength="10" />
@@ -3248,6 +3254,22 @@
           <Property Name="re_Codigo_impuesto" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="re_Porcen_retencion" Type="float" Nullable="false" />
           <Property Name="re_valor_retencion" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cp_XML_DocumentoDet">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDocumento" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdDocumento" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="NombreProducto" Type="varchar" MaxLength="500" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="Precio" Type="float" />
+          <Property Name="PorcentajeIVA" Type="float" />
+          <Property Name="ValorIva" Type="float" />
+          <Property Name="Total" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Anticipos_para_Conciliar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -7016,6 +7038,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_cp_XML_DocumentoDet_cp_XML_Documento">
+          <End Role="cp_XML_Documento" Type="ModelCuentasxPagar.Store.cp_XML_Documento" Multiplicity="1" />
+          <End Role="cp_XML_DocumentoDet" Type="ModelCuentasxPagar.Store.cp_XML_DocumentoDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_XML_Documento">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="cp_XML_DocumentoDet">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="spcp_Get_Data_orden_pago_con_cancelacion_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpresa" Type="int" Mode="In" />
           <Parameter Name="IdPersona_ini" Type="numeric" Mode="In" />
@@ -7412,9 +7448,14 @@
           <EntitySet Name="vwcp_XML_Documento" EntityType="ModelCuentasxPagar.vwcp_XML_Documento" />
           <EntitySet Name="vwcp_proveedor_codigo_SRI" EntityType="ModelCuentasxPagar.vwcp_proveedor_codigo_SRI" />
           <EntitySet Name="cp_XML_Documento" EntityType="ModelCuentasxPagar.cp_XML_Documento" />
+          <EntitySet Name="cp_XML_DocumentoDet" EntityType="ModelCuentasxPagar.cp_XML_DocumentoDet" />
           <AssociationSet Name="FK_cp_XML_Documento_Retencion_cp_XML_Documento" Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento">
             <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
             <End Role="cp_XML_Documento_Retencion" EntitySet="cp_XML_Documento_Retencion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cp_XML_DocumentoDet_cp_XML_Documento" Association="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento">
+            <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
+            <End Role="cp_XML_DocumentoDet" EntitySet="cp_XML_DocumentoDet" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
@@ -12248,6 +12289,7 @@
           <Property Type="String" Name="emi_NombreComercial" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="emi_Ruc" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="emi_DireccionMatriz" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_ContribuyenteEspecial" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ClaveAcceso" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CodDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Establecimiento" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -12274,6 +12316,24 @@
           <Property Type="Int32" Name="IdTipoCbte" />
           <Property Type="Decimal" Name="IdCbteCble" Precision="18" Scale="0" />
           <NavigationProperty Name="cp_XML_Documento_Retencion" Relationship="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" FromRole="cp_XML_Documento" ToRole="cp_XML_Documento_Retencion" />
+          <NavigationProperty Name="cp_XML_DocumentoDet" Relationship="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" FromRole="cp_XML_Documento" ToRole="cp_XML_DocumentoDet" />
+        </EntityType>
+        <EntityType Name="cp_XML_DocumentoDet">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDocumento" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="NombreProducto" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Cantidad" />
+          <Property Type="Double" Name="Precio" />
+          <Property Type="Double" Name="PorcentajeIVA" />
+          <Property Type="Double" Name="ValorIva" />
+          <Property Type="Double" Name="Total" />
+          <NavigationProperty Name="cp_XML_Documento" Relationship="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" FromRole="cp_XML_DocumentoDet" ToRole="cp_XML_Documento" />
         </EntityType>
         <Association Name="FK_cp_XML_Documento_Retencion_cp_XML_Documento">
           <End Type="ModelCuentasxPagar.cp_XML_Documento" Role="cp_XML_Documento" Multiplicity="1" />
@@ -12284,6 +12344,20 @@
               <PropertyRef Name="IdDocumento" />
             </Principal>
             <Dependent Role="cp_XML_Documento_Retencion">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cp_XML_DocumentoDet_cp_XML_Documento">
+          <End Type="ModelCuentasxPagar.cp_XML_Documento" Role="cp_XML_Documento" Multiplicity="1" />
+          <End Type="ModelCuentasxPagar.cp_XML_DocumentoDet" Role="cp_XML_DocumentoDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_XML_Documento">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="cp_XML_DocumentoDet">
               <PropertyRef Name="IdEmpresa" />
               <PropertyRef Name="IdDocumento" />
             </Dependent>
@@ -15432,6 +15506,7 @@
                 <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
                 <ScalarProperty Name="CodDocumento" ColumnName="CodDocumento" />
                 <ScalarProperty Name="ClaveAcceso" ColumnName="ClaveAcceso" />
+                <ScalarProperty Name="emi_ContribuyenteEspecial" ColumnName="emi_ContribuyenteEspecial" />
                 <ScalarProperty Name="emi_DireccionMatriz" ColumnName="emi_DireccionMatriz" />
                 <ScalarProperty Name="emi_Ruc" ColumnName="emi_Ruc" />
                 <ScalarProperty Name="emi_NombreComercial" ColumnName="emi_NombreComercial" />
@@ -15439,6 +15514,21 @@
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="XML" ColumnName="XML" />
                 <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cp_XML_DocumentoDet">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_XML_DocumentoDet">
+              <MappingFragment StoreEntitySet="cp_XML_DocumentoDet">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ValorIva" ColumnName="ValorIva" />
+                <ScalarProperty Name="PorcentajeIVA" ColumnName="PorcentajeIVA" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
                 <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>

@@ -17,6 +17,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public string emi_NombreComercial { get; set; }
         public string emi_Ruc { get; set; }
         public string emi_DireccionMatriz { get; set; }
+        public string emi_ContribuyenteEspecial { get; set; }
         public string ClaveAcceso { get; set; }
         public string CodDocumento { get; set; }
         public string Establecimiento { get; set; }
@@ -40,10 +41,13 @@ namespace Core.Erp.Info.CuentasxPagar
         public Nullable<System.DateTime> ret_FechaAutorizacion { get; set; }
         public string ret_NumeroAutorizacion { get; set; }
         public Nullable<bool> Estado { get; set; }
+        public Nullable<int> IdTipoCbte { get; set; }
+        
 
         #region Campos que no existen en la tabla
         public int Imagen { get; set; }
         public List<cp_XML_Documento_Retencion_Info> lstRetencion { get; set; }
+        public List<cp_XML_DocumentoDet_Info> lstDetalle { get; set; }
         public string serie { get; set; }
         public string pe_nombreCompleto { get; set; }
         public string pe_correo { get; set; }

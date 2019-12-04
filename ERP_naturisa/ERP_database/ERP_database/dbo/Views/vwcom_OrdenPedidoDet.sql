@@ -1,19 +1,19 @@
-﻿CREATE view [dbo].[vwcom_OrdenPedidoDet]
-as
+﻿CREATE VIEW [dbo].[vwcom_OrdenPedidoDet]
+AS
 SELECT d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, d.pr_descripcion, d.IdUnidadMedida, d.IdSucursalOrigen, d.IdSucursalDestino, d.IdPunto_cargo, d.opd_Cantidad, d.opd_CantidadApro, d.opd_EstadoProceso, d.opd_Detalle, 
                   p.IdUnidadMedida_Consumo, CAST(0 AS FLOAT) AS Stock, s.nom_solicitante, d.IdProducto, d.Adjunto, 
                   CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso = 'AJC' THEN
                    'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso
-                   = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle, d.NombreArchivo, dbo.com_comprador.Descripcion AS NomComprador
+                   = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN d .opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA'  END AS EstadoDetalle, d.NombreArchivo, dbo.com_comprador.Descripcion AS NomComprador
 FROM     dbo.com_CotizacionPedido INNER JOIN
-                  dbo.com_CotizacionPedidoDet ON dbo.com_CotizacionPedido.IdEmpresa = dbo.com_CotizacionPedidoDet.IdEmpresa AND dbo.com_CotizacionPedido.IdCotizacion = dbo.com_CotizacionPedidoDet.IdCotizacion and dbo.com_CotizacionPedido.EstadoJC IN ('P','A') INNER JOIN
+                  dbo.com_CotizacionPedidoDet ON dbo.com_CotizacionPedido.IdEmpresa = dbo.com_CotizacionPedidoDet.IdEmpresa AND dbo.com_CotizacionPedido.IdCotizacion = dbo.com_CotizacionPedidoDet.IdCotizacion AND 
+                  dbo.com_CotizacionPedido.EstadoJC IN ('P', 'A') INNER JOIN
                   dbo.com_comprador ON dbo.com_CotizacionPedido.IdEmpresa = dbo.com_comprador.IdEmpresa AND dbo.com_CotizacionPedido.IdComprador = dbo.com_comprador.IdComprador RIGHT OUTER JOIN
                   dbo.com_OrdenPedidoDet AS d INNER JOIN
                   dbo.com_OrdenPedido AS c ON c.IdEmpresa = d.IdEmpresa AND c.IdOrdenPedido = d.IdOrdenPedido INNER JOIN
                   dbo.com_solicitante AS s ON s.IdEmpresa = c.IdEmpresa AND s.IdSolicitante = c.IdSolicitante ON dbo.com_CotizacionPedidoDet.opd_IdEmpresa = d.IdEmpresa AND 
                   dbo.com_CotizacionPedidoDet.opd_IdOrdenPedido = d.IdOrdenPedido AND dbo.com_CotizacionPedidoDet.opd_Secuencia = d.Secuencia LEFT OUTER JOIN
                   dbo.in_Producto AS p ON p.IdEmpresa = d.IdEmpresa AND p.IdProducto = d.IdProducto
---WHERE d.Idordenpedido = 1417 and d.secuencia = 14
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_OrdenPedidoDet';
 

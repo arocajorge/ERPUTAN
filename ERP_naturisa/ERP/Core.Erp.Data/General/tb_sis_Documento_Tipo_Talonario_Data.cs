@@ -713,7 +713,7 @@ namespace Core.Erp.Data.General
 
                using (EntitiesGeneral db = new EntitiesGeneral())
                {
-                   var talonario = db.tb_sis_Documento_Tipo_Talonario.Where(q => q.IdEmpresa == IdEmpresa && q.CodDocumentoTipo == CodDocumentoTipo && q.Establecimiento == Establecimiento && q.PuntoEmision == PuntoEmision && q.es_Documento_Electronico == true && q.Usado == false).OrderBy(q=> q.NumDocumento).FirstOrDefault();
+                   var talonario = db.tb_sis_Documento_Tipo_Talonario.Where(q => q.IdEmpresa == IdEmpresa && q.CodDocumentoTipo == CodDocumentoTipo && q.Establecimiento == Establecimiento && q.PuntoEmision == PuntoEmision && q.es_Documento_Electronico == true && q.Usado == false && q.Estado == "A").OrderBy(q=> q.NumDocumento).FirstOrDefault();
                    if (talonario == null)
                    {
                        //Crear talonario
