@@ -1,4 +1,5 @@
-﻿CREATE procedure [Naturisa].[spGE_Actualizacion_Nun_Autorizacion] as
+﻿
+CREATE procedure [Naturisa].[spGE_Actualizacion_Nun_Autorizacion] as
 update fa_factura
 set Fecha_Autorizacion=cbte_auto.FechaAutorizacion
 ,vt_autorizacion=cbte_auto.Numero_Autorizacion
@@ -38,6 +39,25 @@ and Ret.serie2=cbte_x_ret.IdPtoEmision
 and cast(Ret.NumRetencion as numeric) =cbte_x_ret.NumCbte
 and Ret.NAutorizacion is null
 
+
+update Digitalizacion.cp_XML_Documento
+set ret_NumeroAutorizacion=cbte_x_ret.Numero_Autorizacion
+,ret_FechaAutorizacion=cbte_x_ret.FechaAutorizacion
+from Digitalizacion.cp_XML_Documento Ret,
+(
+		SELECT        IdEmpresa, IdComprobante, FechaAutorizacion, Numero_Autorizacion, EstadoDoc, IdTipoDocumento
+		,SUBSTRING(IdComprobante,4,3) as IdEstablecimiento,SUBSTRING(IdComprobante,8,3) as IdPtoEmision
+		,cast(SUBSTRING(rtrim(ltrim(right(IdComprobante,10))),charindex('-', rtrim(ltrim(right(IdComprobante,10))))+1,10) as numeric)
+		as NumCbte
+		FROM   DBFacturacion_Electronica.dbo.tb_Comprobante AS cbte
+		WHERE        (IdTipoDocumento = '07')
+		and RTRIM(LTRIM(cbte.EstadoDoc))='AUTORIZADO'
+) as cbte_x_ret
+where Ret.IdEmpresa=cbte_x_ret.IdEmpresa
+and Ret.ret_Establecimiento=cbte_x_ret.IdEstablecimiento
+and Ret.ret_PuntoEmision=cbte_x_ret.IdPtoEmision
+and cast(Ret.NumeroDocumento as numeric) =cbte_x_ret.NumCbte
+and Ret.ret_NumeroAutorizacion is null
 
 
 

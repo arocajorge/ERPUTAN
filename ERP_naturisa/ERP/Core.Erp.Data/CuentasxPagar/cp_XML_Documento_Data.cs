@@ -141,39 +141,49 @@ namespace Core.Erp.Data.CuentasxPagar
             }
         }
 
-        public bool GuardarDB(cp_XML_Documento_Info info)
+        public bool GuardarDB(cp_XML_Documento_Info info, ref bool GenerarXML)
         {
             try
             {
                 if (Existe(info.IdEmpresa, info.emi_Ruc, info.CodDocumento, info.Establecimiento, info.PuntoEmision, info.NumeroDocumento) == 2)
                     return true;
 
+                EntitiesGeneral dbG = new EntitiesGeneral();
+                var persona = dbG.tb_persona.Where(q => q.pe_cedulaRuc.Trim() == info.emi_Ruc.Trim()).FirstOrDefault();
+                
                 using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
                 {
                     info.ret_CodDocumentoTipo = info.ret_CodDocumentoTipo = "RETEN";
 
                     #region Validar si existe factura
-                    var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A").FirstOrDefault();
-                    if (OG != null)
+                    var proveedor = db.cp_proveedor.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdPersona == persona.IdPersona).FirstOrDefault();
+                    if (proveedor != null)
                     {
-                        info.IdTipoCbte = OG.IdTipoCbte_Ogiro;
-                        info.IdCbteCble = OG.IdCbteCble_Ogiro;
-
-                        var retencion = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro).FirstOrDefault();
-                        if (retencion != null)
+                        var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A" && q.IdProveedor == proveedor.IdProveedor).FirstOrDefault();
+                        if (OG != null)
                         {
-                            info.ret_Establecimiento = retencion.serie1;
-                            info.ret_PuntoEmision = retencion.serie2;
-                            info.ret_NumeroDocumento = retencion.NumRetencion;
-                            info.ret_Fecha = retencion.fecha;
-                            info.ret_FechaAutorizacion = retencion.Fecha_Autorizacion;
-                            info.ret_NumeroAutorizacion = retencion.NumRetencion;
-                        }
+                            info.IdTipoCbte = OG.IdTipoCbte_Ogiro;
+                            info.IdCbteCble = OG.IdCbteCble_Ogiro;
+
+                            var retencion = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro && q.Estado == "A").FirstOrDefault();
+                            if (retencion != null)
+                            {
+                                GenerarXML = false;
+                                info.ret_Establecimiento = retencion.serie1;
+                                info.ret_PuntoEmision = retencion.serie2;
+                                info.ret_NumeroDocumento = retencion.NumRetencion;
+                                info.ret_Fecha = retencion.fecha;
+                                info.ret_FechaAutorizacion = retencion.Fecha_Autorizacion;
+                                info.ret_NumeroAutorizacion = retencion.NAutorizacion;
+                            }
+                        }   
                     }
+                    
                     #endregion
 
                     if (info.lstRetencion.Count > 0 && string.IsNullOrEmpty(info.ret_NumeroDocumento))
                     {
+                        GenerarXML = true;
                         var talonario = odataTalonario.GetDocumentoElectronicoUpdateUsado(info.IdEmpresa, info.ret_CodDocumentoTipo, info.ret_Establecimiento, info.ret_PuntoEmision);
                         if (talonario == null)
                         {
@@ -439,7 +449,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         em_ruc = item.em_ruc.Trim(),
                         em_direccion = (item.em_direccion == null) ? "" : item.em_direccion.Trim(),
                         IdTipoDocumento = item.IdTipoDocumento.Trim(),
-
+                        
                         IdSucursal = Convert.ToInt32(item.IdSucursal),
                         Su_Descripcion = item.Su_Descripcion.Trim(),
                         Su_Direccion = item.Su_Direccion.Trim(),
@@ -608,6 +618,36 @@ namespace Core.Erp.Data.CuentasxPagar
                 }
             }
             catch(Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public bool EliminarRetencion(int IdEmpresa, decimal IdDocumento)
+        {
+            try
+            {
+                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                {
+                    var xml = db.cp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && q.IdDocumento == IdDocumento).FirstOrDefault();
+                    if (xml != null)
+                    {
+                        xml.ret_NumeroDocumento = null;
+                        xml.ret_NumeroAutorizacion = null;
+                        xml.ret_Fecha = null;
+                        var xmldet = db.cp_XML_Documento_Retencion.Where(q => q.IdEmpresa == IdEmpresa && q.IdDocumento == IdDocumento).ToList();
+                        foreach (var item in xmldet)
+                        {
+                            db.cp_XML_Documento_Retencion.Remove(item);
+                        }
+                        db.SaveChanges();
+                    }
+
+                }
+
+                return true;
+            }
+            catch (Exception)
             {
                 throw;
             }

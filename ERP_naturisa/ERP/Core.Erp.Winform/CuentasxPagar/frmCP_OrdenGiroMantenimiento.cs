@@ -43,6 +43,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         Boolean res = true;
         Boolean Ejecutar_Evento = true;
         Boolean Diario_generado = false;
+        cp_XML_Documento_Bus busXml = new cp_XML_Documento_Bus();
+        cp_XML_Documento_Info infoXML = new cp_XML_Documento_Info();
         #region declaracion de variables y delegados
         string IdCtaCble_Proveedor = "";
         string nomProveedor = "";
@@ -2159,6 +2161,13 @@ namespace Core.Erp.Winform.CuentasxPagar
                         string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "Factura Proveedor: ", Info_OrdenGiro.co_serie + "-" + Info_OrdenGiro.co_factura + "/" + CbteCble_I.IdCbteCble);
                         MessageBox.Show(smensaje, param.Nombre_sistema);
 
+                        if (ValidarExisteXML())
+                        {
+                            if (busXml.ContabilizarDocumento(infoXML.IdEmpresa, infoXML.IdDocumento, (int)Info_OrdenGiro.IdTipoCbte_Ogiro, (int)Info_OrdenGiro.IdCbteCble_Ogiro, ucCp_Proveedor1.get_ProveedorInfo().IdCtaCble_CXP, param.IdUsuario, true))
+                            {
+                                MessageBox.Show("Documento XML contabilizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            }
+                        }
 
 
                         //btn_imprimirFP.Enabled = true;
@@ -3009,12 +3018,51 @@ namespace Core.Erp.Winform.CuentasxPagar
             { Log_Error_bus.Log_Error(ex.ToString());
             MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }   
-       
+        }
+        private bool ValidarExisteXML()
+        {
+            try
+            {
+                var prov = ucCp_Proveedor1.get_ProveedorInfo();
+                if (prov == null)
+                    return false;
+
+                if (cmbTipoDocu.EditValue == null)
+                    return false;
+
+                var Documento = LstTipDoc.Where(q => q.CodTipoDocumento == cmbTipoDocu.EditValue.ToString()).FirstOrDefault();
+                if (Documento == null)
+                    return false;
+
+                if (txeSerie.Text.Length < 7)
+                    return false;
+
+                infoXML = busXml.GetInfo(param.IdEmpresa, Documento.CodSRI, prov.Persona_Info.pe_cedulaRuc, txeSerie.Text.Substring(0,3), txeSerie.Text.Substring(4,3), txeNumDocum.Text);
+                if (infoXML == null)
+                    return false;
+
+                
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         private void chk_retManual_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
+                if (_Accion == Cl_Enumeradores.eTipo_action.grabar && ValidarExisteXML() && chk_TieneRetencion.Checked)
+                {
+                    if (!string.IsNullOrEmpty(infoXML.ret_NumeroDocumento))
+                    {
+                        chk_TieneRetencion.Checked = false;
+                        MessageBox.Show("El documento ya tiene un XML con retención, la retención sera creada automáticamente con los datos de la retención provisionada", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                }
                 ucCp_Retencion1.dtp_fechaEmisionRetencion.Value = dtp_fechaOG.Value;
                                
                 if (chk_TieneRetencion.Checked == true)
@@ -3254,12 +3302,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                     if (item != null)
                     {
                        
-                        txeNumDocum.EditValue = "";
+                        //txeNumDocum.EditValue = "";
 
                         if (item.DeclaraSRI == "N")
                         {
                           
-                            txeNumDocum.EditValue = ordenGiro_B.GetNDocumentoXTipo(item.CodTipoDocumento, param.IdEmpresa).ToString();
+                            //txeNumDocum.EditValue = ordenGiro_B.GetNDocumentoXTipo(item.CodTipoDocumento, param.IdEmpresa).ToString();
                         }
 
                         //PARA VALIDAR RETENCION SI GENERA O NO
@@ -5021,11 +5069,48 @@ namespace Core.Erp.Winform.CuentasxPagar
                 frmCP_XML_DocumentosNoContabilizados frm = new frmCP_XML_DocumentosNoContabilizados();
                 frm.pe_cedulaRuc = prov == null ? "" : prov.Persona_Info.pe_cedulaRuc;
                 frm.ShowDialog();
-                //if (frm.infoXML != null)
-                    //SetXml(frm.infoXML);
+                if (frm.infoXML != null)
+                    SetXml(frm.infoXML);
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        private void SetXml(cp_XML_Documento_Info XML)
+        {
+            try
+            {
+                cp_proveedor_Bus busProv = new cp_proveedor_Bus();
+                var prov = busProv.Get_Info_Proveedor(param.IdEmpresa, XML.emi_Ruc);
+                if (prov == null)
+                {
+                    MessageBox.Show("El proveedor no se encuentra registrado",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+                chk_Cbte_Electronico.Checked = true;
+                ucCp_Proveedor1.set_ProveedorInfo(prov.IdProveedor);
+                txeSerie.Text = XML.Establecimiento+"-"+XML.PuntoEmision;
+                txeNumDocum.Text = XML.NumeroDocumento;
+                txeIdNumAutoriza.Text = XML.ClaveAcceso;
+                dtp_fechaFactura.Value = XML.FechaEmision ?? DateTime.Now.Date;
+                dtp_fechaOG.Value = XML.FechaEmision ?? DateTime.Now.Date;
+                dtp_fecha_contabilizacion.Value = XML.FechaEmision ?? DateTime.Now.Date;
+                txt_plazo.Text = XML.Plazo.ToString();
+                
+                txE_SubTotal0.EditValue = XML.Subtotal0.ToString();
+                txE_subTotalIVA_12.EditValue = XML.SubtotalIVA.ToString();
+                txE_valorIVA.EditValue = XML.ValorIVA.ToString();
+                txE_total.EditValue = XML.Total.ToString();
+                txE_BaseImponible.EditValue = (XML.Subtotal0 + XML.SubtotalIVA).ToString();
+                dteFecAutoriza.EditValue = XML.FechaEmision ?? DateTime.Now.Date;
+
+                GeneraDiario();
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

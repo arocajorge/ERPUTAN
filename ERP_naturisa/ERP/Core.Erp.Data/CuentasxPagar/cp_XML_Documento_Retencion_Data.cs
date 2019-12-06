@@ -111,7 +111,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     myObjectRete.infoCompRetencion.fechaEmision = Convert.ToDateTime(item.ret_Fecha).Date.ToString("dd/MM/yyyy"); // factura
 
 
-                    myObjectRete.infoCompRetencion.dirEstablecimiento = item.Su_Direccion; ///sucursal
+                    myObjectRete.infoCompRetencion.dirEstablecimiento = item.em_direccion; ///sucursal
                     myObjectRete.infoCompRetencion.contribuyenteEspecial = item.ContribuyenteEspecial; //empresa   
                     myObjectRete.infoCompRetencion.obligadoContabilidad = (item.ObligadoAllevarConta == "S" || item.ObligadoAllevarConta == "SI") ? "SI" : "NO";
 
@@ -131,7 +131,7 @@ namespace Core.Erp.Data.CuentasxPagar
                             break;
                     }
 
-                    myObjectRete.infoCompRetencion.razonSocialSujetoRetenido = item.RazonSocial.Trim(); // proveedor
+                    myObjectRete.infoCompRetencion.razonSocialSujetoRetenido = item.pe_nombreCompleto.Trim(); // proveedor
                     myObjectRete.infoCompRetencion.identificacionSujetoRetenido = item.emi_Ruc.Trim();  // cedula o ruc
                     myObjectRete.infoCompRetencion.periodoFiscal = Convert.ToString(myObjectRete.infoCompRetencion.fechaEmision).Substring(3, 7); // factura
 

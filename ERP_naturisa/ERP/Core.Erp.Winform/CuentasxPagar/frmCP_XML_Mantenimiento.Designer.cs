@@ -98,6 +98,7 @@
             this.txtRetPuntoEmision = new DevExpress.XtraEditors.TextEdit();
             this.txtRetEstablecimiento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.btnEliminarRetencion = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
@@ -624,7 +625,7 @@
             this.gridColumn4.FieldName = "IdCodigo_SRI";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 0;
+            this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 85;
             // 
             // gridColumn5
@@ -633,7 +634,7 @@
             this.gridColumn5.FieldName = "codigoSRI";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.VisibleIndex = 0;
             this.gridColumn5.Width = 174;
             // 
             // gridColumn6
@@ -651,7 +652,7 @@
             this.gridColumn7.FieldName = "co_porRetencion";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 3;
+            this.gridColumn7.VisibleIndex = 2;
             this.gridColumn7.Width = 128;
             // 
             // colBaseImponible
@@ -801,6 +802,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnEliminarRetencion);
             this.panel2.Controls.Add(this.labelControl18);
             this.panel2.Controls.Add(this.labelControl17);
             this.panel2.Controls.Add(this.deRetFechaAutorizacion);
@@ -907,6 +909,16 @@
             this.labelControl15.Size = new System.Drawing.Size(74, 16);
             this.labelControl15.TabIndex = 16;
             this.labelControl15.Text = "# Retención:";
+            // 
+            // btnEliminarRetencion
+            // 
+            this.btnEliminarRetencion.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnEliminarRetencion.Location = new System.Drawing.Point(864, 65);
+            this.btnEliminarRetencion.Name = "btnEliminarRetencion";
+            this.btnEliminarRetencion.Size = new System.Drawing.Size(142, 21);
+            this.btnEliminarRetencion.TabIndex = 26;
+            this.btnEliminarRetencion.Text = "Eliminar retención";
+            this.btnEliminarRetencion.Click += new System.EventHandler(this.btnEliminarRetencion_Click);
             // 
             // frmCP_XML_Mantenimiento
             // 
@@ -1036,6 +1048,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraEditors.SimpleButton btnEliminarRetencion;
 
     }
 }

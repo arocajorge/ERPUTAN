@@ -5,20 +5,22 @@ SELECT d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, d.pr_descripcion, d.IdUnidadMe
                   dbo.com_comprador_familia.IdComprador, c.EsCompraUrgente, d.Adjunto, c.op_Fecha, c.op_Observacion, d.NombreArchivo, CASE WHEN d .opd_EstadoProceso = 'AC' OR
                   d .opd_EstadoProceso = 'AJC' OR
                   d .opd_EstadoProceso = 'C' OR
-                  d .opd_EstadoProceso = 'RGA' THEN '4. APROBADOS' WHEN d .opd_EstadoProceso = 'RC' THEN '5. RECHAZADO' WHEN c.EsCompraUrgente = 1 THEN '1. URGENTE' WHEN d .IdProducto IS NULL 
+                  d .opd_EstadoProceso IN ('RGA','I') THEN '4. APROBADOS' WHEN d .opd_EstadoProceso = 'RC' THEN '5. RECHAZADO' WHEN c.EsCompraUrgente = 1 THEN '1. URGENTE' WHEN d .IdProducto IS NULL 
                   THEN '3. NO CREADOS' ELSE '2. NORMALES' END AS Grupo, d.FechaCantidad, coc.IdProveedor, Cod.cd_precioCompra, Cod.cd_porc_des, Cod.cd_descuento, Cod.cd_precioFinal, Cod.cd_subtotal, Cod.Por_Iva, Cod.cd_iva, Cod.cd_total, 
                   Cod.cd_DetallePorItem, 
                   CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso = 'AJC' THEN
-                   'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso
-                   = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle, c.ObservacionGA, su.Su_Descripcion, su.codigo + '-' + CAST(coc.oc_IdOrdenCompra AS varchar(20)) AS CodigoOC
+                   'PRECIO APROBADO' WHEN d.opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso
+                   = 'RGA' THEN 'COTIZACION RECHAZADA' 
+				   WHEN d.opd_EstadoProceso = 'I' THEN 'INGRESADO A BODEGA'
+
+				   END AS EstadoDetalle, c.ObservacionGA, su.Su_Descripcion, su.codigo + '-' + CAST(coc.oc_IdOrdenCompra AS varchar(20)) AS CodigoOC
 FROM     dbo.com_comprador INNER JOIN
                   dbo.com_comprador_familia ON dbo.com_comprador.IdEmpresa = dbo.com_comprador_familia.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_comprador_familia.IdComprador INNER JOIN
                   dbo.in_Producto AS p ON dbo.com_comprador_familia.IdEmpresa = p.IdEmpresa AND dbo.com_comprador_familia.IdFamilia = p.IdFamilia RIGHT OUTER JOIN
                   dbo.com_OrdenPedidoDet AS d INNER JOIN
                   dbo.com_OrdenPedido AS c ON c.IdEmpresa = d.IdEmpresa AND c.IdOrdenPedido = d.IdOrdenPedido INNER JOIN
                   dbo.com_solicitante AS s ON s.IdEmpresa = c.IdEmpresa AND s.IdSolicitante = c.IdSolicitante ON p.IdEmpresa = d.IdEmpresa AND p.IdProducto = d.IdProducto LEFT OUTER JOIN
-                  dbo.com_CotizacionPedidoDet AS Cod ON d.IdEmpresa = Cod.opd_IdEmpresa AND d.IdOrdenPedido = Cod.opd_IdOrdenPedido AND d.Secuencia = Cod.opd_Secuencia and cod.EstadoJC = 1
-				  LEFT OUTER JOIN
+                  dbo.com_CotizacionPedidoDet AS Cod ON d.IdEmpresa = Cod.opd_IdEmpresa AND d.IdOrdenPedido = Cod.opd_IdOrdenPedido AND d.Secuencia = Cod.opd_Secuencia AND Cod.EstadoJC = 1 LEFT OUTER JOIN
                   dbo.com_CotizacionPedido AS coc ON coc.IdEmpresa = Cod.IdEmpresa AND coc.IdCotizacion = Cod.IdCotizacion AND coc.EstadoJC <> 'R' LEFT OUTER JOIN
                   dbo.tb_sucursal AS su ON coc.IdEmpresa = su.IdEmpresa AND coc.IdSucursal = su.IdSucursal
 WHERE  (c.Estado = 1) AND (d.opd_EstadoProceso NOT IN ('RA', 'P'))

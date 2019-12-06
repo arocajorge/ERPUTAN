@@ -1557,5 +1557,7 @@ namespace Core.Erp.Data.CuentasxPagar
                 throw new Exception(mensaje);
             }
         }
+
+        
     }
 }

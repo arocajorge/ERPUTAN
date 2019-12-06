@@ -420,6 +420,7 @@
             // 
             // btnBuscarXML
             // 
+            this.btnBuscarXML.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnBuscarXML.Location = new System.Drawing.Point(788, 21);
             this.btnBuscarXML.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarXML.Name = "btnBuscarXML";
@@ -567,6 +568,7 @@
             // 
             // btnBuscarIngresos
             // 
+            this.btnBuscarIngresos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnBuscarIngresos.Location = new System.Drawing.Point(920, 57);
             this.btnBuscarIngresos.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarIngresos.Name = "btnBuscarIngresos";

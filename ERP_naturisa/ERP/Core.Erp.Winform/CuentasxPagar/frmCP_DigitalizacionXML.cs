@@ -164,6 +164,17 @@ namespace Core.Erp.Winform.CuentasxPagar
                             d.Total = d.Precio + d.ValorIva;
                             Documento.lstDetalle.Add(d);
                         }
+                        if (ListaCodigoProveedor.Where(q=> q.IdEmpresa == param.IdEmpresa && q.pe_cedulRuc == Documento.emi_Ruc).Count() == 0)
+                        {
+                            var ListaDet = bus_codigoProveedor.GetList(param.IdEmpresa, Documento.emi_Ruc);
+                            if (ListaDet.Count > 0)
+                            {
+                                Documento.Automatico = true;
+                                ListaCodigoProveedor.AddRange(ListaDet);
+                            }
+                        }else
+                            Documento.Automatico = true;
+
 
                         Documento.Imagen = bus_xml.Existe(param.IdEmpresa, Documento.emi_Ruc, Documento.CodDocumento, Documento.Establecimiento, Documento.PuntoEmision, Documento.NumeroDocumento);
                         if(blst.Where(q=> q.Comprobante == Documento.Comprobante && q.emi_Ruc == Documento.emi_Ruc).Count() == 0)
@@ -245,7 +256,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                
+                bool GenerarXML = true;
                 foreach (var item in blst)
                 {
                     item.IdEmpresa = param.IdEmpresa;
@@ -294,10 +305,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                         }
                     }
 
-                    if (bus_xml.GuardarDB(item))
+                    if (bus_xml.GuardarDB(item, ref GenerarXML))
                     {
                         string MensajeError = string.Empty;
-                        if (!bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
+                        if (GenerarXML && !bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
                         {
                             MessageBox.Show("No se ha podido generar el XML de la retención del documento "+ item.Comprobante+" de "+item.RazonSocial, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
                         }

@@ -65,6 +65,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public string ObligadoAllevarConta { get; set; }
         public string em_ruc { get; set; }
         public string em_direccion { get; set; }
+        public bool Automatico { get; set; }
         #endregion
 
 

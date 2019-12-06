@@ -108,6 +108,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                 blst = new BindingList<cp_XML_Documento_Retencion_Info>(bus_det.GetList(param.IdEmpresa, info.IdDocumento));
                 gcRetencion.DataSource = blst;
 
+                if (!string.IsNullOrEmpty(info.ret_NumeroDocumento))
+                    btnEliminarRetencion.Visible = true;
+                else
+                    btnEliminarRetencion.Visible = false;
+                
+
                 gcDetalleXML.DataSource = bus_xml_det.GetList(param.IdEmpresa, info.IdDocumento);
             }
             catch (Exception)
@@ -292,6 +298,26 @@ namespace Core.Erp.Winform.CuentasxPagar
             if (e.KeyData == Keys.Delete)
             {
                 gvRetencion.DeleteSelectedRows();
+            }
+        }
+
+        private void btnEliminarRetencion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bus_xml.EliminarRetencion(info.IdEmpresa, info.IdDocumento))
+                {
+                    txtRetAutorizacion.Text = "";
+                    txtRetNumeroDocumento.Text = "";
+                    blst = new BindingList<cp_XML_Documento_Retencion_Info>();
+                    gcRetencion.DataSource = null;
+                    gcRetencion.DataSource = blst;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }

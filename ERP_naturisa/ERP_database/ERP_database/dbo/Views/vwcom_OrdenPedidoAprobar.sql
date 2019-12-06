@@ -1,4 +1,4 @@
-﻿CREATE VIEW dbo.vwcom_OrdenPedidoAprobar
+﻿CREATE VIEW [dbo].[vwcom_OrdenPedidoAprobar]
 AS
 SELECT dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, 
                   dbo.com_OrdenPedido.IdDepartamento, dbo.com_OrdenPedido.IdSolicitante, CASE WHEN COUNT(*) - A.Cont = 0 THEN 'PRECIO APROBADO' ELSE '' END AS IdCatalogoEstado, dbo.com_OrdenPedido.Estado, 
@@ -16,8 +16,8 @@ FROM     dbo.com_OrdenPedidoDet INNER JOIN
                                          dbo.com_CotizacionPedidoDet AS c ON c.IdEmpresa = d.IdEmpresa AND c.opd_IdOrdenPedido = d.IdOrdenPedido AND c.opd_Secuencia = d.Secuencia AND c.EstadoJC = 1
                        WHERE   (d.opd_EstadoProceso = 'AJC')
                        GROUP BY d.IdEmpresa, d.IdOrdenPedido) AS A ON dbo.com_OrdenPedido.IdEmpresa = A.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = A.IdOrdenPedido
-WHERE  (dbo.com_OrdenPedidoDet.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA', 'C')) AND (dbo.com_OrdenPedido.IdCatalogoEstado = 'EST_OP_PRO') AND (ISNULL(A.cd_total, 0) BETWEEN dbo.com_solicitante_aprobador.MontoMin AND 
-                  dbo.com_solicitante_aprobador.MontoMax)
+WHERE  (dbo.com_OrdenPedidoDet.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA', 'C','I')) AND (dbo.com_OrdenPedido.IdCatalogoEstado = 'EST_OP_PRO') AND (ISNULL(A.cd_total, 0) BETWEEN dbo.com_solicitante_aprobador.MontoMin AND 
+                  dbo.com_solicitante_aprobador.MontoMax) 
 GROUP BY dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, dbo.com_OrdenPedido.IdDepartamento, 
                   dbo.com_OrdenPedido.IdSolicitante, dbo.com_OrdenPedido.IdCatalogoEstado, dbo.com_OrdenPedido.IdPunto_cargo, dbo.com_solicitante_aprobador.IdUsuario, dbo.ct_punto_cargo.nom_punto_cargo, 
                   dbo.com_departamento.nom_departamento, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.Estado, dbo.com_solicitante.nom_solicitante, A.Cont, A.cd_total

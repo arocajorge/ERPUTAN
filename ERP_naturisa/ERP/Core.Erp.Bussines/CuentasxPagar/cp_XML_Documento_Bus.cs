@@ -17,11 +17,11 @@ namespace Core.Erp.Business.CuentasxPagar
         cp_XML_Documento_Data odata = new cp_XML_Documento_Data();
         cp_XML_Documento_Retencion_Data odata_ret = new cp_XML_Documento_Retencion_Data();
 
-        public bool GuardarDB(cp_XML_Documento_Info info)
+        public bool GuardarDB(cp_XML_Documento_Info info, ref bool GenerarXML)
         {
             try
             {
-                return odata.GuardarDB(info);
+                return odata.GuardarDB(info,ref GenerarXML);
             }
             catch (Exception)
             {
@@ -271,6 +271,19 @@ namespace Core.Erp.Business.CuentasxPagar
             try
             {
                 return odata.ContabilizarDocumento(IdEmpresa, IdDocumento, IdTipoCbte, IdCbteCble, IdCtaCbleProv, IdUsuario, GenerarRetencion);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool EliminarRetencion(int IdEmpresa, decimal IdDocumento)
+        {
+            try
+            {
+                return odata.EliminarRetencion(IdEmpresa, IdDocumento);
             }
             catch (Exception)
             {

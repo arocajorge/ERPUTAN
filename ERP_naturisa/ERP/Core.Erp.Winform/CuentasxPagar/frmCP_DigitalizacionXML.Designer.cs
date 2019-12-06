@@ -38,6 +38,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblContador = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtRutaXml = new DevExpress.XtraEditors.ButtonEdit();
             this.gcDetalle = new DevExpress.XtraGrid.GridControl();
@@ -53,13 +54,15 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.lblContador = new DevExpress.XtraEditors.LabelControl();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbAutomatico = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaXml.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbAutomatico)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -134,6 +137,15 @@
             this.panel1.Size = new System.Drawing.Size(914, 44);
             this.panel1.TabIndex = 1;
             // 
+            // lblContador
+            // 
+            this.lblContador.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContador.Location = new System.Drawing.Point(796, 13);
+            this.lblContador.Name = "lblContador";
+            this.lblContador.Size = new System.Drawing.Size(11, 21);
+            this.lblContador.TabIndex = 50;
+            this.lblContador.Text = "0";
+            // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(24, 13);
@@ -160,7 +172,8 @@
             this.gcDetalle.MainView = this.gvDetalle;
             this.gcDetalle.Name = "gcDetalle";
             this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cmbImagen});
+            this.cmbImagen,
+            this.cmbAutomatico});
             this.gcDetalle.Size = new System.Drawing.Size(914, 553);
             this.gcDetalle.TabIndex = 2;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -177,7 +190,8 @@
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.gridColumn10});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Images = this.imageList1;
             this.gvDetalle.Name = "gvDetalle";
@@ -277,7 +291,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.VisibleIndex = 9;
             // 
             // cmbImagen
             // 
@@ -299,15 +313,30 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Add_16_x_16.png");
             this.imageList1.Images.SetKeyName(1, "Doc_16x16.png");
+            this.imageList1.Images.SetKeyName(2, "config_16x16.png");
             // 
-            // lblContador
+            // gridColumn10
             // 
-            this.lblContador.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContador.Location = new System.Drawing.Point(796, 13);
-            this.lblContador.Name = "lblContador";
-            this.lblContador.Size = new System.Drawing.Size(11, 21);
-            this.lblContador.TabIndex = 50;
-            this.lblContador.Text = "0";
+            this.gridColumn10.ColumnEdit = this.cmbAutomatico;
+            this.gridColumn10.FieldName = "Automatico";
+            this.gridColumn10.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn10.ImageIndex = 2;
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 8;
+            // 
+            // cmbAutomatico
+            // 
+            this.cmbAutomatico.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbAutomatico.AutoHeight = false;
+            this.cmbAutomatico.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbAutomatico.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbAutomatico.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 2)});
+            this.cmbAutomatico.LargeImages = this.imageList1;
+            this.cmbAutomatico.Name = "cmbAutomatico";
+            this.cmbAutomatico.ReadOnly = true;
             // 
             // frmCP_DigitalizacionXML
             // 
@@ -328,6 +357,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbAutomatico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,5 +389,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
         private DevExpress.XtraEditors.LabelControl lblContador;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbAutomatico;
     }
 }
