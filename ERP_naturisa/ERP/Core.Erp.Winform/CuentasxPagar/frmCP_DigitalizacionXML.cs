@@ -304,7 +304,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                             }
                         }
                     }
-
+                    item.IdUsuario = param.IdUsuario;
                     if (bus_xml.GuardarDB(item, ref GenerarXML))
                     {
                         string MensajeError = string.Empty;

@@ -223,6 +223,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     return;
                 } 
                 GetInfo();
+                info.IdUsuario = param.IdUsuario;
                 if (bus_xml.ModificarDB(info))
                 {
                     MessageBox.Show("Registro modificado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

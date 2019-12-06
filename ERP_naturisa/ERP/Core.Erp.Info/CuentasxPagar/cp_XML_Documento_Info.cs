@@ -70,5 +70,7 @@ namespace Core.Erp.Info.CuentasxPagar
 
 
         public decimal? IdCbteCble { get; set; }
+
+        public string IdUsuario { get; set; }
     }
 }
