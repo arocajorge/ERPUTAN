@@ -62,5 +62,7 @@ namespace Core.Erp.Info.CuentasxPagar
         }
 
         public int? IdSucursal { get; set; }
+
+        public int IdTipoFlujo { get; set; }
     }
 }

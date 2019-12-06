@@ -10,6 +10,8 @@ using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Business.CuentasxPagar;
+using Core.Erp.Info.Bancos;
+using Core.Erp.Business.Bancos;
 
 using Core.Erp.Business.General;
 using Core.Erp.Info.General;
@@ -34,13 +36,13 @@ namespace Core.Erp.Winform.CuentasxPagar
 
         cp_Aprobacion_Ing_Bod_x_OC_Info Info;
         cp_Aprobacion_Ing_Bod_x_OC_det_Info InfoDet = new cp_Aprobacion_Ing_Bod_x_OC_det_Info();
-
+        ba_TipoFlujo_Bus busFlujo = new ba_TipoFlujo_Bus();
         Cl_Enumeradores.eTipo_action Accion;
         public cp_Aprobacion_Ing_Bod_x_OC_Info _SetInfo { get; set; }
         List<cp_Aprobacion_Ing_Bod_x_OC_det_Info> lista;
         List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
         ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
-
+        
 
         List<ct_centro_costo_sub_centro_costo_Info> listaSubcentero = new List<ct_centro_costo_sub_centro_costo_Info>();
         ct_centro_costo_sub_centro_costo_Bus bus_subcentro = new ct_centro_costo_sub_centro_costo_Bus();
@@ -244,6 +246,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);
                 cmb_centroCosoto.DataSource = list_centroCosto;
 
+                cmbFlujo.Properties.DataSource = busFlujo.Get_List_TipoFlujo(param.IdEmpresa);
 
                 listaSubcentero = bus_subcentro.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmbSubcentro.DataSource = listaSubcentero;
@@ -355,7 +358,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if(lstBind.Where(q => q.Checked == true).Count() != 0)
                     por_iva = lstBind.Where(q => q.Checked == true).ToList().Max(q => q.PorIva);
                 Info.co_Por_iva = por_iva;
-
+                Info.IdTipoFlujo = Convert.ToInt32(cmbFlujo.EditValue);
                 
 
                 Info.co_valoriva = Math.Round((txtTotalIva.EditValue == "" ? 0 : Convert.ToDouble(txtTotalIva.EditValue)), 2);
@@ -455,6 +458,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                         MessageBox.Show("El número de Documento : " + mensaje + " ya se encuentra registrado"+ " Para este proveedor verifique..", param.Nombre_sistema);
                         return false;
                     }
+                }
+
+                if (cmbFlujo.EditValue == null)
+                {
+                    MessageBox.Show("El campo flujo es obligatorio",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                        return false;   
                 }
 
                 bool Item_mes_anterior = false;

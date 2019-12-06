@@ -402,7 +402,7 @@ namespace Core.Erp.Business.CuentasxPagar
               Info_Ogiro.co_vaCoa = "S";
               Info_Ogiro.IdIden_credito = Info.IdIden_credito;
               Info_Ogiro.IdCod_101 = 837;//No Aplica
-              Info_Ogiro.IdTipoFlujo = null;
+              Info_Ogiro.IdTipoFlujo = Info.IdTipoFlujo;
               Info_Ogiro.IdTipoServicio = "BIEN";
               Info_Ogiro.IdCtaCble_Gasto = Info.IdCtaCble_Gasto;
 

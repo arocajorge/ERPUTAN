@@ -147,6 +147,12 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbFlujo = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.label25 = new System.Windows.Forms.Label();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalXML.Properties)).BeginInit();
@@ -196,6 +202,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalIva.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotDescuento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -269,6 +277,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.cmbFlujo);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnBuscarXML);
             this.panel1.Controls.Add(this.chk_seleccionar_visibles);
@@ -308,7 +318,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1595, 229);
+            this.panel1.Size = new System.Drawing.Size(1595, 248);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -421,10 +431,10 @@
             // btnBuscarXML
             // 
             this.btnBuscarXML.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnBuscarXML.Location = new System.Drawing.Point(788, 21);
+            this.btnBuscarXML.Location = new System.Drawing.Point(814, 21);
             this.btnBuscarXML.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarXML.Name = "btnBuscarXML";
-            this.btnBuscarXML.Size = new System.Drawing.Size(249, 28);
+            this.btnBuscarXML.Size = new System.Drawing.Size(223, 28);
             this.btnBuscarXML.TabIndex = 50;
             this.btnBuscarXML.Text = "Buscar XML sin contabilizar";
             this.btnBuscarXML.Click += new System.EventHandler(this.btnBuscarXML_Click);
@@ -432,7 +442,7 @@
             // chk_seleccionar_visibles
             // 
             this.chk_seleccionar_visibles.AutoSize = true;
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(45, 202);
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(51, 201);
             this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
             this.chk_seleccionar_visibles.Size = new System.Drawing.Size(154, 21);
             this.chk_seleccionar_visibles.TabIndex = 49;
@@ -485,7 +495,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 24);
+            this.label13.Location = new System.Drawing.Point(42, 27);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 17);
@@ -569,10 +579,10 @@
             // btnBuscarIngresos
             // 
             this.btnBuscarIngresos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnBuscarIngresos.Location = new System.Drawing.Point(920, 57);
+            this.btnBuscarIngresos.Location = new System.Drawing.Point(814, 57);
             this.btnBuscarIngresos.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarIngresos.Name = "btnBuscarIngresos";
-            this.btnBuscarIngresos.Size = new System.Drawing.Size(117, 28);
+            this.btnBuscarIngresos.Size = new System.Drawing.Size(223, 28);
             this.btnBuscarIngresos.TabIndex = 43;
             this.btnBuscarIngresos.Text = "Buscar ingresos";
             this.btnBuscarIngresos.Click += new System.EventHandler(this.btnBuscarIngresos_Click);
@@ -879,7 +889,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 257);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 276);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -902,8 +912,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Size = new System.Drawing.Size(1595, 395);
-            this.splitContainer1.SplitterDistance = 293;
+            this.splitContainer1.Size = new System.Drawing.Size(1595, 376);
+            this.splitContainer1.SplitterDistance = 278;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -921,7 +931,7 @@
             this.CmbPuntoCargo,
             this.cmbSubcentro,
             this.cmb_centroCosoto});
-            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1595, 293);
+            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1595, 278);
             this.gridControlAproIngEgrxOC.TabIndex = 0;
             this.gridControlAproIngEgrxOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAproIngEgrxOC});
@@ -1478,6 +1488,67 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
+            // cmbFlujo
+            // 
+            this.cmbFlujo.Location = new System.Drawing.Point(370, 204);
+            this.cmbFlujo.Name = "cmbFlujo";
+            this.cmbFlujo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFlujo.Properties.DisplayMember = "Descricion";
+            this.cmbFlujo.Properties.ValueMember = "IdTipoFlujo";
+            this.cmbFlujo.Properties.View = this.searchLookUpEdit1View;
+            this.cmbFlujo.Size = new System.Drawing.Size(668, 22);
+            this.cmbFlujo.TabIndex = 52;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(304, 207);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 17);
+            this.label25.TabIndex = 53;
+            this.label25.Text = "Flujo:";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "ID";
+            this.gridColumn6.FieldName = "IdTipoFlujo";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 159;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Flujo";
+            this.gridColumn7.FieldName = "Descricion";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            this.gridColumn7.Width = 1334;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Tipo";
+            this.gridColumn8.FieldName = "Tipo";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 1;
+            this.gridColumn8.Width = 241;
+            // 
             // frmCP_Aprobacion_Ing_Bod_x_OC_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1544,6 +1615,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalIva.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotDescuento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1667,5 +1740,11 @@
         private DevExpress.XtraEditors.TextEdit txtValorIVAXML;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label25;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbFlujo;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
     }
 }

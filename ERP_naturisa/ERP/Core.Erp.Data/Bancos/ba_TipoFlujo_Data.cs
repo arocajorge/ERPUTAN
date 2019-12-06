@@ -58,9 +58,7 @@ namespace Core.Erp.Data.Bancos
                         {
                             EntitiesBanco oEnti = new EntitiesBanco();
 
-                            var Query = from q in oEnti.vwba_TipoFlujo
-                                        where q.IdEmpresa == IdEmpresa
-                                        select q;
+                            var Query = oEnti.vwba_TipoFlujo.Where(q => q.IdEmpresa == IdEmpresa).ToList();
 
                             foreach (var item in Query)
                             {

@@ -114,7 +114,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                             rec_Identificacion = infoFactura.Element("identificacionComprador").Value    
                         };
                         Documento.FormaPago = infoFactura.Element("pagos") == null ? null : infoFactura.Element("pagos").Element("pago") == null ? null : (infoFactura.Element("pagos").Element("pago").Element("formaPago") == null ? null : infoFactura.Element("pagos").Element("pago").Element("formaPago").Value);
-                        Documento.Plazo = infoFactura.Element("pagos").Element("pago").Element("plazo") == null ? 0 : Convert.ToInt32(Convert.ToDecimal(infoFactura.Element("pagos").Element("pago").Element("plazo").Value));
+                        Documento.Plazo = infoFactura.Element("pagos") == null ? 0 : infoFactura.Element("pagos").Element("pago") == null ? 0 : Convert.ToInt32(Convert.ToDecimal(infoFactura.Element("pagos").Element("pago").Element("plazo").Value));
 
                         var list = infoFactura.Element("totalConImpuestos").Elements("totalImpuesto")
                            .Select(element => element)
