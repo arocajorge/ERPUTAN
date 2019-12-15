@@ -6,7 +6,6 @@ using Core.Erp.Info.Inventario;
 using System.Data.Objects;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Produc_Cirdesus;
 namespace Core.Erp.Data.Inventario
 {
    public  class in_movi_inve_detalle_Data

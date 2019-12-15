@@ -10,7 +10,6 @@ using Core.Erp.Info.General;
 using Core.Erp.Business.General;
 using Core.Erp.Reportes.Facturacion;
 using Core.Erp.Reportes.CuentasxPagar;
-using Cus.Erp.Reports.FJ.Facturacion;
 
 namespace Core.Erp.Winform.General
 {
@@ -52,10 +51,6 @@ namespace Core.Erp.Winform.General
                     {
                         switch (param.IdCliente_Ven_x_Default)
                         {
-                            case Cl_Enumeradores.eCliente_Vzen.FJ:
-                                XFAC_FJ_Rpt014_frm frmFact_fj = new XFAC_FJ_Rpt014_frm(_Info);
-                                frmFact_fj.Show();
-                                break;
                             default:
                                 XFAC_Rpt008_frm frmFact = new XFAC_Rpt008_frm(_Info);
                                 frmFact.Show();

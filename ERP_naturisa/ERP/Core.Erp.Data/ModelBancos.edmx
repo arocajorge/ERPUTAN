@@ -87,31 +87,8 @@
       [vwba_Archivo_Transferencia_Det].[IdEmpresa_pago] AS [IdEmpresa_pago], 
       [vwba_Archivo_Transferencia_Det].[IdTipoCbte_pago] AS [IdTipoCbte_pago], 
       [vwba_Archivo_Transferencia_Det].[IdCbteCble_pago] AS [IdCbteCble_pago], 
-      [vwba_Archivo_Transferencia_Det].[cb_Estado] AS [cb_Estado], 
-      [vwba_Archivo_Transferencia_Det].[IdEmpresa_fac] AS [IdEmpresa_fac], 
-      [vwba_Archivo_Transferencia_Det].[IdSucursal_fac] AS [IdSucursal_fac], 
-      [vwba_Archivo_Transferencia_Det].[IdBodega_fac] AS [IdBodega_fac], 
-      [vwba_Archivo_Transferencia_Det].[IdCbteVta_fac] AS [IdCbteVta_fac]
+      [vwba_Archivo_Transferencia_Det].[cb_Estado] AS [cb_Estado]
       FROM [dbo].[vwba_Archivo_Transferencia_Det] AS [vwba_Archivo_Transferencia_Det]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro" EntityType="DBERPModelBanco.Store.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro" store:Type="Views" store:Schema="dbo" store:Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
-            <DefiningQuery>SELECT 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[IdRow] AS [IdRow], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[IdEmpresa] AS [IdEmpresa], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[IdArchivo] AS [IdArchivo], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[Secuencia] AS [Secuencia], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[mcj_IdEmpresa] AS [mcj_IdEmpresa], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[mcj_IdTipocbte] AS [mcj_IdTipocbte], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[mcj_IdCbteCble] AS [mcj_IdCbteCble], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[mcj_secuencia] AS [mcj_secuencia], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[cbr_IdEmpresa] AS [cbr_IdEmpresa], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[cbr_IdSucursal] AS [cbr_IdSucursal], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[cbr_IdCobro] AS [cbr_IdCobro], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[IdCtaCble] AS [IdCtaCble], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[dc_Valor] AS [dc_Valor], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[Es_CtaCble_caja] AS [Es_CtaCble_caja], 
-      [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro].[Contabilizado] AS [Contabilizado]
-      FROM [dbo].[vwba_Archivo_Transferencia_Det_mov_caj_x_cobro] AS [vwba_Archivo_Transferencia_Det_mov_caj_x_cobro]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwba_Archivo_Transferencia_Det_sum_valores" EntityType="DBERPModelBanco.Store.vwba_Archivo_Transferencia_Det_sum_valores" store:Type="Views" store:Schema="dbo" store:Name="vwba_Archivo_Transferencia_Det_sum_valores">
             <DefiningQuery>SELECT 
@@ -1608,47 +1585,6 @@
           <Property Name="IdTipoCbte_pago" Type="int" />
           <Property Name="IdCbteCble_pago" Type="numeric" />
           <Property Name="cb_Estado" Type="char" MaxLength="1" />
-          <Property Name="IdEmpresa_fac" Type="int" />
-          <Property Name="IdSucursal_fac" Type="int" />
-          <Property Name="IdBodega_fac" Type="int" />
-          <Property Name="IdCbteVta_fac" Type="numeric" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdArchivo" />
-            <PropertyRef Name="Secuencia" />
-            <PropertyRef Name="mcj_IdEmpresa" />
-            <PropertyRef Name="mcj_IdTipocbte" />
-            <PropertyRef Name="mcj_IdCbteCble" />
-            <PropertyRef Name="mcj_secuencia" />
-            <PropertyRef Name="cbr_IdEmpresa" />
-            <PropertyRef Name="cbr_IdSucursal" />
-            <PropertyRef Name="cbr_IdCobro" />
-            <PropertyRef Name="IdCtaCble" />
-            <PropertyRef Name="dc_Valor" />
-            <PropertyRef Name="Es_CtaCble_caja" />
-            <PropertyRef Name="Contabilizado" />
-          </Key>
-          <Property Name="IdRow" Type="bigint" Nullable="false" />
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="IdArchivo" Type="numeric" Nullable="false" />
-          <Property Name="Secuencia" Type="int" Nullable="false" />
-          <Property Name="mcj_IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="mcj_IdTipocbte" Type="int" Nullable="false" />
-          <Property Name="mcj_IdCbteCble" Type="numeric" Nullable="false" />
-          <Property Name="mcj_secuencia" Type="int" Nullable="false" />
-          <Property Name="cbr_IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="cbr_IdSucursal" Type="int" Nullable="false" />
-          <Property Name="cbr_IdCobro" Type="numeric" Nullable="false" />
-          <Property Name="IdCtaCble" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="dc_Valor" Type="float" Nullable="false" />
-          <Property Name="Es_CtaCble_caja" Type="bit" Nullable="false" />
-          <Property Name="Contabilizado" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Archivo_Transferencia_Det_sum_valores' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1839,7 +1775,6 @@
             <PropertyRef Name="SaldoAnterior" />
             <PropertyRef Name="SaldoActual" />
             <PropertyRef Name="Secuencia" />
-            <PropertyRef Name="IdTipoPersona" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdCbteCble" Type="numeric" Nullable="false" />
@@ -1849,7 +1784,7 @@
           <Property Name="Referencia" Type="varchar" MaxLength="523" />
           <Property Name="IdOrdenPago" Type="numeric" />
           <Property Name="Secuencia_OP" Type="int" />
-          <Property Name="IdTipoPersona" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdTipoPersona" Type="varchar" MaxLength="20" />
           <Property Name="IdPersona" Type="numeric" Nullable="false" />
           <Property Name="IdEntidad" Type="numeric" />
           <Property Name="Fecha_OP" Type="datetime" Nullable="false" />
@@ -1867,7 +1802,7 @@
           <Property Name="Fecha_Pago" Type="date" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
-          <Property Name="IdSubCentro_Costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdSubCentro_Costo" Type="int" />
           <Property Name="Cbte_cxp" Type="numeric" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="Nom_Beneficiario_2" Type="varchar" MaxLength="266" />
@@ -3192,7 +3127,6 @@
           <EntitySet Name="ba_transferencia" EntityType="DBERPModelBanco.ba_transferencia" />
           <EntitySet Name="vwba_ba_Banco_Cuenta" EntityType="DBERPModelBanco.vwba_ba_Banco_Cuenta" />
           <EntitySet Name="vwba_Banco_Estado_Cheques" EntityType="DBERPModelBanco.vwba_Banco_Estado_Cheques" />
-          <EntitySet Name="vwba_Banco_Movimiento_det_cancelado" EntityType="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado" />
           <EntitySet Name="vwba_Catalogo_IdAuto_numeric" EntityType="DBERPModelBanco.vwba_Catalogo_IdAuto_numeric" />
           <EntitySet Name="vwba_Cbte_Ban_detallePagos" EntityType="DBERPModelBanco.vwba_Cbte_Ban_detallePagos" />
           <EntitySet Name="vwba_Conciliacion_det_IngEgr" EntityType="DBERPModelBanco.vwba_Conciliacion_det_IngEgr" />
@@ -3333,19 +3267,6 @@
             <End Role="ba_Cbte_Ban_Datos_Entrega_cheq" EntitySet="ba_Cbte_Ban_Datos_Entrega_cheq" />
           </AssociationSet>
           <EntitySet Name="vwba_Cbte_Ban" EntityType="DBERPModelBanco.vwba_Cbte_Ban" />
-          <EntitySet Name="ba_Archivo_Transferencia" EntityType="DBERPModelBanco.ba_Archivo_Transferencia" />
-          <AssociationSet Name="FK_ba_Archivo_Transferencia_ba_Banco_Cuenta" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Banco_Cuenta">
-            <End Role="ba_Banco_Cuenta" EntitySet="ba_Banco_Cuenta" />
-            <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ba_Archivo_Transferencia_ba_Catalogo" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo">
-            <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
-            <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ba_Archivo_Transferencia_ba_Catalogo1" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1">
-            <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
-            <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
-          </AssociationSet>
           <EntitySet Name="ba_prestamo" EntityType="DBERPModelBanco.ba_prestamo" />
           <AssociationSet Name="FK_ba_prestamo_ba_Catalogo" Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo">
             <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
@@ -3369,10 +3290,28 @@
           </AssociationSet>
           <EntitySet Name="vwBa_ChequexCbteCtble" EntityType="DBERPModelBanco.vwBa_ChequexCbteCtble" />
           <EntitySet Name="ba_parametros" EntityType="DBERPModelBanco.ba_parametros" />
-          <EntitySet Name="vwba_Archivo_Transferencia" EntityType="DBERPModelBanco.vwba_Archivo_Transferencia" />
-          <EntitySet Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro" EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro" />
-          <EntitySet Name="vwba_Archivo_Transferencia_Det" EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_Det" />
+          <FunctionImport Name="SPBAN_TransaccionesAConciliar" ReturnType="Collection(DBERPModelBanco.SPBAN_TransaccionesAConciliar_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdCtaCble" Mode="In" Type="String" />
+            <Parameter Name="FechaCorte" Mode="In" Type="DateTime" />
+            <Parameter Name="IdConciliacion" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="ba_Archivo_Transferencia" EntityType="DBERPModelBanco.ba_Archivo_Transferencia" />
           <EntitySet Name="ba_Archivo_Transferencia_Det" EntityType="DBERPModelBanco.ba_Archivo_Transferencia_Det" />
+          <EntitySet Name="vwba_Archivo_Transferencia" EntityType="DBERPModelBanco.vwba_Archivo_Transferencia" />
+          <EntitySet Name="vwba_Archivo_Transferencia_Det" EntityType="DBERPModelBanco.vwba_Archivo_Transferencia_Det" />
+          <AssociationSet Name="FK_ba_Archivo_Transferencia_ba_Banco_Cuenta" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Banco_Cuenta">
+            <End Role="ba_Banco_Cuenta" EntitySet="ba_Banco_Cuenta" />
+            <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ba_Archivo_Transferencia_ba_Catalogo" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo">
+            <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
+            <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ba_Archivo_Transferencia_ba_Catalogo1" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1">
+            <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
+            <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
+          </AssociationSet>
           <AssociationSet Name="FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1">
             <End Role="ba_Archivo_Transferencia" EntitySet="ba_Archivo_Transferencia" />
             <End Role="ba_Archivo_Transferencia_Det" EntitySet="ba_Archivo_Transferencia_Det" />
@@ -3381,12 +3320,7 @@
             <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
             <End Role="ba_Archivo_Transferencia_Det" EntitySet="ba_Archivo_Transferencia_Det" />
           </AssociationSet>
-          <FunctionImport Name="SPBAN_TransaccionesAConciliar" ReturnType="Collection(DBERPModelBanco.SPBAN_TransaccionesAConciliar_Result)">
-            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
-            <Parameter Name="IdCtaCble" Mode="In" Type="String" />
-            <Parameter Name="FechaCorte" Mode="In" Type="DateTime" />
-            <Parameter Name="IdConciliacion" Mode="In" Type="Decimal" />
-          </FunctionImport>
+          <EntitySet Name="vwba_Banco_Movimiento_det_cancelado" EntityType="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado" />
           </EntityContainer>
         <EntityType Name="ba_Archivo_Transferencia_Parametros">
           <Key>
@@ -3480,11 +3414,11 @@
           <NavigationProperty Name="ba_Cbte_Ban" Relationship="DBERPModelBanco.FK_ba_Cbte_Ban_ba_Catalogo" FromRole="ba_Catalogo" ToRole="ba_Cbte_Ban" />
           <NavigationProperty Name="ba_Cbte_Ban1" Relationship="DBERPModelBanco.FK_ba_Cbte_Ban_ba_Catalogo1" FromRole="ba_Catalogo" ToRole="ba_Cbte_Ban" />
           <NavigationProperty Name="ba_Cbte_Ban_Datos_Entrega_cheq" Relationship="DBERPModelBanco.FK_ba_Cbte_Ban_Datos_Entrega_cheq_ba_Catalogo" FromRole="ba_Catalogo" ToRole="ba_Cbte_Ban_Datos_Entrega_cheq" />
-          <NavigationProperty Name="ba_Archivo_Transferencia" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo" FromRole="ba_Catalogo" ToRole="ba_Archivo_Transferencia" />
-          <NavigationProperty Name="ba_Archivo_Transferencia1" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1" FromRole="ba_Catalogo" ToRole="ba_Archivo_Transferencia" />
           <NavigationProperty Name="ba_prestamo" Relationship="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo" FromRole="ba_Catalogo" ToRole="ba_prestamo" />
           <NavigationProperty Name="ba_prestamo1" Relationship="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo1" FromRole="ba_Catalogo" ToRole="ba_prestamo" />
           <NavigationProperty Name="ba_prestamo2" Relationship="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo2" FromRole="ba_Catalogo" ToRole="ba_prestamo" />
+          <NavigationProperty Name="ba_Archivo_Transferencia" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo" FromRole="ba_Catalogo" ToRole="ba_Archivo_Transferencia" />
+          <NavigationProperty Name="ba_Archivo_Transferencia1" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1" FromRole="ba_Catalogo" ToRole="ba_Archivo_Transferencia" />
           <NavigationProperty Name="ba_Archivo_Transferencia_Det" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Catalogo1" FromRole="ba_Catalogo" ToRole="ba_Archivo_Transferencia_Det" />
         </EntityType>
         <EntityType Name="ba_CatalogoTipo">
@@ -3842,72 +3776,6 @@
           <Property Type="Boolean" Name="checked" Nullable="false" />
           <Property Type="String" Name="Estado_Conciliacion" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vwba_Banco_Movimiento_det_cancelado">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCbteCble" />
-            <PropertyRef Name="IdTipocbte" />
-            <PropertyRef Name="IdEmpresaBanco" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdTipoPersona" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha_OP" />
-            <PropertyRef Name="Fecha_Fa_Prov" />
-            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Valor_a_pagar" />
-            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
-            <PropertyRef Name="Total_cancelado_OP" />
-            <PropertyRef Name="Saldo_x_Pagar_OP" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdFormaPago" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="Idcancelacion" />
-            <PropertyRef Name="MontoAplicado" />
-            <PropertyRef Name="SaldoAnterior" />
-            <PropertyRef Name="SaldoActual" />
-            <PropertyRef Name="Secuencia" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
-          <Property Type="Int32" Name="IdEmpresaBanco" Nullable="false" />
-          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia_OP" />
-          <Property Type="String" Name="IdTipoPersona" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
-          <Property Type="DateTime" Name="Fecha_OP" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Nullable="false" Precision="3" />
-          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Girar_Cheque_a" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
-          <Property Type="Double" Name="Valor_estimado_a_pagar_OP" Nullable="false" />
-          <Property Type="Double" Name="Total_cancelado_OP" Nullable="false" />
-          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
-          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_Pago" Precision="0" />
-          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdSubCentro_Costo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="Cbte_cxp" Precision="18" Scale="0" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Nom_Beneficiario_2" MaxLength="266" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="PosFechado" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpresa_cxp" />
-          <Property Type="Int32" Name="IdTipoCbte_cxp" />
-          <Property Type="Decimal" Name="IdCbteCble_cxp" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="Idcancelacion" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
-          <Property Type="Double" Name="SaldoAnterior" Nullable="false" />
-          <Property Type="Double" Name="SaldoActual" Nullable="false" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
         </EntityType>
         <EntityType Name="vwba_Catalogo_IdAuto_numeric">
           <Key>
@@ -5241,80 +5109,6 @@
           <Property Type="String" Name="IdEstado_Preaviso_ch_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdEstado_cheque_cat" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="ba_Archivo_Transferencia">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdArchivo" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdArchivo" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="cod_archivo" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdBanco" Nullable="false" />
-          <Property Type="String" Name="IdOrden_Bancaria" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdProceso_bancario" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Origen_Archivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Cod_Empresa" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Nom_Archivo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
-          <Property Type="Binary" Name="Archivo" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Type="Boolean" Name="Estado" Nullable="false" />
-          <Property Type="String" Name="IdEstadoArchivo_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdMotivoArchivo_cat" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
-          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
-          <Property Type="String" Name="Nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Ip" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Motivo_anulacion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_Proceso" Precision="3" />
-          <Property Type="Boolean" Name="Contabilizado" />
-          <NavigationProperty Name="ba_Banco_Cuenta" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Banco_Cuenta" FromRole="ba_Archivo_Transferencia" ToRole="ba_Banco_Cuenta" />
-          <NavigationProperty Name="ba_Catalogo" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo" FromRole="ba_Archivo_Transferencia" ToRole="ba_Catalogo" />
-          <NavigationProperty Name="ba_Catalogo1" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1" FromRole="ba_Archivo_Transferencia" ToRole="ba_Catalogo" />
-          <NavigationProperty Name="ba_Archivo_Transferencia_Det" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" FromRole="ba_Archivo_Transferencia" ToRole="ba_Archivo_Transferencia_Det" />
-        </EntityType>
-        <Association Name="FK_ba_Archivo_Transferencia_ba_Banco_Cuenta">
-          <End Type="DBERPModelBanco.ba_Banco_Cuenta" Role="ba_Banco_Cuenta" Multiplicity="1" />
-          <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ba_Banco_Cuenta">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdBanco" />
-            </Principal>
-            <Dependent Role="ba_Archivo_Transferencia">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdBanco" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ba_Archivo_Transferencia_ba_Catalogo">
-          <End Type="DBERPModelBanco.ba_Catalogo" Role="ba_Catalogo" Multiplicity="1" />
-          <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ba_Catalogo">
-              <PropertyRef Name="IdCatalogo" />
-            </Principal>
-            <Dependent Role="ba_Archivo_Transferencia">
-              <PropertyRef Name="IdEstadoArchivo_cat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ba_Archivo_Transferencia_ba_Catalogo1">
-          <End Type="DBERPModelBanco.ba_Catalogo" Role="ba_Catalogo" Multiplicity="0..1" />
-          <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ba_Catalogo">
-              <PropertyRef Name="IdCatalogo" />
-            </Principal>
-            <Dependent Role="ba_Archivo_Transferencia">
-              <PropertyRef Name="IdMotivoArchivo_cat" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="ba_prestamo">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -5487,6 +5281,102 @@
           <Property Type="String" Name="IdCtaCble_Interes" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCtaCble_prestamos" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="SPBAN_TransaccionesAConciliar_Result">
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ba_descripcion" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="dc_Observacion" Nullable="false" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="nom_IdTipoCbte" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="dc_Valor" Nullable="true" />
+          <Property Type="DateTime" Name="fechaConciliacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="IdEstado_Concil_Cat" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Seleccionado" Nullable="true" />
+          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="co_SaldoBanco_anterior" Nullable="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <EntityType Name="ba_Archivo_Transferencia">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdArchivo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdArchivo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="cod_archivo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="String" Name="IdOrden_Bancaria" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdProceso_bancario" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Origen_Archivo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cod_Empresa" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Archivo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="Binary" Name="Archivo" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="IdEstadoArchivo_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdMotivoArchivo_cat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Transac" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltAnu" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltAnu" Precision="3" />
+          <Property Type="String" Name="Nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ip" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Motivo_anulacion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Proceso" Precision="3" />
+          <Property Type="Boolean" Name="Contabilizado" />
+          <NavigationProperty Name="ba_Banco_Cuenta" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Banco_Cuenta" FromRole="ba_Archivo_Transferencia" ToRole="ba_Banco_Cuenta" />
+          <NavigationProperty Name="ba_Catalogo" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo" FromRole="ba_Archivo_Transferencia" ToRole="ba_Catalogo" />
+          <NavigationProperty Name="ba_Catalogo1" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_ba_Catalogo1" FromRole="ba_Archivo_Transferencia" ToRole="ba_Catalogo" />
+          <NavigationProperty Name="ba_Archivo_Transferencia_Det" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" FromRole="ba_Archivo_Transferencia" ToRole="ba_Archivo_Transferencia_Det" />
+        </EntityType>
+        <EntityType Name="ba_Archivo_Transferencia_Det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdArchivo" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdArchivo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="IdProceso_bancario" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Id_Item" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_OP" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="Int32" Name="IdEmpresaNomina" />
+          <Property Type="Int32" Name="IdNominaTipo" />
+          <Property Type="Int32" Name="IdNominaTipoLiqui" />
+          <Property Type="Int32" Name="IdPeriodo" />
+          <Property Type="String" Name="IdRubro" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpleado" />
+          <Property Type="String" Name="IdEstadoRegistro_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="Decimal" Name="Valor" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Valor_cobrado" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Secuencial_reg_x_proceso" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="Contabilizado" />
+          <Property Type="Int32" Name="IdEmpresa_pago" />
+          <Property Type="Int32" Name="IdTipoCbte_pago" />
+          <Property Type="Decimal" Name="IdCbteCble_pago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdInstitucion_col" />
+          <Property Type="Decimal" Name="IdPreFacturacion_col" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_Proce_col" />
+          <Property Type="Int32" Name="secuencia_col" />
+          <Property Type="Int32" Name="IdInstitucion_contrato" />
+          <Property Type="Decimal" Name="idContrato" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_proceso" Precision="3" />
+          <NavigationProperty Name="ba_Archivo_Transferencia" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" FromRole="ba_Archivo_Transferencia_Det" ToRole="ba_Archivo_Transferencia" />
+          <NavigationProperty Name="ba_Catalogo" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Catalogo1" FromRole="ba_Archivo_Transferencia_Det" ToRole="ba_Catalogo" />
+        </EntityType>
         <EntityType Name="vwba_Archivo_Transferencia">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -5532,40 +5422,6 @@
           <Property Type="String" Name="IdProceso_bancario_tipo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="Contabilizado" />
         </EntityType>
-        <EntityType Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdArchivo" />
-            <PropertyRef Name="Secuencia" />
-            <PropertyRef Name="mcj_IdEmpresa" />
-            <PropertyRef Name="mcj_IdTipocbte" />
-            <PropertyRef Name="mcj_IdCbteCble" />
-            <PropertyRef Name="mcj_secuencia" />
-            <PropertyRef Name="cbr_IdEmpresa" />
-            <PropertyRef Name="cbr_IdSucursal" />
-            <PropertyRef Name="cbr_IdCobro" />
-            <PropertyRef Name="IdCtaCble" />
-            <PropertyRef Name="dc_Valor" />
-            <PropertyRef Name="Es_CtaCble_caja" />
-            <PropertyRef Name="Contabilizado" />
-          </Key>
-          <Property Type="Int64" Name="IdRow" Nullable="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdArchivo" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="Int32" Name="mcj_IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="mcj_IdTipocbte" Nullable="false" />
-          <Property Type="Decimal" Name="mcj_IdCbteCble" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="mcj_secuencia" Nullable="false" />
-          <Property Type="Int32" Name="cbr_IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="cbr_IdSucursal" Nullable="false" />
-          <Property Type="Decimal" Name="cbr_IdCobro" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="dc_Valor" Nullable="false" />
-          <Property Type="Boolean" Name="Es_CtaCble_caja" Nullable="false" />
-          <Property Type="Boolean" Name="Contabilizado" Nullable="false" />
-        </EntityType>
         <EntityType Name="vwba_Archivo_Transferencia_Det">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -5603,50 +5459,45 @@
           <Property Type="Int32" Name="IdTipoCbte_pago" />
           <Property Type="Decimal" Name="IdCbteCble_pago" Precision="18" Scale="0" />
           <Property Type="String" Name="cb_Estado" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpresa_fac" />
-          <Property Type="Int32" Name="IdSucursal_fac" />
-          <Property Type="Int32" Name="IdBodega_fac" />
-          <Property Type="Decimal" Name="IdCbteVta_fac" Precision="18" Scale="0" />
         </EntityType>
-        <EntityType Name="ba_Archivo_Transferencia_Det">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdArchivo" />
-            <PropertyRef Name="Secuencia" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdArchivo" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="String" Name="IdProceso_bancario" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Id_Item" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpresa_OP" />
-          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia_OP" />
-          <Property Type="Int32" Name="IdEmpresaNomina" />
-          <Property Type="Int32" Name="IdNominaTipo" />
-          <Property Type="Int32" Name="IdNominaTipoLiqui" />
-          <Property Type="Int32" Name="IdPeriodo" />
-          <Property Type="String" Name="IdRubro" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpleado" />
-          <Property Type="String" Name="IdEstadoRegistro_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Estado" Nullable="false" />
-          <Property Type="Decimal" Name="Valor" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="Valor_cobrado" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="Secuencial_reg_x_proceso" Precision="18" Scale="0" />
-          <Property Type="Boolean" Name="Contabilizado" />
-          <Property Type="Int32" Name="IdEmpresa_pago" />
-          <Property Type="Int32" Name="IdTipoCbte_pago" />
-          <Property Type="Decimal" Name="IdCbteCble_pago" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdInstitucion_col" />
-          <Property Type="Decimal" Name="IdPreFacturacion_col" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia_Proce_col" />
-          <Property Type="Int32" Name="secuencia_col" />
-          <Property Type="Int32" Name="IdInstitucion_contrato" />
-          <Property Type="Decimal" Name="idContrato" Precision="18" Scale="0" />
-          <Property Type="DateTime" Name="Fecha_proceso" Precision="3" />
-          <NavigationProperty Name="ba_Archivo_Transferencia" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" FromRole="ba_Archivo_Transferencia_Det" ToRole="ba_Archivo_Transferencia" />
-          <NavigationProperty Name="ba_Catalogo" Relationship="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Catalogo1" FromRole="ba_Archivo_Transferencia_Det" ToRole="ba_Catalogo" />
-        </EntityType>
+        <Association Name="FK_ba_Archivo_Transferencia_ba_Banco_Cuenta">
+          <End Type="DBERPModelBanco.ba_Banco_Cuenta" Role="ba_Banco_Cuenta" Multiplicity="1" />
+          <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ba_Banco_Cuenta">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdBanco" />
+            </Principal>
+            <Dependent Role="ba_Archivo_Transferencia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ba_Archivo_Transferencia_ba_Catalogo">
+          <End Type="DBERPModelBanco.ba_Catalogo" Role="ba_Catalogo" Multiplicity="1" />
+          <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ba_Catalogo">
+              <PropertyRef Name="IdCatalogo" />
+            </Principal>
+            <Dependent Role="ba_Archivo_Transferencia">
+              <PropertyRef Name="IdEstadoArchivo_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ba_Archivo_Transferencia_ba_Catalogo1">
+          <End Type="DBERPModelBanco.ba_Catalogo" Role="ba_Catalogo" Multiplicity="0..1" />
+          <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ba_Catalogo">
+              <PropertyRef Name="IdCatalogo" />
+            </Principal>
+            <Dependent Role="ba_Archivo_Transferencia">
+              <PropertyRef Name="IdMotivoArchivo_cat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1">
           <End Type="DBERPModelBanco.ba_Archivo_Transferencia" Role="ba_Archivo_Transferencia" Multiplicity="1" />
           <End Type="DBERPModelBanco.ba_Archivo_Transferencia_Det" Role="ba_Archivo_Transferencia_Det" Multiplicity="*" />
@@ -5673,27 +5524,71 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="SPBAN_TransaccionesAConciliar_Result">
-          <Property Type="Int64" Name="IdRow" Nullable="false" />
+        <EntityType Name="vwba_Banco_Movimiento_det_cancelado">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="IdEmpresaBanco" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha_OP" />
+            <PropertyRef Name="Fecha_Fa_Prov" />
+            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor_a_pagar" />
+            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
+            <PropertyRef Name="Total_cancelado_OP" />
+            <PropertyRef Name="Saldo_x_Pagar_OP" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Idcancelacion" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="SaldoAnterior" />
+            <PropertyRef Name="SaldoActual" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
           <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdBanco" Nullable="false" />
-          <Property Type="String" Name="IdCtaCble" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="ba_descripcion" Nullable="false" MaxLength="150" />
-          <Property Type="String" Name="dc_Observacion" Nullable="false" />
-          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="23" />
-          <Property Type="String" Name="nom_IdTipoCbte" Nullable="false" MaxLength="50" />
-          <Property Type="Double" Name="dc_Valor" Nullable="true" />
-          <Property Type="DateTime" Name="fechaConciliacion" Nullable="true" Precision="23" />
-          <Property Type="String" Name="IdEstado_Concil_Cat" Nullable="false" MaxLength="50" />
-          <Property Type="Boolean" Name="Seleccionado" Nullable="true" />
-          <Property Type="Int32" Name="IdTipoCbte" Nullable="false" />
           <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="secuencia" Nullable="false" />
-          <Property Type="String" Name="cb_Cheque" Nullable="true" MaxLength="50" />
-          <Property Type="Double" Name="co_SaldoBanco_anterior" Nullable="false" />
-          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="1" />
-        </ComplexType>
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresaBanco" Nullable="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="String" Name="IdTipoPersona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_OP" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Girar_Cheque_a" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
+          <Property Type="Double" Name="Valor_estimado_a_pagar_OP" Nullable="false" />
+          <Property Type="Double" Name="Total_cancelado_OP" Nullable="false" />
+          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Precision="0" />
+          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubCentro_Costo" />
+          <Property Type="Decimal" Name="Cbte_cxp" Precision="18" Scale="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario_2" MaxLength="266" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PosFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cxp" />
+          <Property Type="Int32" Name="IdTipoCbte_cxp" />
+          <Property Type="Decimal" Name="IdCbteCble_cxp" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Idcancelacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="Double" Name="SaldoAnterior" Nullable="false" />
+          <Property Type="Double" Name="SaldoActual" Nullable="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6082,51 +5977,6 @@
                 <ScalarProperty Name="checked" ColumnName="checked" />
                 <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
                 <ScalarProperty Name="IdEstado_Concil_Cat" ColumnName="IdEstado_Concil_Cat" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwba_Banco_Movimiento_det_cancelado">
-            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado">
-              <MappingFragment StoreEntitySet="vwba_Banco_Movimiento_det_cancelado">
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
-                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
-                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
-                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
-                <ScalarProperty Name="Idcancelacion" ColumnName="Idcancelacion" />
-                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
-                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
-                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
-                <ScalarProperty Name="PosFechado" ColumnName="PosFechado" />
-                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
-                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
-                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
-                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
-                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
-                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
-                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
-                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
-                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="IdEmpresaBanco" ColumnName="IdEmpresaBanco" />
-                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
-                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -6854,38 +6704,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ba_Archivo_Transferencia">
-            <EntityTypeMapping TypeName="DBERPModelBanco.ba_Archivo_Transferencia">
-              <MappingFragment StoreEntitySet="ba_Archivo_Transferencia">
-                <ScalarProperty Name="Contabilizado" ColumnName="Contabilizado" />
-                <ScalarProperty Name="Fecha_Proceso" ColumnName="Fecha_Proceso" />
-                <ScalarProperty Name="Motivo_anulacion" ColumnName="Motivo_anulacion" />
-                <ScalarProperty Name="Ip" ColumnName="Ip" />
-                <ScalarProperty Name="Nom_pc" ColumnName="Nom_pc" />
-                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
-                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdMotivoArchivo_cat" ColumnName="IdMotivoArchivo_cat" />
-                <ScalarProperty Name="IdEstadoArchivo_cat" ColumnName="IdEstadoArchivo_cat" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Nom_Archivo" ColumnName="Nom_Archivo" />
-                <ScalarProperty Name="Cod_Empresa" ColumnName="Cod_Empresa" />
-                <ScalarProperty Name="Origen_Archivo" ColumnName="Origen_Archivo" />
-                <ScalarProperty Name="IdProceso_bancario" ColumnName="IdProceso_bancario" />
-                <ScalarProperty Name="IdOrden_Bancaria" ColumnName="IdOrden_Bancaria" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="cod_archivo" ColumnName="cod_archivo" />
-                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ba_prestamo">
             <EntityTypeMapping TypeName="DBERPModelBanco.ba_prestamo">
               <MappingFragment StoreEntitySet="ba_prestamo">
@@ -6971,85 +6789,58 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwba_Archivo_Transferencia">
-            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Archivo_Transferencia">
-              <MappingFragment StoreEntitySet="vwba_Archivo_Transferencia">
+          <FunctionImportMapping FunctionImportName="SPBAN_TransaccionesAConciliar" FunctionName="DBERPModelBanco.Store.SPBAN_TransaccionesAConciliar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelBanco.SPBAN_TransaccionesAConciliar_Result">
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="nom_IdTipoCbte" ColumnName="nom_IdTipoCbte" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="fechaConciliacion" ColumnName="fechaConciliacion" />
+                <ScalarProperty Name="IdEstado_Concil_Cat" ColumnName="IdEstado_Concil_Cat" />
+                <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="co_SaldoBanco_anterior" ColumnName="co_SaldoBanco_anterior" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ba_Archivo_Transferencia">
+            <EntityTypeMapping TypeName="DBERPModelBanco.ba_Archivo_Transferencia">
+              <MappingFragment StoreEntitySet="ba_Archivo_Transferencia">
                 <ScalarProperty Name="Contabilizado" ColumnName="Contabilizado" />
-                <ScalarProperty Name="IdProceso_bancario_tipo" ColumnName="IdProceso_bancario_tipo" />
                 <ScalarProperty Name="Fecha_Proceso" ColumnName="Fecha_Proceso" />
-                <ScalarProperty Name="nom_proceso_bancario" ColumnName="nom_proceso_bancario" />
-                <ScalarProperty Name="nom_MotivoArchivo" ColumnName="nom_MotivoArchivo" />
-                <ScalarProperty Name="IdMotivoArchivo_cat" ColumnName="IdMotivoArchivo_cat" />
-                <ScalarProperty Name="Saldo_x_Cobrar" ColumnName="Saldo_x_Cobrar" />
-                <ScalarProperty Name="Valor_cobrado" ColumnName="Valor_cobrado" />
-                <ScalarProperty Name="Valor_Enviado" ColumnName="Valor_Enviado" />
-                <ScalarProperty Name="cod_archivo" ColumnName="cod_archivo" />
-                <ScalarProperty Name="IdOrden_Bancaria" ColumnName="IdOrden_Bancaria" />
-                <ScalarProperty Name="CodigoLegal" ColumnName="CodigoLegal" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Motivo_anulacion" ColumnName="Motivo_anulacion" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Nom_pc" ColumnName="Nom_pc" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="nom_EstadoArchivo" ColumnName="nom_EstadoArchivo" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdMotivoArchivo_cat" ColumnName="IdMotivoArchivo_cat" />
                 <ScalarProperty Name="IdEstadoArchivo_cat" ColumnName="IdEstadoArchivo_cat" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Nom_Archivo" ColumnName="Nom_Archivo" />
                 <ScalarProperty Name="Cod_Empresa" ColumnName="Cod_Empresa" />
                 <ScalarProperty Name="Origen_Archivo" ColumnName="Origen_Archivo" />
-                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
-                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
-            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
-              <MappingFragment StoreEntitySet="vwba_Archivo_Transferencia_Det_mov_caj_x_cobro">
-                <ScalarProperty Name="Contabilizado" ColumnName="Contabilizado" />
-                <ScalarProperty Name="Es_CtaCble_caja" ColumnName="Es_CtaCble_caja" />
-                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="cbr_IdCobro" ColumnName="cbr_IdCobro" />
-                <ScalarProperty Name="cbr_IdSucursal" ColumnName="cbr_IdSucursal" />
-                <ScalarProperty Name="cbr_IdEmpresa" ColumnName="cbr_IdEmpresa" />
-                <ScalarProperty Name="mcj_secuencia" ColumnName="mcj_secuencia" />
-                <ScalarProperty Name="mcj_IdCbteCble" ColumnName="mcj_IdCbteCble" />
-                <ScalarProperty Name="mcj_IdTipocbte" ColumnName="mcj_IdTipocbte" />
-                <ScalarProperty Name="mcj_IdEmpresa" ColumnName="mcj_IdEmpresa" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
-                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwba_Archivo_Transferencia_Det">
-            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Archivo_Transferencia_Det">
-              <MappingFragment StoreEntitySet="vwba_Archivo_Transferencia_Det">
-                <ScalarProperty Name="IdCbteVta_fac" ColumnName="IdCbteVta_fac" />
-                <ScalarProperty Name="IdBodega_fac" ColumnName="IdBodega_fac" />
-                <ScalarProperty Name="IdSucursal_fac" ColumnName="IdSucursal_fac" />
-                <ScalarProperty Name="IdEmpresa_fac" ColumnName="IdEmpresa_fac" />
-                <ScalarProperty Name="cb_Estado" ColumnName="cb_Estado" />
-                <ScalarProperty Name="IdCbteCble_pago" ColumnName="IdCbteCble_pago" />
-                <ScalarProperty Name="IdTipoCbte_pago" ColumnName="IdTipoCbte_pago" />
-                <ScalarProperty Name="IdEmpresa_pago" ColumnName="IdEmpresa_pago" />
-                <ScalarProperty Name="Secuencial_reg_x_proceso" ColumnName="Secuencial_reg_x_proceso" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="IdOrden_Bancaria" ColumnName="IdOrden_Bancaria" />
-                <ScalarProperty Name="Id_Item" ColumnName="Id_Item" />
-                <ScalarProperty Name="nom_EstadoRegistro_cat" ColumnName="nom_EstadoRegistro_cat" />
-                <ScalarProperty Name="IdEstadoRegistro_cat" ColumnName="IdEstadoRegistro_cat" />
-                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-                <ScalarProperty Name="Valor_cobrado" ColumnName="Valor_cobrado" />
-                <ScalarProperty Name="Valor" ColumnName="Valor" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
-                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
-                <ScalarProperty Name="Origen_Archivo" ColumnName="Origen_Archivo" />
                 <ScalarProperty Name="IdProceso_bancario" ColumnName="IdProceso_bancario" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrden_Bancaria" ColumnName="IdOrden_Bancaria" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="cod_archivo" ColumnName="cod_archivo" />
                 <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
@@ -7091,31 +6882,110 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SPBAN_TransaccionesAConciliar" FunctionName="DBERPModelBanco.Store.SPBAN_TransaccionesAConciliar">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBERPModelBanco.SPBAN_TransaccionesAConciliar_Result">
-                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+          <EntitySetMapping Name="vwba_Archivo_Transferencia">
+            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Archivo_Transferencia">
+              <MappingFragment StoreEntitySet="vwba_Archivo_Transferencia">
+                <ScalarProperty Name="Contabilizado" ColumnName="Contabilizado" />
+                <ScalarProperty Name="IdProceso_bancario_tipo" ColumnName="IdProceso_bancario_tipo" />
+                <ScalarProperty Name="Fecha_Proceso" ColumnName="Fecha_Proceso" />
+                <ScalarProperty Name="nom_proceso_bancario" ColumnName="nom_proceso_bancario" />
+                <ScalarProperty Name="nom_MotivoArchivo" ColumnName="nom_MotivoArchivo" />
+                <ScalarProperty Name="IdMotivoArchivo_cat" ColumnName="IdMotivoArchivo_cat" />
+                <ScalarProperty Name="Saldo_x_Cobrar" ColumnName="Saldo_x_Cobrar" />
+                <ScalarProperty Name="Valor_cobrado" ColumnName="Valor_cobrado" />
+                <ScalarProperty Name="Valor_Enviado" ColumnName="Valor_Enviado" />
+                <ScalarProperty Name="cod_archivo" ColumnName="cod_archivo" />
+                <ScalarProperty Name="IdOrden_Bancaria" ColumnName="IdOrden_Bancaria" />
+                <ScalarProperty Name="CodigoLegal" ColumnName="CodigoLegal" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="nom_EstadoArchivo" ColumnName="nom_EstadoArchivo" />
+                <ScalarProperty Name="IdEstadoArchivo_cat" ColumnName="IdEstadoArchivo_cat" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Nom_Archivo" ColumnName="Nom_Archivo" />
+                <ScalarProperty Name="Cod_Empresa" ColumnName="Cod_Empresa" />
+                <ScalarProperty Name="Origen_Archivo" ColumnName="Origen_Archivo" />
+                <ScalarProperty Name="nom_banco" ColumnName="nom_banco" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwba_Archivo_Transferencia_Det">
+            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Archivo_Transferencia_Det">
+              <MappingFragment StoreEntitySet="vwba_Archivo_Transferencia_Det">
+                <ScalarProperty Name="cb_Estado" ColumnName="cb_Estado" />
+                <ScalarProperty Name="IdCbteCble_pago" ColumnName="IdCbteCble_pago" />
+                <ScalarProperty Name="IdTipoCbte_pago" ColumnName="IdTipoCbte_pago" />
+                <ScalarProperty Name="IdEmpresa_pago" ColumnName="IdEmpresa_pago" />
+                <ScalarProperty Name="Secuencial_reg_x_proceso" ColumnName="Secuencial_reg_x_proceso" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdOrden_Bancaria" ColumnName="IdOrden_Bancaria" />
+                <ScalarProperty Name="Id_Item" ColumnName="Id_Item" />
+                <ScalarProperty Name="nom_EstadoRegistro_cat" ColumnName="nom_EstadoRegistro_cat" />
+                <ScalarProperty Name="IdEstadoRegistro_cat" ColumnName="IdEstadoRegistro_cat" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Valor_cobrado" ColumnName="Valor_cobrado" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="Origen_Archivo" ColumnName="Origen_Archivo" />
+                <ScalarProperty Name="IdProceso_bancario" ColumnName="IdProceso_bancario" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwba_Banco_Movimiento_det_cancelado">
+            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado">
+              <MappingFragment StoreEntitySet="vwba_Banco_Movimiento_det_cancelado">
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="Idcancelacion" ColumnName="Idcancelacion" />
+                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
+                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
+                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
+                <ScalarProperty Name="PosFechado" ColumnName="PosFechado" />
+                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
+                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
                 <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
-                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
-                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
-                <ScalarProperty Name="nom_IdTipoCbte" ColumnName="nom_IdTipoCbte" />
-                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
-                <ScalarProperty Name="fechaConciliacion" ColumnName="fechaConciliacion" />
-                <ScalarProperty Name="IdEstado_Concil_Cat" ColumnName="IdEstado_Concil_Cat" />
-                <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
-                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
+                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
+                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
+                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
+                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
+                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
+                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="IdEmpresaBanco" ColumnName="IdEmpresaBanco" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
                 <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
-                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
-                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
-                <ScalarProperty Name="co_SaldoBanco_anterior" ColumnName="co_SaldoBanco_anterior" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

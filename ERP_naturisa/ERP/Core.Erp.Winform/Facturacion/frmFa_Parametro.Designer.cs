@@ -89,7 +89,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tabDev = new DevExpress.XtraTab.XtraTabPage();
-            this.DEVcmbDepxDev = new Core.Erp.Winform.Controles.UCRo_DepartamentoCmb();
             this.DEVcmbTipoMoviInvAnu = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdEmpresa4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -726,7 +725,6 @@
             // 
             // tabDev
             // 
-            this.tabDev.Controls.Add(this.DEVcmbDepxDev);
             this.tabDev.Controls.Add(this.DEVcmbTipoMoviInvAnu);
             this.tabDev.Controls.Add(this.DEVcmbNCxDev);
             this.tabDev.Controls.Add(this.DEVcmbTipoMoviInv);
@@ -737,15 +735,6 @@
             this.tabDev.Name = "tabDev";
             this.tabDev.Size = new System.Drawing.Size(627, 393);
             this.tabDev.Text = "Devolución En Venta";
-            // 
-            // DEVcmbDepxDev
-            // 
-            this.DEVcmbDepxDev.Enable_btn_Acciones = true;
-            this.DEVcmbDepxDev.Location = new System.Drawing.Point(338, 115);
-            this.DEVcmbDepxDev.Name = "DEVcmbDepxDev";
-            this.DEVcmbDepxDev.Size = new System.Drawing.Size(262, 26);
-            this.DEVcmbDepxDev.TabIndex = 6;
-            this.DEVcmbDepxDev.Visible_btn_Acciones = false;
             // 
             // DEVcmbTipoMoviInvAnu
             // 
@@ -1642,7 +1631,6 @@
         private Controles.UCCon_TipoCbteCble cmbCCDiarioCV;
         private Controles.UCCon_TipoCbteCble cmbCCDiarioAnulacion;
         private DevExpress.XtraEditors.SpinEdit nud_NumeroDeItemp;
-        private Controles.UCRo_DepartamentoCmb DEVcmbDepxDev;
         private Controles.UCCon_TipoCbteCble NDcmbCCAnu;
         private Controles.UCCon_TipoCbteCble NCcmbCCAnu;
         private Controles.UCCon_TipoCbteCble NDcmbCC;

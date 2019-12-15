@@ -10,7 +10,6 @@ using Core.Erp.Info.Contabilidad;
 using Core.Erp.Data.Contabilidad;
 
 using Core.Erp.Business.General;
-using Core.Erp.Info.Importacion;
 
 namespace Core.Erp.Business.CuentasxPagar
 {
@@ -457,9 +456,6 @@ namespace Core.Erp.Business.CuentasxPagar
               
               string es_332_333_334 = "";
 
-
-              List<imp_ordencompra_ext_x_imp_gastosxImport_Info> LstImportacionGrid = null;
-              List<imp_ordencompra_ext_x_ct_cbtecble_Info> LstocXcbt_I = null;
               List<cp_orden_giro_x_imp_ordencompra_ext_Info> LisImportacion = null;
               List<cp_orden_giro_x_com_ordencompra_local_Info> LstImportacionOC = null;
               decimal idCbteCble = 0;
@@ -473,10 +469,6 @@ namespace Core.Erp.Business.CuentasxPagar
               {
                   Info_Ogiro.Info_Retencion.Info_CbteCble_x_RT = InfoCbteCble_x_Ret;
               }
-
-              
-              Info_Ogiro.LstImportacionGrid=LstImportacionGrid;
-              Info_Ogiro.LstocXcbt_I=LstocXcbt_I;
               Info_Ogiro.LisImportacion=LisImportacion;
               Info_Ogiro.LstImportacionOC=LstImportacionOC;             
 

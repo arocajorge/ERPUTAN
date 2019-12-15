@@ -64,39 +64,19 @@
         <EntityTypeShape EntityType="DBERPModelInventario.in_rptMovi_Inv_x_prod_resumido" Width="1.5" PointX="4.8881450951509855" PointY="4.4285571148752032" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_subgrupo" Width="1.5" PointX="11.555179662795355" PointY="5.7152081307560243" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble" Width="1.5" PointX="7.1486724983661771" PointY="27.420553488387053" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia" Width="1.5" PointX="11.372299309527641" PointY="13.34425558771205" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det" Width="1.5" PointX="4.7852498408338286" PointY="7.70122552276646" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Width="1.5" PointX="4.7703987177323537" PointY="2.9809005125336818" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_x_fa_guia_remision" Width="1.5" PointX="10.642511810475266" PointY="24.103815462488594" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_x_in_Guia_x_traspaso_bodega" Width="1.5" PointX="9.1483143778277167" PointY="3.3344724491864781" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_UnidadMedida" Width="1.5" PointX="2.4671374049350328" PointY="19.09516420359498" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_UnidadMedida_Equiv_conversion" Width="1.5" PointX="8.2017132175162963" PointY="29.872475116454286" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_Zona" Width="1.5" PointX="1.1257332438257213" PointY="28.308334408471516" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_Zona_vs_CentroDeCosto" Width="1.5" PointX="2.9705582312171153" PointY="1.2522383785118527" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Cate_Lin_Grup_SubGrup" Width="1.5" PointX="11.721769127865214" PointY="26.466758487032148" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_DespachoMateriales" Width="1.5" PointX="7.7435150666830666" PointY="10.552722503688523" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_devolucion_inven_det_cantidad_devuelta" Width="1.5" PointX="4.8156897280438287" PointY="28.638003034814261" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_GeneracionCompraCidersus" Width="1.5" PointX="3.1205126583206058" PointY="9.37887669046357" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_in_Guia_x_traspaso_bodega_x_in_transferencia_det" Width="1.5" PointX="3.1616512626230953" PointY="30.494264095320489" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_in_Producto_x_tb_bodega_x_UnidadMedida" Width="1.5" PointX="3.4641402622052193" PointY="5.13046062231551" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwIn_Ing_Egr_Inven_det_x_Cbte_Cble" Width="1.5" PointX="3.7755962162164955" PointY="31.586885496781619" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_detalle_x_item_disponibles" Width="1.5" PointX="7.7555934841537812" PointY="26.581711736778594" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_detalle_x_Producto_CusCider_Saldos" Width="1.5" PointX="6.76338317001396" PointY="13.339462957037362" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos" Width="1.5" PointX="3.6272693200163868" PointY="15.518912888839335" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_com_ordencompra_local" Width="1.5" PointX="3.2080197107084185" PointY="15.159038401748537" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_despachar" Width="1.5" PointX="11.714257070661642" PointY="13.254953778001925" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_Ing_Ordencompra_local" Width="1.5" PointX="4.1528388337012565" PointY="7.8796903080678034" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prd_CidersusConsultaProductosCortados" Width="1.5" PointX="3.3299967866996285" PointY="15.486544839798727" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prd_ConsultaKardex" Width="1.5" PointX="9.0771590383151359" PointY="22.757469903099103" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prd_ConsultaPiezasMover" Width="1.5" PointX="11.197021158038183" PointY="31.543056741144071" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prd_EgresoInventario_x_Produccion" Width="1.5" PointX="0.09683223818281303" PointY="14.528035513371245" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prd_EtasProcesoProductivo" Width="1.5" PointX="6.0517198154943621" PointY="30.812614112539503" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prd_GruposTrabajosPorPProductivos" Width="1.5" PointX="4.2967075297127977" PointY="24.045993503204542" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_PrecargaItemsOrdenCompra" Width="1.5" PointX="4.0421242695497934" PointY="7.454821590080309" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_PrecargaItemsOrdenCompra_det" Width="1.5" PointX="11.263027047395253" PointY="24.998371150809515" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_presupuesto" Width="1.5" PointX="11.373902443504846" PointY="22.213232900115305" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_presupuesto_detalle" Width="1.5" PointX="4.0724387579003531" PointY="1.9215645650036468" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_a_Cortar_CusCider" Width="1.5" PointX="10.300256262673186" PointY="26.615169954772654" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_Stock_x_Bodega" Width="1.5" PointX="2.6447482456661522" PointY="23.504564147211873" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_Stock_x_producto" Width="1.5" PointX="2.3546426139560728" PointY="15.751474015298985" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_Stock_x_Sucursal" Width="1.5" PointX="7.8934486284355856" PointY="20.316766986770912" />
@@ -105,27 +85,14 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Producto_x_Proveedor" Width="1.5" PointX="0.98328695678305211" PointY="19.921098703481768" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto_x_sucursal" Width="1.5" PointX="5.5537190127902285" PointY="7.29295270484544" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto_x_tb_bodega_x_Ctas_cbles" Width="1.5" PointX="4.9213400971709476" PointY="31.24256801569954" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_prt_transferencia" Width="1.5" PointX="0.69205493698457954" PointY="1.9079348751846397" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_ReimpresionCodigoBarra_cusCider" Width="1.5" PointX="4.5861806685971942" PointY="26.399656501784762" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_ReimpresionCodigoBarraProductoTerminado_CusCider" Width="1.5" PointX="2.3213693976036129" PointY="6.9584268661953637" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble" Width="1.5" PointX="2.8644547196405261" PointY="11.092433487573841" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencia_sin_guia" Width="1.5" PointX="4.1628570296628666" PointY="25.380843233960142" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencia_x_Ing_Egr_Inven" Width="1.5" PointX="9.5360668960661013" PointY="22.469676475259323" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Zona_vs_ct_Centro_Costo" Width="1.5" PointX="1.3689189373370814" PointY="2.5807911467649003" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwinprd_EtasProcesoProductivo" Width="1.5" PointX="4.7140707470076482" PointY="24.790795471887474" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwinprd_GruposTrabajosPorPProductivos" Width="1.5" PointX="11.737299755093316" PointY="19.926900217275556" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Catalogo" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_subgrupo_in_grupo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_UnidadMedida" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_UnidadMedida1" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_recepcion_material_det_in_recepcion_material_cab" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_in_subgrupo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_UnidadMedida_Equiv_conversion_in_UnidadMedida" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_UnidadMedida_Equiv_conversion_in_UnidadMedida1" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ajuste_fisico_x_relacion_inven_x_cbteCble" Width="1.5" PointX="9.3849926690501135" PointY="6.7774140866368144" />
@@ -136,7 +103,6 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_UnidadMedida_Equivalencia" Width="1.5" PointX="6.55141761272746" PointY="30.840308814700837" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_VistaParaContabilizarInventario" Width="1.5" PointX="10.235022452769346" PointY="8.0032514967039461" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_x_Producto" Width="1.5" PointX="11.346556640857159" PointY="9.6490239694942836" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_MoviemientoInvetarioXImportacion" Width="1.5" PointX="5.1858004411616365" PointY="13.399522921722161" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencia_Detalle" Width="1.5" PointX="2.67694590737901" PointY="11.581757223038821" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Motivo_Inven_in_Catalogo" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Motivo_Inven_in_Catalogo1" />
@@ -149,7 +115,6 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto_x_tb_bodega_Costo_Historico" Width="1.5" PointX="3.7182646914004644" PointY="7.2105946872432689" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_fecha_costeo_recomendada_x_sucursal" Width="1.5" PointX="1.6994892571584737" PointY="12.814836955077405" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det" Width="1.5" PointX="10.165436836967913" PointY="3.4734341518364076" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias" Width="1.5" PointX="0.21351912068832624" PointY="19.604221889564872" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_det" Width="1.5" PointX="7.5666836479523614" PointY="30.011032103566002" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det" Width="1.5" PointX="4.5595117716861484" PointY="28.90454232548575" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_estado_contabilizacion" Width="1.5" PointX="1.8116749179603882" PointY="21.135206500596929" />
@@ -158,8 +123,6 @@
         <EntityTypeShape EntityType="DBERPModelInventario.in_Ing_Egr_Inven" Width="1.5" PointX="10.722715950907542" PointY="7.4940801744787393" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_det_in_Ing_Egr_Inven" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Ing_Egr_Inven_in_Motivo_Inven" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto_x_tb_bodega" Width="1.5" PointX="4.3431055323887175" PointY="10.936787237849453" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_x_in_movi_inve" Width="1.5" PointX="5.3205563208649664" PointY="1.7698950626747194" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven" Width="1.5" PointX="6.8072391593862509" PointY="28.146555332535204" />
@@ -232,10 +195,21 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_producto_x_cp_proveedor_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_producto_x_tb_bodega_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_recepcion_material_det_in_Producto" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto" Width="1.5" PointX="4.8383646983831952" PointY="2.9527872218530566" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_SinParametrizacion" Width="1.5" PointX="7.3656084348287472" PointY="8.9737531137530482" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_PorIngresar" Width="1.5" PointX="11.202816623823166" PointY="18.657499024019344" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia" Width="1.5" PointX="5.27710586473211" PointY="31.115188583319629" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det" Width="1.5" PointX="2.9675073134561569" PointY="23.893950220148056" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias" Width="1.5" PointX="2.8456375481773346" PointY="24.55122193347254" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

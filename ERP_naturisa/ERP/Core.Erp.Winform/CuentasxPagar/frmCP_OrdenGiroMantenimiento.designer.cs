@@ -1772,10 +1772,6 @@
             this.gridControlGastos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGastos});
             // 
-            // impordencompraextximpgastosxImportInfoBindingSource
-            // 
-            this.impordencompraextximpgastosxImportInfoBindingSource.DataSource = typeof(Core.Erp.Info.Importacion.imp_ordencompra_ext_x_imp_gastosxImport_Info);
-            // 
             // gridViewGastos
             // 
             this.gridViewGastos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {

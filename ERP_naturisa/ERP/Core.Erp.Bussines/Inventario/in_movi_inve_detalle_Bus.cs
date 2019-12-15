@@ -5,7 +5,6 @@ using System.Text;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Data.Inventario;
 using Core.Erp.Business.General;
-using Core.Erp.Info.Produc_Cirdesus;
 namespace Core.Erp.Business.Inventario
 {
     public class in_movi_inve_detalle_Bus

@@ -48,7 +48,7 @@
             this.lblFechaIni = new System.Windows.Forms.Label();
             this.uCct_Pto_Cargo_Grupo = new Core.Erp.Reportes.Controles.UCct_Pto_Cargo_Grupo();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmGe_Esperar), true, true);
             this.gbFecha = new System.Windows.Forms.GroupBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dtpFechaIni = new System.Windows.Forms.DateTimePicker();

@@ -48,9 +48,9 @@ namespace Core.Erp.Reportes
         public DbSet<vwINV_Rpt028> vwINV_Rpt028 { get; set; }
         public DbSet<vwINV_Rpt015> vwINV_Rpt015 { get; set; }
         public DbSet<vwINV_Rpt013> vwINV_Rpt013 { get; set; }
-        public DbSet<vwINV_Rpt017> vwINV_Rpt017 { get; set; }
         public DbSet<vwINV_Rpt023> vwINV_Rpt023 { get; set; }
         public DbSet<vwINV_Rpt002> vwINV_Rpt002 { get; set; }
+        public DbSet<vwINV_Rpt017> vwINV_Rpt017 { get; set; }
     
         public virtual ObjectResult<spINV_Rpt011_Result> spINV_Rpt011(Nullable<int> idEmpresa, Nullable<int> idSucursalIni, Nullable<int> idSucursalFin, Nullable<int> idBodegaIni, Nullable<int> idBodegaFin, Nullable<decimal> idProductoIni, Nullable<decimal> idProductoFin, Nullable<System.DateTime> fechaCorteIni)
         {

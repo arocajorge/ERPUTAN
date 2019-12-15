@@ -337,7 +337,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.toolStrip_menu_top);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCGe_Menu_Superior_Mant";
             this.Size = new System.Drawing.Size(1723, 36);
             this.toolStrip_menu_top.ResumeLayout(false);
@@ -350,8 +350,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip_menu_top;
-        private System.Windows.Forms.ToolStripButton btnlimpiar;
-        private System.Windows.Forms.ToolStripButton btnImprimir;
         private System.Windows.Forms.ToolStripButton btnSalir;
         private System.Windows.Forms.ToolStripButton btnAceptar;
         private System.Windows.Forms.ToolStripButton btnImprimir_guia;
@@ -376,5 +374,7 @@
         public System.Windows.Forms.ToolStripButton btnAprobar;
         public System.Windows.Forms.ToolStripButton btnAprobarGuardarSalir;
         public System.Windows.Forms.ToolStripButton btnAnular;
+        public System.Windows.Forms.ToolStripButton btnlimpiar;
+        public System.Windows.Forms.ToolStripButton btnImprimir;
     }
 }

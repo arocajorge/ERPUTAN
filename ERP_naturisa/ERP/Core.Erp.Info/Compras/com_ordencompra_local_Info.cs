@@ -93,7 +93,6 @@ namespace Core.Erp.Info.Compras
         public string Referencia_guia { get; set; }
         public  List<com_ordencompra_local_det_Info>  listDetalle { get; set; }
 
-        public List<com_solicitud_compra_det_Info> listDetSoliciComp { get; set; }
         public string nom_EstadoCierre { get; set; }
 
         public string IdCatalogocompra { get; set; }
@@ -108,7 +107,6 @@ namespace Core.Erp.Info.Compras
         public  com_ordencompra_local_Info()
         {
             listDetalle = new List<com_ordencompra_local_det_Info>();
-            listDetSoliciComp = new List<com_solicitud_compra_det_Info>();
         }
 
 

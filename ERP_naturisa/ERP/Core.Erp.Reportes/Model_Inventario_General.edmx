@@ -1323,11 +1323,7 @@
             <PropertyRef Name="IdBodegaOrigen" />
             <PropertyRef Name="IdTransferencia" />
             <PropertyRef Name="dt_secuencia" />
-            <PropertyRef Name="IdProducto" />
-            <PropertyRef Name="pr_codigo" />
-            <PropertyRef Name="pr_descripcion" />
             <PropertyRef Name="dt_cantidad" />
-            <PropertyRef Name="IdUnidadMedida" />
             <PropertyRef Name="nom_unidad_medida" />
             <PropertyRef Name="nom_sucursal_origen" />
             <PropertyRef Name="nom_bodega_origen" />
@@ -1342,11 +1338,11 @@
           <Property Name="IdBodegaOrigen" Type="int" Nullable="false" />
           <Property Name="IdTransferencia" Type="numeric" Nullable="false" />
           <Property Name="dt_secuencia" Type="int" Nullable="false" />
-          <Property Name="IdProducto" Type="numeric" Nullable="false" />
-          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
-          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdProducto" Type="numeric" />
+          <Property Name="pr_codigo" Type="nvarchar" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar(max)" />
           <Property Name="dt_cantidad" Type="float" Nullable="false" />
-          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdUnidadMedida" Type="varchar" MaxLength="25" />
           <Property Name="nom_unidad_medida" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="cod_sucursal_origen" Type="varchar" MaxLength="10" />
           <Property Name="nom_sucursal_origen" Type="nchar" Nullable="false" MaxLength="60" />
@@ -1848,9 +1844,9 @@
             <Parameter Name="fecha_corte" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="vwINV_Rpt013" EntityType="DBERPModel.vwINV_Rpt013" />
-          <EntitySet Name="vwINV_Rpt017" EntityType="DBERPModel.vwINV_Rpt017" />
           <EntitySet Name="vwINV_Rpt023" EntityType="DBERPModel.vwINV_Rpt023" />
           <EntitySet Name="vwINV_Rpt002" EntityType="DBERPModel.vwINV_Rpt002" />
+          <EntitySet Name="vwINV_Rpt017" EntityType="DBERPModel.vwINV_Rpt017" />
         </EntityContainer>
         <EntityType Name="vwINV_Rpt004">
           <Key>
@@ -2901,51 +2897,6 @@
           <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="vwINV_Rpt017">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursalOrigen" />
-            <PropertyRef Name="IdBodegaOrigen" />
-            <PropertyRef Name="IdTransferencia" />
-            <PropertyRef Name="dt_secuencia" />
-            <PropertyRef Name="IdProducto" />
-            <PropertyRef Name="pr_codigo" />
-            <PropertyRef Name="pr_descripcion" />
-            <PropertyRef Name="dt_cantidad" />
-            <PropertyRef Name="IdUnidadMedida" />
-            <PropertyRef Name="nom_unidad_medida" />
-            <PropertyRef Name="nom_sucursal_origen" />
-            <PropertyRef Name="nom_bodega_origen" />
-            <PropertyRef Name="nom_sucursal_destino" />
-            <PropertyRef Name="nom_bodega_destino" />
-            <PropertyRef Name="tr_fecha" />
-            <PropertyRef Name="tr_Observacion" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
-          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="dt_secuencia" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="dt_cantidad" Nullable="false" />
-          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_unidad_medida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="cod_sucursal_origen" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_sucursal_origen" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="cod_bodega_origen" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_bodega_origen" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="cod_sucursal_destino" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_sucursal_destino" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="cod_bodega_destino" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_bodega_destino" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Type="DateTime" Name="tr_fecha" Nullable="false" Precision="3" />
-          <Property Type="String" Name="tr_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="vwINV_Rpt023">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -3022,6 +2973,47 @@
           <Property Type="Double" Name="mv_costo_sinConversion" />
           <Property Type="String" Name="NomCentroCosto" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NomSubcentroCosto" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_Rpt017">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdBodegaOrigen" />
+            <PropertyRef Name="IdTransferencia" />
+            <PropertyRef Name="dt_secuencia" />
+            <PropertyRef Name="dt_cantidad" />
+            <PropertyRef Name="nom_unidad_medida" />
+            <PropertyRef Name="nom_sucursal_origen" />
+            <PropertyRef Name="nom_bodega_origen" />
+            <PropertyRef Name="nom_sucursal_destino" />
+            <PropertyRef Name="nom_bodega_destino" />
+            <PropertyRef Name="tr_fecha" />
+            <PropertyRef Name="tr_Observacion" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
+          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="dt_secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_codigo" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="dt_cantidad" Nullable="false" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_unidad_medida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cod_sucursal_origen" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sucursal_origen" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="cod_bodega_origen" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_bodega_origen" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="cod_sucursal_destino" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sucursal_destino" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="cod_bodega_destino" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_bodega_destino" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="tr_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="tr_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3792,35 +3784,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwINV_Rpt017">
-            <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt017">
-              <MappingFragment StoreEntitySet="vwINV_Rpt017">
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
-                <ScalarProperty Name="tr_fecha" ColumnName="tr_fecha" />
-                <ScalarProperty Name="nom_bodega_destino" ColumnName="nom_bodega_destino" />
-                <ScalarProperty Name="cod_bodega_destino" ColumnName="cod_bodega_destino" />
-                <ScalarProperty Name="nom_sucursal_destino" ColumnName="nom_sucursal_destino" />
-                <ScalarProperty Name="cod_sucursal_destino" ColumnName="cod_sucursal_destino" />
-                <ScalarProperty Name="nom_bodega_origen" ColumnName="nom_bodega_origen" />
-                <ScalarProperty Name="cod_bodega_origen" ColumnName="cod_bodega_origen" />
-                <ScalarProperty Name="nom_sucursal_origen" ColumnName="nom_sucursal_origen" />
-                <ScalarProperty Name="cod_sucursal_origen" ColumnName="cod_sucursal_origen" />
-                <ScalarProperty Name="nom_unidad_medida" ColumnName="nom_unidad_medida" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="dt_cantidad" ColumnName="dt_cantidad" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="dt_secuencia" ColumnName="dt_secuencia" />
-                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
-                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwINV_Rpt023">
             <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt023">
               <MappingFragment StoreEntitySet="vwINV_Rpt023">
@@ -3883,6 +3846,35 @@
                 <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
                 <ScalarProperty Name="IdFila" ColumnName="IdFila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_Rpt017">
+            <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt017">
+              <MappingFragment StoreEntitySet="vwINV_Rpt017">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
+                <ScalarProperty Name="tr_fecha" ColumnName="tr_fecha" />
+                <ScalarProperty Name="nom_bodega_destino" ColumnName="nom_bodega_destino" />
+                <ScalarProperty Name="cod_bodega_destino" ColumnName="cod_bodega_destino" />
+                <ScalarProperty Name="nom_sucursal_destino" ColumnName="nom_sucursal_destino" />
+                <ScalarProperty Name="cod_sucursal_destino" ColumnName="cod_sucursal_destino" />
+                <ScalarProperty Name="nom_bodega_origen" ColumnName="nom_bodega_origen" />
+                <ScalarProperty Name="cod_bodega_origen" ColumnName="cod_bodega_origen" />
+                <ScalarProperty Name="nom_sucursal_origen" ColumnName="nom_sucursal_origen" />
+                <ScalarProperty Name="cod_sucursal_origen" ColumnName="cod_sucursal_origen" />
+                <ScalarProperty Name="nom_unidad_medida" ColumnName="nom_unidad_medida" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="dt_cantidad" ColumnName="dt_cantidad" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="dt_secuencia" ColumnName="dt_secuencia" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -320,8 +320,6 @@ namespace Core.Erp.Winform.Inventario
                         FrmGe_MotivoAnulacion ofrm = new FrmGe_MotivoAnulacion();
                         ofrm.ShowDialog();
                         InfoTransferencia.MotivoAnu = ofrm.motivoAnulacion;
-                        InfoTransferencia.ip = param.ip;
-                        InfoTransferencia.nom_pc = param.nom_pc;
                         InfoTransferencia.IdUsuarioUltAnu = param.IdUsuario;
                         InfoTransferencia.Fecha_UltAnu = DateTime.Now;
                         InfoTransferencia.IdEmpresa = param.IdEmpresa;
@@ -393,7 +391,6 @@ namespace Core.Erp.Winform.Inventario
 
                     if (InfoTransferencia.IdEmpresa != 0)
                     {
-                        ucIn_Catalogos_Cmb1.set_CatalogosInfo( InfoTransferencia.IdEstadoAprobacion_cat);
                         InfoTransferencia.IdUsuario = InfoTransferencia.IdUsuario;
                         _BodegaInfoOrigen.IdSucursal = InfoTransferencia.IdSucursalOrigen;
                         _BodegaInfoDestino.IdSucursal = InfoTransferencia.IdSucursalDest;
@@ -445,11 +442,6 @@ namespace Core.Erp.Winform.Inventario
                         info_egr.IdNumMovi = InfoTransferencia.IdNumMovi_Ing_Egr_Inven_Origen == null ? 0 : Convert.ToDecimal(InfoTransferencia.IdNumMovi_Ing_Egr_Inven_Origen);
                         btnEgr.Text = info_egr.IdNumMovi.ToString();
 
-                        if (InfoTransferencia.IdEstadoAprobacion_cat == "APRO")
-                        {
-                            ucIn_Catalogos_Cmb1.Perfil_Lectura();
-                            //gridViewProductos.OptionsBehavior.Editable = false;
-                        }
                     }
                 }
             }
@@ -554,10 +546,7 @@ namespace Core.Erp.Winform.Inventario
 
                 InfoTransferencia.IdMotivo_Inv_SucuOrig = ucin_motivo_origen.get_MotivoInvInfo().IdMotivo_Inv;
                 InfoTransferencia.IdMotivo_Inv_SucuDest = ucin_motivo_destino.get_MotivoInvInfo().IdMotivo_Inv;
-                InfoTransferencia.IdEstadoAprobacion_cat = ucIn_Catalogos_Cmb1.Get_CatalogosInfo().IdCatalogo;
                 InfoTransferencia.IdTransferencia = Convert.ToDecimal((txtNumtransferencia.Text == "") ? "0" : txtNumtransferencia.Text);
-                InfoTransferencia.ip = param.ip;
-                InfoTransferencia.nom_pc = param.nom_pc;
                 InfoTransferencia.Codigo = txtCodigo.Text;
 
                 Get_Info_det();
@@ -633,12 +622,6 @@ namespace Core.Erp.Winform.Inventario
                             lblAnulado.Visible = true;
                             ucGe_Menu.Visible_bntGuardar_y_Salir = false;
                             ucGe_Menu.Visible_btnGuardar = false;
-                        }
-
-                        if (InfoTransferencia.IdEstadoAprobacion_cat == "XAPRO")
-                        {
-                            ucin_motivo_destino.Perfil_Lectura(true);
-                            ucin_motivo_origen.Perfil_Lectura(true);
                         }
                         break;
 

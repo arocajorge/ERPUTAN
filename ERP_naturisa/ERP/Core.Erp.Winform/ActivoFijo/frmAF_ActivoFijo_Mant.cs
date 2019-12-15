@@ -3,13 +3,11 @@ using Core.Erp.Business.Contabilidad;
 using Core.Erp.Business.CuentasxPagar;
 using Core.Erp.Business.General;
 using Core.Erp.Business.Inventario;
-using Core.Erp.Business.Roles;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Info.General;
 using Core.Erp.Info.Inventario;
-using Core.Erp.Info.Roles;
 using Core.Erp.Reportes.ActivoFijo;
 using Core.Erp.Winform.General;
 using System;
@@ -71,8 +69,6 @@ namespace Core.Erp.Winform.ActivoFijo
 
         List<Af_Activo_fijo_Info> lista_activo_Fijo = new List<Af_Activo_fijo_Info>();
 
-        ro_Empleado_Bus BusEmple = new ro_Empleado_Bus();
-        List<ro_Empleado_Info> Lista_Empleado = new List<ro_Empleado_Info>();
 
         Af_Catalogo_Bus BusCata = new Af_Catalogo_Bus();
         List<Af_Catalogo_Info> List_Catalogo = new List<Af_Catalogo_Info>();

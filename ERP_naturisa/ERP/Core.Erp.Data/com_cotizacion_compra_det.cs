@@ -33,6 +33,5 @@ namespace Core.Erp.Data
         public string MotiAnula { get; set; }
     
         public virtual com_cotizacion_compra com_cotizacion_compra { get; set; }
-        public virtual com_ListadoMateriales_Det com_ListadoMateriales_Det { get; set; }
     }
 }

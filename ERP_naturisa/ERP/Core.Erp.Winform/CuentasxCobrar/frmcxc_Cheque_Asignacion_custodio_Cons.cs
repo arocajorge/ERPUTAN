@@ -9,8 +9,6 @@ using System.Windows.Forms;
 
 using Core.Erp.Business.General;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Roles;
-
 namespace Core.Erp.Winform.CuentasxCobrar
 {
     public partial class frmcxc_Cheque_Asignacion_custodio_Cons : Form

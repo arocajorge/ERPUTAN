@@ -68,25 +68,8 @@ namespace Core.Erp.Data.General
                 List<tb_Bodega_Info> lM = new List<tb_Bodega_Info>();
                 EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
-                var select_pv = from A in OEGeneral.tb_bodega
-                                join B in OEGeneral.tb_sucursal
-                                on new { A.IdEmpresa, A.IdSucursal } equals new { B.IdEmpresa, B.IdSucursal }
-                                where A.IdEmpresa == idempresa
-                                select new
-                                {
-                                    A.IdEmpresa,
-                                    A.IdBodega,
-                                    A.IdSucursal,
-                                    A.cod_bodega,
-                                    A.bo_Descripcion,
-                                    A.cod_punto_emision,
-                                    A.bo_EsBodega,
-                                    A.bo_manejaFacturacion,
-                                    A.Estado,
-                                    B.Su_Descripcion,
-                                    A.IdCtaCtble_Costo,
-                                    A.IdCtaCtble_Inve
-                                };
+                var lst = OEGeneral.tb_bodega.Include("tb_sucursal").Where(q=> q.IdEmpresa == idempresa).ToList();
+
                 if (TipoCarga == Cl_Enumeradores.eTipoFiltro.todos)
                 {
                     tb_Bodega_Info info = new tb_Bodega_Info();
@@ -95,24 +78,23 @@ namespace Core.Erp.Data.General
                     info.IdBodega = 0;
                     lM.Add(info);
                 }
-                foreach (var item in select_pv)
+                foreach (var item in lst)
                 {
-                    tb_Bodega_Info info = new tb_Bodega_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdBodega = item.IdBodega;
-                    info.IdSucursal = item.IdSucursal;
-                    info.cod_bodega = item.cod_bodega;
-                    info.bo_Descripcion = item.bo_Descripcion.Trim();
-                    info.cod_punto_emision = item.cod_punto_emision;
-                    info.bo_esBodega = item.bo_EsBodega;
-                    info.bo_manejaFacturacion = item.bo_manejaFacturacion;
-                    info.Estado = (item.Estado == "A") ? true : false;
-                    info.NomSucursal = item.Su_Descripcion.Trim();
-
-                    info.IdCtaCtble_Inve = item.IdCtaCtble_Inve;
-                    info.IdCtaCtble_Costo = item.IdCtaCtble_Costo;
-
-                    lM.Add(info);
+                    lM.Add(new tb_Bodega_Info
+                    {
+                        IdEmpresa = item.IdEmpresa,
+                        IdBodega = item.IdBodega,
+                        IdSucursal = item.IdSucursal,
+                        cod_bodega = item.cod_bodega,
+                        bo_Descripcion = item.bo_Descripcion.Trim(),
+                        cod_punto_emision = item.cod_punto_emision,
+                        bo_esBodega = item.bo_EsBodega,
+                        bo_manejaFacturacion = item.bo_manejaFacturacion,
+                        Estado = (item.Estado == "A") ? true : false,
+                        NomSucursal = item.tb_sucursal.Su_Descripcion.Trim(),
+                        IdCtaCtble_Inve = item.IdCtaCtble_Inve,
+                        IdCtaCtble_Costo = item.IdCtaCtble_Costo
+                    });
                 }
                 return (lM);
             }

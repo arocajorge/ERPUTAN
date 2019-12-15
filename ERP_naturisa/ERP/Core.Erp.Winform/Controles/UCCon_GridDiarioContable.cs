@@ -408,17 +408,8 @@ namespace Core.Erp.Winform.Controles
                 busTipo.Get_list_Cbtecble_tipo(param.IdEmpresa,Cl_Enumeradores.eTipoFiltro.Normal, ref MensajeError);
                 cmbTipoComp.Properties.DataSource = listaTipoCbteCble;
                 //////
-                switch (param.IdCliente_Ven_x_Default)
-                {
-                    case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        listaPuntoCargo=BusPunto_Cargo.Get_List_punto_Cargo_con_subcentro(param.IdEmpresa);
-                        cmb_punto_cargo.DataSource = listaPuntoCargo;
-                        break;
-                    default:
                         listaPuntoCargo=BusPunto_Cargo.Get_List_PuntoCargo(param.IdEmpresa);
                         cmb_punto_cargo.DataSource = listaPuntoCargo;
-                        break;
-                }
                 
 
 
@@ -937,22 +928,6 @@ namespace Core.Erp.Winform.Controles
                     {
                         switch (param.IdCliente_Ven_x_Default)
                         {
-                            case Cl_Enumeradores.eCliente_Vzen.FJ:
-                                if (row.IdPunto_cargo != 0 && row.IdPunto_cargo != null)
-                                {
-                                    info_punto_cargo = bus_punto_cargo.Get_info_punto_Cargo_con_subcentro(param.IdEmpresa, Convert.ToInt32(row.IdPunto_cargo));
-                                    row.IdPunto_cargo_grupo = info_punto_cargo.IdPunto_cargo_grupo;
-                                    row.IdCentroCosto = info_punto_cargo.IdCentroCosto_Scc;
-                                    row.IdCentroCosto_sub_centro_costo = info_punto_cargo.IdCentroCosto_sub_centro_costo_Scc;
-                                    row.IdRegistro = info_punto_cargo.IdCentroCosto_Scc + '-' + info_punto_cargo.IdCentroCosto_sub_centro_costo_Scc;
-                                }
-                                else
-                                {
-                                    row.IdPunto_cargo_grupo = null;
-                                    row.IdCentroCosto = null;
-                                    row.IdCentroCosto_sub_centro_costo = null;
-                                }
-                                break;
                             default:
                                 break;
                         }

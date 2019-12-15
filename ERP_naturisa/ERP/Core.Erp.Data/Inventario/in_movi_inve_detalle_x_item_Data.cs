@@ -69,38 +69,5 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-
-        public in_movi_inve_detalle_x_item_Info Get_info_disponible(in_movi_inve_detalle_x_item_Info Movi)
-        {
-            try
-            {
-                in_movi_inve_detalle_x_item_Info info = new in_movi_inve_detalle_x_item_Info();
-                using (EntitiesInventario Context = new EntitiesInventario())
-                {
-                    var Entity = Context.vwin_movi_inve_detalle_x_item_disponibles.OrderBy(q=>q.cm_fecha).FirstOrDefault(q => q.IdEmpresa == Movi.IdEmpresa && q.IdSucursal == Movi.IdSucursal
-                        && q.IdBodega == Movi.IdBodega && q.IdProducto == Movi.IdProducto);
-                    if (Entity!=null)
-                    {
-                        info.IdEmpresa = Entity.IdEmpresa;
-                        info.IdSucursal = Entity.IdSucursal;
-                        info.IdBodega = Entity.IdBodega;
-                        info.IdProducto = Entity.IdProducto;                        
-                        info.codigo_reg = Entity.codigo_reg;
-                        info.cantidad = Entity.cantidad == null ? 0 : (double)Entity.cantidad;
-                    }
-                }
-                return info;
-            }
-            catch (Exception ex)
-            {
-                string mensaje = "";
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(mensaje);
-            }
-        }
     }
 }

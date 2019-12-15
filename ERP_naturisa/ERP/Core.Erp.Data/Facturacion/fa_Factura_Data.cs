@@ -12,7 +12,6 @@ using Core.Erp.Info.Facturacion;
 using Core.Erp.Info.class_sri.FacturaV2;
 using Core.Erp.Info.class_sri;
 using System.Data.Entity.Validation;
-using Core.Erp.Data.Academico;
 namespace Core.Erp.Data.Facturacion
 {
     public class fa_Factura_Data
@@ -1313,93 +1312,6 @@ namespace Core.Erp.Data.Facturacion
 
 
 
-        // consulta de Factura CAH
-
-        public List<fa_factura_Info> Get_List_factura_CAH(int IdEmpresa, int IdSucursal, int IdBodega, DateTime FechaIni, DateTime FechaFin)
-        {
-            try
-            {
-                List<fa_factura_Info> FacturaInfo = new List<fa_factura_Info>();
-                Entities_Academico OEFAC = new  Entities_Academico ();
-
-                int IdSucursalIni = (IdSucursal == 0) ? 1 : IdSucursal;
-                int IdSucursalFin = (IdSucursal == 0) ? 99999 : IdSucursal;
-                int IdBodegaIni = (IdBodega == 0) ? 1 : IdBodega;
-                int IdBodegaFin = (IdBodega == 0) ? 99999 : IdBodega;
-
-
-                var SelectFactura = from q in OEFAC.vwfa_factura_CAH
-                                    where q.IdEmpresa == IdEmpresa
-                                    && q.IdBodega >= IdBodegaIni && q.IdBodega <= IdBodegaFin
-                                    && q.IdSucursal >= IdSucursalIni && q.IdSucursal <= IdSucursalFin
-                                    && q.vt_fecha >= FechaIni && q.vt_fecha <= FechaFin
-                                    select q;
-
-
-                foreach (var item in SelectFactura)
-                {
-                    fa_factura_Info info = new fa_factura_Info();
-
-                    List<fa_factura_det_info> ListDet = new List<fa_factura_det_info>();
-
-
-                    info.IdCbteVta = item.IdCbteVta;
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdSucursal = item.IdSucursal;
-                    info.IdBodega = item.IdBodega;
-                    info.vt_serie1 = item.vt_serie1;
-                    info.vt_serie2 = item.vt_serie2;
-                    info.vt_tipo_venta = item.vt_tipo_venta;
-                    info.Bodega = item.bo_Descripcion;
-                    info.vt_NumFactura = item.vt_NumFactura;
-                    info.Cliente = item.pe_nombreCompleto;
-                    info.Vendedor = item.Ve_Vendedor;
-                    info.Sucursal = item.Su_Descripcion;
-                    info.vt_autorizacion = item.vt_autorizacion;
-                    info.IdCliente = item.IdCliente;
-                    info.vt_fecha = item.vt_fecha;
-                    info.IdVendedor = item.IdVendedor;
-                    info.CodCbteVta = item.CodCbteVta;
-                    info.vt_fech_venc = item.vt_fech_venc;
-                    info.vt_plazo = item.vt_plazo;
-                    info.IdUsuario = item.IdUsuario;
-                    info.vt_Observacion = item.vt_Observacion;
-                    info.Subtotal = Convert.ToDouble(item.vt_Subtotal);
-                    info.vt_OtroValor1 = item.vt_OtroValor1;
-                    info.vt_OtroValor2 = item.vt_OtroValor2;
-                    info.vt_flete = item.vt_flete;
-                    info.vt_interes = item.vt_interes;
-                    info.vt_seguro = item.vt_seguro;
-                    info.vt_tipoDoc = item.vt_tipoDoc;
-                    info.Estado = item.Estado;
-                    info.IVA = Convert.ToDouble(item.vt_iva);
-                    info.Total = Convert.ToDouble(item.vt_total);
-                    info.IdCaja = item.IdCaja;
-                    info.IdPuntoVta = item.IdPuntoVta;
-                    info.Estudiante = item.pe_apellido + " " + item.pe_nombre;
-
-                    info.IdEmpresa_nc_anu = Convert.ToInt32(item.IdEmpresa_nc_anu);
-                    info.IdSucursal_nc_anu = Convert.ToInt32(item.IdSucursal_nc_anu);
-                    info.IdBodega_nc_anu = Convert.ToInt32(item.IdBodega_nc_anu);
-                    info.IdNota_nc_anu = Convert.ToDecimal(item.IdNota_nc_anu);
-
-                    FacturaInfo.Add(info);
-
-                }
-
-                return FacturaInfo;
-            }
-            catch (Exception ex)
-            {
-
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString();
-                throw new Exception(ex.ToString());
-            }
-        }
-
+      
     }
 }

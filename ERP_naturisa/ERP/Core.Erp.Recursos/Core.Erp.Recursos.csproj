@@ -87,12 +87,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cus.Erp.Reports.Fj-Servindustrias\Cus.Erp.Reports.FJ.csproj">
-      <Project>{d8a4daa8-dd69-4a94-b743-61f2114f47dc}</Project>
-      <Name>Cus.Erp.Reports.FJ</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="edehsa_logo128.png" />
     <Content Include="edehsa_logo32.png" />
     <Content Include="edehsa_logo64.png" />

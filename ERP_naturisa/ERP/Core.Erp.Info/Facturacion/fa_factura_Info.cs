@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Core.Erp.Info.Facturacion_Grafinpren;
-using Core.Erp.Info.Facturacion_FJ;
 
 namespace Core.Erp.Info.Facturacion
 {
@@ -63,16 +61,9 @@ namespace Core.Erp.Info.Facturacion
         public List<fa_factura_det_info> DetFactura_List { get; set; }
         public List<fa_factura_x_fa_TerminoPago_Info>  DetformaPago_list { get; set; }
         public List<fa_factura_x_formaPago_Info> lista_formaPago_x_Factura { get; set; }
-        public fa_factura_fj_Info Factura_Fj { get; set; }
 
         public List<fa_factura_det_subcentro_Info> ListDetSubCentros { get; set; }
-
-        //personalizacion de grafinpren -----
-        public fa_factura_graf_Info Factura_Graf { get; set; }
-        //personalizacion de grafinpren -----
-        public Academico.fa_factura_aca_Info Factura_CAH { get; set; }
-
-
+        
         public int IdEmpresa_nc_anu { get; set; }
         public int IdSucursal_nc_anu { get; set; }
         public int IdBodega_nc_anu { get; set; }
@@ -91,9 +82,6 @@ namespace Core.Erp.Info.Facturacion
             lista_formaPago_x_Factura = new List<fa_factura_x_formaPago_Info>();
             DetFactura_List = new List<fa_factura_det_info>();
             DetformaPago_list = new List<fa_factura_x_fa_TerminoPago_Info>();
-            Factura_Graf = new fa_factura_graf_Info();
-            Factura_Fj = new fa_factura_fj_Info();
-            Factura_CAH = new Academico.fa_factura_aca_Info();
         }
     }
 }

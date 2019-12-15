@@ -47,20 +47,6 @@ namespace Core.Erp.Business.Inventario
                               Unidad = item.mv_tipo_movi == "+" ? 1 : -1;
                           }
                       }
-                      if (item.mv_tipo_movi == "-")
-                      {
-                          in_movi_inve_detalle_x_item_Info ingreso = new in_movi_inve_detalle_x_item_Info();
-                          ingreso = Get_info_disponible(info);
-                          info.codigo_reg = ingreso.codigo_reg;                          
-                          if (Cant_R < ingreso.cantidad)
-                          {
-                              Unidad = - Cant_R;
-                          }
-                          if (Cant_R >= ingreso.cantidad)
-                          {
-                              Unidad = -ingreso.cantidad;
-                          }
-                      }
                       info.cantidad = Unidad;
                       Unidad = Math.Abs(Unidad);
                       Cant_R = Cant_R - Unidad;
@@ -77,19 +63,6 @@ namespace Core.Erp.Business.Inventario
           {
               Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
               throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "GrabarDB", ex.Message), ex) { EntityType = typeof(in_movi_inve_detalle_x_item_Bus) };
-          }
-      }
-
-      public in_movi_inve_detalle_x_item_Info Get_info_disponible(in_movi_inve_detalle_x_item_Info Movi)
-      {
-          try
-          {
-              return oData.Get_info_disponible(Movi);
-          }
-          catch (Exception ex)
-          {
-              Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-              throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_info_disponible", ex.Message), ex) { EntityType = typeof(in_movi_inve_detalle_x_item_Bus) };
           }
       }
     }

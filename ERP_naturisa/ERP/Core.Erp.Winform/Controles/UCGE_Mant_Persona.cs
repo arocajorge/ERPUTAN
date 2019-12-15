@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using Core.Erp.Info.General;
 using Core.Erp.Business.General;
-using Core.Erp.Info.Roles;
 
 
 namespace Core.Erp.Winform.Controles
@@ -190,7 +189,6 @@ namespace Core.Erp.Winform.Controles
                 UCEstadoCivil.cargar_Combo();
                 UCGenero.cargar_combo();
 
-                 ucRo_CatalogoTipoCta.set_cargar_combo_x_tipo(9);
             }
             catch (Exception ex)
             {
@@ -371,7 +369,6 @@ namespace Core.Erp.Winform.Controles
                 _PersonaInfo.pe_correo_secundario1 = Convert.ToString(txtCorreoSecun.EditValue);
                 _PersonaInfo.pe_correo_secundario2 = Convert.ToString(txtCorreoAlterno.EditValue);
                 _PersonaInfo.IdBanco_acreditacion = cmb_Banco.get_BancoInfo().IdBanco;
-                _PersonaInfo.IdTipoCta_acreditacion_cat = ucRo_CatalogoTipoCta.get_Catalogo().CodCatalogo;
                 _PersonaInfo.num_cta_acreditacion = txtnumCta.Text;
              
 
@@ -420,10 +417,6 @@ namespace Core.Erp.Winform.Controles
                 txtCorreoAlterno.EditValue = _PersonaInfo.pe_correo_secundario2;
                 if(_PersonaInfo.IdBanco_acreditacion!=null)
                 cmb_Banco.set_BancoInfo(Convert.ToInt32( _PersonaInfo.IdBanco_acreditacion));
-
-                if (_PersonaInfo.IdTipoCta_acreditacion_cat != null)
-                    ucRo_CatalogoTipoCta.set_item(_PersonaInfo.IdTipoCta_acreditacion_cat);
-                
 
                 if (_PersonaInfo.num_cta_acreditacion != null)
                     txtnumCta.Text = _PersonaInfo.num_cta_acreditacion;

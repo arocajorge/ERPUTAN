@@ -23,7 +23,7 @@ namespace Core.Erp.Business.Compras
             catch (Exception ex)
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_solicitud_compra_det_pre_aprobacion_Bus) };
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_TerminoPago_Bus) };
             }
 
         }
@@ -37,7 +37,7 @@ namespace Core.Erp.Business.Compras
             catch (Exception ex)
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_solicitud_compra_det_pre_aprobacion_Bus) };
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_TerminoPago_Bus) };
             }
         }
 
@@ -50,7 +50,7 @@ namespace Core.Erp.Business.Compras
             catch (Exception ex)
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_solicitud_compra_det_pre_aprobacion_Bus) };
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_TerminoPago_Bus) };
             }
         }
 
@@ -63,7 +63,7 @@ namespace Core.Erp.Business.Compras
             catch (Exception ex)
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_solicitud_compra_det_pre_aprobacion_Bus) };
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_TerminoPago", ex.Message), ex) { EntityType = typeof(com_TerminoPago_Bus) };
             }
         }
     

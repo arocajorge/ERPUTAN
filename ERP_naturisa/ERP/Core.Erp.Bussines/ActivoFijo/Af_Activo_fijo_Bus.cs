@@ -5,8 +5,6 @@ using System.Text;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Data.ActivoFijo;
 using Core.Erp.Business.General;
-using Core.Erp.Info.Facturacion_FJ;
-using Core.Erp.Info.ActivoFijo_FJ;
 using System.Data;
 
 namespace Core.Erp.Business.ActivoFijo
@@ -70,32 +68,6 @@ namespace Core.Erp.Business.ActivoFijo
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_Vista_Af_x_Categoria", ex.Message), ex) { EntityType = typeof(Af_Activo_fijo_Bus) };
-            }
-        }
-
-        public List<Af_Activo_fijo_Info> Get_List_Vista_Af_x_Categoria_x_tarifario(int idEmpresa, int idCategoria, decimal IdTarifario)
-        {
-            try
-            {
-                return data.Get_List_Vista_Af_x_Categoria_x_tarifario(idEmpresa, idCategoria, IdTarifario);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_Vista_Af_x_Categoria", ex.Message), ex) { EntityType = typeof(Af_Activo_fijo_Bus) };
-            }
-        }
-
-        public List<Af_Activo_fijo_Info> Get_List_Vista_Af_x_Categoria_disponibles(int idEmpresa, int idCategoria)
-        {
-            try
-            {
-                return data.Get_List_Vista_Af_x_Categoria_disponibles(idEmpresa, idCategoria);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_Vista_Af_x_Categoria_disponibles", ex.Message), ex) { EntityType = typeof(Af_Activo_fijo_Bus) };
             }
         }
 
@@ -280,32 +252,6 @@ namespace Core.Erp.Business.ActivoFijo
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "EliminarDB", ex.Message), ex) { EntityType = typeof(Af_Activo_fijo_Bus) };
-            }
-        }
-
-        public bool Actualizar_Unidades(List<fa_registro_unidades_x_equipo_det_Info> Lista)
-        {
-            try
-            {
-                return data.Actualizar_Unidades(Lista);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Actualizar_Unidades", ex.Message), ex) { EntityType = typeof(Af_Activo_fijo_Bus) };
-            }
-        }
-
-        public Boolean Grabar_Poliza_x_Activo(Af_Poliza_x_AF_Info info)
-        {
-            try
-            {
-                return data.Grabar_Poliza_x_Activo(info);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Grabar_Poliza_x_Activo", ex.Message), ex) { EntityType = typeof(Af_Activo_fijo_Bus) };
             }
         }
 

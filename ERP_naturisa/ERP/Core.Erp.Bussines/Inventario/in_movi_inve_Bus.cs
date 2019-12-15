@@ -66,21 +66,6 @@ namespace Core.Erp.Business.Inventario
 
         }
 
-        public List<in_movi_inve_Info> Get_list_Movi_inven_Recepcion
-         (int IdEmpresa,  int IdSucursalIni, int IdSucursalFin, int IdBodegaIni, int IdBodegaFin, DateTime FechaIni, DateTime FechaFin)
-         {
-
-            try
-            {
-                return moviD.Get_list_Movi_inven_Recepcion(IdEmpresa, IdSucursalIni,  IdSucursalFin,  IdBodegaIni,  IdBodegaFin,  FechaIni,  FechaFin);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Obtener_list_Movi_inven_Recepcion", ex.Message), ex) { EntityType = typeof(in_movi_inve_Bus) };
-            }
-
-        }
 
         public List<in_movi_inve_Info> Get_list_Movi_inven_para_contabilizar(int IdEmpresa, string cm_signo, DateTime Fecha_ini, DateTime Fecha_fin, string Estado_contabilizacion)
         {
@@ -655,21 +640,6 @@ namespace Core.Erp.Business.Inventario
 
              }
            
-        }
-
-        public List<vwIn_MoviemientoInvetarioXImportacion_Info> Get_List_SaldoImpoXMovimiento(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdOrdenCompraExterna)
-        {
-            try
-            {
-               return moviD.Get_List_SaldoImpoXMovimiento(IdEmpresa, IdSucursal, IdBodega, IdOrdenCompraExterna);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "SaldoImpoXMovimiento", ex.Message), ex) { EntityType = typeof(in_movi_inve_Bus) };
-
-            }
-
         }
 
         public List<in_movi_inve_Info> Get_list_Movi_inven_x_ProdDiariaLagminadosTalme(int idcompany, int idSucursal, int IdBodega, int TipoMovi, decimal IdNumMo)

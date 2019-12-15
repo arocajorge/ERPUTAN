@@ -2,7 +2,6 @@
 using Core.Erp.Business.General;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Info.General;
-using Core.Erp.Winform.ActivoFijo_FJ;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

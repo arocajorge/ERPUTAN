@@ -180,20 +180,6 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
-        public List<in_producto_x_tb_bodega_Info> Get_List_producto_x_tb_bodega_x_Transferencia(int idempresa, int idbodega, int idsucursa, List<in_transferencia_det_Info> listdetalle, decimal idtransferencia)
-        {
-            try
-            {
-               return data.Get_List_producto_x_tb_bodega_x_Transferencia(idempresa, idbodega, idsucursa, listdetalle, idtransferencia);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ObtenerProduPedidos", ex.Message), ex) { EntityType = typeof(in_producto_x_tb_bodega_Bus) };
-
-            }
-
-        }
 
         public Boolean ActualizarStock_x_Bodega_con_moviInven(List<in_movi_inve_detalle_Info> listaMovi, ref string mensaje)
         {

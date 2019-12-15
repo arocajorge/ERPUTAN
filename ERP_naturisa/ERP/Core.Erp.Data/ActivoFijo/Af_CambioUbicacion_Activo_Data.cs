@@ -150,55 +150,7 @@ namespace Core.Erp.Data.ActivoFijo
             {
                 List<vwAf_CambioUbicacion_Info> lstInfo = new List<vwAf_CambioUbicacion_Info>();
 
-                using (EntitiesActivoFijo listado = new EntitiesActivoFijo())
-                {
-                    var select = from q in listado.vwAf_CambioUbicacion
-                                 where q.IdEmpresa == IdEmpresa
-                                 && q.FechaCambio >= FechaIni && q.FechaCambio <= FechaFin
-                                 select q;
-
-                    foreach (var item in select)
-                    {                        
-                        vwAf_CambioUbicacion_Info info = new vwAf_CambioUbicacion_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdCambioUbicacion = item.IdCambioUbicacion;
-                        info.IdActivoFijo = item.IdActivoFijo;
-                        info.Af_Nombre = item.Af_Nombre;
-                        info.IdSucursal_Actu = item.IdSucursal_Actu;
-                        info.IdSucursal_Ant = item.IdSucursal_Ant;
-                        info.IdDepartamento_Actu = item.IdDepartamento_Actu;
-                        info.nom_departamento_Act = item.nom_departamento_Act;
-                        info.IdDepartamento_Ant = item.IdDepartamento_Ant;
-                        info.nom_departamento_Ant = item.nom_departamento_Ant;
-                        info.IdTipoCatalogo_Ubicacion_Actu = item.IdTipoCatalogo_Ubicacion_Actu;
-                        info.nom_ubicacion_act = item.nom_ubicacion_act;
-                        info.IdTipoCatalogo_Ubicacion_Ant = item.IdTipoCatalogo_Ubicacion_Ant;
-                        info.nom_ubicacion_dest = item.nom_ubicacion_dest;
-                        info.IdCentroCosto_Actu = item.IdCentroCosto_Actu;
-                        info.nom_CentroCosto_Actu = item.nom_CentroCosto_Actu;
-                        info.IdCentroCosto_Ant = item.IdCentroCosto_Ant;
-                        info.nom_CentroCosto_Ant = item.nom_CentroCosto_Ant;
-                        info.FechaCambio = item.FechaCambio;
-                        info.MotivoCambio = item.MotivoCambio;
-
-                        info.IdCentroCosto_Actu = item.IdCentroCosto_Actu;
-
-                        info.nom_Cliente_Actu = item.nom_Cliente_Actu;
-
-                        info.IdCentroCosto_Ant = item.IdCentroCosto_Ant;
-                        info.nom_Cliente_Ant = item.nom_Cliente_Ant;
-
-                        info.IdEncargado_Actu = item.IdEncargado_Actu;
-                        info.IdEncargado_Ant = item.IdEncargado_Ant;
-                        info.nom_Encargado_Actu = item.nom_Encargado_Actu;
-                        info.nom_Encargado_Ant = item.nom_Encargado_Ant;
-                        info.IdCentroCosto_sub_centro_costo_Actu = item.IdCentroCosto_sub_centro_costo_Actu;
-                        info.IdCentroCosto_sub_centro_costo_Ant = item.IdCentroCosto_sub_centro_costo_Ant;
-                        info.nom_Centro_costo_sub_centro_costo_Actu = item.nom_Centro_costo_sub_centro_costo_Actu;
-                        info.nom_Centro_costo_sub_centro_costo_Ant = item.nom_Centro_costo_sub_centro_costo_Ant;
-                        lstInfo.Add(info);
-                    }
-                }
+               
                 return lstInfo;
             }
             catch (Exception ex)
@@ -218,54 +170,6 @@ namespace Core.Erp.Data.ActivoFijo
             {
                 List<vwAf_CambioUbicacion_Info> lstInfo = new List<vwAf_CambioUbicacion_Info>();
 
-                using (EntitiesActivoFijo listado = new EntitiesActivoFijo())
-                {
-                    var select = from q in listado.vwAf_CambioUbicacion
-                                 where q.IdEmpresa == IdEmpresa
-                                 && q.IdActivoFijo == IdActivofijo 
-                                 select q;
-
-                    foreach (var item in select)
-                    {
-                        vwAf_CambioUbicacion_Info info = new vwAf_CambioUbicacion_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdCambioUbicacion = item.IdCambioUbicacion;
-                        info.IdActivoFijo = item.IdActivoFijo;
-                        info.Af_Nombre = item.Af_Nombre;
-                        info.IdSucursal_Actu = item.IdSucursal_Actu;
-                        info.IdSucursal_Ant = item.IdSucursal_Ant;
-                        info.IdDepartamento_Actu = item.IdDepartamento_Actu;
-                        info.nom_departamento_Act = item.nom_departamento_Act;
-                        info.IdDepartamento_Ant = item.IdDepartamento_Ant;
-                        info.nom_departamento_Ant = item.nom_departamento_Ant;
-                        info.IdTipoCatalogo_Ubicacion_Actu = item.IdTipoCatalogo_Ubicacion_Actu;
-                        info.nom_ubicacion_act = item.nom_ubicacion_act;
-                        info.IdTipoCatalogo_Ubicacion_Ant = item.IdTipoCatalogo_Ubicacion_Ant;
-                        info.nom_ubicacion_dest = item.nom_ubicacion_dest;
-                        info.IdCentroCosto_Actu = item.IdCentroCosto_Actu;
-                        info.nom_CentroCosto_Actu = item.nom_CentroCosto_Actu;
-                        info.IdCentroCosto_Ant = item.IdCentroCosto_Ant;
-                        info.nom_CentroCosto_Ant = item.nom_CentroCosto_Ant;
-                        info.FechaCambio = item.FechaCambio;
-                        info.MotivoCambio = item.MotivoCambio;
-
-                        info.IdCentroCosto_Actu = item.IdCentroCosto_Actu;
-
-                        info.nom_Cliente_Actu = item.nom_Cliente_Actu;
-
-                        info.IdCentroCosto_Ant = item.IdCentroCosto_Ant;
-                        info.nom_Cliente_Ant = item.nom_Cliente_Ant;
-                        info.IdEncargado_Actu = item.IdEncargado_Actu;
-                        info.IdEncargado_Ant = item.IdEncargado_Ant;
-                        info.nom_Encargado_Actu = item.nom_Encargado_Actu;
-                        info.nom_Encargado_Ant = item.nom_Encargado_Ant;
-                        info.IdCentroCosto_sub_centro_costo_Actu = item.IdCentroCosto_sub_centro_costo_Actu;
-                        info.IdCentroCosto_sub_centro_costo_Ant = item.IdCentroCosto_sub_centro_costo_Ant;
-                        info.nom_Centro_costo_sub_centro_costo_Actu = item.nom_Centro_costo_sub_centro_costo_Actu;
-                        info.nom_Centro_costo_sub_centro_costo_Ant = item.nom_Centro_costo_sub_centro_costo_Ant;
-                        lstInfo.Add(info);
-                    }
-                }
                 return lstInfo;
             }
             catch (Exception ex)

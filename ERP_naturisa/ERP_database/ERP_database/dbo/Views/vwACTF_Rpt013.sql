@@ -1,7 +1,7 @@
 ﻿CREATE VIEW [dbo].[vwACTF_Rpt013]
 AS
 SELECT        'Depreacion' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Activo_fijo.IdActivoFijo, vwAf_Activo_fijo.CodActivoFijo, vwAf_Activo_fijo.Af_Nombre, 
-                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, vwAf_Activo_fijo.de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
+                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento,''de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
                          vwAf_Activo_fijo.Af_NumSerie, vwAf_Activo_fijo.Af_fecha_compra, vwAf_Activo_fijo.Af_fecha_ini_depre, vwAf_Activo_fijo.Af_fecha_fin_depre, 
                          vwAf_Activo_fijo.Af_Costo_historico, vwAf_Activo_fijo.Af_costo_compra, vwAf_Activo_fijo.Af_Vida_Util, vwAf_Activo_fijo.Af_Meses_depreciar, 
                          vwAf_Activo_fijo.Af_porcentaje_deprec, vwAf_Activo_fijo.Af_NumSerie_Motor, vwAf_Activo_fijo.Af_NumSerie_Chasis, Af_Depreciacion.Fecha_Depreciacion AS Fecha, 
@@ -23,7 +23,7 @@ SELECT        'Depreacion' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Ac
 
 UNION
 SELECT        'Retiro' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Activo_fijo.IdActivoFijo, vwAf_Activo_fijo.CodActivoFijo, vwAf_Activo_fijo.Af_Nombre, 
-                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, vwAf_Activo_fijo.de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
+                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, ''de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
                          vwAf_Activo_fijo.Af_NumSerie, vwAf_Activo_fijo.Af_fecha_compra, vwAf_Activo_fijo.Af_fecha_ini_depre, vwAf_Activo_fijo.Af_fecha_fin_depre, 
                          vwAf_Activo_fijo.Af_Costo_historico, vwAf_Activo_fijo.Af_costo_compra, vwAf_Activo_fijo.Af_Vida_Util, vwAf_Activo_fijo.Af_Meses_depreciar, 
                          vwAf_Activo_fijo.Af_porcentaje_deprec, vwAf_Activo_fijo.Af_NumSerie_Motor, vwAf_Activo_fijo.Af_NumSerie_Chasis, Af_Retiro_Activo.Fecha_Retiro Fecha, 
@@ -39,7 +39,7 @@ SELECT        'Retiro' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Activo
                          Af_Retiro_Activo ON vwAf_Activo_fijo.IdEmpresa = Af_Retiro_Activo.IdEmpresa AND vwAf_Activo_fijo.IdActivoFijo = Af_Retiro_Activo.IdActivoFijo
 UNION
 SELECT        'Venta' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Activo_fijo.IdActivoFijo, vwAf_Activo_fijo.CodActivoFijo, vwAf_Activo_fijo.Af_Nombre, 
-                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, vwAf_Activo_fijo.de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
+                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, ''de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
                          vwAf_Activo_fijo.Af_NumSerie, vwAf_Activo_fijo.Af_fecha_compra, vwAf_Activo_fijo.Af_fecha_ini_depre, vwAf_Activo_fijo.Af_fecha_fin_depre, 
                          vwAf_Activo_fijo.Af_Costo_historico, vwAf_Activo_fijo.Af_costo_compra, vwAf_Activo_fijo.Af_Vida_Util, vwAf_Activo_fijo.Af_Meses_depreciar, 
                          vwAf_Activo_fijo.Af_porcentaje_deprec, vwAf_Activo_fijo.Af_NumSerie_Motor, vwAf_Activo_fijo.Af_NumSerie_Chasis, Af_Venta_Activo.Fecha_Venta Fecha, 
@@ -54,7 +54,7 @@ SELECT        'Venta' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Activo_
                          Af_Venta_Activo ON vwAf_Activo_fijo.IdEmpresa = Af_Venta_Activo.IdEmpresa AND vwAf_Activo_fijo.IdActivoFijo = Af_Venta_Activo.IdActivoFijo
 UNION
 SELECT        'Mejora' AS Tipo_Registro, vwAf_Activo_fijo.IdEmpresa, vwAf_Activo_fijo.IdActivoFijo, vwAf_Activo_fijo.CodActivoFijo, vwAf_Activo_fijo.Af_Nombre, 
-                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, vwAf_Activo_fijo.de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
+                         vwAf_Activo_fijo.IdActijoFijoTipo, vwAf_Activo_fijo.IdDepartamento, ''de_descripcion, vwAf_Activo_fijo.Marca, vwAf_Activo_fijo.Modelo, 
                          vwAf_Activo_fijo.Af_NumSerie, vwAf_Activo_fijo.Af_fecha_compra, vwAf_Activo_fijo.Af_fecha_ini_depre, vwAf_Activo_fijo.Af_fecha_fin_depre, 
                          vwAf_Activo_fijo.Af_Costo_historico, vwAf_Activo_fijo.Af_costo_compra, vwAf_Activo_fijo.Af_Vida_Util, vwAf_Activo_fijo.Af_Meses_depreciar, 
                          vwAf_Activo_fijo.Af_porcentaje_deprec, vwAf_Activo_fijo.Af_NumSerie_Motor, vwAf_Activo_fijo.Af_NumSerie_Chasis, Af_Mej_Baj_Activo.Fecha_Transac AS Fecha, 

@@ -13,7 +13,6 @@ using Core.Erp.Business.General;
 using Core.Erp.Winform.Controles;
 using Core.Erp.Winform.General;
 using Core.Erp.Business.Inventario;
-using Cus.Erp.Reports.Talme.Facturacion;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraReports.Parameters;
 
@@ -1193,31 +1192,6 @@ namespace Core.Erp.Winform.Facturacion
         {
             try
             {
-
-                XFAC_CUS_TAL_Rpt001_rpt REPORTE = new XFAC_CUS_TAL_Rpt001_rpt();
-
-               
-                int idSucursal=0;
-                int idBodega=0;
-                decimal idpedido=0;
-
-                idSucursal = UC_Sucursal_Bodega.get_sucursal().IdSucursal;
-                idBodega = UC_Sucursal_Bodega.get_bodega().IdBodega;
-                idpedido = Convert.ToDecimal(txt_pedido.Text);
-
-                REPORTE.Parameters["IdEmpresa"].Value = param.IdEmpresa;
-                REPORTE.Parameters["IdSucursal"].Value = idSucursal;
-                REPORTE.Parameters["IdBodega"].Value = idBodega;
-                REPORTE.Parameters["IdPedido"].Value = idpedido;
-
-
-                REPORTE.RequestParameters = false;// para q no me obligue a pedir parametros 
-                ReportPrintTool pt = new ReportPrintTool(REPORTE);
-                pt.AutoShowParametersPanel = false;
-
-
-                               
-                REPORTE.ShowPreview();
 
             }
             catch (Exception ex)

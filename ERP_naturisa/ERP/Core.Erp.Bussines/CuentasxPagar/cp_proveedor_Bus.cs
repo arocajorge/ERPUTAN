@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Core.Erp.Data.CuentasxPagar;
 using Core.Erp.Info.CuentasxPagar;
-using Core.Erp.Info.Presupuesto;
 using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using System.Data;
@@ -217,22 +216,6 @@ namespace Core.Erp.Business.CuentasxPagar
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ModificarDB", ex.Message), ex) { EntityType = typeof(cp_proveedor_Bus) };
             }
         }
-
-        public Boolean ModificarDB_Cuentas_cbles(int IdEmpresa, string IdCtaCble_CXP, string IdCtaCble_Anticipo, string IdCtaCble_Gasto, ref string msg)
-        {
-            try
-            {
-                Boolean respuesta = false;
-                respuesta = data.ModificarDB_Cuentas_cbles(IdEmpresa, IdCtaCble_CXP, IdCtaCble_Anticipo, IdCtaCble_Gasto, ref msg);
-                return respuesta;
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ModificarDB_Cuentas_cbles", ex.Message), ex) { EntityType = typeof(cp_proveedor_Bus) };
-            }
-        }
-
         public Boolean VericarCodigoExiste(string codigo, int IdEmp, ref string mensaje)
         {
             try

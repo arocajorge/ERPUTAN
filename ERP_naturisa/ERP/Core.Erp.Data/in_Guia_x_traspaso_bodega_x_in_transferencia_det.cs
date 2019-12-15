@@ -24,7 +24,7 @@ namespace Core.Erp.Data
         public decimal cantidad { get; set; }
         public string observacion { get; set; }
     
-        public virtual in_transferencia_det in_transferencia_det { get; set; }
         public virtual in_Guia_x_traspaso_bodega in_Guia_x_traspaso_bodega { get; set; }
+        public virtual in_transferencia_det in_transferencia_det { get; set; }
     }
 }

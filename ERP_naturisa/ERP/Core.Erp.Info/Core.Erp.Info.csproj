@@ -89,56 +89,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Academico\Aca_Admision_Info.cs" />
-    <Compile Include="Academico\Aca_Anio_Lectivo_Info.cs" />
-    <Compile Include="Academico\Aca_Beca_Info.cs" />
-    <Compile Include="Academico\Aca_contrato_x_estudiante_det_beca_Info.cs" />
-    <Compile Include="Academico\Aca_Contrato_x_Estudiante_det_Info.cs" />
-    <Compile Include="Academico\Aca_Contrato_x_Estudiante_Info.cs" />
-    <Compile Include="Academico\Aca_Contrato_x_Estudiante_x_det_Excepcion_Info.cs" />
-    <Compile Include="Academico\Aca_Curso_Info.cs" />
-    <Compile Include="Academico\Aca_curso_x_Aca_Rubro_Info.cs" />
-    <Compile Include="Academico\Aca_Documento_Bancario_x_Rep_Economico_Info.cs" />
-    <Compile Include="Academico\Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula_Info.cs" />
-    <Compile Include="Academico\Aca_estudiante_x_Aca_Beca_Info.cs" />
-    <Compile Include="Academico\Aca_Familiar_x_Estudiante_Info.cs" />
-    <Compile Include="Academico\Aca_InstitucionFinanciera_Info.cs" />
-    <Compile Include="Academico\Aca_InstitucionFinanciera_x_cod_establecimiento_Info.cs" />
-    <Compile Include="Academico\Aca_Institucion_Info.cs" />
-    <Compile Include="Academico\Aca_Jornada_Info.cs" />
-    <Compile Include="Academico\Aca_Matricula_Info.cs" />
-    <Compile Include="Academico\Aca_Matricula_Tipo_Documento_Info.cs" />
-    <Compile Include="Academico\Aca_Matricula_X_Documento_Info.cs" />
-    <Compile Include="Academico\Aca_Paralelo_Info.cs" />
-    <Compile Include="Academico\Aca_Aspirante_Info.cs" />
-    <Compile Include="Academico\Aca_CatalogoTipo_Info.cs" />
-    <Compile Include="Academico\Aca_Catalogo_Info.cs" />
-    <Compile Include="Academico\Aca_Estudiante_Info.cs" />
-    <Compile Include="Academico\Aca_Estudiante_x_Alergia_Info.cs" />
-    <Compile Include="Academico\Aca_Familiar_Info.cs" />
-    <Compile Include="Academico\Aca_ficha_medica_Info.cs" />
-    <Compile Include="Academico\Aca_Parametros_Info.cs" />
-    <Compile Include="Academico\Aca_PeriodoLectivo_Info.cs" />
-    <Compile Include="Academico\Aca_Periodo_Info.cs" />
-    <Compile Include="Academico\Aca_Pre_Facturacion_det_Info.cs" />
-    <Compile Include="Academico\Aca_Pre_Facturacion_Info.cs" />
-    <Compile Include="Academico\Aca_RubroGrupoFE_Info.cs" />
-    <Compile Include="Academico\Aca_RubroTipo_Info.cs" />
-    <Compile Include="Academico\Aca_Rubro_Info.cs" />
-    <Compile Include="Academico\Aca_Rubro_x_Aca_Periodo_Lectivo_Info.cs" />
-    <Compile Include="Academico\Aca_Seccion_Info.cs" />
-    <Compile Include="Academico\Aca_Sede_Info.cs" />
-    <Compile Include="Academico\Aca_Profesor_Info.cs" />
-    <Compile Include="Academico\Aca_Tarjeta_cred_Info.cs" />
-    <Compile Include="Academico\Aca_Tipo_mecanismo_de_pago_Info.cs" />
-    <Compile Include="Academico\tb_banco_x_mg_banco_Info.cs" />
-    <Compile Include="Academico\Archivo_Para_Bancos\Banco_Internacional_Info.cs" />
-    <Compile Include="Academico\Archivo_Para_Bancos\Pacificar_Info.cs" />
-    <Compile Include="Academico\Archivo_Para_Bancos\VisaMastercardBankard_Bolivariano_Info.cs" />
-    <Compile Include="Academico\Archivo_Para_Bancos\Visa_Diners_Club_Info.cs" />
-    <Compile Include="Academico\fa_factura_aca_Info.cs" />
-    <Compile Include="Academico\vwAca_Familiar_x_Estudiante_RepEco_Info.cs" />
-    <Compile Include="Academico\vw_Aca_Estudiante_Matriculado_Sin_Contrato_Cab_Det_Info.cs" />
     <Compile Include="Bancos\ba_Banco_Otros_Parametros_Info.cs" />
     <Compile Include="Bancos\ba_Banco_Parametros_Info.cs" />
     <Compile Include="Bancos\ba_IngrEgre_x_Cbte_depos_Info.cs" />
@@ -156,25 +106,12 @@
     <Compile Include="Compras\com_SeguimientoEntrega_Info.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Info.cs" />
     <Compile Include="Compras\com_solicitante_x_com_departamento_Info.cs" />
-    <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_Info.cs" />
-    <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_det_gastos_Info.cs" />
-    <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_Info.cs" />
-    <Compile Include="Contabilidad_Fj\ct_punto_cargo_FJ_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_Info.cs" />
     <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_DocumentoDet_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Retencion_Info.cs" />
-    <Compile Include="Factuarcion_CAH\fa_notaCredDeb_aca_Info.cs" />
-    <Compile Include="Academico\vwAca_AnioPeriodo_Activo_Info.cs" />
-    <Compile Include="Academico\vwAca_Contrato_x_Estudiante_x_Rubro_y_Beca_Info.cs" />
-    <Compile Include="Academico\vwAca_curso_Info.cs" />
-    <Compile Include="Academico\vwAca_Estudiante_con_Matricula_Sin_Contrato_Detalle_Info.cs" />
-    <Compile Include="Academico\vwAca_Estudiante_con_Matricula_Sin_Contrato_Info.cs" />
-    <Compile Include="Academico\vwAca_Estudiante_Matricula_Con_y_Sin_Contrato_Info.cs" />
-    <Compile Include="Academico\vwAca_Lista_Familiar_x_Estudiante_Info.cs" />
-    <Compile Include="Academico\vwAca_Matricula_x_Estudiante_Info.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_Categoria_Info.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_CtasCbles_Info.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_CtasCbles_Tipo_Info.cs" />
@@ -205,11 +142,6 @@
     <Compile Include="ActivoFijo\vwAf_Depreciacion_Info.cs" />
     <Compile Include="ActivoFijo\vwAF_OrdenCompra_x_Proveedor_Factura_SinCruce_ActivoFijo_Info.cs" />
     <Compile Include="ActivoFijo\vwAf_Valores_Depre_Contabilizar_Info.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo_Info.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Activo_fijo_x_ct_punto_cargo_Info.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Poliza_x_AF_det_cuota_Info.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Poliza_x_AF_det_Info.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Poliza_x_AF_Info.cs" />
     <Compile Include="Bancos\Archivos_PreAviso_x_Banco\Archivo_Banco_Bolivariano_preAviso_Cheq_Info.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_Det_Info.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_Info.cs" />
@@ -289,41 +221,18 @@
     <Compile Include="Compras\com_CatalogoTipo_Info.cs" />
     <Compile Include="Compras\com_Catalogo_Info.cs" />
     <Compile Include="Compras\com_comprador_Info.cs" />
-    <Compile Include="Compras\com_cotizacion_compra_det_Info.cs" />
-    <Compile Include="Compras\com_cotizacion_compra_Info.cs" />
     <Compile Include="Compras\com_departamento_Info.cs" />
     <Compile Include="Compras\com_dev_compra_det_Info.cs" />
     <Compile Include="Compras\com_dev_compra_Info.cs" />
     <Compile Include="Compras\com_estado_cierre_Info.cs" />
-    <Compile Include="Compras\com_GeneracionOCompra_Info.cs" />
-    <Compile Include="Compras\com_GenerOCompraDet_Info.cs" />
-    <Compile Include="Compras\com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_Info.cs" />
-    <Compile Include="Compras\com_ListadoMateriales_Det_Info.cs" />
-    <Compile Include="Compras\com_ListadoMateriales_Det_x_com_GenerOCompra_Det_Info.cs" />
-    <Compile Include="Compras\com_ListadoMateriales_Info.cs" />
     <Compile Include="Compras\com_Motivo_Orden_Compra_Info.cs" />
     <Compile Include="Compras\com_ordencompra_local_det_Info.cs" />
-    <Compile Include="Compras\com_ordencompra_local_det_x_com_solicitud_compra_det_Info.cs" />
     <Compile Include="Compras\com_ordencompra_local_Info.cs" />
     <Compile Include="Compras\com_parametro_Info.cs" />
-    <Compile Include="Compras\com_rpt_ListadoMateriales_Info.cs" />
     <Compile Include="Compras\com_rpt_ordencompra_local_Info.cs" />
     <Compile Include="Compras\com_solicitante_Info.cs" />
-    <Compile Include="Compras\com_solicitud_compra_det_aprobacion_Info.cs" />
-    <Compile Include="Compras\com_solicitud_compra_det_Info.cs" />
-    <Compile Include="Compras\com_solicitud_compra_det_pre_aprobacion_Info.cs" />
-    <Compile Include="Compras\com_solicitud_compra_Info.cs" />
     <Compile Include="Compras\com_TerminoPago_Info.cs" />
     <Compile Include="Compras\vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_Info.cs" />
-    <Compile Include="Compras\vwcom_solicitud_compra_x_items_con_saldos_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoDisenoTipo_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoDiseno_Det_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoDiseno_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoElementos_x_OT_Det_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoElementos_x_OT_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Info.cs" />
-    <Compile Include="Compras_Edehsa\com_Registro_OrdenCompra_x_Cotizacion_Info.cs" />
     <Compile Include="Contabilidad\ct_AnioFiscal_Info.cs" />
     <Compile Include="Contabilidad\ct_anio_fiscal_x_cuenta_utilidad_Info.cs" />
     <Compile Include="Contabilidad\ct_Balance_x_Estado_Resultado_x_Usuario_Info.cs" />
@@ -399,7 +308,6 @@
     <Compile Include="CuentasxCobrar\vwcxc_cobro_x_documentos_x_cobrar_Info.cs" />
     <Compile Include="CuentasxCobrar\vwcxc_conciliacion_Det_Cobro_Info.cs" />
     <Compile Include="CuentasxCobrar\vwcxc_NotasCreditoConFacturaXCobrar_Info.cs" />
-    <Compile Include="CuentasxCobrar_Grafinpren\cxc_Comisiones_x_vendedor_Info.cs" />
     <Compile Include="CuentasxPagar\Archivos_Pagos_Bancos\Archivo_Banco_Bolivariano_pago_proveedores_Info.cs" />
     <Compile Include="CuentasxPagar\Archivos_Pagos_Bancos\Archivo_Banco_Guayaquil_Pagos_Info.cs" />
     <Compile Include="CuentasxPagar\Archivos_Pagos_Bancos\Archivo_Banco_Pichincha_Pago_Info.cs" />
@@ -511,7 +419,6 @@
     <Compile Include="Facturacion\fa_cliente_pto_emision_cliente_Info.cs" />
     <Compile Include="Facturacion\fa_Cliente_Tabla_Info.cs" />
     <Compile Include="Facturacion\fa_cliente_tipo_Info.cs" />
-    <Compile Include="Facturacion\fa_cliente_x_ct_centro_costo_Info.cs" />
     <Compile Include="Facturacion\fa_Combo_Info.cs" />
     <Compile Include="Facturacion\fa_cotizacion_det_info.cs" />
     <Compile Include="Facturacion\fa_cotizacion_info.cs" />
@@ -591,44 +498,6 @@
     <Compile Include="Facturacion\vwfa_factura_sri_Info.cs" />
     <Compile Include="Facturacion\vwfa_factura_x_cbte_cble_Info.cs" />
     <Compile Include="Facturacion\vwfa_notaCreDeb_sri_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_factura_fj_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_grupo_x_sub_centro_costo_det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_grupo_x_sub_centro_costo_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidaciones_det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidaciones_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidaciones_tipo_proceso_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_producto_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Cobro_x_Depreciacion_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_cobro_x_Movilizacion_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_cobro_x_Unidades_Consumidas_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Fact_x_Gastos_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_gasto_Interes_Banc_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_gasto_mano_obra_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Otros_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_Parametro_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_Parametro_x_Anio_x_Fuerza_MO_RRHH_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Af_Depreciacion_Det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Af_Depreciacion_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Activo_fijo_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_egr_x_bod_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_cobro_x_Poliza_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_registro_unidades_x_equipo_det_ini_x_Af_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_orden_trabajo_plataforma_det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_orden_trabajo_plataforma_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_registro_unidades_x_equipo_det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_registro_unidades_x_equipo_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_det_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_Param_depre_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Info.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Por_comision_Info.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_Equipo_graf_Info.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_factura_graf_Info.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_guia_remision_graf_Info.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_notaCreDeb_graf_Info.cs" />
     <Compile Include="General\Cl_ActividadEconomica_Info.cs" />
     <Compile Include="General\Cl_Categoria_Financiera_Info.cs" />
     <Compile Include="General\cl_Control_De_Erro.cs" />
@@ -702,23 +571,6 @@
     <Compile Include="General\vwtb_sis_Documento_Tipo_x_Disenio_Report_Info.cs" />
     <Compile Include="General\vwtb_sis_Param_Cont_x_Proceso_x_Parametro_x_Sucu_Info.cs" />
     <Compile Include="General\vwtb_Ubicacion_Geografica_Info.cs" />
-    <Compile Include="Importacion\imp_catalogo_Info.cs" />
-    <Compile Include="Importacion\imp_Catalogo_tipo_info.cs" />
-    <Compile Include="Importacion\imp_DatosEmbarque_Info.cs" />
-    <Compile Include="Importacion\imp_gastosxImport_Info.cs" />
-    <Compile Include="Importacion\imp_gastosximport_x_empresa_Info.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_Condiciones_Pago_Info.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_ct_cbtecble_Info.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_imp_gastosxImport_Det_Info.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_imp_gastosxImport_Info.cs" />
-    <Compile Include="Importacion\imp_Parametros_Info.cs" />
-    <Compile Include="Importacion\imp_rpt_Liquidacion_Info.cs" />
-    <Compile Include="Importacion\imp_rpt_ordencompra_ext_Info.cs" />
-    <Compile Include="Importacion\imp_Tipo_docu_pago_Info.cs" />
-    <Compile Include="Importacion\imp_Tipo_docu_pago_x_Empresa_x_tipocbte_Info.cs" />
-    <Compile Include="Importacion\vwImp_GastosImportacion_X_Proveedor_Info.cs" />
-    <Compile Include="Importacion\vwImp_LiquidacionImportacion_Info.cs" />
-    <Compile Include="Importacion\vwImp_OrdenCompraExt_X_CbteCble_Info.cs" />
     <Compile Include="Inventario\in_AjusteFisico_Detalle_Info.cs" />
     <Compile Include="Inventario\in_ajusteFisico_Info.cs" />
     <Compile Include="Inventario\in_CatalogoTipo_Enum.cs" />
@@ -765,12 +617,7 @@
     <Compile Include="Inventario\in_OrdenCompraLocalReporte_Info.cs" />
     <Compile Include="Inventario\in_OrdenCompraLocal_Info.cs" />
     <Compile Include="Inventario\in_parametro_Info.cs" />
-    <Compile Include="Inventario\in_PrecargaItemsDetalle_Info.cs" />
-    <Compile Include="Inventario\in_PrecargaItems_Info.cs" />
     <Compile Include="Inventario\in_presentacion_Info.cs" />
-    <Compile Include="Inventario\in_presupuestoDetalle_Info.cs" />
-    <Compile Include="Inventario\in_presupuesto_Info.cs" />
-    <Compile Include="Inventario\in_presupuesto_Reporte_Info.cs" />
     <Compile Include="Inventario\in_ProductoTipo_Info.cs" />
     <Compile Include="Inventario\in_Producto_Composicion_Info.cs" />
     <Compile Include="Inventario\in_Producto_Info.cs" />
@@ -793,10 +640,6 @@
     <Compile Include="Inventario\in_transferencia_x_in_Guia_x_traspaso_bodega_Info.cs" />
     <Compile Include="Inventario\in_UnidadMedida_Equiv_conversion_Info.cs" />
     <Compile Include="Inventario\in_UnidadMedida_Info.cs" />
-    <Compile Include="Importacion\imp_Ciclo_Info.cs" />
-    <Compile Include="Importacion\imp_Embarcador_Info.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_det_Info.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_Info.cs" />
     <Compile Include="Inventario\SpIn_DispInventario_Info.cs" />
     <Compile Include="Inventario\tbINV_Rpt001_Info.cs" />
     <Compile Include="Inventario\vwIn_Ajuste_fisico_x_relacion_inven_x_cbteCble_Info.cs" />
@@ -810,11 +653,6 @@
     <Compile Include="Inventario\vwin_movi_inve_detalle_x_Contabilizar_x_ctacbles_Info.cs" />
     <Compile Include="Inventario\vwin_movi_inve_x_cbteCble_Datos_Info.cs" />
     <Compile Include="Inventario\vwIn_UnidadMedida_Equivalencia_Info.cs" />
-    <Compile Include="Inventario_Edehsa\in_Categoria_x_Formula_Info.cs" />
-    <Compile Include="Inventario_Edehsa\in_Producto_Dimensiones_Info.cs" />
-    <Compile Include="Inventario_Edehsa\vwin_movi_inve_detalle_x_Producto_CusCider_UltMov_Info.cs" />
-    <Compile Include="Inventario_Fj\in_Orden_servicio_x_Activo_fijo_det_Info.cs" />
-    <Compile Include="Inventario_Fj\in_Orden_servicio_x_Activo_fijo_Info.cs" />
     <Compile Include="Log_Exception\BusException.cs" />
     <Compile Include="Log_Exception\DalException.cs" />
     <Compile Include="Log_Exception\DataException.cs" />
@@ -827,404 +665,12 @@
     <Compile Include="MobileSCI\tbl_usuario_Info.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_bodega_Info.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_subcentro_Info.cs" />
-    <Compile Include="Produccion_Edehsa\prd_MotivoTraslado_Info.cs" />
-    <Compile Include="Produccion_Edehsa\vwprd_Guia_Remision_Electronica_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GenerOCompra_Info.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inven_x_in_movi_inven_CusCidersus_Info.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inve_detalle_CusCidersus_Info.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inve_detalle_x_com_ordencompra_local_det_Info.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inve_detalle_x_Producto_CusCider_Info.cs" />
-    <Compile Include="Inventario_Cidersus\vwIn_Movi_Inven_CusCider_Cab_Info.cs" />
-    <Compile Include="Inventario_Cidersus\vwIn_Movi_Inven_x_CodBarra_CusCider_Info.cs" />
-    <Compile Include="Inventario_Cidersus\vwIn_Movi_Inven_x_TI_CusCider_Cab_Info.cs" />
-    <Compile Include="Inventario_Cidersus\vwin_movi_inve_detalle_x_Producto_CusCider_Saldos_Info.cs" />
-    <Compile Include="Inventario_Cidersus\vwprd_Saldos_x_Req_x_OT_x_Consumo_Info.cs" />
-    <Compile Include="Inventario_Courier\inCou_Bodega_CusTCE_Info.cs" />
-    <Compile Include="Inventario_Courier\inv_cou_AforoTipo_Info.cs" />
-    <Compile Include="Inventario_Courier\inv_cou_Courier_Info.cs" />
-    <Compile Include="Inventario_Courier\inv_cou_Jaula_Info.cs" />
-    <Compile Include="Inventario_Courier\inv_cou_Percha_Info.cs" />
-    <Compile Include="Inventario_Courier\inv_cou_ProductoTipo_Info.cs" />
-    <Compile Include="Inventario_Talme\tbINV_TAL_Rpt001_Info.cs" />
-    <Compile Include="Inventario_Talme\tbINV_TAL_Rpt002_Info.cs" />
-    <Compile Include="Inventario_Talme\tbINV_TAL_Rpt003_Info.cs" />
-    <Compile Include="Inventario_Talme\tbINV_TAL_Rpt004_Info.cs" />
-    <Compile Include="Presupuesto\pre_estadoAprobacion_Info.cs" />
-    <Compile Include="Presupuesto\pre_NombreRubro_Info.cs" />
-    <Compile Include="Presupuesto\pre_ordencompra_local_det_Info.cs" />
-    <Compile Include="Presupuesto\pre_ordencompra_local_Info.cs" />
-    <Compile Include="Presupuesto\pre_PedidoXPresupuesto_det_Info.cs" />
-    <Compile Include="Presupuesto\pre_PedidoXPresupuesto_Info.cs" />
-    <Compile Include="Presupuesto\pre_presupuesto_Info.cs" />
-    <Compile Include="Presupuesto\pre_presupuesto_tipoRubro_Info.cs" />
-    <Compile Include="Presupuesto\pre_prueba.cs" />
-    <Compile Include="Presupuesto\pre_rpt_PedidoXPresupuesto_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_BeneficiarioYProsupuestados_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_ChatarraTipo_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_Clave_Autorizacion_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_CompraChatarra_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_CompraChatarra_CusTalme_x__in_movi_inven_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaAcero_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaAcero_CusTalme_x_in_movi_inven_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaLaminado_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaLaminado_x_paradas_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaTechos_CusTalme_Cab_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaTechos_CusTalme_Detalle_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaTechos_CusTalme_X_in_movi_inve_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_horno_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_LiquidacionChatarraDetalle_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_ModeloProduccion_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_ModeloProduccion_x_Producto_CusTal_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_ParametrosAceria_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_ParametrosPorCampos_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_Parametros_x_MoviInven_x_ModeloProduccion_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_Parametro_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_ProgramaProd_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_TipoParada_CusTalme_Info.cs" />
-    <Compile Include="Produccion_Talme\prod_Turno_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_CotizacionCompras_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlInventarioProd_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccionObreroDetalle_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccionObrero_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccion_Obrero_Cab_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccion_Obrero_x_in_movi_inve_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Conversion_CusCidersus_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_conversion_cusCidersus_x_in_movi_inven_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Conversion_det_CusCidersus_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_DespachoDetalle_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Despacho_cusCidersus_x_in_movi_inven_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Despacho_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_EficienciaPiezas_Rpt_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Ensamblado_CusCider_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ensamblado_cusCider_x_in_movi_inven_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Ensamblado_Det_CusCider_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_EtapaProduccion_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GruposTrabajo_PorPP_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GrupoTrabajoCab.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GrupoTrabajoDetalle_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GrupoTrabajo_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PteGrua_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PuenteGruaMovimiento.cs" />
-    <Compile Include="Produc_Cirdesus\prd_SubGrupoTrabajoDetalle_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_SubGrupoTrabajo_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_MovPteGrua_Det_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_MovPteGrua_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Obra_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Operador_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_OrdenesComprasPendientes_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_OrdenTaller_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_parametros_CusCidersus_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ProcesoProductivo_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ProcesoProductivo_x_prd_obra_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PuenteGrua_Info.cs" />
-    <Compile Include="Produc_Cirdesus\prd_rpt_ControlProducionGrupo_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt003_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt004_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt005_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt006_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt007_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt008_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt009_Info.cs" />
-    <Compile Include="Produc_Cirdesus\tbPRO_CUS_CID_Rpt010_Info.cs" />
-    <Compile Include="Produc_Cirdesus\vwprd_CantidadEnsamblada_x_OT_CusCider_Info.cs" />
-    <Compile Include="Produc_Cirdesus\vwprd_Ensamblado_CabDet_CusCider_Info.cs" />
-    <Compile Include="Produc_Cirdesus\vwprd_MovPteGruaSaldo_Info.cs" />
-    <Compile Include="Produc_Cirdesus\vwprd_UsuarioAutorizados_Cidersus_Info.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Roles\AGP\detalleConyugueDependiente.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\AGP\detalleDiscapacitadosDependientes.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\AGP\detalleGasto.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\AGP\detalleRubrosNoIdentificanProveedor.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\AGP\detallesHijosDependientes.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\AGP\gastosPersonales.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\Archivos para Bancos\ro_Archivo_Banco_Guayaquil_Pagos_Info.cs" />
-    <Compile Include="Roles\Archivos para Bancos\ro_Archivo_Banco_Pichincha_Pago_Info.cs" />
-    <Compile Include="Roles\Archivos para Bancos\ro_Solicitud_Tarjeta_Guayaquil_Info.cs" />
-    <Compile Include="Roles\ro_Acta_Finiquito_Detalle_Info.cs" />
-    <Compile Include="Roles\ro_Acta_Finiquito_Info.cs" />
-    <Compile Include="Roles\ro_Archivos_Bancos_Generacion_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_archivos_bancos_generacion_x_empleado_Info.cs" />
-    <Compile Include="Roles\ro_Archivo_Bancos_Generacion_Detalle_Info.cs" />
-    <Compile Include="Roles\ro_Archivo_IESS_Generacion_Info.cs" />
-    <Compile Include="Roles\ro_area_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Area_X_Departamento_Info.cs" />
-    <Compile Include="Roles\ro_Asignacion_Implemento_x_Empleado_det_Info.cs" />
-    <Compile Include="Roles\ro_Asignacion_Implemento_x_Empleado_Info.cs" />
-    <Compile Include="Roles\Archivos para Bancos\ro_Banco_bolivariano_Info.cs" />
-    <Compile Include="Roles\Archivos para Bancos\ro_Banco_pacifico_Info.cs" />
-    <Compile Include="Roles\ro_calculos_formula_IESS_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Capacitaciones_x_Empleado_Info.cs" />
-    <Compile Include="Roles\ro_CargaFamiliar_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Cargo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_CatalogoTipo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Catalogo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Comprobantes_Contables_Info.cs" />
-    <Compile Include="Roles\ro_ConexionBiometrico_Info.cs" />
-    <Compile Include="Roles\ro_Config_Param_contable_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_Rubros_Decimos_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_Rubros_ParametrosGenerales_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_Rubros_x_Empresa_AportaIess_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_rubros_x_Prestamo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_SueldoBasico_x_anio_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_ConfLiquiRol_X_Empleado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_ConfRubrosAcumulado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_contrato_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Cuentas_contables_x_empleado_Info.cs" />
-    <Compile Include="Roles\ro_Cxc_tipo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Departamento_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_DiasFaltados_x_Empleado_Info.cs" />
-    <Compile Include="Roles\ro_dias_Info.cs" />
-    <Compile Include="Roles\ro_division_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_DocumentoxEmp_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_estudios_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_gastos_perso_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_gastos_perso_x_Gastos_deduci_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_gastos_perso_x_otros_gast_deduci_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_Novedad_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_Novedad_Det_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_TipoNomina_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_x_centro_costo_Info.cs" />
-    <Compile Include="Roles\ro_empleado_x_centro_costo_x_rubro_Info.cs" />
-    <Compile Include="Roles\ro_Empleado_X_Horario_Info.cs" />
-    <Compile Include="Roles\ro_empleado_x_Proyeccion_Gastos_Personales_Info.cs" />
-    <Compile Include="Roles\ro_empleado_x_ro_rubro_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_x_rubro_acumulado_Info.cs" />
-    <Compile Include="Roles\ro_empleado_x_titulos_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empresa_x_TipoLiqui_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_HistoricoSueldo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Historico_Liquidacion_Vacaciones_Det_Info.cs" />
-    <Compile Include="Roles\ro_historico_liquidacion_vacaciones_Info.cs" />
-    <Compile Include="Roles\ro_historico_vacaciones_x_empleado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Horario_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_horario_planificacion_Grid_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_horario_planificacion_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_marcaciones_Equipo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_marcaciones_Equipo_x_TipoMarcacion_Info.cs" />
-    <Compile Include="Roles\ro_marcaciones_tipo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_marcaciones_x_empleado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Nomina_Tipoliqui_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Nomina_Tipoliqui_x_Sueldo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Nomina_Tipo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_nomina_tipo_liqui_orden_Info.cs" />
-    <Compile Include="Roles\ro_Nomina_X_Horas_Extras_Info.cs" />
-    <Compile Include="Roles\ro_Novedad_Subida_Bach_Info.cs" />
-    <Compile Include="Roles\ro_Novedad_x_Empleado_Info.cs" />
-    <Compile Include="Roles\ro_Pago_decimos_x_Empleado_Info.cs" />
-    <Compile Include="Roles\ro_Parametros_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_parametro_contable_x_Nomina_Tipoliqui_Sueldo_x_Pagar_Info.cs" />
-    <Compile Include="Roles\ro_Participacion_Utilidad_Empleado_Info.cs" />
-    <Compile Include="Roles\ro_Participacion_Utilidad_Info.cs" />
-    <Compile Include="Roles\ro_periodo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_periodo_x_ro_Nomina_TipoLiqui_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_permiso_x_empleado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_prestamo_detalle_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_prestamo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Rdep_Detalle_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Rdep_Info.cs" />
-    <Compile Include="Roles\ro_Rol_Detalle_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_rol_detalle_x_rubro_acumulado_Info.cs" />
-    <Compile Include="Roles\ro_rol_individual_Info.cs" />
-    <Compile Include="Roles\ro_Rol_Info.cs" />
-    <Compile Include="Roles\ro_rubro_tipo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Salario_Digno_Empleado_Info.cs" />
-    <Compile Include="Roles\ro_Salario_Digno_Info.cs" />
-    <Compile Include="Roles\ro_SolicitudVacaciones_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_TablaSectorial_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_tabla_Impu_Renta_Info.cs" />
-    <Compile Include="Roles\ro_TipoLiqui_Rol_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_tipo_gastos_personales_tabla_valores_x_anio_Info.cs" />
-    <Compile Include="Roles\ro_Tipo_Liquidacion_Sueldo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Tipo_Prestamo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Turno_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_turno_x_tb_dia_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\tbROL_NominaGeneral_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\tbROL_Rpt002_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\tbROL_Rpt003_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\vwro_empleado_por_novedades_cabecera_Info.cs" />
-    <Compile Include="Roles\vwro_empleado_por_novedades_Info.cs" />
-    <Compile Include="Roles\VwRo_Planificaion_Horarios_x_Empleado_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\vwRo_Prestamo_Info.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Academico\vwAca_Institucion_x_Sede_x_Jorn_x_Sec_Curso_x_Para_Info.cs" />
-    <Compile Include="Roles_Fj\ro_Calculo_Pago_Variable_Porcentaje_Info.cs" />
-    <Compile Include="Roles_Fj\ro_descuento_no_planificados_Det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_descuento_no_planificados_Info.cs" />
-    <Compile Include="Roles_Fj\ro_disco_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_Novedad_x_horasExtras_Pendiente_Aprobar_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_Activo_Fijo_Historico_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_Activo_Fijo_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_parametro_x_pago_variable_Det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_parametro_x_pago_variable_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_turno_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_rutas_asignadas_Det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_rutas_asignadas_Info.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_Entrega_x_Periodo_Empleado_Det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_Entrega_x_Periodo_Empleado_Info.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_x_empleado_Adm_x_periodo_Det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_x_empleado_Adm_x_periodo_Info.cs" />
-    <Compile Include="Roles_Fj\ro_fuerza_Info.cs" />
-    <Compile Include="Roles_Fj\ro_Grupo_empleado_det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_parametros_reporte_Info.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_Det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_Info.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_tipo_Enum.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_tipo_Info.cs" />
-    <Compile Include="Roles_Fj\ro_placa_Info.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_jornada_desfasada_empleado_Info.cs" />
-    <Compile Include="Roles_Fj\ro_Grupo_empleado_Info.cs" />
-    <Compile Include="Roles_Fj\ro_marcaciones_x_empleado_x_incidentes_falt_Perm_Info.cs" />
-    <Compile Include="Roles_Fj\ro_marcaciones_x_Jornada_Info.cs" />
-    <Compile Include="Roles_Fj\ro_Parametro_calculo_Horas_Extras_Info.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_jornada_desfasada_Info.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_ruta_x_empleado_det_Info.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_ruta_x_empleado_Info.cs" />
-    <Compile Include="Roles_Fj\ro_Remplazo_x_emplado_Info.cs" />
-    <Compile Include="Roles_Fj\ro_ruta_Info.cs" />
-    <Compile Include="Roles_Fj\ro_sala_Info.cs" />
-    <Compile Include="Roles_Fj\ro_zona_Info.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_info.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_Categoria_Info.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_Grupo_Info.cs" />
@@ -1238,10 +684,6 @@
     <Compile Include="SeguridadAcceso\seg_Usuario_x_Empresa_info.cs" />
     <Compile Include="SeguridadAcceso\seg_usuario_x_tb_sis_reporte_Info.cs" />
     <Compile Include="SRI\Comprobante_Info.cs" />
-    <Compile Include="SRI\sri_ciudad_Info.cs" />
-    <Compile Include="SRI\sri_provincia_Info.cs" />
-    <Compile Include="SRI\sri_tipoIdentificacion_Info.cs" />
-    <Compile Include="SRI\sri_tipo_Gasto_Info.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

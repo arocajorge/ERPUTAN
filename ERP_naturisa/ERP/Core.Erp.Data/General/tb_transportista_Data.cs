@@ -18,20 +18,21 @@ namespace Core.Erp.Data.General
                 {
                     
                     EntitiesGeneral ListTrans = new EntitiesGeneral();
-                    var datos=from T in ListTrans.tb_transportista
-                        where T.IdEmpresa==IdEmpresa
-                                  select T;
-                    foreach(var item in datos)
+                    var datos = ListTrans.tb_transportista.Where(T => T.IdEmpresa == IdEmpresa).ToList();
+
+                    foreach (var item in datos)
                     {
-                        tb_transportista_Info info = new tb_transportista_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdTransportista = item.IdTransportista;
-                        info.Cedula = item.Cedula;
-                        info.Nombre = item.Nombre;
-                        info.Estado = item.Estado;
-                        info.Placa = item.Placa;
-                        info.pe_nombreCompleto = item.Nombre;
-                        lista.Add(info);
+                        lista.Add(new tb_transportista_Info
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdTransportista = item.IdTransportista,
+                            Cedula = item.Cedula,
+                            Nombre = item.Nombre,
+                            Estado = item.Estado,
+                            Placa = item.Placa,
+                            pe_nombreCompleto = item.Nombre,
+                        });
+                        
                     }
                 }
 

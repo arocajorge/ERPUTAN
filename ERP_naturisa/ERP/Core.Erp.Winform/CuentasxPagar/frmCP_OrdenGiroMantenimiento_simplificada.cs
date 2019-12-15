@@ -935,17 +935,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                if (uCct_Pto_Cargo1.Get_Id_Pto_Cargo() != 0)
-                {
-                    info_punto_cargo = bus_punto_cargo.Get_info_punto_Cargo_con_subcentro(param.IdEmpresa, uCct_Pto_Cargo1.Get_Id_Pto_Cargo());
-                    uCct_CentroCosto1.Set_centro_costo(info_punto_cargo.IdCentroCosto_Scc);
-                    uCct_CentroCosto1.Set_sub_centro_costo(info_punto_cargo.IdCentroCosto_sub_centro_costo_Scc);
-                }
-                else
-                {
-                    uCct_CentroCosto1.Set_centro_costo("");
-                    uCct_CentroCosto1.Set_sub_centro_costo("");
-                }
+                
                 Armar_diario();
             }
             catch (Exception ex)

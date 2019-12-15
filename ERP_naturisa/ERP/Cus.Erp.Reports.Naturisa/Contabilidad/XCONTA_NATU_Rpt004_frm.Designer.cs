@@ -49,7 +49,7 @@
             this.colDebito_Mes = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCredito_Mes = new DevExpress.XtraGrid.Columns.GridColumn();
             this.uCct_Menu_Reportes1 = new Core.Erp.Reportes.Controles.UCct_Menu_Reportes();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmGe_Esperar), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_imagen)).BeginInit();
             this.panel1.SuspendLayout();

@@ -3,13 +3,11 @@ using Core.Erp.Business.Compras;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Business.CuentasxPagar;
 using Core.Erp.Business.General;
-using Core.Erp.Business.Importacion;
 using Core.Erp.Info.Bancos;
 using Core.Erp.Info.Compras;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Importacion;
 using Core.Erp.Winform.Controles;
 using Core.Erp.Winform.Compras;
 using Core.Erp.Winform.General;
@@ -31,7 +29,6 @@ using Cus.Erp.Reports.Naturisa.CuentasxPagar;
 using Cus.Erp.Reports;
 using Core.Erp.Reportes.Contabilidad;
 using DevExpress.XtraReports.UI;
-using Cus.Erp.Reports.CAH.Contabilidad;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -51,10 +48,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         Nullable<int> IdPunto_cargo = null;
         Nullable<int> IdPunto_cargo_grupo = null;
         //Bus
-        BindingList<imp_ordencompra_ext_x_imp_gastosxImport_Info> BindLstGtoImpOC = new BindingList<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
 
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
-        imp_gastosxImport_Bus gastosxImp_B = new imp_gastosxImport_Bus();
         cp_proveedor_Bus proveedorB = new cp_proveedor_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         ct_Plancta_Bus _PlanCta_bus = new ct_Plancta_Bus();
@@ -66,7 +61,6 @@ namespace Core.Erp.Winform.CuentasxPagar
         ct_Centro_costo_Bus _CentroCostoBus = new ct_Centro_costo_Bus();
         cp_parametros_Bus paramCP_B = new cp_parametros_Bus();
         cp_orden_giro_x_imp_ordencompra_ext_Bus Importacion_B = new cp_orden_giro_x_imp_ordencompra_ext_Bus();
-        imp_gastosxImport_Bus BusGastos = new imp_gastosxImport_Bus();
         ba_Banco_Cuenta_Bus bancoB = new ba_Banco_Cuenta_Bus();
         cp_reembolso_Bus Reem_B = new cp_reembolso_Bus();
         cp_orden_giro_x_com_ordencompra_local_Bus OC_B = new cp_orden_giro_x_com_ordencompra_local_Bus();
@@ -75,18 +69,14 @@ namespace Core.Erp.Winform.CuentasxPagar
         tb_Sucursal_Bus bus_sucursal = new tb_Sucursal_Bus();
         //Listas
         List<cp_TipoDocumento_Info> LstTipDoc = new List<cp_TipoDocumento_Info>();
-        List<imp_ordencompra_ext_x_ct_cbtecble_Info> LstocXcbt_I = new List<imp_ordencompra_ext_x_ct_cbtecble_Info>();
         List<cp_retencion_det_Info> _ListaRetencionOld = new List<cp_retencion_det_Info>();
         List<cp_retencion_det_Info> _ListaRetencion = new List<cp_retencion_det_Info>();
         List<ct_Cbtecble_det_Info> _ListaCbteCbleDetAnt = new List<ct_Cbtecble_det_Info>();
       //  List<ct_Centro_costo_Info> _CentroCostoListaInfo = new List<ct_Centro_costo_Info>();
         List<cp_orden_giro_x_imp_ordencompra_ext_Info> LisImportacion = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();
         List<cp_orden_giro_x_imp_ordencompra_ext_Info> LisImportacionOld = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();
-        List<imp_gastosxImport_Info> lstGastosPOrImportacion = new List<imp_gastosxImport_Info>();
-        List<imp_ordencompra_ext_Info> Lstimportaciones = new List<imp_ordencompra_ext_Info>();
         List<cp_codigo_SRI_Info> ListCodigoSRI = new List<cp_codigo_SRI_Info>();
         List<cp_reembolso_Info> lst_reembolso = new List<cp_reembolso_Info>();
-        List<imp_ordencompra_ext_x_imp_gastosxImport_Info> LstImportacionGrid = new List<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
         List<cp_orden_giro_x_com_ordencompra_local_Info> LstImportacionOC = new List<cp_orden_giro_x_com_ordencompra_local_Info>();
         List<cp_orden_giro_pagos_sri_Info> lst_formasPagoSRI = new List<cp_orden_giro_pagos_sri_Info>();
         List<tb_Sucursal_Info> lst_sucursal = new List<tb_Sucursal_Info>();
@@ -100,7 +90,6 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_orden_giro_Info Info_OrdenGiro = new cp_orden_giro_Info();
 
         cp_parametros_Info paramCP_I = new cp_parametros_Info();
-        imp_ordencompra_ext_x_imp_gastosxImport_Info _Info = new imp_ordencompra_ext_x_imp_gastosxImport_Info();
         cp_orden_giro_x_com_ordencompra_local_Info OC_I = new cp_orden_giro_x_com_ordencompra_local_Info();
         cp_retencion_Info Info_Retencion = new cp_retencion_Info();
         ct_Cbtecble_Info Info_CbteCble_x_Ret = new ct_Cbtecble_Info();
@@ -697,7 +686,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cmbTipoDocu.Properties.DisplayMember = "Descripcion";
                 cmbTipoDocu.Properties.ValueMember = "CodTipoDocumento";
 
-                gridControlGastos.DataSource = BindLstGtoImpOC;
                 cmb_ICE.Properties.DataSource = ListCodigoSRI.FindAll(c => c.co_estado == "A" && c.IdTipoSRI == "COD_ICE");
 
                 cmb_ICE.Properties.DisplayMember = "descriConcate";
@@ -716,13 +704,6 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                //GASTOS DE IMPORTACION
-                imp_ordencompra_ext_Bus BusImpor = new imp_ordencompra_ext_Bus();
-                Lstimportaciones = BusImpor.Get_List_ordencompra_ext_x_Gastos(param.IdEmpresa);
-                cmbOCExt.DataSource = Lstimportaciones;
-
-                lstGastosPOrImportacion = BusGastos.Get_List_gastosxImport();
-                cmbGtoImp.DataSource = lstGastosPOrImportacion;
             }
             catch (Exception ex)
             {
@@ -1510,109 +1491,6 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
         }
        
-        public void GetImportacion()
-        {
-            try
-            {
-                ba_Banco_Cuenta_Info Ctabanco = bancoB.Get_list_Banco_Cuenta(param.IdEmpresa).FirstOrDefault();
-
-                List<imp_ordencompra_ext_x_imp_gastosxImport_Det_Info> lstGrid = new List<imp_ordencompra_ext_x_imp_gastosxImport_Det_Info>();
-                LstImportacionGrid = new List<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
-                LstocXcbt_I = new List<imp_ordencompra_ext_x_ct_cbtecble_Info>();
-                LisImportacion = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();
-                
-                foreach (var item in BindLstGtoImpOC)
-                {
-                    imp_ordencompra_ext_x_imp_gastosxImport_Det_Info Grid_I = new imp_ordencompra_ext_x_imp_gastosxImport_Det_Info();
-                    
-                   Grid_I.IdRegistroGasto = item.IdRegistroGasto ;
-                   Grid_I.IdOrdenCompraExt = item.IdOrdenCompraExt;
-                   Grid_I.IdGastoImp = item.IdGastoImp;
-                   Grid_I.IdSucusal = Convert.ToInt32(cmb_sucursal.EditValue);
-                   Grid_I.Valor = item.Valor;                       
-                        
-                   lstGrid.Add(Grid_I);                   
-                }
-     
-                var GruplstGrid = from CB in lstGrid
-                                  orderby CB.IdOrdenCompraExt
-                                  group CB by new { CB.IdOrdenCompraExt }
-                                      into grouping
-                                      select new { grouping.Key };
-
-                foreach (var item in GruplstGrid)
-                {
-                    imp_ordencompra_ext_x_imp_gastosxImport_Info info = new imp_ordencompra_ext_x_imp_gastosxImport_Info();
-                    imp_ordencompra_ext_x_ct_cbtecble_Info ocXcbt_I = new imp_ordencompra_ext_x_ct_cbtecble_Info();
-                    cp_orden_giro_x_imp_ordencompra_ext_Info infoOcXcbt_I = new cp_orden_giro_x_imp_ordencompra_ext_Info();
-
-                    var datImp = Lstimportaciones.First(var => var.IdOrdenCompraExt == item.Key.IdOrdenCompraExt);
-
-                    info.IdEmpresa = datImp.IdEmpresa;
-         
-                    info.IdSucusal = datImp.IdSucusal;
-                    info.IdOrdenCompraExt = datImp.IdOrdenCompraExt;
-                    info.Fecha = Convert.ToDateTime(dtp_fechaOG.Value.ToShortDateString());
-                    info.Observacion = txt_observacion.Text;
-                    info.IdProveedor = InfoProveedor.IdProveedor;
-                    info.IdBanco = Ctabanco.IdBanco;
-                    info.CodDocu_Pago = "FACPROV";
-                    info.Estado = "A";
-                    info.IdTipoCbte = _IdTipoCbte;
-                    info.IdCbteCble = Convert.ToDecimal(txt_NOrdeG.Text);
-                    info.IdUsuario = param.IdUsuario;
-                    info.Fecha_Transac = param.Fecha_Transac;
-                    info.IdUsuarioUltMod = param.IdUsuario;
-                    info.Fecha_UltMod = param.Fecha_Transac;
-                    info.nom_pc = param.nom_pc;
-                    info.ip = param.ip;
-
-                    //para imp_ordenCompra_ext_x_xt_cbtecble
-                    ocXcbt_I.imp_IdEmpresa = datImp.IdEmpresa;
-                    ocXcbt_I.imp_IdSucusal = datImp.IdSucusal;
-                    ocXcbt_I.imp_IdOrdenCompraExt = datImp.IdOrdenCompraExt;
-                    ocXcbt_I.ct_IdEmpresa = param.IdEmpresa;
-                    ocXcbt_I.ct_IdTipoCbte = _IdTipoCbte;
-                    ocXcbt_I.ct_IdCbteCble = Convert.ToDecimal(txt_NOrdeG.Text);
-                    ocXcbt_I.TipoReg = "Gast";
-
-                    //para CxP
-                    infoOcXcbt_I.imp_IdEmpresa = datImp.IdEmpresa;
-                    infoOcXcbt_I.imp_IdSucursal = datImp.IdSucusal;
-                    infoOcXcbt_I.imp_IdOrdenCompraExt = datImp.IdOrdenCompraExt;
-                    infoOcXcbt_I.og_IdEmpresa = param.IdEmpresa;
-                    infoOcXcbt_I.og_IdTipoCbte = _IdTipoCbte;
-                    infoOcXcbt_I.og_IdCbteCble = Convert.ToDecimal(txt_NOrdeG.Text);
-
-                    foreach (var item2 in lstGrid)
-                    {
-                        if (item.Key.IdOrdenCompraExt == item2.IdOrdenCompraExt)
-                        {
-                            imp_ordencompra_ext_x_imp_gastosxImport_Det_Info infoDet = new imp_ordencompra_ext_x_imp_gastosxImport_Det_Info();
-
-                            infoDet.IdEmpresa = datImp.IdEmpresa;
-                            //infoDet.IdRegistroGasto = item2.IdRegistroGasto;
-                            infoDet.IdSucusal = datImp.IdSucusal;
-                            infoDet.IdOrdenCompraExt = datImp.IdOrdenCompraExt;
-                            infoDet.Secuencia = 0;
-                            infoDet.IdGastoImp = item2.IdGastoImp;
-                            infoDet.Valor = item2.Valor;
-
-                            info.ListaGastos.Add(infoDet);
-                        }
-                    }
-
-                    LstImportacionGrid.Add(info);
-                    LstocXcbt_I.Add(ocXcbt_I);
-                    LisImportacion.Add(infoOcXcbt_I);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         public cp_retencion_Info get_lisRetencion()
         {
             try
@@ -2062,41 +1940,6 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
         }
 
-        
-        public void set_Importacion()
-        {
-            try
-            {
-                if (LisImportacionOld.Count > 0)
-                {
-                    var c = LisImportacionOld.First();
-
-                    List<vwImp_GastosImportacion_X_Proveedor_Info> lstGasImp =
-                        gastosxImp_B.Get_List_GastosImportacion_X_ProveedorYCbte(param.IdEmpresa, c.og_IdTipoCbte, c.og_IdCbteCble);
-                    List<imp_ordencompra_ext_x_imp_gastosxImport_Info> listGasto = new List<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
-
-                    foreach (var item in lstGasImp)
-                    {
-                        imp_ordencompra_ext_x_imp_gastosxImport_Info Info = new imp_ordencompra_ext_x_imp_gastosxImport_Info();
-                        Info.IdRegistroGasto = item.IdRegistroGasto;
-                        Info.IdSucusal = item.IdSucursal;
-                        Info.IdEmpresa = item.IdEmpresa;
-                        Info.IdGastoImp = item.IdGastoImp;
-                        Info.Secuencia = item.Secuencia;
-                        Info.Valor = item.Valor;
-                        Info.IdOrdenCompraExt = item.IdOrdenCompraExt;
-                        listGasto.Add(Info);
-                    }
-                    BindLstGtoImpOC = new BindingList<imp_ordencompra_ext_x_imp_gastosxImport_Info>(listGasto);
-                    gridControlGastos.DataSource = BindLstGtoImpOC;
-                }
-            }
-            catch (Exception ex)
-            { Log_Error_bus.Log_Error(ex.ToString());
-            MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         #endregion
 
         #region Región Grabar
@@ -2113,7 +1956,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                     get_CbteCble_det();
                     get_ordenGiro();
                     get_reembolso_y_formasPago();
-                    GetImportacion();
                     Info_OrdenGiro.Info_cuotas_x_doc = ucCp_cuotas_x_doc1.Get_info_cuota();
 
                     if (!chk_TieneRetencion.Checked == false)
@@ -2131,8 +1973,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                     Info_OrdenGiro.Info_Retencion=Info_Retencion;
                     Info_OrdenGiro.Info_Retencion.Info_CbteCble_x_RT=Info_CbteCble_x_Ret;
                     
-                    Info_OrdenGiro.LstImportacionGrid=LstImportacionGrid;
-                    Info_OrdenGiro.LstocXcbt_I=LstocXcbt_I;
                     Info_OrdenGiro.LisImportacion=LisImportacion;
                     Info_OrdenGiro.LstImportacionOC=LstImportacionOC;
                     
@@ -2198,14 +2038,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     reporte_natu.RequestParameters = true;
                                     reporte_natu.ShowPreviewDialog();
                                     break;
-
-                                case Cl_Enumeradores.eCliente_Vzen.CAH:
-                                    XCONTA_CAH_Rpt001_Rpt reporte_CAH = new XCONTA_CAH_Rpt001_Rpt();
-                                    reporte_CAH.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
-                                    reporte_CAH.RequestParameters = true;
-                                    reporte_CAH.ShowPreviewDialog();
-                                    break;
-
                                 default:
                                     XCONTA_Rpt003_rpt reporte1 = new XCONTA_Rpt003_rpt();
                                     reporte1.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
@@ -2303,13 +2135,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     reporte_natu.ShowPreviewDialog();
                                     break;
 
-                                case Cl_Enumeradores.eCliente_Vzen.CAH:
-                                    XCONTA_CAH_Rpt001_Rpt reporte_CAH = new XCONTA_CAH_Rpt001_Rpt();
-                                    reporte_CAH.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
-                                    reporte_CAH.RequestParameters = true;
-                                    reporte_CAH.ShowPreviewDialog();
-                                    break;
-
                                 default:
                                     XCONTA_Rpt003_rpt reporte1 = new XCONTA_Rpt003_rpt();
                                     reporte1.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
@@ -2383,7 +2208,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                     get_CbteCble_det();
                     get_ordenGiro();
                     get_reembolso_y_formasPago();
-                    GetImportacion();
                     Info_OrdenGiro.Info_cuotas_x_doc = ucCp_cuotas_x_doc1.Get_info_cuota();
 
                     #region obtiene retencion si hay, sino setea null a retencion y CbteCble_R
@@ -2403,8 +2227,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                     Info_OrdenGiro.lst_formasPagoSRI=lst_formasPagoSRI;
                     Info_OrdenGiro.Info_Retencion=Info_Retencion;
                     Info_OrdenGiro.Info_Retencion.Info_CbteCble_x_RT=Info_CbteCble_x_Ret;
-                    Info_OrdenGiro.LstImportacionGrid=LstImportacionGrid;
-                    Info_OrdenGiro.LstocXcbt_I=LstocXcbt_I;
                     Info_OrdenGiro.LisImportacion=LisImportacion;
                     Info_OrdenGiro.LstImportacionOC=LstImportacionOC;
                    
@@ -2465,13 +2287,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     reporte_natu.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
                                     reporte_natu.RequestParameters = true;
                                     reporte_natu.ShowPreviewDialog();
-                                    break;
-
-                                case Cl_Enumeradores.eCliente_Vzen.CAH:
-                                    XCONTA_CAH_Rpt001_Rpt reporte_CAH = new XCONTA_CAH_Rpt001_Rpt();
-                                    reporte_CAH.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
-                                    reporte_CAH.RequestParameters = true;
-                                    reporte_CAH.ShowPreviewDialog();
                                     break;
 
                                 default:
@@ -2794,13 +2609,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                             reporte_natu.set_parametros(IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
                             reporte_natu.RequestParameters = true;
                             reporte_natu.ShowPreviewDialog();    
-                            break;
-
-                        case Cl_Enumeradores.eCliente_Vzen.CAH:
-                            XCONTA_CAH_Rpt001_Rpt reporte_CAH = new XCONTA_CAH_Rpt001_Rpt();
-                            reporte_CAH.set_parametros(param.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
-                            reporte_CAH.RequestParameters = true;
-                            reporte_CAH.ShowPreviewDialog();
                             break;
 
                         default:
@@ -3135,7 +2943,6 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                    GetImportacion();
             }
             catch (Exception ex)
             {
@@ -4670,9 +4477,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 ucCp_Retencion1.LimpiarGrid_Retencion();
 
-                BindLstGtoImpOC = new BindingList<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
-                gridControlGastos.DataSource = BindLstGtoImpOC;
-
                 BindingList_Reembolso = new BindingList<cp_reembolso_Info>();
                 gridControl_reembolso.DataSource = BindingList_Reembolso;
 
@@ -4692,8 +4496,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 Info_Retencion = new cp_retencion_Info();
                 Info_CbteCble_x_Ret = new ct_Cbtecble_Info();
                 _ListaRetencionOld = new List<cp_retencion_det_Info>();
-                LstImportacionGrid = new List<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
-                LstocXcbt_I = new List<imp_ordencompra_ext_x_ct_cbtecble_Info>();
                 LisImportacion = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();
                 LstImportacionOC = new List<cp_orden_giro_x_com_ordencompra_local_Info>();
                           

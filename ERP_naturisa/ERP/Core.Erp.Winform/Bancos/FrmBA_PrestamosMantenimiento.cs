@@ -8,15 +8,13 @@ using System.Text;
 using System.Windows.Forms;
 using Core.Erp.Info.Bancos;
 using Core.Erp.Business.Bancos;
-using Core.Erp.Info.Roles;
-using Core.Erp.Business.Roles;
 using Core.Erp.Winform.General;
-using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Business.ActivoFijo;
 using System.Threading;
 using DevExpress.XtraSplashScreen;
+using Core.Erp.Business.General;
 
 namespace Core.Erp.Winform.Bancos
 {
@@ -54,8 +52,6 @@ namespace Core.Erp.Winform.Bancos
 
         tb_Calendario_Bus Bus_Calendario = new tb_Calendario_Bus();
         tb_Calendario_Info InfoCalendario = new tb_Calendario_Info();
-        ro_Nomina_Tipo_Bus Bus_TipoNo = new ro_Nomina_Tipo_Bus();
-        ro_Empleado_Bus BusEmpleado = new ro_Empleado_Bus();
         ba_prestamo_Bus prestamo_Infoecera_b = new ba_prestamo_Bus();
         Cl_Enumeradores.eTipo_action enu = new Cl_Enumeradores.eTipo_action();
         List<ba_Catalogo_Info> ListaTempo = new List<ba_Catalogo_Info>();
@@ -129,7 +125,6 @@ namespace Core.Erp.Winform.Bancos
               try
               {
                   gridControl_Activos_Prendados.DataSource = lista_activos_prendados;
-                  cmb_cliente.Cargar_combos();
 
                  // Load_Datos();
                   switch (enu)
@@ -1213,7 +1208,6 @@ namespace Core.Erp.Winform.Bancos
                 prestamo_Info.IdTipoFlujo = ucBa_TipoFlujo.get_TipoFlujoInfo().IdTipoFlujo;
                 prestamo_Info.Fecha = Convert.ToDateTime(this.dtpFechaReg.EditValue);
                 prestamo_Info.Fecha_Transac = param.Fecha_Transac;
-                prestamo_Info.IdCliente = cmb_cliente.Get_Info_Cliente_x_Centro_costo().IdCliente_cli;
             }
             catch (Exception ex)
             {
@@ -1257,7 +1251,6 @@ namespace Core.Erp.Winform.Bancos
                 dtpFechaPago.EditValue = SETINFO_.Fecha_PriPago;
                 dtpFechaReg.EditValue = SETINFO_.Fecha;
                 txtpagoContado.EditValue = SETINFO_.Pago_contado;
-                cmb_cliente.Set_Info_Cliente_x_Centro_costo(SETINFO_.IdCliente);
                 if (SETINFO_.Estado == "I")
                 {
 

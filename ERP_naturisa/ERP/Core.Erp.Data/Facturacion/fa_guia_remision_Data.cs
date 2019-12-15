@@ -6,10 +6,6 @@ using System.Text;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
-using Core.Erp.Data.Facturacion_Grafinpren;
-using Core.Erp.Data.Produccion_Edehsa;
-
-using Core.Erp.Info.Produccion_Edehsa;
 
 using Core.Erp.Info.class_sri.GuiaRemision;
 using Core.Erp.Info.class_sri.FacturaV2;

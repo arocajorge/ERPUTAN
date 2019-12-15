@@ -22,7 +22,6 @@ using Core.Erp.Business.Compras;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Business.CuentasxPagar;
 
-using Cus.Erp.Reports.FJ.CuentasxPagar;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -874,10 +873,7 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                XCXP_FJ_Rpt001_Rpt rpt = new XCXP_FJ_Rpt001_Rpt();
-                Get();
-                rpt.Parameters["idGuia"].Value = Convert.ToDecimal(txtIdGuia.Text);
-                rpt.ShowPreviewDialog();
+
             }
             catch (Exception ex)
             {

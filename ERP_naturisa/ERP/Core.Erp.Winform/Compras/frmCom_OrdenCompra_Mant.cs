@@ -14,8 +14,6 @@ using Core.Erp.Info.General;
 using Core.Erp.Info.Compras;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Info.CuentasxPagar;
-using Core.Erp.Info.Produc_Cirdesus;
-using Core.Erp.Info.Roles;
 using Core.Erp.Info.Inventario;
 
 
@@ -23,15 +21,11 @@ using Core.Erp.Business.General;
 using Core.Erp.Business.Compras;
 using Core.Erp.Business.CuentasxPagar;
 using Core.Erp.Business.Inventario;
-using Core.Erp.Business.Produc_Cirdesus;
-using Core.Erp.Business.Roles;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Winform.Contabilidad;
 using Cus.Erp.Reports.Naturisa.Compras;
 using System.Diagnostics;
-using Cus.Erp.Reports.FJ.Compras;
-using Cus.Erp.Reports.CAH.Compras;
 using DevExpress.XtraReports.Parameters;
 using DevExpress.XtraReports.UI;
 
@@ -592,21 +586,6 @@ namespace Core.Erp.Winform.Compras
                         Reporte_Natu.PIdSucursal.Value = idSucursal;
                         Reporte_Natu.PIdOrdenCompra.Value = IdOrdenCompra;
                         Reporte_Natu.ShowPreviewDialog();
-                        break;
-                    case Cl_Enumeradores.eCliente_Vzen.FJ:                        
-                        XCOMP_FJ_Rpt001_Rpt Reporte_FJ = new XCOMP_FJ_Rpt001_Rpt();
-                        Reporte_FJ.RequestParameters = false;
-                        ReportPrintTool pt_FJ = new ReportPrintTool(Reporte_FJ);
-                        pt_FJ.AutoShowParametersPanel = false;
-                        Reporte_FJ.LlenarReporte(idEmpresa, idSucursal, IdOrdenCompra);
-                        Reporte_FJ.ShowPreviewDialog();
-                        break;
-                    case Cl_Enumeradores.eCliente_Vzen.CAH:
-                        XCOMP_CAH_Rpt001_Rpt Reporte_CAH = new XCOMP_CAH_Rpt001_Rpt();
-                        Reporte_CAH.RequestParameters = false;
-                        ReportPrintTool pt_CAH = new ReportPrintTool(Reporte_CAH);
-                        Reporte_CAH.set_parametros(idEmpresa, idSucursal, IdOrdenCompra, Info_OC.Estado);
-                        Reporte_CAH.ShowPreviewDialog();
                         break;
                     default:
                         XCOMP_Rpt001_Rpt Reporte_general = new XCOMP_Rpt001_Rpt();

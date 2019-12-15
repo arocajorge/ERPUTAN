@@ -75,39 +75,19 @@ namespace Core.Erp.Data
         public DbSet<in_rptMovi_Inv_x_prod_resumido> in_rptMovi_Inv_x_prod_resumido { get; set; }
         public DbSet<in_subgrupo> in_subgrupo { get; set; }
         public DbSet<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble> in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble { get; set; }
-        public DbSet<in_transferencia> in_transferencia { get; set; }
-        public DbSet<in_transferencia_det> in_transferencia_det { get; set; }
         public DbSet<in_transferencia_det_x_in_Guia_x_traspaso_bodega_det> in_transferencia_det_x_in_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<in_transferencia_x_fa_guia_remision> in_transferencia_x_fa_guia_remision { get; set; }
         public DbSet<in_transferencia_x_in_Guia_x_traspaso_bodega> in_transferencia_x_in_Guia_x_traspaso_bodega { get; set; }
         public DbSet<in_UnidadMedida> in_UnidadMedida { get; set; }
         public DbSet<in_UnidadMedida_Equiv_conversion> in_UnidadMedida_Equiv_conversion { get; set; }
-        public DbSet<in_Zona> in_Zona { get; set; }
-        public DbSet<in_Zona_vs_CentroDeCosto> in_Zona_vs_CentroDeCosto { get; set; }
         public DbSet<vwin_Cate_Lin_Grup_SubGrup> vwin_Cate_Lin_Grup_SubGrup { get; set; }
-        public DbSet<vwin_DespachoMateriales> vwin_DespachoMateriales { get; set; }
         public DbSet<vwin_devolucion_inven_det_cantidad_devuelta> vwin_devolucion_inven_det_cantidad_devuelta { get; set; }
-        public DbSet<vwin_GeneracionCompraCidersus> vwin_GeneracionCompraCidersus { get; set; }
         public DbSet<vwin_in_Guia_x_traspaso_bodega_x_in_transferencia_det> vwin_in_Guia_x_traspaso_bodega_x_in_transferencia_det { get; set; }
         public DbSet<vwin_in_Producto_x_tb_bodega_x_UnidadMedida> vwin_in_Producto_x_tb_bodega_x_UnidadMedida { get; set; }
         public DbSet<vwIn_Ing_Egr_Inven_det_x_Cbte_Cble> vwIn_Ing_Egr_Inven_det_x_Cbte_Cble { get; set; }
-        public DbSet<vwin_movi_inve_detalle_x_item_disponibles> vwin_movi_inve_detalle_x_item_disponibles { get; set; }
-        public DbSet<vwin_movi_inve_detalle_x_Producto_CusCider_Saldos> vwin_movi_inve_detalle_x_Producto_CusCider_Saldos { get; set; }
-        public DbSet<vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos> vwin_movi_inve_detalle_x_Producto_x_OT_CusCider_Saldos { get; set; }
         public DbSet<vwin_movi_inve_x_com_ordencompra_local> vwin_movi_inve_x_com_ordencompra_local { get; set; }
         public DbSet<vwin_movi_inve_x_despachar> vwin_movi_inve_x_despachar { get; set; }
         public DbSet<vwin_movi_inve_x_Ing_Ordencompra_local> vwin_movi_inve_x_Ing_Ordencompra_local { get; set; }
-        public DbSet<vwin_prd_CidersusConsultaProductosCortados> vwin_prd_CidersusConsultaProductosCortados { get; set; }
-        public DbSet<vwin_prd_ConsultaKardex> vwin_prd_ConsultaKardex { get; set; }
-        public DbSet<vwin_prd_ConsultaPiezasMover> vwin_prd_ConsultaPiezasMover { get; set; }
-        public DbSet<vwin_prd_EgresoInventario_x_Produccion> vwin_prd_EgresoInventario_x_Produccion { get; set; }
-        public DbSet<vwin_prd_EtasProcesoProductivo> vwin_prd_EtasProcesoProductivo { get; set; }
-        public DbSet<vwin_prd_GruposTrabajosPorPProductivos> vwin_prd_GruposTrabajosPorPProductivos { get; set; }
-        public DbSet<vwin_PrecargaItemsOrdenCompra> vwin_PrecargaItemsOrdenCompra { get; set; }
-        public DbSet<vwin_PrecargaItemsOrdenCompra_det> vwin_PrecargaItemsOrdenCompra_det { get; set; }
-        public DbSet<vwin_presupuesto> vwin_presupuesto { get; set; }
-        public DbSet<vwin_presupuesto_detalle> vwin_presupuesto_detalle { get; set; }
-        public DbSet<vwin_Producto_a_Cortar_CusCider> vwin_Producto_a_Cortar_CusCider { get; set; }
         public DbSet<vwin_Producto_Stock_x_Bodega> vwin_Producto_Stock_x_Bodega { get; set; }
         public DbSet<vwin_Producto_Stock_x_producto> vwin_Producto_Stock_x_producto { get; set; }
         public DbSet<vwin_Producto_Stock_x_Sucursal> vwin_Producto_Stock_x_Sucursal { get; set; }
@@ -116,15 +96,9 @@ namespace Core.Erp.Data
         public DbSet<vwin_Producto_x_Proveedor> vwin_Producto_x_Proveedor { get; set; }
         public DbSet<vwin_producto_x_sucursal> vwin_producto_x_sucursal { get; set; }
         public DbSet<vwin_producto_x_tb_bodega_x_Ctas_cbles> vwin_producto_x_tb_bodega_x_Ctas_cbles { get; set; }
-        public DbSet<vwin_prt_transferencia> vwin_prt_transferencia { get; set; }
-        public DbSet<vwin_ReimpresionCodigoBarra_cusCider> vwin_ReimpresionCodigoBarra_cusCider { get; set; }
-        public DbSet<vwin_ReimpresionCodigoBarraProductoTerminado_CusCider> vwin_ReimpresionCodigoBarraProductoTerminado_CusCider { get; set; }
         public DbSet<vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble> vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble { get; set; }
         public DbSet<vwin_Transferencia_sin_guia> vwin_Transferencia_sin_guia { get; set; }
         public DbSet<vwin_Transferencia_x_Ing_Egr_Inven> vwin_Transferencia_x_Ing_Egr_Inven { get; set; }
-        public DbSet<vwin_Zona_vs_ct_Centro_Costo> vwin_Zona_vs_ct_Centro_Costo { get; set; }
-        public DbSet<vwinprd_EtasProcesoProductivo> vwinprd_EtasProcesoProductivo { get; set; }
-        public DbSet<vwinprd_GruposTrabajosPorPProductivos> vwinprd_GruposTrabajosPorPProductivos { get; set; }
         public DbSet<vwin_Ajuste_fisico_x_relacion_inven_x_cbteCble> vwin_Ajuste_fisico_x_relacion_inven_x_cbteCble { get; set; }
         public DbSet<vwin_ajusteFisico> vwin_ajusteFisico { get; set; }
         public DbSet<vwin_Motivo_traslado_bodega> vwin_Motivo_traslado_bodega { get; set; }
@@ -133,7 +107,6 @@ namespace Core.Erp.Data
         public DbSet<vwin_UnidadMedida_Equivalencia> vwin_UnidadMedida_Equivalencia { get; set; }
         public DbSet<vwin_VistaParaContabilizarInventario> vwin_VistaParaContabilizarInventario { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_x_Producto> vwin_Ing_Egr_Inven_det_x_Producto { get; set; }
-        public DbSet<vwin_MoviemientoInvetarioXImportacion> vwin_MoviemientoInvetarioXImportacion { get; set; }
         public DbSet<vwin_Transferencia_Detalle> vwin_Transferencia_Detalle { get; set; }
         public DbSet<vwin_movi_inve_x_cbteCble_Datos> vwin_movi_inve_x_cbteCble_Datos { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det> vwin_Ing_Egr_Inven_det { get; set; }
@@ -144,7 +117,6 @@ namespace Core.Erp.Data
         public DbSet<vwin_producto_x_tb_bodega_Costo_Historico> vwin_producto_x_tb_bodega_Costo_Historico { get; set; }
         public DbSet<vwin_movi_inve_fecha_costeo_recomendada_x_sucursal> vwin_movi_inve_fecha_costeo_recomendada_x_sucursal { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det> vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det { get; set; }
-        public DbSet<vwin_Transferencias> vwin_Transferencias { get; set; }
         public DbSet<vwin_Guia_x_traspaso_bodega_det> vwin_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det> vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det { get; set; }
         public DbSet<vwin_movi_inve_x_estado_contabilizacion> vwin_movi_inve_x_estado_contabilizacion { get; set; }
@@ -176,6 +148,9 @@ namespace Core.Erp.Data
         public DbSet<vwin_producto> vwin_producto { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_SinParametrizacion> vwin_Ing_Egr_Inven_det_SinParametrizacion { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_PorIngresar> vwin_Ing_Egr_Inven_det_PorIngresar { get; set; }
+        public DbSet<in_transferencia> in_transferencia { get; set; }
+        public DbSet<in_transferencia_det> in_transferencia_det { get; set; }
+        public DbSet<vwin_Transferencias> vwin_Transferencias { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {

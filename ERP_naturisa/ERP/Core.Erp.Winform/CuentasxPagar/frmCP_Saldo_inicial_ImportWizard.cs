@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using Core.Erp.Info;
 using Core.Erp.Business;
-using Core.Erp.Info.Roles;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Business.CuentasxPagar;
 using Core.Erp.Business.General;

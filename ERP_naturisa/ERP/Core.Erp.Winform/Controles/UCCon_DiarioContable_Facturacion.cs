@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Importacion;
 using Core.Erp.Business.General;
 
 namespace Core.Erp.Winform.Controles

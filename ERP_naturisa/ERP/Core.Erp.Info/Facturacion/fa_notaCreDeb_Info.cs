@@ -5,7 +5,6 @@ using System.Text;
 using Core.Erp.Info.CuentasxCobrar;
 using Core.Erp.Info.General;
 using Core.Erp.Info.Contabilidad;
-using Core.Erp.Info.Factuarcion_CAH;
 
 namespace Core.Erp.Info.Facturacion
 {
@@ -78,7 +77,6 @@ namespace Core.Erp.Info.Facturacion
         public string IdUsuario { get; set; }
 
         public cxc_cobro_Info CobroInfo { get; set; }
-        public Facturacion_Grafinpren.fa_notaCreDeb_graf_Info NotaCreDeb_Graf_Info { get; set; }
         public Nullable<int> IdEmpresa_fac_doc_mod { get; set; }
         public Nullable<int> IdSucursal_fac_doc_mod { get; set; }
         public Nullable<int> IdBodega_fac_doc_mod { get; set; }
@@ -93,20 +91,14 @@ namespace Core.Erp.Info.Facturacion
         public fa_Cliente_Info info_cliente { get; set; }
         public ct_Cbtecble_Info info_CbteCble { get; set; }
 
-        public fa_notaCredDeb_aca_Info Info_notaCredDeb_aca { get; set; }
-
-
-        
 
         public fa_notaCreDeb_Info() {
 
             ListaDetalles = new List<fa_notaCreDeb_det_Info>();
             CobroInfo = new cxc_cobro_Info();
-            NotaCreDeb_Graf_Info = new Facturacion_Grafinpren.fa_notaCreDeb_graf_Info();
             lst_docs_relacionados = new List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info>();
             Info_sisDocTipoTalo = new tb_sis_Documento_Tipo_Talonario_Info();
             info_cliente = new fa_Cliente_Info();
-            Info_notaCredDeb_aca = new fa_notaCredDeb_aca_Info();
         }
     }
 }

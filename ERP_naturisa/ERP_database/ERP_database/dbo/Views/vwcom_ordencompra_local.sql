@@ -4,7 +4,7 @@ SELECT OC.IdEmpresa, OC.IdSucursal, OC.IdOrdenCompra, OC.IdProveedor, ISNULL(dbo
                   OC.oc_flete, OC.oc_observacion, OC.Estado, OC.IdEstadoAprobacion_cat, OC.co_fecha_aprobacion, OC.IdUsuario_Aprueba, OC.IdUsuario_Reprue, OC.co_fechaReproba, OC.Fecha_Transac, OC.Fecha_UltMod, OC.IdUsuarioUltMod, 
                   OC.FechaHoraAnul, OC.IdUsuarioUltAnu, OC.IdEstadoRecepcion_cat, OC.AfectaCosto, OC.MotivoReprobacion, SUM(OCDet.do_subtotal) AS subtotal, SUM(OCDet.do_iva) AS iva, SUM(OCDet.do_total) AS total, SUM(OCDet.do_peso) 
                   AS peso, Apr.descripcion AS ap_descripcion, REc.descripcion AS rec_descripcion, Prov.pr_nombre, dbo.tb_sucursal.Su_Descripcion, OC.IdDepartamento, OC.Solicitante, OC.IdSolicitante, OC.IdComprador, OC.MotivoAnulacion, 
-                  dbo.ro_Departamento.de_descripcion AS SDepartamento, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion AS Nom_Comprador, OC.IdEstado_cierre, 
+                  dbo.com_departamento.nom_departamento AS SDepartamento, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion AS Nom_Comprador, OC.IdEstado_cierre, 
                   dbo.com_Motivo_Orden_Compra.Descripcion AS nom_motivo_OC, dbo.com_solicitante.nom_solicitante AS Nom_Solicita, dbo.com_TerminoPago.Descripcion AS tp_descripcion, 
                   dbo.com_estado_cierre.Descripcion AS nom_EstadoCerrado, A.En_guia
 FROM     dbo.com_ordencompra_local AS OC INNER JOIN
@@ -22,11 +22,11 @@ FROM     dbo.com_ordencompra_local AS OC INNER JOIN
                        GROUP BY oc.IdEmpresa, oc.IdSucursal, oc.IdOrdenCompra) AS A ON OC.IdOrdenCompra = A.IdOrdenCompra AND A.IdEmpresa = OC.IdEmpresa AND A.IdSucursal = OC.IdSucursal LEFT OUTER JOIN
                   dbo.com_TerminoPago ON OC.IdTerminoPago = dbo.com_TerminoPago.IdTerminoPago LEFT OUTER JOIN
                   dbo.com_solicitante ON OC.IdEmpresa = dbo.com_solicitante.IdEmpresa AND OC.IdSolicitante = dbo.com_solicitante.IdSolicitante LEFT OUTER JOIN
-                  dbo.ro_Departamento ON OC.IdDepartamento = dbo.ro_Departamento.IdDepartamento AND OC.IdEmpresa = dbo.ro_Departamento.IdEmpresa
+                  com_departamento ON OC.IdDepartamento = dbo.com_departamento.IdDepartamento AND OC.IdEmpresa = dbo.com_departamento.IdEmpresa
 GROUP BY OC.IdEmpresa, OC.IdSucursal, OC.IdOrdenCompra, OC.IdProveedor, dbo.tb_sucursal.codigo, OC.Tipo, OC.IdTerminoPago, OC.oc_plazo, OC.oc_fecha, OC.oc_flete, OC.oc_observacion, OC.Estado, OC.IdEstadoAprobacion_cat, 
                   OC.co_fecha_aprobacion, OC.IdUsuario_Aprueba, OC.IdUsuario_Reprue, OC.co_fechaReproba, OC.Fecha_Transac, OC.Fecha_UltMod, OC.IdUsuarioUltMod, OC.FechaHoraAnul, OC.IdUsuarioUltAnu, OC.IdEstadoRecepcion_cat, 
                   OC.AfectaCosto, OC.MotivoReprobacion, Apr.descripcion, REc.descripcion, Prov.pr_nombre, dbo.tb_sucursal.Su_Descripcion, OC.IdDepartamento, OC.Solicitante, OC.IdSolicitante, OC.IdComprador, OC.MotivoAnulacion, 
-                  dbo.ro_Departamento.de_descripcion, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion, OC.IdEstado_cierre, dbo.com_Motivo_Orden_Compra.Descripcion, dbo.com_solicitante.nom_solicitante, 
+                  dbo.com_departamento.nom_departamento, OC.IdMotivo, OC.oc_fechaVencimiento, dbo.com_comprador.Descripcion, OC.IdEstado_cierre, dbo.com_Motivo_Orden_Compra.Descripcion, dbo.com_solicitante.nom_solicitante, 
                   dbo.com_TerminoPago.Descripcion, dbo.com_estado_cierre.Descripcion, A.En_guia
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_ordencompra_local';

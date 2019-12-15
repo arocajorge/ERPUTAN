@@ -12,7 +12,6 @@ using Core.Erp.Business.Facturacion;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.Contabilidad;
-using Core.Erp.Business.Roles;
 
 using Core.Erp.Info.Caja;
 using Core.Erp.Business.Caja;
@@ -37,7 +36,6 @@ namespace Core.Erp.Winform.Facturacion
         in_movi_inven_tipo_Bus BusMovi = new in_movi_inven_tipo_Bus();
         fa_parametro_Bus busFac = new fa_parametro_Bus();
         fa_parametro_info infoFac = new fa_parametro_info();
-        ro_Departamento_Bus BusDep = new ro_Departamento_Bus();
         fa_TipoNota_Bus BusTipNot = new fa_TipoNota_Bus();
 
         string MensajeError = "";
@@ -167,7 +165,6 @@ namespace Core.Erp.Winform.Facturacion
                 Cargar_Combo_Estad_Apr_Ped();
                 string mensaje = "";
                 cmbTipoCobroFac.Properties.DataSource = busTipoCobro.Get_List_Cobro_Tipo();
-                DEVcmbDepxDev.cargar_combo();
                 
                 infoFac = busFac.Get_Info_parametro(param.IdEmpresa);
 
@@ -195,7 +192,6 @@ namespace Core.Erp.Winform.Facturacion
                 nud_NumeroDeItemp.Value = Convert.ToInt32(infoFac.NumeroDeItemFact)        ;
                 cmbTipoCobroFac.EditValue = infoFac.TipoCobroDafaultFactu;
                 //
-                DEVcmbDepxDev.set_departamentoInfo(infoFac.IdDepartamento_x_DevVta);
                 DEVcmbNCxDev.EditValue=infoFac.Tipo_NC_x_DevVta;
                 cmbTipoNC_x_Fact.EditValue = infoFac.pa_IdTipoNota_NC_x_Anulacion;
                 DEVcmbTipoMoviInv.EditValue=infoFac.IdMovi_inven_tipo_Dev_Vta;
@@ -634,24 +630,6 @@ namespace Core.Erp.Winform.Facturacion
                 if (DEVcmbNCxDev.EditValue != null)
                 {
                     labelControl13.ForeColor = System.Drawing.Color.Black;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void DEVcmbDepxDev_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (DEVcmbDepxDev.get_departamentoInfo() != null)
-                {
-                    labelControl14.ForeColor = System.Drawing.Color.Black;
 
                 }
             }

@@ -22,7 +22,7 @@ namespace Core.Erp.Data
         public decimal IdGuia { get; set; }
         public string Observacion { get; set; }
     
-        public virtual in_transferencia in_transferencia { get; set; }
         public virtual in_Guia_x_traspaso_bodega in_Guia_x_traspaso_bodega { get; set; }
+        public virtual in_transferencia in_transferencia { get; set; }
     }
 }

@@ -11,8 +11,6 @@ using Core.Erp.Info.General;
 using Core.Erp.Business.General;
 using Core.Erp.Info.SeguridadAcceso;
 using Core.Erp.Business.SeguridadAcceso;
-using Core.Erp.Info.Facturacion_FJ;
-using Core.Erp.Business.Facturacion_FJ;
 
 
 namespace Core.Erp.Winform
@@ -36,8 +34,6 @@ namespace Core.Erp.Winform
             try
             {
 
-                ucFa_Equipos_Graf1.Cargar_Combo();
-
             }
             catch (Exception ex)
             {
@@ -51,18 +47,6 @@ namespace Core.Erp.Winform
             try
             {
 
-                string mensaje = "";
-                decimal IdCbteVta = 0;
-                fa_liquidacion_gastos_Bus Bus_liqui_ga = new fa_liquidacion_gastos_Bus();
-                List<fa_liquidacion_gastos_Info> lista = new List<fa_liquidacion_gastos_Info>();
-                lista = Bus_liqui_ga.Get_List_Liquidacion_Gastos(1, DateTime.Now.AddMonths(-10), DateTime.Now.AddMonths(10), ref mensaje);
-
-
-                foreach (fa_liquidacion_gastos_Info item in lista)
-                {
-                    Bus_liqui_ga.Convert_Liquidacion_a_Factura(item.IdEmpresa, item.IdLiquidacion, ref IdCbteVta, ref mensaje);
-
-                }
             }
             catch (Exception ex)
             {

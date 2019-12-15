@@ -18,7 +18,6 @@ namespace Core.Erp.Data
         {
             this.in_ajusteFisico = new HashSet<in_ajusteFisico>();
             this.in_movi_inve = new HashSet<in_movi_inve>();
-            this.in_transferencia = new HashSet<in_transferencia>();
             this.in_Motivo_Inven = new HashSet<in_Motivo_Inven>();
             this.in_Motivo_Inven1 = new HashSet<in_Motivo_Inven>();
             this.in_parametro = new HashSet<in_parametro>();
@@ -42,7 +41,6 @@ namespace Core.Erp.Data
         public virtual ICollection<in_ajusteFisico> in_ajusteFisico { get; set; }
         public virtual in_CatalogoTipo in_CatalogoTipo { get; set; }
         public virtual ICollection<in_movi_inve> in_movi_inve { get; set; }
-        public virtual ICollection<in_transferencia> in_transferencia { get; set; }
         public virtual ICollection<in_Motivo_Inven> in_Motivo_Inven { get; set; }
         public virtual ICollection<in_Motivo_Inven> in_Motivo_Inven1 { get; set; }
         public virtual ICollection<in_parametro> in_parametro { get; set; }

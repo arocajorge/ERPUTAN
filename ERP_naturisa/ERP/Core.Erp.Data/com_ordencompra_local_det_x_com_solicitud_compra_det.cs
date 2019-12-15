@@ -24,7 +24,6 @@ namespace Core.Erp.Data
         public int scd_Secuencia { get; set; }
         public string observacion { get; set; }
     
-        public virtual com_solicitud_compra_det com_solicitud_compra_det { get; set; }
         public virtual com_ordencompra_local_det com_ordencompra_local_det { get; set; }
     }
 }

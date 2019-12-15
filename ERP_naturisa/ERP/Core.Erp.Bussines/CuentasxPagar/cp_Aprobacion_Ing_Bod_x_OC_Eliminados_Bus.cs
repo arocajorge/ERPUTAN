@@ -11,8 +11,6 @@ using Core.Erp.Info.Contabilidad;
 using Core.Erp.Data.Contabilidad;
 
 using Core.Erp.Business.General;
-using Core.Erp.Info.Importacion;
-
 
 namespace Core.Erp.Business.CuentasxPagar
 {

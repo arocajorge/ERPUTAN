@@ -38,7 +38,7 @@
             this.cmb_Estado = new System.Windows.Forms.ComboBox();
             this.cmb_nivel = new System.Windows.Forms.ComboBox();
             this.lbl_nivel = new System.Windows.Forms.Label();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmGe_Esperar), true, true);
             this.chkMostrar_Reg_Cero = new DevExpress.XtraEditors.CheckEdit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkList_Periodos)).BeginInit();

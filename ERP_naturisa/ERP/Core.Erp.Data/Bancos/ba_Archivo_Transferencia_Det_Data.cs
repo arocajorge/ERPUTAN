@@ -7,7 +7,6 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Erp.Data.Academico;
 namespace Core.Erp.Data.Bancos
 {
     public class ba_Archivo_Transferencia_Det_Data
@@ -52,10 +51,6 @@ namespace Core.Erp.Data.Bancos
                         Info.IdCbteCble_pago = item.IdCbteCble_pago;
                         Info.cb_Estado = item.cb_Estado;
 
-                        Info.IdEmpresa_fac = item.IdEmpresa_fac;
-                        Info.IdSucursal_fac = item.IdSucursal_fac;
-                        Info.IdBodega_fac = item.IdBodega_fac;
-                        Info.IdCbteVta_fac = item.IdCbteVta_fac;
                         Lista.Add(Info);
                     }
                 }
@@ -114,11 +109,6 @@ namespace Core.Erp.Data.Bancos
                         Info.IdCbteCble_pago = item.IdCbteCble_pago;
                         Info.cb_Estado = item.cb_Estado;
 
-                        Info.IdEmpresa_fac = item.IdEmpresa_fac;
-                        Info.IdSucursal_fac = item.IdSucursal_fac;
-                        Info.IdBodega_fac = item.IdBodega_fac;
-                        Info.IdCbteVta_fac = item.IdCbteVta_fac;
-
                         Lista.Add(Info);
                     }
                 }
@@ -170,12 +160,7 @@ namespace Core.Erp.Data.Bancos
                         Addres.Id_Item = item.Id_Item;
                         Addres.Valor_cobrado = 0;
                         Addres.Secuencial_reg_x_proceso = item.Secuencial_reg_x_proceso;
-
-
-                        Addres.IdPreFacturacion_col = item.IdPreFacturacion_col;
-                        Addres.Secuencia_Proce_col = item.Secuencia_Proce_col;
-                        Addres.secuencia_col = item.secuencia_col;
-                        Addres.IdInstitucion_col = item.IdInstitucion_Col;                               
+                           
 
                         context.ba_Archivo_Transferencia_Det.Add(Addres);
                         context.SaveChanges();
@@ -559,50 +544,5 @@ namespace Core.Erp.Data.Bancos
                 throw new Exception(ex.ToString());
             }
         }
-
-        public List<ba_Archivo_Transferencia_Det_Info> Get_List_Archivo_transferencia_para_deposito(int IdEmpresa, decimal IdArchivo)
-        {
-            try
-            {
-                List<ba_Archivo_Transferencia_Det_Info> Lista = new List<ba_Archivo_Transferencia_Det_Info>();
-
-                using (EntitiesBanco Context = new EntitiesBanco())
-                {
-                    var lst = from q in Context.vwba_Archivo_Transferencia_Det_mov_caj_x_cobro
-                              where q.IdEmpresa == IdEmpresa && q.IdArchivo == IdArchivo
-                              && q.Contabilizado == true
-                              && q.Es_CtaCble_caja == true
-                              select q;
-
-                    foreach (var item in lst)
-                    {
-                        ba_Archivo_Transferencia_Det_Info info = new ba_Archivo_Transferencia_Det_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdArchivo = item.IdArchivo;
-                        info.Secuencia = item.Secuencia;
-                        info.mcj_IdEmpresa = item.mcj_IdEmpresa;
-                        info.mcj_IdTipocbte = item.mcj_IdTipocbte;
-                        info.mcj_IdCbteCble = item.mcj_IdCbteCble;
-                        info.mcj_secuencia = item.mcj_secuencia;
-                        info.IdCtaCble = item.IdCtaCble;
-                        info.dc_Valor = item.dc_Valor;
-                        Lista.Add(info);
-                    }
-                }
-
-                return Lista;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
-                throw new Exception(ex.ToString());
-            }
-        }
-
     }
 }

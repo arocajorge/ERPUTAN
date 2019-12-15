@@ -1007,7 +1007,6 @@ namespace Core.Erp.Data.Bancos
                             dat.Fecha_Pago = item.Fecha_Pago;
                             dat.IdCtaCble = item.IdCtaCble;
                             dat.IdCentroCosto = item.IdCentroCosto;
-                            dat.IdSubCentro_Costo = item.IdSubCentro_Costo;
                             dat.Cbte_cxp = item.Cbte_cxp;
                             dat.Estado = item.Estado;
                             dat.Nom_Beneficiario_2 = item.Nom_Beneficiario_2;

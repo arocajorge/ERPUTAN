@@ -19,7 +19,6 @@ using Core.Erp.Reportes.Inventario;
 using Core.Erp.Winform.Contabilidad;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.IO;
-using Cus.Erp.Reports.FJ.Inventario;
 namespace Core.Erp.Winform.Inventario
 {
     public partial class FrmIn_Egresos_Varios_Mant : Form
@@ -315,22 +314,6 @@ namespace Core.Erp.Winform.Inventario
             {
                 switch ( param.IdCliente_Ven_x_Default)   
                 {
-
-                    case Cl_Enumeradores.eCliente_Vzen.FJ:
-
-                        XINV_FJ_Rpt007_Rpt Reporte = new XINV_FJ_Rpt007_Rpt();
-                    Reporte.Parameters["IdEmpresa"].Value = param.IdEmpresa;
-                    Reporte.Parameters["IdSucursal"].Value = Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue);
-                    Reporte.Parameters["IdBodega"].Value = Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_bodega.EditValue);
-                    Reporte.Parameters["IdMovi_inven_tipo"].Value = cmbTipoMovi.get_TipoMoviInvInfo().IdMovi_inven_tipo;
-                    Reporte.Parameters["IdNumMovi"].Value = Convert.ToDecimal(txtNumIngreso.Text);
-                    Reporte.RequestParameters = false;
-                    DevExpress.XtraReports.UI.ReportPrintTool pt = new DevExpress.XtraReports.UI.ReportPrintTool(Reporte);
-                    pt.AutoShowParametersPanel = false;
-                    Reporte.ShowPreviewDialog();
-
-
-                    break;
 
                     default:
                     XINV_Rpt002_Rpt Reporte_ = new XINV_Rpt002_Rpt();

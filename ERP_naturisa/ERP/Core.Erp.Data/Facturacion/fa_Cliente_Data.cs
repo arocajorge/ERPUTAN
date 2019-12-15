@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Presupuesto;
 using System.Data;
 using Core.Erp.Data.General;
-using Core.Erp.Data.Academico;
 using System.Data.Entity.Validation;
 
 namespace Core.Erp.Data.Facturacion
@@ -222,27 +220,6 @@ namespace Core.Erp.Data.Facturacion
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
                 msg = ex.ToString();
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref msg);
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        public Boolean ModificarDB_Cuentas_cbles(int IdEmpresa, string cxc_Contado, string cxc_Anticipo, string cxc_Credito, ref string msg)
-        {
-            try
-            {
-                using (Entities_Academico context = new Entities_Academico())
-                {
-                    var Consulta = context.Database.ExecuteSqlCommand("update fa_cliente set IdCtaCble_cxc='" + cxc_Contado + "', IdCtaCble_Anti='" + cxc_Anticipo + "', IdCtaCble_cxc_Credito='" + cxc_Credito + "' where IdEmpresa=" + IdEmpresa);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
                 throw new Exception(ex.ToString());
             }
         }

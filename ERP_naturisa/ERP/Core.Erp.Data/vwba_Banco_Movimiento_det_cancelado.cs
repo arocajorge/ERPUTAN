@@ -40,7 +40,7 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> Fecha_Pago { get; set; }
         public string IdCtaCble { get; set; }
         public string IdCentroCosto { get; set; }
-        public string IdSubCentro_Costo { get; set; }
+        public Nullable<int> IdSubCentro_Costo { get; set; }
         public Nullable<decimal> Cbte_cxp { get; set; }
         public string Estado { get; set; }
         public string Nom_Beneficiario_2 { get; set; }

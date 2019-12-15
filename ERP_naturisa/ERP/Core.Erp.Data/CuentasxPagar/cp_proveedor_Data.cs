@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Presupuesto;
 using Core.Erp.Data.General;
 using System.Data;
-using Core.Erp.Data.Academico;
 using System.Data.Entity.Validation;
 
 
@@ -838,28 +836,6 @@ namespace Core.Erp.Data.CuentasxPagar
                 throw new Exception(ex.ToString());
             }
         }
-
-        public Boolean ModificarDB_Cuentas_cbles(int IdEmpresa, string IdCtaCble_CXP, string IdCtaCble_Anticipo, string IdCtaCble_Gasto, ref string msg)
-        {
-            try
-            {
-                using (Entities_Academico context = new Entities_Academico())
-                {
-                    var Consulta = context.Database.ExecuteSqlCommand("update cp_proveedor set IdCtaCble_CXP='" + IdCtaCble_CXP + "', IdCtaCble_Anticipo='" + IdCtaCble_Anticipo + "', IdCtaCble_Gasto='" + IdCtaCble_Gasto + "' where IdEmpresa=" + IdEmpresa);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
-                throw new Exception(ex.ToString());
-            }
-        }
-
         public decimal GetId(int IdEmpresa)
         {
             try

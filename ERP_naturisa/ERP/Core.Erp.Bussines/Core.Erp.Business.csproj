@@ -73,63 +73,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Academico\Aca_Admision_Bus.cs" />
-    <Compile Include="Academico\Aca_Anio_Lectivo_Bus.cs" />
-    <Compile Include="Academico\Aca_Beca_Bus.cs" />
-    <Compile Include="Academico\Aca_Contrato_x_Estudiante_Bus.cs" />
-    <Compile Include="Academico\Aca_contrato_x_estudiante_det_beca_Bus.cs" />
-    <Compile Include="Academico\Aca_Contrato_x_Estudiante_det_Bus.cs" />
-    <Compile Include="Academico\Aca_Contrato_x_Estudiante_x_det_Excepcion_Bus.cs" />
-    <Compile Include="Academico\Aca_Curso_Bus.cs" />
-    <Compile Include="Academico\Aca_curso_x_Aca_Rubro_Bus.cs" />
-    <Compile Include="Academico\Aca_Documento_Bancario_x_Rep_Economico_Bus.cs" />
-    <Compile Include="Academico\Aca_Documento_Bancario_x_Rep_Economico_x_estudiante_x_Matricula_Bus.cs" />
-    <Compile Include="Academico\Aca_estudiante_x_Aca_Beca_Bus.cs" />
-    <Compile Include="Academico\Aca_Familiar_x_Estudiante_Bus.cs" />
-    <Compile Include="Academico\Aca_InstitucionFinanciera_Bus.cs" />
-    <Compile Include="Academico\Aca_InstitucionFinanciera_x_cod_establecimiento_Bus.cs" />
-    <Compile Include="Academico\Aca_Institucion_Bus.cs" />
-    <Compile Include="Academico\Aca_Jornada_Bus.cs" />
-    <Compile Include="Academico\Aca_Material_Tipo_Documento_Bus.cs" />
-    <Compile Include="Academico\Aca_Material_x_Documento_Bus.cs" />
-    <Compile Include="Academico\Aca_matricula_Bus.cs" />
-    <Compile Include="Academico\Aca_Paralelo_Bus.cs" />
-    <Compile Include="Academico\Aca_Aspirante_Bus.cs" />
-    <Compile Include="Academico\Aca_CatalogoTipo_Bus.cs" />
-    <Compile Include="Academico\Aca_Catalogo_Bus.cs" />
-    <Compile Include="Academico\Aca_Estudiante_Bus.cs" />
-    <Compile Include="Academico\Aca_estudiante_x_Alergia_Bus.cs" />
-    <Compile Include="Academico\Aca_Familiar_Bus.cs" />
-    <Compile Include="Academico\Aca_ficha_medica_Bus.cs" />
-    <Compile Include="Academico\Aca_Parametros_Bus.cs" />
-    <Compile Include="Academico\Aca_Periodo_Bus.cs" />
-    <Compile Include="Academico\Aca_Pre_Facturacion_Bus.cs" />
-    <Compile Include="Academico\Aca_Pre_Facturacion_det_Bus.cs" />
-    <Compile Include="Academico\Aca_Profesor_Bus.cs" />
-    <Compile Include="Academico\Aca_RubroGrupoFE_Bus.cs" />
-    <Compile Include="Academico\Aca_RubroTipo_Bus.cs" />
-    <Compile Include="Academico\Aca_Rubro_Bus.cs" />
-    <Compile Include="Academico\Aca_Rubro_x_Aca_Periodo_Lectivo_Bus.cs" />
-    <Compile Include="Academico\Aca_Seccion_Bus.cs" />
-    <Compile Include="Academico\Aca_Sede_Bus.cs" />
-    <Compile Include="Academico\Aca_Tarjeta_cred_Bus.cs" />
-    <Compile Include="Academico\Aca_tipo_mecanismo_de_pago_Bus.cs" />
-    <Compile Include="Academico\Archivo_Para_Banco\Banco_Internacional_Bus.cs" />
-    <Compile Include="Academico\Archivo_Para_Banco\Pacificar_Bus.cs" />
-    <Compile Include="Academico\Archivo_Para_Banco\VisaMastercardBankard_Bolivariano_Bus.cs" />
-    <Compile Include="Academico\Archivo_Para_Banco\Visa_Diners_Club_Bus.cs" />
-    <Compile Include="Academico\fa_factura_aca_Bus.cs" />
-    <Compile Include="Academico\tb_banco_x_mg_banco_Bus.cs" />
-    <Compile Include="Academico\vwAca_AnioPeriodo_Activo_Bus.cs" />
-    <Compile Include="Academico\vwAca_Contrato_x_Estudiante_x_Rubro_y_Beca_Bus.cs" />
-    <Compile Include="Academico\vwAca_curso_Bus.cs" />
-    <Compile Include="Academico\vwAca_Estudiante_con_Matricula_Sin_Contrato_Bus.cs" />
-    <Compile Include="Academico\vwAca_Estudiante_con_Matricula_Sin_Contrato_Detalle_Bus.cs" />
-    <Compile Include="Academico\vwAca_Estudiante_Matricula_Con_y_Sin_Contrato_Bus.cs" />
-    <Compile Include="Academico\vwAca_Familiar_x_Estudiante_RepEco_Bus.cs" />
-    <Compile Include="Academico\vwAca_Institucion_x_Sede_x_Jorn_x_Sec_Curso_x_Para_Bus.cs" />
-    <Compile Include="Academico\vwAca_Matricula_x_Estudiante_Bus.cs" />
-    <Compile Include="Academico\vw_Aca_Estudiante_Matriculado_Sin_Contrato_Cab_Det_Bus.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_Bus.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_Categoria_Bus.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_CtasCbles_Bus.cs" />
@@ -154,11 +97,6 @@
     <Compile Include="ActivoFijo\Af_Venta_Activo_Bus.cs" />
     <Compile Include="ActivoFijo\vwAf_ActivoFijo_Bus.cs" />
     <Compile Include="ActivoFijo\vwAF_OrdenCompra_x_Proveedor_Factura_SinCruce_ActivoFijo_Bus.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo_Bus.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Activo_fijo_x_ct_punto_cargo_Bus.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Poliza_x_AF_Bus.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Poliza_x_AF_det_Bus.cs" />
-    <Compile Include="ActivoFijo_FJ\Af_Poliza_x_AF_det_cuota_Bus.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_Bus.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_Det_Bus.cs" />
     <Compile Include="Bancos\ba_Archivo_Transferencia_x_PreAviso_Cheq_Bus.cs" />
@@ -211,22 +149,14 @@
     <Compile Include="Compras\com_ConvenioPreciosPorProducto_Bus.cs" />
     <Compile Include="Compras\com_CotizacionPedidoDet_Bus.cs" />
     <Compile Include="Compras\com_CotizacionPedido_Bus.cs" />
-    <Compile Include="Compras\com_cotizacion_compra_det_Bus.cs" />
     <Compile Include="Compras\com_departamento_Bus.cs" />
     <Compile Include="Compras\com_dev_compra_Bus.cs" />
     <Compile Include="Compras\com_dev_compra_det_Bus.cs" />
     <Compile Include="Compras\com_estado_cierre_Bus.cs" />
-    <Compile Include="Compras\com_GeneracionOCompra_Bus.cs" />
-    <Compile Include="Compras\com_GenerOCompraDet_Bus.cs" />
-    <Compile Include="Compras\com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_Bus.cs" />
-    <Compile Include="Compras\com_ListadoMateriales_Bus.cs" />
-    <Compile Include="Compras\com_ListadoMateriales_Det_Bus.cs" />
-    <Compile Include="Compras\com_ListadoMateriales_Det_x_com_GenerOCompra_Det_Bus.cs" />
     <Compile Include="Compras\com_Motivo_Orden_Compra_Bus.cs" />
     <Compile Include="Compras\com_ordencompra_local_Bus.cs" />
     <Compile Include="Compras\com_ordencompra_local_correo_Bus.cs" />
     <Compile Include="Compras\com_ordencompra_local_det_Bus.cs" />
-    <Compile Include="Compras\com_ordencompra_local_det_x_com_solicitud_compra_det_Bus.cs" />
     <Compile Include="Compras\com_OrdenPedidoDet_Bus.cs" />
     <Compile Include="Compras\com_OrdenPedidoPlantillaDet_Bus.cs" />
     <Compile Include="Compras\com_OrdenPedidoPlantilla_Bus.cs" />
@@ -236,21 +166,8 @@
     <Compile Include="Compras\com_solicitante_aprobador_Bus.cs" />
     <Compile Include="Compras\com_solicitante_Bus.cs" />
     <Compile Include="Compras\com_solicitante_x_com_departamento_Bus.cs" />
-    <Compile Include="Compras\com_solicitud_compra_Bus.cs" />
-    <Compile Include="Compras\com_solicitud_compra_det_aprobacion_Bus.cs" />
-    <Compile Include="Compras\com_solicitud_compra_det_Bus.cs" />
-    <Compile Include="Compras\com_solicitud_compra_det_pre_aprobacion_Bus.cs" />
     <Compile Include="Compras\com_TerminoPago_Bus.cs" />
     <Compile Include="Compras\vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_Bus.cs" />
-    <Compile Include="Compras\vwcom_solicitud_compra_x_items_con_saldos_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoDisenoTipo_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoDiseno_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoDiseno_Det_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoElementos_x_OT_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoElementos_x_OT_Det_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_ListadoMaterialesDisponibles_PreAsignado_a_Obra_Det_Bus.cs" />
-    <Compile Include="Compras_Edehsa\com_Registro_OrdenCompra_x_Cotizacion_Bus.cs" />
     <Compile Include="Contabilidad\ct_AnioFiscal_Bus.cs" />
     <Compile Include="Contabilidad\ct_anio_fiscal_x_cuenta_utilidad_Bus.cs" />
     <Compile Include="Contabilidad\ct_Balance_x_Estado_Resultado_x_Usuario_Bus.cs" />
@@ -285,10 +202,6 @@
     <Compile Include="Contabilidad\ct_saldoxCuentas_Bus.cs" />
     <Compile Include="Contabilidad\ct_saldoxCuentas_Movi_Bus.cs" />
     <Compile Include="Contabilidad\vwct_cbtecble_con_saldo_cxp_Bus.cs" />
-    <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_Bus.cs" />
-    <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_det_ct_punto_cargo_Bus.cs" />
-    <Compile Include="Contabilidad_Fj\ct_distribucion_gastos_x_periodo_det_gastos_Bus.cs" />
-    <Compile Include="Contabilidad_Fj\ct_punto_cargo_FJ_Bus.cs" />
     <Compile Include="CuentasxCobrar\cxc_cancelacion_Intercompany_Bus.cs" />
     <Compile Include="CuentasxCobrar\cxc_cancelacion_Intercompany_Det_Bus.cs" />
     <Compile Include="CuentasxCobrar\cxc_CatalogoTipo_Bus.cs" />
@@ -318,7 +231,6 @@
     <Compile Include="CuentasxCobrar\vwcxc_cobros_x_cheque_deposito_Bus.cs" />
     <Compile Include="CuentasxCobrar\vwcxc_cobro_x_documentos_x_cobrar_Bus.cs" />
     <Compile Include="CuentasxCobrar\vwcxc_conciliacion_Det_Cobro_Bus.cs" />
-    <Compile Include="CuentasxCobrar_Grafinpren\cxc_Comisiones_x_vendedor_Bus.cs" />
     <Compile Include="CuentasxPagar\Archivos_Bancos\cp_Archivo_Banco_Bolivariano_pago_proveedores_Bus.cs" />
     <Compile Include="CuentasxPagar\Archivos_Bancos\cp_Archivo_Banco_Guayaquil_Pago_Bus.cs" />
     <Compile Include="CuentasxPagar\Archivos_Bancos\cp_Archivo_Banco_Pichincha_Pago_Bus.cs" />
@@ -381,7 +293,6 @@
     <Compile Include="Facturacion\fa_cliente_contactos_Bus.cs" />
     <Compile Include="Facturacion\fa_cliente_pto_emision_cliente_Bus.cs" />
     <Compile Include="Facturacion\fa_cliente_tipo_Bus.cs" />
-    <Compile Include="Facturacion\fa_cliente_x_ct_centro_costo_Bus.cs" />
     <Compile Include="Facturacion\fa_cotizacion_Bus.cs" />
     <Compile Include="Facturacion\fa_devol_venta_Bus.cs" />
     <Compile Include="Facturacion\fa_devol_venta_det_Bus.cs" />
@@ -431,47 +342,6 @@
     <Compile Include="Facturacion\vwfa_factura_sri_Bus.cs" />
     <Compile Include="Facturacion\vwfa_factura_x_cbte_cble_Bus.cs" />
     <Compile Include="Facturacion\vwfa_notaCreDeb_sri_Bus.cs" />
-    <Compile Include="Facturacion_CAH\fa_notaCredDeb_aca_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_factura_fj_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_grupo_x_sub_centro_costo_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_grupo_x_sub_centro_costo_det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidaciones_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidaciones_det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidaciones_tipo_proceso_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_det_Historico_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_liquidacion_gastos_producto_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Cobro_x_Depreciacion_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_cobro_x_Movilizacion_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_cobro_x_Poliza_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_cobro_x_Unidades_Consumidas_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_egr_x_bod_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Fact_x_Gastos_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_gasto_Interes_Banc_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_gasto_mano_obra_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_det_Otros_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_Parametro_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_Parametro_x_Anio_x_Fuerza_MO_RRHH_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Af_Depreciacion_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Af_Depreciacion_Det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_pre_facturacion_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_registro_unidades_x_equipo_det_ini_x_Af_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_orden_trabajo_plataforma_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_orden_trabajo_plataforma_det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_registro_unidades_x_equipo_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_registro_unidades_x_equipo_det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_det_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_Param_depre_Bus.cs" />
-    <Compile Include="Facturacion_FJ\fa_tarifario_facturacion_x_cliente_Por_comision_Bus.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_Equipo_graf_Bus.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_factura_Bus.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_factura_det_Bus.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_factura_graf_Bus.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_guia_remision_graf_Bus.cs" />
-    <Compile Include="Facturacion_Grafinpren\fa_notaCreDeb_graf_Bus.cs" />
     <Compile Include="General\tbSys_Ge_Comparativo_Modulo_vs_Contas_Bus.cs" />
     <Compile Include="General\tb_banco_estado_reg__resp_bancaria_Bus.cs" />
     <Compile Include="General\tb_banco_procesos_bancarios_tipo_Bus.cs" />
@@ -527,23 +397,6 @@
     <Compile Include="General\vwtb_sis_Documento_Tipo_x_Disenio_Report_Bus.cs" />
     <Compile Include="General\vwtb_sis_Param_Cont_x_Proceso_x_Parametro_x_Sucu_Bus.cs" />
     <Compile Include="General\vwtb_Ubicacion_Geografica_Bus.cs" />
-    <Compile Include="Importacion\imp_catalogo_Bus.cs" />
-    <Compile Include="Importacion\imp_Catalogo_tipo_Bus.cs" />
-    <Compile Include="Importacion\imp_Cilco_Bus.cs" />
-    <Compile Include="Importacion\imp_DatosEmbarque_bus.cs" />
-    <Compile Include="Importacion\imp_Embarcador_Bus.cs" />
-    <Compile Include="Importacion\imp_gastosxImport_Bus.cs" />
-    <Compile Include="Importacion\imp_gastosximport_x_empresa_Bus.cs" />
-    <Compile Include="Importacion\imp_OrdenCompraExterna_Liquidacion_Bus.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_Bus.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_det_Bus.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_Condiciones_Pago_Bus.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_ct_cbtecble_Bus.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_imp_gastosxImport_Bus.cs" />
-    <Compile Include="Importacion\imp_ordencompra_ext_x_imp_gastosxImport_Det_Bus.cs" />
-    <Compile Include="Importacion\imp_Parametros_Bus.cs" />
-    <Compile Include="Importacion\imp_Tipo_docu_pago_Bus.cs" />
-    <Compile Include="Importacion\imp_Tipo_docu_pago_x_Empresa_x_tipocbte_Bus.cs" />
     <Compile Include="Inventario\in_AjusteFisico_Bus.cs" />
     <Compile Include="Inventario\in_AjusteFisico_Detalle_Bus.cs" />
     <Compile Include="Inventario\in_Catalogo_Bus.cs" />
@@ -577,11 +430,7 @@
     <Compile Include="Inventario\in_movi_inve_x_ct_cbteCble_Bus.cs" />
     <Compile Include="Inventario\in_movi_inve_x_in_ordencompra_local_Bus.cs" />
     <Compile Include="Inventario\in_parametro_Bus.cs" />
-    <Compile Include="Inventario\in_PrecargaItemsDetalle_Bus.cs" />
-    <Compile Include="Inventario\in_PrecargaItems_Bus.cs" />
     <Compile Include="Inventario\in_presentacion_Bus.cs" />
-    <Compile Include="Inventario\in_presupuestoDetalle_Bus.cs" />
-    <Compile Include="Inventario\in_presupuesto_Bus.cs" />
     <Compile Include="Inventario\in_productoTipo_Bus.cs" />
     <Compile Include="Inventario\in_movi_inven_tipo_Bus.cs" />
     <Compile Include="Inventario\in_producto_Bus.cs" />
@@ -596,6 +445,7 @@
     <Compile Include="Inventario\in_subgrupo_Bus.cs" />
     <Compile Include="Inventario\in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Bus.cs" />
     <Compile Include="Inventario\in_transferencia_bus.cs" />
+    <Compile Include="Inventario\in_Transferencia_det_Bus.cs" />
     <Compile Include="Inventario\in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Bus.cs" />
     <Compile Include="Inventario\in_transferencia_x_fa_guia_remision_Bus.cs" />
     <Compile Include="Inventario\in_transferencia_x_in_Guia_x_traspaso_bodega_Bus.cs" />
@@ -610,14 +460,6 @@
     <Compile Include="Inventario\vwin_movi_inve_detalle_x_Contabilizar_x_ctacbles_Bus.cs" />
     <Compile Include="Inventario\vwin_movi_inve_x_cbteCble_Datos_Bus.cs" />
     <Compile Include="Inventario\vwIn_UnidadMedida_Equivalencia_Bus.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inven_x_in_movi_inven_CusCidersus_Bus.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inve_detalle_x_com_ordencompra_local_det_Bus.cs" />
-    <Compile Include="Inventario_Cidersus\in_movi_inve_detalle_x_Producto_CusCider_Bus.cs" />
-    <Compile Include="Inventario_Edehsa\in_Categoria_x_Formula_bus.cs" />
-    <Compile Include="Inventario_Edehsa\in_Producto_Dimensiones_bus .cs" />
-    <Compile Include="Inventario_Fj\in_Orden_servicio_x_Activo_fijo_Bus.cs" />
-    <Compile Include="Inventario_Fj\in_Orden_servicio_x_Activo_fijo_det_Bus.cs" />
-    <Compile Include="Inventario_Talme\inv_ObtenerReporteTalme_Bus.cs" />
     <Compile Include="MobileSCI\tbl_bodega_Bus.cs" />
     <Compile Include="MobileSCI\tbl_movimientos_det_Bus.cs" />
     <Compile Include="MobileSCI\tbl_producto_Bus.cs" />
@@ -625,316 +467,7 @@
     <Compile Include="MobileSCI\tbl_usuario_Bus.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_bodega_Bus.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_subcentro_Bus.cs" />
-    <Compile Include="Presupuesto\pre_estadoAprobacion_Bus.cs" />
-    <Compile Include="Presupuesto\pre_ordencompra_local_Bus.cs" />
-    <Compile Include="Presupuesto\pre_ordencompra_local_det_Bus.cs" />
-    <Compile Include="Presupuesto\pre_PedidoXPresupuesto_Bus.cs" />
-    <Compile Include="Presupuesto\pre_PedidoXPresupuesto_det_Bus.cs" />
-    <Compile Include="Presupuesto\pre_presupuesto_Bus.cs" />
-    <Compile Include="Presupuesto\pre_presupuesto_tipoRubro_Bus.cs" />
-    <Compile Include="Produccion_Edehsa\prd_MotivoTraslado_Bus.cs" />
-    <Compile Include="Produccion_Edehsa\vwprd_Guia_Remision_Electronica_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_BeneficiarioYProsupuestados_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_ChatarraTipo_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_Clave_Autorizacion_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_CompraChatarra_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_CompraChatarra_CusTalme_x__in_movi_inven_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaAcero_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaAcero_CusTalme_x_in_movi_inven_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaLaminado_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaLaminado_x_paradas_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaTechos_CusTalme_Cab_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaTechos_CusTalme_Detalle_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_GestionProductivaTechos_CusTalme_X_in_movi_inve_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_horno_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_ModeloProduccion_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_ModeloProduccion_x_Producto_CusTal_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_ParametrosPorCampos_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_Parametros_x_MoviInven_x_ModeloProduccion_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_Parametro_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_ProgramaProd_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_TipoParada_CusTalme_Bus.cs" />
-    <Compile Include="Produccion_Talme\prod_Turno_Bus.cs" />
-    <Compile Include="Compras\com_cotizacion_compra_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlInventarioProd_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccionObreroDetalle_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccionObrero_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ControlProduccion_Obrero_x_in_movi_inve_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Conversion_CusCidersus_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_conversion_cusCidersus_x_in_movi_inven_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Conversion_det_CusCidersus_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_CotizacionCompras_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_DespachoDetalle_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Despacho_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Despacho_cusCidersus_x_in_movi_inven_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_EficienciaPiezas_Rpt_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Ensamblado_CusCider_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ensamblado_cusCider_x_in_movi_inven_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Ensamblado_Det_CusCider_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_EtapaProduccion_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GenerOCompraDet_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GenerOCompra_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GruposTrabajo_PorPP_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GrupoTrabajoDetalle_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_GrupoTrabajo_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_MovPteGrua_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_MovPteGrua_Det_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PteGrua_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PuenteGruaMovilizacion_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_SubGrupoTrabajoDetalle_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_SubGrupoTrabajo_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Obra_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ObtenerReporteCotiza_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ObtenerReporte_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_Operador_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_OrdenesComprasPendientes_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_OrdenTaller_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_parametros_CusCidersus_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ProcesoProductivo_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_ProcesoProductivo_x_prd_obra_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PuenteGruaMovimiento_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\prd_PuenteGrua_Bus.cs" />
-    <Compile Include="Produc_Cirdesus\vwprd_UsuarioAutorizados_Cidersus_Bus.cs" />
-    <Compile Include="Roles\Archivos para Bancos\ro_Solicitud_Tarjeta_Guayaquil_Bus.cs" />
-    <Compile Include="Roles\ro_Acta_Finiquito_Bus.cs" />
-    <Compile Include="Roles\ro_Acta_Finiquito_Detalle_Bus.cs" />
-    <Compile Include="Roles\ro_Archivos_Bancos_Generacion_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_archivos_bancos_generacion_x_empleado_Bus.cs" />
-    <Compile Include="Roles\ro_Archivo_Bancos_Generacion_Detalle_Bus.cs" />
-    <Compile Include="Roles\ro_Archivo_IESS_Generacion_Bus.cs" />
-    <Compile Include="Roles\ro_area_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Area_X_Departamento_Bus.cs" />
-    <Compile Include="Roles\ro_Asignacion_Implemento_x_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_Asignacion_Implemento_x_Empleado_det_Bus.cs" />
-    <Compile Include="Roles\ro_calculos_formula_IESS_bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Capacitaciones_x_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_CargaFamiliar_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Cargo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_CatalogoTipo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Catalogo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Comprobantes_Contables_Bus.cs" />
-    <Compile Include="Roles\ro_ConexionBiometrico_Bus.cs" />
-    <Compile Include="Roles\ro_Config_Param_contable_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_Rubros_ParametrosGenerales_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_rubros_x_Prestamo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Config_SueldoBasico_x_anio_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_ConfRubrosAcumulados_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_contrato_bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Cuentas_contables_x_empleado_Bus.cs" />
-    <Compile Include="Roles\ro_Departamento_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_DiasFaltados_x_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_dias_Bus.cs" />
-    <Compile Include="Roles\ro_division_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_DocumentoxEmp_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_estudios_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_gastos_perso_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_gastos_perso_x_Gastos_deduci_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_gastos_perso_x_otros_gast_deduci_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_Novedad_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_Novedad_Det_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Empleado_TipoNomina_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_x_centro_costo_Bus.cs" />
-    <Compile Include="Roles\ro_Empleado_X_Horario_Bus.cs" />
-    <Compile Include="Roles\ro_empleado_x_Proyeccion_Gastos_Personales_Bus.cs" />
-    <Compile Include="Roles\ro_empleado_x_ro_rubro_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empleado_x_rubro_acumulado_Bus.cs" />
-    <Compile Include="Roles\ro_empleado_x_titulos_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_empresa_x_TipoLiqui_bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_HistoricoSueldo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_historico_liquidacion_vacaciones_Bus.cs" />
-    <Compile Include="Roles\ro_Historico_Liquidacion_Vacaciones_Det_Bus.cs" />
-    <Compile Include="Roles\ro_historico_vacaciones_x_empleado_Bus.cs" />
-    <Compile Include="Roles\ro_Horario_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_horario_planificacion_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_marcaciones_Equipo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_marcaciones_Equipo_x_TipoMarcacion_Bus.cs" />
-    <Compile Include="Roles\ro_marcaciones_tipo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_marcaciones_x_empleado_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Nomina_Tipoliqui_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Nomina_Tipoliqui_x_Sueldo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Nomina_Tipo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_nomina_tipo_liqui_orden_Bus.cs" />
-    <Compile Include="Roles\ro_Nomina_X_Horas_Extras_Bus.cs" />
-    <Compile Include="Roles\ro_Novedad_Subida_Bach_Bus.cs" />
-    <Compile Include="Roles\ro_Novedad_x_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_ObtenerReporte_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Pago_decimos_x_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_Parametros_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_parametro_contable_x_Nomina_Tipoliqui_Sueldo_x_Pagar_Bus.cs" />
-    <Compile Include="Roles\ro_Participacion_Utilidad_Bus.cs" />
-    <Compile Include="Roles\ro_Participacion_Utilidad_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_periodo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_periodo_x_ro_Nomina_TipoLiqui_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_permiso_x_empleado_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_prestamo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_prestamo_detalle_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Procesar_Rol_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Rdep_Bus.cs" />
-    <Compile Include="Roles\ro_Rol_Bus.cs" />
-    <Compile Include="Roles\ro_Rol_Detalle_Bus.cs" />
-    <Compile Include="Roles\ro_rol_detalle_x_rubro_acumulado_Bus.cs" />
-    <Compile Include="Roles\ro_rol_individual_Bus.cs" />
-    <Compile Include="Roles\ro_rubro_tipo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Salario_Digno_Bus.cs" />
-    <Compile Include="Roles\ro_Salario_Digno_Empleado_Bus.cs" />
-    <Compile Include="Roles\ro_SolicitudVacaciones_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_TablaSectorial_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_Tabla_Impu_Renta_Bus.cs" />
-    <Compile Include="Roles\ro_tipo_gastos_personales_tabla_valores_x_anio_Bus.cs" />
-    <Compile Include="Roles\ro_Tipo_Prestamo_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_turno_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\ro_turno_x_tb_dia_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles_Fj\ro_Calculo_Pago_Variable_Porcentaje_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_descuento_no_planificados_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_descuento_no_planificados_Det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_disco_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_Novedad_x_horasExtras_Pendiente_Aprobar_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_Activo_Fijo_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_Activo_Fijo_Historico_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_parametro_x_pago_variable_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_parametro_x_pago_variable_Det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_turno_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_rutas_asignadas_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_empleado_x_rutas_asignadas_Det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_Entrega_x_Periodo_Empleado_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_Entrega_x_Periodo_Empleado_Det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_x_empleado_Adm_x_periodo_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_fectividad_x_empleado_Adm_x_periodo_Det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_fuerza_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_Grupo_empleado_det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_parametros_reporte_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_Det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_parametro_x_pago_variable_tipo_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_placa_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_jornada_desfasada_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_jornada_desfasada_empleado_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_Grupo_empleado_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_marcaciones_x_empleado_x_incidentes_falt_Perm_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_marcaciones_x_Jornada_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_Parametro_calculo_Horas_Extras_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_ruta_x_empleado_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_planificacion_x_ruta_x_empleado_det_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_Remplazo_x_emplado_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_ruta_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_sala_Bus.cs" />
-    <Compile Include="Roles_Fj\ro_zona_Bus.cs" />
     <Compile Include="SeguridadAcceso\seg_usuario_x_tb_sis_reporte_Bus.cs" />
-    <Compile Include="SRI\sri_ciudad_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SRI\sri_provincia_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SRI\sri_tipoIdentificacion_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SRI\sri_tipo_Gasto_Bus.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Roles\vwro_empleado_por_novedades_Bus.cs" />
-    <Compile Include="Roles\vwro_empleado_por_novedades_cabecera_Bus.cs" />
     <Compile Include="SeguridadAcceso\cl_Encriptacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeguridadAcceso\seg_Menu_bus.cs">
@@ -979,7 +512,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ayuda_Formulas_Roles.txt" />
+    <Folder Include="SRI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

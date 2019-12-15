@@ -21,11 +21,11 @@ namespace Core.Erp.Data
             this.ba_Cbte_Ban = new HashSet<ba_Cbte_Ban>();
             this.ba_Cbte_Ban1 = new HashSet<ba_Cbte_Ban>();
             this.ba_Cbte_Ban_Datos_Entrega_cheq = new HashSet<ba_Cbte_Ban_Datos_Entrega_cheq>();
-            this.ba_Archivo_Transferencia = new HashSet<ba_Archivo_Transferencia>();
-            this.ba_Archivo_Transferencia1 = new HashSet<ba_Archivo_Transferencia>();
             this.ba_prestamo = new HashSet<ba_prestamo>();
             this.ba_prestamo1 = new HashSet<ba_prestamo>();
             this.ba_prestamo2 = new HashSet<ba_prestamo>();
+            this.ba_Archivo_Transferencia = new HashSet<ba_Archivo_Transferencia>();
+            this.ba_Archivo_Transferencia1 = new HashSet<ba_Archivo_Transferencia>();
             this.ba_Archivo_Transferencia_Det = new HashSet<ba_Archivo_Transferencia_Det>();
         }
     
@@ -50,11 +50,11 @@ namespace Core.Erp.Data
         public virtual ICollection<ba_Cbte_Ban> ba_Cbte_Ban { get; set; }
         public virtual ICollection<ba_Cbte_Ban> ba_Cbte_Ban1 { get; set; }
         public virtual ICollection<ba_Cbte_Ban_Datos_Entrega_cheq> ba_Cbte_Ban_Datos_Entrega_cheq { get; set; }
-        public virtual ICollection<ba_Archivo_Transferencia> ba_Archivo_Transferencia { get; set; }
-        public virtual ICollection<ba_Archivo_Transferencia> ba_Archivo_Transferencia1 { get; set; }
         public virtual ICollection<ba_prestamo> ba_prestamo { get; set; }
         public virtual ICollection<ba_prestamo> ba_prestamo1 { get; set; }
         public virtual ICollection<ba_prestamo> ba_prestamo2 { get; set; }
+        public virtual ICollection<ba_Archivo_Transferencia> ba_Archivo_Transferencia { get; set; }
+        public virtual ICollection<ba_Archivo_Transferencia> ba_Archivo_Transferencia1 { get; set; }
         public virtual ICollection<ba_Archivo_Transferencia_Det> ba_Archivo_Transferencia_Det { get; set; }
     }
 }

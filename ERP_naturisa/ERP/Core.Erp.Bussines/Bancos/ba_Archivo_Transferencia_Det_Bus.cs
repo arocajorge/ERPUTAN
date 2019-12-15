@@ -177,18 +177,5 @@ namespace Core.Erp.Business.Bancos
 
             }
         }
-                
-        public List<ba_Archivo_Transferencia_Det_Info> Get_List_Archivo_transferencia_para_deposito(int IdEmpresa, decimal IdArchivo)
-        {
-            try
-            {
-                return oData.Get_List_Archivo_transferencia_para_deposito(IdEmpresa, IdArchivo);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_Archivo_transferencia_para_deposito", ex.Message), ex) { EntityType = typeof(ba_Archivo_Transferencia_Det_Bus) };
-            }
-        }
     }
 }

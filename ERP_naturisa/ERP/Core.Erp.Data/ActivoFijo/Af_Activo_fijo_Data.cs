@@ -5,8 +5,6 @@ using System.Text;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
-using Core.Erp.Info.ActivoFijo_FJ;
-using Core.Erp.Info.Facturacion_FJ;
 using System.Data.Entity.Validation;
 
 
@@ -1017,11 +1015,6 @@ namespace Core.Erp.Data.ActivoFijo
                         info.Marca = item.Marca;
                         info.Af_Capacidad = item.Af_Capacidad;
                         info.Modelo = item.Modelo;
-                        info.nom_Centro_costo = item.nom_Centro_costo;
-                        info.nom_Cliente = item.nom_Cliente;
-                        info.nom_punto_cargo = item.nom_punto_cargo;
-                        info.nom_UnidadFact = item.nom_UnidadFact;
-                        info.nom_Centro_costo_sub_centro_costo = item.nom_Centro_costo_sub_centro_costo;
                         info.nom_Categoria = item.nom_Categoria;
                         info.Es_carroceria = item.Es_carroceria;
 
@@ -1072,10 +1065,6 @@ namespace Core.Erp.Data.ActivoFijo
                         info.Af_ValorUnidad_Actu = item.Af_ValorUnidad_Actu;
                         info.Marca = item.Marca;
                         info.Modelo = item.Modelo;
-                        info.nom_Centro_costo = item.nom_Centro_costo;
-                        info.nom_Cliente = item.nom_Cliente;
-                        info.nom_punto_cargo = item.nom_punto_cargo;
-                        info.nom_UnidadFact = item.nom_UnidadFact;
                         info.nom_Categoria = item.nom_Categoria;
                         info.IdCentroCosto = item.IdCentroCosto;
                         info.Af_Capacidad = item.Af_Capacidad;
@@ -1099,87 +1088,6 @@ namespace Core.Erp.Data.ActivoFijo
                 }
 
                 return Lista;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
-                throw new Exception(ex.InnerException.ToString());
-            }
-        }
-
-        public Boolean Grabar_Poliza_x_Activo(Af_Poliza_x_AF_Info info)
-        {
-            try
-            {
-                using (EntitiesActivoFijo Context = new EntitiesActivoFijo())
-                {
-                    foreach (var item in info.lst_Det)
-                    {
-                        Af_Activo_fijo Entity = Context.Af_Activo_fijo.FirstOrDefault(q=>q.IdEmpresa == item.IdEmpresa && q.IdActivoFijo == item.IdActivoFijo);
-                        if (Entity != null)
-                        {
-                            Entity.Af_FechaPoliza = info.fecha;
-                            Entity.Af_fecha_vigencia_desde = info.fecha_vigencia_desde;
-                            Entity.Af_Fecha_Vencimiento = info.fecha_vigencia_hasta;
-                            Entity.Af_ValorPoliza = info.Total;
-                            Entity.Subtotal_Prima = item.Subtotal_12;//opin
-                            Entity.Iva_Prima = item.Iva;
-                            Entity.Prima = item.Prima;
-                            Context.SaveChanges();
-                        }    
-                    }
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
-                throw new Exception(ex.InnerException.ToString());
-            }
-        }
-
-        public bool Actualizar_Unidades(List<fa_registro_unidades_x_equipo_det_Info> Lista)
-        {
-            try
-            {
-                var agrupacion = from p in Lista                                 
-                                 group p by new { p.IdActivoFijo,p.IdEmpresa } into grupo
-                                 select grupo;
-
-                List<fa_registro_unidades_x_equipo_det_Info> Lista_agrupada=new List<fa_registro_unidades_x_equipo_det_Info>();
-
-                foreach (var item in agrupacion)
-                {
-                    fa_registro_unidades_x_equipo_det_Info info = new fa_registro_unidades_x_equipo_det_Info();
-                    info.IdEmpresa = item.Key.IdEmpresa;
-                    info.IdActivoFijo = item.Key.IdActivoFijo;
-                    info.Valor = Lista.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdActivoFijo == info.IdActivoFijo).Max(q => q.Valor);
-                    Lista_agrupada.Add(info);
-                }
-
-                using (EntitiesActivoFijo Context = new EntitiesActivoFijo())
-                {
-                    foreach (var item in Lista_agrupada)
-                    {
-                        Af_Activo_fijo Entity = Context.Af_Activo_fijo.FirstOrDefault(q => q.IdEmpresa == item.IdEmpresa && q.IdActivoFijo == item.IdActivoFijo);
-
-                        if (Entity!=null)
-                        {
-                            Entity.Af_ValorUnidad_Actu = item.Valor;
-                            Context.SaveChanges();
-                        }
-                    }
-                }
-                return true;
             }
             catch (Exception ex)
             {
@@ -1293,163 +1201,6 @@ namespace Core.Erp.Data.ActivoFijo
                     lM.Add(info);
                 }
                 return (lM);
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
-                throw new Exception(ex.InnerException.ToString());
-            }
-        }
-
-        public List<Af_Activo_fijo_Info> Get_List_Vista_Af_x_Categoria_x_tarifario(int idEmpresa, int idCategoria, decimal IdTarifario)
-        {
-            try
-            {
-                List<Af_Activo_fijo_Info> Lista = new List<Af_Activo_fijo_Info>();
-
-                using (Entity_Facturacion_FJ Context = new Entity_Facturacion_FJ())
-                {
-                    var lst = from q in Context.vwfa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_x_Tarifario
-                              where q.IdEmpresa == idEmpresa
-                              && q.IdTarifario == IdTarifario
-                              && q.IdCategoriaAF == idCategoria
-                              select q;
-
-                    var lst_disponibles = from q in Context.vwfa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_disponibles
-                                          where q.IdEmpresa == idEmpresa
-                                          && q.IdCategoriaAF == idCategoria
-                                          select q;
-                    
-                    foreach (var item in lst)
-                    {
-                        Af_Activo_fijo_Info info = new Af_Activo_fijo_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.Af_Nombre = item.Af_Nombre;
-                        info.IdActivoFijo = item.IdActivoFijo;
-                        info.IdCategoriaAF = item.IdCategoriaAF;
-                        info.nom_encargado = item.nom_encargado;
-                        info.nom_Color = item.nom_Color;
-                        info.IdUnidadFact_cat = item.IdUnidadFact_cat;
-                        info.Af_ValorUnidad_Actu = item.Af_ValorUnidad_Actu;
-                        info.Marca = item.Marca;
-                        info.Modelo = item.Modelo;
-                        info.nom_Centro_costo = item.nom_Centro_costo;
-                        info.nom_Cliente = item.nom_Cliente;
-                        info.nom_punto_cargo = item.nom_punto_cargo;
-                        info.nom_UnidadFact = item.nom_UnidadFact;
-                        info.nom_Categoria = item.nom_Categoria;
-                        info.IdCentroCosto = item.IdCentroCosto;
-                        info.Es_carroceria = item.Es_carroceria;
-                        info.Af_fecha_ini_depre = item.Af_fecha_ini_depre;
-                        info.Af_fecha_fin_depre = item.Af_fecha_fin_depre;
-                        info.Af_Costo_historico = item.Af_Costo_historico;
-                        info.Af_costo_compra = item.Af_costo_compra;
-                        info.Af_ValorSalvamento = item.Af_ValorSalvamento;
-                        info.Af_Vida_Util = item.Af_Vida_Util;
-                        info.Af_Meses_depreciar = item.Af_Meses_depreciar;
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.Seleccionado = true;
-                        if(item.Num_empleado_relacionado!=null)
-                        info.Num_empleado_relacionado = item.Num_empleado_relacionado;
-                        Lista.Add(info);
-                    }                    
-
-                    foreach (var item in lst_disponibles)
-                    {
-                        Af_Activo_fijo_Info info = new Af_Activo_fijo_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.Af_Nombre = item.Af_Nombre;
-                        info.IdActivoFijo = item.IdActivoFijo;
-                        info.IdCategoriaAF = item.IdCategoriaAF;
-                        info.nom_encargado = item.nom_encargado;
-                        info.nom_Color = item.nom_Color;
-                        info.IdUnidadFact_cat = item.IdUnidadFact_cat;
-                        info.Af_ValorUnidad_Actu = item.Af_ValorUnidad_Actu;
-                        info.Marca = item.Marca;
-                        info.Modelo = item.Modelo;
-                        info.nom_Centro_costo = item.nom_Centro_costo;
-                        info.nom_Cliente = item.nom_Cliente;
-                        info.nom_punto_cargo = item.nom_punto_cargo;
-                        info.nom_UnidadFact = item.nom_UnidadFact;
-                        info.nom_Categoria = item.nom_Categoria;
-                        info.IdCentroCosto = item.IdCentroCosto;
-                        info.Es_carroceria = item.Es_carroceria;
-                        info.Af_fecha_ini_depre = item.Af_fecha_ini_depre;
-                        info.Af_fecha_fin_depre = item.Af_fecha_fin_depre;
-                        info.Af_Costo_historico = item.Af_Costo_historico;
-                        info.Af_costo_compra = item.Af_costo_compra;
-                        info.Af_ValorSalvamento = item.Af_ValorSalvamento;
-                        info.Af_Vida_Util = item.Af_Vida_Util;
-                        info.Af_Meses_depreciar = item.Af_Meses_depreciar;
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.Seleccionado = false;
-                        Lista.Add(info);
-                    }
-                }
-                
-                return Lista;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.InnerException + " " + ex.Message;
-                throw new Exception(ex.InnerException.ToString());
-            }
-        }
-
-        public List<Af_Activo_fijo_Info> Get_List_Vista_Af_x_Categoria_disponibles(int idEmpresa, int idCategoria)
-        {
-            try
-            {
-                List<Af_Activo_fijo_Info> Lista = new List<Af_Activo_fijo_Info>();
-
-                using (Entity_Facturacion_FJ Context = new Entity_Facturacion_FJ())
-                {
-                    var lst = from q in Context.vwfa_tarifario_facturacion_x_cliente_det_x_ActivoFijo_disponibles
-                              where q.IdEmpresa == idEmpresa
-                              && q.IdCategoriaAF == idCategoria
-                              select q;
-
-                    foreach (var item in lst)
-                    {
-                        Af_Activo_fijo_Info info = new Af_Activo_fijo_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.Af_Nombre = item.Af_Nombre;
-                        info.IdActivoFijo = item.IdActivoFijo;
-                        info.IdCategoriaAF = item.IdCategoriaAF;
-                        info.nom_encargado = item.nom_encargado;
-                        info.nom_Color = item.nom_Color;
-                        info.IdUnidadFact_cat = item.IdUnidadFact_cat;
-                        info.Af_ValorUnidad_Actu = item.Af_ValorUnidad_Actu;
-                        info.Marca = item.Marca;
-                        info.Modelo = item.Modelo;
-                        info.nom_Centro_costo = item.nom_Centro_costo;
-                        info.nom_Cliente = item.nom_Cliente;
-                        info.nom_punto_cargo = item.nom_punto_cargo;
-                        info.nom_UnidadFact = item.nom_UnidadFact;
-                        info.nom_Categoria = item.nom_Categoria;
-                        info.IdCentroCosto = item.IdCentroCosto;
-                        info.Es_carroceria = item.Es_carroceria;
-                        info.Af_fecha_ini_depre = item.Af_fecha_ini_depre;
-                        info.Af_fecha_fin_depre = item.Af_fecha_fin_depre;
-                        info.Af_Costo_historico = item.Af_Costo_historico;
-                        info.Af_costo_compra = item.Af_costo_compra;
-                        info.Af_ValorSalvamento = item.Af_ValorSalvamento;
-                        info.Af_Vida_Util = item.Af_Vida_Util;
-                        info.Af_Meses_depreciar = item.Af_Meses_depreciar;
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.Seleccionado = false;
-                        Lista.Add(info);
-                    }
-                }
-               return Lista;
             }
             catch (Exception ex)
             {

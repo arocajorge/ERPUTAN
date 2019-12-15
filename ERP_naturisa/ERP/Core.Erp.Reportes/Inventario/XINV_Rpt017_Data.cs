@@ -30,7 +30,7 @@ namespace Core.Erp.Reportes.Inventario
                         Info.IdBodegaOrigen = item.IdBodegaOrigen;
                         Info.IdTransferencia = item.IdTransferencia;
                         Info.dt_secuencia = item.dt_secuencia;
-                        Info.IdProducto = item.IdProducto;
+                        Info.IdProducto = item.IdProducto ?? 0;
                         Info.pr_codigo = item.pr_codigo;
                         Info.pr_descripcion = item.pr_descripcion;
                         Info.dt_cantidad = item.dt_cantidad;

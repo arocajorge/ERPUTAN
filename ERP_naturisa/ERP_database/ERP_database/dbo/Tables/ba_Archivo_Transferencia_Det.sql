@@ -30,8 +30,6 @@
     [idContrato]               NUMERIC (18)    NULL,
     [Fecha_proceso]            DATETIME        NULL,
     CONSTRAINT [PK_ba_Archivo_Transferencia_Det] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdArchivo] ASC, [Secuencia] ASC),
-    CONSTRAINT [FK_ba_Archivo_Transferencia_Det_Aca_Contrato_x_Estudiante] FOREIGN KEY ([IdInstitucion_contrato], [idContrato]) REFERENCES [dbo].[Aca_Contrato_x_Estudiante] ([IdInstitucion], [IdContrato]),
-    CONSTRAINT [FK_ba_Archivo_Transferencia_Det_Aca_Pre_Facturacion_det] FOREIGN KEY ([IdInstitucion_col], [IdPreFacturacion_col], [Secuencia_Proce_col], [secuencia_col]) REFERENCES [dbo].[Aca_Pre_Facturacion_det] ([IdInstitucion], [IdPreFacturacion], [Secuencia_Proce], [secuencia]),
     CONSTRAINT [FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1] FOREIGN KEY ([IdEmpresa], [IdArchivo]) REFERENCES [dbo].[ba_Archivo_Transferencia] ([IdEmpresa], [IdArchivo]),
     CONSTRAINT [FK_ba_Archivo_Transferencia_Det_ba_Catalogo1] FOREIGN KEY ([IdEstadoRegistro_cat]) REFERENCES [dbo].[ba_Catalogo] ([IdCatalogo]),
     CONSTRAINT [FK_ba_Archivo_Transferencia_Det_cp_orden_pago_det] FOREIGN KEY ([IdEmpresa_OP], [IdOrdenPago], [Secuencia_OP]) REFERENCES [dbo].[cp_orden_pago_det] ([IdEmpresa], [IdOrdenPago], [Secuencia]),

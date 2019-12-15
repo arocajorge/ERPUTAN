@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Core.Erp.Info.Inventario;
-using Core.Erp.Data.Produc_Cirdesus;
-using Core.Erp.Info.Produc_Cirdesus;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 using Core.Erp.Info.Facturacion;
@@ -19,8 +17,6 @@ namespace Core.Erp.Data.Inventario
         string mensaje = "";
         public in_movi_inve_Data() { }
 
-        prd_parametros_CusCidersus_Data dataParam = new prd_parametros_CusCidersus_Data();
-        prd_parametros_CusCidersus_Info paramCUS = new prd_parametros_CusCidersus_Info();
         tb_Sucursal_Data odata_su = new tb_Sucursal_Data();
         public List<in_movi_inve_Info> Get_list_Movi_inven
             (int idcompany,int idSucursalIni ,int idSucursalFin ,int IdBodegaIni,int IdBodegaFin,
@@ -700,148 +696,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(ex.ToString());
             }
         }
-
-        public List<vwIn_MoviemientoInvetarioXImportacion_Info> Get_List_SaldoImpoXMovimiento(int IdEmpres,int IdSucursal, int IdBodega, decimal IdOrdenCompraExterna) 
-        {
-            try
-            {
-                List<vwIn_MoviemientoInvetarioXImportacion_Info> lista = new List<vwIn_MoviemientoInvetarioXImportacion_Info>();
-
-                using(EntitiesInventario Oentities = new EntitiesInventario())
-                {
-                    var consulta = from q in Oentities.vwin_MoviemientoInvetarioXImportacion
-                                   where q.IdEmpresa == IdEmpres && q.in_IdBodega == IdBodega && q.IdSucursal == IdSucursal && q.IdOrdenCompraExt == IdOrdenCompraExterna
-                                   select q;
-                    foreach (var item in consulta)
-                    {
-                        vwIn_MoviemientoInvetarioXImportacion_Info obj = new vwIn_MoviemientoInvetarioXImportacion_Info();
-                        obj.di_cantidad_Solicitada = item.di_cantidad_Solicitada;
-                        obj.dm_cantidad_Ingresa = item.dm_cantidad_Ingresa;
-                        obj.IdProducto = item.IdProducto;
-                        obj.IdEmpresa = item.IdEmpresa;
-                        obj.IdOrdenCompraExt = item.IdOrdenCompraExt;
-                        obj.IdSucursal = item.IdSucursal;
-                        obj.in_IdBodega = item.in_IdBodega;
-                        obj.SaldoxIngresar = item.SaldoxIngresar;
-
-                        lista.Add(obj);
-                    }
-                   
-                }
-
-                return lista;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(ex.ToString());
-            }              
-        }
-
-        public List<in_movi_inve_Info> Get_list_Movi_inven_Recepcion
-        (int IdEmpresa,  int IdSucursalIni, int IdSucursalFin, int IdBodegaIni, int IdBodegaFin, DateTime FechaIni, DateTime FechaFin)
-        {
-
-            try
-            {
-                FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
-                FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
-             
-                if (IdSucursalIni == 0)
-                {
-                    IdSucursalFin = 5000;
-                    IdSucursalIni = 0;
-                }
-                else
-                    IdSucursalFin = IdSucursalIni;
-
-                if (IdBodegaIni == 0)
-                {
-                    IdBodegaFin = 5000;
-                    IdBodegaIni = 0;
-                }
-                else
-                    IdBodegaFin = IdBodegaIni;
-
-                paramCUS = dataParam.ObtenerObjeto(IdEmpresa);
-
-                List<in_movi_inve_Info> lM = new List<in_movi_inve_Info>();
-                EntitiesInventario OECbtecble_Info = new EntitiesInventario();
-                var selectCbtecble = from C in OECbtecble_Info.vwin_movi_inve
-                                     where C.IdEmpresa == IdEmpresa
-                                     && C.IdMovi_inven_tipo == paramCUS.IdMovi_inven_tipo_ing_suc_princ
-                                     && C.IdSucursal >= IdSucursalIni && C.IdSucursal <= IdSucursalFin
-                                     && C.IdBodega >= IdBodegaIni && C.IdBodega <= IdBodegaFin
-                                     && C.cm_fecha >= FechaIni && C.cm_fecha <= FechaFin
-                                     
-                                   select C;
-                foreach (var item in selectCbtecble)
-                {
-                    in_movi_inve_Info moviI = new in_movi_inve_Info();
-
-                    moviI.cm_anio = item.cm_anio;
-                    moviI.cm_fecha = item.cm_fecha;
-                    moviI.cm_mes = item.cm_mes;
-                    moviI.cm_observacion = item.cm_observacion;
-                    moviI.cm_tipo = item.cm_tipo;
-                    moviI.Estado = item.Estado;
-                    moviI.Fecha_Transac = item.Fecha_Transac;
-                    moviI.Fecha_UltAnu = item.Fecha_UltAnu;
-                    moviI.Fecha_UltMod = item.Fecha_UltMod;
-                    moviI.IdBodega = item.IdBodega;
-                    moviI.IdCbteCble = item.IdCbteCble;
-                    moviI.IdCbteCble_Tipo = item.IdCbteCble_Tipo;
-                    moviI.IdCtaCble = item.IdCtaCble;
-                    moviI.IdEmpresa = item.IdEmpresa;
-                    moviI.IdMovi_inven_tipo = item.IdMovi_inven_tipo;
-                    moviI.IdNumMovi = item.IdNumMovi;
-                    moviI.IdSucursal = item.IdSucursal;
-                    moviI.IdUsuario = item.IdUsuario;
-                    moviI.IdusuarioUltAnu = item.IdusuarioUltAnu;
-                    moviI.IdUsuarioUltModi = item.IdUsuarioUltModi;
-                    moviI.ip = item.ip;
-                    moviI.nom_pc = item.nom_pc;
-                    moviI.NomBodega = item.NomBodega;
-                    moviI.NomSucursal = item.NomSucursal;
-                    moviI.NomTipoMovi = item.NomTipoMovi;
-                    moviI.CodTipoMovi = item.CodTipoMovi;
-                    moviI.NumFactura = (item.NumFactura == null) ? "" : item.NumFactura; 
-                    moviI.IdProvedor = (decimal)((item.IdProvedor == null) ? 0 : item.IdProvedor);
-                    moviI.NumDocumentoRelacionado = (item.NumDocumentoRelacionado==null)?"":item.NumDocumentoRelacionado;
-                    moviI.NemoTipoMovi = item.NemoTipoMovi;
-                    moviI.IdCentroCosto = item.IdCentroCosto;
-                    moviI.CodNomTipoMovi = "[" + item.CodTipoMovi + "] - " + item.NomTipoMovi;
-                    moviI.ReferenciaOC = String.Format("{0} - {1} - {2}",
-                    (item.CodCentroCosto != null) ? item.CodCentroCosto.Trim() : "",
-                    (item.Centro_costo != null) ? item.Centro_costo.Trim() : "",
-                    item.cm_observacion.Trim());
-                    moviI.IdEmpresa_x_Anu = item.IdEmpresa_x_Anu;
-                    moviI.IdSucursal_x_Anu = item.IdSucursal_x_Anu;
-                    moviI.IdBodega_x_Anu = item.IdBodega_x_Anu;
-                    moviI.IdMovi_inven_tipo_x_Anu = item.IdMovi_inven_tipo_x_Anu;
-                    moviI.IdNumMovi_x_Anu = item.IdNumMovi_x_Anu;
-                    moviI.MotivoAnulacion = item.MotivoAnulacion;
-
-                    lM.Add(moviI);
-                }
-
-                return (lM);
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(ex.ToString());
-            }
-        }
-            
+          
         public List<in_movi_inve_Info> Get_list_Movi_inven_x_ProdDiariaLagminadosTalme(int IdEmpresa, int IdSucursal, int IdBodega, int TipoMovi, decimal IdNumMov)
         {
             try

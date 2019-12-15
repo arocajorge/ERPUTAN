@@ -2,7 +2,6 @@
 using Core.Erp.Business.General;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Info.General;
-using Core.Erp.Winform.ActivoFijo_FJ;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +31,6 @@ namespace Core.Erp.Winform.ActivoFijo
         Form FrmChildren;
         Form FrmParent;
         frmAF_Cambio_Ubicacion frm;
-        frmAF_Cambio_Ubicacion_FJ frm_FJ;
         Cl_Enumeradores.eCliente_Vzen eCliente;
 
         public void Set_FrmChildren(Form _FrmChildren)
@@ -243,9 +241,6 @@ namespace Core.Erp.Winform.ActivoFijo
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
-                    case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        Llamar_Formulario_FJ(Accion);
-                        break;
                     case Cl_Enumeradores.eCliente_Vzen.GENERAL:
                         Llamar_Formulario_GE(Accion);
                         break;
@@ -282,28 +277,6 @@ namespace Core.Erp.Winform.ActivoFijo
                 MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
             }
-        }
-
-        private void Llamar_Formulario_FJ(Cl_Enumeradores.eTipo_action Accion)
-        {
-            try
-            {
-                frm_FJ = new frmAF_Cambio_Ubicacion_FJ();
-                frm_FJ.MdiParent = this.FrmParent;
-                frm_FJ.setAccion(Accion);
-                if (Accion != Cl_Enumeradores.eTipo_action.grabar)
-                {
-                    frm_FJ.Set_Af_CambioUbicacion_Activo_Info(busCambio.Get_Info_CambioUbicacion(_Info.IdEmpresa, _Info.IdCambioUbicacion));    
-                }
-                frm_FJ.Show();
-                frm_FJ.event_FormClosed += new frmAF_Cambio_Ubicacion_FJ.delegate_FormClosed(frm_event_FormClosed);
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-            }
-        }        
+        }     
     }
 }

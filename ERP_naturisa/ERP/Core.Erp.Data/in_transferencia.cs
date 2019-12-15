@@ -16,9 +16,9 @@ namespace Core.Erp.Data
     {
         public in_transferencia()
         {
-            this.in_transferencia_det = new HashSet<in_transferencia_det>();
             this.in_transferencia_x_fa_guia_remision = new HashSet<in_transferencia_x_fa_guia_remision>();
             this.in_transferencia_x_in_Guia_x_traspaso_bodega = new HashSet<in_transferencia_x_in_Guia_x_traspaso_bodega>();
+            this.in_transferencia_det = new HashSet<in_transferencia_det>();
         }
     
         public int IdEmpresa { get; set; }
@@ -45,16 +45,13 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> tr_fecha_transaccion { get; set; }
         public string IdUsuarioUltMod { get; set; }
         public Nullable<System.DateTime> Fecha_UltMod { get; set; }
-        public string nom_pc { get; set; }
-        public string ip { get; set; }
         public string motivo_anula { get; set; }
-        public string IdEstadoAprobacion_cat { get; set; }
+        public Nullable<decimal> IdGuia { get; set; }
     
-        public virtual in_Catalogo in_Catalogo { get; set; }
-        public virtual ICollection<in_transferencia_det> in_transferencia_det { get; set; }
-        public virtual ICollection<in_transferencia_x_fa_guia_remision> in_transferencia_x_fa_guia_remision { get; set; }
-        public virtual ICollection<in_transferencia_x_in_Guia_x_traspaso_bodega> in_transferencia_x_in_Guia_x_traspaso_bodega { get; set; }
         public virtual in_Ing_Egr_Inven in_Ing_Egr_Inven { get; set; }
         public virtual in_Ing_Egr_Inven in_Ing_Egr_Inven1 { get; set; }
+        public virtual ICollection<in_transferencia_x_fa_guia_remision> in_transferencia_x_fa_guia_remision { get; set; }
+        public virtual ICollection<in_transferencia_x_in_Guia_x_traspaso_bodega> in_transferencia_x_in_Guia_x_traspaso_bodega { get; set; }
+        public virtual ICollection<in_transferencia_det> in_transferencia_det { get; set; }
     }
 }

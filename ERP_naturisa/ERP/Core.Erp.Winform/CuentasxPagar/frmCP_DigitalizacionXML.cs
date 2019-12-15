@@ -114,7 +114,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                             rec_Identificacion = infoFactura.Element("identificacionComprador").Value    
                         };
                         Documento.FormaPago = infoFactura.Element("pagos") == null ? null : infoFactura.Element("pagos").Element("pago") == null ? null : (infoFactura.Element("pagos").Element("pago").Element("formaPago") == null ? null : infoFactura.Element("pagos").Element("pago").Element("formaPago").Value);
-                        Documento.Plazo = infoFactura.Element("pagos") == null ? 0 : infoFactura.Element("pagos").Element("pago") == null ? 0 : Convert.ToInt32(Convert.ToDecimal(infoFactura.Element("pagos").Element("pago").Element("plazo").Value));
+                        Documento.Plazo = infoFactura.Element("pagos") == null ? 0 : infoFactura.Element("pagos").Element("pago") == null ? 0 : (infoFactura.Element("pagos").Element("pago").Element("plazo") == null ? 0 : Convert.ToInt32(Convert.ToDecimal(infoFactura.Element("pagos").Element("pago").Element("plazo").Value)));
 
                         var list = infoFactura.Element("totalConImpuestos").Elements("totalImpuesto")
                            .Select(element => element)
@@ -125,18 +125,22 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         foreach (var Impuesto in list)
                         {
-                            Documento.Porcentaje = Convert.ToDouble(Impuesto.Element("valor").Value);
+                            if (Impuesto.Element("codigo").Value.ToString() != "3")
+                            {
+                                Documento.Porcentaje = Convert.ToDouble(Impuesto.Element("valor").Value);
 
-                            if (Documento.Porcentaje == 0)
-                            {
-                                Documento.Subtotal0 += Convert.ToDouble(Impuesto.Element("baseImponible").Value);
+                                if (Documento.Porcentaje == 0)
+                                {
+                                    Documento.Subtotal0 += Convert.ToDouble(Impuesto.Element("baseImponible").Value);
+                                }
+                                else
+                                {
+                                    Documento.SubtotalIVA += Convert.ToDouble(Impuesto.Element("baseImponible").Value);
+                                    Documento.ValorIVA += Convert.ToDouble(Impuesto.Element("valor").Value);
+                                    Documento.Porcentaje = bus_impuesto.Get_Info_impuesto(param.Get_Parametro_Info(tb_parametro_enum.P_IVA).Valor).porcentaje;
+                                }    
                             }
-                            else
-                            {
-                                Documento.SubtotalIVA += Convert.ToDouble(Impuesto.Element("baseImponible").Value);
-                                Documento.ValorIVA += Convert.ToDouble(Impuesto.Element("valor").Value);
-                                Documento.Porcentaje = bus_impuesto.Get_Info_impuesto(param.Get_Parametro_Info(tb_parametro_enum.P_IVA).Valor).porcentaje;
-                            }
+                            
                         }
                         Documento.Total = Documento.Subtotal0 + Documento.SubtotalIVA + Documento.ValorIVA;
                         Documento.Comprobante = Documento.CodDocumento + '-' + Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
@@ -164,6 +168,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                             d.Total = d.Precio + d.ValorIva;
                             Documento.lstDetalle.Add(d);
                         }
+
+                        Documento.SubtotalIVA = Documento.lstDetalle.Where(q=> q.PorcentajeIVA > 0).Sum(q=> q.Precio);
+                        Documento.Subtotal0 = Documento.lstDetalle.Where(q=> q.PorcentajeIVA == 0).Sum(q=> q.Precio);
+                        Documento.ValorIVA = Documento.lstDetalle.Sum(q => q.ValorIva);
+                        Documento.Total = Documento.lstDetalle.Sum(q => q.Total);
+
                         if (ListaCodigoProveedor.Where(q=> q.IdEmpresa == param.IdEmpresa && q.pe_cedulRuc == Documento.emi_Ruc).Count() == 0)
                         {
                             var ListaDet = bus_codigoProveedor.GetList(param.IdEmpresa, Documento.emi_Ruc);

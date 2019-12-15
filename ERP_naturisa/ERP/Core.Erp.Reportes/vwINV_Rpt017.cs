@@ -19,7 +19,7 @@ namespace Core.Erp.Reportes
         public int IdBodegaOrigen { get; set; }
         public decimal IdTransferencia { get; set; }
         public int dt_secuencia { get; set; }
-        public decimal IdProducto { get; set; }
+        public Nullable<decimal> IdProducto { get; set; }
         public string pr_codigo { get; set; }
         public string pr_descripcion { get; set; }
         public double dt_cantidad { get; set; }

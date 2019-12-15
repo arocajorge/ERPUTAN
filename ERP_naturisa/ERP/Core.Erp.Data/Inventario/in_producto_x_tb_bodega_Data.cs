@@ -13,86 +13,6 @@ namespace Core.Erp.Data.Inventario
     {
         string mensaje = "";
 
-        public List<in_producto_x_tb_bodega_Info> Get_List_producto_x_tb_bodega_x_Transferencia(int IdEmpresa, int IdBodega, int IdSucursal, List<in_transferencia_det_Info> listdetalle, decimal IdTransferencia)
-        {
-            try
-            {
-                  List<in_producto_x_tb_bodega_Info> lst = new List<in_producto_x_tb_bodega_Info>();
-                    EntitiesInventario oEnti = new EntitiesInventario();
-
-                    var idProducto = from q in listdetalle
-                                     select q.IdProducto;
-
-                    var select = from q in oEnti.vwin_prt_transferencia
-                                 where idProducto.Contains(q.IdProducto) 
-                                 && q.IdBodegaOrigen == IdBodega 
-                                 && q.IdEmpresa == IdEmpresa 
-                                 && q.IdSucursalOrigen == IdSucursal 
-                                 && q.IdTransferencia == IdTransferencia
-                                 select q;
-
-                    foreach (var item in select)
-                    {
-                        in_producto_x_tb_bodega_Info info = new in_producto_x_tb_bodega_Info();
-                        info.pr_descripcion = item.pr_descripcion;
-                        info.pr_codigo = item.pr_codigo;
-                        info.cantidad = item.dt_cantidad;
-                        info.Nom_sucursal = item.Su_Descripcion;
-                        info.Nom_bodega = item.bo_Descripcion;
-                        info.sucursalDest = item.SucursalDestino;
-                        info.bodegaDest = item.BodegaDestinno;
-                        info.Nom_Empresa = item.em_nombre;
-                        info.logo = item.em_logo;
-                        info.em_direccion = item.em_direccion;
-                        info.em_telefonos = item.em_telefonos;
-                        info.StockAnterior = Convert.ToDecimal(item.dt_cantidad + item.pr_stock);
-
-                        info.IdCtaCble_CosBaseIva = item.IdCtaCble_CosBaseIva;
-                        info.IdCtaCble_CosBase0 = item.IdCtaCble_CosBase0;
-                        info.IdCtaCble_VenIva = item.IdCtaCble_VenIva;
-                        info.IdCtaCble_Ven0 = item.IdCtaCble_Ven0;
-                        info.IdCtaCble_DesIva = item.IdCtaCble_DesIva;
-                        info.IdCtaCble_Des0 = item.IdCtaCble_Des0;
-                        info.IdCtaCble_DevIva = item.IdCtaCble_DevIva;
-                        info.IdCtaCble_Dev0 = item.IdCtaCble_Dev0;
-                        info.IdCtaCble_Vta = item.IdCtaCble_Vta;
-
-                        info.IdCtaCble_Inven = item.IdCtaCble_Inven;
-                        info.IdCtaCble_Costo = item.IdCtaCble_Costo;
-                        info.IdCtaCble_Gasto_x_cxp = item.IdCtaCble_Gasto_x_cxp;
-
-
-                        info.IdCentro_Costo_Inventario = item.IdCentro_Costo_Inventario;
-                        info.IdCentro_Costo_Costo = item.IdCentro_Costo_Costo;
-                        info.IdCentroCosto_x_Gasto_x_cxp = item.IdCentroCosto_x_Gasto_x_cxp;
-
-                        info.IdCentroCosto_sub_centro_costo_inv = item.IdCentroCosto_sub_centro_costo_inv;
-                        info.IdCentroCosto_sub_centro_costo_cost = item.IdCentroCosto_sub_centro_costo_cost;
-                        info.IdCentroCosto_sub_centro_costo_cxp = item.IdCentroCosto_sub_centro_costo_cxp;
-
-
-                        info.pr_stock = item.pr_stock;
-
-                        lst.Add(info);
-                    }
-
-
-
-                    return lst;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(mensaje);
-            }
-        }
-
-
-
         public List<in_producto_x_tb_bodega_Info> Get_List_Producto_x_Bodega_x_CtasCbles(int IdEmpresa,int IdSucursal,int IdBodega)
         {
             try
@@ -159,7 +79,6 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-
 
         public List<in_producto_x_tb_bodega_Info> Get_List_Producto_x_Bodega(int IdEmpresa, int IdBodega)
         {

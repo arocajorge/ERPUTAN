@@ -19,6 +19,45 @@ namespace Core.Erp.Business.Inventario
         in_producto_x_tb_bodega_Costo_Historico_Bus bus_costo = new in_producto_x_tb_bodega_Costo_Historico_Bus();
         List<in_producto_x_tb_bodega_Costo_Historico_Info> list_costo_historico = new List<in_producto_x_tb_bodega_Costo_Historico_Info>();
 
+        public bool Guardar(in_transferencia_Info info)
+        {
+            try
+            {
+                return oData_Transferencia.Guardar(info);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "GuardarTransferecia", ex.Message), ex) { EntityType = typeof(in_transferencia_bus) };
+            }
+        }
+
+        public bool Modificar(in_transferencia_Info info)
+        {
+            try
+            {
+                return oData_Transferencia.Modificar(info);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "GuardarTransferecia", ex.Message), ex) { EntityType = typeof(in_transferencia_bus) };
+            }
+        }
+
+        public bool AnularDB(in_transferencia_Info info)
+        {
+            try
+            {
+                return oData_Transferencia.AnularDB(info);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "GuardarTransferecia", ex.Message), ex) { EntityType = typeof(in_transferencia_bus) };
+            }
+        }
+
         public bool GuardarDB(in_transferencia_Info info, ref decimal _idTransferencia)
         {
             try
@@ -29,10 +68,8 @@ namespace Core.Erp.Business.Inventario
                 {
                     resTran = true;
 
-                    if (info.IdEstadoAprobacion_cat == "APRO")
-                    {
                         Generar_inventario(info, ref _idTransferencia);
-                    }
+                    
                 }
              return resTran;
             }
@@ -97,8 +134,6 @@ namespace Core.Erp.Business.Inventario
                 info_IngEgr.CodMoviInven = "0";
                 info_IngEgr.cm_fecha = info.tr_fecha;
                 info_IngEgr.IdUsuario = info.IdUsuario;
-                info_IngEgr.nom_pc = info.nom_pc;
-                info_IngEgr.ip = info.ip;
                 info_IngEgr.Fecha_Transac = info.tr_fecha;
                 info_IngEgr.signo = Signo;
 
@@ -143,13 +178,13 @@ namespace Core.Erp.Business.Inventario
             try
             {
                 List<in_Ing_Egr_Inven_det_Info> list_IngEgrDet = new List<in_Ing_Egr_Inven_det_Info>();
-                foreach (var item in listDetalle)
+                foreach (var item in listDetalle.Where(q=> q.IdProducto != null).ToList())
                 {
 
                     switch (Signo)
                     {
                         case "-":
-                            info_costo = bus_costo.get_UltimoCosto_x_Producto_Bodega(item.IdEmpresa, IdSucursal, IdBodega, item.IdProducto,fecha);
+                            info_costo = bus_costo.get_UltimoCosto_x_Producto_Bodega(item.IdEmpresa, IdSucursal, IdBodega, item.IdProducto ?? 0,fecha);
                             list_costo_historico.Add(info_costo);
                             break;
                         case "+":
@@ -162,7 +197,7 @@ namespace Core.Erp.Business.Inventario
                     info.IdNumMovi = 0;
                     info.Secuencia = item.dt_secuencia;
                     info.IdBodega = IdBodega;
-                    info.IdProducto = item.IdProducto;
+                    info.IdProducto = item.IdProducto ?? 0;
                     info.dm_cantidad = item.dt_cantidad;
                     info.dm_observacion = item.tr_Observacion;
 
@@ -196,11 +231,11 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
-        public in_transferencia_Info Get_Info_transferencia(in_transferencia_Info info, int idEmpresa)
+        public in_transferencia_Info Get_Info_transferencia(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdTransferencia)
         {
             try
             {
-                return oData_Transferencia.Get_Info_transferencia(info, idEmpresa);
+                return oData_Transferencia.Get_Info_transferencia(IdEmpresa, IdSucursal, IdBodega, IdTransferencia);
             }
             catch (Exception ex)
             {
@@ -235,10 +270,7 @@ namespace Core.Erp.Business.Inventario
                 if (oData_Transferencia.ModificarDB(info))
                 {
                     resTran = true;
-                    if (info.IdEstadoAprobacion_cat == "APRO")
-                    {
                         Generar_inventario(info, ref _idTransferencia);
-                    }
                 }
                 return resTran;
             }

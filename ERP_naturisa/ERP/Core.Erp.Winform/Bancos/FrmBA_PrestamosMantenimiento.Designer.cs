@@ -55,7 +55,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmb_cliente = new Core.Erp.Winform.Controles.UCFa_Cliente_x_centro_costo_cmb();
             this.label14 = new System.Windows.Forms.Label();
             this.ucCon_PlanCtaCmb = new Core.Erp.Winform.Controles.UCCon_PlanCtaCmb();
             this.label5 = new System.Windows.Forms.Label();
@@ -534,7 +533,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmb_cliente);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.ucCon_PlanCtaCmb);
             this.groupBox1.Controls.Add(this.label5);
@@ -559,33 +557,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Términos del Préstamo:";
-            // 
-            // cmb_cliente
-            // 
-            this.cmb_cliente.Enabled_BtnAccion_cc = true;
-            this.cmb_cliente.Enabled_BtnAccion_cli = true;
-            this.cmb_cliente.Enabled_BtnAccion_Scc = true;
-            this.cmb_cliente.Enabled_cmb_Centro_costo = true;
-            this.cmb_cliente.Enabled_cmb_Cliente = true;
-            this.cmb_cliente.Location = new System.Drawing.Point(282, 88);
-            this.cmb_cliente.Name = "cmb_cliente";
-            this.cmb_cliente.ReadOnly_cmb_Centro_costo = false;
-            this.cmb_cliente.ReadOnly_cmb_Cliente = false;
-            this.cmb_cliente.ReadOnly_cmb_Subcentro_costo = false;
-            this.cmb_cliente.Size = new System.Drawing.Size(311, 21);
-            this.cmb_cliente.TabIndex = 23;
-            this.cmb_cliente.Visible_BtnAccion_cc = true;
-            this.cmb_cliente.Visible_BtnAccion_cli = true;
-            this.cmb_cliente.Visible_btnAccion_Scc = true;
-            this.cmb_cliente.Visible_cmb_Centro_costo = true;
-            this.cmb_cliente.Visible_cmb_Cliente = true;
-            this.cmb_cliente.Visible_cmb_Subcentro_costo = true;
-            this.cmb_cliente.Visible_lblCentro_costo = true;
-            this.cmb_cliente.Visible_lblCliente = true;
-            this.cmb_cliente.Visible_lblSub_centro_costo = true;
-            // 
-            // label14
-            // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(223, 22);
             this.label14.Name = "label14";
@@ -2228,6 +2199,5 @@
         private System.Windows.Forms.Label label15;
         private DevExpress.XtraGrid.Columns.GridColumn Col_Af_costo_compra;
         private DevExpress.XtraGrid.Columns.GridColumn Col_porcentaje_prestamo_x_activo;
-        private Controles.UCFa_Cliente_x_centro_costo_cmb cmb_cliente;
     }
 }

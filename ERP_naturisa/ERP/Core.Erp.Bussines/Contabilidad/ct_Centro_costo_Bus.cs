@@ -31,35 +31,6 @@ namespace Core.Erp.Business.Contabilidad
             }
         }
 
-        public List<ct_Centro_costo_Info> Get_list_Centro_Costo_x_cliente(int IdEmpresa, ref string MensajeError)
-        {
-            List<ct_Centro_costo_Info> lm = new List<ct_Centro_costo_Info>();
-            try
-            {
-                lm = data.Get_list_Centro_Costo_x_cliente(IdEmpresa, ref MensajeError);
-                return (lm);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_list_Centro_Costo_x_cliente", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
-            }
-        }
-
-        public List<ct_Centro_costo_Info> Get_list_Centro_Costo_x_cliente_Consulta(int IdEmpresa)
-        {
-            List<ct_Centro_costo_Info> lm = new List<ct_Centro_costo_Info>();
-            try
-            {
-                lm = data.Get_list_Centro_Costo_x_cliente_Consulta(IdEmpresa);
-                return (lm);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_list_Centro_Costo_x_cliente_Consulta", ex.Message), ex) { EntityType = typeof(ct_Centro_costo_Bus) };
-            }
-        }
        
         public List<ct_Centro_costo_Info> Get_list_Centro_costo_x_IdCuentas_Padre(int IdEmpresa, string IdCuenta_Padre, ref string MensajeError)
         {

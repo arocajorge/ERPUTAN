@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using Core.Erp.Info;
 using Core.Erp.Business;
-using Core.Erp.Info.Roles;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Business.Facturacion;
 using Core.Erp.Business.General;
@@ -232,11 +231,6 @@ namespace Core.Erp.Winform.Facturacion
                         }//fin sin error /al Eliminar
                         if (listaLog != "")
                             MensajeLog += " pero con errores:" + "\n" + listaLog + MensajeError;
-                        else
-                        {
-                            if(cxc_Contado!=null && cxc_Anticipo!=null && cxc_Credito!=null)
-                                _ClienteBus.ModificarDB_Cuentas_cbles(param.IdEmpresa, cxc_Contado, cxc_Anticipo, cxc_Credito, ref MensajeError);
-                        }
 
                     }//Fin del warning del messageBox al aceptar viene el else
                     else

@@ -7,19 +7,14 @@ using Core.Erp.Winform.Contabilidad;
 using Core.Erp.Winform.General;
 using Core.Erp.Winform.CuentasxPagar;
 using Core.Erp.Winform.ActivoFijo;
-using Core.Erp.Winform.Academico;
 using Core.Erp.Winform.Bancos;
 using Core.Erp.Winform.Facturacion;
 using Core.Erp.Winform.Compras;
 using Core.Erp.Winform.Inventario;
-using Core.Erp.Winform.Importacion;
 using Core.Erp.Winform.CuentasxCobrar;
-using Core.Erp.Winform.Compras_cidersus;
 using Core.Erp.Winform.Caja;
 using Core.Erp.Winform.Controles;
 using Core.Erp.Winform.SeguridadAcceso;
-using Core.Erp.Winform.ActivoFijo_FJ;
-using Cus.Erp.Reports.FJ.ActivoFijo;
 using Core.Erp.Business.General;
 using Cus.Erp.Reports.Naturisa.CuentasxPagar;
 
@@ -30,29 +25,17 @@ using Core.Erp.Reportes.Caja;
 using Core.Erp.Reportes.CuentasxCobrar;
 using Core.Erp.Reportes.CuentasxPagar;
 using Core.Erp.Reportes.Contabilidad;
-using Core.Erp.Reportes.Roles;
 
 using Core.Erp.Reportes.ActivoFijo;
 using Core.Erp.Reportes.Inventario;
 using Core.Erp.Reportes.Academico;
 using Core.Erp.Reportes.Bancos;
-using Core.Erp.Business.Academico;
 
-using Core.Erp.Info.Academico;
 using Core.Erp.Info.General;
-using Core.Erp.Winform.Facturacion_Fj;
-using Core.Erp.Winform.Facturacion_Grafinpren;
 using DevExpress.XtraSplashForm;
 using System.Threading;
 using System.Globalization;
-using Core.Erp.Winform.CuentasxCobrar_Grafinpren;
 
-using Cus.ERP.Reports.Grafinpren.Facturacion;
-using Cus.Erp.Reports.CAH.Colecturia;
-using Core.Erp.Winform.Compras_FJ;
-using Cus.Erp.Reports.Cidersus.Produccion;
-
-using Cus.Erp.Reports.FJ.Roles;
 namespace Core.Erp.Winform
 {
     static class Program

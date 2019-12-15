@@ -39,7 +39,7 @@
             this.pivotGridField6 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.pivotGridField7 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.uCct_Menu_Reportes1 = new Core.Erp.Reportes.Controles.UCct_Menu_Reportes();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmGe_Esperar), true, true);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_imprimir = new System.Windows.Forms.ToolStripButton();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();

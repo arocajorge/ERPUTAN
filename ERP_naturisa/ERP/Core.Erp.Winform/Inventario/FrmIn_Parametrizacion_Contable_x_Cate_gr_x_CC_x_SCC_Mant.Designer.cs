@@ -33,7 +33,6 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucct_plancta = new Core.Erp.Winform.Controles.UCCon_Plan_de_Cuenta_x_Movimiento();
             this.label3 = new System.Windows.Forms.Label();
-            this.ucct_cc_scc = new Core.Erp.Winform.Controles.UCFa_Cliente_x_centro_costo_cmb();
             this.ucIn_ProductoCmb1 = new Core.Erp.Winform.Controles.UCIn_ProductoCmb();
             this.SuspendLayout();
             // 
@@ -131,30 +130,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Cuenta Contable:";
             // 
-            // ucct_cc_scc
-            // 
-            this.ucct_cc_scc.Enabled_BtnAccion_cc = true;
-            this.ucct_cc_scc.Enabled_BtnAccion_cli = true;
-            this.ucct_cc_scc.Enabled_BtnAccion_Scc = true;
-            this.ucct_cc_scc.Enabled_cmb_Centro_costo = true;
-            this.ucct_cc_scc.Enabled_cmb_Cliente = true;
-            this.ucct_cc_scc.Location = new System.Drawing.Point(14, 166);
-            this.ucct_cc_scc.Name = "ucct_cc_scc";
-            this.ucct_cc_scc.ReadOnly_cmb_Centro_costo = false;
-            this.ucct_cc_scc.ReadOnly_cmb_Cliente = false;
-            this.ucct_cc_scc.ReadOnly_cmb_Subcentro_costo = false;
-            this.ucct_cc_scc.Size = new System.Drawing.Size(557, 76);
-            this.ucct_cc_scc.TabIndex = 9;
-            this.ucct_cc_scc.Visible_BtnAccion_cc = true;
-            this.ucct_cc_scc.Visible_BtnAccion_cli = false;
-            this.ucct_cc_scc.Visible_btnAccion_Scc = true;
-            this.ucct_cc_scc.Visible_cmb_Centro_costo = true;
-            this.ucct_cc_scc.Visible_cmb_Cliente = false;
-            this.ucct_cc_scc.Visible_cmb_Subcentro_costo = true;
-            this.ucct_cc_scc.Visible_lblCentro_costo = true;
-            this.ucct_cc_scc.Visible_lblCliente = false;
-            this.ucct_cc_scc.Visible_lblSub_centro_costo = true;
-            // 
             // ucIn_ProductoCmb1
             // 
             this.ucIn_ProductoCmb1.Location = new System.Drawing.Point(16, 32);
@@ -174,7 +149,6 @@
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.ucin_cat_lin_gr_sgr);
-            this.Controls.Add(this.ucct_cc_scc);
             this.Name = "FrmIn_Parametrizacion_Contable_x_Cate_gr_x_CC_x_SCC_Mant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parametrización contable de categoria, linea, grupo, subgrupo, centro y subcentro" +
@@ -193,7 +167,6 @@
         private Controles.UCGe_BarraEstadoInferior_Forms ucGe_BarraEstadoInferior_Forms1;
         private Controles.UCCon_Plan_de_Cuenta_x_Movimiento ucct_plancta;
         private System.Windows.Forms.Label label3;
-        private Controles.UCFa_Cliente_x_centro_costo_cmb ucct_cc_scc;
         private Controles.UCIn_ProductoCmb ucIn_ProductoCmb1;
     }
 }

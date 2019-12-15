@@ -2171,21 +2171,5 @@ namespace Core.Erp.Business.Facturacion
 
             }
         }
-
-        // consulta de facturas CAH
-        public List<fa_factura_Info> Get_List_factura_CAH(int IdEmpresa, int IdSucursal, int IdBodega, DateTime FechaIni, DateTime FechaFin)
-        {
-            try
-            {
-                return data.Get_List_factura_CAH(IdEmpresa, IdSucursal, IdBodega, FechaIni, FechaFin);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_factura", ex.Message), ex) { EntityType = typeof(fa_factura_Bus) };
-
-
-            }
-        }
     }
 }

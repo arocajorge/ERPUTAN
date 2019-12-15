@@ -450,49 +450,6 @@ namespace Core.Erp.Business.Inventario
 
         }
 
-        public List<in_Producto_Info> Get_list_ProductosMateriaPrimaDimension(int IdEmpresa)
-        {
-            try
-            {
-                return proD.Get_list_ProductosMateriaPrimaDimension(IdEmpresa);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Obtener_MateriaPrima", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-        }
-        public List<in_Producto_Info> Get_list_ProductosMateriaPrimaDimension_x_TipoProducto(int IdEmpresa, int IdTipoProducto)
-        {
-            try
-            {
-                return proD.Get_list_ProductosMateriaPrimaDimension_x_TipoProducto(IdEmpresa, IdTipoProducto);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Obtener_MateriaPrima", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-        }
-        public List<in_Producto_Info> Get_list_Productos_x_TipoProducto(int IdEmpresa, int IdTipoProducto)
-        {
-            try
-            {
-                return proD.Get_list_Productos_x_TipoProducto(IdEmpresa, IdTipoProducto);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Obtener_ProductoElemento", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-        }
-
         public List<in_Producto_Info> Get_list_ProductosTerminados(int IdEmpresa)
         {
             try
@@ -509,23 +466,6 @@ namespace Core.Erp.Business.Inventario
 
         }
 
-
-
-        public List<in_Producto_Info> Get_list_ProductosTerminados_x_ListadoDiseno(int IdEmpresa, int IdListadoDiseno)
-        {
-            try
-            {
-                return proD.Get_list_ProductosTerminados_x_ListadoDiseno(IdEmpresa, IdListadoDiseno);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Obtener_ProductosTerminados", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-
-        }
         public string Get_DescripcionTot_Producto(int p, decimal p_2)
         {
             try
@@ -536,21 +476,6 @@ namespace Core.Erp.Business.Inventario
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "DescripcionTot_Producto", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-        }
-
-        public List<in_Producto_Info> Get_list_MateriaPrima_X_ModeloDeProduccion(int IdEmpresa, int IdTipoModelo)
-        {
-            try
-            {
-                return proD.Get_list_MateriaPrima_X_ModeloDeProduccion(IdEmpresa, IdTipoModelo);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ObtenerMateriaPrima_X_ModeloDeProduccion", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
 
             }
 
@@ -611,37 +536,6 @@ namespace Core.Erp.Business.Inventario
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ObtenerMateriaPrimaModulosdeProduccion", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-        }
-
-        public List<in_Producto_Info> Get_list_MateriaPrimaPorModeloProduccion(int IdEmpresa, int IdModeloProduccion)
-        {
-            try
-            {
-                return proD.Get_list_MateriaPrima_X_ModeloDeProduccion(IdEmpresa, IdModeloProduccion);
-            }
-            catch (Exception ex)
-            {
-
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_list_MateriaPrimaPorModeloProduccion", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
-
-            }
-
-        }
-
-        public List<in_Producto_Info> Get_list_ProductosSucursalXBodegaXModulodeProduccion(int IdEmpresa, int IdModeloProduccion, int IdBodega, int IdSucursa)
-        {
-            try
-            {
-                return proD.Get_list_ProductosSucursalXBodegaXModulodeProduccion(IdEmpresa, IdModeloProduccion, IdBodega, IdSucursa);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ConsultarProductosSucursalXBodegaXModulodeProduccion", ex.Message), ex) { EntityType = typeof(in_producto_Bus) };
 
             }
 

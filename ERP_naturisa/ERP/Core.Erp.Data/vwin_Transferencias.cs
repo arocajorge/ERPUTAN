@@ -39,9 +39,8 @@ namespace Core.Erp.Data
         public string Codigo { get; set; }
         public Nullable<int> IdMovi_inven_tipo_SucuOrig { get; set; }
         public Nullable<int> IdMovi_inven_tipo_SucuDest { get; set; }
-        public string IdEstadoAprobacion_cat { get; set; }
-        public string EstadoAprobacion_cat { get; set; }
         public string IdEstadoAproba_ing { get; set; }
         public string IdEstadoAproba_egr { get; set; }
+        public Nullable<decimal> IdGuia { get; set; }
     }
 }

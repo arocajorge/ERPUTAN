@@ -479,9 +479,13 @@ namespace Core.Erp.Data.Compras
                     var pedido = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == lsg.IdEmpresa && q.IdOrdenPedido == lsg.IdOrdenPedido && q.Secuencia == lsg.Secuencoia).FirstOrDefault();
                     if (pedido != null)
                     {
-                        pedido.opd_EstadoProceso = lsg.Contador > 0 ? "I" : "C";
+                        int ContadorT = db.vwcom_OrdenPedidoDet_PorTR.Where(q => q.IdEmpresa_oc == IdEmpresa && q.IdSucursal_oc == IdSucursal && q.IdOrdenCompra == IdOrdenCompra && q.Secuencia_oc == Secuencia).Count();
+
+                        pedido.opd_EstadoProceso = ContadorT > 0 ? "T" : (lsg.Contador > 0 ? "I" : "C");
                         db.SaveChanges();
                     }
+
+                    
                 }
 
                 return true;

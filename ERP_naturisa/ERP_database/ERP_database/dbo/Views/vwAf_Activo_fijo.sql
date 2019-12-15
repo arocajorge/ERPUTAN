@@ -1,17 +1,15 @@
 ﻿CREATE VIEW [dbo].[vwAf_Activo_fijo]
 AS
 SELECT        dbo.Af_Activo_fijo.IdEmpresa, dbo.Af_Activo_fijo.IdActivoFijo, dbo.Af_Activo_fijo.CodActivoFijo, dbo.Af_Activo_fijo.Af_Nombre, dbo.Af_Activo_fijo.IdActijoFijoTipo, 
-                         dbo.Af_Activo_fijo.IdDepartamento, dbo.ro_Departamento.de_descripcion, Af_Catalogo_2.Descripcion AS Marca, Af_Catalogo_1.Descripcion AS Modelo, 
+                         dbo.Af_Activo_fijo.IdDepartamento, Af_Catalogo_2.Descripcion AS Marca, Af_Catalogo_1.Descripcion AS Modelo, 
                          dbo.Af_Activo_fijo.Af_NumSerie, dbo.Af_Activo_fijo.Af_fecha_compra, dbo.Af_Activo_fijo.Af_fecha_ini_depre, dbo.Af_Activo_fijo.Af_fecha_fin_depre, 
                          dbo.Af_Activo_fijo.Af_Costo_historico, dbo.Af_Activo_fijo.Af_costo_compra, dbo.Af_Activo_fijo.Af_Vida_Util, dbo.Af_Activo_fijo.Af_Meses_depreciar, 
                          dbo.Af_Activo_fijo.Af_porcentaje_deprec, dbo.Af_Activo_fijo.Af_NumSerie_Motor, dbo.Af_Activo_fijo.Af_NumSerie_Chasis, dbo.tb_sucursal.IdSucursal, 
                          dbo.tb_sucursal.Su_Descripcion AS nom_Sucursal, dbo.Af_Activo_fijo_Categoria.Descripcion AS nom_Categoria, dbo.Af_Activo_fijo.Estado, 
                          dbo.Af_Encargado.nom_encargado, dbo.Af_Activo_fijo.Af_ValorUnidad_Actu, cat_Color.Descripcion AS nom_Color, dbo.Af_Activo_fijo.IdUnidadFact_cat, 
-                         Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.pe_nombreCompleto AS nom_Cliente, 
-                         Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.nom_punto_cargo, Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.nom_Centro_costo, 
-                         Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.nom_UnidadFact, dbo.Af_Activo_fijo.IdCategoriaAF, dbo.Af_Activo_fijo.IdCentroCosto, 
+                       dbo.Af_Activo_fijo.IdCategoriaAF, dbo.Af_Activo_fijo.IdCentroCosto, 
                          dbo.Af_Activo_fijo.Af_ValorSalvamento, dbo.Af_Activo_fijo.Af_ValorResidual, 
-                         Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.nom_Centro_costo_sub_centro_costo, dbo.Af_Activo_fijo.Af_Capacidad, dbo.Af_Activo_fijo.Es_carroceria, 
+                        dbo.Af_Activo_fijo.Af_Capacidad, dbo.Af_Activo_fijo.Es_carroceria, 
                          dbo.Af_Activo_fijo_tipo.Af_Descripcion AS nom_tipo 
 FROM            dbo.Af_Catalogo AS Af_Catalogo_1 RIGHT OUTER JOIN
                          dbo.Af_Activo_fijo_Categoria RIGHT OUTER JOIN
@@ -19,11 +17,7 @@ FROM            dbo.Af_Catalogo AS Af_Catalogo_1 RIGHT OUTER JOIN
                          dbo.Af_Activo_fijo_Categoria.IdEmpresa = dbo.Af_Activo_fijo_tipo.IdEmpresa RIGHT OUTER JOIN
                          dbo.Af_Activo_fijo ON dbo.Af_Activo_fijo_Categoria.IdCategoriaAF = dbo.Af_Activo_fijo.IdCategoriaAF AND 
                          dbo.Af_Activo_fijo_Categoria.IdEmpresa = dbo.Af_Activo_fijo.IdEmpresa LEFT OUTER JOIN
-                         Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo ON dbo.Af_Activo_fijo.IdEmpresa = Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.IdEmpresa AND 
-                         dbo.Af_Activo_fijo.IdActivoFijo = Fj_servindustrias.vwAf_Activo_fijo_x_ct_centro_costo.IdActivoFijo LEFT OUTER JOIN
                          dbo.Af_Catalogo AS cat_Color ON dbo.Af_Activo_fijo.IdCatalogo_Color = cat_Color.IdCatalogo LEFT OUTER JOIN
-                         dbo.ro_Departamento ON dbo.Af_Activo_fijo.IdEmpresa = dbo.ro_Departamento.IdEmpresa AND 
-                         dbo.Af_Activo_fijo.IdDepartamento = dbo.ro_Departamento.IdDepartamento LEFT OUTER JOIN
                          dbo.Af_Catalogo AS Af_Catalogo_2 ON dbo.Af_Activo_fijo.IdCatalogo_Marca = Af_Catalogo_2.IdCatalogo ON 
                          Af_Catalogo_1.IdCatalogo = dbo.Af_Activo_fijo.IdCatalogo_Modelo LEFT OUTER JOIN
                          dbo.tb_sucursal ON dbo.Af_Activo_fijo.IdEmpresa = dbo.tb_sucursal.IdEmpresa AND dbo.Af_Activo_fijo.IdSucursal = dbo.tb_sucursal.IdSucursal LEFT OUTER JOIN

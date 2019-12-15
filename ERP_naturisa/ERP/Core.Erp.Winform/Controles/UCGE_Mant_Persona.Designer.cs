@@ -46,7 +46,6 @@
             this.TabOtros = new DevExpress.XtraTab.XtraTabControl();
             this.TabGenerales = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ucRo_CatalogoTipoCta = new Core.Erp.Winform.Controles.UCRo_Catalogo();
             this.label17 = new System.Windows.Forms.Label();
             this.txtnumCta = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -294,7 +293,6 @@
             // 
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.cmb_Banco);
-            this.groupBox2.Controls.Add(this.ucRo_CatalogoTipoCta);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.txtnumCta);
             this.groupBox2.Controls.Add(this.label15);
@@ -304,13 +302,6 @@
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de Cuenta para Pagos";
-            // 
-            // ucRo_CatalogoTipoCta
-            // 
-            this.ucRo_CatalogoTipoCta.Location = new System.Drawing.Point(174, 47);
-            this.ucRo_CatalogoTipoCta.Name = "ucRo_CatalogoTipoCta";
-            this.ucRo_CatalogoTipoCta.Size = new System.Drawing.Size(223, 27);
-            this.ucRo_CatalogoTipoCta.TabIndex = 41;
             // 
             // label17
             // 
@@ -746,7 +737,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtnumCta;
         private System.Windows.Forms.Label label15;
-        private UCRo_Catalogo ucRo_CatalogoTipoCta;
         private UCGe_Bancos_cmb cmb_Banco;
         private System.Windows.Forms.Label label18;
     }

@@ -263,10 +263,6 @@
             this.lblAnular.Text = "***ANULADO***";
             this.lblAnular.Visible = false;
             // 
-            // roEmpleadoInfoBindingSource
-            // 
-            this.roEmpleadoInfoBindingSource.DataSource = typeof(Core.Erp.Info.Roles.ro_Empleado_Info);
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 

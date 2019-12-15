@@ -1,9 +1,7 @@
 ﻿using Core.Erp.Business.ActivoFijo;
-using Core.Erp.Business.ActivoFijo_FJ;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Business.General;
 using Core.Erp.Info.ActivoFijo;
-using Core.Erp.Info.ActivoFijo_FJ;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.General;
 using System;
@@ -58,8 +56,6 @@ namespace Core.Erp.Winform.ActivoFijo
         public Controles.UCAf_Encargado ucAf_Encargado_Actu;
         public Controles.UCAf_Encargado ucAf_EncargadoNue;
 
-        public Controles.UCFa_Cliente_x_centro_costo_cmb ucFa_Cliente_x_centro_costo_cmb_Nue;
-        public Controles.UCFa_Cliente_x_centro_costo_cmb ucFa_Cliente_x_centro_costo_cmb_Actu;
         #endregion
 
         #region Variables
@@ -83,12 +79,6 @@ namespace Core.Erp.Winform.ActivoFijo
 
         ct_punto_cargo_Info info_Punto_cargo = new ct_punto_cargo_Info();
         ct_punto_cargo_Bus bus_Punto_cargo = new ct_punto_cargo_Bus();
-
-        Af_Activo_fijo_x_ct_punto_cargo_Info info_af_x_pc = new Af_Activo_fijo_x_ct_punto_cargo_Info();
-        Af_Activo_fijo_x_ct_punto_cargo_Bus bus_af_x_pc = new Af_Activo_fijo_x_ct_punto_cargo_Bus();
-
-        Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo_Info info_af_x_cc = new Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo_Info();
-        Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo_Bus bus_af_x_cc = new Af_Activo_fijo_x_ct_centro_costo_sub_centro_costo_Bus();
 
 
         #endregion
@@ -302,10 +292,6 @@ namespace Core.Erp.Winform.ActivoFijo
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
-                    case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        ucFa_Cliente_x_centro_costo_cmb_Actu.Set_Info_Centro_costo(_InfoCambioUbicacion.IdCentroCosto_Actu);
-                        ucFa_Cliente_x_centro_costo_cmb_Nue.Set_Info_Centro_costo(_InfoCambioUbicacion.IdCentroCosto_Ant);
-                        break;
                     case Cl_Enumeradores.eCliente_Vzen.GENERAL:                       
                         cmbSucursal_Actual.set_SucursalInfo(_InfoCambioUbicacion.IdSucursal_Ant == null ? 0 : (int)_InfoCambioUbicacion.IdSucursal_Ant);
                         cmbSucursal_Nueva.set_SucursalInfo(_InfoCambioUbicacion.IdSucursal_Actu == null ? 0 : (int)_InfoCambioUbicacion.IdSucursal_Actu);
@@ -351,10 +337,6 @@ namespace Core.Erp.Winform.ActivoFijo
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        ucFa_Cliente_x_centro_costo_cmb_Actu.Set_Info_Centro_costo(_InfoCambioUbicacion.IdCentroCosto_Ant);
-                        ucFa_Cliente_x_centro_costo_cmb_Nue.Set_Info_Centro_costo(_InfoCambioUbicacion.IdCentroCosto_Actu);
-                        ucFa_Cliente_x_centro_costo_cmb_Actu.Set_Info_Centro_costo_sub_centro_costo(_InfoCambioUbicacion.IdCentroCosto_sub_centro_costo_Ant);
-                        ucFa_Cliente_x_centro_costo_cmb_Nue.Set_Info_Centro_costo_sub_centro_costo(_InfoCambioUbicacion.IdCentroCosto_sub_centro_costo_Actu);
                         ucaF_Catalogos1.set_CatalogosInfo(_InfoCambioUbicacion.IdUnidadFact_cat);
                         txtValor_Unidades_fac.Text = _InfoCambioUbicacion.Af_ValorUnidad_Actu.ToString();
                         ucAf_Encargado_Actu.set_Info(_InfoCambioUbicacion.IdEncargado_Ant == null ? 0 : (decimal)_InfoCambioUbicacion.IdEncargado_Ant);
@@ -401,8 +383,6 @@ namespace Core.Erp.Winform.ActivoFijo
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        ucFa_Cliente_x_centro_costo_cmb_Actu.Cargar_combos();
-                        ucFa_Cliente_x_centro_costo_cmb_Nue.Cargar_combos();
                         ucaF_Catalogos1.cargar_Catalogos(Cl_Enumeradores.eTipoCatalogo_AF.TIP_UNIDADES.ToString());
                         ucAf_Encargado_Actu.set_Info(0);
                         ucAf_EncargadoNue.set_Info(0);
@@ -464,9 +444,6 @@ namespace Core.Erp.Winform.ActivoFijo
                                         break;
                                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                                         break;
-                                    case Cl_Enumeradores.eCliente_Vzen.FJ:
-                                        bolResult = Reubicar_Punto_cargo();
-                                        break;
                                     case Cl_Enumeradores.eCliente_Vzen.GENERAL:
                                         bolResult = busActivo.ModificarDB(InfoActiFijo, ref msjError);
                                         break;
@@ -515,8 +492,6 @@ namespace Core.Erp.Winform.ActivoFijo
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        ucFa_Cliente_x_centro_costo_cmb_Actu.Inicializar_Combos();
-                        ucFa_Cliente_x_centro_costo_cmb_Nue.Inicializar_Combos();
                         txtValor_Unidades_fac.EditValue = null;
                         ucaF_Catalogos1.Inicializar_Catalogos();
                         break;
@@ -560,11 +535,7 @@ namespace Core.Erp.Winform.ActivoFijo
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
-                    case Cl_Enumeradores.eCliente_Vzen.FJ:                        
-                        _InfoCambioUbicacion.IdCentroCosto_Ant = ucFa_Cliente_x_centro_costo_cmb_Actu.Get_Info_Centro_costo()==null? null : ucFa_Cliente_x_centro_costo_cmb_Actu.Get_Info_Centro_costo().IdCentroCosto;
-                        _InfoCambioUbicacion.IdCentroCosto_Actu = ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo() == null ? null : ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo().IdCentroCosto;
-                        _InfoCambioUbicacion.IdCentroCosto_sub_centro_costo_Ant = ucFa_Cliente_x_centro_costo_cmb_Actu.Get_Info_Centro_costo_sub_centro_costo() == null ? null : ucFa_Cliente_x_centro_costo_cmb_Actu.Get_Info_Centro_costo_sub_centro_costo().IdCentroCosto_sub_centro_costo;
-                        _InfoCambioUbicacion.IdCentroCosto_sub_centro_costo_Actu = ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo_sub_centro_costo() == null ? null : ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo_sub_centro_costo().IdCentroCosto_sub_centro_costo;
+                    case Cl_Enumeradores.eCliente_Vzen.FJ:
                         if (ucaF_Catalogos1.get_CatalogosInfo()!=null) _InfoCambioUbicacion.IdUnidadFact_cat = ucaF_Catalogos1.get_CatalogosInfo().IdCatalogo;
                         if (txtValor_Unidades_fac.Text != "") _InfoCambioUbicacion.Af_ValorUnidad_Actu = Convert.ToDouble(txtValor_Unidades_fac.Text);
                         if (ucAf_Encargado_Actu.get_Info().IdEncargado!=0) _InfoCambioUbicacion.IdEncargado_Ant = ucAf_Encargado_Actu.get_Info().IdEncargado;
@@ -636,35 +607,6 @@ namespace Core.Erp.Winform.ActivoFijo
                     case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                         break;
                     case Cl_Enumeradores.eCliente_Vzen.FJ:
-                        if (ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo() == null)
-                        {
-                            MessageBox.Show("Por Favor Seleccione el nuevo centro de costo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            this.ucFa_Cliente_x_centro_costo_cmb_Nue.Focus();
-                            return false;
-                        }                       
-
-                        if (ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo_sub_centro_costo() == null)
-                        {
-                            MessageBox.Show("Por favor seleccione un nuevo sub centro de costo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            this.ucFa_Cliente_x_centro_costo_cmb_Nue.Focus();
-                            return false;
-                        }
-                        else
-                        {
-                            string idCentro_costo_sub_centro_costo_Ant = "";
-                            string idCentro_costo_sub_centro_costo_Nue = "";
-
-                            idCentro_costo_sub_centro_costo_Ant = ucFa_Cliente_x_centro_costo_cmb_Actu.Get_Info_Centro_costo_sub_centro_costo().IdCentroCosto_sub_centro_costo;
-                            idCentro_costo_sub_centro_costo_Nue = ucFa_Cliente_x_centro_costo_cmb_Nue.Get_Info_Centro_costo_sub_centro_costo().IdCentroCosto_sub_centro_costo;
-
-                            if (idCentro_costo_sub_centro_costo_Nue.Equals(idCentro_costo_sub_centro_costo_Ant))
-                            {
-                                MessageBox.Show("Por favor seleccione un sub centro de costo distinto al actual", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                this.ucFa_Cliente_x_centro_costo_cmb_Nue.Focus();
-                                return false;
-                            }
-                        }
-
                         if (ucAf_EncargadoNue.get_Info().IdEncargado==0)
                         {
                             MessageBox.Show("Por Favor Seleccione el nuevo encargado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -733,8 +675,6 @@ namespace Core.Erp.Winform.ActivoFijo
                             case Cl_Enumeradores.eCliente_Vzen.NATURISA:
                                 break;
                             case Cl_Enumeradores.eCliente_Vzen.FJ:
-                                ucFa_Cliente_x_centro_costo_cmb_Actu.Set_Info_Centro_costo(InfoActiFijo.IdCentroCosto);
-                                ucFa_Cliente_x_centro_costo_cmb_Actu.Set_Info_Centro_costo_sub_centro_costo(InfoActiFijo.IdCentroCosto_sub_centro_costo);
                                 ucaF_Catalogos1.set_CatalogosInfo(InfoActiFijo.IdUnidadFact_cat);
                                 txtValor_Unidades_fac.Text = InfoActiFijo.Af_ValorUnidad_Actu.ToString();
                                 ucAf_Encargado_Actu.set_Info(InfoActiFijo.IdEncargado == null ? 0 : (decimal)InfoActiFijo.IdEncargado);
@@ -927,53 +867,5 @@ namespace Core.Erp.Winform.ActivoFijo
             }
         }
 
-        private bool Reubicar_Punto_cargo()
-        {
-            try
-            {
-                info_af_x_pc = bus_af_x_pc.Get_Info_x_Activo_fijo(InfoActiFijo.IdEmpresa, InfoActiFijo.IdActivoFijo);
-                if (info_af_x_pc.IdPunto_cargo_PC == 0)
-                {
-                    //--Creo punto de cargo
-                    info_Punto_cargo.IdEmpresa = param.IdEmpresa;
-                    info_Punto_cargo.nom_punto_cargo = InfoActiFijo.Af_Nombre;
-                    info_Punto_cargo.Estado = "A";
-
-                    bus_Punto_cargo.GuardarDB(info_Punto_cargo, param.IdEmpresa);
-                }
-                else
-                {
-                    info_Punto_cargo = bus_Punto_cargo.Get_Info_Punto_cargo(param.IdEmpresa, info_af_x_pc.IdPunto_cargo_PC);
-                }
-                //Relaciono activo fijo con punto de cargo
-                info_af_x_pc.IdEmpresa_AF = InfoActiFijo.IdEmpresa;
-                info_af_x_pc.IdActivoFijo_AF = InfoActiFijo.IdActivoFijo;
-                info_af_x_pc.IdEmpresa_PC = info_Punto_cargo.IdEmpresa;
-                info_af_x_pc.IdPunto_cargo_PC = info_Punto_cargo.IdPunto_cargo;
-
-                if (bus_af_x_pc.MergeDB(info_af_x_pc))
-                {
-                    //Relaciono activo fijo con centro de costo
-                    info_af_x_cc.IdEmpresa_AF = InfoActiFijo.IdEmpresa;
-                    info_af_x_cc.IdActivoFijo_AF = InfoActiFijo.IdActivoFijo;
-                    info_af_x_cc.IdCentroCosto_Scc = InfoActiFijo.IdCentroCosto;
-                    info_af_x_cc.IdCentroCosto_sub_centro_costo_Scc = InfoActiFijo.IdCentroCosto_sub_centro_costo;
-                    info_af_x_cc.IdEmpresa_Scc = ucFa_Cliente_x_centro_costo_cmb_Actu.Get_Info_Centro_costo().IdEmpresa;
-
-                    if (bus_af_x_cc.MergeDB(info_af_x_cc))
-                    {
-                        return true;
-                    }
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(param.Get_Mensaje_sys(enum_Mensajes_sys.Error_comunicarse_con_sistemas) + ex.Message + " ", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                return false;
-            }
-        }
     }
 }

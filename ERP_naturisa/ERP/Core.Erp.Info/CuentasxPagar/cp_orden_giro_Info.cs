@@ -6,7 +6,6 @@ using System.Runtime.Serialization;
 using Core.Erp.Info.Contabilidad;
 using System.Xml.Serialization;
 using Core.Erp.Info.General;
-using Core.Erp.Info.Importacion;
 
 using System.Drawing;
 
@@ -149,8 +148,6 @@ namespace Core.Erp.Info.CuentasxPagar
         public List<cp_reembolso_Info> lst_reembolso { get; set; }
 
         public List<cp_orden_giro_pagos_sri_Info> lst_formasPagoSRI{ get; set; }
-        public List<imp_ordencompra_ext_x_imp_gastosxImport_Info> LstImportacionGrid { get; set; }
-        public List<imp_ordencompra_ext_x_ct_cbtecble_Info> LstocXcbt_I { get; set; }
         public List<cp_orden_giro_x_imp_ordencompra_ext_Info> LisImportacion { get; set; }
         public List<cp_orden_giro_x_com_ordencompra_local_Info> LstImportacionOC  { get; set; }
 
@@ -181,8 +178,6 @@ namespace Core.Erp.Info.CuentasxPagar
             lst_reembolso = new List<cp_reembolso_Info>();
 
             lst_formasPagoSRI= new List<cp_orden_giro_pagos_sri_Info>();
-            LstImportacionGrid = new List<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
-            LstocXcbt_I = new List<imp_ordencompra_ext_x_ct_cbtecble_Info>();
             LisImportacion = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();
             LstImportacionOC = new List<cp_orden_giro_x_com_ordencompra_local_Info>();
             InfoProveedor = new cp_proveedor_Info();

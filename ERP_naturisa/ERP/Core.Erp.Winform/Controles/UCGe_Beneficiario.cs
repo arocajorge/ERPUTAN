@@ -21,9 +21,6 @@ using Core.Erp.Info.Facturacion;
 using Core.Erp.Business.Facturacion;
 
 
-using Core.Erp.Info.Roles;
-using Core.Erp.Business.Roles;
-
 using Core.Erp.Winform.General;
 
 
@@ -345,35 +342,6 @@ namespace Core.Erp.Winform.Controles
                 MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
                 return new fa_Cliente_Info();
-
-            }
-        }
-
-        public ro_Empleado_Info Get_Info_Empleado()
-        {
-            try
-            {
-                ro_Empleado_Info InfoEmpleado = new ro_Empleado_Info();
-
-
-                if (cmb_beneficiario.EditValue != null && IdTipo_Persona == Cl_Enumeradores.eTipoPersona.EMPLEA)
-                {
-                    Info_Beneficiario = list_Beneficiario.FirstOrDefault(v => v.IdBeneficiario == Convert.ToString(cmb_beneficiario.EditValue));
-                    ro_Empleado_Bus BusProvee = new ro_Empleado_Bus();
-
-                    InfoEmpleado = BusProvee.Get_Info_Empleado(param.IdEmpresa, Info_Beneficiario.IdEntidad);
-                }
-
-
-
-                return InfoEmpleado;
-            }
-            catch (Exception ex)
-            {
-                string NameMetodo = System.Reflection.MethodBase.GetCurrentMethod().Name;
-                MessageBox.Show(NameMetodo + " - " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log_Error_bus.Log_Error(NameMetodo + " - " + ex.ToString());
-                return new ro_Empleado_Info();
 
             }
         }

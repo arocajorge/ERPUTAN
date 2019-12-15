@@ -1016,6 +1016,12 @@
       <DependentUpon>XFAC_Rpt004_Resumen_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt004_Resumen_x_Subtotal_x_Iva_Info.cs" />
+    <Compile Include="frmGe_Esperar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGe_Esperar.designer.cs">
+      <DependentUpon>frmGe_Esperar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt013_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt013_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt013_frm.cs">
@@ -1163,11 +1169,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelCXP_Reportes_General.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModelRolesReportesGeneral1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model_CuentasxCobrar_Reportes.Context1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1177,51 +1178,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt025_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt025_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt025_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt025_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt025_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt025_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt025_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt025_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt025_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt024_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt024_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt024_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt024_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt024_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt024_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt024_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt024_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt024_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt017_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt017_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt017_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt017_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt017_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt017_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt017_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt017_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt017_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja\XCAJ_Rpt001_Bus.cs" />
     <Compile Include="Caja\XCAJ_Rpt001_Data.cs" />
@@ -1474,12 +1430,6 @@
     </Compile>
     <Compile Include="Controles\UCin_Producto.Designer.cs">
       <DependentUpon>UCin_Producto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_Menu_Reportes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_Menu_Reportes.Designer.cs">
-      <DependentUpon>UCRo_Menu_Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt001_Bus.cs" />
     <Compile Include="CuentasxCobrar\XCXC_Rpt001_Data.cs" />
@@ -2370,21 +2320,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelContabilidad_ReportesGeneral.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModelRolesReportesGeneral.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRolesReportesGeneral.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelRolesReportesGeneral.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelRolesReportesGeneral.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRolesReportesGeneral.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model_Academico_Reportes.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2461,309 +2396,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt001_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt001_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt001_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt001_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt001_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt001_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt001_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt001_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt001_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt002_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt002_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt002_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt002_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt002_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt002_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt002_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt002_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt002_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt003_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt003_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt003_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt003_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt003_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt003_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt003_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt003_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt003_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt004_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt004_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt004_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt004_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt004_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt004_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt004_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt004_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt004_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt005_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt005_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt005_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt005_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt005_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt005_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt005_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt005_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt005_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt006_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt006_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt006_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt006_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt006_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt006_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt006_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt006_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt006_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt007_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt007_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt007_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt007_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt007_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt007_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt007_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt007_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt007_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt008_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt008_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt008_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt008_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt008_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt008_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt008_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt008_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt008_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt009_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt009_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt009_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt009_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt009_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt009_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt009_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt009_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt009_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt010_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt010_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt010_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt010_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt010_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt010_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt010_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt010_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt010_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt011_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt011_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt011_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt011_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt011_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt011_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt011_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt011_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt011_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt012_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt012_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt012_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt013_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt013_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt013_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt013_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt013_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt013_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt014_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt014_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt014_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt014_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt014_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt014_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt014_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt014_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt014_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt015_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt015_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt015_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt015_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt015_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt015_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt016_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt016_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt016_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt016_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt016_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt016_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt016_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt016_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt016_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt018_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt018_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt018_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt018_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt018_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt018_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt018_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt018_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt018_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt019_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt019_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt019_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt019_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt019_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt019_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt019_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt019_rpt.designer.cs">
-      <DependentUpon>XROL_Rpt019_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt020_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt020_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt020_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt020_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt020_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt020_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt020_rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt020_rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt020_rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt021_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt021_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt021_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt021_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt021_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt021_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt021_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt021_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt021_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt022_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt022_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt022_frm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt022_frm.Designer.cs">
-      <DependentUpon>XROL_Rpt022_frm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt022_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt022_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt022_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt022_Rpt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt023_Bus.cs" />
-    <Compile Include="Roles\XROL_Rpt023_Data.cs" />
-    <Compile Include="Roles\XROL_Rpt023_Info.cs" />
-    <Compile Include="Roles\XROL_Rpt023_Rpt.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Roles\XROL_Rpt023_Rpt.Designer.cs">
-      <DependentUpon>XROL_Rpt023_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="spACTF_Rpt012_Result.cs">
       <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
@@ -2881,12 +2513,6 @@
     </Compile>
     <Compile Include="spINV_Rpt029_Result.cs">
       <DependentUpon>Model_Inventario_General.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spROL_Rpt016_Result.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="spROL_Rpt020_Result.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
     </Compile>
     <Compile Include="vwACA_Rpt001.cs">
       <DependentUpon>Model_Academico_Reportes.tt</DependentUpon>
@@ -3248,78 +2874,6 @@
     <Compile Include="vwINV_Rpt028.cs">
       <DependentUpon>Model_Inventario_General.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwROL_Rpt001.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt002.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt003.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt004.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt005.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt006.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt007.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt008.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt009.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt010.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt011.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\frmEspere.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Roles\frmEspere.Designer.cs">
-      <DependentUpon>frmEspere.cs</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt013.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt014.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt015.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt017.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt018.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt019.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt021.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt022.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt023.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt024.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vwROL_Rpt025.cs">
-      <DependentUpon>ModelRolesReportesGeneral.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
@@ -3415,10 +2969,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model_Inventario_General.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="ModelRolesReportesGeneral.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelRolesReportesGeneral.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="ModelCXP_Reportes_General.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelCXP_Reportes_General.Designer.cs</LastGenOutput>
@@ -3435,19 +2985,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelCXP_Reportes_General.edmx</DependentUpon>
       <LastGenOutput>ModelCXP_Reportes_General.cs</LastGenOutput>
-    </None>
-    <None Include="ModelRolesReportesGeneral.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelRolesReportesGeneral.edmx</DependentUpon>
-      <LastGenOutput>ModelRolesReportesGeneral.Context.cs</LastGenOutput>
-    </None>
-    <None Include="ModelRolesReportesGeneral.edmx.diagram">
-      <DependentUpon>ModelRolesReportesGeneral.edmx</DependentUpon>
-    </None>
-    <None Include="ModelRolesReportesGeneral.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelRolesReportesGeneral.edmx</DependentUpon>
-      <LastGenOutput>ModelRolesReportesGeneral1.cs</LastGenOutput>
     </None>
     <EntityDeploy Include="Model_Facturacion_Reportes.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -3926,6 +3463,9 @@
     <EmbeddedResource Include="Facturacion\XFAC_Rpt004_Resumen_rpt.resx">
       <DependentUpon>XFAC_Rpt004_Resumen_rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGe_Esperar.resx">
+      <DependentUpon>frmGe_Esperar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_Rpt013_frm.resx">
       <DependentUpon>XINV_Rpt013_frm.cs</DependentUpon>
     </EmbeddedResource>
@@ -3981,21 +3521,6 @@
       <DependentUpon>XINV_Rpt028_Rpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Roles\XROL_Rpt025_frm.resx">
-      <DependentUpon>XROL_Rpt025_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt025_rpt.resx">
-      <DependentUpon>XROL_Rpt025_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt024_frm.resx">
-      <DependentUpon>XROL_Rpt024_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt024_rpt.resx">
-      <DependentUpon>XROL_Rpt024_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt017_frm.resx">
-      <DependentUpon>XROL_Rpt017_frm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Caja\XCAJ_Rpt001_frm.resx">
       <DependentUpon>XCAJ_Rpt001_frm.cs</DependentUpon>
     </EmbeddedResource>
@@ -4100,9 +3625,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCin_Producto.resx">
       <DependentUpon>UCin_Producto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_Menu_Reportes.resx">
-      <DependentUpon>UCRo_Menu_Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt001_frm.resx">
       <DependentUpon>XCXC_Rpt001_frm.cs</DependentUpon>
@@ -4400,132 +3922,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt001_frm.resx">
-      <DependentUpon>XROL_Rpt001_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt001_rpt.resx">
-      <DependentUpon>XROL_Rpt001_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt002_frm.resx">
-      <DependentUpon>XROL_Rpt002_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt002_rpt.resx">
-      <DependentUpon>XROL_Rpt002_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt003_frm.resx">
-      <DependentUpon>XROL_Rpt003_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt003_rpt.resx">
-      <DependentUpon>XROL_Rpt003_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt004_frm.resx">
-      <DependentUpon>XROL_Rpt004_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt004_rpt.resx">
-      <DependentUpon>XROL_Rpt004_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt005_frm.resx">
-      <DependentUpon>XROL_Rpt005_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt005_rpt.resx">
-      <DependentUpon>XROL_Rpt005_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt006_frm.resx">
-      <DependentUpon>XROL_Rpt006_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt006_rpt.resx">
-      <DependentUpon>XROL_Rpt006_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt007_frm.resx">
-      <DependentUpon>XROL_Rpt007_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt007_rpt.resx">
-      <DependentUpon>XROL_Rpt007_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt008_frm.resx">
-      <DependentUpon>XROL_Rpt008_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt008_rpt.resx">
-      <DependentUpon>XROL_Rpt008_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt009_frm.resx">
-      <DependentUpon>XROL_Rpt009_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt009_rpt.resx">
-      <DependentUpon>XROL_Rpt009_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt010_frm.resx">
-      <DependentUpon>XROL_Rpt010_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt010_rpt.resx">
-      <DependentUpon>XROL_Rpt010_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt011_frm.resx">
-      <DependentUpon>XROL_Rpt011_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt011_rpt.resx">
-      <DependentUpon>XROL_Rpt011_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\frmEspere.resx">
-      <DependentUpon>frmEspere.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt012_rpt.resx">
-      <DependentUpon>XROL_Rpt012_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt013_rpt.resx">
-      <DependentUpon>XROL_Rpt013_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt014_frm.resx">
-      <DependentUpon>XROL_Rpt014_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt014_Rpt.resx">
-      <DependentUpon>XROL_Rpt014_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt015_Rpt.resx">
-      <DependentUpon>XROL_Rpt015_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt016_frm.resx">
-      <DependentUpon>XROL_Rpt016_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt016_Rpt.resx">
-      <DependentUpon>XROL_Rpt016_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt017_Rpt.resx">
-      <DependentUpon>XROL_Rpt017_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt018_frm.resx">
-      <DependentUpon>XROL_Rpt018_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt018_Rpt.resx">
-      <DependentUpon>XROL_Rpt018_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt019_frm.resx">
-      <DependentUpon>XROL_Rpt019_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt019_rpt.resx">
-      <DependentUpon>XROL_Rpt019_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt020_frm.resx">
-      <DependentUpon>XROL_Rpt020_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt020_rpt.resx">
-      <DependentUpon>XROL_Rpt020_rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt021_frm.resx">
-      <DependentUpon>XROL_Rpt021_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt021_Rpt.resx">
-      <DependentUpon>XROL_Rpt021_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt022_frm.resx">
-      <DependentUpon>XROL_Rpt022_frm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt022_Rpt.resx">
-      <DependentUpon>XROL_Rpt022_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Roles\XROL_Rpt023_Rpt.resx">
-      <DependentUpon>XROL_Rpt023_Rpt.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core.Erp.Bussines\Core.Erp.Business.csproj">
@@ -4539,10 +3935,6 @@
     <ProjectReference Include="..\Core.Erp.Info\Core.Erp.Info.csproj">
       <Project>{01efa86c-05af-4bf0-9297-4d7b843d997b}</Project>
       <Name>Core.Erp.Info</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cus.Erp.Reports.CAH\Cus.Erp.Reports.CAH.csproj">
-      <Project>{8626278e-6878-4e5a-9244-6f96a3bcb57b}</Project>
-      <Name>Cus.Erp.Reports.CAH</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

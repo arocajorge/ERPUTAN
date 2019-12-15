@@ -12,8 +12,6 @@ using DevExpress.XtraReports.UI;
 using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using Core.Erp.Business.Inventario;
-using Core.Erp.Info.Inventario;
-using Cus.Erp.Reports.CAH.Inventario;
 
 namespace Core.Erp.Reportes.Inventario
 {

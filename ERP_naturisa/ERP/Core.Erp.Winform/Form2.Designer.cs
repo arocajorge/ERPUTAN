@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.ucFa_Equipos_Graf1 = new Core.Erp.Winform.Controles_Grafinprent.UCFa_Equipos_Graf();
             this.SuspendLayout();
             // 
             // button1
@@ -42,19 +41,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ucFa_Equipos_Graf1
-            // 
-            this.ucFa_Equipos_Graf1.Location = new System.Drawing.Point(350, 179);
-            this.ucFa_Equipos_Graf1.Name = "ucFa_Equipos_Graf1";
-            this.ucFa_Equipos_Graf1.Size = new System.Drawing.Size(290, 33);
-            this.ucFa_Equipos_Graf1.TabIndex = 1;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(851, 523);
-            this.Controls.Add(this.ucFa_Equipos_Graf1);
             this.Controls.Add(this.button1);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -66,7 +57,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private Controles_Grafinprent.UCFa_Equipos_Graf ucFa_Equipos_Graf1;
 
 
 

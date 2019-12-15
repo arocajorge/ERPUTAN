@@ -18,7 +18,6 @@ namespace Core.Erp.Data
         {
             this.com_comprador_familia = new HashSet<com_comprador_familia>();
             this.com_ordencompra_local = new HashSet<com_ordencompra_local>();
-            this.com_solicitud_compra = new HashSet<com_solicitud_compra>();
             this.com_ConvenioPreciosPorProducto = new HashSet<com_ConvenioPreciosPorProducto>();
         }
     
@@ -38,7 +37,6 @@ namespace Core.Erp.Data
     
         public virtual ICollection<com_comprador_familia> com_comprador_familia { get; set; }
         public virtual ICollection<com_ordencompra_local> com_ordencompra_local { get; set; }
-        public virtual ICollection<com_solicitud_compra> com_solicitud_compra { get; set; }
         public virtual ICollection<com_ConvenioPreciosPorProducto> com_ConvenioPreciosPorProducto { get; set; }
     }
 }

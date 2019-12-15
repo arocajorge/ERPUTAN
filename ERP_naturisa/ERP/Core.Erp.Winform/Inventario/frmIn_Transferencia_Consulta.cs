@@ -274,10 +274,6 @@ namespace Core.Erp.Winform.Inventario
                 var data = gridViewTransferencias.GetRow(e.RowHandle) as in_transferencia_Info;
                 if (data == null)
                     return;
-
-                if (data.IdEstadoAprobacion_cat == "APRO")
-                    e.Appearance.ForeColor = Color.Blue;                
-
                 if (data.Estado == "I")
                     e.Appearance.ForeColor = Color.Red;
             }

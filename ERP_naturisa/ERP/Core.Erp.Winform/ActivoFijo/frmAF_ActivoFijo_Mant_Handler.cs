@@ -1,17 +1,13 @@
 ﻿using Core.Erp.Business.ActivoFijo;
-using Core.Erp.Business.ActivoFijo_FJ;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Business.CuentasxPagar;
 using Core.Erp.Business.General;
 using Core.Erp.Business.Inventario;
-using Core.Erp.Business.Roles;
 using Core.Erp.Info.ActivoFijo;
-using Core.Erp.Info.ActivoFijo_FJ;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Info.General;
 using Core.Erp.Info.Inventario;
-using Core.Erp.Info.Roles;
 using Core.Erp.Reportes.ActivoFijo;
 using Core.Erp.Winform.General;
 using System;

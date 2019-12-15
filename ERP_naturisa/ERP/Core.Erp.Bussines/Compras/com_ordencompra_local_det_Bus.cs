@@ -153,31 +153,6 @@ namespace Core.Erp.Business.Compras
               }
           }
 
-        public List<com_ordencompra_local_det_Info> Get_List_ordencompra_local_det_x_Saldos_x_Proveedor(int IdEmpresa, int IdSucursal, decimal IdProveedor)
-        {
-            try
-            {
-                return data.Get_List_ordencompra_local_det_x_Saldos_x_Proveedor(IdEmpresa, IdSucursal, IdProveedor);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_ordencompra_local_det_x_Saldos_x_Proveedor", ex.Message), ex) { EntityType = typeof(com_ordencompra_local_det_Bus) };
-            }
-        }
-
-        public List<com_ordencompra_local_det_Info> Get_List_OC_local_det_x_Saldos_x_Proveedor_x_Obra_x_OT(int IdEmpresa, int IdSucursal, decimal IdProveedor)
-        {
-            try
-            {
-                return data.Get_List_OC_local_det_x_Saldos_x_Proveedor_x_Obra_x_OT(IdEmpresa, IdSucursal, IdProveedor);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_ordencompra_local_det_x_Saldos_x_Proveedor", ex.Message), ex) { EntityType = typeof(com_ordencompra_local_det_Bus) };
-            }
-        }
 
 
         public List<in_movi_inve_detalle_Info> Get_List_movi_inve_detalle(int IdEmpresa, decimal IdProveedor)

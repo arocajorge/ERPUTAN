@@ -8,9 +8,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Text;
 using Core.Erp.Info.Compras;
-using Core.Erp.Info.Compras_Edehsa;
 using Core.Erp.Data.General;
-using Core.Erp.Data.Compras_Edehsa;
 using Core.Erp.Info.General;
 
 using Core.Erp.Info.Inventario;
@@ -474,109 +472,6 @@ namespace Core.Erp.Data.Compras
                 throw new Exception(ex.ToString());
             }
         }
-
-        public List<com_ordencompra_local_det_Info> Get_List_ordencompra_local_det_x_Saldos_x_Proveedor(int IdEmpresa, int IdSucursal, decimal IdProveedor)
-        {
-                List<com_ordencompra_local_det_Info> Lst = new List<com_ordencompra_local_det_Info>();
-                EntitiesCompras_Edehsa oEnti = new EntitiesCompras_Edehsa();
-             try
-             {             
-
-                var Select = from det in oEnti.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT 
-                             where det.IdEmpresa == IdEmpresa
-                             && det.IdSucursal == IdSucursal
-                             && det.IdProveedor == IdProveedor
-                             select det;
-
-                foreach (var item in Select)
-                {
-                    com_ordencompra_local_det_Info Obj = new com_ordencompra_local_det_Info();
-                    Obj.IdEmpresa = item.IdEmpresa;
-                    Obj.IdSucursal = item.IdSucursal;
-                    Obj.IdOrdenCompra = item.IdOrdenCompra;
-                    Obj.Secuencia = item.Secuencia;
-                    Obj.IdProducto = item.IdProducto;
-                    Obj.do_CantidadOC = item.do_CantidadOC;
-                    Obj.dm_cantidad_Inv = item.dm_cantidad_Inv;
-                    Obj.SaldoxRecibir = Convert.ToDouble(item.SaldoxRecibir);
-                    Obj.oc_fecha = Convert.ToDateTime(item.oc_fecha);
-                    Obj.oc_NumDocumento = item.oc_NumDocumento;
-                    Obj.oc_observacion = item.oc_observacion;
-                    Obj.solicitante = item.Solicitante;
-                    Obj.FechaAprob = Convert.ToDateTime(item.co_fecha_aprobacion);
-                    Obj.FechaRep = Convert.ToDateTime(item.co_fechaReproba);
-                    Obj.UsuarioAprueba = item.IdUsuario_Aprueba;
-                    Obj.UsuarioReprueba = item.IdUsuario_Reprue;
-                    Obj.CodObra_preasignada = item.CodObra_preasignada;
-                    Obj.IdOrdenTaller_preasignada = item.IdOrdenTaller_preasignada;
-
-                    Lst.Add(Obj);
-                }
-                return Lst;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(ex.ToString()); 
-            }
-        }
-
-        public List<com_ordencompra_local_det_Info> Get_List_OC_local_det_x_Saldos_x_Proveedor_x_Obra_x_OT(int IdEmpresa, int IdSucursal, decimal IdProveedor)
-        {
-            List<com_ordencompra_local_det_Info> Lst = new List<com_ordencompra_local_det_Info>();
-            EntitiesCompras_Edehsa oEnti = new EntitiesCompras_Edehsa();
-            try
-            {
-
-                var Select = from det in oEnti.vwcom_OC_local_det_x_MoviInven_SaldoItem_x_Obra_x_OT
-                             where det.IdEmpresa == IdEmpresa
-                             && det.IdSucursal == IdSucursal
-                             && det.IdProveedor == IdProveedor
-                             select det;
-
-                foreach (var item in Select)
-                {
-                    com_ordencompra_local_det_Info Obj = new com_ordencompra_local_det_Info();
-                    Obj.IdEmpresa = item.IdEmpresa;
-                    Obj.IdSucursal = item.IdSucursal;
-                    Obj.IdOrdenCompra = item.IdOrdenCompra;
-                    Obj.Secuencia = item.Secuencia;
-                    Obj.IdProducto = item.IdProducto;
-                    Obj.do_CantidadOC = item.do_CantidadOC;
-                    Obj.dm_cantidad_Inv = item.dm_cantidad_Inv;
-                    Obj.SaldoxRecibir = Convert.ToDouble(item.SaldoxRecibir);
-                    Obj.oc_fecha = Convert.ToDateTime(item.oc_fecha);
-                    Obj.oc_NumDocumento = item.oc_NumDocumento;
-                    Obj.oc_observacion = item.oc_observacion;
-                    Obj.solicitante = item.Solicitante;
-                    Obj.FechaAprob = Convert.ToDateTime(item.co_fecha_aprobacion);
-                    Obj.FechaRep = Convert.ToDateTime(item.co_fechaReproba);
-                    Obj.UsuarioAprueba = item.IdUsuario_Aprueba;
-                    Obj.UsuarioReprueba = item.IdUsuario_Reprue;
-                    Obj.CodObra_preasignada = item.CodObra_preasignada;
-                    Obj.IdOrdenTaller_preasignada = item.IdOrdenTaller_preasignada;
-
-                    Lst.Add(Obj);
-                }
-                return Lst;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(ex.ToString());
-            }
-        }
-
         public int GetSecuencia_x_OC(int idempresa,int idsucursal,decimal idOrdenCompra)
         {
             try

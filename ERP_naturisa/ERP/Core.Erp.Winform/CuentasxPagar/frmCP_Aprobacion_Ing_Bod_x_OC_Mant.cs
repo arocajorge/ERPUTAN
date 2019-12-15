@@ -1335,23 +1335,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                     switch (param.IdCliente_Ven_x_Default)
                     {
-                        case Cl_Enumeradores.eCliente_Vzen.FJ:
-                            if (fila_OC_det.IdPunto_cargo != 0 && fila_OC_det.IdPunto_cargo != null)
-                            {
-                                ct_punto_cargo_Info info_punto_cargo = new ct_punto_cargo_Info();
-                                ct_punto_cargo_Bus bus_punto_cargo = new ct_punto_cargo_Bus();
-                                info_punto_cargo = bus_punto_cargo.Get_info_punto_Cargo_con_subcentro(param.IdEmpresa, Convert.ToInt32(fila_OC_det.IdPunto_cargo));
-                                fila_OC_det.IdPunto_cargo_grupo = info_punto_cargo.IdPunto_cargo_grupo;
-                                fila_OC_det.IdCentro_Costo = info_punto_cargo.IdCentroCosto_Scc;
-                                fila_OC_det.IdCentroCosto_sub_centro_costo = info_punto_cargo.IdCentroCosto_sub_centro_costo_Scc;
-                            }
-                            else
-                            {
-                                fila_OC_det.IdPunto_cargo_grupo = null;
-                                fila_OC_det.IdCentro_Costo = null;
-                                fila_OC_det.IdCentroCosto_sub_centro_costo = null;
-                            }
-                            break;
+                        
                         default:
                             break;
                     }

@@ -13,7 +13,6 @@ using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using Core.Erp.Business.Inventario;
 using Core.Erp.Info.Inventario;
-using Cus.Erp.Reports.CAH.Inventario;
 
 namespace Core.Erp.Reportes.Inventario
 {
@@ -91,32 +90,7 @@ namespace Core.Erp.Reportes.Inventario
                         Reporte.CreateDocument();
                         break;
 
-                    case Cl_Enumeradores.eCliente_Vzen.CAH:
-
-                        XINV_CAH_Rpt001_Rpt Reporte_CAH = new XINV_CAH_Rpt001_Rpt();
-                        Reporte_CAH.RequestParameters = false;
-                        ReportPrintTool pt_CAH = new ReportPrintTool(Reporte_CAH);
-                        pt_CAH.AutoShowParametersPanel = false;
-
-                        Reporte_CAH.PIdEmpresa.Value = param.IdEmpresa;
-                        Reporte_CAH.PIdSucursal.Value = (ucInv_Menu.cmbSucursal.EditValue == null) ? 0 : ucInv_Menu.cmbSucursal.EditValue;
-                        Reporte_CAH.PIdSucursalFin.Value = (ucInv_Menu.cmbSucursal.EditValue == null || Convert.ToInt32(ucInv_Menu.cmbSucursal.EditValue) == 0) ? 99999 : Convert.ToInt32(ucInv_Menu.cmbSucursal.EditValue);
-                        Reporte_CAH.PIdBodega.Value = (ucInv_Menu.cmbBodega.EditValue == null || Convert.ToInt32(ucInv_Menu.cmbBodega.EditValue) == 0) ? 0 : ucInv_Menu.cmbBodega.EditValue;
-                        Reporte_CAH.PIdBodegaFin.Value = (ucInv_Menu.cmbBodega.EditValue == null || Convert.ToInt32(ucInv_Menu.cmbBodega.EditValue) == 0) ? 99999 : Convert.ToInt32(ucInv_Menu.cmbBodega.EditValue);
-                        Reporte_CAH.PFechaIni.Value = ucInv_Menu.dtpDesde.EditValue;
-                        Reporte_CAH.PFechaFin.Value = ucInv_Menu.dtpHasta.EditValue;
-                        Reporte_CAH.PIdCategoria.Value = ucInv_Menu.cmbCategoria.EditValue;
-                        Reporte_CAH.PIdLinea.Value = ucInv_Menu.cmbLinea.EditValue;
-                        Reporte_CAH.PNom_Sucursal.Value = ucInv_Menu.cmbSucursal.Edit.GetDisplayText(ucInv_Menu.cmbSucursal.EditValue);
-                        Reporte_CAH.PNom_Bodega.Value = ucInv_Menu.cmbBodega.Edit.GetDisplayText(ucInv_Menu.cmbBodega.EditValue);
-                        Reporte_CAH.PRegistro_Cero.Value = ucInv_Menu.beiCheck1.EditValue;
-                        Reporte_CAH.PToma_Física.Value = ucInv_Menu.beiCheck2.EditValue;
-                        printControl1.PrintingSystem = Reporte_CAH.PrintingSystem;
-
-                        Reporte_CAH.CreateDocument();
-                        break;
-
-                    case Cl_Enumeradores.eCliente_Vzen.GENERAL:
+                     case Cl_Enumeradores.eCliente_Vzen.GENERAL:
 
                         XINV_Rpt009_rpt Reporte_General = new XINV_Rpt009_rpt();
                         Reporte_General.RequestParameters = false;

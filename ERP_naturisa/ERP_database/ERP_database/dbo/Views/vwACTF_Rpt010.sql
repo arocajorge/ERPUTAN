@@ -1,8 +1,8 @@
 ﻿CREATE VIEW [dbo].[vwACTF_Rpt010]
 AS
 SELECT        cam.IdEmpresa, cam.IdCambioUbicacion, act.IdActivoFijo, act.Af_Nombre, tip.IdActijoFijoTipo, tip.Af_Descripcion, cam.IdSucursal_Actu, 
-                         suc_act.Su_Descripcion AS SucActual, cam.IdSucursal_Ant, suc_ant.Su_Descripcion AS SucAnterior, cam.IdDepartamento_Actu, rol_act.de_descripcion AS DepActual, 
-                         cam.IdDepartamento_Ant, rol_ant.de_descripcion AS DepAnterior, cam.IdTipoCatalogo_Ubicacion_Actu, ubi_act.Descripcion AS UbiActual, 
+                         suc_act.Su_Descripcion AS SucActual, cam.IdSucursal_Ant, suc_ant.Su_Descripcion AS SucAnterior, cam.IdDepartamento_Actu, '' AS DepActual, 
+                         cam.IdDepartamento_Ant, '' AS DepAnterior, cam.IdTipoCatalogo_Ubicacion_Actu, ubi_act.Descripcion AS UbiActual, 
                          cam.IdTipoCatalogo_Ubicacion_Ant, ubi_ant.Descripcion AS UbiAnterior, cam.MotivoCambio, cam.FechaCambio, cam.IdUsuario
 FROM            dbo.Af_CambioUbicacion_Activo AS cam INNER JOIN
                          dbo.Af_Activo_fijo AS act ON cam.IdEmpresa = act.IdEmpresa AND cam.IdActivoFijo = act.IdActivoFijo INNER JOIN
@@ -10,9 +10,7 @@ FROM            dbo.Af_CambioUbicacion_Activo AS cam INNER JOIN
                          dbo.tb_sucursal AS suc_act ON suc_act.IdEmpresa = cam.IdEmpresa AND suc_act.IdSucursal = cam.IdSucursal_Actu INNER JOIN
                          dbo.tb_sucursal AS suc_ant ON suc_ant.IdEmpresa = cam.IdEmpresa AND suc_ant.IdSucursal = cam.IdSucursal_Ant INNER JOIN
                          dbo.Af_Catalogo AS ubi_act ON ubi_act.IdCatalogo = cam.IdTipoCatalogo_Ubicacion_Actu INNER JOIN
-                         dbo.Af_Catalogo AS ubi_ant ON ubi_ant.IdCatalogo = cam.IdTipoCatalogo_Ubicacion_Ant LEFT OUTER JOIN
-                         dbo.ro_Departamento AS rol_act ON rol_act.IdEmpresa = cam.IdEmpresa AND rol_act.IdDepartamento = cam.IdDepartamento_Actu LEFT OUTER JOIN
-                         dbo.ro_Departamento AS rol_ant ON rol_ant.IdEmpresa = cam.IdEmpresa AND rol_ant.IdDepartamento = cam.IdDepartamento_Ant
+                         dbo.Af_Catalogo AS ubi_ant ON ubi_ant.IdCatalogo = cam.IdTipoCatalogo_Ubicacion_Ant 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwACTF_Rpt010';
 

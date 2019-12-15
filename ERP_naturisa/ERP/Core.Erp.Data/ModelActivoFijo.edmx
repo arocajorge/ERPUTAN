@@ -37,7 +37,6 @@
       [vwAf_Activo_fijo].[Af_Nombre] AS [Af_Nombre], 
       [vwAf_Activo_fijo].[IdActijoFijoTipo] AS [IdActijoFijoTipo], 
       [vwAf_Activo_fijo].[IdDepartamento] AS [IdDepartamento], 
-      [vwAf_Activo_fijo].[de_descripcion] AS [de_descripcion], 
       [vwAf_Activo_fijo].[Marca] AS [Marca], 
       [vwAf_Activo_fijo].[Modelo] AS [Modelo], 
       [vwAf_Activo_fijo].[Af_NumSerie] AS [Af_NumSerie], 
@@ -59,15 +58,10 @@
       [vwAf_Activo_fijo].[Af_ValorUnidad_Actu] AS [Af_ValorUnidad_Actu], 
       [vwAf_Activo_fijo].[nom_Color] AS [nom_Color], 
       [vwAf_Activo_fijo].[IdUnidadFact_cat] AS [IdUnidadFact_cat], 
-      [vwAf_Activo_fijo].[nom_Cliente] AS [nom_Cliente], 
-      [vwAf_Activo_fijo].[nom_punto_cargo] AS [nom_punto_cargo], 
-      [vwAf_Activo_fijo].[nom_Centro_costo] AS [nom_Centro_costo], 
-      [vwAf_Activo_fijo].[nom_UnidadFact] AS [nom_UnidadFact], 
       [vwAf_Activo_fijo].[IdCategoriaAF] AS [IdCategoriaAF], 
       [vwAf_Activo_fijo].[IdCentroCosto] AS [IdCentroCosto], 
       [vwAf_Activo_fijo].[Af_ValorSalvamento] AS [Af_ValorSalvamento], 
       [vwAf_Activo_fijo].[Af_ValorResidual] AS [Af_ValorResidual], 
-      [vwAf_Activo_fijo].[nom_Centro_costo_sub_centro_costo] AS [nom_Centro_costo_sub_centro_costo], 
       [vwAf_Activo_fijo].[Af_Capacidad] AS [Af_Capacidad], 
       [vwAf_Activo_fijo].[Es_carroceria] AS [Es_carroceria], 
       [vwAf_Activo_fijo].[nom_tipo] AS [nom_tipo]
@@ -130,56 +124,6 @@
       [vwAf_ActivoFijo].[Estado_Proceso] AS [Estado_Proceso], 
       [vwAf_ActivoFijo].[Es_Activo_x_Mejora] AS [Es_Activo_x_Mejora]
       FROM [dbo].[vwAf_ActivoFijo] AS [vwAf_ActivoFijo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="vwaf_Af_Poliza_x_AF_det" EntityType="DBERPModelActivoFijo.Store.vwaf_Af_Poliza_x_AF_det" store:Type="Views" store:Schema="dbo" store:Name="vwaf_Af_Poliza_x_AF_det">
-            <DefiningQuery>SELECT 
-      [vwaf_Af_Poliza_x_AF_det].[IdEmpresa] AS [IdEmpresa], 
-      [vwaf_Af_Poliza_x_AF_det].[IdPoliza] AS [IdPoliza], 
-      [vwaf_Af_Poliza_x_AF_det].[IdActivoFijo] AS [IdActivoFijo], 
-      [vwaf_Af_Poliza_x_AF_det].[secuencia] AS [secuencia], 
-      [vwaf_Af_Poliza_x_AF_det].[Subtotal_0] AS [Subtotal_0], 
-      [vwaf_Af_Poliza_x_AF_det].[Subtotal_12] AS [Subtotal_12], 
-      [vwaf_Af_Poliza_x_AF_det].[Iva] AS [Iva], 
-      [vwaf_Af_Poliza_x_AF_det].[Prima] AS [Prima], 
-      [vwaf_Af_Poliza_x_AF_det].[observacion_det] AS [observacion_det], 
-      [vwaf_Af_Poliza_x_AF_det].[Af_Nombre] AS [Af_Nombre]
-      FROM [dbo].[vwaf_Af_Poliza_x_AF_det] AS [vwaf_Af_Poliza_x_AF_det]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="vwAf_CambioUbicacion" EntityType="DBERPModelActivoFijo.Store.vwAf_CambioUbicacion" store:Type="Views" store:Schema="dbo" store:Name="vwAf_CambioUbicacion">
-            <DefiningQuery>SELECT 
-      [vwAf_CambioUbicacion].[IdEmpresa] AS [IdEmpresa], 
-      [vwAf_CambioUbicacion].[IdCambioUbicacion] AS [IdCambioUbicacion], 
-      [vwAf_CambioUbicacion].[IdActivoFijo] AS [IdActivoFijo], 
-      [vwAf_CambioUbicacion].[Af_Nombre] AS [Af_Nombre], 
-      [vwAf_CambioUbicacion].[FechaCambio] AS [FechaCambio], 
-      [vwAf_CambioUbicacion].[MotivoCambio] AS [MotivoCambio], 
-      [vwAf_CambioUbicacion].[IdTipoCatalogo_Ubicacion_Actu] AS [IdTipoCatalogo_Ubicacion_Actu], 
-      [vwAf_CambioUbicacion].[nom_ubicacion_act] AS [nom_ubicacion_act], 
-      [vwAf_CambioUbicacion].[IdTipoCatalogo_Ubicacion_Ant] AS [IdTipoCatalogo_Ubicacion_Ant], 
-      [vwAf_CambioUbicacion].[nom_ubicacion_dest] AS [nom_ubicacion_dest], 
-      [vwAf_CambioUbicacion].[IdDepartamento_Actu] AS [IdDepartamento_Actu], 
-      [vwAf_CambioUbicacion].[nom_departamento_Act] AS [nom_departamento_Act], 
-      [vwAf_CambioUbicacion].[IdDepartamento_Ant] AS [IdDepartamento_Ant], 
-      [vwAf_CambioUbicacion].[nom_departamento_Ant] AS [nom_departamento_Ant], 
-      [vwAf_CambioUbicacion].[IdCentroCosto_Actu] AS [IdCentroCosto_Actu], 
-      [vwAf_CambioUbicacion].[nom_CentroCosto_Actu] AS [nom_CentroCosto_Actu], 
-      [vwAf_CambioUbicacion].[IdCentroCosto_Ant] AS [IdCentroCosto_Ant], 
-      [vwAf_CambioUbicacion].[nom_CentroCosto_Ant] AS [nom_CentroCosto_Ant], 
-      [vwAf_CambioUbicacion].[IdSucursal_Actu] AS [IdSucursal_Actu], 
-      [vwAf_CambioUbicacion].[nom_Sucursal_Actu] AS [nom_Sucursal_Actu], 
-      [vwAf_CambioUbicacion].[IdSucursal_Ant] AS [IdSucursal_Ant], 
-      [vwAf_CambioUbicacion].[nom_Sucursal_Ant] AS [nom_Sucursal_Ant], 
-      [vwAf_CambioUbicacion].[nom_Cliente_Ant] AS [nom_Cliente_Ant], 
-      [vwAf_CambioUbicacion].[nom_Cliente_Actu] AS [nom_Cliente_Actu], 
-      [vwAf_CambioUbicacion].[IdEncargado_Ant] AS [IdEncargado_Ant], 
-      [vwAf_CambioUbicacion].[IdEncargado_Actu] AS [IdEncargado_Actu], 
-      [vwAf_CambioUbicacion].[nom_Encargado_Ant] AS [nom_Encargado_Ant], 
-      [vwAf_CambioUbicacion].[nom_Encargado_Actu] AS [nom_Encargado_Actu], 
-      [vwAf_CambioUbicacion].[IdCentroCosto_sub_centro_costo_Actu] AS [IdCentroCosto_sub_centro_costo_Actu], 
-      [vwAf_CambioUbicacion].[IdCentroCosto_sub_centro_costo_Ant] AS [IdCentroCosto_sub_centro_costo_Ant], 
-      [vwAf_CambioUbicacion].[nom_Centro_costo_sub_centro_costo_Actu] AS [nom_Centro_costo_sub_centro_costo_Actu], 
-      [vwAf_CambioUbicacion].[nom_Centro_costo_sub_centro_costo_Ant] AS [nom_Centro_costo_sub_centro_costo_Ant]
-      FROM [dbo].[vwAf_CambioUbicacion] AS [vwAf_CambioUbicacion]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwAf_Catalogo_IdAuto_numeric" EntityType="DBERPModelActivoFijo.Store.vwAf_Catalogo_IdAuto_numeric" store:Type="Views" store:Schema="dbo" store:Name="vwAf_Catalogo_IdAuto_numeric">
             <DefiningQuery>SELECT 
@@ -1055,8 +999,8 @@
           <Property Name="ip" Type="varchar" MaxLength="25" />
           <Property Name="Estado" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Activo_fijo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Activo_fijo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Activo_fijo">
           <Key>
@@ -1081,7 +1025,6 @@
           <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="IdActijoFijoTipo" Type="int" Nullable="false" />
           <Property Name="IdDepartamento" Type="int" />
-          <Property Name="de_descripcion" Type="nchar" MaxLength="50" />
           <Property Name="Marca" Type="varchar" MaxLength="250" />
           <Property Name="Modelo" Type="varchar" MaxLength="250" />
           <Property Name="Af_NumSerie" Type="varchar" MaxLength="50" />
@@ -1103,21 +1046,16 @@
           <Property Name="Af_ValorUnidad_Actu" Type="float" />
           <Property Name="nom_Color" Type="varchar" MaxLength="250" />
           <Property Name="IdUnidadFact_cat" Type="varchar" MaxLength="50" />
-          <Property Name="nom_Cliente" Type="varchar" MaxLength="200" />
-          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
-          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
-          <Property Name="nom_UnidadFact" Type="varchar" MaxLength="250" />
           <Property Name="IdCategoriaAF" Type="int" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="Af_ValorSalvamento" Type="float" />
           <Property Name="Af_ValorResidual" Type="float" />
-          <Property Name="nom_Centro_costo_sub_centro_costo" Type="varchar" MaxLength="200" />
           <Property Name="Af_Capacidad" Type="varchar" MaxLength="50" />
           <Property Name="Es_carroceria" Type="bit" />
           <Property Name="nom_tipo" Type="varchar" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Activo_fijo_Categoria' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Activo_fijo_Categoria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Activo_fijo_Categoria">
           <Key>
@@ -1136,8 +1074,8 @@
           <Property Name="Af_Descripcion" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Activo_fijo_CtasCbles' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Activo_fijo_CtasCbles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Activo_fijo_CtasCbles">
           <Key>
@@ -1158,8 +1096,8 @@
           <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="IdActijoFijoTipo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_ActivoCtasCbles' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_ActivoCtasCbles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_ActivoCtasCbles">
           <Key>
@@ -1174,8 +1112,8 @@
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="Observacion" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_ActivoFijo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_ActivoFijo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_ActivoFijo">
           <Key>
@@ -1193,7 +1131,7 @@
           <Property Name="IdActivoFijo" Type="int" Nullable="false" />
           <Property Name="IdTipoDepreciacion" Type="int" Nullable="false" />
           <Property Name="cod_tipo_depreciacion" Type="varchar" MaxLength="20" />
-          <Property Name="Af_Nombre" Type="varchar" MaxLength="500" />
+          <Property Name="Af_Nombre" Type="varchar" MaxLength="250" />
           <Property Name="Af_costo_compra" Type="float" Nullable="false" />
           <Property Name="Af_ValorSalvamento" Type="float" Nullable="false" />
           <Property Name="Af_Vida_Util" Type="int" Nullable="false" />
@@ -1209,75 +1147,8 @@
           <Property Name="Estado_Proceso" Type="varchar" MaxLength="35" />
           <Property Name="Es_Activo_x_Mejora" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwaf_Af_Poliza_x_AF_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-        <EntityType Name="vwaf_Af_Poliza_x_AF_det">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdPoliza" />
-            <PropertyRef Name="IdActivoFijo" />
-            <PropertyRef Name="secuencia" />
-            <PropertyRef Name="Af_Nombre" />
-          </Key>
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="IdPoliza" Type="numeric" Nullable="false" />
-          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
-          <Property Name="secuencia" Type="int" Nullable="false" />
-          <Property Name="Subtotal_0" Type="float" />
-          <Property Name="Subtotal_12" Type="float" />
-          <Property Name="Iva" Type="float" />
-          <Property Name="Prima" Type="float" />
-          <Property Name="observacion_det" Type="varchar" MaxLength="150" />
-          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
-        </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_CambioUbicacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-        <EntityType Name="vwAf_CambioUbicacion">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCambioUbicacion" />
-            <PropertyRef Name="IdActivoFijo" />
-            <PropertyRef Name="Af_Nombre" />
-            <PropertyRef Name="FechaCambio" />
-            <PropertyRef Name="MotivoCambio" />
-          </Key>
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="IdCambioUbicacion" Type="int" Nullable="false" />
-          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
-          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="FechaCambio" Type="datetime" Nullable="false" />
-          <Property Name="MotivoCambio" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="IdTipoCatalogo_Ubicacion_Actu" Type="varchar" MaxLength="35" />
-          <Property Name="nom_ubicacion_act" Type="varchar" MaxLength="250" />
-          <Property Name="IdTipoCatalogo_Ubicacion_Ant" Type="varchar" MaxLength="35" />
-          <Property Name="nom_ubicacion_dest" Type="varchar" MaxLength="250" />
-          <Property Name="IdDepartamento_Actu" Type="int" />
-          <Property Name="nom_departamento_Act" Type="varchar" MaxLength="100" />
-          <Property Name="IdDepartamento_Ant" Type="int" />
-          <Property Name="nom_departamento_Ant" Type="varchar" MaxLength="100" />
-          <Property Name="IdCentroCosto_Actu" Type="varchar" MaxLength="20" />
-          <Property Name="nom_CentroCosto_Actu" Type="varchar" MaxLength="250" />
-          <Property Name="IdCentroCosto_Ant" Type="varchar" MaxLength="20" />
-          <Property Name="nom_CentroCosto_Ant" Type="varchar" MaxLength="250" />
-          <Property Name="IdSucursal_Actu" Type="int" />
-          <Property Name="nom_Sucursal_Actu" Type="nchar" MaxLength="60" />
-          <Property Name="IdSucursal_Ant" Type="int" />
-          <Property Name="nom_Sucursal_Ant" Type="nchar" MaxLength="60" />
-          <Property Name="nom_Cliente_Ant" Type="varchar" MaxLength="200" />
-          <Property Name="nom_Cliente_Actu" Type="varchar" MaxLength="200" />
-          <Property Name="IdEncargado_Ant" Type="decimal" />
-          <Property Name="IdEncargado_Actu" Type="decimal" />
-          <Property Name="nom_Encargado_Ant" Type="varchar" MaxLength="100" />
-          <Property Name="nom_Encargado_Actu" Type="varchar" MaxLength="100" />
-          <Property Name="IdCentroCosto_sub_centro_costo_Actu" Type="varchar" MaxLength="20" />
-          <Property Name="IdCentroCosto_sub_centro_costo_Ant" Type="varchar" MaxLength="20" />
-          <Property Name="nom_Centro_costo_sub_centro_costo_Actu" Type="varchar" MaxLength="200" />
-          <Property Name="nom_Centro_costo_sub_centro_costo_Ant" Type="varchar" MaxLength="200" />
-        </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Catalogo_IdAuto_numeric' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Catalogo_IdAuto_numeric' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Catalogo_IdAuto_numeric">
           <Key>
@@ -1286,8 +1157,8 @@
           <Property Name="IdCatalogo" Type="varchar" MaxLength="4" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Depre_x_Ciclo_Valor' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Depre_x_Ciclo_Valor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Depre_x_Ciclo_Valor">
           <Key>
@@ -1305,8 +1176,8 @@
           <Property Name="Valor_Depreciacion_Acum" Type="float" />
           <Property Name="Es_Activo_x_Mejora" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Depreciacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Depreciacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Depreciacion">
           <Key>
@@ -1332,8 +1203,8 @@
           <Property Name="Valor_Importe" Type="float" />
           <Property Name="Estado" Type="char" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Depreciacion_Detalle' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Depreciacion_Detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Depreciacion_Detalle">
           <Key>
@@ -1371,8 +1242,8 @@
           <Property Name="Es_Activo_x_Mejora" Type="bit" Nullable="false" />
           <Property Name="CodActivoFijo" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Mej_Baj_Activo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Mej_Baj_Activo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Mej_Baj_Activo">
           <Key>
@@ -1387,7 +1258,7 @@
           <Property Name="Id_Mejora_Baja_Activo" Type="numeric" Nullable="false" />
           <Property Name="Id_Tipo" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="IdActivoFijo" Type="int" Nullable="false" />
-          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="NomCompleto" Type="varchar" MaxLength="100" />
           <Property Name="IdProveedor" Type="numeric" Nullable="false" />
           <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
@@ -1399,8 +1270,8 @@
           <Property Name="Estado" Type="char" MaxLength="1" />
           <Property Name="Fecha_Transac" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAF_OrdenCompra_x_Proveedor_Factura_ActivoFijo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAF_OrdenCompra_x_Proveedor_Factura_ActivoFijo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAF_OrdenCompra_x_Proveedor_Factura_ActivoFijo">
           <Key>
@@ -1455,8 +1326,8 @@
           <Property Name="IdCtaCble_IVA" Type="varchar" MaxLength="20" />
           <Property Name="IdNaturaleza" Type="varchar" MaxLength="15" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAF_OrdenCompra_x_Proveedor_Factura_SinCruce_ActivoFijo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAF_OrdenCompra_x_Proveedor_Factura_SinCruce_ActivoFijo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAF_OrdenCompra_x_Proveedor_Factura_SinCruce_ActivoFijo">
           <Key>
@@ -1512,8 +1383,8 @@
           <Property Name="IdNaturaleza" Type="varchar" MaxLength="15" />
           <Property Name="Saldo_Factu" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwaf_Periodo_Sin_Depreciar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwaf_Periodo_Sin_Depreciar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwaf_Periodo_Sin_Depreciar">
           <Key>
@@ -1541,8 +1412,8 @@
           <Property Name="Nemonico" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="smesIngles" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Retiro_Activo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Retiro_Activo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Retiro_Activo">
           <Key>
@@ -1561,7 +1432,7 @@
           <Property Name="IdRetiroActivo" Type="numeric" Nullable="false" />
           <Property Name="Cod_Ret_Activo" Type="char" Nullable="false" MaxLength="20" />
           <Property Name="IdActivoFijo" Type="int" Nullable="false" />
-          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="NomCompleto" Type="varchar" MaxLength="100" />
           <Property Name="ValorActivo" Type="float" Nullable="false" />
           <Property Name="Valor_Tot_Bajas" Type="float" Nullable="false" />
@@ -1573,8 +1444,8 @@
           <Property Name="Estado" Type="char" MaxLength="1" />
           <Property Name="Fecha_Retiro" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Valores_Depre_Contabilizar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Valores_Depre_Contabilizar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Valores_Depre_Contabilizar">
           <Key>
@@ -1604,8 +1475,8 @@
           <Property Name="cod_tipo_depreciacion" Type="varchar" MaxLength="20" />
           <Property Name="Valor_Depreciacion" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_ValoresDepre_x_AF' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_ValoresDepre_x_AF' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_ValoresDepre_x_AF">
           <Key>
@@ -1620,8 +1491,8 @@
           <Property Name="Valor_Depre_Acum" Type="float" />
           <Property Name="Valor_Importe" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwAf_Venta_Activo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwAf_Venta_Activo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwAf_Venta_Activo">
           <Key>
@@ -1643,7 +1514,7 @@
           <Property Name="IdVtaActivo" Type="numeric" Nullable="false" />
           <Property Name="Cod_VtaActivo" Type="char" Nullable="false" MaxLength="20" />
           <Property Name="IdActivoFijo" Type="int" Nullable="false" />
-          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="NomCompleto" Type="varchar" MaxLength="100" />
           <Property Name="ValorActivo" Type="float" Nullable="false" />
           <Property Name="Valor_Tot_Bajas" Type="float" Nullable="false" />
@@ -2101,7 +1972,6 @@
           <EntitySet Name="Af_Tipo_Depreciacion" EntityType="DBERPModelActivoFijo.Af_Tipo_Depreciacion" />
           <EntitySet Name="Af_TipoTransac_x_Cta_CbteCble" EntityType="DBERPModelActivoFijo.Af_TipoTransac_x_Cta_CbteCble" />
           <EntitySet Name="Af_Venta_Activo" EntityType="DBERPModelActivoFijo.Af_Venta_Activo" />
-          <EntitySet Name="vwAf_CambioUbicacion" EntityType="DBERPModelActivoFijo.vwAf_CambioUbicacion" />
           <EntitySet Name="vwAf_Catalogo_IdAuto_numeric" EntityType="DBERPModelActivoFijo.vwAf_Catalogo_IdAuto_numeric" />
           <EntitySet Name="vwAf_Depre_x_Ciclo_Valor" EntityType="DBERPModelActivoFijo.vwAf_Depre_x_Ciclo_Valor" />
           <EntitySet Name="vwAf_Depreciacion" EntityType="DBERPModelActivoFijo.vwAf_Depreciacion" />
@@ -2162,11 +2032,8 @@
             <End Role="Af_Activo_fijo_CtasCbles_Tipo" EntitySet="Af_Activo_fijo_CtasCbles_Tipo" />
             <End Role="Af_Activo_fijo_CtasCbles" EntitySet="Af_Activo_fijo_CtasCbles" />
           </AssociationSet>
-          <EntitySet Name="vwAf_Activo_fijo" EntityType="DBERPModelActivoFijo.vwAf_Activo_fijo" />
           <EntitySet Name="vwAf_Activo_fijo_Categoria" EntityType="DBERPModelActivoFijo.vwAf_Activo_fijo_Categoria" />
           <EntitySet Name="vwAf_ActivoCtasCbles" EntityType="DBERPModelActivoFijo.vwAf_ActivoCtasCbles" />
-          <EntitySet Name="vwAf_ActivoFijo" EntityType="DBERPModelActivoFijo.vwAf_ActivoFijo" />
-          <EntitySet Name="vwaf_Af_Poliza_x_AF_det" EntityType="DBERPModelActivoFijo.vwaf_Af_Poliza_x_AF_det" />
           <EntitySet Name="vwAf_Valores_Depre_Contabilizar" EntityType="DBERPModelActivoFijo.vwAf_Valores_Depre_Contabilizar" />
           <EntitySet Name="vwAf_ValoresDepre_x_AF" EntityType="DBERPModelActivoFijo.vwAf_ValoresDepre_x_AF" />
           <EntitySet Name="Af_Activo_fijo" EntityType="DBERPModelActivoFijo.Af_Activo_fijo" />
@@ -2254,6 +2121,8 @@
             <End Role="Af_Depreciacion_Det" EntitySet="Af_Depreciacion_Det" />
           </AssociationSet>
           <EntitySet Name="vwAf_Activo_fijo_CtasCbles" EntityType="DBERPModelActivoFijo.vwAf_Activo_fijo_CtasCbles" />
+          <EntitySet Name="vwAf_Activo_fijo" EntityType="DBERPModelActivoFijo.vwAf_Activo_fijo" />
+          <EntitySet Name="vwAf_ActivoFijo" EntityType="DBERPModelActivoFijo.vwAf_ActivoFijo" />
           </EntityContainer>
         <EntityType Name="Af_Activo_fijo_Categoria">
           <Key>
@@ -2650,48 +2519,6 @@
           <Property Type="String" Name="Estado" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Af_Activo_fijo" Relationship="DBERPModelActivoFijo.FK_Af_Venta_Activo_Af_Activo_fijo" FromRole="Af_Venta_Activo" ToRole="Af_Activo_fijo" />
         </EntityType>
-        <EntityType Name="vwAf_CambioUbicacion">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCambioUbicacion" />
-            <PropertyRef Name="IdActivoFijo" />
-            <PropertyRef Name="Af_Nombre" />
-            <PropertyRef Name="FechaCambio" />
-            <PropertyRef Name="MotivoCambio" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdCambioUbicacion" Nullable="false" />
-          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaCambio" Nullable="false" Precision="3" />
-          <Property Type="String" Name="MotivoCambio" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdTipoCatalogo_Ubicacion_Actu" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_ubicacion_act" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdTipoCatalogo_Ubicacion_Ant" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_ubicacion_dest" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdDepartamento_Actu" />
-          <Property Type="String" Name="nom_departamento_Act" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdDepartamento_Ant" />
-          <Property Type="String" Name="nom_departamento_Ant" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_Actu" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_CentroCosto_Actu" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_Ant" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_CentroCosto_Ant" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursal_Actu" />
-          <Property Type="String" Name="nom_Sucursal_Actu" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="IdSucursal_Ant" />
-          <Property Type="String" Name="nom_Sucursal_Ant" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="nom_Cliente_Ant" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Cliente_Actu" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdEncargado_Ant" Precision="18" Scale="0" />
-          <Property Type="Decimal" Name="IdEncargado_Actu" Precision="18" Scale="0" />
-          <Property Type="String" Name="nom_Encargado_Ant" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Encargado_Actu" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_sub_centro_costo_Actu" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_sub_centro_costo_Ant" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo_Actu" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo_Ant" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="vwAf_Catalogo_IdAuto_numeric">
           <Key>
             <PropertyRef Name="observacion" />
@@ -2752,7 +2579,7 @@
           <Property Type="Decimal" Name="Id_Mejora_Baja_Activo" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="Id_Tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NomCompleto" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -2910,7 +2737,7 @@
           <Property Type="Decimal" Name="IdRetiroActivo" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="Cod_Ret_Activo" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NomCompleto" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Double" Name="ValorActivo" Nullable="false" />
           <Property Type="Double" Name="Valor_Tot_Bajas" Nullable="false" />
@@ -2942,7 +2769,7 @@
           <Property Type="Decimal" Name="IdVtaActivo" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="Cod_VtaActivo" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NomCompleto" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Double" Name="ValorActivo" Nullable="false" />
           <Property Type="Double" Name="Valor_Tot_Bajas" Nullable="false" />
@@ -3136,64 +2963,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vwAf_Activo_fijo">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdActivoFijo" />
-            <PropertyRef Name="CodActivoFijo" />
-            <PropertyRef Name="Af_Nombre" />
-            <PropertyRef Name="IdActijoFijoTipo" />
-            <PropertyRef Name="Af_fecha_compra" />
-            <PropertyRef Name="Af_fecha_ini_depre" />
-            <PropertyRef Name="Af_fecha_fin_depre" />
-            <PropertyRef Name="Af_Costo_historico" />
-            <PropertyRef Name="Af_costo_compra" />
-            <PropertyRef Name="Af_Vida_Util" />
-            <PropertyRef Name="Af_Meses_depreciar" />
-            <PropertyRef Name="Af_porcentaje_deprec" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="String" Name="CodActivoFijo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdActijoFijoTipo" Nullable="false" />
-          <Property Type="Int32" Name="IdDepartamento" />
-          <Property Type="String" Name="de_descripcion" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Marca" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Modelo" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Af_NumSerie" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Af_fecha_compra" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="Af_fecha_ini_depre" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="Af_fecha_fin_depre" Nullable="false" Precision="3" />
-          <Property Type="Double" Name="Af_Costo_historico" Nullable="false" />
-          <Property Type="Double" Name="Af_costo_compra" Nullable="false" />
-          <Property Type="Int32" Name="Af_Vida_Util" Nullable="false" />
-          <Property Type="Int32" Name="Af_Meses_depreciar" Nullable="false" />
-          <Property Type="Double" Name="Af_porcentaje_deprec" Nullable="false" />
-          <Property Type="String" Name="Af_NumSerie_Motor" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Af_NumSerie_Chasis" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursal" />
-          <Property Type="String" Name="nom_Sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="nom_Categoria" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="nom_encargado" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Af_ValorUnidad_Actu" />
-          <Property Type="String" Name="nom_Color" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUnidadFact_cat" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Cliente" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_UnidadFact" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdCategoriaAF" />
-          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Af_ValorSalvamento" />
-          <Property Type="Double" Name="Af_ValorResidual" />
-          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Af_Capacidad" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Es_carroceria" />
-          <Property Type="String" Name="nom_tipo" MaxLength="150" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="vwAf_Activo_fijo_Categoria">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -3223,57 +2992,6 @@
           <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Observacion" MaxLength="250" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="vwAf_ActivoFijo">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdActivoFijo" />
-            <PropertyRef Name="IdTipoDepreciacion" />
-            <PropertyRef Name="Af_costo_compra" />
-            <PropertyRef Name="Af_ValorSalvamento" />
-            <PropertyRef Name="Af_Vida_Util" />
-            <PropertyRef Name="Ciclo" />
-            <PropertyRef Name="Af_porcentaje_deprec" />
-            <PropertyRef Name="Es_Activo_x_Mejora" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="Int32" Name="IdTipoDepreciacion" Nullable="false" />
-          <Property Type="String" Name="cod_tipo_depreciacion" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Af_Nombre" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Af_costo_compra" Nullable="false" />
-          <Property Type="Double" Name="Af_ValorSalvamento" Nullable="false" />
-          <Property Type="Int32" Name="Af_Vida_Util" Nullable="false" />
-          <Property Type="Int32" Name="Af_Vida_TipDepre" />
-          <Property Type="DateTime" Name="Af_fecha_ini_depre" Precision="3" />
-          <Property Type="DateTime" Name="Af_fecha_fin_depre" Precision="3" />
-          <Property Type="Int32" Name="Af_Meses_depreciar" />
-          <Property Type="Int32" Name="Ciclo" Nullable="false" />
-          <Property Type="Double" Name="Af_porcentaje_deprec" Nullable="false" />
-          <Property Type="Double" Name="Valor_Depre" />
-          <Property Type="Double" Name="Valor_Depreciacion_Acum" />
-          <Property Type="Double" Name="Valor_Importe" />
-          <Property Type="String" Name="Estado_Proceso" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Es_Activo_x_Mejora" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vwaf_Af_Poliza_x_AF_det">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdPoliza" />
-            <PropertyRef Name="IdActivoFijo" />
-            <PropertyRef Name="secuencia" />
-            <PropertyRef Name="Af_Nombre" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdPoliza" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
-          <Property Type="Int32" Name="secuencia" Nullable="false" />
-          <Property Type="Double" Name="Subtotal_0" />
-          <Property Type="Double" Name="Subtotal_12" />
-          <Property Type="Double" Name="Iva" />
-          <Property Type="Double" Name="Prima" />
-          <Property Type="String" Name="observacion_det" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vwAf_Valores_Depre_Contabilizar">
           <Key>
@@ -3800,6 +3518,90 @@
           <Property Type="String" Name="Observacion" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="IdActijoFijoTipo" Nullable="false" />
         </EntityType>
+        <EntityType Name="vwAf_Activo_fijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="CodActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdActijoFijoTipo" />
+            <PropertyRef Name="Af_fecha_compra" />
+            <PropertyRef Name="Af_fecha_ini_depre" />
+            <PropertyRef Name="Af_fecha_fin_depre" />
+            <PropertyRef Name="Af_Costo_historico" />
+            <PropertyRef Name="Af_costo_compra" />
+            <PropertyRef Name="Af_Vida_Util" />
+            <PropertyRef Name="Af_Meses_depreciar" />
+            <PropertyRef Name="Af_porcentaje_deprec" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="String" Name="CodActivoFijo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdActijoFijoTipo" Nullable="false" />
+          <Property Type="Int32" Name="IdDepartamento" />
+          <Property Type="String" Name="Marca" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Modelo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_NumSerie" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Af_fecha_compra" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Af_fecha_ini_depre" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Af_fecha_fin_depre" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="Af_Costo_historico" Nullable="false" />
+          <Property Type="Double" Name="Af_costo_compra" Nullable="false" />
+          <Property Type="Int32" Name="Af_Vida_Util" Nullable="false" />
+          <Property Type="Int32" Name="Af_Meses_depreciar" Nullable="false" />
+          <Property Type="Double" Name="Af_porcentaje_deprec" Nullable="false" />
+          <Property Type="String" Name="Af_NumSerie_Motor" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_NumSerie_Chasis" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" />
+          <Property Type="String" Name="nom_Sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_Categoria" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="nom_encargado" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_ValorUnidad_Actu" />
+          <Property Type="String" Name="nom_Color" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadFact_cat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdCategoriaAF" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_ValorSalvamento" />
+          <Property Type="Double" Name="Af_ValorResidual" />
+          <Property Type="String" Name="Af_Capacidad" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Es_carroceria" />
+          <Property Type="String" Name="nom_tipo" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwAf_ActivoFijo">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdTipoDepreciacion" />
+            <PropertyRef Name="Af_costo_compra" />
+            <PropertyRef Name="Af_ValorSalvamento" />
+            <PropertyRef Name="Af_Vida_Util" />
+            <PropertyRef Name="Ciclo" />
+            <PropertyRef Name="Af_porcentaje_deprec" />
+            <PropertyRef Name="Es_Activo_x_Mejora" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoDepreciacion" Nullable="false" />
+          <Property Type="String" Name="cod_tipo_depreciacion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_costo_compra" Nullable="false" />
+          <Property Type="Double" Name="Af_ValorSalvamento" Nullable="false" />
+          <Property Type="Int32" Name="Af_Vida_Util" Nullable="false" />
+          <Property Type="Int32" Name="Af_Vida_TipDepre" />
+          <Property Type="DateTime" Name="Af_fecha_ini_depre" Precision="3" />
+          <Property Type="DateTime" Name="Af_fecha_fin_depre" Precision="3" />
+          <Property Type="Int32" Name="Af_Meses_depreciar" />
+          <Property Type="Int32" Name="Ciclo" Nullable="false" />
+          <Property Type="Double" Name="Af_porcentaje_deprec" Nullable="false" />
+          <Property Type="Double" Name="Valor_Depre" />
+          <Property Type="Double" Name="Valor_Depreciacion_Acum" />
+          <Property Type="Double" Name="Valor_Importe" />
+          <Property Type="String" Name="Estado_Proceso" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Es_Activo_x_Mejora" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4157,44 +3959,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwAf_CambioUbicacion">
-            <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_CambioUbicacion">
-              <MappingFragment StoreEntitySet="vwAf_CambioUbicacion">
-                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo_Ant" ColumnName="nom_Centro_costo_sub_centro_costo_Ant" />
-                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo_Actu" ColumnName="nom_Centro_costo_sub_centro_costo_Actu" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo_Ant" ColumnName="IdCentroCosto_sub_centro_costo_Ant" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo_Actu" ColumnName="IdCentroCosto_sub_centro_costo_Actu" />
-                <ScalarProperty Name="nom_Encargado_Actu" ColumnName="nom_Encargado_Actu" />
-                <ScalarProperty Name="nom_Encargado_Ant" ColumnName="nom_Encargado_Ant" />
-                <ScalarProperty Name="IdEncargado_Actu" ColumnName="IdEncargado_Actu" />
-                <ScalarProperty Name="IdEncargado_Ant" ColumnName="IdEncargado_Ant" />
-                <ScalarProperty Name="nom_Cliente_Actu" ColumnName="nom_Cliente_Actu" />
-                <ScalarProperty Name="nom_Cliente_Ant" ColumnName="nom_Cliente_Ant" />
-                <ScalarProperty Name="nom_Sucursal_Ant" ColumnName="nom_Sucursal_Ant" />
-                <ScalarProperty Name="IdSucursal_Ant" ColumnName="IdSucursal_Ant" />
-                <ScalarProperty Name="nom_Sucursal_Actu" ColumnName="nom_Sucursal_Actu" />
-                <ScalarProperty Name="IdSucursal_Actu" ColumnName="IdSucursal_Actu" />
-                <ScalarProperty Name="nom_CentroCosto_Ant" ColumnName="nom_CentroCosto_Ant" />
-                <ScalarProperty Name="IdCentroCosto_Ant" ColumnName="IdCentroCosto_Ant" />
-                <ScalarProperty Name="nom_CentroCosto_Actu" ColumnName="nom_CentroCosto_Actu" />
-                <ScalarProperty Name="IdCentroCosto_Actu" ColumnName="IdCentroCosto_Actu" />
-                <ScalarProperty Name="nom_departamento_Ant" ColumnName="nom_departamento_Ant" />
-                <ScalarProperty Name="IdDepartamento_Ant" ColumnName="IdDepartamento_Ant" />
-                <ScalarProperty Name="nom_departamento_Act" ColumnName="nom_departamento_Act" />
-                <ScalarProperty Name="IdDepartamento_Actu" ColumnName="IdDepartamento_Actu" />
-                <ScalarProperty Name="nom_ubicacion_dest" ColumnName="nom_ubicacion_dest" />
-                <ScalarProperty Name="IdTipoCatalogo_Ubicacion_Ant" ColumnName="IdTipoCatalogo_Ubicacion_Ant" />
-                <ScalarProperty Name="nom_ubicacion_act" ColumnName="nom_ubicacion_act" />
-                <ScalarProperty Name="IdTipoCatalogo_Ubicacion_Actu" ColumnName="IdTipoCatalogo_Ubicacion_Actu" />
-                <ScalarProperty Name="MotivoCambio" ColumnName="MotivoCambio" />
-                <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
-                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
-                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
-                <ScalarProperty Name="IdCambioUbicacion" ColumnName="IdCambioUbicacion" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwAf_Catalogo_IdAuto_numeric">
             <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_Catalogo_IdAuto_numeric">
               <MappingFragment StoreEntitySet="vwAf_Catalogo_IdAuto_numeric">
@@ -4436,52 +4200,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwAf_Activo_fijo">
-            <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_Activo_fijo">
-              <MappingFragment StoreEntitySet="vwAf_Activo_fijo">
-                <ScalarProperty Name="nom_tipo" ColumnName="nom_tipo" />
-                <ScalarProperty Name="Es_carroceria" ColumnName="Es_carroceria" />
-                <ScalarProperty Name="Af_Capacidad" ColumnName="Af_Capacidad" />
-                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo" ColumnName="nom_Centro_costo_sub_centro_costo" />
-                <ScalarProperty Name="Af_ValorResidual" ColumnName="Af_ValorResidual" />
-                <ScalarProperty Name="Af_ValorSalvamento" ColumnName="Af_ValorSalvamento" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdCategoriaAF" ColumnName="IdCategoriaAF" />
-                <ScalarProperty Name="nom_UnidadFact" ColumnName="nom_UnidadFact" />
-                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
-                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
-                <ScalarProperty Name="nom_Cliente" ColumnName="nom_Cliente" />
-                <ScalarProperty Name="IdUnidadFact_cat" ColumnName="IdUnidadFact_cat" />
-                <ScalarProperty Name="nom_Color" ColumnName="nom_Color" />
-                <ScalarProperty Name="Af_ValorUnidad_Actu" ColumnName="Af_ValorUnidad_Actu" />
-                <ScalarProperty Name="nom_encargado" ColumnName="nom_encargado" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="nom_Categoria" ColumnName="nom_Categoria" />
-                <ScalarProperty Name="nom_Sucursal" ColumnName="nom_Sucursal" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="Af_NumSerie_Chasis" ColumnName="Af_NumSerie_Chasis" />
-                <ScalarProperty Name="Af_NumSerie_Motor" ColumnName="Af_NumSerie_Motor" />
-                <ScalarProperty Name="Af_porcentaje_deprec" ColumnName="Af_porcentaje_deprec" />
-                <ScalarProperty Name="Af_Meses_depreciar" ColumnName="Af_Meses_depreciar" />
-                <ScalarProperty Name="Af_Vida_Util" ColumnName="Af_Vida_Util" />
-                <ScalarProperty Name="Af_costo_compra" ColumnName="Af_costo_compra" />
-                <ScalarProperty Name="Af_Costo_historico" ColumnName="Af_Costo_historico" />
-                <ScalarProperty Name="Af_fecha_fin_depre" ColumnName="Af_fecha_fin_depre" />
-                <ScalarProperty Name="Af_fecha_ini_depre" ColumnName="Af_fecha_ini_depre" />
-                <ScalarProperty Name="Af_fecha_compra" ColumnName="Af_fecha_compra" />
-                <ScalarProperty Name="Af_NumSerie" ColumnName="Af_NumSerie" />
-                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
-                <ScalarProperty Name="Marca" ColumnName="Marca" />
-                <ScalarProperty Name="de_descripcion" ColumnName="de_descripcion" />
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-                <ScalarProperty Name="IdActijoFijoTipo" ColumnName="IdActijoFijoTipo" />
-                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
-                <ScalarProperty Name="CodActivoFijo" ColumnName="CodActivoFijo" />
-                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwAf_Activo_fijo_Categoria">
             <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_Activo_fijo_Categoria">
               <MappingFragment StoreEntitySet="vwAf_Activo_fijo_Categoria">
@@ -4504,47 +4222,6 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="IdTipoCuenta" ColumnName="IdTipoCuenta" />
                 <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwAf_ActivoFijo">
-            <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_ActivoFijo">
-              <MappingFragment StoreEntitySet="vwAf_ActivoFijo">
-                <ScalarProperty Name="Es_Activo_x_Mejora" ColumnName="Es_Activo_x_Mejora" />
-                <ScalarProperty Name="Estado_Proceso" ColumnName="Estado_Proceso" />
-                <ScalarProperty Name="Valor_Importe" ColumnName="Valor_Importe" />
-                <ScalarProperty Name="Valor_Depreciacion_Acum" ColumnName="Valor_Depreciacion_Acum" />
-                <ScalarProperty Name="Valor_Depre" ColumnName="Valor_Depre" />
-                <ScalarProperty Name="Af_porcentaje_deprec" ColumnName="Af_porcentaje_deprec" />
-                <ScalarProperty Name="Ciclo" ColumnName="Ciclo" />
-                <ScalarProperty Name="Af_Meses_depreciar" ColumnName="Af_Meses_depreciar" />
-                <ScalarProperty Name="Af_fecha_fin_depre" ColumnName="Af_fecha_fin_depre" />
-                <ScalarProperty Name="Af_fecha_ini_depre" ColumnName="Af_fecha_ini_depre" />
-                <ScalarProperty Name="Af_Vida_TipDepre" ColumnName="Af_Vida_TipDepre" />
-                <ScalarProperty Name="Af_Vida_Util" ColumnName="Af_Vida_Util" />
-                <ScalarProperty Name="Af_ValorSalvamento" ColumnName="Af_ValorSalvamento" />
-                <ScalarProperty Name="Af_costo_compra" ColumnName="Af_costo_compra" />
-                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
-                <ScalarProperty Name="cod_tipo_depreciacion" ColumnName="cod_tipo_depreciacion" />
-                <ScalarProperty Name="IdTipoDepreciacion" ColumnName="IdTipoDepreciacion" />
-                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwaf_Af_Poliza_x_AF_det">
-            <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwaf_Af_Poliza_x_AF_det">
-              <MappingFragment StoreEntitySet="vwaf_Af_Poliza_x_AF_det">
-                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
-                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
-                <ScalarProperty Name="Prima" ColumnName="Prima" />
-                <ScalarProperty Name="Iva" ColumnName="Iva" />
-                <ScalarProperty Name="Subtotal_12" ColumnName="Subtotal_12" />
-                <ScalarProperty Name="Subtotal_0" ColumnName="Subtotal_0" />
-                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
-                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
-                <ScalarProperty Name="IdPoliza" ColumnName="IdPoliza" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -4750,6 +4427,71 @@
                 <ScalarProperty Name="porc_distribucion" ColumnName="porc_distribucion" />
                 <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
                 <ScalarProperty Name="IdTipoCuenta" ColumnName="IdTipoCuenta" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAf_Activo_fijo">
+            <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_Activo_fijo">
+              <MappingFragment StoreEntitySet="vwAf_Activo_fijo">
+                <ScalarProperty Name="nom_tipo" ColumnName="nom_tipo" />
+                <ScalarProperty Name="Es_carroceria" ColumnName="Es_carroceria" />
+                <ScalarProperty Name="Af_Capacidad" ColumnName="Af_Capacidad" />
+                <ScalarProperty Name="Af_ValorResidual" ColumnName="Af_ValorResidual" />
+                <ScalarProperty Name="Af_ValorSalvamento" ColumnName="Af_ValorSalvamento" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCategoriaAF" ColumnName="IdCategoriaAF" />
+                <ScalarProperty Name="IdUnidadFact_cat" ColumnName="IdUnidadFact_cat" />
+                <ScalarProperty Name="nom_Color" ColumnName="nom_Color" />
+                <ScalarProperty Name="Af_ValorUnidad_Actu" ColumnName="Af_ValorUnidad_Actu" />
+                <ScalarProperty Name="nom_encargado" ColumnName="nom_encargado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="nom_Categoria" ColumnName="nom_Categoria" />
+                <ScalarProperty Name="nom_Sucursal" ColumnName="nom_Sucursal" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Af_NumSerie_Chasis" ColumnName="Af_NumSerie_Chasis" />
+                <ScalarProperty Name="Af_NumSerie_Motor" ColumnName="Af_NumSerie_Motor" />
+                <ScalarProperty Name="Af_porcentaje_deprec" ColumnName="Af_porcentaje_deprec" />
+                <ScalarProperty Name="Af_Meses_depreciar" ColumnName="Af_Meses_depreciar" />
+                <ScalarProperty Name="Af_Vida_Util" ColumnName="Af_Vida_Util" />
+                <ScalarProperty Name="Af_costo_compra" ColumnName="Af_costo_compra" />
+                <ScalarProperty Name="Af_Costo_historico" ColumnName="Af_Costo_historico" />
+                <ScalarProperty Name="Af_fecha_fin_depre" ColumnName="Af_fecha_fin_depre" />
+                <ScalarProperty Name="Af_fecha_ini_depre" ColumnName="Af_fecha_ini_depre" />
+                <ScalarProperty Name="Af_fecha_compra" ColumnName="Af_fecha_compra" />
+                <ScalarProperty Name="Af_NumSerie" ColumnName="Af_NumSerie" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdActijoFijoTipo" ColumnName="IdActijoFijoTipo" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="CodActivoFijo" ColumnName="CodActivoFijo" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAf_ActivoFijo">
+            <EntityTypeMapping TypeName="DBERPModelActivoFijo.vwAf_ActivoFijo">
+              <MappingFragment StoreEntitySet="vwAf_ActivoFijo">
+                <ScalarProperty Name="Es_Activo_x_Mejora" ColumnName="Es_Activo_x_Mejora" />
+                <ScalarProperty Name="Estado_Proceso" ColumnName="Estado_Proceso" />
+                <ScalarProperty Name="Valor_Importe" ColumnName="Valor_Importe" />
+                <ScalarProperty Name="Valor_Depreciacion_Acum" ColumnName="Valor_Depreciacion_Acum" />
+                <ScalarProperty Name="Valor_Depre" ColumnName="Valor_Depre" />
+                <ScalarProperty Name="Af_porcentaje_deprec" ColumnName="Af_porcentaje_deprec" />
+                <ScalarProperty Name="Ciclo" ColumnName="Ciclo" />
+                <ScalarProperty Name="Af_Meses_depreciar" ColumnName="Af_Meses_depreciar" />
+                <ScalarProperty Name="Af_fecha_fin_depre" ColumnName="Af_fecha_fin_depre" />
+                <ScalarProperty Name="Af_fecha_ini_depre" ColumnName="Af_fecha_ini_depre" />
+                <ScalarProperty Name="Af_Vida_TipDepre" ColumnName="Af_Vida_TipDepre" />
+                <ScalarProperty Name="Af_Vida_Util" ColumnName="Af_Vida_Util" />
+                <ScalarProperty Name="Af_ValorSalvamento" ColumnName="Af_ValorSalvamento" />
+                <ScalarProperty Name="Af_costo_compra" ColumnName="Af_costo_compra" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="cod_tipo_depreciacion" ColumnName="cod_tipo_depreciacion" />
+                <ScalarProperty Name="IdTipoDepreciacion" ColumnName="IdTipoDepreciacion" />
                 <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>

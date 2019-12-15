@@ -12,9 +12,6 @@ using Core.Erp.Business.SeguridadAcceso;
 using Core.Erp.Info.General;
 using Core.Erp.Business.General;
 
-using Core.Erp.Info.Academico;
-using Core.Erp.Business.Academico;
-
 
 namespace Core.Erp.Winform.SeguridadAcceso
 {
@@ -37,14 +34,6 @@ namespace Core.Erp.Winform.SeguridadAcceso
         tb_Sucursal_Bus BusSucursal = new tb_Sucursal_Bus();
         List<tb_Sucursal_Info> ListInfoSucursal = new List<tb_Sucursal_Info>();
         tb_Sucursal_Info InfoSucursal = new tb_Sucursal_Info();
-
-
-        Aca_Institucion_Bus BusInstitucion = new Aca_Institucion_Bus();
-        Aca_Institucion_Info InfoInstitucion = new Aca_Institucion_Info();
-        List<Aca_Institucion_Info> ListInfoInstitucion = new List<Aca_Institucion_Info>();
-
-
-
         private seg_usuario_info InfoUsuario = new seg_usuario_info();
         
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -70,12 +59,6 @@ namespace Core.Erp.Winform.SeguridadAcceso
                 InfoSucursal = (tb_Sucursal_Info)ListInfoSucursal.FirstOrDefault(v => v.IdSucursal == Convert.ToInt32(cmb_sucursal.EditValue));
                 param.IdSucursal = InfoSucursal.IdSucursal;
                 param.InfoSucursal = InfoSucursal;
-
-                if (InfoInstitucion != null)
-                {
-                    param.IdInstitucion = InfoInstitucion.IdInstitucion;
-                    param.InfoInstitucion = InfoInstitucion;
-                }
 
 
                 this.Close();
@@ -123,14 +106,6 @@ namespace Core.Erp.Winform.SeguridadAcceso
                     cmb_sucursal.Properties.DataSource = ListInfoSucursal;
                     InfoSucursal = ListInfoSucursal.FirstOrDefault();
                     cmb_sucursal.EditValue = InfoSucursal.IdSucursal;
-
-                    //insttitucion
-
-                    ListInfoInstitucion = new List<Aca_Institucion_Info>();
-                    ListInfoInstitucion = BusInstitucion.Get_List_Institucion(InfoEmpresa.IdEmpresa);
-                    InfoInstitucion = ListInfoInstitucion.FirstOrDefault();
-
-
                 }
 
             }

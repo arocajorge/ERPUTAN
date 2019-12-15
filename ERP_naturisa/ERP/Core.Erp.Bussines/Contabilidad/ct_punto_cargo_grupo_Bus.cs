@@ -1,6 +1,5 @@
 ﻿using Core.Erp.Data.Contabilidad;
 using Core.Erp.Info.Contabilidad;
-using Core.Erp.Info.Facturacion_FJ;
 using System;
 using System.Collections.Generic;
 using System.Linq;

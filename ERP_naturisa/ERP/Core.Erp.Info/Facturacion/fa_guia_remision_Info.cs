@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Core.Erp.Info.Facturacion_Grafinpren;
 
 namespace Core.Erp.Info.Facturacion
 {
@@ -91,11 +90,9 @@ namespace Core.Erp.Info.Facturacion
         //MOTIVO TRASLADO
         public Nullable<int> idMotivo_traslado { get; set; }
        
-        public Core.Erp.Info.Facturacion_Grafinpren.fa_guia_remision_graf_Info  Info_Guia_Remision_x_Grafinpren { get; set; }
      
         public fa_guia_remision_Info() {
             ListaDetalle = new List<fa_guia_remision_det_Info>();
-            Info_Guia_Remision_x_Grafinpren = new Facturacion_Grafinpren.fa_guia_remision_graf_Info();
 
             
         }

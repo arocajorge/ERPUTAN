@@ -122,48 +122,5 @@ namespace Core.Erp.Business.Contabilidad
 
       }
 
-      public List<ct_punto_cargo_Info> Get_List_punto_Cargo_con_subcentro(int IdEmpresa)
-      {
-          try
-          {
-              return data.Get_List_punto_Cargo_con_subcentro(IdEmpresa);
-          }
-          catch (Exception ex)
-          {
-              Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-              throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "VericarCodigoExiste", ex.Message), ex) { EntityType = typeof(ct_punto_cargo_Bus) };
-          }
-
-      }
-
-      public ct_punto_cargo_Info Get_info_punto_Cargo_con_subcentro(int IdEmpresa, int IdPuntoCargo)
-      {
-          try
-          {
-              return data.Get_info_punto_Cargo_con_subcentro(IdEmpresa,IdPuntoCargo);
-          }
-          catch (Exception ex)
-          {
-              Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-              throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "VericarCodigoExiste", ex.Message), ex) { EntityType = typeof(ct_punto_cargo_Bus) };
-          }
-
-      }
-
-
-      public ct_punto_cargo_Info Get_info_punto_Cargo_con_subcentro(int IdEmpresa, String CodPuntoCargo)
-      {
-          try
-          {
-              return data.Get_info_punto_Cargo_con_subcentro(IdEmpresa, CodPuntoCargo);
-          }
-          catch (Exception ex)
-          {
-              Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-              throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "VericarCodigoExiste", ex.Message), ex) { EntityType = typeof(ct_punto_cargo_Bus) };
-          }
-
-      }
-
     }
 }

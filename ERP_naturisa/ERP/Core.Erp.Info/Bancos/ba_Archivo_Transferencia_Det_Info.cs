@@ -27,7 +27,6 @@ namespace Core.Erp.Info.Bancos
         public string IdEstadoRegistro_cat { get; set; }
         public string nom_EstadoRegistro { get; set; }
         public bool Estado { get; set; }        
-        public Nullable<int> IdInstitucion_Col { get; set; }
         public Boolean Chequeo { get; set; }
         public bool Contabilizado { get; set; }
         //public string IdAnioLectivo_Col { get; set; }
@@ -92,30 +91,7 @@ namespace Core.Erp.Info.Bancos
         public string giradoA_cheq { get; set; }
         public string IdEstado_Preaviso_ch_cat { get; set; }
 
-        // campo de colecturia
-        public int IdInstitucion { get; set; }
-        public decimal IdPreFacturacion { get; set; }
-        public int Secuencia_Proce { get; set; }        
-        public int IdRubro_col { get; set; }
-        public int IdInstitucion_contra { get; set; }
-        public decimal IdContrato { get; set; }
-        public int IdInstitucion_Per { get; set; }
-        public int IdAnioLectivo_Per { get; set; }
-        public int IdPeriodo_Per { get; set; }
-        public int IdGrupoFE { get; set; }
-        public decimal Valor_comision { get; set; }
-        public string codigo_unico_estudiante { get; set; }
-        public int esta_en_archivo { get; set; }
-        public string concepto_estado_cuenta { get; set; }
-        public Nullable<decimal> IdPreFacturacion_col { get; set; }
-        public Nullable<int> Secuencia_Proce_col { get; set; }
-        public Nullable<int> secuencia_col { get; set; }
-        public Nullable<bool> estado_contrato_pago_garantizado { get; set; }
-        //Campos de factura
-        public Nullable<int> IdEmpresa_fac { get; set; }
-        public Nullable<int> IdSucursal_fac { get; set; }
-        public Nullable<int> IdBodega_fac { get; set; }
-        public Nullable<decimal> IdCbteVta_fac { get; set; }
+     
 
         public Nullable<decimal> IdProducto { get; set; }
         public double vt_cantidad { get; set; }

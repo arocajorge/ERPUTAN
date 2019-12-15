@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
-using Core.Erp.Info.Produc_Cirdesus;
 using Cus.Erp.Reports.Cidersus.Produccion;
 using System.Collections;
 using System.Collections.Generic;

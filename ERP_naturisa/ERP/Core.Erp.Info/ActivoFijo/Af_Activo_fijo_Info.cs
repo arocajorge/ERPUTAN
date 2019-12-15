@@ -88,17 +88,12 @@ namespace Core.Erp.Info.ActivoFijo
         public Nullable<double> Af_valor_prima { get; set; }
         public string Af_Capacidad { get; set; }
         public string IdCentroCosto_sub_centro_costo { get; set; }
-        public string nom_Centro_costo_sub_centro_costo { get; set; }
         public List<Af_Activo_fijo_x_Af_Activo_fijo_Info> lista_Activo_relacionados { get; set; }
         public Boolean Seleccionado { get; set; }
         //campos vista
         public string nom_Categoria { get; set; }
         public string nom_encargado { get; set; }
         public string nom_Color { get; set; }
-        public string nom_UnidadFact { get; set; }
-        public string nom_Cliente { get; set; }
-        public string nom_punto_cargo { get; set; }
-        public string nom_Centro_costo { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public Nullable<Boolean> Es_carroceria { get; set; }

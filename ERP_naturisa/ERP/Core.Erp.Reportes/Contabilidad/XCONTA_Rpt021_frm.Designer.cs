@@ -78,7 +78,7 @@
             this.cmbIcono = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btn_imprimir = new System.Windows.Forms.ToolStripButton();
-            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
+            this.splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmGe_Esperar), true, true);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();

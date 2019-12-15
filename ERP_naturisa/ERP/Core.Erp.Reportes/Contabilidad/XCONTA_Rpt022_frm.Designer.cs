@@ -47,7 +47,7 @@
             this.col_pc_EsMovimiento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbIcono = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmEspere), true, true);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Reportes.frmGe_Esperar), true, true);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_imprimir_grilla = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.gc_balance)).BeginInit();

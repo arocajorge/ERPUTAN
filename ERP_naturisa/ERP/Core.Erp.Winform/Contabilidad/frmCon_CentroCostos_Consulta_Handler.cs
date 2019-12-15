@@ -4,7 +4,6 @@ using Core.Erp.Business.General;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Info.General;
-using Core.Erp.Winform.Contabilidad_FJ;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using System;

@@ -82,20 +82,6 @@ namespace Core.Erp.Business.Compras
             }
         }
 
-        public List<com_ordencompra_local_Info> Get_List_ordencompra_local_x_Solicitud(int IdEmpresa, int IdSucursal, decimal IdSolicitudCompra)
-        {
-            try
-            {
-                return BusOC.Get_List_ordencompra_local_x_Solicitud(IdEmpresa, IdSucursal, IdSolicitudCompra);
-            }
-            catch (Exception ex)
-            {
-
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_List_ordencompra_local_x_Solicitud", ex.Message), ex) { EntityType = typeof(com_ordencompra_local_Bus) };
-            }
-        }
-
         public List<com_ordencompra_local_Info> Get_List_ordencompra_local_sin_Guia_x_traspaso_bodega(int IdEmpresa, decimal IdGuia)
         {
             try
@@ -323,73 +309,6 @@ namespace Core.Erp.Business.Compras
 
                     // opcion habilitada cuando se graba desde la pantalla aprobacion de solicitudes con generacion de orden compra
                     
-                    #region grabar en tabla intermedia com_ordencompra_local_det_x_com_solicitud_compra_det
-
-                    if (Info.listDetSoliciComp.Count() != 0)
-                    {
-                        // consulto detalle orden compra
-                        com_ordencompra_local_det_Data odata = new com_ordencompra_local_det_Data();
-                        List<com_ordencompra_local_det_Info> listDetComp = new List<com_ordencompra_local_det_Info>();
-                        listDetComp = odata.Get_List_ordencompra_local_det(Info.IdEmpresa, Info.IdSucursal, Info.IdOrdenCompra);
-
-                        List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> listDetCompra = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
-                        List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> listDetSoliCompra = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
-
-                        com_ordencompra_local_det_x_com_solicitud_compra_det_Info info;
-
-                        foreach (var item in listDetComp)
-                        {
-                            info = new com_ordencompra_local_det_x_com_solicitud_compra_det_Info();
-
-                            info.ocd_IdEmpresa = item.IdEmpresa;
-                            info.ocd_IdSucursal = item.IdSucursal;
-                            info.ocd_IdOrdenCompra = item.IdOrdenCompra;
-                            info.ocd_Secuencia = item.Secuencia;
-
-                            listDetCompra.Add(info);
-                        }
-
-                        foreach (var item in Info.listDetSoliciComp)
-                        {
-                            info = new com_ordencompra_local_det_x_com_solicitud_compra_det_Info();
-
-                            info.scd_IdEmpresa = item.IdEmpresa;
-                            info.scd_IdSucursal = item.IdSucursal;
-                            info.scd_IdSolicitudCompra = item.IdSolicitudCompra;
-                            info.scd_Secuencia = item.Secuencia;
-
-                            listDetSoliCompra.Add(info);
-                        }
-
-                        int scd_IdEmpresa = 0;
-                        int scd_IdSucursal = 0;
-                        decimal scd_IdSolicitudCompra = 0;
-                        int scd_Secuencia = 0;
-
-                        foreach (var item in listDetCompra)
-                        {
-                            var items = listDetSoliCompra.First(v => v.ocd_IdEmpresa == 0 && v.ocd_IdSucursal == 0 && v.ocd_IdOrdenCompra == 0 && v.ocd_Secuencia == 0);
-
-                            scd_IdEmpresa = items.scd_IdEmpresa;
-                            scd_IdSucursal = items.scd_IdSucursal;
-                            scd_IdSolicitudCompra = items.scd_IdSolicitudCompra;
-                            scd_Secuencia = items.scd_Secuencia;
-
-                            listDetSoliCompra.Remove(items);
-
-                            item.scd_IdEmpresa = scd_IdEmpresa;
-                            item.scd_IdSucursal = scd_IdSucursal;
-                            item.scd_IdSolicitudCompra = scd_IdSolicitudCompra;
-                            item.scd_Secuencia = scd_Secuencia;
-                        }
-
-                        com_ordencompra_local_det_x_com_solicitud_compra_det_Bus bus_Inter = new com_ordencompra_local_det_x_com_solicitud_compra_det_Bus();
-
-                        if (bus_Inter.GrabarDB(listDetCompra, ref mensaje))
-                        {
-                        }
-                    }
-                    #endregion
 
                 }
                 else
@@ -434,48 +353,10 @@ namespace Core.Erp.Business.Compras
 
                         // consultar tabla intermedia
 
-                        com_ordencompra_local_det_x_com_solicitud_compra_det_Bus bus_Inter = new com_ordencompra_local_det_x_com_solicitud_compra_det_Bus();
-                        List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> listInter = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
-                        listInter = bus_Inter.Get_List_ordencompra_local_det_x_com_solicitud_compra_det_x_OrdenCompra(Info.IdEmpresa, Info.IdSucursal, Info.IdOrdenCompra);
-
-                        List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info> listInter_AUX = new List<com_ordencompra_local_det_x_com_solicitud_compra_det_Info>();
-
-                        if (listInter.Count() != 0)
-                        {
-                            // recupero los datos tabla intermedia
-                            foreach (var item in listInter)
-                            {
-                                com_ordencompra_local_det_x_com_solicitud_compra_det_Info infoInter = new com_ordencompra_local_det_x_com_solicitud_compra_det_Info();
-
-                                infoInter.ocd_IdEmpresa = item.ocd_IdEmpresa;
-                                infoInter.ocd_IdSucursal = item.ocd_IdSucursal;
-                                infoInter.ocd_IdOrdenCompra = item.ocd_IdOrdenCompra;
-                                infoInter.ocd_Secuencia = item.ocd_Secuencia;
-                                infoInter.scd_IdEmpresa = item.scd_IdEmpresa;
-                                infoInter.scd_IdSucursal = item.scd_IdSucursal;
-                                infoInter.scd_IdSolicitudCompra = item.scd_IdSolicitudCompra;
-                                infoInter.scd_Secuencia = item.scd_Secuencia;
-                                infoInter.observacion = item.observacion;
-
-                                listInter_AUX.Add(infoInter);
-                            }
-                            //eliminar detalle tabla intermedia
-                            if (bus_Inter.Eliminar_Detalle_OCDxSCD(Info.IdEmpresa, Info.IdSucursal, Info.IdOrdenCompra, ref msg))
-                            {
-
-                            }
-                        }
+                        
                         if (BusDetOC.EliminarDetalle_OC(Info.IdEmpresa, Info.IdSucursal, Info.IdOrdenCompra, ref msg))
                         {
                             resp1 = BusOC_det.GuardarDB(Info.listDetalle, ref msg);
-
-                            //grabar tabla intermedia
-                            if (listInter.Count() != 0)
-                            {
-                                if (bus_Inter.GrabarDB(listInter_AUX, ref mensaje))
-                                {
-                                }
-                            }
                         }
                     }
                     else

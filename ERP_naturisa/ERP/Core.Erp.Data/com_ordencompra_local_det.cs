@@ -17,7 +17,6 @@ namespace Core.Erp.Data
         public com_ordencompra_local_det()
         {
             this.com_dev_compra_det = new HashSet<com_dev_compra_det>();
-            this.com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider = new HashSet<com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider>();
             this.com_ordencompra_local_det_x_com_solicitud_compra_det = new HashSet<com_ordencompra_local_det_x_com_solicitud_compra_det>();
         }
     
@@ -48,7 +47,6 @@ namespace Core.Erp.Data
         public Nullable<int> IdSucursalDestino { get; set; }
     
         public virtual ICollection<com_dev_compra_det> com_dev_compra_det { get; set; }
-        public virtual ICollection<com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider> com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider { get; set; }
         public virtual com_ordencompra_local com_ordencompra_local { get; set; }
         public virtual ICollection<com_ordencompra_local_det_x_com_solicitud_compra_det> com_ordencompra_local_det_x_com_solicitud_compra_det { get; set; }
     }

@@ -472,7 +472,6 @@ namespace Core.Erp.Winform.Contabilidad
                 this.btnVaciar.Visible = true;
                 this.Text = "";
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-                LstInfo = Bus.Get_List_punto_Cargo_con_subcentro(param.IdEmpresa);
                 gridControl_Punto_Cargo.DataSource = LstInfo;
                 gridView_Punto_Cargo.FocusedRowHandle = DevExpress.XtraGrid.GridControl.AutoFilterRowHandle;
             }

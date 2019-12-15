@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 using Core.Erp.Business.General;
-using Core.Erp.Info.Academico;
-using Core.Erp.Business.Academico;
 using Core.Erp.Info.SeguridadAcceso;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
@@ -55,7 +53,6 @@ namespace Core.Erp.Business.General
         public tb_sis_impuesto_Info iva { get; set; }
         public int IdSucursal { get; set; }
         public tb_Empresa_Info InfoEmpresa = new tb_Empresa_Info();
-        public Aca_Institucion_Info InfoInstitucion = new Aca_Institucion_Info();
         public tb_Sucursal_Info InfoSucursal = new tb_Sucursal_Info();
         public seg_usuario_info InfoUsuario = new seg_usuario_info();
         public string em_Email { get; set; }

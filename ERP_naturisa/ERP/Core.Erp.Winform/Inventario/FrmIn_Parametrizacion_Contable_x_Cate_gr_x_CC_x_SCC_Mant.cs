@@ -63,19 +63,6 @@ namespace Core.Erp.Winform.Inventario
                     MessageBox.Show("Seleccione el subgrupo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
-
-                if (ucct_cc_scc.Get_Info_Centro_costo()==null)
-                {
-                    MessageBox.Show("Seleccione el centro de costo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-
-                if (ucct_cc_scc.Get_Info_Centro_costo_sub_centro_costo() == null)
-                {
-                    MessageBox.Show("Seleccione el sub centro de costo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-                
                 return true;
             }
             catch (Exception ex)
@@ -97,8 +84,6 @@ namespace Core.Erp.Winform.Inventario
                 InfoContaCC.IdLinea = ucin_cat_lin_gr_sgr.Get_info_linea().IdLinea;
                 InfoContaCC.IdGrupo = ucin_cat_lin_gr_sgr.Get_info_grupo().IdGrupo;
                 InfoContaCC.IdSubgrupo = ucin_cat_lin_gr_sgr.Get_info_subgrupo().IdSubgrupo;
-                InfoContaCC.IdCentroCosto = ucct_cc_scc.Get_Info_Centro_costo().IdCentroCosto;
-                InfoContaCC.IdSub_centro_costo = ucct_cc_scc.Get_Info_Centro_costo_sub_centro_costo().IdCentroCosto_sub_centro_costo;
                 InfoContaCC.IdCtaCble = ucct_plancta.get_CuentaInfo().IdCtaCble == "" ? null : ucct_plancta.get_CuentaInfo().IdCtaCble;
             }
             catch (Exception ex)
@@ -127,7 +112,6 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 ucin_cat_lin_gr_sgr.inicializar_controles();
-                ucct_cc_scc.Inicializar_Combos();
                 ucct_plancta.Inicializar_cmb_cuentas();
                 ucIn_ProductoCmb1.Inicializar_cmbProducto();
             }
@@ -204,7 +188,6 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                ucct_cc_scc.Cargar_combos();
                 ucIn_ProductoCmb1.cargar_productos();
                 Set_info_in_controls();
             }
@@ -250,8 +233,6 @@ namespace Core.Erp.Winform.Inventario
                     ucin_cat_lin_gr_sgr.set_item_Grupo(Convert.ToInt32(InfoContaCC.IdGrupo));
                     ucin_cat_lin_gr_sgr.set_item_SubGrupo(Convert.ToInt32(InfoContaCC.IdSubgrupo));
 
-                    ucct_cc_scc.Set_Info_Centro_costo(InfoContaCC.IdCentroCosto);
-                    ucct_cc_scc.Set_Info_Centro_costo_sub_centro_costo(InfoContaCC.IdSub_centro_costo);
                     ucct_plancta.set_IdCtaCble(InfoContaCC.IdCtaCble);
                 }
             }

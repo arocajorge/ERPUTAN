@@ -36,9 +36,5 @@ namespace Core.Erp.Data
         public Nullable<int> IdTipoCbte_pago { get; set; }
         public Nullable<decimal> IdCbteCble_pago { get; set; }
         public string cb_Estado { get; set; }
-        public Nullable<int> IdEmpresa_fac { get; set; }
-        public Nullable<int> IdSucursal_fac { get; set; }
-        public Nullable<int> IdBodega_fac { get; set; }
-        public Nullable<decimal> IdCbteVta_fac { get; set; }
     }
 }

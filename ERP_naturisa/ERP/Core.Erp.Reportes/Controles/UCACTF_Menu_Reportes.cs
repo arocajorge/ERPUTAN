@@ -12,8 +12,6 @@ using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Business.ActivoFijo;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
-using Core.Erp.Business.Roles;
-using Core.Erp.Info.Roles;
 using Core.Erp.Reportes.Compras;
 
 namespace Core.Erp.Reportes.Controles

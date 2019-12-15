@@ -14,13 +14,6 @@ SELECT        cli.IdEmpresa, 'CLIENTE' + '-' + CAST(pers.IdPersona AS varchar(20
 FROM            tb_persona AS pers INNER JOIN
                          fa_cliente AS cli ON pers.IdPersona = cli.IdPersona
 UNION
-SELECT        emp.IdEmpresa, 'EMPLEA' + '-' + CAST(pers.IdPersona AS varchar(20)) + '-' + CAST(emp.IdEmpleado AS varchar(20)) AS IdBeneficiario, 'EMPLEA' AS IdTipo_Persona, pers.IdPersona, emp.IdEmpleado, 
-                         emp.em_codigo, pers.pe_nombreCompleto, pers.pe_nombreCompleto AS Expr1, pers.pe_razonSocial, pers.pe_cedulaRuc, pers.pe_Naturaleza, emp.IdCtaCble_Emplea, emp.IdCentroCosto, 
-                         emp.IdCentroCosto_sub_centro_costo, emp.IdCtaCble_Emplea AS Expr2, emp.IdCtaCble_Emplea AS Expr3, emp.em_estado, emp.em_tipoCta, emp.em_NumCta, emp.IdBanco, pers.pe_apellido, 
-                         pers.pe_nombre, pers.pe_nombreCompleto AS Expr4, pers.IdTipoDocumento, pers.pe_direccion, pers.pe_telefonoCasa, pers.pe_celular, pers.pe_correo
-FROM            tb_persona AS pers INNER JOIN
-                         ro_empleado AS emp ON pers.IdPersona = emp.IdPersona
-UNION
 SELECT        em.IdEmpresa, 'PERSONA' + '-' + CAST(B.IdPersona AS varchar(20)) + '-' + CAST(B.IdPersona AS varchar(20)) AS IdBeneficiario, 'PERSONA' AS IdTipo_Persona, B.IdPersona, B.IdPersona AS Expr1, B.CodPersona, 
                          B.pe_nombreCompleto, B.pe_nombreCompleto AS Expr2, B.pe_razonSocial, B.pe_cedulaRuc, B.pe_Naturaleza, NULL AS Expr3, NULL AS Expr4, NULL AS Expr5, NULL AS Expr6, NULL AS Expr7, B.pe_estado, 
                          B.IdTipoCta_acreditacion_cat, B.num_cta_acreditacion, B.IdBanco_acreditacion, B.pe_apellido, B.pe_nombre, B.pe_nombreCompleto AS Expr8, B.IdTipoDocumento, B.pe_direccion, B.pe_telefonoCasa, 

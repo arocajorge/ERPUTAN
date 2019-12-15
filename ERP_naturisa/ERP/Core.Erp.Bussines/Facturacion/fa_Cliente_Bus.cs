@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Data.Facturacion;
-using Core.Erp.Info.Presupuesto;
 using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using System.Data;
@@ -299,21 +298,7 @@ namespace Core.Erp.Business.Facturacion
             }
         }
 
-        public Boolean ModificarDB_Cuentas_cbles(int IdEmpresa, string cxc_Contado, string cxc_Anticipo, string cxc_Credito, ref string msg)
-        {
-            try
-            {
-                Boolean respuesta = false;
-                respuesta = data.ModificarDB_Cuentas_cbles(IdEmpresa, cxc_Contado, cxc_Anticipo, cxc_Credito, ref msg);
-                return respuesta;
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ModificarDB", ex.Message), ex) { EntityType = typeof(fa_catalogo_tipo_Bus) };
-            }
-        }
-       
+           
         public Boolean GrabarDB(fa_Cliente_Info info,ref decimal IdPersona, ref decimal id, ref string msg)
         {
             try

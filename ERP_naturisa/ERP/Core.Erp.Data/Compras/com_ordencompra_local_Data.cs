@@ -513,90 +513,6 @@ namespace Core.Erp.Data.Compras
         }
 
 
-        public List<com_ordencompra_local_Info> Get_List_ordencompra_local_x_Solicitud(int IdEmpresa, int IdSucursal, decimal IdSolicitudCompra)
-        {
-            List<com_ordencompra_local_Info> Lst = new List<com_ordencompra_local_Info>();
-            EntitiesCompras OEComp = new EntitiesCompras();
-            try
-            {
-
-                var Select = from q in OEComp.vwcom_ordencompra_local_det_x_com_solicitud_compra_det
-                             where q.scd_IdEmpresa == IdEmpresa
-                                   && q.scd_IdSucursal == IdSucursal
-                                   && q.scd_IdSolicitudCompra == IdSolicitudCompra
-                                 select q;
-
-                    foreach (var item in Select)
-                    {
-                        com_ordencompra_local_Info OrdCompInfo = new com_ordencompra_local_Info();
-                        OrdCompInfo.IdEmpresa = item.IdEmpresa;
-                        OrdCompInfo.IdSucursal = item.IdSucursal;
-                        OrdCompInfo.IdOrdenCompra = item.IdOrdenCompra;
-                        OrdCompInfo.IdProveedor = item.IdProveedor;
-                        OrdCompInfo.oc_NumDocumento = item.oc_NumDocumento;
-                        OrdCompInfo.Tipo = item.Tipo;
-                        OrdCompInfo.IdTerminoPago = item.IdTerminoPago;
-                        OrdCompInfo.oc_plazo = item.oc_plazo;
-                        OrdCompInfo.oc_fecha = item.oc_fecha;
-                        OrdCompInfo.oc_flete = item.oc_flete;
-                        OrdCompInfo.oc_observacion = item.oc_observacion;
-                        OrdCompInfo.Estado = item.Estado;
-                        OrdCompInfo.IdEstadoAprobacion_cat = item.IdEstadoAprobacion_cat;
-                        OrdCompInfo.IdEstadoAprobacion_AUX = item.IdEstadoAprobacion_cat;
-                        OrdCompInfo.co_fecha_aprobacion = item.co_fecha_aprobacion;
-                        OrdCompInfo.IdUsuario_Aprueba = item.IdUsuario_Aprueba;
-                        OrdCompInfo.IdUsuario_Reprue = item.IdUsuario_Reprue;
-                        OrdCompInfo.co_fechaReproba = item.co_fechaReproba;
-                        OrdCompInfo.Fecha_Transac = item.Fecha_Transac;
-                        OrdCompInfo.Fecha_UltMod = item.Fecha_UltMod;
-                        OrdCompInfo.IdUsuarioUltMod = item.IdUsuarioUltMod;
-                        OrdCompInfo.FechaHoraAnul = item.FechaHoraAnul;
-                        OrdCompInfo.IdUsuarioUltAnu = item.IdUsuarioUltAnu;
-                        OrdCompInfo.IdEstadoRecepcion_cat = item.IdEstadoRecepcion_cat;
-                        OrdCompInfo.AfectaCosto = item.AfectaCosto;
-                        OrdCompInfo.iva = item.iva;
-                        OrdCompInfo.total = item.total;
-                        OrdCompInfo.peso = item.peso;
-                        OrdCompInfo.ap_descripcion = item.ap_descripcion;
-                        OrdCompInfo.tp_descripcion = item.tp_descripcion;
-                        OrdCompInfo.rec_descripcion = item.rec_descripcion;
-                        OrdCompInfo.pr_nombre = item.pr_nombre;
-                        OrdCompInfo.Su_Descripcion = item.Su_Descripcion;
-                        OrdCompInfo.MotivoReprobacion = item.MotivoReprobacion;
-                        OrdCompInfo.Solicitante = item.Solicitante;
-                        OrdCompInfo.IdDepartamento = item.IdDepartamento;
-                        OrdCompInfo.IdComprador = item.IdComprador;
-                        OrdCompInfo.IdSolicitante = item.IdSolicitante;
-                        OrdCompInfo.Nom_Comprador = item.Nom_Comprador;
-                        OrdCompInfo.Nom_Solicita = item.Nom_Solicita;
-                        OrdCompInfo.SDepartamento = item.SDepartamento;
-                        OrdCompInfo.IdMotivo = item.IdMotivo;
-                        OrdCompInfo.oc_fechaVencimiento = Convert.ToDateTime(item.oc_fechaVencimiento);
-
-
-                        OrdCompInfo.IdEstado_cierre = item.IdEstado_cierre;
-
-                        OrdCompInfo.subtotal = item.subtotal;
-                        OrdCompInfo.nom_motivo_OC = item.nom_motivo_OC;
-
-                        Lst.Add(OrdCompInfo);
-                    }
-                 
-                return Lst;
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
-                                    "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString();
-                throw new Exception(ex.ToString());
-            }
-        }
-
-
         public Boolean GuardarDB(com_ordencompra_local_Info Info, ref decimal id)
         {
             try
@@ -985,16 +901,7 @@ namespace Core.Erp.Data.Compras
                         contact.oc_observacion = Info.oc_observacion;
                         context.SaveChanges();
 
-                        var lst_solicitudes = context.com_ordencompra_local_det_x_com_solicitud_compra_det.Where(q => q.ocd_IdEmpresa == Info.IdEmpresa && q.ocd_IdSucursal == Info.IdSucursal && q.ocd_IdOrdenCompra == Info.IdOrdenCompra).ToList();
-                        foreach (var item in lst_solicitudes)
-                        {
-                            var entity_sol = context.com_solicitud_compra_det_aprobacion.Where(q => q.IdEmpresa == item.scd_IdEmpresa && q.IdSucursal_SC == item.scd_IdSucursal && q.IdSolicitudCompra == item.scd_IdSolicitudCompra).FirstOrDefault();
-                            if(entity_sol != null)
-                                entity_sol.IdEstadoAprobacion = "PEN_SOL";
-                        }
                         context.SaveChanges();
-
-                        context.Database.ExecuteSqlCommand("DELETE com_ordencompra_local_det_x_com_solicitud_compra_det where ocd_IdEmpresa = "+Info.IdEmpresa+" and ocd_IdSucursal = "+Info.IdSucursal+" and ocd_IdOrdenCompra = "+Info.IdOrdenCompra);
 
                         msg = "Se ha procedido a anular el registro de Orden Compra #: " + Info.IdOrdenCompra.ToString() + " exitosamente";
                     }
@@ -1020,26 +927,12 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
-                com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_Info TIDetGOC = new com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_Info();
-                com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_Data dataTIGOC = new com_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider_Data();
-                com_GenerOCompraDet_Data DetDataGOC = new com_GenerOCompraDet_Data();
                 List<com_ordencompra_local_det_Info> DetOC = new List<com_ordencompra_local_det_Info>();
                 com_ordencompra_local_det_Data DetOCData = new com_ordencompra_local_det_Data();
                   
                 if (AnularDB(Info, ref msg)) //anula O/C cambiando el Estado a I y el Estado de Aprobacion a REP
                 {
-                    DetOC = DetOCData.Get_List_ordencompra_local_det(Info.IdEmpresa, Info.IdSucursal, Info.IdOrdenCompra);
-                    foreach (var item in DetOC)
-                    {
-                        com_ListadoMateriales_Det_Info infoDetGOC = new com_ListadoMateriales_Det_Info();
-                        com_ListadoMateriales_Det_Data dataDetListM = new com_ListadoMateriales_Det_Data();
-                        TIDetGOC = dataTIGOC.Get_List_GenerOCompra_Det_x_com_ordencompra_local_det_CusCider(item, ref msg);
-                        infoDetGOC = DetDataGOC.Get_Info_ListadoMateriales_Det(TIDetGOC.goc_IdEmpresa, TIDetGOC.goc_IdTransaccion, TIDetGOC.goc_IdDetTrans);
-                        infoDetGOC.lm_IdEstadoAprobado = "X APRO";  //al listado de requerimientos de materiales se le deja X APROBAR
-                        infoDetGOC.go_IdEstadoAprob = "REP"; // a la generacion de o/c se la reprueba
-                        if (dataDetListM.ActualizarEstadoAprob(infoDetGOC, ref msg))
-                            if (DetDataGOC.ModificarEstadoGOCDet(infoDetGOC, ref msg) == false) return false;                                                
-                    }
+                   
                 }
                 return true;
 

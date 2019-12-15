@@ -7,8 +7,6 @@ using Core.Erp.Data.CuentasxPagar;
 using Core.Erp.Business.General;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
-using Core.Erp.Business.Importacion;
-using Core.Erp.Info.Importacion;
 using Core.Erp.Info.General;
 
 namespace Core.Erp.Business.CuentasxPagar
@@ -21,8 +19,6 @@ namespace Core.Erp.Business.CuentasxPagar
         cp_reembolso_Bus Reem_B = new cp_reembolso_Bus();
         cp_orden_giro_pagos_sri_Bus pagoSRI_B = new cp_orden_giro_pagos_sri_Bus();
         cp_orden_giro_x_com_ordencompra_local_Bus OC_B = new cp_orden_giro_x_com_ordencompra_local_Bus();
-        imp_ordencompra_ext_x_imp_gastosxImport_Bus ocXgastosxImp_B = new imp_ordencompra_ext_x_imp_gastosxImport_Bus();
-        imp_ordencompra_ext_x_ct_cbtecble_Bus ocXcbt_B = new imp_ordencompra_ext_x_ct_cbtecble_Bus();
         cp_orden_giro_x_imp_ordencompra_ext_Bus Importacion_B = new cp_orden_giro_x_imp_ordencompra_ext_Bus();
         cp_parametros_Bus busParam = new cp_parametros_Bus();
         cp_retencion_Bus Bus_Retencion = new cp_retencion_Bus();
@@ -341,37 +337,6 @@ namespace Core.Erp.Business.CuentasxPagar
                         }
 
                         decimal IdCbteCble = 0; IdCbteCble = idCbteCble;
-
-                        if (Info_OrdenGiro.LstImportacionGrid != null)
-                        {
-                            if (Info_OrdenGiro.LstImportacionGrid.Count() > 0)
-                            {
-                                Info_OrdenGiro.LstImportacionGrid.ForEach(p => p.IdCbteCble = IdCbteCble);
-
-                                if (ocXgastosxImp_B.GuardarDB(Info_OrdenGiro.LstImportacionGrid, ref mensaje))
-                                {
-                                    Info_OrdenGiro.LstocXcbt_I.ForEach(p => p.ct_IdCbteCble = IdCbteCble);
-                                    if (ocXcbt_B.GuardarDB(Info_OrdenGiro.LstocXcbt_I, ref mensaje))
-                                    {
-                                        Info_OrdenGiro.LisImportacion.ForEach(p => p.og_IdCbteCble = IdCbteCble);
-                                        if (Importacion_B.GrabarDB(Info_OrdenGiro.LisImportacion, ref mensaje))
-                                        {
-                                            Info_OrdenGiro.LstImportacionOC.ForEach(p => p.og_IdCbteCble = IdCbteCble);
-
-                                            if (!OC_B.GrabarDB(Info_OrdenGiro.LstImportacionOC, ref mensaje))
-                                            { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                        }
-                                        else { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                    }
-                                    else { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                }
-                                else { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                            }
-
-                        }
-
-
-
                     }
 
                 }
@@ -433,12 +398,6 @@ namespace Core.Erp.Business.CuentasxPagar
                         }
 
                         #endregion
-
-                        ocXgastosxImp_B.AnularXOG(ordenGiro_I.IdEmpresa, ordenGiro_I.IdTipoCbte_Ogiro, ordenGiro_I.IdCbteCble_Ogiro,
-                            Convert.ToInt32(ordenGiro_I.IdTipoCbte_Anulacion), Convert.ToDecimal(ordenGiro_I.IdCbteCble_Anulacion));
-
-                        Importacion_B.EliminarDB(ordenGiro_I.IdEmpresa, ordenGiro_I.IdCbteCble_Ogiro, ordenGiro_I.IdTipoCbte_Ogiro);
-                        
                         OC_B.EliminarLista(LstImportacionOC);
                     }
                     else return false;
@@ -687,88 +646,6 @@ namespace Core.Erp.Business.CuentasxPagar
                             InfoOrdenGiro_I.Info_cuotas_x_doc.IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro;
                             bus_cuotas_x_doc.GuardarDB(InfoOrdenGiro_I.Info_cuotas_x_doc);
                         }
-
-                        List<imp_ordencompra_ext_x_ct_cbtecble_Info> Tab_Int = ocXcbt_B.Get_List_ordencompra_ext_x_ct_cbtecble(InfoOrdenGiro_I.IdEmpresa, InfoOrdenGiro_I.IdTipoCbte_Ogiro, 
-                            InfoOrdenGiro_I.IdCbteCble_Ogiro, ref msg);
-                        if (Tab_Int == null||Tab_Int.Count <1)
-                        {
-                            #region
-                            if (InfoOrdenGiro_I.LstImportacionGrid.Count() > 0)
-                            {
-                                InfoOrdenGiro_I.LstImportacionGrid.ForEach(p => p.IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-
-                                if (ocXgastosxImp_B.GuardarDB(InfoOrdenGiro_I.LstImportacionGrid, ref mensaje))
-                                {
-                                    InfoOrdenGiro_I.LstocXcbt_I.ForEach(p => p.ct_IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-                                    if (ocXcbt_B.GuardarDB(InfoOrdenGiro_I.LstocXcbt_I, ref mensaje))
-                                    {
-                                        InfoOrdenGiro_I.LisImportacion.ForEach(p => p.og_IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-                                        if (Importacion_B.GrabarDB(InfoOrdenGiro_I.LisImportacion, ref mensaje))
-                                        {
-                                            InfoOrdenGiro_I.LstImportacionOC.ForEach(p => p.og_IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-
-                                            if (!OC_B.GrabarDB(InfoOrdenGiro_I.LstImportacionOC, ref mensaje))
-                                            { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                        }
-                                        else { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                    }
-                                    else { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                }
-                                else { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                            }
-                            #endregion
-                        }
-                        else
-                        {
-                            List<imp_ordencompra_ext_x_imp_gastosxImport_Info> a = ocXgastosxImp_B.Get_List_ordencompra_ext_x_imp_gastosxImport(Tab_Int[0].imp_IdEmpresa,
-                                Tab_Int[0].imp_IdSucusal, Tab_Int[0].imp_IdOrdenCompraExt);
-                            List<imp_ordencompra_ext_x_imp_gastosxImport_Info> b = new List<imp_ordencompra_ext_x_imp_gastosxImport_Info>();
-                            if (a != null)
-                            {
-                                b = a.FindAll(q => Convert.ToInt32(q.IdTipoCbte) == InfoOrdenGiro_I.IdTipoCbte_Ogiro 
-                                    && Convert.ToDecimal( q.IdCbteCble) == InfoOrdenGiro_I.IdCbteCble_Ogiro);
-                            
-                            }
-                            //eliminar tabla intermedia
-                            ocXcbt_B.EliminarDB(Tab_Int[0].ct_IdEmpresa, Tab_Int[0].ct_IdCbteCble, Tab_Int[0].ct_IdTipoCbte);
-                            imp_ordencompra_ext_x_imp_gastosxImport_Det_Bus detBus = new imp_ordencompra_ext_x_imp_gastosxImport_Det_Bus();
-
-                            foreach (imp_ordencompra_ext_x_imp_gastosxImport_Info item in b)
-                            {
-                                if (!detBus.EliminarDB(item, ref msg)) return false;
-
-                                if (!ocXgastosxImp_B.EliminarDB(item.IdEmpresa, item.IdSucusal, item.IdOrdenCompraExt, item.IdRegistroGasto, ref msg)) return false;
-                            }
-                            if (InfoOrdenGiro_I.LstImportacionGrid.Count() > 0)
-                            {
-                                InfoOrdenGiro_I.LstImportacionGrid.ForEach(p => p.IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-
-                                if (!ocXgastosxImp_B.GuardarDB(InfoOrdenGiro_I.LstImportacionGrid, ref mensaje)) return false;
-
-                                InfoOrdenGiro_I.LstocXcbt_I.ForEach(p => p.ct_IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-
-                                if (!ocXcbt_B.GuardarDB(InfoOrdenGiro_I.LstocXcbt_I, ref mensaje)) return false;
-
-                                    var d = Importacion_B.Get_List_orden_giro_x_imp_ordencompra_ext(Tab_Int[0].ct_IdEmpresa, Tab_Int[0].ct_IdCbteCble, Tab_Int[0].ct_IdTipoCbte);
-                                    if (d != null)
-                                    {
-                                        Importacion_B.EliminarDB(d);
-                                        InfoOrdenGiro_I.LisImportacion.ForEach(p => p.og_IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-                                        if (!Importacion_B.GrabarDB(InfoOrdenGiro_I.LisImportacion, ref mensaje)) return false;
-                                        var e = OC_B.Get_List_orden_giro_x_com_ordencompra_local(Tab_Int[0].ct_IdEmpresa, Tab_Int[0].ct_IdCbteCble, Tab_Int[0].ct_IdTipoCbte);
-                                        if (e != null)
-                                        {
-                                            OC_B.EliminarLista(e);
-                                            InfoOrdenGiro_I.LstImportacionOC.ForEach(p => p.og_IdCbteCble = InfoOrdenGiro_I.IdCbteCble_Ogiro);
-                                            if (!OC_B.GrabarDB(InfoOrdenGiro_I.LstImportacionOC, ref mensaje))
-                                            { mensaje = "Hubo un inconveniente al ingresar la importación comuniquese con sistemas.." + mensaje; res = false; }
-                                        }
-                                    }
-                                //}
-                            }
-                        }
-
-
                         msg = "La Fact. Proveedor # " + InfoOrdenGiro_I.IdCbteCble_Ogiro + " se modificó Exitósamente";
                     }
                 }

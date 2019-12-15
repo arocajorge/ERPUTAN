@@ -11,8 +11,6 @@ using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using Core.Erp.Business.ActivoFijo;
 using Core.Erp.Info.ActivoFijo;
-using Core.Erp.Info.Roles;
-using Core.Erp.Business.Roles;
 
 namespace Core.Erp.Winform.ActivoFijo
 {

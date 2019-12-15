@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>198</ApplicationRevision>
+    <ApplicationRevision>200</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -233,60 +233,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Academico\FrmAcaAdministrador_Archivos_Banco_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdministrador_Archivos_Banco_Mant.Designer.cs">
-      <DependentUpon>FrmAcaAdministrador_Archivos_Banco_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Alumno_ImportacionWizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Alumno_ImportacionWizard.designer.cs">
-      <DependentUpon>FrmAca_Alumno_ImportacionWizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Asignacion_Masiva_Estudiantes_x_Rubro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Asignacion_Masiva_Estudiantes_x_Rubro.Designer.cs">
-      <DependentUpon>FrmAca_Asignacion_Masiva_Estudiantes_x_Rubro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Beca_Estudiante_x_rubros_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Beca_Estudiante_x_rubros_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Beca_Estudiante_x_rubros_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Documento_Bancario_x_Rep_Economico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Documento_Bancario_x_Rep_Economico.Designer.cs">
-      <DependentUpon>FrmAca_Documento_Bancario_x_Rep_Economico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Retiro_Estudiante.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Retiro_Estudiante.Designer.cs">
-      <DependentUpon>FrmAca_Retiro_Estudiante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Contrato_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Contrato_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Contrato_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Actualizar_Archivos_Wizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Actualizar_Archivos_Wizard.Designer.cs">
-      <DependentUpon>FrmAca_Actualizar_Archivos_Wizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\Frm_Aca_Forma_Pago_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\Frm_Aca_Forma_Pago_Cons.Designer.cs">
-      <DependentUpon>Frm_Aca_Forma_Pago_Cons.cs</DependentUpon>
-    </Compile>
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,30 +359,6 @@
     <Compile Include="Compras\FrmCom_Solicitante_Cons.Designer.cs">
       <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras_FJ\frmCom_OrdenCompra_Cons_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_FJ\frmCom_OrdenCompra_Cons_FJ.Designer.cs">
-      <DependentUpon>frmCom_OrdenCompra_Cons_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras_FJ\frmCom_OrdenCompra_Mant_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_FJ\frmCom_OrdenCompra_Mant_FJ.Designer.cs">
-      <DependentUpon>frmCom_OrdenCompra_Mant_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_distribucion_gastos_x_punto_cargo_cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_distribucion_gastos_x_punto_cargo_cons.Designer.cs">
-      <DependentUpon>frmCon_distribucion_gastos_x_punto_cargo_cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_distribucion_gastos_x_punto_cargo_mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_distribucion_gastos_x_punto_cargo_mant.Designer.cs">
-      <DependentUpon>frmCon_distribucion_gastos_x_punto_cargo_mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCCp_cuotas_x_doc.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -484,349 +406,6 @@
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_XML_Mantenimiento.Designer.cs">
       <DependentUpon>frmCP_XML_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Cred_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Cred_Consulta.Designer.cs">
-      <DependentUpon>frmAca_Nota_Cred_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Pre_Facturacion_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Pre_Facturacion_Cons.Designer.cs">
-      <DependentUpon>FrmAca_Pre_Facturacion_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Pre_Facturacion_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Pre_Facturacion_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Pre_Facturacion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubros_Adicionales_x_Periodo_x_Estudiante.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubros_Adicionales_x_Periodo_x_Estudiante.Designer.cs">
-      <DependentUpon>FrmAca_Rubros_Adicionales_x_Periodo_x_Estudiante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdmision_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdmision_Cons.Designer.cs">
-      <DependentUpon>FrmAcaAdmision_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdmision_Cons_Handler.cs" />
-    <Compile Include="Academico\FrmAcaAdmision_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdmision_Mant.Designer.cs">
-      <DependentUpon>FrmAcaAdmision_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaApoderado_Economico_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaApoderado_Economico_Cons.Designer.cs">
-      <DependentUpon>FrmAcaApoderado_Economico_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaApoderado_Economico_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaApoderado_Economico_Mant.Designer.cs">
-      <DependentUpon>FrmAcaApoderado_Economico_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaBecas_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaBecas_Cons.Designer.cs">
-      <DependentUpon>FrmAcaBecas_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaBecas_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaBecas_Mant.Designer.cs">
-      <DependentUpon>FrmAcaBecas_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCurso_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCurso_Mant.Designer.cs">
-      <DependentUpon>FrmAcaCurso_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaInstitucionFinanciera_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaInstitucionFinanciera_Mant.Designer.cs">
-      <DependentUpon>FrmAcaInstitucionFinanciera_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaInstitucion_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaInstitucion_Mant.Designer.cs">
-      <DependentUpon>FrmAcaInstitucion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaJornada_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaJornada_Mant.Designer.cs">
-      <DependentUpon>FrmAcaJornada_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatriculaTipoDocumento_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatriculaTipoDocumento_Cons.Designer.cs">
-      <DependentUpon>FrmAcaMatriculaTipoDocumento_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatricula_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatricula_Cons.Designer.cs">
-      <DependentUpon>FrmAcaMatricula_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatricula_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatricula_Mant.Designer.cs">
-      <DependentUpon>FrmAcaMatricula_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatriculaTipoDocumento_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaMatriculaTipoDocumento_Mant.Designer.cs">
-      <DependentUpon>FrmAcaMatriculaTipoDocumento_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaParalelo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaParalelo_Mant.Designer.cs">
-      <DependentUpon>FrmAcaParalelo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAspirante_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAspirante_Cons.Designer.cs">
-      <DependentUpon>FrmAcaAspirante_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAspirante_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAspirante_Mant.Designer.cs">
-      <DependentUpon>FrmAcaAspirante_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogoTipo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogoTipo_Cons.Designer.cs">
-      <DependentUpon>FrmAcaCatalogoTipo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogoTipo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogoTipo_Mant.Designer.cs">
-      <DependentUpon>FrmAcaCatalogoTipo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogo_Cons.Designer.cs">
-      <DependentUpon>FrmAcaCatalogo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaCatalogo_Mant.Designer.cs">
-      <DependentUpon>FrmAcaCatalogo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaEstudiante_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaEstudiante_Cons.Designer.cs">
-      <DependentUpon>FrmAcaEstudiante_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaEstudiante_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaEstudiante_Mant.Designer.cs">
-      <DependentUpon>FrmAcaEstudiante_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaInstitucion_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaInstitucion_Cons.Designer.cs">
-      <DependentUpon>FrmAcaInstitucion_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaPreparacion_Alumno_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaPreparacion_Alumno_Mant.Designer.cs">
-      <DependentUpon>FrmAcaPreparacion_Alumno_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaPreparacion_Alumno_Sistema_Dual_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaPreparacion_Alumno_Sistema_Dual_Mant.Designer.cs">
-      <DependentUpon>FrmAcaPreparacion_Alumno_Sistema_Dual_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaPreparacion_OtrosDeudores_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaPreparacion_OtrosDeudores_Mant.designer.cs">
-      <DependentUpon>FrmAcaPreparacion_OtrosDeudores_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaProfesor_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaProfesor_Cons.Designer.cs">
-      <DependentUpon>FrmAcaProfesor_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaProfesor_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaProfesor_Mant.Designer.cs">
-      <DependentUpon>FrmAcaProfesor_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubroTipo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubroTipo_Cons.Designer.cs">
-      <DependentUpon>FrmAcaRubroTipo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubro_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubro_Cons.Designer.cs">
-      <DependentUpon>FrmAcaRubro_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubro_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubro_Mant.Designer.cs">
-      <DependentUpon>FrmAcaRubro_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaSeccion_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaSeccion_Mant.Designer.cs">
-      <DependentUpon>FrmAcaSeccion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaSede_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaSede_Mant.Designer.cs">
-      <DependentUpon>FrmAcaSede_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubroTipo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaRubroTipo_Mant.Designer.cs">
-      <DependentUpon>FrmAcaRubroTipo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaIntitucionFinanciera_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaIntitucionFinanciera_Cons.Designer.cs">
-      <DependentUpon>FrmAcaIntitucionFinanciera_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Anio_Lectivo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Anio_Lectivo_Cons.Designer.cs">
-      <DependentUpon>FrmAca_Anio_Lectivo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Anio_Lectivo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Anio_Lectivo_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Anio_Lectivo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Becas_x_Estudiante_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Becas_x_Estudiante_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Becas_x_Estudiante_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\frmAca_curso_x_Aca_Rubro_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\frmAca_curso_x_Aca_Rubro_Mant.Designer.cs">
-      <DependentUpon>frmAca_curso_x_Aca_Rubro_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Generar_Periodo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Generar_Periodo.Designer.cs">
-      <DependentUpon>FrmAca_Generar_Periodo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Periodo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Periodo_Cons.Designer.cs">
-      <DependentUpon>FrmAca_Periodo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Periodo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Periodo_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Periodo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_RubroGrupoFE_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_RubroGrupoFE_Cons.Designer.cs">
-      <DependentUpon>FrmAca_RubroGrupoFE_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_RubroGrupoFE_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_RubroGrupoFE_Mant.Designer.cs">
-      <DependentUpon>FrmAca_RubroGrupoFE_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubros_Asigandos_x_Estudiante_x_Periodo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubros_Asigandos_x_Estudiante_x_Periodo.Designer.cs">
-      <DependentUpon>FrmAca_Rubros_Asigandos_x_Estudiante_x_Periodo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubro_x_Aca_Periodo_Lectivo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubro_x_Aca_Periodo_Lectivo_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Rubro_x_Aca_Periodo_Lectivo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Tarjeta_cred_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Tarjeta_cred_Cons.Designer.cs">
-      <DependentUpon>FrmAca_Tarjeta_cred_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Tarjeta_cred_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Tarjeta_cred_Mant.Designer.cs">
-      <DependentUpon>FrmAca_Tarjeta_cred_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaExepciones_x_Estudiante.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaExepciones_x_Estudiante.Designer.cs">
-      <DependentUpon>FrmAcaExepciones_x_Estudiante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdministrador_Archivos_Banco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAcaAdministrador_Archivos_Banco.designer.cs">
-      <DependentUpon>FrmAcaAdministrador_Archivos_Banco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\Frm_Aca_Apertura_Ciclo_Facturacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\Frm_Aca_Apertura_Ciclo_Facturacion.Designer.cs">
-      <DependentUpon>Frm_Aca_Apertura_Ciclo_Facturacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\Frm_Aca_Parametros.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\Frm_Aca_Parametros.Designer.cs">
-      <DependentUpon>Frm_Aca_Parametros.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\frmAF_ActivoFijoTipo_General.cs">
       <SubType>Form</SubType>
@@ -1029,42 +608,6 @@
     </Compile>
     <Compile Include="ActivoFijo\frmAF_VentaActivo_Mant.Designer.cs">
       <DependentUpon>frmAF_VentaActivo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_ActivoFijo_General_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_ActivoFijo_General_FJ.Designer.cs">
-      <DependentUpon>frmAF_ActivoFijo_General_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_ActivoFijo_Mant_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_ActivoFijo_Mant_FJ.Designer.cs">
-      <DependentUpon>frmAF_ActivoFijo_Mant_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Cambio_Ubicacion_Consul_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Cambio_Ubicacion_Consul_FJ.Designer.cs">
-      <DependentUpon>frmAF_Cambio_Ubicacion_Consul_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Cambio_Ubicacion_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Cambio_Ubicacion_FJ.Designer.cs">
-      <DependentUpon>frmAF_Cambio_Ubicacion_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Poliza_x_Activos_Consulta_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Poliza_x_Activos_Consulta_FJ.Designer.cs">
-      <DependentUpon>frmAF_Poliza_x_Activos_Consulta_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Poliza_x_Activos_Mantenimiento_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo_FJ\frmAF_Poliza_x_Activos_Mantenimiento_FJ.Designer.cs">
-      <DependentUpon>frmAF_Poliza_x_Activos_Mantenimiento_FJ.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\FrmBA_Actualizar_Archivos_Wizard.cs">
       <SubType>Form</SubType>
@@ -1552,24 +1095,6 @@
     <Compile Include="Compras\FrmCom_TerminoPagos_Mant.Designer.cs">
       <DependentUpon>FrmCom_TerminoPagos_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_AprobacionOrdenesCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_AprobacionOrdenesCompras.Designer.cs">
-      <DependentUpon>FrmCom_AprobacionOrdenesCompras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompra_x_Cotizacion_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompra_x_Cotizacion_Consulta.Designer.cs">
-      <DependentUpon>FrmCom_GeneracionOrdenCompra_x_Cotizacion_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompra_x_Cotizacion_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompra_x_Cotizacion_Mantenimiento.Designer.cs">
-      <DependentUpon>FrmCom_GeneracionOrdenCompra_x_Cotizacion_Mantenimiento.cs</DependentUpon>
-    </Compile>
     <Compile Include="Contabilidad\frmCon_AdministradorReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1850,78 +1375,6 @@
     <Compile Include="Contabilidad\frmCon_WaitForm.Designer.cs">
       <DependentUpon>frmCon_WaitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_CentroCosto_x_Cliente_Consul_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_CentroCosto_x_Cliente_Consul_FJ.Designer.cs">
-      <DependentUpon>frmCon_CentroCosto_x_Cliente_Consul_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_CentroCosto_x_cliente_Mant_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_CentroCosto_x_cliente_Mant_FJ.Designer.cs">
-      <DependentUpon>frmCon_CentroCosto_x_cliente_Mant_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_Punto_Cargo_Cons_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_Punto_Cargo_Cons_FJ.Designer.cs">
-      <DependentUpon>frmCon_Punto_Cargo_Cons_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_Punto_Cargo_Mant_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Contabilidad_FJ\frmCon_Punto_Cargo_Mant_FJ.Designer.cs">
-      <DependentUpon>frmCon_Punto_Cargo_Mant_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Anio_Lectivo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Anio_Lectivo.Designer.cs">
-      <DependentUpon>UCAca_Anio_Lectivo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Catalogo_cmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Catalogo_cmb.Designer.cs">
-      <DependentUpon>UCAca_Catalogo_cmb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Curso.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Curso.Designer.cs">
-      <DependentUpon>UCAca_Curso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Estudiante.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Estudiante.Designer.cs">
-      <DependentUpon>UCAca_Estudiante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Familiar_x_Estudiante.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Familiar_x_Estudiante.Designer.cs">
-      <DependentUpon>UCAca_Familiar_x_Estudiante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Institucion.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Institucion.Designer.cs">
-      <DependentUpon>UCAca_Institucion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_Rubro.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_Rubro.Designer.cs">
-      <DependentUpon>UCAca_Rubro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCAca_SedeJornadaSeccionCurso.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCAca_SedeJornadaSeccionCurso.Designer.cs">
-      <DependentUpon>UCAca_SedeJornadaSeccionCurso.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCAF_Activo_Categoria_cmb.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2125,12 +1578,6 @@
     </Compile>
     <Compile Include="Controles\UCFa_Cliente_Tipo.Designer.cs">
       <DependentUpon>UCFa_Cliente_Tipo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCFa_Cliente_x_centro_costo_cmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCFa_Cliente_x_centro_costo_cmb.Designer.cs">
-      <DependentUpon>UCFa_Cliente_x_centro_costo_cmb.cs</DependentUpon>
     </Compile>
     <Compile Include="Controles\UCFa_Cliente_x_Contacto.cs">
       <SubType>UserControl</SubType>
@@ -2570,101 +2017,17 @@
     <Compile Include="Controles\UCIn_UnidadMedidaCmb.Designer.cs">
       <DependentUpon>UCIn_UnidadMedidaCmb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCPrd_EtapaFlecha.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCPrd_EtapaFlecha.designer.cs">
-      <DependentUpon>UCPrd_EtapaFlecha.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCGe_Pais.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controles\UCGe_Pais.Designer.cs">
       <DependentUpon>UCGe_Pais.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controles\UCPrd_Obra.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCPrd_Obra.designer.cs">
-      <DependentUpon>UCPrd_Obra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_Catalogo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_Catalogo.designer.cs">
-      <DependentUpon>UCRo_Catalogo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_CentroCosto_x_Empleado.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_CentroCosto_x_Empleado.Designer.cs">
-      <DependentUpon>UCRo_CentroCosto_x_Empleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_Departamento.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_Departamento.Designer.cs">
-      <DependentUpon>UCRo_Departamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_DepartamentoCmb.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_DepartamentoCmb.Designer.cs">
-      <DependentUpon>UCRo_DepartamentoCmb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_Empleado.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_Empleado.Designer.cs">
-      <DependentUpon>UCRo_Empleado.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_Historico_Vacaciones.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_Historico_Vacaciones.designer.cs">
-      <DependentUpon>UCRo_Historico_Vacaciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCPrd_Etapa.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCPrd_Etapa.designer.cs">
-      <DependentUpon>UCPrd_Etapa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_NominaTipo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_NominaTipo.Designer.cs">
-      <DependentUpon>UCRo_NominaTipo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_NominaTipoLiqui.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_NominaTipoLiqui.Designer.cs">
-      <DependentUpon>UCRo_NominaTipoLiqui.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_PeriodoXNomina.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_PeriodoXNomina.Designer.cs">
-      <DependentUpon>UCRo_PeriodoXNomina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\UCRo_TipoCargo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\UCRo_TipoCargo.Designer.cs">
-      <DependentUpon>UCRo_TipoCargo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controles\UCSeg_Propiedades.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controles\UCSeg_Propiedades.Designer.cs">
       <DependentUpon>UCSeg_Propiedades.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles_Grafinprent\UCFa_Equipos_Graf.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles_Grafinprent\UCFa_Equipos_Graf.Designer.cs">
-      <DependentUpon>UCFa_Equipos_Graf.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\FrmFa_PuntoVta_cons.cs">
       <SubType>Form</SubType>
@@ -2857,12 +2220,6 @@
     </Compile>
     <Compile Include="CuentasxCobrar\frmCxc_Parametros.Designer.cs">
       <DependentUpon>frmCxc_Parametros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CuentasxCobrar_Grafinpren\frmCxc_Comisiones_x_vendedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CuentasxCobrar_Grafinpren\frmCxc_Comisiones_x_vendedor.Designer.cs">
-      <DependentUpon>frmCxc_Comisiones_x_vendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_Saldo_inicial_ImportWizard.cs">
       <SubType>Form</SubType>
@@ -3506,234 +2863,6 @@
     <Compile Include="Facturacion\frmFa_Guia_Remision_consu.Designer.cs">
       <DependentUpon>frmFa_Guia_Remision_consu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Cred_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Cred_Mant.Designer.cs">
-      <DependentUpon>frmAca_Nota_Cred_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Deb_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Deb_Consulta.Designer.cs">
-      <DependentUpon>frmAca_Nota_Deb_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Deb_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmAca_Nota_Deb_Mant.Designer.cs">
-      <DependentUpon>frmAca_Nota_Deb_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmFA_Factura_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmFA_Factura_Consulta.designer.cs">
-      <DependentUpon>frmFA_Factura_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmFa_Factura_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmFa_Factura_Mant.designer.cs">
-      <DependentUpon>frmFa_Factura_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmFa_Saldo_inicial_ImportWizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_CAH\frmFa_Saldo_inicial_ImportWizard.designer.cs">
-      <DependentUpon>frmFa_Saldo_inicial_ImportWizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Conciliacion_horas_Facturadas_vs_Horas_regi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Conciliacion_horas_Facturadas_vs_Horas_regi.Designer.cs">
-      <DependentUpon>frmFa_Conciliacion_horas_Facturadas_vs_Horas_regi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Conciliacion_horas_hombre_vs_Horas_Maquina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Conciliacion_horas_hombre_vs_Horas_Maquina.Designer.cs">
-      <DependentUpon>frmFa_Conciliacion_horas_hombre_vs_Horas_Maquina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFA_Factura_Consulta_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFA_Factura_Consulta_FJ.Designer.cs">
-      <DependentUpon>frmFA_Factura_Consulta_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Factura_Mant_FJ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Factura_Mant_FJ.Designer.cs">
-      <DependentUpon>frmFa_Factura_Mant_FJ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_grupo_x_sub_centro_costo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_grupo_x_sub_centro_costo_Cons.Designer.cs">
-      <DependentUpon>frmfa_grupo_x_sub_centro_costo_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_grupo_x_sub_centro_costo_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_grupo_x_sub_centro_costo_Mant.Designer.cs">
-      <DependentUpon>frmfa_grupo_x_sub_centro_costo_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_liquidaciones_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_liquidaciones_Mant.Designer.cs">
-      <DependentUpon>frmfa_liquidaciones_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Liquidaciones_x_Tipo_Proceso_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Liquidaciones_x_Tipo_Proceso_Consulta.Designer.cs">
-      <DependentUpon>FrmFa_Liquidaciones_x_Tipo_Proceso_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Liquidaciones_x_Tipo_Proceso_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Liquidaciones_x_Tipo_Proceso_Mant.Designer.cs">
-      <DependentUpon>FrmFa_Liquidaciones_x_Tipo_Proceso_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_liquidacion_gastos_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_liquidacion_gastos_Mant.Designer.cs">
-      <DependentUpon>frmfa_liquidacion_gastos_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_liquidacion_gastos_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmfa_liquidacion_gastos_Cons.Designer.cs">
-      <DependentUpon>frmfa_liquidacion_gastos_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_orden_trabajo_plataforma_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_orden_trabajo_plataforma_Consulta.Designer.cs">
-      <DependentUpon>FrmFa_orden_trabajo_plataforma_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_orden_trabajo_plataforma_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_orden_trabajo_plataforma_Mantenimiento.Designer.cs">
-      <DependentUpon>FrmFa_orden_trabajo_plataforma_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_PreFacturacion_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_PreFacturacion_Consulta.Designer.cs">
-      <DependentUpon>FrmFa_PreFacturacion_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_PreFacturacion_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_PreFacturacion_Mantenimiento.Designer.cs">
-      <DependentUpon>FrmFa_PreFacturacion_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\Frmfa_pre_facturacion_Parametro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\Frmfa_pre_facturacion_Parametro.Designer.cs">
-      <DependentUpon>Frmfa_pre_facturacion_Parametro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Productos_x_Liquidacion_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Productos_x_Liquidacion_Consulta.Designer.cs">
-      <DependentUpon>FrmFa_Productos_x_Liquidacion_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Productos_x_Liquidacion_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Productos_x_Liquidacion_Mant.Designer.cs">
-      <DependentUpon>FrmFa_Productos_x_Liquidacion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Registro_de_horas_x_equipo_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Registro_de_horas_x_equipo_Consulta.Designer.cs">
-      <DependentUpon>FrmFa_Registro_de_horas_x_equipo_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Registro_de_horas_x_equipo_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\FrmFa_Registro_de_horas_x_equipo_Mantenimiento.Designer.cs">
-      <DependentUpon>FrmFa_Registro_de_horas_x_equipo_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Tarifario_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Tarifario_Consulta.Designer.cs">
-      <DependentUpon>frmFa_Tarifario_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Tarifario_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Fj\frmFa_Tarifario_Mantenimiento.Designer.cs">
-      <DependentUpon>frmFa_Tarifario_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Deb_Graf_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Deb_Graf_Consulta.Designer.cs">
-      <DependentUpon>frmFa_Nota_Deb_Graf_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Deb_Graf_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Deb_Graf_Mant.Designer.cs">
-      <DependentUpon>frmFa_Nota_Deb_Graf_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmfa_Equipo_graf_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmfa_Equipo_graf_Cons.Designer.cs">
-      <DependentUpon>frmfa_Equipo_graf_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmfa_Equipo_graf_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmfa_Equipo_graf_Mant.Designer.cs">
-      <DependentUpon>frmfa_Equipo_graf_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Factura_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Factura_Consulta.Designer.cs">
-      <DependentUpon>frmFa_Factura_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Factura_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Factura_Mant.Designer.cs">
-      <DependentUpon>frmFa_Factura_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Guia_Remision_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Guia_Remision_Consul.Designer.cs">
-      <DependentUpon>frmFa_Guia_Remision_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Guia_Remision_mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Guia_Remision_mant.Designer.cs">
-      <DependentUpon>frmFa_Guia_Remision_mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Cred_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Cred_Consulta.Designer.cs">
-      <DependentUpon>frmFa_Nota_Cred_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Cred_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Facturacion_Grafinpren\frmFa_Nota_Cred_Mant.Designer.cs">
-      <DependentUpon>frmFa_Nota_Cred_Mant.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3751,12 +2880,6 @@
     </Compile>
     <Compile Include="Facturacion\FrmFa_PuntoVta_mant.Designer.cs">
       <DependentUpon>FrmFa_PuntoVta_mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubro_x_Aca_Periodo_Lectivo_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Academico\FrmAca_Rubro_x_Aca_Periodo_Lectivo_Cons.Designer.cs">
-      <DependentUpon>FrmAca_Rubro_x_Aca_Periodo_Lectivo_Cons.cs</DependentUpon>
     </Compile>
     <Compile Include="General\FrmGe_Auditoria_de_Sistemas.cs">
       <SubType>Form</SubType>
@@ -4437,6 +3560,18 @@
     <Compile Include="Inventario\FrmIn_SubGrupo_Mant.Designer.cs">
       <DependentUpon>FrmIn_SubGrupo_Mant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaConsulta.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaMantenimiento.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmIn_Transferencia_Sin_Guia_Cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -4495,90 +3630,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Catalogo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Catalogo.Designer.cs">
-      <DependentUpon>frmImp_Catalogo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Catalogo_mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Catalogo_mantenimiento.Designer.cs">
-      <DependentUpon>frmImp_Catalogo_mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Catalogo_Tipo_mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Catalogo_Tipo_mantenimiento.Designer.cs">
-      <DependentUpon>frmImp_Catalogo_Tipo_mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Embarcador_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Embarcador_Consulta.Designer.cs">
-      <DependentUpon>frmImp_Embarcador_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Embarcador_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Embarcador_Mant.Designer.cs">
-      <DependentUpon>frmImp_Embarcador_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_GastosImportacion_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_GastosImportacion_Consulta.Designer.cs">
-      <DependentUpon>frmImp_GastosImportacion_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_GastosImportacion_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_GastosImportacion_Mant.Designer.cs">
-      <DependentUpon>frmImp_GastosImportacion_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Liquidacion_Import_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Liquidacion_Import_Consulta.Designer.cs">
-      <DependentUpon>frmImp_Liquidacion_Import_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Liquidacion_Import_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_Liquidacion_Import_Mant.Designer.cs">
-      <DependentUpon>frmImp_Liquidacion_Import_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ordencompra_ext_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ordencompra_ext_Consulta.designer.cs">
-      <DependentUpon>frmImp_ordencompra_ext_Consulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ordencompra_ext_Mantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ordencompra_ext_Mantenimiento.designer.cs">
-      <DependentUpon>frmImp_ordencompra_ext_Mantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ParametrosContables.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ParametrosContables.Designer.cs">
-      <DependentUpon>frmImp_ParametrosContables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ParametrosGastosMant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ParametrosGastosMant.Designer.cs">
-      <DependentUpon>frmImp_ParametrosGastosMant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ParametrosGastos_Consulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Importacion\frmImp_ParametrosGastos_Consulta.Designer.cs">
-      <DependentUpon>frmImp_ParametrosGastos_Consulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\FrmIn_Ajuste_Inven_fisico_Cons.cs">
       <SubType>Form</SubType>
@@ -4760,18 +3811,6 @@
     <Compile Include="Inventario\FrmIn_Transferencia_Consulta.Designer.cs">
       <DependentUpon>FrmIn_Transferencia_Consulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompraConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompraConsulta.designer.cs">
-      <DependentUpon>FrmCom_GeneracionOrdenCompraConsulta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompraMantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras_cidersus\FrmCom_GeneracionOrdenCompraMantenimiento.designer.cs">
-      <DependentUpon>FrmCom_GeneracionOrdenCompraMantenimiento.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeguridadAcceso\FrmSeg_Cambiar_Contrasenia.cs">
@@ -4858,33 +3897,6 @@
     <Compile Include="SplashScreenVZEN_Main_V10.Designer.cs">
       <DependentUpon>SplashScreenVZEN_Main_V10.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Academico\FrmAcaAdministrador_Archivos_Banco_Mant.resx">
-      <DependentUpon>FrmAcaAdministrador_Archivos_Banco_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Alumno_ImportacionWizard.resx">
-      <DependentUpon>FrmAca_Alumno_ImportacionWizard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Asignacion_Masiva_Estudiantes_x_Rubro.resx">
-      <DependentUpon>FrmAca_Asignacion_Masiva_Estudiantes_x_Rubro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Beca_Estudiante_x_rubros_Mant.resx">
-      <DependentUpon>FrmAca_Beca_Estudiante_x_rubros_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Contrato_Mant.resx">
-      <DependentUpon>FrmAca_Contrato_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Documento_Bancario_x_Rep_Economico.resx">
-      <DependentUpon>FrmAca_Documento_Bancario_x_Rep_Economico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Retiro_Estudiante.resx">
-      <DependentUpon>FrmAca_Retiro_Estudiante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Actualizar_Archivos_Wizard.resx">
-      <DependentUpon>FrmAca_Actualizar_Archivos_Wizard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\Frm_Aca_Forma_Pago_Cons.resx">
-      <DependentUpon>Frm_Aca_Forma_Pago_Cons.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Cons.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -4948,19 +3960,6 @@
     <EmbeddedResource Include="Compras\FrmCom_Solicitante_Cons.resx">
       <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras_FJ\frmCom_OrdenCompra_Cons_FJ.resx">
-      <DependentUpon>frmCom_OrdenCompra_Cons_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras_FJ\frmCom_OrdenCompra_Mant_FJ.resx">
-      <DependentUpon>frmCom_OrdenCompra_Mant_FJ.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad_FJ\frmCon_distribucion_gastos_x_punto_cargo_cons.resx">
-      <DependentUpon>frmCon_distribucion_gastos_x_punto_cargo_cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad_FJ\frmCon_distribucion_gastos_x_punto_cargo_mant.resx">
-      <DependentUpon>frmCon_distribucion_gastos_x_punto_cargo_mant.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCCp_cuotas_x_doc.resx">
       <DependentUpon>UCCp_cuotas_x_doc.cs</DependentUpon>
     </EmbeddedResource>
@@ -4984,180 +3983,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_XML_Mantenimiento.resx">
       <DependentUpon>frmCP_XML_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmAca_Nota_Cred_Consulta.resx">
-      <DependentUpon>frmAca_Nota_Cred_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Pre_Facturacion_Cons.resx">
-      <DependentUpon>FrmAca_Pre_Facturacion_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Pre_Facturacion_Mant.resx">
-      <DependentUpon>FrmAca_Pre_Facturacion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Rubros_Adicionales_x_Periodo_x_Estudiante.resx">
-      <DependentUpon>FrmAca_Rubros_Adicionales_x_Periodo_x_Estudiante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaAdmision_Cons.resx">
-      <DependentUpon>FrmAcaAdmision_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaAdmision_Mant.resx">
-      <DependentUpon>FrmAcaAdmision_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaApoderado_Economico_Cons.resx">
-      <DependentUpon>FrmAcaApoderado_Economico_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaApoderado_Economico_Mant.resx">
-      <DependentUpon>FrmAcaApoderado_Economico_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaBecas_Cons.resx">
-      <DependentUpon>FrmAcaBecas_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaBecas_Mant.resx">
-      <DependentUpon>FrmAcaBecas_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaCurso_Mant.resx">
-      <DependentUpon>FrmAcaCurso_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaInstitucionFinanciera_Mant.resx">
-      <DependentUpon>FrmAcaInstitucionFinanciera_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaInstitucion_Mant.resx">
-      <DependentUpon>FrmAcaInstitucion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaJornada_Mant.resx">
-      <DependentUpon>FrmAcaJornada_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaMatriculaTipoDocumento_Cons.resx">
-      <DependentUpon>FrmAcaMatriculaTipoDocumento_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaMatricula_Cons.resx">
-      <DependentUpon>FrmAcaMatricula_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaMatricula_Mant.resx">
-      <DependentUpon>FrmAcaMatricula_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaMatriculaTipoDocumento_Mant.resx">
-      <DependentUpon>FrmAcaMatriculaTipoDocumento_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaParalelo_Mant.resx">
-      <DependentUpon>FrmAcaParalelo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaAspirante_Cons.resx">
-      <DependentUpon>FrmAcaAspirante_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaAspirante_Mant.resx">
-      <DependentUpon>FrmAcaAspirante_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaCatalogoTipo_Cons.resx">
-      <DependentUpon>FrmAcaCatalogoTipo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaCatalogoTipo_Mant.resx">
-      <DependentUpon>FrmAcaCatalogoTipo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaCatalogo_Cons.resx">
-      <DependentUpon>FrmAcaCatalogo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaCatalogo_Mant.resx">
-      <DependentUpon>FrmAcaCatalogo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaEstudiante_Cons.resx">
-      <DependentUpon>FrmAcaEstudiante_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaEstudiante_Mant.resx">
-      <DependentUpon>FrmAcaEstudiante_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaInstitucion_Cons.resx">
-      <DependentUpon>FrmAcaInstitucion_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaPreparacion_Alumno_Mant.resx">
-      <DependentUpon>FrmAcaPreparacion_Alumno_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaPreparacion_Alumno_Sistema_Dual_Mant.resx">
-      <DependentUpon>FrmAcaPreparacion_Alumno_Sistema_Dual_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaPreparacion_OtrosDeudores_Mant.resx">
-      <DependentUpon>FrmAcaPreparacion_OtrosDeudores_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaProfesor_Cons.resx">
-      <DependentUpon>FrmAcaProfesor_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaProfesor_Mant.resx">
-      <DependentUpon>FrmAcaProfesor_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaRubroTipo_Cons.resx">
-      <DependentUpon>FrmAcaRubroTipo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaRubro_Cons.resx">
-      <DependentUpon>FrmAcaRubro_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaRubro_Mant.resx">
-      <DependentUpon>FrmAcaRubro_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaSeccion_Mant.resx">
-      <DependentUpon>FrmAcaSeccion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaSede_Mant.resx">
-      <DependentUpon>FrmAcaSede_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaRubroTipo_Mant.resx">
-      <DependentUpon>FrmAcaRubroTipo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaIntitucionFinanciera_Cons.resx">
-      <DependentUpon>FrmAcaIntitucionFinanciera_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Anio_Lectivo_Cons.resx">
-      <DependentUpon>FrmAca_Anio_Lectivo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Anio_Lectivo_Mant.resx">
-      <DependentUpon>FrmAca_Anio_Lectivo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Becas_x_Estudiante_Mant.resx">
-      <DependentUpon>FrmAca_Becas_x_Estudiante_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\frmAca_curso_x_Aca_Rubro_Mant.resx">
-      <DependentUpon>frmAca_curso_x_Aca_Rubro_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Generar_Periodo.resx">
-      <DependentUpon>FrmAca_Generar_Periodo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Periodo_Cons.resx">
-      <DependentUpon>FrmAca_Periodo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Periodo_Mant.resx">
-      <DependentUpon>FrmAca_Periodo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_RubroGrupoFE_Cons.resx">
-      <DependentUpon>FrmAca_RubroGrupoFE_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_RubroGrupoFE_Mant.resx">
-      <DependentUpon>FrmAca_RubroGrupoFE_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Rubros_Asigandos_x_Estudiante_x_Periodo.resx">
-      <DependentUpon>FrmAca_Rubros_Asigandos_x_Estudiante_x_Periodo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Rubro_x_Aca_Periodo_Lectivo_Cons.resx">
-      <DependentUpon>FrmAca_Rubro_x_Aca_Periodo_Lectivo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Rubro_x_Aca_Periodo_Lectivo_Mant.resx">
-      <DependentUpon>FrmAca_Rubro_x_Aca_Periodo_Lectivo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Tarjeta_cred_Cons.resx">
-      <DependentUpon>FrmAca_Tarjeta_cred_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAca_Tarjeta_cred_Mant.resx">
-      <DependentUpon>FrmAca_Tarjeta_cred_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaExepciones_x_Estudiante.resx">
-      <DependentUpon>FrmAcaExepciones_x_Estudiante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\FrmAcaAdministrador_Archivos_Banco.resx">
-      <DependentUpon>FrmAcaAdministrador_Archivos_Banco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\Frm_Aca_Apertura_Ciclo_Facturacion.resx">
-      <DependentUpon>Frm_Aca_Apertura_Ciclo_Facturacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Academico\Frm_Aca_Parametros.resx">
-      <DependentUpon>Frm_Aca_Parametros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ActivoFijo\frmAF_ActivoFijoTipo_General.resx">
       <DependentUpon>frmAF_ActivoFijoTipo_General.cs</DependentUpon>
@@ -5255,24 +4080,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ActivoFijo\frmAF_VentaActivo_Mant.resx">
       <DependentUpon>frmAF_VentaActivo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo_FJ\frmAF_ActivoFijo_General_FJ.resx">
-      <DependentUpon>frmAF_ActivoFijo_General_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo_FJ\frmAF_ActivoFijo_Mant_FJ.resx">
-      <DependentUpon>frmAF_ActivoFijo_Mant_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo_FJ\frmAF_Cambio_Ubicacion_Consul_FJ.resx">
-      <DependentUpon>frmAF_Cambio_Ubicacion_Consul_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo_FJ\frmAF_Cambio_Ubicacion_FJ.resx">
-      <DependentUpon>frmAF_Cambio_Ubicacion_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo_FJ\frmAF_Poliza_x_Activos_Consulta_FJ.resx">
-      <DependentUpon>frmAF_Poliza_x_Activos_Consulta_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo_FJ\frmAF_Poliza_x_Activos_Mantenimiento_FJ.resx">
-      <DependentUpon>frmAF_Poliza_x_Activos_Mantenimiento_FJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bancos\FrmBA_Actualizar_Archivos_Wizard.resx">
       <DependentUpon>FrmBA_Actualizar_Archivos_Wizard.cs</DependentUpon>
@@ -5518,15 +4325,6 @@
     <EmbeddedResource Include="Compras\FrmCom_TerminoPagos_Mant.resx">
       <DependentUpon>FrmCom_TerminoPagos_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras_cidersus\FrmCom_AprobacionOrdenesCompras.resx">
-      <DependentUpon>FrmCom_AprobacionOrdenesCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras_cidersus\FrmCom_GeneracionOrdenCompra_x_Cotizacion_Consulta.resx">
-      <DependentUpon>FrmCom_GeneracionOrdenCompra_x_Cotizacion_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras_cidersus\FrmCom_GeneracionOrdenCompra_x_Cotizacion_Mantenimiento.resx">
-      <DependentUpon>FrmCom_GeneracionOrdenCompra_x_Cotizacion_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\frmCon_AdministradorReportes.resx">
       <DependentUpon>frmCon_AdministradorReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -5665,42 +4463,6 @@
     <EmbeddedResource Include="Contabilidad\frmCon_WaitForm.resx">
       <DependentUpon>frmCon_WaitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad_FJ\frmCon_CentroCosto_x_Cliente_Consul_FJ.resx">
-      <DependentUpon>frmCon_CentroCosto_x_Cliente_Consul_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad_FJ\frmCon_CentroCosto_x_cliente_Mant_FJ.resx">
-      <DependentUpon>frmCon_CentroCosto_x_cliente_Mant_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad_FJ\frmCon_Punto_Cargo_Cons_FJ.resx">
-      <DependentUpon>frmCon_Punto_Cargo_Cons_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contabilidad_FJ\frmCon_Punto_Cargo_Mant_FJ.resx">
-      <DependentUpon>frmCon_Punto_Cargo_Mant_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Anio_Lectivo.resx">
-      <DependentUpon>UCAca_Anio_Lectivo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Catalogo_cmb.resx">
-      <DependentUpon>UCAca_Catalogo_cmb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Curso.resx">
-      <DependentUpon>UCAca_Curso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Estudiante.resx">
-      <DependentUpon>UCAca_Estudiante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Familiar_x_Estudiante.resx">
-      <DependentUpon>UCAca_Familiar_x_Estudiante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Institucion.resx">
-      <DependentUpon>UCAca_Institucion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_Rubro.resx">
-      <DependentUpon>UCAca_Rubro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCAca_SedeJornadaSeccionCurso.resx">
-      <DependentUpon>UCAca_SedeJornadaSeccionCurso.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCAF_Activo_Categoria_cmb.resx">
       <DependentUpon>UCAF_Activo_Categoria_cmb.cs</DependentUpon>
     </EmbeddedResource>
@@ -5802,9 +4564,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCFa_Cliente_Tipo.resx">
       <DependentUpon>UCFa_Cliente_Tipo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCFa_Cliente_x_centro_costo_cmb.resx">
-      <DependentUpon>UCFa_Cliente_x_centro_costo_cmb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCFa_Cliente_x_Contacto.resx">
       <DependentUpon>UCFa_Cliente_x_Contacto.cs</DependentUpon>
@@ -6026,53 +4785,11 @@
     <EmbeddedResource Include="Controles\UCIn_UnidadMedidaCmb.resx">
       <DependentUpon>UCIn_UnidadMedidaCmb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCPrd_EtapaFlecha.resx">
-      <DependentUpon>UCPrd_EtapaFlecha.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_Pais.resx">
       <DependentUpon>UCGe_Pais.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCPrd_Obra.resx">
-      <DependentUpon>UCPrd_Obra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_Catalogo.resx">
-      <DependentUpon>UCRo_Catalogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_CentroCosto_x_Empleado.resx">
-      <DependentUpon>UCRo_CentroCosto_x_Empleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_Departamento.resx">
-      <DependentUpon>UCRo_Departamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_DepartamentoCmb.resx">
-      <DependentUpon>UCRo_DepartamentoCmb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_Empleado.resx">
-      <DependentUpon>UCRo_Empleado.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_Historico_Vacaciones.resx">
-      <DependentUpon>UCRo_Historico_Vacaciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCPrd_Etapa.resx">
-      <DependentUpon>UCPrd_Etapa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_NominaTipo.resx">
-      <DependentUpon>UCRo_NominaTipo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_NominaTipoLiqui.resx">
-      <DependentUpon>UCRo_NominaTipoLiqui.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_PeriodoXNomina.resx">
-      <DependentUpon>UCRo_PeriodoXNomina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\UCRo_TipoCargo.resx">
-      <DependentUpon>UCRo_TipoCargo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCSeg_Propiedades.resx">
       <DependentUpon>UCSeg_Propiedades.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles_Grafinprent\UCFa_Equipos_Graf.resx">
-      <DependentUpon>UCFa_Equipos_Graf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\FrmFa_PuntoVta_cons.resx">
       <DependentUpon>FrmFa_PuntoVta_cons.cs</DependentUpon>
@@ -6170,9 +4887,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxCobrar\frmCxc_Parametros.resx">
       <DependentUpon>frmCxc_Parametros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CuentasxCobrar_Grafinpren\frmCxc_Comisiones_x_vendedor.resx">
-      <DependentUpon>frmCxc_Comisiones_x_vendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_Saldo_inicial_ImportWizard.resx">
       <DependentUpon>frmCP_Saldo_inicial_ImportWizard.cs</DependentUpon>
@@ -6494,120 +5208,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmFa_Guia_Remision_consu.resx">
       <DependentUpon>frmFa_Guia_Remision_consu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmAca_Nota_Cred_Mant.resx">
-      <DependentUpon>frmAca_Nota_Cred_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmAca_Nota_Deb_Consulta.resx">
-      <DependentUpon>frmAca_Nota_Deb_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmAca_Nota_Deb_Mant.resx">
-      <DependentUpon>frmAca_Nota_Deb_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmFA_Factura_Consulta.resx">
-      <DependentUpon>frmFA_Factura_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmFa_Factura_Mant.resx">
-      <DependentUpon>frmFa_Factura_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_CAH\frmFa_Saldo_inicial_ImportWizard.resx">
-      <DependentUpon>frmFa_Saldo_inicial_ImportWizard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmFa_Conciliacion_horas_Facturadas_vs_Horas_regi.resx">
-      <DependentUpon>frmFa_Conciliacion_horas_Facturadas_vs_Horas_regi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmFa_Conciliacion_horas_hombre_vs_Horas_Maquina.resx">
-      <DependentUpon>frmFa_Conciliacion_horas_hombre_vs_Horas_Maquina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmFA_Factura_Consulta_FJ.resx">
-      <DependentUpon>frmFA_Factura_Consulta_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmFa_Factura_Mant_FJ.resx">
-      <DependentUpon>frmFa_Factura_Mant_FJ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmfa_grupo_x_sub_centro_costo_Cons.resx">
-      <DependentUpon>frmfa_grupo_x_sub_centro_costo_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmfa_grupo_x_sub_centro_costo_Mant.resx">
-      <DependentUpon>frmfa_grupo_x_sub_centro_costo_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmfa_liquidaciones_Mant.resx">
-      <DependentUpon>frmfa_liquidaciones_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_Liquidaciones_x_Tipo_Proceso_Consulta.resx">
-      <DependentUpon>FrmFa_Liquidaciones_x_Tipo_Proceso_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_Liquidaciones_x_Tipo_Proceso_Mant.resx">
-      <DependentUpon>FrmFa_Liquidaciones_x_Tipo_Proceso_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmfa_liquidacion_gastos_Mant.resx">
-      <DependentUpon>frmfa_liquidacion_gastos_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmfa_liquidacion_gastos_Cons.resx">
-      <DependentUpon>frmfa_liquidacion_gastos_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_orden_trabajo_plataforma_Consulta.resx">
-      <DependentUpon>FrmFa_orden_trabajo_plataforma_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_orden_trabajo_plataforma_Mantenimiento.resx">
-      <DependentUpon>FrmFa_orden_trabajo_plataforma_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_PreFacturacion_Consulta.resx">
-      <DependentUpon>FrmFa_PreFacturacion_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_PreFacturacion_Mantenimiento.resx">
-      <DependentUpon>FrmFa_PreFacturacion_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\Frmfa_pre_facturacion_Parametro.resx">
-      <DependentUpon>Frmfa_pre_facturacion_Parametro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_Productos_x_Liquidacion_Consulta.resx">
-      <DependentUpon>FrmFa_Productos_x_Liquidacion_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_Productos_x_Liquidacion_Mant.resx">
-      <DependentUpon>FrmFa_Productos_x_Liquidacion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_Registro_de_horas_x_equipo_Consulta.resx">
-      <DependentUpon>FrmFa_Registro_de_horas_x_equipo_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\FrmFa_Registro_de_horas_x_equipo_Mantenimiento.resx">
-      <DependentUpon>FrmFa_Registro_de_horas_x_equipo_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmFa_Tarifario_Consulta.resx">
-      <DependentUpon>frmFa_Tarifario_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Fj\frmFa_Tarifario_Mantenimiento.resx">
-      <DependentUpon>frmFa_Tarifario_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Nota_Deb_Graf_Consulta.resx">
-      <DependentUpon>frmFa_Nota_Deb_Graf_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Nota_Deb_Graf_Mant.resx">
-      <DependentUpon>frmFa_Nota_Deb_Graf_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmfa_Equipo_graf_Cons.resx">
-      <DependentUpon>frmfa_Equipo_graf_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmfa_Equipo_graf_Mant.resx">
-      <DependentUpon>frmfa_Equipo_graf_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Factura_Consulta.resx">
-      <DependentUpon>frmFa_Factura_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Factura_Mant.resx">
-      <DependentUpon>frmFa_Factura_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Guia_Remision_Consul.resx">
-      <DependentUpon>frmFa_Guia_Remision_Consul.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Guia_Remision_mant.resx">
-      <DependentUpon>frmFa_Guia_Remision_mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Nota_Cred_Consulta.resx">
-      <DependentUpon>frmFa_Nota_Cred_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion_Grafinpren\frmFa_Nota_Cred_Mant.resx">
-      <DependentUpon>frmFa_Nota_Cred_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -6957,6 +5557,12 @@
     <EmbeddedResource Include="Inventario\FrmIn_SubGrupo_Mant.resx">
       <DependentUpon>FrmIn_SubGrupo_Mant.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaConsulta.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaMantenimiento.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Transferencia_Sin_Guia_Cons.resx">
       <DependentUpon>FrmIn_Transferencia_Sin_Guia_Cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -6985,48 +5591,6 @@
       <DependentUpon>frmApp_usuario_mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Importacion\frmImp_Catalogo.resx">
-      <DependentUpon>frmImp_Catalogo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_Catalogo_mantenimiento.resx">
-      <DependentUpon>frmImp_Catalogo_mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_Catalogo_Tipo_mantenimiento.resx">
-      <DependentUpon>frmImp_Catalogo_Tipo_mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_Embarcador_Consulta.resx">
-      <DependentUpon>frmImp_Embarcador_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_Embarcador_Mant.resx">
-      <DependentUpon>frmImp_Embarcador_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_GastosImportacion_Consulta.resx">
-      <DependentUpon>frmImp_GastosImportacion_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_GastosImportacion_Mant.resx">
-      <DependentUpon>frmImp_GastosImportacion_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_Liquidacion_Import_Consulta.resx">
-      <DependentUpon>frmImp_Liquidacion_Import_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_Liquidacion_Import_Mant.resx">
-      <DependentUpon>frmImp_Liquidacion_Import_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_ordencompra_ext_Consulta.resx">
-      <DependentUpon>frmImp_ordencompra_ext_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_ordencompra_ext_Mantenimiento.resx">
-      <DependentUpon>frmImp_ordencompra_ext_Mantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_ParametrosContables.resx">
-      <DependentUpon>frmImp_ParametrosContables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_ParametrosGastosMant.resx">
-      <DependentUpon>frmImp_ParametrosGastosMant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Importacion\frmImp_ParametrosGastos_Consulta.resx">
-      <DependentUpon>frmImp_ParametrosGastos_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Ajuste_Inven_fisico_Cons.resx">
       <DependentUpon>FrmIn_Ajuste_Inven_fisico_Cons.cs</DependentUpon>
     </EmbeddedResource>
@@ -7116,12 +5680,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Transferencia_Consulta.resx">
       <DependentUpon>FrmIn_Transferencia_Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras_cidersus\FrmCom_GeneracionOrdenCompraConsulta.resx">
-      <DependentUpon>FrmCom_GeneracionOrdenCompraConsulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras_cidersus\FrmCom_GeneracionOrdenCompraMantenimiento.resx">
-      <DependentUpon>FrmCom_GeneracionOrdenCompraMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -7720,7 +6278,6 @@
     <None Include="Resources\Guardar1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Compras_Grafinpren\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
@@ -8342,29 +6899,9 @@
       <Project>{498aed4b-4b34-4a74-a000-0947f39110c6}</Project>
       <Name>Core.Erp.Reportes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cus.Erp.Reports.CAH\Cus.Erp.Reports.CAH.csproj">
-      <Project>{8626278e-6878-4e5a-9244-6f96a3bcb57b}</Project>
-      <Name>Cus.Erp.Reports.CAH</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cus.Erp.Reports.Cidersus\Cus.Erp.Reports.Cidersus.csproj">
-      <Project>{dbc70d63-7a23-4639-87bf-fdfdcf230562}</Project>
-      <Name>Cus.Erp.Reports.Cidersus</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cus.Erp.Reports.Fj-Servindustrias\Cus.Erp.Reports.FJ.csproj">
-      <Project>{d8a4daa8-dd69-4a94-b743-61f2114f47dc}</Project>
-      <Name>Cus.Erp.Reports.FJ</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cus.ERP.Reports.Grafinpren\Cus.ERP.Reports.Grafinpren.csproj">
-      <Project>{5a64003f-fc37-4fc2-948d-0a604787f5f2}</Project>
-      <Name>Cus.ERP.Reports.Grafinpren</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Cus.Erp.Reports.Naturisa\Cus.Erp.Reports.Naturisa.csproj">
       <Project>{51ea47ec-00c0-4eb2-8fe1-95520f79b5ad}</Project>
       <Name>Cus.Erp.Reports.Naturisa</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Cus.Erp.Reports.Talme\Cus.Erp.Reports.Talme.csproj">
-      <Project>{f4361c16-9c33-449c-98fe-df2e2186ac78}</Project>
-      <Name>Cus.Erp.Reports.Talme</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
