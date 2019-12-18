@@ -119,7 +119,7 @@ namespace Core.Erp.Winform.Inventario
                 return;
             }
 
-            if (row != null && (Accion != Cl_Enumeradores.eTipo_action.consultar || Accion != Cl_Enumeradores.eTipo_action.grabar) && row.Estado == "I")
+            if (row != null && (Accion != Cl_Enumeradores.eTipo_action.consultar && Accion != Cl_Enumeradores.eTipo_action.grabar) && row.Estado == "I")
             {
                 MessageBox.Show("El registro se encuentra anulado",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 return;

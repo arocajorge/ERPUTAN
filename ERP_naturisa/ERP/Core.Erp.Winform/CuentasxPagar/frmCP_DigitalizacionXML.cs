@@ -318,10 +318,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                     if (bus_xml.GuardarDB(item, ref GenerarXML))
                     {
                         string MensajeError = string.Empty;
-                        if (GenerarXML && !bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
+                        /*if (GenerarXML && !bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
                         {
                             MessageBox.Show("No se ha podido generar el XML de la retención del documento "+ item.Comprobante+" de "+item.RazonSocial, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
-                        }
+                        }*/
                     }
                     item.Imagen = 2;
                 }

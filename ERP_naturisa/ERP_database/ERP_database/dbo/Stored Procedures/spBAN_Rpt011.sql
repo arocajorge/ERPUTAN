@@ -1,5 +1,4 @@
-﻿
---exec [dbo].[spBAN_Rpt011] 1,2,210
+﻿--exec [dbo].[spBAN_Rpt011] 1,2,210
 CREATE proc [dbo].[spBAN_Rpt011]
 (
  @IdEmpresa int
@@ -186,7 +185,7 @@ AND EXISTS
 END
 
 set @SaldoFin=ISNULL(@w_TIng+@w_TEgr_ANU+@w_TIng_ANU+@w_TEgr,0)
-set @SaldoInicial= ISNULL(@SaldoInicial,0) + case when @IdEmpresa = 1 and @IdConciliacion in (210,213,216,222,224,225) then 0.01 else 0 end
+set @SaldoInicial= ISNULL(@SaldoInicial,0) + case when @IdEmpresa = 1 and @IdBanco = 2 and @IdConciliacion >= 210 then 0.01 else 0 end
 
 BEGIN --INSERTO INGRESOS NO CONCILIADOS 
 INSERT INTO [dbo].[ba_BAN_Rpt011]
