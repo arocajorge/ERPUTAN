@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Core.Erp.Business.General;
+using Core.Erp.Business.Inventario;
+using Core.Erp.Info.General;
+using Core.Erp.Info.Inventario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,22 +11,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Core.Erp.Info.General;
-using Core.Erp.Business.General;
-using Core.Erp.Info.Inventario;
-using Core.Erp.Business.Inventario;
 
 namespace Core.Erp.Winform.Inventario
 {
-    public partial class FrmIn_TransferenciaConGuiaConsulta : Form
+    public partial class FrmIn_TransferenciaConGuiaRevision : Form
     {
+       
         #region Variables
         tb_sis_Log_Error_Vzen_Bus busLogError;
         cl_parametrosGenerales_Bus param;
         in_transferencia_bus busTransferencia;
         #endregion
 
-        public FrmIn_TransferenciaConGuiaConsulta()
+        public FrmIn_TransferenciaConGuiaRevision()
         {
             InitializeComponent();
             busLogError = new tb_sis_Log_Error_Vzen_Bus();
@@ -59,9 +60,8 @@ namespace Core.Erp.Winform.Inventario
                 idBodegaFin = ucGe_Menu_Mantenimiento_x_usuario.getIdBodega == 0 ? 9999 : ucGe_Menu_Mantenimiento_x_usuario.getIdBodega;
 
 
-                ultrTransFerencia.DataSource = busTransferencia.ObtenerTransferencias(param.IdEmpresa
-                    , ucGe_Menu_Mantenimiento_x_usuario.fecha_desde, ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta
-                    , idSucursalIni, idSucursalFin, idBodegaIni, idBodegaFin);
+                ultrTransFerencia.DataSource = busTransferencia.Get_List_transferenciaParaRevision(param.IdEmpresa
+                    , ucGe_Menu_Mantenimiento_x_usuario.fecha_desde, ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta);
 
             }
             catch (Exception ex)
@@ -74,16 +74,6 @@ namespace Core.Erp.Winform.Inventario
         private void ucGe_Menu_Mantenimiento_x_usuario_event_btnSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
-        }
-
-        private void ucGe_Menu_Mantenimiento_x_usuario_event_btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LlamarFormulario(Cl_Enumeradores.eTipo_action.grabar);
-        }
-
-        private void ucGe_Menu_Mantenimiento_x_usuario_event_btnModificar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LlamarFormulario(Cl_Enumeradores.eTipo_action.actualizar);
         }
 
         private void ucGe_Menu_Mantenimiento_x_usuario_event_btnconsultar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -102,11 +92,6 @@ namespace Core.Erp.Winform.Inventario
                 
                 throw;
             }
-        }
-
-        private void ucGe_Menu_Mantenimiento_x_usuario_event_btnAnular_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LlamarFormulario(Cl_Enumeradores.eTipo_action.Anular);
         }
 
         private void LlamarFormulario(Cl_Enumeradores.eTipo_action Accion)
@@ -132,10 +117,10 @@ namespace Core.Erp.Winform.Inventario
                 }
             }
 
-            FrmIn_TransferenciaConGuiaMantenimiento frm = new FrmIn_TransferenciaConGuiaMantenimiento();
+            FrmIn_TransferenciaConGuiaRevisionM frm = new FrmIn_TransferenciaConGuiaRevisionM();
             frm.SetAccion(Accion, row ?? new in_transferencia_Info());
             frm.MdiParent = this.MdiParent;
-            frm.event_delegate_FrmIn_TransferenciaConGuiaMantenimiento_FormClosed += frm_event_delegate_FrmIn_TransferenciaConGuiaMantenimiento_FormClosed;
+            frm.event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed += frm_event_delegate_FrmIn_TransferenciaConGuiaMantenimiento_FormClosed;
             frm.Show();
         }
 
@@ -163,19 +148,19 @@ namespace Core.Erp.Winform.Inventario
                     return;
                 }
                 else
-                    if (row.Estado == "A" && row.EstadoRevision == "R")
+                    if (row.Estado == "A" || row.EstadoRevision == "R")
                     {
                         e.Appearance.ForeColor = Color.Blue;
                         return;
                     }
                     else
-                        if (row.Estado == "A" && row.EstadoRevision == "E")
+                        if (row.Estado == "A" || row.EstadoRevision == "E")
                         {
                             e.Appearance.ForeColor = Color.OrangeRed;
                             return;
                         }
                         else
-                            if (row.Estado == "A" && row.EstadoRevision == "A")
+                            if (row.Estado == "A" || row.EstadoRevision == "A")
                             {
                                 e.Appearance.ForeColor = Color.Green;
                                 return;

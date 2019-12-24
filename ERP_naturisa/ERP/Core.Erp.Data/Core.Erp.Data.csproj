@@ -2899,7 +2899,16 @@
     <Compile Include="vwin_Transferencias.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwin_Transferencias_ParaAprobacion.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwin_Transferencias_ParaProcesar.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwin_Transferencia_Detalle.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwin_transferencia_det_ParaCorreccion.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
     <Compile Include="vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det.cs">

@@ -65,7 +65,8 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_NumeroDocumento = info.ret_NumeroDocumento,
                         ret_PuntoEmision = info.ret_PuntoEmision,
 
-                        IdCbteCble = info.IdCbteCble
+                        IdCbteCble = info.IdCbteCble,
+                        EnviaXML = ((info.Estado ?? false) && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion))
                     });
                     }
                 }

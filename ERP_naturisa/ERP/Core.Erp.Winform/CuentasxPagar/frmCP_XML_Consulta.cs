@@ -21,6 +21,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_RutaPorEmpresaPorUsuario_Bus bus_ruta;
         BindingList<cp_XML_Documento_Info> blst;
         cp_XML_Documento_Bus bus_xml;
+        cp_XML_Documento_Retencion_Bus busRet;
         
         #endregion
 
@@ -30,6 +31,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             bus_ruta = new cp_RutaPorEmpresaPorUsuario_Bus();
             blst = new BindingList<cp_XML_Documento_Info>();
             bus_xml = new cp_XML_Documento_Bus();
+            busRet = new cp_XML_Documento_Retencion_Bus();
         }
 
         private void frmCP_XML_Consulta_Load(object sender, EventArgs e)
@@ -116,6 +118,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 frmCP_XML_Mantenimiento frm = new frmCP_XML_Mantenimiento();
                 frm.SetInfo(row, Accion);
                 frm.MdiParent = this.MdiParent;
+                frm.event_delegate_frmCP_XML_Mantenimiento_FormClosed += frm_event_delegate_frmCP_XML_Mantenimiento_FormClosed;
                 frm.Show();
             }
             catch (Exception)
@@ -123,6 +126,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                 
                 throw;
             }
+        }
+
+        void frm_event_delegate_frmCP_XML_Mantenimiento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Buscar();
         }
 
         private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnModificar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -195,6 +203,39 @@ namespace Core.Erp.Winform.CuentasxPagar
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        private void cmbImagen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cp_XML_Documento_Info row = (cp_XML_Documento_Info)gvDetalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if ((row.Estado ?? false) && !string.IsNullOrEmpty(row.ret_NumeroDocumento) && string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
+                {
+                    var lst = busRet.GetList(row.IdEmpresa, row.IdDocumento);
+                    if (lst.Count > 0)
+                    {
+                        string MensajeError = "";
+                        if (!bus_xml.Generacion_xml_SRI(row.IdEmpresa, row.IdDocumento, ref MensajeError))
+                        {
+                            MessageBox.Show("No se ha podido generar el XML de la retención del documento " + row.Comprobante + " de " + row.RazonSocial, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }else
+                            MessageBox.Show("Generación de XML de la retención del documento " + row.Comprobante + " de " + row.RazonSocial+" exitoso", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido generar el XML de la retención del documento " + row.Comprobante + " de " + row.RazonSocial+" debido a que no tiene detalle", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation); MessageBox.Show("No se ha podido generar el XML de la retención del documento " + row.Comprobante + " de " + row.RazonSocial, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

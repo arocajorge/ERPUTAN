@@ -42,5 +42,8 @@ namespace Core.Erp.Data
         public string IdEstadoAproba_ing { get; set; }
         public string IdEstadoAproba_egr { get; set; }
         public Nullable<decimal> IdGuia { get; set; }
+        public string EstadoRevision { get; set; }
+        public string IdUsuarioRevision { get; set; }
+        public Nullable<System.DateTime> FechaRevision { get; set; }
     }
 }

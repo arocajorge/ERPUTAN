@@ -143,6 +143,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                             
                         }
                         Documento.Total = Documento.Subtotal0 + Documento.SubtotalIVA + Documento.ValorIVA;
+                        double ValorIva = Math.Round((double)Documento.SubtotalIVA * 0.12,2,MidpointRounding.AwayFromZero);
+                        if (ValorIva != Documento.ValorIVA)
+                        {
+                            MessageBox.Show("El IVA no cuadra con el subtotal con IVA :\n" + ValorIva.ToString("c2") + "\n" + Convert.ToDouble(Documento.ValorIVA).ToString("c2"));
+                        }
                         Documento.Comprobante = Documento.CodDocumento + '-' + Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
 
                         var listD = rootElement.Element("detalles").Elements("detalle")
@@ -168,12 +173,12 @@ namespace Core.Erp.Winform.CuentasxPagar
                             d.Total = d.Precio + d.ValorIva;
                             Documento.lstDetalle.Add(d);
                         }
-
+                        /*
                         Documento.SubtotalIVA = Documento.lstDetalle.Where(q=> q.PorcentajeIVA > 0).Sum(q=> q.Precio);
                         Documento.Subtotal0 = Documento.lstDetalle.Where(q=> q.PorcentajeIVA == 0).Sum(q=> q.Precio);
                         Documento.ValorIVA = Documento.lstDetalle.Sum(q => q.ValorIva);
                         Documento.Total = Documento.lstDetalle.Sum(q => q.Total);
-
+                        */
                         if (ListaCodigoProveedor.Where(q=> q.IdEmpresa == param.IdEmpresa && q.pe_cedulRuc == Documento.emi_Ruc).Count() == 0)
                         {
                             var ListaDet = bus_codigoProveedor.GetList(param.IdEmpresa, Documento.emi_Ruc);
@@ -318,10 +323,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                     if (bus_xml.GuardarDB(item, ref GenerarXML))
                     {
                         string MensajeError = string.Empty;
-                        /*if (GenerarXML && !bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
+                        if (GenerarXML && !bus_xml.Generacion_xml_SRI(item.IdEmpresa, item.IdDocumento, ref MensajeError))
                         {
                             MessageBox.Show("No se ha podido generar el XML de la retención del documento "+ item.Comprobante+" de "+item.RazonSocial, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);                
-                        }*/
+                        }
                     }
                     item.Imagen = 2;
                 }

@@ -28,8 +28,10 @@ namespace Core.Erp.Info.Inventario
         public string Sucursal_Origen { get; set; }
         public string Bodega_Destino { get; set; }
         public string Bodega_Origen { get; set; }
-        public int cantidad_enviar { get; set; }
+        public double cantidad_enviar { get; set; }
+        public double Saldo { get; set; }
         public bool check { get; set; }
+
 
         public in_Guia_x_traspaso_bodega_det_Info Info_Guia_x_traspaso_bodega_det { get; set; }
 
@@ -43,5 +45,7 @@ namespace Core.Erp.Info.Inventario
         public int? Secuencia_oc { get; set; }
 
         public int? IdSucursal_oc { get; set; }
+
+        public string ObservacionAprobacion { get; set; }
     }
 }

@@ -37,5 +37,18 @@ namespace Core.Erp.Business.Inventario
                 throw;
             }
         }
+
+        public List<in_transferencia_det_Info> GetLisParaAprobacion(int IdEmpresa, int IdSucursal)
+        {
+            try
+            {
+                return odata.GetLisParaAprobacion(IdEmpresa, IdSucursal);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

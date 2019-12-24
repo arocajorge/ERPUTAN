@@ -88,6 +88,7 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEliminarRetencion = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.deRetFechaAutorizacion = new DevExpress.XtraEditors.DateEdit();
@@ -98,7 +99,6 @@
             this.txtRetPuntoEmision = new DevExpress.XtraEditors.TextEdit();
             this.txtRetEstablecimiento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.btnEliminarRetencion = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
@@ -819,6 +819,16 @@
             this.panel2.Size = new System.Drawing.Size(1487, 130);
             this.panel2.TabIndex = 0;
             // 
+            // btnEliminarRetencion
+            // 
+            this.btnEliminarRetencion.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.btnEliminarRetencion.Location = new System.Drawing.Point(864, 65);
+            this.btnEliminarRetencion.Name = "btnEliminarRetencion";
+            this.btnEliminarRetencion.Size = new System.Drawing.Size(142, 21);
+            this.btnEliminarRetencion.TabIndex = 26;
+            this.btnEliminarRetencion.Text = "Eliminar retención";
+            this.btnEliminarRetencion.Click += new System.EventHandler(this.btnEliminarRetencion_Click);
+            // 
             // labelControl18
             // 
             this.labelControl18.Location = new System.Drawing.Point(25, 67);
@@ -910,16 +920,6 @@
             this.labelControl15.TabIndex = 16;
             this.labelControl15.Text = "# Retención:";
             // 
-            // btnEliminarRetencion
-            // 
-            this.btnEliminarRetencion.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnEliminarRetencion.Location = new System.Drawing.Point(864, 65);
-            this.btnEliminarRetencion.Name = "btnEliminarRetencion";
-            this.btnEliminarRetencion.Size = new System.Drawing.Size(142, 21);
-            this.btnEliminarRetencion.TabIndex = 26;
-            this.btnEliminarRetencion.Text = "Eliminar retención";
-            this.btnEliminarRetencion.Click += new System.EventHandler(this.btnEliminarRetencion_Click);
-            // 
             // frmCP_XML_Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -929,6 +929,7 @@
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
             this.Name = "frmCP_XML_Mantenimiento";
             this.Text = "frmCP_XML_Mantenimiento";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCP_XML_Mantenimiento_FormClosed);
             this.Load += new System.EventHandler(this.frmCP_XML_Mantenimiento_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

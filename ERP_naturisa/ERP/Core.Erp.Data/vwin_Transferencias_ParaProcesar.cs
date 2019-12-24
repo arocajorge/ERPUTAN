@@ -12,49 +12,38 @@ namespace Core.Erp.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class in_transferencia
+    public partial class vwin_Transferencias_ParaProcesar
     {
-        public in_transferencia()
-        {
-            this.in_transferencia_det = new HashSet<in_transferencia_det>();
-            this.in_transferencia_x_fa_guia_remision = new HashSet<in_transferencia_x_fa_guia_remision>();
-            this.in_transferencia_x_in_Guia_x_traspaso_bodega = new HashSet<in_transferencia_x_in_Guia_x_traspaso_bodega>();
-        }
-    
+        public string SucuOrigen { get; set; }
+        public string BodegaORIG { get; set; }
+        public string SucuDEST { get; set; }
+        public string BodegDest { get; set; }
         public int IdEmpresa { get; set; }
         public int IdSucursalOrigen { get; set; }
         public int IdBodegaOrigen { get; set; }
         public decimal IdTransferencia { get; set; }
-        public string Codigo { get; set; }
         public int IdSucursalDest { get; set; }
         public int IdBodegaDest { get; set; }
         public string tr_Observacion { get; set; }
         public System.DateTime tr_fecha { get; set; }
+        public string Estado { get; set; }
+        public string IdUsuario { get; set; }
         public Nullable<int> IdEmpresa_Ing_Egr_Inven_Origen { get; set; }
         public Nullable<int> IdSucursal_Ing_Egr_Inven_Origen { get; set; }
-        public Nullable<int> IdMovi_inven_tipo_SucuOrig { get; set; }
         public Nullable<decimal> IdNumMovi_Ing_Egr_Inven_Origen { get; set; }
         public Nullable<int> IdEmpresa_Ing_Egr_Inven_Destino { get; set; }
         public Nullable<int> IdSucursal_Ing_Egr_Inven_Destino { get; set; }
-        public Nullable<int> IdMovi_inven_tipo_SucuDest { get; set; }
         public Nullable<decimal> IdNumMovi_Ing_Egr_Inven_Destino { get; set; }
-        public string IdUsuario { get; set; }
-        public string Estado { get; set; }
-        public string tr_userAnulo { get; set; }
         public Nullable<System.DateTime> tr_fechaAnulacion { get; set; }
-        public Nullable<System.DateTime> tr_fecha_transaccion { get; set; }
-        public string IdUsuarioUltMod { get; set; }
-        public Nullable<System.DateTime> Fecha_UltMod { get; set; }
-        public string motivo_anula { get; set; }
+        public string tr_userAnulo { get; set; }
+        public string Codigo { get; set; }
+        public Nullable<int> IdMovi_inven_tipo_SucuOrig { get; set; }
+        public Nullable<int> IdMovi_inven_tipo_SucuDest { get; set; }
+        public string IdEstadoAproba_ing { get; set; }
+        public string IdEstadoAproba_egr { get; set; }
         public Nullable<decimal> IdGuia { get; set; }
         public string EstadoRevision { get; set; }
         public string IdUsuarioRevision { get; set; }
         public Nullable<System.DateTime> FechaRevision { get; set; }
-    
-        public virtual in_Ing_Egr_Inven in_Ing_Egr_Inven { get; set; }
-        public virtual in_Ing_Egr_Inven in_Ing_Egr_Inven1 { get; set; }
-        public virtual ICollection<in_transferencia_det> in_transferencia_det { get; set; }
-        public virtual ICollection<in_transferencia_x_fa_guia_remision> in_transferencia_x_fa_guia_remision { get; set; }
-        public virtual ICollection<in_transferencia_x_in_Guia_x_traspaso_bodega> in_transferencia_x_in_Guia_x_traspaso_bodega { get; set; }
     }
 }

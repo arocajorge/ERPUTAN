@@ -58,6 +58,32 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public bool Revisar(in_transferencia_Info info)
+        {
+            try
+            {
+                return oData_Transferencia.Revisar(info);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool Aprobar(in_transferencia_Info info)
+        {
+            try
+            {
+                return oData_Transferencia.Aprobar(info);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public bool GuardarDB(in_transferencia_Info info, ref decimal _idTransferencia)
         {
             try
@@ -310,6 +336,19 @@ namespace Core.Erp.Business.Inventario
 
             }
 
+        }
+
+        public List<in_transferencia_Info> Get_List_transferenciaParaRevision(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+        {
+            try
+            {
+                return oData_Transferencia.Get_List_transferenciaParaRevision(IdEmpresa, FechaIni, FechaFin);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         public List<in_transferencia_Info> ObtenerTransferencias(int idempresa, DateTime FechaIni, DateTime FechaFin, int idSucursal)

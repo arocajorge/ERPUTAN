@@ -68,7 +68,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public bool Automatico { get; set; }
         #endregion
 
-
+        public bool EnviaXML { get; set; }
         public decimal? IdCbteCble { get; set; }
 
         public string IdUsuario { get; set; }

@@ -28,6 +28,19 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_XML_DocumentoDet_Bus bus_xml_det;
         #endregion
 
+        #region Delegados
+        private void frmCP_XML_Mantenimiento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            event_delegate_frmCP_XML_Mantenimiento_FormClosed(sender, e);
+        }
+        void frmCP_XML_Mantenimiento_event_delegate_frmCP_XML_Mantenimiento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+        public delegate void delegate_frmCP_XML_Mantenimiento_FormClosed(object sender, FormClosedEventArgs e);
+        public event delegate_frmCP_XML_Mantenimiento_FormClosed event_delegate_frmCP_XML_Mantenimiento_FormClosed;
+        #endregion
+
         public frmCP_XML_Mantenimiento()
         {
             InitializeComponent();
@@ -39,7 +52,10 @@ namespace Core.Erp.Winform.CuentasxPagar
             param = cl_parametrosGenerales_Bus.Instance;
             bus_xml = new cp_XML_Documento_Bus();
             bus_xml_det = new cp_XML_DocumentoDet_Bus();
+            event_delegate_frmCP_XML_Mantenimiento_FormClosed += frmCP_XML_Mantenimiento_event_delegate_frmCP_XML_Mantenimiento_FormClosed;
         }
+
+        
 
         private void frmCP_XML_Mantenimiento_Load(object sender, EventArgs e)
         {
@@ -321,5 +337,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 throw;
             }
         }
+
+        
     }
 }

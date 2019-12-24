@@ -81,5 +81,47 @@ namespace Core.Erp.Data.Inventario
                 throw;
             }
         }
+
+        public List<in_transferencia_det_Info> GetLisParaAprobacion(int IdEmpresa, int IdSucursal)
+        {
+            try
+            {
+                List<in_transferencia_det_Info> Lista = new List<in_transferencia_det_Info>();
+                int IdSucursalFin = IdSucursal == 0 ? 9999999 : IdSucursal;
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var lst = db.vwin_Transferencias_ParaAprobacion.Where(q => q.IdEmpresa == IdEmpresa && IdSucursal <= q.IdSucursalDest && q.IdSucursalDest <= IdSucursalFin).ToList();
+
+                    foreach (var item in lst)
+                    {
+                        Lista.Add(new in_transferencia_det_Info
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdSucursalOrigen = item.IdSucursalOrigen,
+                            IdBodegaOrigen = item.IdBodegaOrigen,
+                            IdTransferencia = item.IdTransferencia,
+                            dt_secuencia = item.dt_secuencia,
+                            IdProducto = item.IdProducto,
+                            pr_descripcion = item.pr_descripcion,
+                            dt_cantidad = item.dt_cantidad,
+                            tr_Observacion = item.tr_Observacion,
+                            IdUnidadMedida = item.IdUnidadMedida,
+                            Sucursal_Origen = item.SucursalOrigen,
+                            Sucursal_Destino = item.SucursalDestino,
+                            Bodega_Origen = item.BodegaOrigen,
+                            Bodega_Destino = item.BodegaDestino,
+                            ObservacionAprobacion = "TR."+item.IdTransferencia.ToString()+" Fecha: "+item.tr_fecha.ToShortDateString()+" Suc. Origen: "+item.SucursalOrigen.Trim()+" Bod. Origen:"+item.BodegaOrigen.Trim()
+                        });
+                    }
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

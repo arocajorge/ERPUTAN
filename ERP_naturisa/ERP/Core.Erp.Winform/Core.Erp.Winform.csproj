@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>201</ApplicationRevision>
+    <ApplicationRevision>203</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -3295,6 +3295,18 @@
     <Compile Include="Controles\UCGe_Mes.Designer.cs">
       <DependentUpon>UCGe_Mes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaAprobacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaAprobacion.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaAprobacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaRevisionM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaRevisionM.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaRevisionM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\frmIn_AdministradorReporte_Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3571,6 +3583,12 @@
     </Compile>
     <Compile Include="Inventario\FrmIn_TransferenciaConGuiaMantenimiento.Designer.cs">
       <DependentUpon>FrmIn_TransferenciaConGuiaMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaRevision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaRevision.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaRevision.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\FrmIn_Transferencia_Sin_Guia_Cons.cs">
       <SubType>Form</SubType>
@@ -5425,6 +5443,12 @@
     <EmbeddedResource Include="Controles\UCGe_Mes.resx">
       <DependentUpon>UCGe_Mes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaAprobacion.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaAprobacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaRevisionM.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaRevisionM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\frmIn_AdministradorReporte_Inventario.resx">
       <DependentUpon>frmIn_AdministradorReporte_Inventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -5562,6 +5586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaMantenimiento.resx">
       <DependentUpon>FrmIn_TransferenciaConGuiaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaRevision.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaRevision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Transferencia_Sin_Guia_Cons.resx">
       <DependentUpon>FrmIn_Transferencia_Sin_Guia_Cons.cs</DependentUpon>
@@ -5814,6 +5841,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ayuda_codigoAscii.txt" />
+    <Content Include="Resources\xml_16x16.png" />
     <None Include="Resources\Salir_16_x_161.png" />
     <None Include="Resources\re_hacer_16x16.png" />
     <None Include="Resources\Salir_16_x_16.png" />

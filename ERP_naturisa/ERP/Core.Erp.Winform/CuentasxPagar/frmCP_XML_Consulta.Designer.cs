@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCP_XML_Consulta));
             this.ucGe_Menu_Mantenimiento_x_usuario1 = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.gcDetalle = new DevExpress.XtraGrid.GridControl();
             this.gvDetalle = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -43,8 +45,12 @@
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Mantenimiento_x_usuario1
@@ -72,8 +78,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 11, 15, 0, 0, 0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 11, 22, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 12, 13, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 12, 20, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
@@ -129,6 +135,8 @@
             this.gcDetalle.Location = new System.Drawing.Point(0, 177);
             this.gcDetalle.MainView = this.gvDetalle;
             this.gcDetalle.Name = "gcDetalle";
+            this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbImagen});
             this.gcDetalle.Size = new System.Drawing.Size(1114, 509);
             this.gcDetalle.TabIndex = 3;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -148,8 +156,10 @@
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
-            this.gridColumn12});
+            this.gridColumn12,
+            this.gridColumn13});
             this.gvDetalle.GridControl = this.gcDetalle;
+            this.gvDetalle.Images = this.imageList1;
             this.gvDetalle.Name = "gvDetalle";
             this.gvDetalle.OptionsBehavior.ReadOnly = true;
             this.gvDetalle.OptionsView.ShowAutoFilterRow = true;
@@ -266,6 +276,36 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 7;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "xml_16x16.png");
+            // 
+            // cmbImagen
+            // 
+            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImagen.AutoHeight = false;
+            this.cmbImagen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImagen.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImagen.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0)});
+            this.cmbImagen.LargeImages = this.imageList1;
+            this.cmbImagen.Name = "cmbImagen";
+            this.cmbImagen.ReadOnly = true;
+            this.cmbImagen.Click += new System.EventHandler(this.cmbImagen_Click);
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.ColumnEdit = this.cmbImagen;
+            this.gridColumn13.FieldName = "EnviaXML";
+            this.gridColumn13.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn13.ImageIndex = 0;
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 8;
+            // 
             // frmCP_XML_Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,6 +318,7 @@
             this.Load += new System.EventHandler(this.frmCP_XML_Consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +340,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
     }
 }

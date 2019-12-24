@@ -40,6 +40,8 @@ namespace Core.Erp.Info.Inventario
         public Nullable<int> IdMovi_inven_tipo_SucuDest { get; set; }
         public Nullable<decimal> IdNumMovi_Ing_Egr_Inven_Destino { get; set; }
 
+        public string EstadoRevision { get; set; }
+
         
         
 
