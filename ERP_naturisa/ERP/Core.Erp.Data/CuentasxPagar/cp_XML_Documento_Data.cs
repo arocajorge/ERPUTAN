@@ -66,7 +66,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_PuntoEmision = info.ret_PuntoEmision,
 
                         IdCbteCble = info.IdCbteCble,
-                        EnviaXML = ((info.Estado ?? false) && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion))
+                        EnviaXML = info.Estado && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion)
                     });
                     }
                 }
@@ -475,7 +475,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         emi_RazonSocial = (item.RazonSocial == null) ? "" : item.RazonSocial.Trim(),
                         emi_Ruc = item.emi_Ruc,
                         pe_correo = (item.pe_correo == null) ? "" : item.pe_correo.Trim(),
-                        IdProveedor = item.IdProveedor,
+                        IdProveedor = item.IdProveedor ?? 0,
                         FechaEmision = item.FechaEmision,
                         pe_direccion = (item.pe_direccion == null) ? "" : item.pe_direccion.Trim(),
                         pe_telfono_Contacto = (item.pe_telfono_Contacto == null) ? "" : item.pe_telfono_Contacto.Trim(),

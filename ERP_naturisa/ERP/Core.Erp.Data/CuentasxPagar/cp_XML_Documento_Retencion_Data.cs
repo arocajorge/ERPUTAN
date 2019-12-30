@@ -131,7 +131,7 @@ namespace Core.Erp.Data.CuentasxPagar
                             break;
                     }
 
-                    myObjectRete.infoCompRetencion.razonSocialSujetoRetenido = item.pe_nombreCompleto.Trim(); // proveedor
+                    myObjectRete.infoCompRetencion.razonSocialSujetoRetenido = item.pe_nombreCompleto.Replace('*',' ').Trim(); // proveedor
                     myObjectRete.infoCompRetencion.identificacionSujetoRetenido = item.emi_Ruc.Trim();  // cedula o ruc
                     myObjectRete.infoCompRetencion.periodoFiscal = Convert.ToString(myObjectRete.infoCompRetencion.fechaEmision).Substring(3, 7); // factura
 

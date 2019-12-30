@@ -51,8 +51,8 @@ namespace Core.Erp.Data.CuentasxPagar
                        info.IdFormaPago = item.IdFormaPago;
                        info.Fecha_Pago = Convert.ToDateTime(item.Fecha_Pago);
                        info.IdCtaCble = item.IdCtaCble;
-                       info.IdCentroCosto = item.IdCentroCosto;
-                       info.IdSubCentro_Costo = item.IdSubCentro_Costo;
+                       info.IdCentroCosto = "";
+                       info.IdSubCentro_Costo = "";
                        info.Cbte_cxp = item.Cbte_cxp;
                        //info.Valor_aplicado = item.Valor_aplicado;
                        //info.IdAprobacion = item.IdAprobacion;
@@ -119,7 +119,7 @@ namespace Core.Erp.Data.CuentasxPagar
                        info.Fecha_Pago = Convert.ToDateTime(item.Fecha_Pago);
                        info.IdCtaCble = item.IdCtaCble;
                        info.IdCentroCosto = item.IdCentroCosto;
-                       info.IdSubCentro_Costo = item.IdSubCentro_Costo;
+                       info.IdSubCentro_Costo = "";
                        info.Cbte_cxp = item.Cbte_cxp;
                        info.Valor_aplicado = item.MontoAplicado;
                        info.Saldo_x_Pagar_OP = item.SaldoActual;

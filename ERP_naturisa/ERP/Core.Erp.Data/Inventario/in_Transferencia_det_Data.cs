@@ -17,7 +17,7 @@ namespace Core.Erp.Data.Inventario
 
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
-                    var lst = db.in_transferencia_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursalOrigen == IdSucursal && q.IdBodegaOrigen == IdBodega && q.IdTransferencia == IdTransferencia).ToList();
+                    var lst = db.in_transferencia_det.Include("in_UnidadMedida").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursalOrigen == IdSucursal && q.IdBodegaOrigen == IdBodega && q.IdTransferencia == IdTransferencia).ToList();
 
                     foreach (var item in lst)
                     {
@@ -33,7 +33,11 @@ namespace Core.Erp.Data.Inventario
                             dt_cantidad = item.dt_cantidad,
                             tr_Observacion = item.tr_Observacion,
                             EnviarEnGuia = item.EnviarEnGuia ?? false,
-                            IdUnidadMedida = item.IdUnidadMedida
+                            IdUnidadMedida = item.IdUnidadMedida,
+                            NomUnidadMedida = item.in_UnidadMedida == null ? "" : item.in_UnidadMedida.Descripcion,
+                            dt_cantidadApro = item.dt_cantidadApro,
+                            dt_cantidadFinal = item.dt_cantidadApro
+
                         });
                     }
                 }

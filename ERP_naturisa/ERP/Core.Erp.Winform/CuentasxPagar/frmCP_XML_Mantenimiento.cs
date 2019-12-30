@@ -159,7 +159,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         var codigo = lst_codigoSRI.Where(q => q.IdCodigo_SRI == row.IdCodigo_SRI).FirstOrDefault();
                         if (codigo != null)
                         {
-                            row.re_baseRetencion = (codigo.IdTipoSRI == "COD_RET_FUE" ? (info.Subtotal0 + info.SubtotalIVA) : info.ValorIVA) ?? 0;
+                            row.re_baseRetencion = (codigo.IdTipoSRI == "COD_RET_FUE" ? (info.Subtotal0 + info.SubtotalIVA) : info.ValorIVA);
                             row.re_Codigo_impuesto = codigo.codigoSRI;
                             row.re_Porcen_retencion = codigo.co_porRetencion;
                             row.re_tipoRet = (codigo.IdTipoSRI == "COD_RET_FUE" ? "RTF" : "IVA");

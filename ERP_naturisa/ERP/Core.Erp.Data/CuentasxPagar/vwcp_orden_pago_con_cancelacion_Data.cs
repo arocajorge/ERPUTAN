@@ -440,7 +440,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         info.Fecha_Pago = item.Fecha_Pago;
                         info.IdCtaCble = item.IdCtaCble;
                         info.IdCentroCosto = item.IdCentroCosto;
-                        info.IdSubCentro_Costo = item.IdSubCentro_Costo;
+                        info.IdSubCentro_Costo = "";
                         info.Cbte_cxp = item.Cbte_cxp;
                         info.Valor_aplicado = item.MontoAplicado;
                         info.Saldo_x_Pagar_OP = item.SaldoActual;

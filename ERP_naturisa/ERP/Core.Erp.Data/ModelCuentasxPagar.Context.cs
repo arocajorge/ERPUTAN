@@ -90,7 +90,6 @@ namespace Core.Erp.Data
         public DbSet<vwcp_conciliacion_det_x_cbte_pago> vwcp_conciliacion_det_x_cbte_pago { get; set; }
         public DbSet<vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro> vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro { get; set; }
         public DbSet<vwcp_conciliacion_x_cbte_cble> vwcp_conciliacion_x_cbte_cble { get; set; }
-        public DbSet<vwcp_conciliacion_x_orden_pago> vwcp_conciliacion_x_orden_pago { get; set; }
         public DbSet<vwcp_nota_DebCre> vwcp_nota_DebCre { get; set; }
         public DbSet<vwcp_nota_DebCre_total_saldo> vwcp_nota_DebCre_total_saldo { get; set; }
         public DbSet<vwcp_Orden_Giro_Conciliado_x_Factura> vwcp_Orden_Giro_Conciliado_x_Factura { get; set; }
@@ -102,9 +101,6 @@ namespace Core.Erp.Data
         public DbSet<vwcp_orden_giro_x_com_ordencompra_local_det_consulta> vwcp_orden_giro_x_com_ordencompra_local_det_consulta { get; set; }
         public DbSet<vwcp_orden_pago_Anticipo_Saldo> vwcp_orden_pago_Anticipo_Saldo { get; set; }
         public DbSet<vwcp_orden_pago_cancelacion_Saldos> vwcp_orden_pago_cancelacion_Saldos { get; set; }
-        public DbSet<vwcp_orden_pago_con_cancelacion_para_conciliacion> vwcp_orden_pago_con_cancelacion_para_conciliacion { get; set; }
-        public DbSet<vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi> vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi { get; set; }
-        public DbSet<vwcp_orden_pago_con_Transferencia> vwcp_orden_pago_con_Transferencia { get; set; }
         public DbSet<vwcp_orden_pago_det> vwcp_orden_pago_det { get; set; }
         public DbSet<vwcp_orden_pago_det_activa> vwcp_orden_pago_det_activa { get; set; }
         public DbSet<vwcp_orden_pago_det_con_cta_acreedora> vwcp_orden_pago_det_con_cta_acreedora { get; set; }
@@ -141,10 +137,14 @@ namespace Core.Erp.Data
         public DbSet<cp_RutaPorEmpresaPorUsuario> cp_RutaPorEmpresaPorUsuario { get; set; }
         public DbSet<vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar> vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar { get; set; }
         public DbSet<cp_XML_Documento_Retencion> cp_XML_Documento_Retencion { get; set; }
-        public DbSet<vwcp_XML_Documento> vwcp_XML_Documento { get; set; }
         public DbSet<vwcp_proveedor_codigo_SRI> vwcp_proveedor_codigo_SRI { get; set; }
-        public DbSet<cp_XML_Documento> cp_XML_Documento { get; set; }
         public DbSet<cp_XML_DocumentoDet> cp_XML_DocumentoDet { get; set; }
+        public DbSet<vwcp_orden_pago_con_Transferencia> vwcp_orden_pago_con_Transferencia { get; set; }
+        public DbSet<vwcp_conciliacion_x_orden_pago> vwcp_conciliacion_x_orden_pago { get; set; }
+        public DbSet<vwcp_orden_pago_con_cancelacion_para_conciliacion> vwcp_orden_pago_con_cancelacion_para_conciliacion { get; set; }
+        public DbSet<vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi> vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi { get; set; }
+        public DbSet<cp_XML_Documento> cp_XML_Documento { get; set; }
+        public DbSet<vwcp_XML_Documento> vwcp_XML_Documento { get; set; }
     
         public virtual ObjectResult<string> spCXP_eliminar_factura_vale_conciliacion_caja(Nullable<int> idEmpresa, Nullable<int> idTipoCbte, Nullable<decimal> idCbteCble, string tipoCbte_conci, Nullable<bool> borrar_o_desvincular)
         {

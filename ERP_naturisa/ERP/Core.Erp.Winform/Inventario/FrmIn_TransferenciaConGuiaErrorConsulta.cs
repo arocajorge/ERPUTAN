@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Core.Erp.Winform.Inventario
 {
-    public partial class FrmIn_TransferenciaConGuiaRevision : Form
+    public partial class FrmIn_TransferenciaConGuiaErrorConsulta : Form
     {
        
         #region Variables
@@ -23,7 +23,7 @@ namespace Core.Erp.Winform.Inventario
         in_transferencia_bus busTransferencia;
         #endregion
 
-        public FrmIn_TransferenciaConGuiaRevision()
+        public FrmIn_TransferenciaConGuiaErrorConsulta()
         {
             InitializeComponent();
             busLogError = new tb_sis_Log_Error_Vzen_Bus();
@@ -61,7 +61,7 @@ namespace Core.Erp.Winform.Inventario
 
 
                 ultrTransFerencia.DataSource = busTransferencia.Get_List_transferenciaParaRevision(param.IdEmpresa
-                    , ucGe_Menu_Mantenimiento_x_usuario.fecha_desde, ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta,"P");
+                    , ucGe_Menu_Mantenimiento_x_usuario.fecha_desde, ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta,"E");
 
             }
             catch (Exception ex)
@@ -117,10 +117,10 @@ namespace Core.Erp.Winform.Inventario
                 }
             }
 
-            FrmIn_TransferenciaConGuiaRevisionM frm = new FrmIn_TransferenciaConGuiaRevisionM();
+            FrmIn_TransferenciaConGuiaErrorMantenimiento frm = new FrmIn_TransferenciaConGuiaErrorMantenimiento();
             frm.SetAccion(Accion, row ?? new in_transferencia_Info());
             frm.MdiParent = this.MdiParent;
-            frm.event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed += frm_event_delegate_FrmIn_TransferenciaConGuiaMantenimiento_FormClosed;
+            frm.event_delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed += frm_event_delegate_FrmIn_TransferenciaConGuiaMantenimiento_FormClosed;
             frm.Show();
         }
 

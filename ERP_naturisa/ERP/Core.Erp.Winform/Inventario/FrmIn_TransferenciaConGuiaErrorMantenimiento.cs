@@ -17,7 +17,7 @@ using Cus.Erp.Reports.Naturisa.Inventario;
 
 namespace Core.Erp.Winform.Inventario
 {
-    public partial class FrmIn_TransferenciaConGuiaRevisionM : Form
+    public partial class FrmIn_TransferenciaConGuiaErrorMantenimiento : Form
     {
         #region Variables
         cl_parametrosGenerales_Bus param;
@@ -46,19 +46,19 @@ namespace Core.Erp.Winform.Inventario
         #endregion
 
         #region Delegados
-        public delegate void delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed(object sender, FormClosedEventArgs e);
-        public event delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed;
-        void FrmIn_TransferenciaConGuiaRevisionM_event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed(object sender, FormClosedEventArgs e)
+        public delegate void delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed(object sender, FormClosedEventArgs e);
+        public event delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed event_delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed;
+        void FrmIn_TransferenciaConGuiaErrorMantenimiento_event_delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed(object sender, FormClosedEventArgs e)
         {
 
         }
-        private void FrmIn_TransferenciaConGuiaRevisionM_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed(object sender, FormClosedEventArgs e)
         {
-            event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed(sender, e);
+            event_delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed(sender, e);
         }
         #endregion
 
-        public FrmIn_TransferenciaConGuiaRevisionM()
+        public FrmIn_TransferenciaConGuiaErrorMantenimiento()
         {
             InitializeComponent();
             param = cl_parametrosGenerales_Bus.Instance;
@@ -73,7 +73,7 @@ namespace Core.Erp.Winform.Inventario
             blstDetalle = new BindingList<in_transferencia_det_Info>();
             infoTransferencia = new in_transferencia_Info();
             busDet = new in_Transferencia_det_Bus();
-            event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed += FrmIn_TransferenciaConGuiaRevisionM_event_delegate_FrmIn_TransferenciaConGuiaRevisionM_FormClosed;
+            event_delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed += FrmIn_TransferenciaConGuiaErrorMantenimiento_event_delegate_FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed;
             busParam = new in_Parametro_Bus();
             infoParam = new in_Parametro_Info();
             lstProducto = new List<in_Producto_Info>();
@@ -261,7 +261,7 @@ namespace Core.Erp.Winform.Inventario
             }
         }
 
-        private void FrmIn_TransferenciaConGuiaRevisionM_Load(object sender, EventArgs e)
+        private void FrmIn_TransferenciaConGuiaErrorMantenimiento_Load(object sender, EventArgs e)
         {
             CargarCombos();
             gcDetalle.DataSource = blstDetalle;
@@ -472,34 +472,20 @@ namespace Core.Erp.Winform.Inventario
 
         private void gvDetalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            SetEstadoCelda(e.FocusedRowHandle);
-        }
-
-        private void SetEstadoCelda(int RowHandle)
-        {
-            in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetRow(RowHandle);
-            if (row == null)
+            in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetRow(e.FocusedRowHandle);
+            if (row != null)
             {
-                colUnidadMedida.OptionsColumn.AllowEdit = true;
-                colNomProducto.OptionsColumn.AllowEdit = true;
-            }
-            else
-                if (row.IdProducto == null)
-                {
-                    colUnidadMedida.OptionsColumn.AllowEdit = true;
-                    colNomProducto.OptionsColumn.AllowEdit = true;
-                }
+                double Diferencia = Math.Round(row.dt_cantidadApro - row.dt_cantidad, 2, MidpointRounding.AwayFromZero);
+                if (Diferencia != 0)
+                    gvDetalle.Appearance.FocusedRow.ForeColor = Color.OrangeRed;
                 else
-                    if (row.IdProducto != null)
-                    {
-                        colUnidadMedida.OptionsColumn.AllowEdit = false;
-                        colNomProducto.OptionsColumn.AllowEdit = false;
-                    }
+                    gvDetalle.Appearance.FocusedRow.ForeColor = Color.Green;
+            }
         }
-
+       
         private void gvDetalle_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
         {
-            SetEstadoCelda(gvDetalle.FocusedRowHandle);
+    
         }
 
         private void gvDetalle_KeyDown(object sender, KeyEventArgs e)
@@ -541,8 +527,9 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                infoTransferencia.EstadoRevision = "A";
-                if (busTransferencia.Revisar(infoTransferencia))
+                GetInfo();
+                infoTransferencia.EstadoRevision = "R";
+                if (busTransferencia.Corregir(infoTransferencia))
                 {
                     MessageBox.Show("Transferencia aprobada exitósamente", param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Close();
@@ -553,6 +540,27 @@ namespace Core.Erp.Winform.Inventario
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        private void gvDetalle_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        {
+            try
+            {
+                in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+                double Diferencia = Math.Round(row.dt_cantidadApro - row.dt_cantidad,2,MidpointRounding.AwayFromZero);
+                if (Diferencia != 0)
+                    e.Appearance.ForeColor = Color.OrangeRed;
+                else
+                    e.Appearance.ForeColor = Color.Green;
+                
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

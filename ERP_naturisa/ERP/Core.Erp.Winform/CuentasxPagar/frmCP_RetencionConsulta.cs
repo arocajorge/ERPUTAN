@@ -240,5 +240,10 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             cargaGrid();
         }
+
+        private void ucGe_Menu_event_btnImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            gridControlConsRet.ShowPrintPreview();
+        }
     }
 }

@@ -28,6 +28,8 @@ namespace Core.Erp.Data
         public Nullable<decimal> IdProducto { get; set; }
         public string pr_descripcion { get; set; }
         public double dt_cantidad { get; set; }
+        public double dt_cantidadApro { get; set; }
+        public double dt_cantidadFinal { get; set; }
         public string tr_Observacion { get; set; }
         public string IdCentroCosto { get; set; }
         public string IdCentroCosto_sub_centro_costo { get; set; }
@@ -41,8 +43,8 @@ namespace Core.Erp.Data
     
         public virtual ICollection<in_Guia_x_traspaso_bodega_x_in_transferencia_det> in_Guia_x_traspaso_bodega_x_in_transferencia_det { get; set; }
         public virtual in_Producto in_Producto { get; set; }
+        public virtual in_transferencia in_transferencia { get; set; }
         public virtual in_UnidadMedida in_UnidadMedida { get; set; }
         public virtual ICollection<in_transferencia_det_x_in_Guia_x_traspaso_bodega_det> in_transferencia_det_x_in_Guia_x_traspaso_bodega_det { get; set; }
-        public virtual in_transferencia in_transferencia { get; set; }
     }
 }

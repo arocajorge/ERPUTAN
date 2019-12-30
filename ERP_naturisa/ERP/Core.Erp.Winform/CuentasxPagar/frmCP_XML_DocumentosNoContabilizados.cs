@@ -39,7 +39,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (!string.IsNullOrEmpty(row.ret_NumeroDocumento))
                     e.Appearance.ForeColor = Color.Blue;
 
-                if (!(row.Estado ?? false))
+                if (!row.Estado)
                     e.Appearance.ForeColor = Color.Red;
 
                 if (!string.IsNullOrEmpty(row.ret_NumeroAutorizacion))

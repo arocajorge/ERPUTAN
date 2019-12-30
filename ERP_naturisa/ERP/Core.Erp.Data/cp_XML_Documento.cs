@@ -35,16 +35,16 @@ namespace Core.Erp.Data
         public string Establecimiento { get; set; }
         public string PuntoEmision { get; set; }
         public string NumeroDocumento { get; set; }
-        public Nullable<System.DateTime> FechaEmision { get; set; }
+        public System.DateTime FechaEmision { get; set; }
         public string rec_RazonSocial { get; set; }
         public string rec_Identificacion { get; set; }
-        public Nullable<double> Subtotal0 { get; set; }
-        public Nullable<double> SubtotalIVA { get; set; }
-        public Nullable<double> Porcentaje { get; set; }
-        public Nullable<double> ValorIVA { get; set; }
-        public Nullable<double> Total { get; set; }
+        public double Subtotal0 { get; set; }
+        public double SubtotalIVA { get; set; }
+        public double Porcentaje { get; set; }
+        public double ValorIVA { get; set; }
+        public double Total { get; set; }
         public string FormaPago { get; set; }
-        public Nullable<int> Plazo { get; set; }
+        public int Plazo { get; set; }
         public string ret_CodDocumentoTipo { get; set; }
         public string ret_Establecimiento { get; set; }
         public string ret_PuntoEmision { get; set; }
@@ -52,7 +52,7 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> ret_Fecha { get; set; }
         public Nullable<System.DateTime> ret_FechaAutorizacion { get; set; }
         public string ret_NumeroAutorizacion { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public bool Estado { get; set; }
         public Nullable<int> IdTipoCbte { get; set; }
         public Nullable<decimal> IdCbteCble { get; set; }
     

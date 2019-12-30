@@ -4896,9 +4896,9 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txeSerie.Text = XML.Establecimiento+"-"+XML.PuntoEmision;
                 txeNumDocum.Text = XML.NumeroDocumento;
                 txeIdNumAutoriza.Text = XML.ClaveAcceso;
-                dtp_fechaFactura.Value = XML.FechaEmision ?? DateTime.Now.Date;
-                dtp_fechaOG.Value = XML.FechaEmision ?? DateTime.Now.Date;
-                dtp_fecha_contabilizacion.Value = XML.FechaEmision ?? DateTime.Now.Date;
+                dtp_fechaFactura.Value = XML.FechaEmision;
+                dtp_fechaOG.Value = XML.FechaEmision;
+                dtp_fecha_contabilizacion.Value = XML.FechaEmision;
                 txt_plazo.Text = XML.Plazo.ToString();
                 
                 txE_SubTotal0.EditValue = XML.Subtotal0.ToString();
@@ -4906,7 +4906,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txE_valorIVA.EditValue = XML.ValorIVA.ToString();
                 txE_total.EditValue = XML.Total.ToString();
                 txE_BaseImponible.EditValue = (XML.Subtotal0 + XML.SubtotalIVA).ToString();
-                dteFecAutoriza.EditValue = XML.FechaEmision ?? DateTime.Now.Date;
+                dteFecAutoriza.EditValue = XML.FechaEmision;
 
                 GeneraDiario();
             }

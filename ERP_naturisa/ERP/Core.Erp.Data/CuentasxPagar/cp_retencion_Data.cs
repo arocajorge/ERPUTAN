@@ -199,7 +199,7 @@ namespace Core.Erp.Data.CuentasxPagar
                                        T.re_valor_retencion,
                                        C.codigoSRI,
                                    }
-                                  );
+                                  ).ToList();
 
                     foreach (var item in select_)
                     {                        
@@ -303,7 +303,7 @@ namespace Core.Erp.Data.CuentasxPagar
                                        T.re_valor_retencion,
                                        C.codigoSRI,
                                    }
-                                  );
+                                  ).ToList();
 
                     foreach (var item in select_)
                     {

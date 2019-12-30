@@ -148,12 +148,12 @@ namespace Core.Erp.Data
         public DbSet<vwin_producto> vwin_producto { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_SinParametrizacion> vwin_Ing_Egr_Inven_det_SinParametrizacion { get; set; }
         public DbSet<vwin_Ing_Egr_Inven_det_PorIngresar> vwin_Ing_Egr_Inven_det_PorIngresar { get; set; }
-        public DbSet<in_transferencia_det> in_transferencia_det { get; set; }
         public DbSet<in_transferencia> in_transferencia { get; set; }
         public DbSet<vwin_Transferencias> vwin_Transferencias { get; set; }
         public DbSet<vwin_transferencia_det_ParaCorreccion> vwin_transferencia_det_ParaCorreccion { get; set; }
         public DbSet<vwin_Transferencias_ParaProcesar> vwin_Transferencias_ParaProcesar { get; set; }
         public DbSet<vwin_Transferencias_ParaAprobacion> vwin_Transferencias_ParaAprobacion { get; set; }
+        public DbSet<in_transferencia_det> in_transferencia_det { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {

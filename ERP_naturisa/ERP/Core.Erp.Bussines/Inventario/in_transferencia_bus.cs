@@ -71,6 +71,19 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public bool Corregir(in_transferencia_Info info)
+        {
+            try
+            {
+                return oData_Transferencia.Corregir(info);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public bool Aprobar(in_transferencia_Info info)
         {
             try
@@ -338,11 +351,11 @@ namespace Core.Erp.Business.Inventario
 
         }
 
-        public List<in_transferencia_Info> Get_List_transferenciaParaRevision(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+        public List<in_transferencia_Info> Get_List_transferenciaParaRevision(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, string EstadoRevision)
         {
             try
             {
-                return oData_Transferencia.Get_List_transferenciaParaRevision(IdEmpresa, FechaIni, FechaFin);
+                return oData_Transferencia.Get_List_transferenciaParaRevision(IdEmpresa, FechaIni, FechaFin,EstadoRevision);
             }
             catch (Exception)
             {

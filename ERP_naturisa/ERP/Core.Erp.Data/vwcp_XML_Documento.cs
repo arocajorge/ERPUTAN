@@ -25,10 +25,10 @@ namespace Core.Erp.Data
         public string pe_correo { get; set; }
         public string pe_direccion { get; set; }
         public string pe_telfono_Contacto { get; set; }
-        public decimal IdProveedor { get; set; }
+        public Nullable<decimal> IdProveedor { get; set; }
         public string co_serie { get; set; }
         public string NumeroDocumento { get; set; }
-        public Nullable<System.DateTime> FechaEmision { get; set; }
+        public System.DateTime FechaEmision { get; set; }
         public string CodDocumento { get; set; }
         public string IdTipoDocumento { get; set; }
         public int IdSucursal { get; set; }
@@ -40,6 +40,6 @@ namespace Core.Erp.Data
         public string ObligadoAllevarConta { get; set; }
         public string em_ruc { get; set; }
         public string em_direccion { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public bool Estado { get; set; }
     }
 }

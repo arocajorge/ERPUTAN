@@ -3205,29 +3205,29 @@
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdDocumento" Type="numeric" Nullable="false" />
-          <Property Name="Comprobante" Type="varchar" MaxLength="50" />
-          <Property Name="XML" Type="varchar(max)" />
-          <Property Name="Tipo" Type="varchar" MaxLength="20" />
-          <Property Name="emi_RazonSocial" Type="varchar" MaxLength="2000" />
-          <Property Name="emi_NombreComercial" Type="varchar" MaxLength="2000" />
-          <Property Name="emi_Ruc" Type="varchar" MaxLength="20" />
-          <Property Name="emi_DireccionMatriz" Type="varchar" MaxLength="2000" />
-          <Property Name="emi_ContribuyenteEspecial" Type="varchar" MaxLength="50" />
-          <Property Name="ClaveAcceso" Type="varchar" MaxLength="200" />
-          <Property Name="CodDocumento" Type="varchar" MaxLength="20" />
-          <Property Name="Establecimiento" Type="varchar" MaxLength="10" />
-          <Property Name="PuntoEmision" Type="varchar" MaxLength="10" />
-          <Property Name="NumeroDocumento" Type="varchar" MaxLength="100" />
-          <Property Name="FechaEmision" Type="date" />
-          <Property Name="rec_RazonSocial" Type="varchar" MaxLength="2000" />
-          <Property Name="rec_Identificacion" Type="varchar" MaxLength="20" />
-          <Property Name="Subtotal0" Type="float" />
-          <Property Name="SubtotalIVA" Type="float" />
-          <Property Name="Porcentaje" Type="float" />
-          <Property Name="ValorIVA" Type="float" />
-          <Property Name="Total" Type="float" />
+          <Property Name="Comprobante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="XML" Type="varchar(max)" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="emi_RazonSocial" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="emi_NombreComercial" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="emi_Ruc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="emi_DireccionMatriz" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="emi_ContribuyenteEspecial" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ClaveAcceso" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="CodDocumento" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Establecimiento" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="PuntoEmision" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="NumeroDocumento" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="FechaEmision" Type="date" Nullable="false" />
+          <Property Name="rec_RazonSocial" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="rec_Identificacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Subtotal0" Type="float" Nullable="false" />
+          <Property Name="SubtotalIVA" Type="float" Nullable="false" />
+          <Property Name="Porcentaje" Type="float" Nullable="false" />
+          <Property Name="ValorIVA" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
           <Property Name="FormaPago" Type="varchar" MaxLength="2" />
-          <Property Name="Plazo" Type="int" />
+          <Property Name="Plazo" Type="int" Nullable="false" />
           <Property Name="ret_CodDocumentoTipo" Type="varchar" MaxLength="20" />
           <Property Name="ret_Establecimiento" Type="varchar" MaxLength="3" />
           <Property Name="ret_PuntoEmision" Type="varchar" MaxLength="3" />
@@ -3235,7 +3235,7 @@
           <Property Name="ret_Fecha" Type="date" />
           <Property Name="ret_FechaAutorizacion" Type="date" />
           <Property Name="ret_NumeroAutorizacion" Type="varchar" MaxLength="200" />
-          <Property Name="Estado" Type="bit" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="IdTipoCbte" Type="int" />
           <Property Name="IdCbteCble" Type="numeric" />
         </EntityType>
@@ -4242,7 +4242,7 @@
           <Property Name="Fecha_Pago" Type="date" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
-          <Property Name="IdSubCentro_Costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdSubCentro_Costo" Type="int" />
           <Property Name="Cbte_cxp" Type="numeric" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="Nom_Beneficiario_2" Type="varchar" MaxLength="266" />
@@ -5349,7 +5349,7 @@
           <Property Name="Fecha_Pago" Type="date" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
-          <Property Name="IdSubCentro_Costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdSubCentro_Costo" Type="int" />
           <Property Name="Cbte_cxp" Type="numeric" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="Nom_Beneficiario_2" Type="varchar" MaxLength="266" />
@@ -5409,7 +5409,7 @@
           <Property Name="Fecha_Pago" Type="date" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
-          <Property Name="IdSubCentro_Costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdSubCentro_Costo" Type="int" />
           <Property Name="Cbte_cxp" Type="numeric" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="Nom_Beneficiario_2" Type="varchar" MaxLength="266" />
@@ -5471,7 +5471,7 @@
           <Property Name="Fecha_Pago" Type="date" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
-          <Property Name="IdSubCentro_Costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdSubCentro_Costo" Type="int" />
           <Property Name="Cbte_cxp" Type="numeric" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="Nom_Beneficiario_2" Type="varchar" MaxLength="266" />
@@ -6212,8 +6212,13 @@
           <Key>
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="IdDocumento" />
-            <PropertyRef Name="pe_direccion" />
-            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="emi_RazonSocial" />
+            <PropertyRef Name="emi_Ruc" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="NumeroDocumento" />
+            <PropertyRef Name="FechaEmision" />
+            <PropertyRef Name="CodDocumento" />
             <PropertyRef Name="IdTipoDocumento" />
             <PropertyRef Name="IdSucursal" />
             <PropertyRef Name="Su_Descripcion" />
@@ -6223,24 +6228,25 @@
             <PropertyRef Name="ObligadoAllevarConta" />
             <PropertyRef Name="em_ruc" />
             <PropertyRef Name="em_direccion" />
+            <PropertyRef Name="Estado" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdDocumento" Type="numeric" Nullable="false" />
           <Property Name="serie" Type="varchar" MaxLength="7" />
           <Property Name="ret_NumeroDocumento" Type="varchar" MaxLength="50" />
           <Property Name="ret_Fecha" Type="date" />
-          <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="2000" />
-          <Property Name="emi_RazonSocial" Type="varchar" MaxLength="2000" />
-          <Property Name="emi_Ruc" Type="varchar" MaxLength="20" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="emi_RazonSocial" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="emi_Ruc" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="pe_correo" Type="varchar(max)" />
-          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="pe_direccion" Type="varchar" MaxLength="150" />
           <Property Name="pe_telfono_Contacto" Type="varchar" MaxLength="50" />
-          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
-          <Property Name="co_serie" Type="varchar" MaxLength="21" />
-          <Property Name="NumeroDocumento" Type="varchar" MaxLength="100" />
-          <Property Name="FechaEmision" Type="date" />
-          <Property Name="CodDocumento" Type="varchar" MaxLength="20" />
-          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="co_serie" Type="varchar" Nullable="false" MaxLength="21" />
+          <Property Name="NumeroDocumento" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="FechaEmision" Type="date" Nullable="false" />
+          <Property Name="CodDocumento" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="3" />
           <Property Name="IdSucursal" Type="int" Nullable="false" />
           <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
           <Property Name="Su_Direccion" Type="varchar" MaxLength="100" />
@@ -6250,7 +6256,7 @@
           <Property Name="ObligadoAllevarConta" Type="varchar" Nullable="false" MaxLength="2" />
           <Property Name="em_ruc" Type="nvarchar" Nullable="false" MaxLength="13" />
           <Property Name="em_direccion" Type="varchar" Nullable="false" MaxLength="300" />
-          <Property Name="Estado" Type="bit" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_cp_Aprobacion_Ing_Bod_x_OC_cp_orden_giro">
           <End Role="cp_orden_giro" Type="ModelCuentasxPagar.Store.cp_orden_giro" Multiplicity="0..1" />
@@ -7141,7 +7147,6 @@
           <EntitySet Name="vwcp_conciliacion_det_x_cbte_pago" EntityType="ModelCuentasxPagar.vwcp_conciliacion_det_x_cbte_pago" />
           <EntitySet Name="vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro" EntityType="ModelCuentasxPagar.vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro" />
           <EntitySet Name="vwcp_conciliacion_x_cbte_cble" EntityType="ModelCuentasxPagar.vwcp_conciliacion_x_cbte_cble" />
-          <EntitySet Name="vwcp_conciliacion_x_orden_pago" EntityType="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago" />
           <EntitySet Name="vwcp_nota_DebCre" EntityType="ModelCuentasxPagar.vwcp_nota_DebCre" />
           <EntitySet Name="vwcp_nota_DebCre_total_saldo" EntityType="ModelCuentasxPagar.vwcp_nota_DebCre_total_saldo" />
           <EntitySet Name="vwcp_Orden_Giro_Conciliado_x_Factura" EntityType="ModelCuentasxPagar.vwcp_Orden_Giro_Conciliado_x_Factura" />
@@ -7153,9 +7158,6 @@
           <EntitySet Name="vwcp_orden_giro_x_com_ordencompra_local_det_consulta" EntityType="ModelCuentasxPagar.vwcp_orden_giro_x_com_ordencompra_local_det_consulta" />
           <EntitySet Name="vwcp_orden_pago_Anticipo_Saldo" EntityType="ModelCuentasxPagar.vwcp_orden_pago_Anticipo_Saldo" />
           <EntitySet Name="vwcp_orden_pago_cancelacion_Saldos" EntityType="ModelCuentasxPagar.vwcp_orden_pago_cancelacion_Saldos" />
-          <EntitySet Name="vwcp_orden_pago_con_cancelacion_para_conciliacion" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" />
-          <EntitySet Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" />
-          <EntitySet Name="vwcp_orden_pago_con_Transferencia" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_Transferencia" />
           <EntitySet Name="vwcp_orden_pago_det" EntityType="ModelCuentasxPagar.vwcp_orden_pago_det" />
           <EntitySet Name="vwcp_orden_pago_det_activa" EntityType="ModelCuentasxPagar.vwcp_orden_pago_det_activa" />
           <EntitySet Name="vwcp_orden_pago_det_con_cta_acreedora" EntityType="ModelCuentasxPagar.vwcp_orden_pago_det_con_cta_acreedora" />
@@ -7445,10 +7447,13 @@
           <EntitySet Name="cp_RutaPorEmpresaPorUsuario" EntityType="ModelCuentasxPagar.cp_RutaPorEmpresaPorUsuario" />
           <EntitySet Name="vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar" EntityType="ModelCuentasxPagar.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar" />
           <EntitySet Name="cp_XML_Documento_Retencion" EntityType="ModelCuentasxPagar.cp_XML_Documento_Retencion" />
-          <EntitySet Name="vwcp_XML_Documento" EntityType="ModelCuentasxPagar.vwcp_XML_Documento" />
           <EntitySet Name="vwcp_proveedor_codigo_SRI" EntityType="ModelCuentasxPagar.vwcp_proveedor_codigo_SRI" />
-          <EntitySet Name="cp_XML_Documento" EntityType="ModelCuentasxPagar.cp_XML_Documento" />
           <EntitySet Name="cp_XML_DocumentoDet" EntityType="ModelCuentasxPagar.cp_XML_DocumentoDet" />
+          <EntitySet Name="vwcp_orden_pago_con_Transferencia" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_Transferencia" />
+          <EntitySet Name="vwcp_conciliacion_x_orden_pago" EntityType="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago" />
+          <EntitySet Name="vwcp_orden_pago_con_cancelacion_para_conciliacion" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" />
+          <EntitySet Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" />
+          <EntitySet Name="cp_XML_Documento" EntityType="ModelCuentasxPagar.cp_XML_Documento" />
           <AssociationSet Name="FK_cp_XML_Documento_Retencion_cp_XML_Documento" Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento">
             <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
             <End Role="cp_XML_Documento_Retencion" EntitySet="cp_XML_Documento_Retencion" />
@@ -7457,6 +7462,7 @@
             <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
             <End Role="cp_XML_DocumentoDet" EntitySet="cp_XML_DocumentoDet" />
           </AssociationSet>
+          <EntitySet Name="vwcp_XML_Documento" EntityType="ModelCuentasxPagar.vwcp_XML_Documento" />
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -9091,59 +9097,6 @@
           <Property Name="valor_Saldo_cbte" Type="Double" />
           <Property Name="IdConciliacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
-        <EntityType Name="vwcp_conciliacion_x_orden_pago">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha_OP" />
-            <PropertyRef Name="Fecha_Fa_Prov" />
-            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Valor_a_pagar" />
-            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
-            <PropertyRef Name="Total_cancelado_OP" />
-            <PropertyRef Name="Saldo_x_Pagar_OP" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdFormaPago" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="IdConciliacion" />
-            <PropertyRef Name="MontoAplicado" />
-            <PropertyRef Name="SaldoAnterior" />
-            <PropertyRef Name="SaldoActual" />
-          </Key>
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia" Type="String" MaxLength="523" Unicode="false" FixedLength="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Secuencia_OP" Type="Int32" />
-          <Property Name="IdTipoPersona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEntidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha_OP" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Fa_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Venc_Fac_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Girar_Cheque_a" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Valor_estimado_a_pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="Total_cancelado_OP" Type="Double" Nullable="false" />
-          <Property Name="Saldo_x_Pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Pago" Type="DateTime" Precision="0" />
-          <Property Name="IdCtaCble" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdSubCentro_Costo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Cbte_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario_2" Type="String" MaxLength="266" Unicode="false" FixedLength="false" />
-          <Property Name="IdConciliacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="MontoAplicado" Type="Double" Nullable="false" />
-          <Property Name="SaldoAnterior" Type="Double" Nullable="false" />
-          <Property Name="SaldoActual" Type="Double" Nullable="false" />
-        </EntityType>
         <EntityType Name="vwcp_nota_DebCre">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -9782,178 +9735,6 @@
           <Property Name="nom_tipoFlujo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="EstadoCancelacion" Type="String" MaxLength="9" Unicode="false" FixedLength="false" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="vwcp_orden_pago_con_cancelacion_para_conciliacion">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha_OP" />
-            <PropertyRef Name="Fecha_Fa_Prov" />
-            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Valor_a_pagar" />
-            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
-            <PropertyRef Name="Total_cancelado_OP" />
-            <PropertyRef Name="Saldo_x_Pagar_OP" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdFormaPago" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Name="Fila" Type="Int64" />
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia" Type="String" MaxLength="524" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia2" Type="String" MaxLength="56" Unicode="false" FixedLength="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Secuencia_OP" Type="Int32" />
-          <Property Name="IdTipoPersona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEntidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha_OP" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Fa_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Venc_Fac_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Girar_Cheque_a" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Valor_estimado_a_pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="Total_cancelado_OP" Type="Double" Nullable="false" />
-          <Property Name="Saldo_x_Pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Pago" Type="DateTime" Precision="0" />
-          <Property Name="IdCtaCble" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdSubCentro_Costo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Cbte_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario_2" Type="String" MaxLength="266" Unicode="false" FixedLength="false" />
-          <Property Name="IdEmpresa_cxp" Type="Int32" />
-          <Property Name="IdTipoCbte_cxp" Type="Int32" />
-          <Property Name="IdCbteCble_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="IdBanco" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha_OP" />
-            <PropertyRef Name="Fecha_Fa_Prov" />
-            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Valor_a_pagar" />
-            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
-            <PropertyRef Name="Total_cancelado_OP" />
-            <PropertyRef Name="Saldo_x_Pagar_OP" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdFormaPago" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="CodTipoCbteBan" />
-            <PropertyRef Name="Idcancelacion" />
-            <PropertyRef Name="IdEmpresa_pago" />
-            <PropertyRef Name="IdTipoCbte_pago" />
-            <PropertyRef Name="IdCbteCble_pago" />
-            <PropertyRef Name="MontoAplicado" />
-            <PropertyRef Name="SaldoAnterior" />
-            <PropertyRef Name="SaldoActual" />
-          </Key>
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia" Type="String" MaxLength="523" Unicode="false" FixedLength="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Secuencia_OP" Type="Int32" />
-          <Property Name="IdTipoPersona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEntidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha_OP" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Fa_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Venc_Fac_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Girar_Cheque_a" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Valor_estimado_a_pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="Total_cancelado_OP" Type="Double" Nullable="false" />
-          <Property Name="Saldo_x_Pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Pago" Type="DateTime" Precision="0" />
-          <Property Name="IdCtaCble" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdSubCentro_Costo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Cbte_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario_2" Type="String" MaxLength="266" Unicode="false" FixedLength="false" />
-          <Property Name="CodTipoCbteBan" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdEmpresa_cxp" Type="Int32" />
-          <Property Name="IdTipoCbte_cxp" Type="Int32" />
-          <Property Name="IdCbteCble_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Idcancelacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEmpresa_pago" Type="Int32" Nullable="false" />
-          <Property Name="IdTipoCbte_pago" Type="Int32" Nullable="false" />
-          <Property Name="IdCbteCble_pago" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="MontoAplicado" Type="Double" Nullable="false" />
-          <Property Name="SaldoAnterior" Type="Double" Nullable="false" />
-          <Property Name="SaldoActual" Type="Double" Nullable="false" />
-        </EntityType>
-        <EntityType Name="vwcp_orden_pago_con_Transferencia">
-          <Key>
-            <PropertyRef Name="IdRow" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha_OP" />
-            <PropertyRef Name="Fecha_Fa_Prov" />
-            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Valor_a_pagar" />
-            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
-            <PropertyRef Name="Total_cancelado_OP" />
-            <PropertyRef Name="Saldo_x_Pagar_OP" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdFormaPago" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Name="IdRow" Type="Int64" Nullable="false" />
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia" Type="String" MaxLength="523" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia2" Type="String" MaxLength="34" Unicode="false" FixedLength="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Secuencia_OP" Type="Int32" />
-          <Property Name="IdTipoPersona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdEntidad" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Fecha_OP" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Fa_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Fecha_Venc_Fac_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Girar_Cheque_a" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Valor_estimado_a_pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="Total_cancelado_OP" Type="Double" Nullable="false" />
-          <Property Name="Saldo_x_Pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Pago" Type="DateTime" Precision="0" />
-          <Property Name="IdCtaCble" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdSubCentro_Costo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Cbte_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="Nom_Beneficiario_2" Type="String" MaxLength="266" Unicode="false" FixedLength="false" />
-          <Property Name="IdEmpresa_cxp" Type="Int32" />
-          <Property Name="IdTipoCbte_cxp" Type="Int32" />
-          <Property Name="IdCbteCble_cxp" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="IdEstado_Emision_file" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdTipoCta_acreditacion_cat" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
-          <Property Name="num_cta_acreditacion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="IdBanco_acreditacion" Type="Int32" />
-          <Property Name="ba_descripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="CodigoLegal" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="vwcp_orden_pago_det">
           <Key>
@@ -12213,50 +11994,6 @@
           <Property Type="Double" Name="re_valor_retencion" Nullable="false" />
           <NavigationProperty Name="cp_XML_Documento" Relationship="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" FromRole="cp_XML_Documento_Retencion" ToRole="cp_XML_Documento" />
         </EntityType>
-        <EntityType Name="vwcp_XML_Documento">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdDocumento" />
-            <PropertyRef Name="pe_direccion" />
-            <PropertyRef Name="IdProveedor" />
-            <PropertyRef Name="IdTipoDocumento" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="Su_Descripcion" />
-            <PropertyRef Name="RazonSocial" />
-            <PropertyRef Name="NombreComercial" />
-            <PropertyRef Name="ContribuyenteEspecial" />
-            <PropertyRef Name="ObligadoAllevarConta" />
-            <PropertyRef Name="em_ruc" />
-            <PropertyRef Name="em_direccion" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="serie" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ret_NumeroDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="ret_Fecha" Precision="0" />
-          <Property Type="String" Name="pe_nombreCompleto" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_RazonSocial" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_Ruc" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_correo" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="co_serie" MaxLength="21" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NumeroDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaEmision" Precision="0" />
-          <Property Type="String" Name="CodDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ContribuyenteEspecial" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ObligadoAllevarConta" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="em_ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Estado" />
-        </EntityType>
         <EntityType Name="vwcp_proveedor_codigo_SRI">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -12275,49 +12012,6 @@
           <Property Type="String" Name="re_Codigo_impuesto" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Double" Name="re_Porcen_retencion" Nullable="false" />
         </EntityType>
-        <EntityType Name="cp_XML_Documento">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdDocumento" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="Comprobante" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="XML" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Tipo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_RazonSocial" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_NombreComercial" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_Ruc" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_DireccionMatriz" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_ContribuyenteEspecial" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ClaveAcceso" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CodDocumento" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Establecimiento" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="PuntoEmision" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NumeroDocumento" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaEmision" Precision="0" />
-          <Property Type="String" Name="rec_RazonSocial" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="rec_Identificacion" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Subtotal0" />
-          <Property Type="Double" Name="SubtotalIVA" />
-          <Property Type="Double" Name="Porcentaje" />
-          <Property Type="Double" Name="ValorIVA" />
-          <Property Type="Double" Name="Total" />
-          <Property Type="String" Name="FormaPago" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Plazo" />
-          <Property Type="String" Name="ret_CodDocumentoTipo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ret_Establecimiento" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ret_PuntoEmision" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ret_NumeroDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="ret_Fecha" Precision="0" />
-          <Property Type="DateTime" Name="ret_FechaAutorizacion" Precision="0" />
-          <Property Type="String" Name="ret_NumeroAutorizacion" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Estado" />
-          <Property Type="Int32" Name="IdTipoCbte" />
-          <Property Type="Decimal" Name="IdCbteCble" Precision="18" Scale="0" />
-          <NavigationProperty Name="cp_XML_Documento_Retencion" Relationship="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" FromRole="cp_XML_Documento" ToRole="cp_XML_Documento_Retencion" />
-          <NavigationProperty Name="cp_XML_DocumentoDet" Relationship="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" FromRole="cp_XML_Documento" ToRole="cp_XML_DocumentoDet" />
-        </EntityType>
         <EntityType Name="cp_XML_DocumentoDet">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -12334,6 +12028,274 @@
           <Property Type="Double" Name="ValorIva" />
           <Property Type="Double" Name="Total" />
           <NavigationProperty Name="cp_XML_Documento" Relationship="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" FromRole="cp_XML_DocumentoDet" ToRole="cp_XML_Documento" />
+        </EntityType>
+        <EntityType Name="vwcp_orden_pago_con_Transferencia">
+          <Key>
+            <PropertyRef Name="IdRow" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha_OP" />
+            <PropertyRef Name="Fecha_Fa_Prov" />
+            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor_a_pagar" />
+            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
+            <PropertyRef Name="Total_cancelado_OP" />
+            <PropertyRef Name="Saldo_x_Pagar_OP" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia2" MaxLength="34" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="String" Name="IdTipoPersona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_OP" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Girar_Cheque_a" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
+          <Property Type="Double" Name="Valor_estimado_a_pagar_OP" Nullable="false" />
+          <Property Type="Double" Name="Total_cancelado_OP" Nullable="false" />
+          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Precision="0" />
+          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubCentro_Costo" />
+          <Property Type="Decimal" Name="Cbte_cxp" Precision="18" Scale="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario_2" MaxLength="266" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cxp" />
+          <Property Type="Int32" Name="IdTipoCbte_cxp" />
+          <Property Type="Decimal" Name="IdCbteCble_cxp" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdEstado_Emision_file" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoCta_acreditacion_cat" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="num_cta_acreditacion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdBanco_acreditacion" />
+          <Property Type="String" Name="ba_descripcion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodigoLegal" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwcp_conciliacion_x_orden_pago">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha_OP" />
+            <PropertyRef Name="Fecha_Fa_Prov" />
+            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor_a_pagar" />
+            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
+            <PropertyRef Name="Total_cancelado_OP" />
+            <PropertyRef Name="Saldo_x_Pagar_OP" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdConciliacion" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="SaldoAnterior" />
+            <PropertyRef Name="SaldoActual" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="String" Name="IdTipoPersona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_OP" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Girar_Cheque_a" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
+          <Property Type="Double" Name="Valor_estimado_a_pagar_OP" Nullable="false" />
+          <Property Type="Double" Name="Total_cancelado_OP" Nullable="false" />
+          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Precision="0" />
+          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubCentro_Costo" />
+          <Property Type="Decimal" Name="Cbte_cxp" Precision="18" Scale="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario_2" MaxLength="266" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdConciliacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="Double" Name="SaldoAnterior" Nullable="false" />
+          <Property Type="Double" Name="SaldoActual" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwcp_orden_pago_con_cancelacion_para_conciliacion">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha_OP" />
+            <PropertyRef Name="Fecha_Fa_Prov" />
+            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor_a_pagar" />
+            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
+            <PropertyRef Name="Total_cancelado_OP" />
+            <PropertyRef Name="Saldo_x_Pagar_OP" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int64" Name="Fila" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="524" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia2" MaxLength="56" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="String" Name="IdTipoPersona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_OP" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Girar_Cheque_a" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
+          <Property Type="Double" Name="Valor_estimado_a_pagar_OP" Nullable="false" />
+          <Property Type="Double" Name="Total_cancelado_OP" Nullable="false" />
+          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Precision="0" />
+          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubCentro_Costo" />
+          <Property Type="Decimal" Name="Cbte_cxp" Precision="18" Scale="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario_2" MaxLength="266" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cxp" />
+          <Property Type="Int32" Name="IdTipoCbte_cxp" />
+          <Property Type="Decimal" Name="IdCbteCble_cxp" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBanco" />
+        </EntityType>
+        <EntityType Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha_OP" />
+            <PropertyRef Name="Fecha_Fa_Prov" />
+            <PropertyRef Name="Fecha_Venc_Fac_Prov" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor_a_pagar" />
+            <PropertyRef Name="Valor_estimado_a_pagar_OP" />
+            <PropertyRef Name="Total_cancelado_OP" />
+            <PropertyRef Name="Saldo_x_Pagar_OP" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdFormaPago" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="CodTipoCbteBan" />
+            <PropertyRef Name="Idcancelacion" />
+            <PropertyRef Name="IdEmpresa_pago" />
+            <PropertyRef Name="IdTipoCbte_pago" />
+            <PropertyRef Name="IdCbteCble_pago" />
+            <PropertyRef Name="MontoAplicado" />
+            <PropertyRef Name="SaldoAnterior" />
+            <PropertyRef Name="SaldoActual" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="String" Name="IdTipoPersona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEntidad" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha_OP" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Venc_Fac_Prov" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Girar_Cheque_a" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
+          <Property Type="Double" Name="Valor_estimado_a_pagar_OP" Nullable="false" />
+          <Property Type="Double" Name="Total_cancelado_OP" Nullable="false" />
+          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Pago" Precision="0" />
+          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubCentro_Costo" />
+          <Property Type="Decimal" Name="Cbte_cxp" Precision="18" Scale="0" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nom_Beneficiario_2" MaxLength="266" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodTipoCbteBan" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_cxp" />
+          <Property Type="Int32" Name="IdTipoCbte_cxp" />
+          <Property Type="Decimal" Name="IdCbteCble_cxp" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Idcancelacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_pago" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte_pago" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_pago" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="MontoAplicado" Nullable="false" />
+          <Property Type="Double" Name="SaldoAnterior" Nullable="false" />
+          <Property Type="Double" Name="SaldoActual" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cp_XML_Documento">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Comprobante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="XML" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_RazonSocial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_NombreComercial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_Ruc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_DireccionMatriz" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_ContribuyenteEspecial" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ClaveAcceso" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodDocumento" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Establecimiento" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PuntoEmision" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumeroDocumento" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaEmision" Nullable="false" Precision="0" />
+          <Property Type="String" Name="rec_RazonSocial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="rec_Identificacion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Subtotal0" Nullable="false" />
+          <Property Type="Double" Name="SubtotalIVA" Nullable="false" />
+          <Property Type="Double" Name="Porcentaje" Nullable="false" />
+          <Property Type="Double" Name="ValorIVA" Nullable="false" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="FormaPago" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Plazo" Nullable="false" />
+          <Property Type="String" Name="ret_CodDocumentoTipo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_Establecimiento" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_PuntoEmision" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_NumeroDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ret_Fecha" Precision="0" />
+          <Property Type="DateTime" Name="ret_FechaAutorizacion" Precision="0" />
+          <Property Type="String" Name="ret_NumeroAutorizacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte" />
+          <Property Type="Decimal" Name="IdCbteCble" Precision="18" Scale="0" />
+          <NavigationProperty Name="cp_XML_Documento_Retencion" Relationship="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" FromRole="cp_XML_Documento" ToRole="cp_XML_Documento_Retencion" />
+          <NavigationProperty Name="cp_XML_DocumentoDet" Relationship="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" FromRole="cp_XML_Documento" ToRole="cp_XML_DocumentoDet" />
         </EntityType>
         <Association Name="FK_cp_XML_Documento_Retencion_cp_XML_Documento">
           <End Type="ModelCuentasxPagar.cp_XML_Documento" Role="cp_XML_Documento" Multiplicity="1" />
@@ -12363,6 +12325,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vwcp_XML_Documento">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDocumento" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="emi_RazonSocial" />
+            <PropertyRef Name="emi_Ruc" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="NumeroDocumento" />
+            <PropertyRef Name="FechaEmision" />
+            <PropertyRef Name="CodDocumento" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="ContribuyenteEspecial" />
+            <PropertyRef Name="ObligadoAllevarConta" />
+            <PropertyRef Name="em_ruc" />
+            <PropertyRef Name="em_direccion" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="serie" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_NumeroDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ret_Fecha" Precision="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_RazonSocial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_Ruc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="String" Name="co_serie" Nullable="false" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumeroDocumento" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaEmision" Nullable="false" Precision="0" />
+          <Property Type="String" Name="CodDocumento" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContribuyenteEspecial" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ObligadoAllevarConta" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13664,43 +13676,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_conciliacion_x_orden_pago">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago">
-              <MappingFragment StoreEntitySet="vwcp_conciliacion_x_orden_pago">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
-                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
-                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
-                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
-                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
-                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
-                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
-                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
-                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
-                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
-                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
-                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
-                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcp_nota_DebCre">
             <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_nota_DebCre">
               <MappingFragment StoreEntitySet="vwcp_nota_DebCre">
@@ -14136,133 +14111,6 @@
                 <ScalarProperty Name="nom_tipoFlujo" ColumnName="nom_tipoFlujo" />
                 <ScalarProperty Name="EstadoCancelacion" ColumnName="EstadoCancelacion" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_orden_pago_con_cancelacion_para_conciliacion">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion">
-              <MappingFragment StoreEntitySet="vwcp_orden_pago_con_cancelacion_para_conciliacion">
-                <ScalarProperty Name="Fila" ColumnName="Fila" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
-                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
-                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
-                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
-                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
-                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
-                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
-                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
-                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
-                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
-                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
-                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
-              <MappingFragment StoreEntitySet="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
-                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
-                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
-                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
-                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
-                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
-                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
-                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
-                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
-                <ScalarProperty Name="CodTipoCbteBan" ColumnName="CodTipoCbteBan" />
-                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
-                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
-                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
-                <ScalarProperty Name="Idcancelacion" ColumnName="Idcancelacion" />
-                <ScalarProperty Name="IdEmpresa_pago" ColumnName="IdEmpresa_pago" />
-                <ScalarProperty Name="IdTipoCbte_pago" ColumnName="IdTipoCbte_pago" />
-                <ScalarProperty Name="IdCbteCble_pago" ColumnName="IdCbteCble_pago" />
-                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
-                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
-                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_orden_pago_con_Transferencia">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_con_Transferencia">
-              <MappingFragment StoreEntitySet="vwcp_orden_pago_con_Transferencia">
-                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
-                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
-                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
-                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
-                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
-                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
-                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
-                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
-                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
-                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
-                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
-                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
-                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
-                <ScalarProperty Name="IdEstado_Emision_file" ColumnName="IdEstado_Emision_file" />
-                <ScalarProperty Name="IdTipoCta_acreditacion_cat" ColumnName="IdTipoCta_acreditacion_cat" />
-                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
-                <ScalarProperty Name="IdBanco_acreditacion" ColumnName="IdBanco_acreditacion" />
-                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
-                <ScalarProperty Name="CodigoLegal" ColumnName="CodigoLegal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15432,39 +15280,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_XML_Documento">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_XML_Documento">
-              <MappingFragment StoreEntitySet="vwcp_XML_Documento">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="em_direccion" ColumnName="em_direccion" />
-                <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
-                <ScalarProperty Name="ObligadoAllevarConta" ColumnName="ObligadoAllevarConta" />
-                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
-                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
-                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
-                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
-                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
-                <ScalarProperty Name="CodDocumento" ColumnName="CodDocumento" />
-                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
-                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
-                <ScalarProperty Name="co_serie" ColumnName="co_serie" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
-                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
-                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
-                <ScalarProperty Name="emi_Ruc" ColumnName="emi_Ruc" />
-                <ScalarProperty Name="emi_RazonSocial" ColumnName="emi_RazonSocial" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="ret_Fecha" ColumnName="ret_Fecha" />
-                <ScalarProperty Name="ret_NumeroDocumento" ColumnName="ret_NumeroDocumento" />
-                <ScalarProperty Name="serie" ColumnName="serie" />
-                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwcp_proveedor_codigo_SRI">
             <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_proveedor_codigo_SRI">
               <MappingFragment StoreEntitySet="vwcp_proveedor_codigo_SRI">
@@ -15474,6 +15289,185 @@
                 <ScalarProperty Name="re_tipo" ColumnName="re_tipo" />
                 <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
                 <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cp_XML_DocumentoDet">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_XML_DocumentoDet">
+              <MappingFragment StoreEntitySet="cp_XML_DocumentoDet">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ValorIva" ColumnName="ValorIva" />
+                <ScalarProperty Name="PorcentajeIVA" ColumnName="PorcentajeIVA" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_orden_pago_con_Transferencia">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_con_Transferencia">
+              <MappingFragment StoreEntitySet="vwcp_orden_pago_con_Transferencia">
+                <ScalarProperty Name="CodigoLegal" ColumnName="CodigoLegal" />
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="IdBanco_acreditacion" ColumnName="IdBanco_acreditacion" />
+                <ScalarProperty Name="num_cta_acreditacion" ColumnName="num_cta_acreditacion" />
+                <ScalarProperty Name="IdTipoCta_acreditacion_cat" ColumnName="IdTipoCta_acreditacion_cat" />
+                <ScalarProperty Name="IdEstado_Emision_file" ColumnName="IdEstado_Emision_file" />
+                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
+                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
+                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
+                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
+                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
+                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
+                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
+                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
+                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
+                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
+                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_conciliacion_x_orden_pago">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago">
+              <MappingFragment StoreEntitySet="vwcp_conciliacion_x_orden_pago">
+                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
+                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
+                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
+                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
+                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
+                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
+                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
+                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_orden_pago_con_cancelacion_para_conciliacion">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion">
+              <MappingFragment StoreEntitySet="vwcp_orden_pago_con_cancelacion_para_conciliacion">
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
+                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
+                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
+                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
+                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
+                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
+                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
+                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
+                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
+                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
+                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Fila" ColumnName="Fila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
+              <MappingFragment StoreEntitySet="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
+                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
+                <ScalarProperty Name="IdCbteCble_pago" ColumnName="IdCbteCble_pago" />
+                <ScalarProperty Name="IdTipoCbte_pago" ColumnName="IdTipoCbte_pago" />
+                <ScalarProperty Name="IdEmpresa_pago" ColumnName="IdEmpresa_pago" />
+                <ScalarProperty Name="Idcancelacion" ColumnName="Idcancelacion" />
+                <ScalarProperty Name="IdCbteCble_cxp" ColumnName="IdCbteCble_cxp" />
+                <ScalarProperty Name="IdTipoCbte_cxp" ColumnName="IdTipoCbte_cxp" />
+                <ScalarProperty Name="IdEmpresa_cxp" ColumnName="IdEmpresa_cxp" />
+                <ScalarProperty Name="CodTipoCbteBan" ColumnName="CodTipoCbteBan" />
+                <ScalarProperty Name="Nom_Beneficiario_2" ColumnName="Nom_Beneficiario_2" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cbte_cxp" ColumnName="Cbte_cxp" />
+                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="Fecha_Pago" ColumnName="Fecha_Pago" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
+                <ScalarProperty Name="Total_cancelado_OP" ColumnName="Total_cancelado_OP" />
+                <ScalarProperty Name="Valor_estimado_a_pagar_OP" ColumnName="Valor_estimado_a_pagar_OP" />
+                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
+                <ScalarProperty Name="Girar_Cheque_a" ColumnName="Girar_Cheque_a" />
+                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha_Venc_Fac_Prov" ColumnName="Fecha_Venc_Fac_Prov" />
+                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
+                <ScalarProperty Name="Fecha_OP" ColumnName="Fecha_OP" />
+                <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -15519,16 +15513,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cp_XML_DocumentoDet">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_XML_DocumentoDet">
-              <MappingFragment StoreEntitySet="cp_XML_DocumentoDet">
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="ValorIva" ColumnName="ValorIva" />
-                <ScalarProperty Name="PorcentajeIVA" ColumnName="PorcentajeIVA" />
-                <ScalarProperty Name="Precio" ColumnName="Precio" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+          <EntitySetMapping Name="vwcp_XML_Documento">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_XML_Documento">
+              <MappingFragment StoreEntitySet="vwcp_XML_Documento">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="em_direccion" ColumnName="em_direccion" />
+                <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
+                <ScalarProperty Name="ObligadoAllevarConta" ColumnName="ObligadoAllevarConta" />
+                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="CodDocumento" ColumnName="CodDocumento" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="co_serie" ColumnName="co_serie" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="emi_Ruc" ColumnName="emi_Ruc" />
+                <ScalarProperty Name="emi_RazonSocial" ColumnName="emi_RazonSocial" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="ret_Fecha" ColumnName="ret_Fecha" />
+                <ScalarProperty Name="ret_NumeroDocumento" ColumnName="ret_NumeroDocumento" />
+                <ScalarProperty Name="serie" ColumnName="serie" />
                 <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>

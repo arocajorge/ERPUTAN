@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>203</ApplicationRevision>
+    <ApplicationRevision>211</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -3295,6 +3295,18 @@
     <Compile Include="Controles\UCGe_Mes.Designer.cs">
       <DependentUpon>UCGe_Mes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaErrorMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaErrorConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_TransferenciaConGuiaErrorConsulta.Designer.cs">
+      <DependentUpon>FrmIn_TransferenciaConGuiaErrorConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmIn_TransferenciaConGuiaAprobacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5442,6 +5454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCGe_Mes.resx">
       <DependentUpon>UCGe_Mes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaErrorMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaErrorConsulta.resx">
+      <DependentUpon>FrmIn_TransferenciaConGuiaErrorConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaAprobacion.resx">
       <DependentUpon>FrmIn_TransferenciaConGuiaAprobacion.cs</DependentUpon>

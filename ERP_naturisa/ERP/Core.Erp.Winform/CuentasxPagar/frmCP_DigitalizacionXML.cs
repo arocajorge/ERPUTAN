@@ -146,7 +146,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         double ValorIva = Math.Round((double)Documento.SubtotalIVA * 0.12,2,MidpointRounding.AwayFromZero);
                         if (ValorIva != Documento.ValorIVA)
                         {
-                            MessageBox.Show("El IVA no cuadra con el subtotal con IVA :\n" + ValorIva.ToString("c2") + "\n" + Convert.ToDouble(Documento.ValorIVA).ToString("c2"));
+                            MessageBox.Show("Revisar: \n"+ item+"\nIVA no cuadra con el subtotal con IVA :\nIVA calculado: " + ValorIva.ToString("c2") + "\nIVA en factura: " + Convert.ToDouble(Documento.ValorIVA).ToString("c2"));
                         }
                         Documento.Comprobante = Documento.CodDocumento + '-' + Documento.Establecimiento + "-" + Documento.PuntoEmision + "-" + Documento.NumeroDocumento;
 

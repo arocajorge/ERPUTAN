@@ -22,6 +22,7 @@ namespace Core.Erp.Winform.Inventario
         cl_parametrosGenerales_Bus param;
         tb_Sucursal_Bus busSucursal;
         BindingList<in_transferencia_det_Info> blstDet;
+        in_UnidadMedida_Bus busUnidadMedida;
         #endregion
 
         public FrmIn_TransferenciaConGuiaAprobacion()
@@ -32,6 +33,7 @@ namespace Core.Erp.Winform.Inventario
             param = cl_parametrosGenerales_Bus.Instance;
             busSucursal = new tb_Sucursal_Bus();
             blstDet = new BindingList<in_transferencia_det_Info>();
+            busUnidadMedida = new in_UnidadMedida_Bus();
         }
 
         private void gvDetalle_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -79,7 +81,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 cmbSucursalDestino.Properties.DataSource = busSucursal.Get_List_Sucursal(param.IdEmpresa);
                 cmbSucursalDestino.EditValue = param.IdSucursal;
-
+                cmbUnidadMedida.DataSource = busUnidadMedida.Get_list_UnidadMedida();
                 blstDet = new BindingList<in_transferencia_det_Info>(busDet.GetLisParaAprobacion(param.IdEmpresa,param.IdSucursal));
                 gcDetalle.DataSource = blstDet;
             }
@@ -167,6 +169,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                gvDetalle.MoveNext();
+                cmbSucursalDestino.Focus();
                 if (!Validar())
                     return false;
                 var temp = blstDet.Where(q => q.check == true).GroupBy(q => new { q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia }).FirstOrDefault();

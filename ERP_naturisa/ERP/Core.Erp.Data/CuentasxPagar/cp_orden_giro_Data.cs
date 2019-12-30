@@ -829,16 +829,13 @@ namespace Core.Erp.Data.CuentasxPagar
                 string msg = "";
                 List<cp_orden_giro_Info> lM = new List<cp_orden_giro_Info>();
                 EntitiesCuentasxPagar Base = new EntitiesCuentasxPagar();
-                
-                var select_ = from T in Base.vwcp_orden_giro_SRI
-                              where T.IdEmpresa == IdEmpresa
+
+                Base.SetCommandTimeOut(3000);
+
+                var select_ = Base.vwcp_orden_giro_SRI.Where(T => T.IdEmpresa == IdEmpresa
                                && T.co_FechaContabilizacion.Value.Year == anio
                                && T.co_FechaContabilizacion.Value.Month == mes
-                              && T.co_vaCoa == "S"
-                              select T;
-
-
-
+                              && T.co_vaCoa == "S").ToList();
 
                 foreach (var item in select_)
                 {

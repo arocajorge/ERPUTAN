@@ -103,7 +103,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     return;
                 }
 
-                if (!(row.Estado ?? false) && Accion != Cl_Enumeradores.eTipo_action.consultar)
+                if (!row.Estado && Accion != Cl_Enumeradores.eTipo_action.consultar)
                 {
                     MessageBox.Show("El registro se encuentra anulado",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     return;
@@ -157,7 +157,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (!string.IsNullOrEmpty(row.ret_NumeroDocumento))
                     e.Appearance.ForeColor = Color.Blue;
 
-                if (!(row.Estado ?? false))
+                if (!row.Estado)
                     e.Appearance.ForeColor = Color.Red;
 
                 if (!string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
@@ -185,7 +185,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     gvDetalle.Appearance.FocusedCell.ForeColor = Color.Blue;
                 }else
 
-                if (!(row.Estado ?? false))
+                if (!row.Estado)
                 {
                     gvDetalle.Appearance.FocusedRow.ForeColor = Color.Red;
                     gvDetalle.Appearance.FocusedCell.ForeColor = Color.Red;
@@ -215,7 +215,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (row == null)
                     return;
 
-                if ((row.Estado ?? false) && !string.IsNullOrEmpty(row.ret_NumeroDocumento) && string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
+                if (row.Estado && !string.IsNullOrEmpty(row.ret_NumeroDocumento) && string.IsNullOrEmpty(row.ret_NumeroAutorizacion))
                 {
                     var lst = busRet.GetList(row.IdEmpresa, row.IdDocumento);
                     if (lst.Count > 0)

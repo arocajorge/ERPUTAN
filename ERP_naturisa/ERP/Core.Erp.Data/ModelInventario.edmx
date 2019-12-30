@@ -3461,6 +3461,8 @@
           <Property Name="IdProducto" Type="numeric" />
           <Property Name="pr_descripcion" Type="varchar(max)" />
           <Property Name="dt_cantidad" Type="float" Nullable="false" />
+          <Property Name="dt_cantidadApro" Type="float" Nullable="false" />
+          <Property Name="dt_cantidadFinal" Type="float" Nullable="false" />
           <Property Name="tr_Observacion" Type="varchar" MaxLength="1000" />
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
@@ -5787,6 +5789,9 @@
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_transferencia_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_transferencia_det_ParaCorreccion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwin_transferencia_det_ParaCorreccion">
@@ -8087,23 +8092,6 @@
           </FunctionImport>
           <EntitySet Name="vwin_Ing_Egr_Inven_det_SinParametrizacion" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_SinParametrizacion" />
           <EntitySet Name="vwin_Ing_Egr_Inven_det_PorIngresar" EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_PorIngresar" />
-          <EntitySet Name="in_transferencia_det" EntityType="DBERPModelInventario.in_transferencia_det" />
-          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det">
-            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
-            <End Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det" EntitySet="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_det_in_Producto" Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto">
-            <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_det_in_UnidadMedida" Association="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida">
-            <End Role="in_UnidadMedida" EntitySet="in_UnidadMedida" />
-            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det">
-            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
-            <End Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" EntitySet="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
-          </AssociationSet>
           <EntitySet Name="in_transferencia" EntityType="DBERPModelInventario.in_transferencia" />
           <EntitySet Name="vwin_Transferencias" EntityType="DBERPModelInventario.vwin_Transferencias" />
           <AssociationSet Name="FK_in_transferencia_in_Ing_Egr_Inven" Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven">
@@ -8113,10 +8101,6 @@
           <AssociationSet Name="FK_in_transferencia_in_Ing_Egr_Inven1" Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1">
             <End Role="in_Ing_Egr_Inven" EntitySet="in_Ing_Egr_Inven" />
             <End Role="in_transferencia" EntitySet="in_transferencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_det_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia">
-            <End Role="in_transferencia" EntitySet="in_transferencia" />
-            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
           </AssociationSet>
           <AssociationSet Name="FK_in_transferencia_x_fa_guia_remision_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia">
             <End Role="in_transferencia" EntitySet="in_transferencia" />
@@ -8129,6 +8113,27 @@
           <EntitySet Name="vwin_transferencia_det_ParaCorreccion" EntityType="DBERPModelInventario.vwin_transferencia_det_ParaCorreccion" />
           <EntitySet Name="vwin_Transferencias_ParaProcesar" EntityType="DBERPModelInventario.vwin_Transferencias_ParaProcesar" />
           <EntitySet Name="vwin_Transferencias_ParaAprobacion" EntityType="DBERPModelInventario.vwin_Transferencias_ParaAprobacion" />
+          <EntitySet Name="in_transferencia_det" EntityType="DBERPModelInventario.in_transferencia_det" />
+          <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det">
+            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
+            <End Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det" EntitySet="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_det_in_Producto" Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto">
+            <End Role="in_Producto" EntitySet="in_Producto" />
+            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_det_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia">
+            <End Role="in_transferencia" EntitySet="in_transferencia" />
+            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_det_in_UnidadMedida" Association="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida">
+            <End Role="in_UnidadMedida" EntitySet="in_UnidadMedida" />
+            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det">
+            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
+            <End Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" EntitySet="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
           <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="23" />
@@ -13296,104 +13301,6 @@
           <Property Type="String" Name="CodSucDestino" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SucursalDestino" MaxLength="60" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityType Name="in_transferencia_det">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursalOrigen" />
-            <PropertyRef Name="IdBodegaOrigen" />
-            <PropertyRef Name="IdTransferencia" />
-            <PropertyRef Name="dt_secuencia" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
-          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="dt_secuencia" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="dt_cantidad" Nullable="false" />
-          <Property Type="String" Name="tr_Observacion" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="Boolean" Name="EnviarEnGuia" />
-          <Property Type="Int32" Name="IdSucursal_oc" />
-          <Property Type="Decimal" Name="IdOrdenCompra" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia_oc" />
-          <NavigationProperty Name="in_Guia_x_traspaso_bodega_x_in_transferencia_det" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" FromRole="in_transferencia_det" ToRole="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
-          <NavigationProperty Name="in_Producto" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_Producto" FromRole="in_transferencia_det" ToRole="in_Producto" />
-          <NavigationProperty Name="in_UnidadMedida" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida" FromRole="in_transferencia_det" ToRole="in_UnidadMedida" />
-          <NavigationProperty Name="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" FromRole="in_transferencia_det" ToRole="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
-          <NavigationProperty Name="in_transferencia" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia_det" ToRole="in_transferencia" />
-        </EntityType>
-        <Association Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det">
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_Guia_x_traspaso_bodega_x_in_transferencia_det" Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_transferencia_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-              <PropertyRef Name="dt_secuencia" />
-            </Principal>
-            <Dependent Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det">
-              <PropertyRef Name="IdEmpresa_tras" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-              <PropertyRef Name="dt_secuencia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_det_in_Producto">
-          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="0..1" />
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Producto">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="in_transferencia_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_det_in_UnidadMedida">
-          <End Type="DBERPModelInventario.in_UnidadMedida" Role="in_UnidadMedida" Multiplicity="0..1" />
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_UnidadMedida">
-              <PropertyRef Name="IdUnidadMedida" />
-            </Principal>
-            <Dependent Role="in_transferencia_det">
-              <PropertyRef Name="IdUnidadMedida" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det">
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_transferencia_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-              <PropertyRef Name="dt_secuencia" />
-            </Principal>
-            <Dependent Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det">
-              <PropertyRef Name="IdEmpresa_trans" />
-              <PropertyRef Name="IdSucursalOrigen_trans" />
-              <PropertyRef Name="IdBodegaOrigen_trans" />
-              <PropertyRef Name="IdTransferencia_trans" />
-              <PropertyRef Name="Secuencia_trans" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="in_transferencia">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -13432,9 +13339,9 @@
           <Property Type="DateTime" Name="FechaRevision" Precision="3" />
           <NavigationProperty Name="in_Ing_Egr_Inven" Relationship="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven" FromRole="in_transferencia" ToRole="in_Ing_Egr_Inven" />
           <NavigationProperty Name="in_Ing_Egr_Inven1" Relationship="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" FromRole="in_transferencia" ToRole="in_Ing_Egr_Inven" />
-          <NavigationProperty Name="in_transferencia_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_det" />
           <NavigationProperty Name="in_transferencia_x_fa_guia_remision" Relationship="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_x_fa_guia_remision" />
           <NavigationProperty Name="in_transferencia_x_in_Guia_x_traspaso_bodega" Relationship="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_x_in_Guia_x_traspaso_bodega" />
+          <NavigationProperty Name="in_transferencia_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_det" />
         </EntityType>
         <EntityType Name="vwin_Transferencias">
           <Key>
@@ -13517,24 +13424,6 @@
               <PropertyRef Name="IdSucursal_Ing_Egr_Inven_Destino" />
               <PropertyRef Name="IdMovi_inven_tipo_SucuDest" />
               <PropertyRef Name="IdNumMovi_Ing_Egr_Inven_Destino" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_det_in_transferencia">
-          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_transferencia">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-            </Principal>
-            <Dependent Role="in_transferencia_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -13680,6 +13569,124 @@
           <Property Type="Int32" Name="dt_secuencia" Nullable="false" />
           <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="in_transferencia_det">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdBodegaOrigen" />
+            <PropertyRef Name="IdTransferencia" />
+            <PropertyRef Name="dt_secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
+          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="dt_secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="dt_cantidadApro" Nullable="false" />
+          <Property Type="Double" Name="dt_cantidadFinal" Nullable="false" />
+          <Property Type="String" Name="tr_Observacion" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="Boolean" Name="EnviarEnGuia" />
+          <Property Type="Int32" Name="IdSucursal_oc" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_oc" />
+          <NavigationProperty Name="in_Guia_x_traspaso_bodega_x_in_transferencia_det" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" FromRole="in_transferencia_det" ToRole="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
+          <NavigationProperty Name="in_Producto" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_Producto" FromRole="in_transferencia_det" ToRole="in_Producto" />
+          <NavigationProperty Name="in_transferencia" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia_det" ToRole="in_transferencia" />
+          <NavigationProperty Name="in_UnidadMedida" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida" FromRole="in_transferencia_det" ToRole="in_UnidadMedida" />
+          <NavigationProperty Name="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" FromRole="in_transferencia_det" ToRole="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
+        </EntityType>
+        <Association Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det">
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_Guia_x_traspaso_bodega_x_in_transferencia_det" Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_transferencia_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+              <PropertyRef Name="dt_secuencia" />
+            </Principal>
+            <Dependent Role="in_Guia_x_traspaso_bodega_x_in_transferencia_det">
+              <PropertyRef Name="IdEmpresa_tras" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+              <PropertyRef Name="dt_secuencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_det_in_Producto">
+          <End Type="DBERPModelInventario.in_Producto" Role="in_Producto" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Producto">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="in_transferencia_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_det_in_transferencia">
+          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_transferencia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="in_transferencia_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_det_in_UnidadMedida">
+          <End Type="DBERPModelInventario.in_UnidadMedida" Role="in_UnidadMedida" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_UnidadMedida">
+              <PropertyRef Name="IdUnidadMedida" />
+            </Principal>
+            <Dependent Role="in_transferencia_det">
+              <PropertyRef Name="IdUnidadMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det">
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_transferencia_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+              <PropertyRef Name="dt_secuencia" />
+            </Principal>
+            <Dependent Role="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det">
+              <PropertyRef Name="IdEmpresa_trans" />
+              <PropertyRef Name="IdSucursalOrigen_trans" />
+              <PropertyRef Name="IdBodegaOrigen_trans" />
+              <PropertyRef Name="IdTransferencia_trans" />
+              <PropertyRef Name="Secuencia_trans" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -16801,30 +16808,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="in_transferencia_det">
-            <EntityTypeMapping TypeName="DBERPModelInventario.in_transferencia_det">
-              <MappingFragment StoreEntitySet="in_transferencia_det">
-                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
-                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
-                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
-                <ScalarProperty Name="EnviarEnGuia" ColumnName="EnviarEnGuia" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
-                <ScalarProperty Name="dt_cantidad" ColumnName="dt_cantidad" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="dt_secuencia" ColumnName="dt_secuencia" />
-                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
-                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="in_transferencia">
             <EntityTypeMapping TypeName="DBERPModelInventario.in_transferencia">
               <MappingFragment StoreEntitySet="in_transferencia">
@@ -16968,6 +16951,32 @@
                 <ScalarProperty Name="SucursalOrigen" ColumnName="SucursalOrigen" />
                 <ScalarProperty Name="IdBodegaDest" ColumnName="IdBodegaDest" />
                 <ScalarProperty Name="IdSucursalDest" ColumnName="IdSucursalDest" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="in_transferencia_det">
+            <EntityTypeMapping TypeName="DBERPModelInventario.in_transferencia_det">
+              <MappingFragment StoreEntitySet="in_transferencia_det">
+                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="EnviarEnGuia" ColumnName="EnviarEnGuia" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
+                <ScalarProperty Name="dt_cantidadFinal" ColumnName="dt_cantidadFinal" />
+                <ScalarProperty Name="dt_cantidadApro" ColumnName="dt_cantidadApro" />
+                <ScalarProperty Name="dt_cantidad" ColumnName="dt_cantidad" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="dt_secuencia" ColumnName="dt_secuencia" />
                 <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
                 <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
                 <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />

@@ -86,7 +86,6 @@ namespace Core.Erp.Winform
             param.InfoSucursal = InfoSucursal;
             param.IdInstitucion = 1;
             param.em_Email = InfoEmpresa.em_Email;
-            //Application.Run(new frmCP_XML_Consulta());
             Application.Run(new FrmMain());
             
          }

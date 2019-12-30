@@ -21,17 +21,29 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @leve
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N' ColumnWidths = 11
-         Column = 4890
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'      Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 4896
          Alias = 2700
-         Table = 1170
+         Table = 1176
          Output = 720
          Append = 1400
          NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
+         SortType = 1356
+         SortOrder = 1416
          GroupBy = 1350
-         Filter = 1350
+         Filter = 1356
          Or = 1350
          Or = 1350
          Or = 1350
@@ -41,17 +53,19 @@ End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_Transferencia_Detalle';
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[65] 4[5] 2[5] 3) )"
+         Configuration = "(H (1[62] 4[3] 2[10] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
-         Configuration = "(H (1[85] 4[4] 3) )"
+         Configuration = "(H (1[64] 4[17] 3) )"
       End
       Begin PaneConfiguration = 2
          NumPanes = 3
@@ -105,7 +119,7 @@ Begin DesignProperties =
          NumPanes = 1
          Configuration = "(V (2))"
       End
-      ActivePaneConfig = 1
+      ActivePaneConfig = 0
    End
    Begin DiagramPane = 
       Begin Origin = 
@@ -115,20 +129,30 @@ Begin DesignProperties =
       Begin Tables = 
          Begin Table = "in_transferencia_det"
             Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 343
-               Right = 301
+               Top = 0
+               Left = 63
+               Bottom = 393
+               Right = 372
             End
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "in_Producto"
+         Begin Table = "in_transferencia"
             Begin Extent = 
-               Top = 11
-               Left = 476
-               Bottom = 140
-               Right = 710
+               Top = 0
+               Left = 486
+               Bottom = 508
+               Right = 812
+            End
+            DisplayFlags = 280
+            TopColumn = 8
+         End
+         Begin Table = "in_Ing_Egr_Inven_det"
+            Begin Extent = 
+               Top = 0
+               Left = 927
+               Bottom = 508
+               Right = 1236
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -136,7 +160,6 @@ Begin DesignProperties =
       End
    End
    Begin SQLPane = 
-      PaneHidden = 
    End
    Begin DataPane = 
       Begin ParameterDefaults = ""
@@ -145,23 +168,23 @@ Begin DesignProperties =
          Width = 284
          Width = 1500
          Width = 1500
-         Width = 1770
+         Width = 1776
          Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 2805
-         Width = 2790
+         Width = 2808
+         Width = 2796
          Width = 2940
-         Width = 2865
-         Width = 2850
+         Width = 2868
+         Width = 2856
          Width = 3000
          Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 2490
+         Width = 2496
          Width = 1500
          Width = 1500
          Width = 1500
@@ -171,24 +194,14 @@ Begin DesignProperties =
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1650
-         Width = 2535
-         Width = 2445
+         Width = 1656
+         Width = 2532
+         Width = 2448
          Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
-      Begin', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_Transferencia_Detalle';
+   ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_Transferencia_Detalle';
+
+
 

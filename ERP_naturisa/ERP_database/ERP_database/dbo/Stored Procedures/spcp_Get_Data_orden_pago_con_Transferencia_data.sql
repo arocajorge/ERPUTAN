@@ -41,7 +41,7 @@ FROM            ct_cbtecble_tipo RIGHT OUTER JOIN
                          cp_orden_pago_det AS OP_det ON OP.IdEmpresa = OP_det.IdEmpresa AND OP.IdOrdenPago = OP_det.IdOrdenPago INNER JOIN
                          ba_Archivo_Transferencia_Det AS arc_tr ON OP_det.IdEmpresa = arc_tr.IdEmpresa_OP AND OP_det.IdOrdenPago = arc_tr.IdOrdenPago AND OP_det.Secuencia = arc_tr.Secuencia_OP ON 
                          OP_can.IdEmpresa_op = OP_det.IdEmpresa AND OP_can.IdOrdenPago_op = OP_det.IdOrdenPago AND OP_can.Secuencia_op = OP_det.Secuencia
-WHERE       op.IdEmpresa = @i_idempresa and (OP.Estado = 'A') AND (OP_det.IdEstadoAprobacion = 'APRO') AND (arc_tr.IdArchivo = @i_IdArchivo)
+WHERE       op.IdEmpresa = @i_idempresa and (OP.Estado = 'A') AND (OP_det.IdEstadoAprobacion = 'APRO') AND (arc_tr.IdArchivo = @i_IdArchivo) and (op_det.IdCbteCble_cxp is not null and op_det.IdTipoCbte_cxp is not null and op_det.IdEmpresa_cxp is not null)
 and (exists(
 select * from ba_Cbte_Ban_tipo_x_ct_CbteCble_tipo tipo
 where tipo.CodTipoCbteBan = 'NDBA'
@@ -79,6 +79,7 @@ where ar_det.IdEmpresa_OP =  OP_det.IdEmpresa
 and ar_det.IdOrdenPago = op_det.IdOrdenPago
 and ar_det.Secuencia_OP = OP_det.Secuencia
 )
+and (op_det.IdCbteCble_cxp is not null and op_det.IdTipoCbte_cxp is not null and op_det.IdEmpresa_cxp is not null)
 GROUP BY OP_det.IdEmpresa, OP.IdTipo_op, OP_det.IdOrdenPago, OP_det.Secuencia, OP.IdTipo_Persona, OP.IdPersona, OP.IdEntidad, OP.Fecha, OP.Observacion,OP_det.Valor_a_pagar, OP_det.IdEstadoAprobacion, OP_det.IdFormaPago, 
                          OP_det.Fecha_Pago, OP_det.IdCbteCble_cxp, OP.Estado, OP_det.IdEmpresa_cxp, OP_det.IdTipoCbte_cxp
 having OP_det.IdEmpresa=@i_idempresa 

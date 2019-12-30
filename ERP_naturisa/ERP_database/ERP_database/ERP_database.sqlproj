@@ -1305,5 +1305,8 @@
     <Build Include="dbo\Views\vwcom_OrdenPedidoDet_PorOC_1.sql" />
     <Build Include="dbo\Stored Procedures\SPCOM_SeguimientoEntrega_1.sql" />
     <Build Include="dbo\Views\vwcom_OrdenPedidoDet_PorTR.sql" />
+    <Build Include="dbo\Views\vwin_Transferencias_ParaProcesar.sql" />
+    <Build Include="dbo\Views\vwin_Transferencias_ParaAprobacion.sql" />
+    <Build Include="dbo\Views\vwin_transferencia_det_ParaCorreccion.sql" />
   </ItemGroup>
 </Project>

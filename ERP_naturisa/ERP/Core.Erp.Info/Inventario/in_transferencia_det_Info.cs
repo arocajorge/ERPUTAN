@@ -47,5 +47,11 @@ namespace Core.Erp.Info.Inventario
         public int? IdSucursal_oc { get; set; }
 
         public string ObservacionAprobacion { get; set; }
+
+        public string NomUnidadMedida { get; set; }
+
+        public double dt_cantidadApro { get; set; }
+
+        public double dt_cantidadFinal { get; set; }
     }
 }

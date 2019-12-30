@@ -493,7 +493,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                     iva.compras = lstDetalleCompras;
                     progressBar1.Value = 85;
-
+                
 //*****ANULADOS*******
 //********************
 
@@ -521,7 +521,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                     if (lstDetalleDocAnu.Count > 0)
                         iva.anulados = lstDetalleDocAnu;
-
+                
                 //// FACTURAS
 
                     fa_factura_Bus fac_B = new fa_factura_Bus();
@@ -749,9 +749,16 @@ namespace Core.Erp.Winform.CuentasxPagar
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(iva));
+                
                 TextWriter textWriter = new StreamWriter(@ruta);
                 serializer.Serialize(textWriter, data);
+             
                 textWriter.Close();
+
+                string text = File.ReadAllText(@ruta);
+                text = text.Replace("\r\n", "");
+                File.WriteAllText(@ruta+".xml", text);
+                 
                 return true;
             }
             catch (Exception)
@@ -783,7 +790,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
               
                 Boolean val;
-
+                xsd = xsd.Trim().Replace("\t", "").Replace("\n", "").Replace("\r", "").Replace("        ", "").Replace("    ", "");
                 string archiTem = direcDoc + @"\ValidadorXml.xsd";
                 if (Cp.FileSystem.FileExists(archiTem))
                 {

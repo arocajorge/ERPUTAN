@@ -1,6 +1,6 @@
 ﻿namespace Core.Erp.Winform.Inventario
 {
-    partial class FrmIn_TransferenciaConGuiaRevisionM
+    partial class FrmIn_TransferenciaConGuiaErrorMantenimiento
     {
         /// <summary>
         /// Required designer variable.
@@ -104,6 +104,8 @@
             this.colUnidadMedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -876,12 +878,14 @@
             this.colNomProducto,
             this.colUnidadMedida,
             this.gridColumn5,
-            this.gridColumn6});
+            this.gridColumn6,
+            this.gridColumn1,
+            this.gridColumn2});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Name = "gvDetalle";
-            this.gvDetalle.OptionsBehavior.ReadOnly = true;
             this.gvDetalle.OptionsView.ShowFooter = true;
             this.gvDetalle.OptionsView.ShowGroupPanel = false;
+            this.gvDetalle.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvDetalle_RowCellStyle);
             this.gvDetalle.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvDetalle_FocusedRowChanged);
             this.gvDetalle.FocusedColumnChanged += new DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventHandler(this.gvDetalle_FocusedColumnChanged);
             this.gvDetalle.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDetalle_CellValueChanged);
@@ -892,18 +896,20 @@
             this.colChecked.Caption = "En guia";
             this.colChecked.FieldName = "EnviarEnGuia";
             this.colChecked.Name = "colChecked";
+            this.colChecked.OptionsColumn.AllowEdit = false;
             this.colChecked.Visible = true;
-            this.colChecked.VisibleIndex = 5;
-            this.colChecked.Width = 63;
+            this.colChecked.VisibleIndex = 7;
+            this.colChecked.Width = 76;
             // 
             // colIdProducto
             // 
             this.colIdProducto.Caption = "Código";
             this.colIdProducto.FieldName = "IdProducto";
             this.colIdProducto.Name = "colIdProducto";
+            this.colIdProducto.OptionsColumn.AllowEdit = false;
             this.colIdProducto.Visible = true;
             this.colIdProducto.VisibleIndex = 0;
-            this.colIdProducto.Width = 110;
+            this.colIdProducto.Width = 139;
             // 
             // colNomProducto
             // 
@@ -913,38 +919,60 @@
             this.colNomProducto.OptionsColumn.AllowEdit = false;
             this.colNomProducto.Visible = true;
             this.colNomProducto.VisibleIndex = 1;
-            this.colNomProducto.Width = 423;
+            this.colNomProducto.Width = 534;
             // 
             // colUnidadMedida
             // 
             this.colUnidadMedida.Caption = "U. Medida";
             this.colUnidadMedida.FieldName = "NomUnidadMedida";
             this.colUnidadMedida.Name = "colUnidadMedida";
+            this.colUnidadMedida.OptionsColumn.AllowEdit = false;
             this.colUnidadMedida.Visible = true;
             this.colUnidadMedida.VisibleIndex = 2;
-            this.colUnidadMedida.Width = 118;
+            this.colUnidadMedida.Width = 149;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Cantidad";
             this.gridColumn5.FieldName = "dt_cantidad";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dt_cantidad", "{0:n2}")});
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
-            this.gridColumn5.Width = 101;
+            this.gridColumn5.Width = 127;
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Observación por item";
             this.gridColumn6.FieldName = "tr_Observacion";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 406;
+            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.Width = 447;
             // 
-            // FrmIn_TransferenciaConGuiaRevisionM
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "C. Ingresada";
+            this.gridColumn1.FieldName = "dt_cantidadApro";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
+            this.gridColumn1.Width = 119;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "C. correcta";
+            this.gridColumn2.FieldName = "dt_cantidadFinal";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 5;
+            this.gridColumn2.Width = 143;
+            // 
+            // FrmIn_TransferenciaConGuiaErrorMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -952,10 +980,10 @@
             this.Controls.Add(this.gcDetalle);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ucgeMenu);
-            this.Name = "FrmIn_TransferenciaConGuiaRevisionM";
-            this.Text = "FrmIn_TransferenciaConGuiaRevisionM";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmIn_TransferenciaConGuiaRevisionM_FormClosed);
-            this.Load += new System.EventHandler(this.FrmIn_TransferenciaConGuiaRevisionM_Load);
+            this.Name = "FrmIn_TransferenciaConGuiaErrorMantenimiento";
+            this.Text = "FrmIn_TransferenciaConGuiaErrorMantenimiento";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmIn_TransferenciaConGuiaErrorMantenimiento_FormClosed);
+            this.Load += new System.EventHandler(this.FrmIn_TransferenciaConGuiaErrorMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
@@ -1079,5 +1107,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }
