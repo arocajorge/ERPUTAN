@@ -53,5 +53,9 @@ namespace Core.Erp.Info.Inventario
         public double dt_cantidadApro { get; set; }
 
         public double dt_cantidadFinal { get; set; }
+
+        public double CantidadAnterior { get; set; }
+
+        public string MotivoParcial { get; set; }
     }
 }

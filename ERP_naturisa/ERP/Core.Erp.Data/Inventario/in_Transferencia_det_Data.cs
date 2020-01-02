@@ -36,7 +36,9 @@ namespace Core.Erp.Data.Inventario
                             IdUnidadMedida = item.IdUnidadMedida,
                             NomUnidadMedida = item.in_UnidadMedida == null ? "" : item.in_UnidadMedida.Descripcion,
                             dt_cantidadApro = item.dt_cantidadApro,
-                            dt_cantidadFinal = item.dt_cantidadApro
+                            dt_cantidadFinal = item.dt_cantidadFinal,
+                            CantidadAnterior = item.dt_cantidad,
+                            MotivoParcial = item.MotivoParcial
 
                         });
                     }

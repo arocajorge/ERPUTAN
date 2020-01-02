@@ -1137,6 +1137,27 @@ namespace Core.Erp.Data.Inventario
             }
         }
 
+        public bool ValidarStock(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, double Cantidad, double CantidadAnterior)
+        {
+            try
+            {
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var Cont = db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto).Sum(q => q.dm_cantidad);
+
+                    double Final = Math.Round((CantidadAnterior + Cont) - Cantidad,2,MidpointRounding.AwayFromZero);
+                    if (Final < 0)
+                        return false;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public Boolean ModificarDB(List<fa_pedido_det_Info> lm, ref string mensaje)
         {
@@ -2329,6 +2350,7 @@ namespace Core.Erp.Data.Inventario
                 throw;
             }
         }
+
         public List<in_Producto_ComprasAnteriores> GetListCompras(int IdEmpresa, decimal IdProducto)
         {
             try

@@ -45,5 +45,6 @@ namespace Core.Erp.Data
         public string EstadoRevision { get; set; }
         public string IdUsuarioRevision { get; set; }
         public Nullable<System.DateTime> FechaRevision { get; set; }
+        public Nullable<bool> TuvoError { get; set; }
     }
 }

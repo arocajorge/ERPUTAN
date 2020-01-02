@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_SeguimientoEntregaSolicitante));
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -40,12 +42,20 @@
             this.deDesde = new DevExpress.XtraEditors.DateEdit();
             this.cmbProducto = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbProveedor = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbComprador = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbSolicitante = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtIdOrdenPedido = new DevExpress.XtraEditors.SpinEdit();
             this.gcDetalle = new DevExpress.XtraGrid.GridControl();
             this.gvDetalle = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -77,21 +87,19 @@
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
-            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deHasta.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHasta.Properties)).BeginInit();
@@ -108,6 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,101 +137,112 @@
             this.panel1.Controls.Add(this.cmbSolicitante);
             this.panel1.Controls.Add(this.txtIdOrdenPedido);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 27);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1404, 82);
+            this.panel1.Size = new System.Drawing.Size(1053, 67);
             this.panel1.TabIndex = 0;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(1165, 23);
+            this.labelControl7.Location = new System.Drawing.Point(874, 19);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(45, 16);
+            this.labelControl7.Size = new System.Drawing.Size(37, 13);
             this.labelControl7.TabIndex = 13;
             this.labelControl7.Text = "# SolPe";
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(921, 50);
+            this.labelControl6.Location = new System.Drawing.Point(691, 41);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(32, 16);
+            this.labelControl6.Size = new System.Drawing.Size(28, 13);
             this.labelControl6.TabIndex = 11;
             this.labelControl6.Text = "Hasta";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(921, 22);
+            this.labelControl5.Location = new System.Drawing.Point(691, 18);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(35, 16);
+            this.labelControl5.Size = new System.Drawing.Size(30, 13);
             this.labelControl5.TabIndex = 10;
             this.labelControl5.Text = "Desde";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(479, 50);
+            this.labelControl4.Location = new System.Drawing.Point(359, 41);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(50, 16);
+            this.labelControl4.Size = new System.Drawing.Size(43, 13);
             this.labelControl4.TabIndex = 9;
             this.labelControl4.Text = "Producto";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(479, 22);
+            this.labelControl3.Location = new System.Drawing.Point(359, 18);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(58, 16);
+            this.labelControl3.Size = new System.Drawing.Size(50, 13);
             this.labelControl3.TabIndex = 8;
             this.labelControl3.Text = "Proveedor";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(28, 47);
+            this.labelControl2.Location = new System.Drawing.Point(21, 38);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(64, 16);
+            this.labelControl2.Size = new System.Drawing.Size(53, 13);
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Comprador";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(28, 19);
+            this.labelControl1.Location = new System.Drawing.Point(21, 15);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(59, 16);
+            this.labelControl1.Size = new System.Drawing.Size(49, 13);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Solicitante";
             // 
             // deHasta
             // 
             this.deHasta.EditValue = null;
-            this.deHasta.Location = new System.Drawing.Point(990, 47);
+            this.deHasta.Location = new System.Drawing.Point(742, 38);
+            this.deHasta.Margin = new System.Windows.Forms.Padding(2);
             this.deHasta.Name = "deHasta";
             this.deHasta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deHasta.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deHasta.Size = new System.Drawing.Size(150, 22);
+            this.deHasta.Size = new System.Drawing.Size(112, 20);
             this.deHasta.TabIndex = 5;
             // 
             // deDesde
             // 
             this.deDesde.EditValue = null;
-            this.deDesde.Location = new System.Drawing.Point(990, 19);
+            this.deDesde.Location = new System.Drawing.Point(742, 15);
+            this.deDesde.Margin = new System.Windows.Forms.Padding(2);
             this.deDesde.Name = "deDesde";
             this.deDesde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deDesde.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deDesde.Size = new System.Drawing.Size(150, 22);
+            this.deDesde.Size = new System.Drawing.Size(112, 20);
             this.deDesde.TabIndex = 4;
             // 
             // cmbProducto
             // 
-            this.cmbProducto.Location = new System.Drawing.Point(589, 47);
+            this.cmbProducto.Location = new System.Drawing.Point(442, 38);
+            this.cmbProducto.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbProducto.Properties.DisplayMember = "pr_descripcion";
             this.cmbProducto.Properties.ValueMember = "IdProducto";
             this.cmbProducto.Properties.View = this.gridView2;
-            this.cmbProducto.Size = new System.Drawing.Size(300, 22);
+            this.cmbProducto.Size = new System.Drawing.Size(225, 20);
             this.cmbProducto.TabIndex = 3;
             // 
             // gridView2
@@ -236,16 +256,35 @@
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "Producto";
+            this.gridColumn37.FieldName = "pr_descripcion";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 0;
+            this.gridColumn37.Width = 1516;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "ID";
+            this.gridColumn38.FieldName = "IdProducto";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 1;
+            this.gridColumn38.Width = 218;
+            // 
             // cmbProveedor
             // 
-            this.cmbProveedor.Location = new System.Drawing.Point(589, 19);
+            this.cmbProveedor.Location = new System.Drawing.Point(442, 15);
+            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbProveedor.Properties.DisplayMember = "pe_nombreCompleto";
             this.cmbProveedor.Properties.ValueMember = "IdProveedor";
             this.cmbProveedor.Properties.View = this.gridView3;
-            this.cmbProveedor.Size = new System.Drawing.Size(300, 22);
+            this.cmbProveedor.Size = new System.Drawing.Size(225, 20);
             this.cmbProveedor.TabIndex = 2;
             // 
             // gridView3
@@ -259,16 +298,35 @@
             this.gridView3.OptionsView.ShowAutoFilterRow = true;
             this.gridView3.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "Proveedor";
+            this.gridColumn35.FieldName = "pe_nombreCompleto";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 0;
+            this.gridColumn35.Width = 1428;
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "ID";
+            this.gridColumn36.FieldName = "IdProveedor";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 1;
+            this.gridColumn36.Width = 306;
+            // 
             // cmbComprador
             // 
-            this.cmbComprador.Location = new System.Drawing.Point(142, 47);
+            this.cmbComprador.Location = new System.Drawing.Point(106, 38);
+            this.cmbComprador.Margin = new System.Windows.Forms.Padding(2);
             this.cmbComprador.Name = "cmbComprador";
             this.cmbComprador.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbComprador.Properties.DisplayMember = "Descripcion";
             this.cmbComprador.Properties.ValueMember = "IdComprador";
             this.cmbComprador.Properties.View = this.gridView1;
-            this.cmbComprador.Size = new System.Drawing.Size(300, 22);
+            this.cmbComprador.Size = new System.Drawing.Size(225, 20);
             this.cmbComprador.TabIndex = 1;
             // 
             // gridView1
@@ -282,16 +340,35 @@
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn33
+            // 
+            this.gridColumn33.Caption = "Comprador";
+            this.gridColumn33.FieldName = "Descripcion";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 0;
+            this.gridColumn33.Width = 1468;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "ID";
+            this.gridColumn34.FieldName = "IdComprador";
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 1;
+            this.gridColumn34.Width = 266;
+            // 
             // cmbSolicitante
             // 
-            this.cmbSolicitante.Location = new System.Drawing.Point(142, 19);
+            this.cmbSolicitante.Location = new System.Drawing.Point(106, 15);
+            this.cmbSolicitante.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSolicitante.Name = "cmbSolicitante";
             this.cmbSolicitante.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSolicitante.Properties.DisplayMember = "nom_solicitante";
             this.cmbSolicitante.Properties.ValueMember = "IdSolicitante";
             this.cmbSolicitante.Properties.View = this.searchLookUpEdit1View;
-            this.cmbSolicitante.Size = new System.Drawing.Size(300, 22);
+            this.cmbSolicitante.Size = new System.Drawing.Size(225, 20);
             this.cmbSolicitante.TabIndex = 0;
             // 
             // searchLookUpEdit1View
@@ -305,6 +382,24 @@
             this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn31
+            // 
+            this.gridColumn31.Caption = "Solicitante";
+            this.gridColumn31.FieldName = "nom_solicitante";
+            this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.Visible = true;
+            this.gridColumn31.VisibleIndex = 0;
+            this.gridColumn31.Width = 1562;
+            // 
+            // gridColumn32
+            // 
+            this.gridColumn32.Caption = "ID";
+            this.gridColumn32.FieldName = "IdSolicitante";
+            this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.Visible = true;
+            this.gridColumn32.VisibleIndex = 1;
+            this.gridColumn32.Width = 172;
+            // 
             // txtIdOrdenPedido
             // 
             this.txtIdOrdenPedido.EditValue = new decimal(new int[] {
@@ -312,22 +407,27 @@
             0,
             0,
             0});
-            this.txtIdOrdenPedido.Location = new System.Drawing.Point(1236, 20);
+            this.txtIdOrdenPedido.Location = new System.Drawing.Point(927, 16);
+            this.txtIdOrdenPedido.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdOrdenPedido.Name = "txtIdOrdenPedido";
             this.txtIdOrdenPedido.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtIdOrdenPedido.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtIdOrdenPedido.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtIdOrdenPedido.Size = new System.Drawing.Size(100, 22);
+            this.txtIdOrdenPedido.Size = new System.Drawing.Size(75, 20);
             this.txtIdOrdenPedido.TabIndex = 12;
             // 
             // gcDetalle
             // 
             this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.Location = new System.Drawing.Point(0, 109);
+            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gcDetalle.Location = new System.Drawing.Point(0, 92);
             this.gcDetalle.MainView = this.gvDetalle;
+            this.gcDetalle.Margin = new System.Windows.Forms.Padding(2);
             this.gcDetalle.Name = "gcDetalle";
-            this.gcDetalle.Size = new System.Drawing.Size(1404, 607);
+            this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbImagen});
+            this.gcDetalle.Size = new System.Drawing.Size(1053, 490);
             this.gcDetalle.TabIndex = 1;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalle});
@@ -364,7 +464,11 @@
             this.gridColumn27,
             this.gridColumn28,
             this.gridColumn29,
-            this.gridColumn30});
+            this.gridColumn30,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn42});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Name = "gvDetalle";
             this.gvDetalle.OptionsBehavior.ReadOnly = true;
@@ -374,7 +478,7 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "# SolPe";
+            this.gridColumn1.Caption = "# SolPed";
             this.gridColumn1.FieldName = "IdOrdenPedido";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
@@ -401,7 +505,7 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Estado SolPe";
+            this.gridColumn4.Caption = "Estado SolPed";
             this.gridColumn4.FieldName = "EstadoSolpe";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -464,7 +568,7 @@
             // 
             // gridColumn11
             // 
-            this.gridColumn11.Caption = "Fecha SolPe";
+            this.gridColumn11.Caption = "Fecha SolPed";
             this.gridColumn11.DisplayFormat.FormatString = "d";
             this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn11.FieldName = "op_Fecha";
@@ -522,7 +626,7 @@
             // 
             // gridColumn17
             // 
-            this.gridColumn17.Caption = "Nota SolPe";
+            this.gridColumn17.Caption = "Nota SolPed";
             this.gridColumn17.FieldName = "op_Observacion";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
@@ -540,7 +644,7 @@
             // 
             // gridColumn19
             // 
-            this.gridColumn19.Caption = "Nota item SolPe";
+            this.gridColumn19.Caption = "Nota item SolPed";
             this.gridColumn19.FieldName = "opd_Detalle";
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.Visible = true;
@@ -553,7 +657,7 @@
             this.gridColumn20.FieldName = "pe_nombreCompleto";
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 19;
+            this.gridColumn20.VisibleIndex = 20;
             this.gridColumn20.Width = 200;
             // 
             // gridColumn21
@@ -562,7 +666,7 @@
             this.gridColumn21.FieldName = "CantidadOC";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 20;
+            this.gridColumn21.VisibleIndex = 21;
             this.gridColumn21.Width = 100;
             // 
             // gridColumn22
@@ -573,7 +677,7 @@
             this.gridColumn22.FieldName = "FechaOC";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 21;
+            this.gridColumn22.VisibleIndex = 22;
             this.gridColumn22.Width = 100;
             // 
             // gridColumn23
@@ -584,7 +688,7 @@
             this.gridColumn23.FieldName = "FechaEntrega";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 22;
+            this.gridColumn23.VisibleIndex = 23;
             this.gridColumn23.Width = 100;
             // 
             // gridColumn24
@@ -593,7 +697,7 @@
             this.gridColumn24.FieldName = "NombreComprador";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.Visible = true;
-            this.gridColumn24.VisibleIndex = 23;
+            this.gridColumn24.VisibleIndex = 24;
             this.gridColumn24.Width = 200;
             // 
             // gridColumn25
@@ -602,7 +706,7 @@
             this.gridColumn25.FieldName = "IB_UltIdNumMovi";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 24;
+            this.gridColumn25.VisibleIndex = 25;
             this.gridColumn25.Width = 100;
             // 
             // gridColumn26
@@ -611,7 +715,7 @@
             this.gridColumn26.FieldName = "IB_Cantidad";
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 25;
+            this.gridColumn26.VisibleIndex = 26;
             this.gridColumn26.Width = 100;
             // 
             // gridColumn27
@@ -622,17 +726,43 @@
             this.gridColumn27.FieldName = "IB_Fecha";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 26;
+            this.gridColumn27.VisibleIndex = 27;
             this.gridColumn27.Width = 100;
             // 
             // gridColumn28
             // 
             this.gridColumn28.Caption = "Alerta entrega";
+            this.gridColumn28.ColumnEdit = this.cmbImagen;
             this.gridColumn28.FieldName = "AlertaEntrega";
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 27;
+            this.gridColumn28.VisibleIndex = 28;
             this.gridColumn28.Width = 50;
+            // 
+            // cmbImagen
+            // 
+            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImagen.AutoHeight = false;
+            this.cmbImagen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImagen.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImagen.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", 1, 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", 2, 1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", 3, 2),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", 4, 3)});
+            this.cmbImagen.LargeImages = this.imageList1;
+            this.cmbImagen.Name = "cmbImagen";
+            this.cmbImagen.ReadOnly = true;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "ColorBlanco_16x16.png");
+            this.imageList1.Images.SetKeyName(1, "ColorVerde_16x16.png");
+            this.imageList1.Images.SetKeyName(2, "ColorAmarillo_16x16.png");
+            this.imageList1.Images.SetKeyName(3, "ColorRojo_16x16.png");
             // 
             // gridColumn29
             // 
@@ -640,7 +770,7 @@
             this.gridColumn29.FieldName = "CantidadPendiente";
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 28;
+            this.gridColumn29.VisibleIndex = 29;
             this.gridColumn29.Width = 100;
             // 
             // gridColumn30
@@ -649,8 +779,46 @@
             this.gridColumn30.FieldName = "DiasPendiente";
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 29;
+            this.gridColumn30.VisibleIndex = 30;
             this.gridColumn30.Width = 100;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "# OC";
+            this.gridColumn39.FieldName = "CodigoOC";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 19;
+            this.gridColumn39.Width = 101;
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.Caption = "Destino Transferencia";
+            this.gridColumn40.FieldName = "NombreSucursalTransferencia";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 31;
+            this.gridColumn40.Width = 200;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.Caption = "Bodega Transferencia";
+            this.gridColumn41.FieldName = "NombreBodegaTransferencia";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.Visible = true;
+            this.gridColumn41.VisibleIndex = 32;
+            this.gridColumn41.Width = 200;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "Fecha recepción";
+            this.gridColumn42.DisplayFormat.FormatString = "d";
+            this.gridColumn42.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn42.FieldName = "FechaRecepcionTransferencia";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.Visible = true;
+            this.gridColumn42.VisibleIndex = 33;
+            this.gridColumn42.Width = 100;
             // 
             // toolStrip1
             // 
@@ -660,7 +828,7 @@
             this.btnSalir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1404, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1053, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -669,7 +837,7 @@
             this.btnBuscar.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
             this.btnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(72, 24);
+            this.btnBuscar.Size = new System.Drawing.Size(62, 22);
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -678,7 +846,7 @@
             this.btnImprimir.Image = global::Core.Erp.Winform.Properties.Resources.imprimir_32x32;
             this.btnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(86, 24);
+            this.btnImprimir.Size = new System.Drawing.Size(73, 22);
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -687,90 +855,19 @@
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_161;
             this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(58, 24);
+            this.btnSalir.Size = new System.Drawing.Size(49, 22);
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // gridColumn31
-            // 
-            this.gridColumn31.Caption = "Solicitante";
-            this.gridColumn31.FieldName = "nom_solicitante";
-            this.gridColumn31.Name = "gridColumn31";
-            this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 0;
-            this.gridColumn31.Width = 1562;
-            // 
-            // gridColumn32
-            // 
-            this.gridColumn32.Caption = "ID";
-            this.gridColumn32.FieldName = "IdSolicitante";
-            this.gridColumn32.Name = "gridColumn32";
-            this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 1;
-            this.gridColumn32.Width = 172;
-            // 
-            // gridColumn33
-            // 
-            this.gridColumn33.Caption = "Comprador";
-            this.gridColumn33.FieldName = "Descripcion";
-            this.gridColumn33.Name = "gridColumn33";
-            this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 0;
-            this.gridColumn33.Width = 1468;
-            // 
-            // gridColumn34
-            // 
-            this.gridColumn34.Caption = "ID";
-            this.gridColumn34.FieldName = "IdComprador";
-            this.gridColumn34.Name = "gridColumn34";
-            this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 1;
-            this.gridColumn34.Width = 266;
-            // 
-            // gridColumn35
-            // 
-            this.gridColumn35.Caption = "Proveedor";
-            this.gridColumn35.FieldName = "pe_nombreCompleto";
-            this.gridColumn35.Name = "gridColumn35";
-            this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 0;
-            this.gridColumn35.Width = 1428;
-            // 
-            // gridColumn36
-            // 
-            this.gridColumn36.Caption = "ID";
-            this.gridColumn36.FieldName = "IdProveedor";
-            this.gridColumn36.Name = "gridColumn36";
-            this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 1;
-            this.gridColumn36.Width = 306;
-            // 
-            // gridColumn37
-            // 
-            this.gridColumn37.Caption = "Producto";
-            this.gridColumn37.FieldName = "pr_descripcion";
-            this.gridColumn37.Name = "gridColumn37";
-            this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 0;
-            this.gridColumn37.Width = 1516;
-            // 
-            // gridColumn38
-            // 
-            this.gridColumn38.Caption = "ID";
-            this.gridColumn38.FieldName = "IdProducto";
-            this.gridColumn38.Name = "gridColumn38";
-            this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 1;
-            this.gridColumn38.Width = 218;
-            // 
             // FrmCom_SeguimientoEntregaSolicitante
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1404, 716);
+            this.ClientSize = new System.Drawing.Size(1053, 582);
             this.Controls.Add(this.gcDetalle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCom_SeguimientoEntregaSolicitante";
             this.Text = "Seguimiento de entrega";
             this.Load += new System.EventHandler(this.FrmCom_SeguimientoEntregaSolicitante_Load);
@@ -791,6 +888,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtIdOrdenPedido.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -857,12 +955,18 @@
         private DevExpress.XtraEditors.SpinEdit txtIdOrdenPedido;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
     }
 }

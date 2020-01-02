@@ -819,6 +819,19 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public bool ValidarStock(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, double Cantidad, double CantidadAnterior)
+        {
+            try
+            {
+                return proD.ValidarStock(IdEmpresa, IdSucursal, IdBodega, IdProducto,Cantidad,CantidadAnterior);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public List<in_Producto_ComprasAnteriores> GetListCompras(int IdEmpresa, decimal IdProducto)
         {
             try

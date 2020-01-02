@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIn_TransferenciaConGuiaConsulta));
             this.ultrTransFerencia = new DevExpress.XtraGrid.GridControl();
             this.gridViewTransferencias = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IdTransferencia = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,19 +47,23 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ucGe_Menu_Mantenimiento_x_usuario = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ultrTransFerencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTransferencias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // ultrTransFerencia
             // 
             this.ultrTransFerencia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ultrTransFerencia.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.ultrTransFerencia.Location = new System.Drawing.Point(0, 190);
+            this.ultrTransFerencia.Location = new System.Drawing.Point(0, 154);
             this.ultrTransFerencia.MainView = this.gridViewTransferencias;
-            this.ultrTransFerencia.Margin = new System.Windows.Forms.Padding(4);
             this.ultrTransFerencia.Name = "ultrTransFerencia";
-            this.ultrTransFerencia.Size = new System.Drawing.Size(1323, 456);
+            this.ultrTransFerencia.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbImagen});
+            this.ultrTransFerencia.Size = new System.Drawing.Size(992, 371);
             this.ultrTransFerencia.TabIndex = 3;
             this.ultrTransFerencia.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTransferencias});
@@ -78,7 +84,8 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn9});
             this.gridViewTransferencias.GridControl = this.ultrTransFerencia;
             this.gridViewTransferencias.GroupCount = 2;
             this.gridViewTransferencias.Name = "gridViewTransferencias";
@@ -238,16 +245,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2019, 12, 7, 0, 0, 0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2019, 12, 14, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2019, 12, 25, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_Menu_Mantenimiento_x_usuario.Name = "ucGe_Menu_Mantenimiento_x_usuario";
             this.ucGe_Menu_Mantenimiento_x_usuario.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1323, 190);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(992, 154);
             this.ucGe_Menu_Mantenimiento_x_usuario.TabIndex = 2;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_bodega = false;
@@ -289,18 +296,47 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.event_btnSalir_ItemClick += new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnSalir_ItemClick(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnSalir_ItemClick);
             this.ucGe_Menu_Mantenimiento_x_usuario.event_btnBuscar_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnBuscar_Click(this.ucGe_Menu_Mantenimiento_x_usuario_event_btnBuscar_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Error16x16.png");
+            // 
+            // cmbImagen
+            // 
+            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImagen.AutoHeight = false;
+            this.cmbImagen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImagen.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0)});
+            this.cmbImagen.LargeImages = this.imageList1;
+            this.cmbImagen.Name = "cmbImagen";
+            this.cmbImagen.ReadOnly = true;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Tuvo error";
+            this.gridColumn9.ColumnEdit = this.cmbImagen;
+            this.gridColumn9.FieldName = "TuvoError";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 10;
+            // 
             // FrmIn_TransferenciaConGuiaConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 646);
+            this.ClientSize = new System.Drawing.Size(992, 525);
             this.Controls.Add(this.ultrTransFerencia);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmIn_TransferenciaConGuiaConsulta";
             this.Text = "FrmIn_TransferenciaConGuiaConsulta";
             this.Load += new System.EventHandler(this.FrmIn_TransferenciaConGuiaConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ultrTransFerencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTransferencias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +360,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private Controles.UCGe_Menu_Mantenimiento_x_usuario ucGe_Menu_Mantenimiento_x_usuario;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
     }
 }

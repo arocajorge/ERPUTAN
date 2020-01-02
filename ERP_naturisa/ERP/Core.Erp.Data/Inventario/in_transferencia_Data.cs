@@ -660,7 +660,8 @@ namespace Core.Erp.Data.Inventario
                                  IdEstadoAproba_ing = q.IdEstadoAproba_ing,
                                  IdUsuario = q.IdUsuario,
                                  IdGuia = q.IdGuia,
-                                 EstadoRevision = q.EstadoRevision
+                                 EstadoRevision = q.EstadoRevision,
+                                 TuvoError = q.TuvoError ?? false
                              }).ToList();
 
 
@@ -974,7 +975,8 @@ namespace Core.Erp.Data.Inventario
                             Estado = "A",
                             tr_fecha_transaccion = DateTime.Now,
                             IdGuia = null,
-                            EstadoRevision = "P"
+                            EstadoRevision = "P",
+                            TuvoError = false
                         };
 
                         int Secuencia = 1;
@@ -1035,11 +1037,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad,
+                                    dm_cantidad = item.dt_cantidad * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion = item.dt_cantidad,
+                                    dm_cantidad_sinConversion = item.dt_cantidad * -1,
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 
@@ -1237,11 +1239,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad,
+                                    dm_cantidad = item.dt_cantidad *-1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion = item.dt_cantidad,
+                                    dm_cantidad_sinConversion = item.dt_cantidad * -1,
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 
@@ -1286,11 +1288,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad,
+                                    dm_cantidad = item.dt_cantidad * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion = item.dt_cantidad,
+                                    dm_cantidad_sinConversion = item.dt_cantidad * -1,
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 
@@ -1588,12 +1590,18 @@ namespace Core.Erp.Data.Inventario
                             if (det != null)
                             {
                                 det.dt_cantidadApro = item.cantidad_enviar;
+                                det.dt_cantidadFinal = Math.Round(det.dt_cantidad - item.cantidad_enviar, 2, MidpointRounding.AwayFromZero);
+                                det.MotivoParcial = item.MotivoParcial;
                             }
                         }                        
 
                         Entity.IdNumMovi_Ing_Egr_Inven_Destino = info.IdNumMovi_Ing_Egr_Inven_Destino;
                         if (info.lista_detalle_transferencia.Where(q => q.cantidad_enviar != q.dt_cantidad).Count() > 0)
+                        {
                             Entity.EstadoRevision = "E";
+                            Entity.TuvoError = true;
+                        }
+
                         Entity.IdUsuarioUltMod = info.IdUsuario;
                         Entity.Fecha_UltMod = DateTime.Now;
                         db.SaveChanges();
@@ -1666,11 +1674,11 @@ namespace Core.Erp.Data.Inventario
                                 IdBodega = info.IdBodegaOrigen,
                                 IdProducto = item.IdProducto ?? 0,
 
-                                dm_cantidad = item.dt_cantidadFinal,
+                                dm_cantidad = item.dt_cantidadApro * -1,
                                 mv_costo = 0,
                                 IdUnidadMedida = item.IdUnidadMedida,
 
-                                dm_cantidad_sinConversion = item.dt_cantidadFinal,
+                                dm_cantidad_sinConversion = item.dt_cantidadApro * -1,
                                 mv_costo_sinConversion = 0,
                                 IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 

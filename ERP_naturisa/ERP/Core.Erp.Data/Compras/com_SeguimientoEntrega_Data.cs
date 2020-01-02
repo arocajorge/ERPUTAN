@@ -48,11 +48,16 @@ namespace Core.Erp.Data.Compras
                             op_Observacion = item.op_Observacion,
                             ObservacionGA = item.ObservacionGA,
                             opd_Detalle = item.opd_Detalle,
+                            IdSucursalOC = item.IdSucursalOC,
+                            IdOrdenCompra = item.IdOrdenCompra,
+                            SecuenciaOC = item.SecuenciaOC,
                             IdProveedor = item.IdProveedor,
                             pe_nombreCompleto = item.pe_nombreCompleto,
+                            CodigoOC = item.CodigoOC,
                             CantidadOC = item.CantidadOC,
                             FechaOC = item.FechaOC,
                             FechaEntrega = item.FechaEntrega,
+                            IdComprador = item.IdComprador,
                             NombreComprador = item.NombreComprador,
                             IB_UltIdNumMovi = item.IB_UltIdNumMovi,
                             IB_Cantidad = item.IB_Cantidad,
@@ -60,6 +65,10 @@ namespace Core.Erp.Data.Compras
                             AlertaEntrega = item.AlertaEntrega,
                             CantidadPendiente = item.CantidadPendiente,
                             DiasPendiente = item.DiasPendiente,
+                            NombreSucursalTransferencia = item.NombreSucursalTransferencia,
+                            NombreBodegaTransferencia = item.NombreBodegaTransferencia,
+                            FechaTransferencia = item.FechaTransferencia,
+                            FechaRecepcionTransferencia = item.FechaRecepcionTransferencia,
                         });
                     }
                 }

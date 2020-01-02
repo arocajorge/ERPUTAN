@@ -156,6 +156,12 @@ namespace Core.Erp.Winform.Inventario
                     return false;
                 }
 
+                if (blstDet.Where(Q=> Q.check == true && Q.Saldo != 0 && string.IsNullOrEmpty(Q.MotivoParcial)).Count() > 0)
+                {
+                    MessageBox.Show("Debe seleccionar un motivo en caso de que no se reciba la transferencia completa",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
                 return true;
             }
             catch (Exception)
@@ -198,6 +204,31 @@ namespace Core.Erp.Winform.Inventario
 
                 throw;
             }
+        }
+
+        private void gvDetalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetFocusedRow();
+            if (row == null)
+                return;
+
+            if (row.check && row.Saldo != 0)
+                colMotivoParcial.OptionsColumn.AllowEdit = true;
+            else
+                colMotivoParcial.OptionsColumn.AllowEdit = false;
+        }
+
+        private void gvDetalle_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
+        {
+            in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetFocusedRow();
+            if (row == null)
+                return;
+
+            if (row.check && row.Saldo != 0)
+                colMotivoParcial.OptionsColumn.AllowEdit = true;
+            else
+                colMotivoParcial.OptionsColumn.AllowEdit = false;
+
         }
     }
 }

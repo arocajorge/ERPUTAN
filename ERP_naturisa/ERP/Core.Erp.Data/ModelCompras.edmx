@@ -3865,6 +3865,8 @@
           <EntitySet Name="vwcom_CotizacionPedidoConvenioPrecios" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoConvenioPrecios" />
           <EntitySet Name="vwcom_ordencompra_local_consulta" EntityType="DBERPModelCompras.vwcom_ordencompra_local_consulta" />
           <EntitySet Name="vwcom_OrdenPedidoDet_Cotizacion" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion" />
+          <EntitySet Name="vwcom_OrdenPedidoDet_PorOC" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC" />
+          <EntitySet Name="vwcom_OrdenPedidoDet_PorTR" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorTR" />
           <FunctionImport Name="SPCOM_SeguimientoEntrega" ReturnType="Collection(DBERPModelCompras.SPCOM_SeguimientoEntrega_Result)">
             <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
             <Parameter Name="IdUsuario" Mode="In" Type="String" />
@@ -3876,8 +3878,6 @@
             <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
             <Parameter Name="IdOrdenPedido" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="vwcom_OrdenPedidoDet_PorOC" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC" />
-          <EntitySet Name="vwcom_OrdenPedidoDet_PorTR" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorTR" />
           </EntityContainer>
         <EntityType Name="com_catalogo">
           <Key>
@@ -6353,45 +6353,6 @@
           <Property Type="String" Name="Su_Descripcion" MaxLength="60" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="CodigoOC" MaxLength="31" FixedLength="false" Unicode="false" />
         </EntityType>
-        <ComplexType Name="SPCOM_SeguimientoEntrega_Result">
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
-          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_descripcion" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="EstadoSolpe" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="String" Name="CodigoSucOrigen" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NombreSucursalOrigen" Nullable="true" MaxLength="60" />
-          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
-          <Property Type="String" Name="CodigoSucDestino" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NombreSucursalDestino" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="EstadoDetalle" Nullable="true" MaxLength="23" />
-          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" />
-          <Property Type="DateTime" Name="op_Fecha" Nullable="false" />
-          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
-          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
-          <Property Type="String" Name="IdUsuarioCantidad" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="FechaCantidad" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NombreUsuarioCantidad" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NomUnidadMedida" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="op_Observacion" Nullable="true" />
-          <Property Type="String" Name="ObservacionGA" Nullable="true" />
-          <Property Type="String" Name="opd_Detalle" Nullable="true" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
-          <Property Type="Double" Name="CantidadOC" Nullable="true" />
-          <Property Type="DateTime" Name="FechaOC" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="FechaEntrega" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NombreComprador" Nullable="true" MaxLength="100" />
-          <Property Type="Decimal" Name="IB_UltIdNumMovi" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Double" Name="IB_Cantidad" Nullable="true" />
-          <Property Type="DateTime" Name="IB_Fecha" Nullable="true" />
-          <Property Type="Int32" Name="AlertaEntrega" Nullable="true" />
-          <Property Type="Double" Name="CantidadPendiente" Nullable="true" />
-          <Property Type="Int32" Name="DiasPendiente" Nullable="true" />
-        </ComplexType>
         <EntityType Name="vwcom_OrdenPedidoDet_PorOC">
           <Key>
             <PropertyRef Name="IdEmpresa_oc" />
@@ -6425,6 +6386,54 @@
           <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Int32" Name="Secuencia_pd" Nullable="false" />
         </EntityType>
+        <ComplexType Name="SPCOM_SeguimientoEntrega_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="EstadoSolpe" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="String" Name="CodigoSucOrigen" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NombreSucursalOrigen" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="String" Name="CodigoSucDestino" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NombreSucursalDestino" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="EstadoDetalle" Nullable="true" MaxLength="23" />
+          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" />
+          <Property Type="DateTime" Name="op_Fecha" Nullable="false" />
+          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
+          <Property Type="String" Name="IdUsuarioCantidad" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaCantidad" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NombreUsuarioCantidad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NomUnidadMedida" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="op_Observacion" Nullable="true" />
+          <Property Type="String" Name="ObservacionGA" Nullable="true" />
+          <Property Type="String" Name="opd_Detalle" Nullable="true" />
+          <Property Type="Int32" Name="IdSucursalOC" Nullable="true" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="SecuenciaOC" Nullable="true" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CodigoOC" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="CantidadOC" Nullable="true" />
+          <Property Type="DateTime" Name="FechaOC" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaEntrega" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="IdComprador" Nullable="true" />
+          <Property Type="String" Name="NombreComprador" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="IB_UltIdNumMovi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Double" Name="IB_Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="IB_Fecha" Nullable="true" />
+          <Property Type="Int32" Name="AlertaEntrega" Nullable="true" />
+          <Property Type="Double" Name="CantidadPendiente" Nullable="true" />
+          <Property Type="Int32" Name="DiasPendiente" Nullable="true" />
+          <Property Type="String" Name="NombreSucursalTransferencia" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NombreBodegaTransferencia" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="FechaTransferencia" Nullable="true" />
+          <Property Type="DateTime" Name="FechaRecepcionTransferencia" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7991,6 +8000,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_OrdenPedidoDet_PorOC">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC">
+              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_PorOC">
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="Secuencia_pd" ColumnName="Secuencia_pd" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcom_OrdenPedidoDet_PorTR">
+            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_PorTR">
+              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_PorTR">
+                <ScalarProperty Name="Secuencia_pd" ColumnName="Secuencia_pd" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SPCOM_SeguimientoEntrega" FunctionName="DBERPModelCompras.Store.SPCOM_SeguimientoEntrega">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_SeguimientoEntrega_Result">
@@ -8019,11 +8053,16 @@
                 <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
                 <ScalarProperty Name="ObservacionGA" ColumnName="ObservacionGA" />
                 <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="IdSucursalOC" ColumnName="IdSucursalOC" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="SecuenciaOC" ColumnName="SecuenciaOC" />
                 <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
                 <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="CodigoOC" ColumnName="CodigoOC" />
                 <ScalarProperty Name="CantidadOC" ColumnName="CantidadOC" />
                 <ScalarProperty Name="FechaOC" ColumnName="FechaOC" />
                 <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
                 <ScalarProperty Name="NombreComprador" ColumnName="NombreComprador" />
                 <ScalarProperty Name="IB_UltIdNumMovi" ColumnName="IB_UltIdNumMovi" />
                 <ScalarProperty Name="IB_Cantidad" ColumnName="IB_Cantidad" />
@@ -8031,34 +8070,13 @@
                 <ScalarProperty Name="AlertaEntrega" ColumnName="AlertaEntrega" />
                 <ScalarProperty Name="CantidadPendiente" ColumnName="CantidadPendiente" />
                 <ScalarProperty Name="DiasPendiente" ColumnName="DiasPendiente" />
+                <ScalarProperty Name="NombreSucursalTransferencia" ColumnName="NombreSucursalTransferencia" />
+                <ScalarProperty Name="NombreBodegaTransferencia" ColumnName="NombreBodegaTransferencia" />
+                <ScalarProperty Name="FechaTransferencia" ColumnName="FechaTransferencia" />
+                <ScalarProperty Name="FechaRecepcionTransferencia" ColumnName="FechaRecepcionTransferencia" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="vwcom_OrdenPedidoDet_PorOC">
-            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC">
-              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_PorOC">
-                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
-                <ScalarProperty Name="Secuencia_pd" ColumnName="Secuencia_pd" />
-                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
-                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
-                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
-                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
-                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwcom_OrdenPedidoDet_PorTR">
-            <EntityTypeMapping TypeName="DBERPModelCompras.vwcom_OrdenPedidoDet_PorTR">
-              <MappingFragment StoreEntitySet="vwcom_OrdenPedidoDet_PorTR">
-                <ScalarProperty Name="Secuencia_pd" ColumnName="Secuencia_pd" />
-                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
-                <ScalarProperty Name="Secuencia_oc" ColumnName="Secuencia_oc" />
-                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
-                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
-                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

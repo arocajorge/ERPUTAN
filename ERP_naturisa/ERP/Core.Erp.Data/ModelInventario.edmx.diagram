@@ -198,16 +198,16 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_producto" Width="1.5" PointX="4.8383646983831952" PointY="2.9527872218530566" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_SinParametrizacion" Width="1.5" PointX="7.3656084348287472" PointY="8.9737531137530482" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_PorIngresar" Width="1.5" PointX="11.202816623823166" PointY="18.657499024019344" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia" Width="1.5" PointX="6.2650536905345753" PointY="17.514585443546338" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias" Width="1.5" PointX="7.7081427256148967" PointY="0.84010617474098981" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_transferencia_det_ParaCorreccion" Width="1.5" PointX="2.5297807317831467" PointY="6.3208582430709424" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias_ParaProcesar" Width="1.5" PointX="8.6138712785271316" PointY="20.873129019920309" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias_ParaAprobacion" Width="1.5" PointX="10.347437475969754" PointY="31.564527794515961" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia" Width="1.5" PointX="11.799996876996008" PointY="15.085216916671589" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias" Width="1.5" PointX="7.470466887331785" PointY="2.8798145069181054" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_transferencia_det_ParaCorreccion" Width="1.5" PointX="2.5297807317831467" PointY="6.3208582430709424" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias_ParaProcesar" Width="1.5" PointX="8.6138712785271316" PointY="20.873129019920309" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_Transferencias_ParaAprobacion" Width="1.5" PointX="10.347437475969754" PointY="31.564527794515961" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det" Width="1.5" PointX="2.2562887027190479" PointY="19.455984452486032" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det" Width="1.5" PointX="6.9194729267244561" PointY="22.792132194522829" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" />

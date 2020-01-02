@@ -40,6 +40,7 @@ namespace Core.Erp.Data
         public Nullable<int> IdSucursal_oc { get; set; }
         public Nullable<decimal> IdOrdenCompra { get; set; }
         public Nullable<int> Secuencia_oc { get; set; }
+        public string MotivoParcial { get; set; }
     
         public virtual ICollection<in_Guia_x_traspaso_bodega_x_in_transferencia_det> in_Guia_x_traspaso_bodega_x_in_transferencia_det { get; set; }
         public virtual in_Producto in_Producto { get; set; }

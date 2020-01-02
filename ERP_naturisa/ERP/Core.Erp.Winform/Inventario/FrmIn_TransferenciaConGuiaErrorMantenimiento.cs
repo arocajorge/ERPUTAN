@@ -556,13 +556,20 @@ namespace Core.Erp.Winform.Inventario
                     e.Appearance.ForeColor = Color.OrangeRed;
                 else
                     e.Appearance.ForeColor = Color.Green;
-                
             }
             catch (Exception)
             {
                 
                 throw;
             }
+        }
+
+        private void chkGenerarGuia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkGenerarGuia.Checked)
+                pnlGuia.Visible = true;
+            else
+                pnlGuia.Visible = true;
         }
     }
 }

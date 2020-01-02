@@ -50,6 +50,7 @@ namespace Core.Erp.Data
         public string EstadoRevision { get; set; }
         public string IdUsuarioRevision { get; set; }
         public Nullable<System.DateTime> FechaRevision { get; set; }
+        public Nullable<bool> TuvoError { get; set; }
     
         public virtual in_Ing_Egr_Inven in_Ing_Egr_Inven { get; set; }
         public virtual in_Ing_Egr_Inven in_Ing_Egr_Inven1 { get; set; }

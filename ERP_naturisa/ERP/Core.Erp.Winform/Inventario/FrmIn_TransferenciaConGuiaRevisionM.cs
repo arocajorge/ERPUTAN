@@ -556,5 +556,13 @@ namespace Core.Erp.Winform.Inventario
                 throw;
             }
         }
+
+        private void chkGenerarGuia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkGenerarGuia.Checked)
+                pnlGuia.Visible = true;
+            else
+                pnlGuia.Visible = true;
+        }
     }
 }

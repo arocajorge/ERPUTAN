@@ -33,11 +33,16 @@ namespace Core.Erp.Info.Compras
         public string op_Observacion { get; set; }
         public string ObservacionGA { get; set; }
         public string opd_Detalle { get; set; }
+        public Nullable<int> IdSucursalOC { get; set; }
+        public Nullable<decimal> IdOrdenCompra { get; set; }
+        public Nullable<int> SecuenciaOC { get; set; }
         public Nullable<decimal> IdProveedor { get; set; }
         public string pe_nombreCompleto { get; set; }
+        public string CodigoOC { get; set; }
         public Nullable<double> CantidadOC { get; set; }
         public Nullable<System.DateTime> FechaOC { get; set; }
         public Nullable<System.DateTime> FechaEntrega { get; set; }
+        public Nullable<int> IdComprador { get; set; }
         public string NombreComprador { get; set; }
         public Nullable<decimal> IB_UltIdNumMovi { get; set; }
         public Nullable<double> IB_Cantidad { get; set; }
@@ -45,5 +50,9 @@ namespace Core.Erp.Info.Compras
         public Nullable<int> AlertaEntrega { get; set; }
         public Nullable<double> CantidadPendiente { get; set; }
         public Nullable<int> DiasPendiente { get; set; }
+        public string NombreSucursalTransferencia { get; set; }
+        public string NombreBodegaTransferencia { get; set; }
+        public Nullable<System.DateTime> FechaTransferencia { get; set; }
+        public Nullable<System.DateTime> FechaRecepcionTransferencia { get; set; }
     }
 }
