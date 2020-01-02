@@ -22,7 +22,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         BindingList<cp_XML_Documento_Info> blst;
         cp_XML_Documento_Bus bus_xml;
         cp_XML_Documento_Retencion_Bus busRet;
-        
+        cp_orden_giro_Bus busOG;
         #endregion
 
         public frmCP_XML_Consulta()
@@ -32,6 +32,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             blst = new BindingList<cp_XML_Documento_Info>();
             bus_xml = new cp_XML_Documento_Bus();
             busRet = new cp_XML_Documento_Retencion_Bus();
+            busOG = new cp_orden_giro_Bus();
         }
 
         private void frmCP_XML_Consulta_Load(object sender, EventArgs e)
@@ -237,6 +238,42 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 
                 throw;
+            }
+        }
+
+        private void cmbImagenD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cp_XML_Documento_Info row = (cp_XML_Documento_Info)gvDetalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if (row.Estado)
+                {
+                    if (row.IdTipoCbte == null || row.IdCbteCble == null)
+                    {
+                        var infoXML = busOG.GetInfoPorDocumento(param.IdEmpresa, row.Establecimiento, row.PuntoEmision, row.NumeroDocumento, row.emi_Ruc);
+                        if (infoXML == null)
+                        {
+                            MessageBox.Show("No existe la factura contabilizada", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+
+                        row.IdTipoCbte = infoXML.IdTipoCbte_Ogiro;
+                        row.IdCbteCble = infoXML.IdCbteCble_Ogiro;
+                    }
+
+                    if (bus_xml.ContabilizarDocumento(row.IdEmpresa, row.IdDocumento, row.IdTipoCbte ?? 0, row.IdCbteCble ?? 0, param.IdUsuario, true))
+                    {
+                        MessageBox.Show("Contabilización exitosa", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);        
+                    }else
+                        MessageBox.Show("No se ha podido contabilizar el documento digitalizado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

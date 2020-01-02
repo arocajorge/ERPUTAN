@@ -551,7 +551,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     MessageBox.Show("Se ha procedido a grabar el registro de Aprobación #: " + IdIdAprobacion.ToString() + ", con Factura Proveedor #: " + Info.IdCbteCble_Ogiro + " exitosamente.", "Operación Exitosa");
                                     if (ValidarExisteXML())
                                     {
-                                        if (busXML.ContabilizarDocumento(infoXML.IdEmpresa, infoXML.IdDocumento, (int)Info.IdTipoCbte_Ogiro, (int)Info.IdCbteCble_Ogiro, ucCp_Proveedor1.get_ProveedorInfo().IdCtaCble_CXP, param.IdUsuario, true))
+                                        if (busXML.ContabilizarDocumento(infoXML.IdEmpresa, infoXML.IdDocumento, (int)Info.IdTipoCbte_Ogiro, (int)Info.IdCbteCble_Ogiro, param.IdUsuario, true))
                                         {
                                             MessageBox.Show("Documento XML contabilizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                         }

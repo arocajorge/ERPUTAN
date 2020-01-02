@@ -37,9 +37,9 @@ namespace Core.Erp.Winform.Inventario
                 blst = new BindingList<in_Producto_Info>(bus_producto.GetListStockPorBodega(param.IdEmpresa,_IdProducto));
                 gc_consulta.DataSource = blst;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Ha ocurrido un error, comuníquese con sistemas\n" + ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

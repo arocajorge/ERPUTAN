@@ -45,12 +45,15 @@
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImagenD = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagenD)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Mantenimiento_x_usuario1
@@ -78,16 +81,15 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 12, 13, 0, 0, 0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 12, 20, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 12, 26, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 1, 2, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1114, 177);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(836, 144);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 0;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = false;
@@ -132,12 +134,15 @@
             // gcDetalle
             // 
             this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.Location = new System.Drawing.Point(0, 177);
+            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gcDetalle.Location = new System.Drawing.Point(0, 144);
             this.gcDetalle.MainView = this.gvDetalle;
+            this.gcDetalle.Margin = new System.Windows.Forms.Padding(2);
             this.gcDetalle.Name = "gcDetalle";
             this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cmbImagen});
-            this.gcDetalle.Size = new System.Drawing.Size(1114, 509);
+            this.cmbImagen,
+            this.cmbImagenD});
+            this.gcDetalle.Size = new System.Drawing.Size(836, 413);
             this.gcDetalle.TabIndex = 3;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalle});
@@ -157,7 +162,8 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
-            this.gridColumn13});
+            this.gridColumn13,
+            this.gridColumn14});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Images = this.imageList1;
             this.gvDetalle.Name = "gvDetalle";
@@ -276,11 +282,15 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 7;
             // 
-            // imageList1
+            // gridColumn13
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "xml_16x16.png");
+            this.gridColumn13.ColumnEdit = this.cmbImagen;
+            this.gridColumn13.FieldName = "EnviaXML";
+            this.gridColumn13.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn13.ImageIndex = 0;
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 8;
             // 
             // cmbImagen
             // 
@@ -296,29 +306,51 @@
             this.cmbImagen.ReadOnly = true;
             this.cmbImagen.Click += new System.EventHandler(this.cmbImagen_Click);
             // 
-            // gridColumn13
+            // imageList1
             // 
-            this.gridColumn13.ColumnEdit = this.cmbImagen;
-            this.gridColumn13.FieldName = "EnviaXML";
-            this.gridColumn13.ImageAlignment = System.Drawing.StringAlignment.Center;
-            this.gridColumn13.ImageIndex = 0;
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 8;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "xml_16x16.png");
+            this.imageList1.Images.SetKeyName(1, "Buscar_16x16.png");
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.ColumnEdit = this.cmbImagenD;
+            this.gridColumn14.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn14.ImageIndex = 1;
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 9;
+            // 
+            // cmbImagenD
+            // 
+            this.cmbImagenD.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImagenD.AutoHeight = false;
+            this.cmbImagenD.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImagenD.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImagenD.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 1)});
+            this.cmbImagenD.LargeImages = this.imageList1;
+            this.cmbImagenD.Name = "cmbImagenD";
+            this.cmbImagenD.ReadOnly = true;
+            this.cmbImagenD.Click += new System.EventHandler(this.cmbImagenD_Click);
             // 
             // frmCP_XML_Consulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 686);
+            this.ClientSize = new System.Drawing.Size(836, 557);
             this.Controls.Add(this.gcDetalle);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCP_XML_Consulta";
             this.Text = "frmCP_XML_Consulta";
             this.Load += new System.EventHandler(this.frmCP_XML_Consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagenD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,5 +375,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagenD;
     }
 }

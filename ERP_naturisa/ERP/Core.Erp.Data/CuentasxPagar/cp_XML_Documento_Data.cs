@@ -13,6 +13,7 @@ namespace Core.Erp.Data.CuentasxPagar
     public class cp_XML_Documento_Data
     {
         tb_sis_Documento_Tipo_Talonario_Data odataTalonario = new tb_sis_Documento_Tipo_Talonario_Data();
+        cp_retencion_Data odataR = new cp_retencion_Data();
 
         public List<cp_XML_Documento_Info> GetList(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
         {
@@ -64,7 +65,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_NumeroAutorizacion = info.ret_NumeroAutorizacion,
                         ret_NumeroDocumento = info.ret_NumeroDocumento,
                         ret_PuntoEmision = info.ret_PuntoEmision,
-
+                        IdTipoCbte = info.IdTipoCbte,
                         IdCbteCble = info.IdCbteCble,
                         EnviaXML = info.Estado && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion)
                     });
@@ -242,7 +243,9 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_NumeroAutorizacion = info.ret_NumeroAutorizacion,
                         
                         IdTipoCbte = info.IdTipoCbte,
-                        IdCbteCble = info.IdCbteCble
+                        IdCbteCble = info.IdCbteCble,
+                        IdUsuarioCreacion = info.IdUsuario,
+                        FechaCreacion = DateTime.Now
                     });
                     int Secuencia = 1;
                     if (info.lstRetencion.Count > 0)
@@ -285,7 +288,7 @@ namespace Core.Erp.Data.CuentasxPagar
 
                     if (PasarRetencion && proveedor != null)
                     {
-                        ContabilizarDocumento(info.IdEmpresa, info.IdDocumento, info.IdTipoCbte ?? 0, info.IdCbteCble ?? 0, proveedor.IdCtaCble_CXP, info.IdUsuario, true);
+                        ContabilizarDocumento(info.IdEmpresa, info.IdDocumento, info.IdTipoCbte ?? 0, info.IdCbteCble ?? 0, info.IdUsuario, true);
                     }
                 }
 
@@ -325,6 +328,8 @@ namespace Core.Erp.Data.CuentasxPagar
                     documento.ret_PuntoEmision = info.ret_PuntoEmision;
                     documento.ret_NumeroDocumento = info.ret_NumeroDocumento;
                     documento.ret_Fecha = info.ret_Fecha;
+                    documento.IdUsuarioModificacion = info.IdUsuario;
+                    documento.FechaModificacion = DateTime.Now;
 
                     //documento.ret_NumeroAutorizacion = info.ret_NumeroAutorizacion;                    
                     //documento.ret_FechaAutorizacion = info.ret_FechaAutorizacion;
@@ -368,7 +373,7 @@ namespace Core.Erp.Data.CuentasxPagar
                                 var retencion = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro && q.Estado == "A").FirstOrDefault();
                                 if (retencion == null)
                                 {
-                                    ContabilizarDocumento(info.IdEmpresa, info.IdDocumento, info.IdTipoCbte ?? 0, info.IdCbteCble ?? 0, proveedor.IdCtaCble_CXP, info.IdUsuario, true);    
+                                    ContabilizarDocumento(info.IdEmpresa, info.IdDocumento, info.IdTipoCbte ?? 0, info.IdCbteCble ?? 0, info.IdUsuario, true);    
                                 }
                             }
                         }
@@ -397,6 +402,8 @@ namespace Core.Erp.Data.CuentasxPagar
                         return false;
 
                     entity.Estado = false;
+                    entity.IdUsuarioAnulacion = info.IdUsuario;
+                    entity.FechaAnulacion = DateTime.Now;
                     db.SaveChanges();
                 }
                 return true;
@@ -567,7 +574,7 @@ namespace Core.Erp.Data.CuentasxPagar
             }
         }
 
-        public bool ContabilizarDocumento(int IdEmpresa, decimal IdDocumento, int IdTipoCbte, decimal IdCbteCble, string IdCtaCbleProv, string IdUsuario, bool GenerarRetencion)
+        public bool ContabilizarDocumento(int IdEmpresa, decimal IdDocumento, int IdTipoCbte, decimal IdCbteCble, string IdUsuario, bool GenerarRetencion)
         {
             try
             {
@@ -585,11 +592,25 @@ namespace Core.Erp.Data.CuentasxPagar
 
                         if (GenerarRetencion && !string.IsNullOrEmpty(Entity.ret_NumeroDocumento))
                         {
+                            var ret = db.cp_retencion.Where(q=> q.IdEmpresa == IdEmpresa && q.IdTipoCbte_Ogiro == IdTipoCbte && q.IdCbteCble_Ogiro == IdCbteCble && q.Estado =="A").FirstOrDefault();
+                            if (ret == null)
+                            {
+                                db.SaveChanges();
+
+                                var rel = db.cp_retencion_x_ct_cbtecble.Where(q => q.rt_IdEmpresa == IdEmpresa && q.rt_IdRetencion == ret.IdRetencion).FirstOrDefault();
+                                if (rel == null)
+                                {
+                                    odataR.ContabilizarRetencion(Entity.IdEmpresa, ret.IdRetencion, IdUsuario);
+                                }
+
+                                return true;
+                            }
+
                             var lst = db.cp_XML_Documento_Retencion.Where(q => q.IdEmpresa == IdEmpresa && q.IdDocumento == IdDocumento).ToList();
                             if (lst.Count != 0)
                             {
                                 decimal IdRetencion = 0;
-                                cp_retencion_Data odataR = new cp_retencion_Data();
+                                
                                 db.cp_retencion.Add(new cp_retencion
                                 {
                                     IdEmpresa = Entity.IdEmpresa,

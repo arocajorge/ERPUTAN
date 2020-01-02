@@ -2003,7 +2003,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         if (ValidarExisteXML())
                         {
-                            if (busXml.ContabilizarDocumento(infoXML.IdEmpresa, infoXML.IdDocumento, (int)Info_OrdenGiro.IdTipoCbte_Ogiro, (int)Info_OrdenGiro.IdCbteCble_Ogiro, ucCp_Proveedor1.get_ProveedorInfo().IdCtaCble_CXP, param.IdUsuario, true))
+                            if (busXml.ContabilizarDocumento(infoXML.IdEmpresa, infoXML.IdDocumento, (int)Info_OrdenGiro.IdTipoCbte_Ogiro, (int)Info_OrdenGiro.IdCbteCble_Ogiro, param.IdUsuario, true))
                             {
                                 MessageBox.Show("Documento XML contabilizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             }

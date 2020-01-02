@@ -174,10 +174,10 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago" Width="1.5" PointX="0.45009530915417484" PointY="3.9536283183626963" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" Width="1.5" PointX="8.8840195708368057" PointY="20.700666347844837" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" Width="1.5" PointX="7.1251153271296594" PointY="6.9797304901200024" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="11.708200290663262" PointY="14.427049330634553" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="8.2749858201830584" PointY="11.4468247496741" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="1.7413212963106677" PointY="6.7518449904172888" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="8.2749858201830584" PointY="11.4468247496741" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

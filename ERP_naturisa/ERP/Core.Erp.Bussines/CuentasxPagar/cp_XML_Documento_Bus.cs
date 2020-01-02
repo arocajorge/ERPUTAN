@@ -266,11 +266,11 @@ namespace Core.Erp.Business.CuentasxPagar
             }
         }
 
-        public bool ContabilizarDocumento(int IdEmpresa, decimal IdDocumento, int IdTipoCbte, decimal IdCbteCble, string IdCtaCbleProv, string IdUsuario, bool GenerarRetencion)
+        public bool ContabilizarDocumento(int IdEmpresa, decimal IdDocumento, int IdTipoCbte, decimal IdCbteCble, string IdUsuario, bool GenerarRetencion)
         {
             try
             {
-                return odata.ContabilizarDocumento(IdEmpresa, IdDocumento, IdTipoCbte, IdCbteCble, IdCtaCbleProv, IdUsuario, GenerarRetencion);
+                return odata.ContabilizarDocumento(IdEmpresa, IdDocumento, IdTipoCbte, IdCbteCble, IdUsuario, GenerarRetencion);
             }
             catch (Exception)
             {

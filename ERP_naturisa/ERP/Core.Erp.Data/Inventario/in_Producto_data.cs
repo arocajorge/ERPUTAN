@@ -2333,6 +2333,7 @@ namespace Core.Erp.Data.Inventario
 
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
+                    db.SetCommandTimeOut(3000);
                     Lista = db.SPINV_Stock(IdEmpresa, IdProducto).Select(q => new in_Producto_Info
                     {
                         IdEmpresa = q.idempresa,

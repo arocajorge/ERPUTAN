@@ -297,6 +297,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                info.IdUsuario = param.IdUsuario;
                 if (bus_xml.AnularDB(info))
                 {
                     MessageBox.Show("Registro anulado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

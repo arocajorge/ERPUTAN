@@ -191,6 +191,18 @@ namespace Core.Erp.Business.CuentasxPagar
             }
         }
 
+        public cp_orden_giro_Info GetInfoPorDocumento(int IdEmpresa, string Establecimiento, string PuntoEmision, string NumDocumento, string pe_cedulaRuc)
+        {
+            try
+            {
+                return data.GetInfoPorDocumento(IdEmpresa, Establecimiento, PuntoEmision, NumDocumento, pe_cedulaRuc);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_Info_orden_giro", ex.Message), ex) { EntityType = typeof(cp_orden_giro_Bus) };
+            }
+        }
 
         public cp_orden_giro_Info Get_Info_orden_giro(cp_orden_giro_Info info)
         {
