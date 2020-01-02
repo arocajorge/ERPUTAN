@@ -1,4 +1,4 @@
-﻿--[dbo].[SPCOM_SeguimientoEntrega] 1,'ADMIN',0,0,0,0,'01/01/2019','12/01/2019',0
+﻿--EXEC [dbo].[SPCOM_SeguimientoEntrega] 1,'ADMIN',0,0,0,0,'12/01/2019','12/30/2019',0
 CREATE PROCEDURE [dbo].[SPCOM_SeguimientoEntrega]
 (
 @IdEmpresa int,
@@ -12,142 +12,206 @@ CREATE PROCEDURE [dbo].[SPCOM_SeguimientoEntrega]
 @IdOrdenPedido decimal
 )
 AS
+DECLARE @t1 DATETIME = getdate();
+DECLARE @t2 DATETIME;
 
+SET @t2=getdate()
+print DATEDIFF(millisecond,@t1,@t2);
+PRINT 'DELETE INICIAL'
 DELETE com_SPCOM_SeguimientoEntrega where IdUsuario = @IdUsuario
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
 
 DECLARE 
 @IdSolicitanteFin int = CASE WHEN @IdSolicitante = 0 then 99999999 else @IdSolicitante END,
-@IdCompradorFin int = CASE WHEN @IdComprador = 0 then 99999999 else @IdComprador END,
-@IdProductoFin numeric = CASE WHEN @IdProducto = 0 then 99999999 else @IdProducto END,
-@IdProveedorFin numeric = CASE WHEN @IdProveedor = 0 then 99999999 else @IdProveedor END
+@IdProductoFin numeric = CASE WHEN @IdProducto = 0 then 99999999 else @IdProducto END
 
+
+
+
+
+PRINT 'INSERT INICIAL'
 IF(@IdOrdenPedido = 0)
 BEGIN
-	insert into com_SPCOM_SeguimientoEntrega (IdEmpresa,IdUsuario,IdOrdenPedido,Secuencia,IdProducto,pr_descripcion,EstadoSolpe,IdSucursalOrigen,CodigoSucOrigen,
-	NombreSucursalOrigen,IdSucursalDestino,CodigoSucDestino,NombreSucursalDestino,EstadoDetalle,nom_solicitante,op_Fecha,opd_Cantidad,opd_CantidadApro,IdUsuarioCantidad,
-	FechaCantidad,NombreUsuarioCantidad,NomUnidadMedida,op_Observacion,ObservacionGA,opd_Detalle,IdProveedor,pe_nombreCompleto,CantidadOC,FechaOC,FechaEntrega,NombreComprador,
-	IB_UltIdNumMovi,IB_Cantidad,IB_Fecha,AlertaEntrega,CantidadPendiente,DiasPendiente)
-	select B.IdEmpresa,@IdUsuario, B.IdOrdenPedido, B.Secuencia, B.IdProducto, B.pr_descripcion, C.Nombre AS EstadoSolpe, B.IdSucursalOrigen, D.codigo CodigoSucOrigen, 
-	d.Su_Descripcion as NombreSucursalOrigen,B.IdSucursalDestino, E.codigo CodigoSucDestino, E.Su_Descripcion as NombreSucursalDestino,
-	CASE WHEN B.opd_EstadoProceso = 'P' THEN 'PENDIENTE' 
-		WHEN B.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' 
-		WHEN B.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' 
-		WHEN B.opd_EstadoProceso = 'AJC' THEN 'PRECIO APROBADO' 
-		WHEN B.opd_EstadoProceso = 'C' THEN 'OC GENERADA' 
-		WHEN B.opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' 
-		WHEN B.opd_EstadoProceso = 'AC' THEN 'COTIZADO' 
-		WHEN B.opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA'
-		WHEN B.opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA' END AS EstadoDetalle,
-		F.nom_solicitante, A.op_Fecha, B.opd_Cantidad, B.opd_CantidadApro, B.IdUsuarioCantidad, B.FechaCantidad, G.Nombre AS NombreUsuarioCantidad,
-		ISNULL(K.Descripcion, H.Descripcion) AS NomUnidadMedida, a.op_Observacion, a.ObservacionGA, b.opd_Detalle, J.IdProveedor, M.pe_nombreCompleto,
-		N.do_Cantidad AS CantidadOC, l.oc_fecha FechaOC, l.oc_fechaVencimiento  as FechaEntrega, O.Descripcion NombreComprador,
-		NULL IB_UltIdNumMovi,0 IB_Cantidad, NULL IB_Fecha, NULL AlertaEntrega, n.do_Cantidad CantidadPendiente,0 DiasPendiente
-	from com_OrdenPedido as A INNER JOIN 
-	com_OrdenPedidoDet AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdOrdenPedido = B.IdOrdenPedido INNER JOIN
-	dbo.com_catalogo  C ON A.IdCatalogoEstado = C.IdCatalogocompra LEFT JOIN
-	tb_sucursal AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdSucursalOrigen = D.IdSucursal LEFT JOIN
-	tb_sucursal AS E ON B.IdEmpresa = E.IdEmpresa AND B.IdSucursalDestino = E.IdSucursal INNER JOIN 
-	com_solicitante AS F ON A.IdEmpresa = F.IdEmpresa AND A.IdSolicitante = F.IdSolicitante LEFT JOIN
-	seg_usuario AS G ON B.IdUsuarioCantidad = G.IdUsuario LEFT JOIN
-	in_UnidadMedida AS H ON B.IdUnidadMedida = H.IdUnidadMedida LEFT JOIN
-	com_CotizacionPedidoDet as I on B.IdEmpresa = I.opd_IdEmpresa AND B.IdOrdenPedido = I.opd_IdOrdenPedido AND B.Secuencia = I.opd_Secuencia LEFT JOIN
-	com_CotizacionPedido AS J ON J.IdEmpresa = I.IdEmpresa AND J.IdCotizacion = I.IdCotizacion LEFT JOIN
-	in_UnidadMedida AS K ON I.IdUnidadMedida = K.IdUnidadMedida LEFT JOIN
-	com_ordencompra_local AS L ON J.IdEmpresa = L.IdEmpresa AND J.IdSucursal = L.IdSucursal AND J.oc_IdOrdenCompra = L.IdOrdenCompra LEFT JOIN
-	cp_proveedor AS P ON P.IdEmpresa = J.IdEmpresa AND P.IdProveedor = J.IdProveedor LEFT JOIN
-	tb_persona AS M ON P.IdPersona = M.IdPersona LEFT JOIN
-	com_ordencompra_local_det AS N ON L.IdEmpresa = N.IdEmpresa AND L.IdSucursal = N.IdSucursal AND L.IdOrdenCompra = N.IdOrdenCompra AND I.Secuencia = N.Secuencia LEFT JOIN
-	com_comprador AS O ON L.IdEmpresa = O.IdEmpresa AND L.IdComprador = O.IdComprador
-	WHERE A.IdEmpresa = @IdEmpresa AND A.op_Fecha between @FechaIni and @FechaFin 
-	AND A.IdSolicitante BETWEEN @IdSolicitante AND @IdSolicitanteFin
-	AND CASE WHEN @IdProveedor = 0 THEN @IdProveedor ELSE J.IdProveedor END BETWEEN @IdProveedor AND @IdProveedor
-	AND CASE WHEN @IdComprador = 0 THEN @IdComprador ELSE J.IdComprador END BETWEEN @IdComprador AND @IdCompradorFin
-	AND ISNULL(J.EstadoJC,'P') IN ('A','P') AND case when ISNULL(j.EstadoJC,'P') = 'A' THEN I.EstadoJC WHEN ISNULL(J.EstadoJC,'P') = 'P' THEN 1 END = 1 
+	INSERT INTO [dbo].[com_SPCOM_SeguimientoEntrega]
+			   ([IdEmpresa]           ,[IdUsuario]           ,[IdOrdenPedido]           ,[Secuencia]           ,[IdProducto]           ,[pr_descripcion]           ,[EstadoSolpe]
+			   ,[IdSucursalOrigen]           ,[CodigoSucOrigen]           ,[NombreSucursalOrigen]           ,[IdSucursalDestino]           ,[CodigoSucDestino]           ,[NombreSucursalDestino]
+			   ,[EstadoDetalle]           ,[nom_solicitante]           ,[op_Fecha]           ,[opd_Cantidad]           ,[opd_CantidadApro]           ,[IdUsuarioCantidad]           ,[FechaCantidad]
+			   ,[NombreUsuarioCantidad]           ,[NomUnidadMedida]           ,[op_Observacion]           ,[ObservacionGA]           ,[opd_Detalle]	,[IB_Cantidad]	,[IB_Fecha])
+
+	select a.IdEmpresa, @IdUsuario, a.IdOrdenPedido, a.Secuencia, a.IdProducto, a.pr_descripcion, c.Nombre, a.IdSucursalOrigen, d.codigo, d.Su_Descripcion, a.IdSucursalDestino, e.codigo, e.Su_Descripcion,
+	CASE WHEN a.opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN a.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN a.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN a.opd_EstadoProceso =
+							  'AJC' THEN 'PRECIO APROBADO' WHEN a.opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN a.opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN a.opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN
+							  a.opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN a.opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA' 
+							  WHEN a.opd_EstadoProceso = 'T' THEN 'TRANSFERIDO' WHEN a.opd_EstadoProceso = 'R' THEN 'RECIBIDO POR SOLICITANTE'
+							  END AS EstadoDetalle, f.nom_solicitante, b.op_Fecha, a.opd_Cantidad, a.opd_CantidadApro,
+							  a.IdUsuarioCantidad, a.FechaCantidad, a.IdUsuarioCantidad, g.Descripcion, b.op_Observacion, b.ObservacionGA, a.opd_Detalle, 0 ,cast(getdate() as date)
+	from com_OrdenPedidoDet as a inner join
+	com_OrdenPedido as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido inner join
+	com_catalogo as c on b.IdCatalogoEstado = c.IdCatalogocompra left join 
+	tb_sucursal as d on d.IdEmpresa = a.IdEmpresa and d.IdSucursal = a.IdSucursalOrigen left join 
+	tb_sucursal as e on e.IdEmpresa = a.IdEmpresa and e.IdSucursal = a.IdSucursalDestino left join
+	com_solicitante as f on f.IdEmpresa = b.IdEmpresa and f.IdSolicitante = b.IdSolicitante left join
+	in_UnidadMedida as g on g.IdUnidadMedida = a.IdUnidadMedida
+	where a.IdEmpresa = @IdEmpresa and b.IdSolicitante between @IdSolicitante and @IdSolicitanteFin
+	and isnull(a.IdProducto,0) between @IdProducto and @IdProductoFin
+	and b.op_Fecha between @FechaIni and @FechaFin
 END
 ELSE
 BEGIN
-	insert into com_SPCOM_SeguimientoEntrega (IdEmpresa,IdUsuario,IdOrdenPedido,Secuencia,IdProducto,pr_descripcion,EstadoSolpe,IdSucursalOrigen,CodigoSucOrigen,
-	NombreSucursalOrigen,IdSucursalDestino,CodigoSucDestino,NombreSucursalDestino,EstadoDetalle,nom_solicitante,op_Fecha,opd_Cantidad,opd_CantidadApro,IdUsuarioCantidad,
-	FechaCantidad,NombreUsuarioCantidad,NomUnidadMedida,op_Observacion,ObservacionGA,opd_Detalle,IdProveedor,pe_nombreCompleto,CantidadOC,FechaOC,FechaEntrega,NombreComprador,
-	IB_UltIdNumMovi,IB_Cantidad,IB_Fecha,AlertaEntrega,CantidadPendiente,DiasPendiente)
-	select B.IdEmpresa,@IdUsuario, B.IdOrdenPedido, B.Secuencia, B.IdProducto, B.pr_descripcion, C.Nombre AS EstadoSolpe, B.IdSucursalOrigen, D.codigo CodigoSucOrigen, 
-	d.Su_Descripcion as NombreSucursalOrigen,B.IdSucursalDestino, E.codigo CodigoSucDestino, E.Su_Descripcion as NombreSucursalDestino,
-	CASE WHEN B.opd_EstadoProceso = 'P' THEN 'PENDIENTE' 
-		WHEN B.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' 
-		WHEN B.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' 
-		WHEN B.opd_EstadoProceso = 'AJC' THEN 'PRECIO APROBADO' 
-		WHEN B.opd_EstadoProceso = 'C' THEN 'OC GENERADA' 
-		WHEN B.opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' 
-		WHEN B.opd_EstadoProceso = 'AC' THEN 'COTIZADO' 
-		WHEN B.opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle,
-		F.nom_solicitante, A.op_Fecha, B.opd_Cantidad, B.opd_CantidadApro, B.IdUsuarioCantidad, B.FechaCantidad, G.Nombre AS NombreUsuarioCantidad,
-		ISNULL(K.Descripcion, H.Descripcion) AS NomUnidadMedida, a.op_Observacion, a.ObservacionGA, b.opd_Detalle, J.IdProveedor, M.pe_nombreCompleto,
-		N.do_Cantidad AS CantidadOC, l.oc_fecha FechaOC, l.oc_fechaVencimiento  as FechaEntrega, O.Descripcion NombreComprador,
-		NULL IB_UltIdNumMovi,0 IB_Cantidad, NULL IB_Fecha, NULL AlertaEntrega, n.do_Cantidad CantidadPendiente,0 DiasPendiente
-	from com_OrdenPedido as A INNER JOIN 
-	com_OrdenPedidoDet AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdOrdenPedido = B.IdOrdenPedido INNER JOIN
-	dbo.com_catalogo  C ON A.IdCatalogoEstado = C.IdCatalogocompra LEFT JOIN
-	tb_sucursal AS D ON B.IdEmpresa = D.IdEmpresa AND B.IdSucursalOrigen = D.IdSucursal LEFT JOIN
-	tb_sucursal AS E ON B.IdEmpresa = E.IdEmpresa AND B.IdSucursalDestino = E.IdSucursal INNER JOIN 
-	com_solicitante AS F ON A.IdEmpresa = F.IdEmpresa AND A.IdSolicitante = F.IdSolicitante LEFT JOIN
-	seg_usuario AS G ON B.IdUsuarioCantidad = G.IdUsuario LEFT JOIN
-	in_UnidadMedida AS H ON B.IdUnidadMedida = H.IdUnidadMedida LEFT JOIN
-	com_CotizacionPedidoDet as I on B.IdEmpresa = I.opd_IdEmpresa AND B.IdOrdenPedido = I.opd_IdOrdenPedido AND B.Secuencia = I.opd_Secuencia LEFT JOIN
-	com_CotizacionPedido AS J ON J.IdEmpresa = I.IdEmpresa AND J.IdCotizacion = I.IdCotizacion LEFT JOIN
-	in_UnidadMedida AS K ON I.IdUnidadMedida = K.IdUnidadMedida LEFT JOIN
-	com_ordencompra_local AS L ON J.IdEmpresa = L.IdEmpresa AND J.IdSucursal = L.IdSucursal AND J.oc_IdOrdenCompra = L.IdOrdenCompra LEFT JOIN
-	cp_proveedor AS P ON P.IdEmpresa = J.IdEmpresa AND P.IdProveedor = J.IdProveedor LEFT JOIN
-	tb_persona AS M ON P.IdPersona = M.IdPersona LEFT JOIN
-	com_ordencompra_local_det AS N ON L.IdEmpresa = N.IdEmpresa AND L.IdSucursal = N.IdSucursal AND L.IdOrdenCompra = N.IdOrdenCompra AND I.Secuencia = N.Secuencia LEFT JOIN
-	com_comprador AS O ON L.IdEmpresa = O.IdEmpresa AND L.IdComprador = O.IdComprador
-	WHERE A.IdEmpresa = @IdEmpresa AND A.IdOrdenPedido = @IdOrdenPedido
-	AND ISNULL(J.EstadoJC,'P') IN ('A','P') AND case when ISNULL(j.EstadoJC,'P') = 'A' THEN I.EstadoJC WHEN ISNULL(J.EstadoJC,'P') = 'P' THEN 1 END = 1 
+	INSERT INTO [dbo].[com_SPCOM_SeguimientoEntrega]
+			   ([IdEmpresa]           ,[IdUsuario]           ,[IdOrdenPedido]           ,[Secuencia]           ,[IdProducto]           ,[pr_descripcion]           ,[EstadoSolpe]
+			   ,[IdSucursalOrigen]           ,[CodigoSucOrigen]           ,[NombreSucursalOrigen]           ,[IdSucursalDestino]           ,[CodigoSucDestino]           ,[NombreSucursalDestino]
+			   ,[EstadoDetalle]           ,[nom_solicitante]           ,[op_Fecha]           ,[opd_Cantidad]           ,[opd_CantidadApro]           ,[IdUsuarioCantidad]           ,[FechaCantidad]
+			   ,[NombreUsuarioCantidad]           ,[NomUnidadMedida]           ,[op_Observacion]           ,[ObservacionGA]           ,[opd_Detalle],[IB_Cantidad]	,[IB_Fecha])
+
+	select a.IdEmpresa, @IdUsuario, a.IdOrdenPedido, a.Secuencia, a.IdProducto, a.pr_descripcion, c.Nombre, a.IdSucursalOrigen, d.codigo, d.Su_Descripcion, a.IdSucursalDestino, e.codigo, e.Su_Descripcion,
+	CASE WHEN a.opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN a.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN a.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN a.opd_EstadoProceso =
+							  'AJC' THEN 'PRECIO APROBADO' WHEN a.opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN a.opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN a.opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN
+							  a.opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN a.opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA' 
+							  WHEN a.opd_EstadoProceso = 'T' THEN 'TRANSFERIDO' WHEN a.opd_EstadoProceso = 'R' THEN 'RECIBIDO POR SOLICITANTE'
+							  END AS EstadoDetalle, f.nom_solicitante, b.op_Fecha, a.opd_Cantidad, a.opd_CantidadApro,
+							  a.IdUsuarioCantidad, a.FechaCantidad, a.IdUsuarioCantidad, g.Descripcion, b.op_Observacion, b.ObservacionGA, a.opd_Detalle, 0, cast(getdate() as date)
+	from com_OrdenPedidoDet as a inner join
+	com_OrdenPedido as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido inner join
+	com_catalogo as c on b.IdCatalogoEstado = c.IdCatalogocompra left join 
+	tb_sucursal as d on d.IdEmpresa = a.IdEmpresa and d.IdSucursal = a.IdSucursalOrigen left join 
+	tb_sucursal as e on e.IdEmpresa = a.IdEmpresa and e.IdSucursal = a.IdSucursalDestino left join
+	com_solicitante as f on f.IdEmpresa = b.IdEmpresa and f.IdSolicitante = b.IdSolicitante left join
+	in_UnidadMedida as g on g.IdUnidadMedida = a.IdUnidadMedida
+	where a.IdEmpresa = @IdEmpresa and B.IdOrdenPedido = @IdOrdenPedido
 END
 
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
 
-update com_SPCOM_SeguimientoEntrega set IB_Cantidad = A.TotalIngresado
-from(
-SELECT a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, SUM(f.dm_cantidad_sinConversion) AS TotalIngresado
-FROM     com_ordencompra_local_det AS e INNER JOIN
-                  com_ordencompra_local AS d ON e.IdEmpresa = d.IdEmpresa AND e.IdSucursal = d.IdSucursal AND e.IdOrdenCompra = d.IdOrdenCompra INNER JOIN
-                  in_Ing_Egr_Inven_det AS f ON e.IdEmpresa = f.IdEmpresa_oc AND e.IdSucursal = f.IdSucursal_oc AND e.IdOrdenCompra = f.IdOrdenCompra AND e.Secuencia = f.Secuencia_oc INNER JOIN
-                  com_OrdenPedidoDet AS a INNER JOIN
-                  com_CotizacionPedidoDet AS b ON a.IdEmpresa = b.opd_IdEmpresa AND a.IdOrdenPedido = b.opd_IdOrdenPedido AND a.Secuencia = b.opd_Secuencia INNER JOIN
-                  com_CotizacionPedido AS c ON b.IdEmpresa = c.IdEmpresa AND b.IdCotizacion = c.IdCotizacion ON d.IdEmpresa = c.IdEmpresa AND d.IdSucursal = c.IdSucursal AND d.IdOrdenCompra = c.oc_IdOrdenCompra AND 
-                  e.Secuencia = b.Secuencia
-GROUP BY a.IdEmpresa, a.IdOrdenPedido, a.Secuencia
-)A WHERE 
-com_SPCOM_SeguimientoEntrega.IdEmpresa = A.IdEmpresa
+PRINT 'ACTUALIZO CAMPOS DE OC'
+BEGIN -- ACTUALIZO CAMPOS DE OC
+UPDATE com_SPCOM_SeguimientoEntrega SET IdProveedor = A.IdProveedor, pe_nombreCompleto = A.pe_nombreCompleto, CodigoOC = A.Codigo, CantidadOC = a.do_Cantidad, FechaOC = a.oc_fecha, FechaEntrega = a.oc_fechaVencimiento, NombreComprador = a.NomComprador, IdComprador = a.IdComprador,
+IdSucursalOC = a.IdSucursal, IdOrdenCompra = a.IdOrdenCompra, SecuenciaOC = a.SecuenciaOC
+FROM(
+	SELECT A.IdEmpresa, A.IdOrdenPedido, A.Secuencia, D.IdSucursal, D.IdOrdenCompra, e.Secuencia SecuenciaOC, D.IdProveedor, P.pe_nombreCompleto, S.codigo+'-'+CASt(D.IdOrdenCompra AS VARCHAR) Codigo,e.do_Cantidad, d.oc_fecha, d.oc_fechaVencimiento, f.Descripcion NomComprador, D.IdComprador
+	FROM com_SPCOM_SeguimientoEntrega AS A INNER JOIN
+	com_CotizacionPedidoDet AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdOrdenPedido = B.opd_IdOrdenPedido AND A.Secuencia = B.opd_Secuencia INNER JOIN
+	com_CotizacionPedido AS C ON C.IdEmpresa = B.IdEmpresa AND C.IdCotizacion = B.IdCotizacion INNER JOIN
+	com_ordencompra_local AS D ON C.IdEmpresa = D.IdEmpresa AND C.oc_IdOrdenCompra = D.IdOrdenCompra AND C.IdSucursal = D.IdSucursal INNER JOIN
+	com_ordencompra_local_det AS E ON C.IdEmpresa = E.IdEmpresa AND C.IdSucursal = E.IdSucursal AND C.oc_IdOrdenCompra = E.IdOrdenCompra AND B.Secuencia = E.Secuencia INNER JOIN
+	tb_sucursal AS S ON S.IdEmpresa = E.IdEmpresa AND S.IdSucursal = E.IdSucursal INNER JOIN
+	cp_proveedor AS PRO ON PRO.IdEmpresa = D.IdEmpresa AND PRO.IdProveedor = D.IdProveedor INNER JOIN
+	tb_persona AS P ON P.IdPersona = PRO.IdPersona inner join 
+	com_comprador as f on d.IdEmpresa = f.IdEmpresa and d.IdComprador = f.IdComprador
+	WHERE A.IdEmpresa = @IdEmpresa AND A.IdUsuario = @IdUsuario
+) A
+WHERE com_SPCOM_SeguimientoEntrega.IdEmpresa = A.IdEmpresa
 AND com_SPCOM_SeguimientoEntrega.IdOrdenPedido = A.IdOrdenPedido
 AND com_SPCOM_SeguimientoEntrega.Secuencia = A.Secuencia
 AND com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
-AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+END
 
-update com_SPCOM_SeguimientoEntrega set IB_Fecha = A.cm_fecha, IB_UltIdNumMovi = a.IdNumMovi
-from(
-Select * from (
-SELECT ROW_NUMBER() OVER(PARTITION BY a.IdEmpresa, a.IdOrdenPedido, a.Secuencia ORDER BY in_Ing_Egr_Inven.cm_fecha DESC)IdRow, a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, in_Ing_Egr_Inven.IdNumMovi, in_Ing_Egr_Inven.cm_fecha
-FROM     com_ordencompra_local_det AS e INNER JOIN
-                  com_ordencompra_local AS d ON e.IdEmpresa = d.IdEmpresa AND e.IdSucursal = d.IdSucursal AND e.IdOrdenCompra = d.IdOrdenCompra INNER JOIN
-                  in_Ing_Egr_Inven_det AS f ON e.IdEmpresa = f.IdEmpresa_oc AND e.IdSucursal = f.IdSucursal_oc AND e.IdOrdenCompra = f.IdOrdenCompra AND e.Secuencia = f.Secuencia_oc INNER JOIN
-                  com_OrdenPedidoDet AS a INNER JOIN
-                  com_CotizacionPedidoDet AS b ON a.IdEmpresa = b.opd_IdEmpresa AND a.IdOrdenPedido = b.opd_IdOrdenPedido AND a.Secuencia = b.opd_Secuencia INNER JOIN
-                  com_CotizacionPedido AS c ON b.IdEmpresa = c.IdEmpresa AND b.IdCotizacion = c.IdCotizacion ON d.IdEmpresa = c.IdEmpresa AND d.IdSucursal = c.IdSucursal AND d.IdOrdenCompra = c.oc_IdOrdenCompra AND 
-                  e.Secuencia = b.Secuencia INNER JOIN
-                  in_Ing_Egr_Inven ON f.IdEmpresa = in_Ing_Egr_Inven.IdEmpresa AND f.IdSucursal = in_Ing_Egr_Inven.IdSucursal AND f.IdMovi_inven_tipo = in_Ing_Egr_Inven.IdMovi_inven_tipo AND f.IdNumMovi = in_Ing_Egr_Inven.IdNumMovi
-where a.IdEmpresa = @IdEmpresa
-) B where b.IdRow= 1
-)A WHERE 
-com_SPCOM_SeguimientoEntrega.IdEmpresa = A.IdEmpresa
-AND com_SPCOM_SeguimientoEntrega.IdOrdenPedido = A.IdOrdenPedido
-AND com_SPCOM_SeguimientoEntrega.Secuencia = A.Secuencia
-AND com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
-AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
 
-update com_SPCOM_SeguimientoEntrega set CantidadPendiente = ROUND(CantidadOC - IB_Cantidad,2), DiasPendiente = 
-case when ROUND(CantidadOC - IB_Cantidad,2) > 0 then DATEDIFF(DAY,cast(getdate() as date),FechaEntrega) 
-when ROUND(CantidadOC - IB_Cantidad,2)= 0 then DATEDIFF(DAY,IB_Fecha,FechaEntrega) end
-WHERE com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
-AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+PRINT 'ELIMINO PROVEEDORES'
+IF(@IdProveedor != 0)
+BEGIN
+	DELETE com_SPCOM_SeguimientoEntrega 
+	WHERE IdEmpresa = @IdEmpresa AND isnull(IdProveedor,0) != @IdProveedor and IdUsuario = @IdUsuario
+END
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
+
+PRINT 'ELIMINO COMPRADORES'
+IF(@IdComprador != 0)
+BEGIN
+	DELETE com_SPCOM_SeguimientoEntrega 
+	WHERE IdEmpresa = @IdEmpresa AND isnull(IdComprador,0) != @IdComprador and IdUsuario = @IdUsuario
+END
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
+
+PRINT 'ACTUALIZO CANTIDAD INGRESADA'
+BEGIN --ACTUALIZO CANTIDAD INGRESADA
+	update com_SPCOM_SeguimientoEntrega set IB_Cantidad = A.TotalIngresado
+	from(
+	SELECT x.IdEmpresa, x.IdOrdenPedido, x.Secuencia, SUM(f.dm_cantidad_sinConversion) AS TotalIngresado
+	FROM     com_ordencompra_local_det AS e INNER JOIN
+					  com_ordencompra_local AS d ON e.IdEmpresa = d.IdEmpresa AND e.IdSucursal = d.IdSucursal AND e.IdOrdenCompra = d.IdOrdenCompra INNER JOIN
+					  in_Ing_Egr_Inven_det AS f ON e.IdEmpresa = f.IdEmpresa_oc AND e.IdSucursal = f.IdSucursal_oc AND e.IdOrdenCompra = f.IdOrdenCompra AND e.Secuencia = f.Secuencia_oc INNER JOIN
+					com_SPCOM_SeguimientoEntrega AS X ON e.IdEmpresa = x.IdEmpresa and e.IdSucursal = x.IdSucursalOC and e.IdOrdenCompra = x.IdOrdenCompra and e.Secuencia = x.SecuenciaOC
+				where x.IdEmpresa = @IdEmpresa and x.IdUsuario = @IdUsuario
+	GROUP BY x.IdEmpresa, x.IdOrdenPedido, x.Secuencia
+	)A WHERE 
+	com_SPCOM_SeguimientoEntrega.IdEmpresa = A.IdEmpresa
+	AND com_SPCOM_SeguimientoEntrega.IdOrdenPedido = A.IdOrdenPedido
+	AND com_SPCOM_SeguimientoEntrega.Secuencia = A.Secuencia
+	AND com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
+	AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+END
+
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
+
+PRINT 'ACTUALIZO ULT INGRESO'
+BEGIN --ACTUALIZO ULT ING
+	update com_SPCOM_SeguimientoEntrega set IB_Fecha = A.cm_fecha, IB_UltIdNumMovi = a.IdNumMovi
+	from(
+	Select * from (
+	SELECT ROW_NUMBER() OVER(PARTITION BY x.IdEmpresa, x.IdOrdenPedido, x.Secuencia ORDER BY in_Ing_Egr_Inven.cm_fecha DESC)IdRow, x.IdEmpresa, x.IdOrdenPedido, x.Secuencia, in_Ing_Egr_Inven.IdNumMovi, in_Ing_Egr_Inven.cm_fecha
+	FROM     com_ordencompra_local_det AS e INNER JOIN
+					com_ordencompra_local AS d ON e.IdEmpresa = d.IdEmpresa AND e.IdSucursal = d.IdSucursal AND e.IdOrdenCompra = d.IdOrdenCompra INNER JOIN
+					in_Ing_Egr_Inven_det AS f ON e.IdEmpresa = f.IdEmpresa_oc AND e.IdSucursal = f.IdSucursal_oc AND e.IdOrdenCompra = f.IdOrdenCompra AND e.Secuencia = f.Secuencia_oc INNER JOIN
+					in_Ing_Egr_Inven ON f.IdEmpresa = in_Ing_Egr_Inven.IdEmpresa AND f.IdSucursal = in_Ing_Egr_Inven.IdSucursal AND f.IdMovi_inven_tipo = in_Ing_Egr_Inven.IdMovi_inven_tipo AND f.IdNumMovi = in_Ing_Egr_Inven.IdNumMovi 
+					INNER JOIN com_SPCOM_SeguimientoEntrega AS X ON e.IdEmpresa = x.IdEmpresa and e.IdSucursal = x.IdSucursalOC and e.IdOrdenCompra = x.IdOrdenCompra and e.Secuencia = x.SecuenciaOC
+	where x.IdEmpresa = @IdEmpresa and x.IdUsuario = @IdUsuario
+	) B where b.IdRow= 1
+	)A WHERE 
+	com_SPCOM_SeguimientoEntrega.IdEmpresa = A.IdEmpresa
+	AND com_SPCOM_SeguimientoEntrega.IdOrdenPedido = A.IdOrdenPedido
+	AND com_SPCOM_SeguimientoEntrega.Secuencia = A.Secuencia
+	AND com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
+	AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+END
+
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
+
+PRINT 'ACTUALIZO ANALISIS DE DATOS'
+BEGIN --ACTUALIZO ANALISIS DE DIAS
+	update com_SPCOM_SeguimientoEntrega set CantidadPendiente = ROUND(CantidadOC - IB_Cantidad,2), DiasPendiente = 
+	case when ROUND(CantidadOC - IB_Cantidad,2) > 0 then DATEDIFF(DAY,cast(getdate() as date),FechaEntrega) 
+	when ROUND(CantidadOC - IB_Cantidad,2)= 0 then DATEDIFF(DAY,IB_Fecha,FechaEntrega) end
+	WHERE com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
+	AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+
+	update com_SPCOM_SeguimientoEntrega set AlertaEntrega = case when DiasPendiente is null then 1/*White*/ when DiasPendiente > 1 then /*'Green'*/2 when DiasPendiente between 0 and 1 then /*'Yellow'*/3 when DiasPendiente < 0 then /*'Red'*/ 4 end
+	WHERE com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
+	AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+END
+
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
+BEGIN --ACTUALIZO DATOS DE TRANSFERENCIA
+	update com_SPCOM_SeguimientoEntrega set NombreSucursalTransferencia = A.Su_Descripcion, NombreBodegaTransferencia = a.bo_Descripcion, FechaTransferencia = a.tr_fecha, FechaRecepcionTransferencia = a.cm_fecha
+	FROM(
+		SELECT a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, f.Su_Descripcion, e.bo_Descripcion, c.tr_fecha, d.cm_fecha
+		FROM com_SPCOM_SeguimientoEntrega AS A INNER JOIN
+		in_transferencia_det AS B ON A.IdEmpresa = B.IdEmpresa AND A.IdSucursalOC = B.IdSucursal_oc AND A.IdOrdenCompra = B.IdOrdenCompra and A.SecuenciaOC = b.Secuencia_oc inner join
+		in_transferencia as c on b.IdEmpresa = c.IdEmpresa and b.IdSucursalOrigen = c.IdSucursalOrigen and b.IdBodegaOrigen = c.IdBodegaOrigen and b.IdTransferencia = c.IdTransferencia left join
+		in_Ing_Egr_Inven as d on c.IdEmpresa_Ing_Egr_Inven_Destino = d.IdEmpresa and c.IdSucursal_Ing_Egr_Inven_Destino = d.IdSucursal and d.IdMovi_inven_tipo = c.IdMovi_inven_tipo_SucuDest and d.IdNumMovi = c.IdNumMovi_Ing_Egr_Inven_Destino left join
+		tb_bodega as e on c.IdEmpresa = e.IdEmpresa and c.IdSucursal_Ing_Egr_Inven_Destino = e.IdSucursal and c.IdBodegaDest = e.IdBodega left join
+		tb_sucursal as f on e.IdEmpresa = f.IdEmpresa and e.IdSucursal = e.IdSucursal
+		where a.IdEmpresa = @IdEmpresa
+		and a.IdUsuario = @IdUsuario
+		group by a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, f.Su_Descripcion, e.bo_Descripcion, c.tr_fecha, d.cm_fecha
+	)a
+	where com_SPCOM_SeguimientoEntrega.IdEmpresa = a.IdEmpresa
+	and com_SPCOM_SeguimientoEntrega.IdOrdenPedido = a.IdOrdenPedido
+	and com_SPCOM_SeguimientoEntrega.Secuencia = a.Secuencia
+	AND com_SPCOM_SeguimientoEntrega.IdUsuario = @IdUsuario
+	AND com_SPCOM_SeguimientoEntrega.IdEmpresa = @IdEmpresa
+END
+
+SET @t2=getdate()
+print DATEDIFF(second,@t1,@t2);
 
 select * from com_SPCOM_SeguimientoEntrega where IdEmpresa = @IdEmpresa AND IdUsuario = @IdUsuario
