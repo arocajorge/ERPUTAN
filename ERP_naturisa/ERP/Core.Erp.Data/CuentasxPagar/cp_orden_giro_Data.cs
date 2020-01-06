@@ -459,7 +459,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     if (proveedor == null)
                         return null;
                     string Serie = Establecimiento + "-"+ PuntoEmision;
-                    var og = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == "01" && q.IdProveedor == proveedor.IdProveedor && q.co_serie == Serie && q.co_factura == NumDocumento).FirstOrDefault();
+                    var og = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == "01" && q.IdProveedor == proveedor.IdProveedor && q.co_serie == Serie && q.co_factura == NumDocumento && q.Estado == "A").FirstOrDefault();
                     if (og == null)
                         return null;
 

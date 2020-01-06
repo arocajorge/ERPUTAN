@@ -337,7 +337,7 @@ namespace Core.Erp.Business.CuentasxPagar
                                 if (Bus_Retencion.Graba_CbteCble_Ret_FactProveedor(Info_OrdenGiro.Info_Retencion, Info_OrdenGiro.Info_Retencion.Info_CbteCble_x_RT, ref mensaje))
                                 {
                                     //actualizando el suencial de la retencion serie y #retencion
-                                    Bus_Retencion.Modificar_Num_Retencion(Info_OrdenGiro.Info_Retencion, ref mensaje);
+                                    //Bus_Retencion.Modificar_Num_Retencion(Info_OrdenGiro.Info_Retencion, ref mensaje);
 
                                 }
                                 else
@@ -635,7 +635,7 @@ namespace Core.Erp.Business.CuentasxPagar
                                     if (Bus_Retencion.Graba_CbteCble_Ret_FactProveedor(InfoOrdenGiro_I.Info_Retencion, InfoOrdenGiro_I.Info_Retencion.Info_CbteCble_x_RT, ref mensaje))
                                     {
                                         //actualizando el suencial de la retencion serie y #retencion
-                                        Bus_Retencion.Modificar_Num_Retencion(InfoOrdenGiro_I.Info_Retencion, ref mensaje);
+                                       // Bus_Retencion.Modificar_Num_Retencion(InfoOrdenGiro_I.Info_Retencion, ref mensaje);
 
                                     }
                                     else

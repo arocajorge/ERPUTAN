@@ -593,7 +593,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         if (GenerarRetencion && !string.IsNullOrEmpty(Entity.ret_NumeroDocumento))
                         {
                             var ret = db.cp_retencion.Where(q=> q.IdEmpresa == IdEmpresa && q.IdTipoCbte_Ogiro == IdTipoCbte && q.IdCbteCble_Ogiro == IdCbteCble && q.Estado =="A").FirstOrDefault();
-                            if (ret == null)
+                            if (ret != null)
                             {
                                 db.SaveChanges();
 

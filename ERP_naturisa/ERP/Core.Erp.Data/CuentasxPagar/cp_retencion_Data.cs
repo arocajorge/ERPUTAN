@@ -793,6 +793,7 @@ namespace Core.Erp.Data.CuentasxPagar
             Boolean res = false;
             try
             {
+                tb_sis_Documento_Tipo_Talonario_Data odataTal = new tb_sis_Documento_Tipo_Talonario_Data();
 
                 using (EntitiesCuentasxPagar context = new EntitiesCuentasxPagar())
                 {
@@ -807,10 +808,14 @@ namespace Core.Erp.Data.CuentasxPagar
                     address.IdTipoCbte_Ogiro = info.IdTipoCbte_Ogiro;
                     address.IdRetencion = info.IdRetencion = GetIdRetencion(info.IdEmpresa);
 
-                    address.CodDocumentoTipo = (info.CodDocumentoTipo == null) ? "RETEN" : info.CodDocumentoTipo;
-                    address.serie1 = null;//Al grabar debe mandarse en null hasta que se imprima.
-                    address.serie2 = null;//Al grabar debe mandarse en null hasta que se imprima.
-                    address.NumRetencion = null;//Al grabar debe mandarse en null hasta que se imprima.
+                    address.CodDocumentoTipo = "RETEN";
+                    var Talonario = odataTal.GetDocumentoElectronicoUpdateUsado(info.IdEmpresa,"RETEN",info.serie1, info.serie2);
+                    if (Talonario != null)
+                    {
+                        address.serie1 = info.serie1;
+                        address.serie2 = info.serie2;
+                        address.NumRetencion = Talonario.NumDocumento;
+                    }
                     address.NAutorizacion = null;//Al grabar debe mandarse en null hasta que se imprima.
                    
                     address.observacion = (info.observacion== null)?"":
