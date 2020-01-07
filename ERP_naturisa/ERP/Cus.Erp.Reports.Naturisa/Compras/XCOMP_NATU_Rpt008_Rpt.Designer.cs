@@ -202,7 +202,7 @@
             // xrTableCell26
             // 
             this.xrTableCell26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "SucursalOrigen")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "nomUnidadMedida")});
             this.xrTableCell26.Name = "xrTableCell26";
             this.xrTableCell26.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 3, 0, 100F);
             this.xrTableCell26.StylePriority.UsePadding = false;
@@ -210,6 +210,7 @@
             this.xrTableCell26.Text = "xrTableCell26";
             this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell26.Weight = 0.15645370582869023D;
+            this.xrTableCell26.WordWrap = false;
             // 
             // xrTableCell27
             // 
@@ -554,7 +555,7 @@
             // xrTableCell18
             // 
             this.xrTableCell18.Name = "xrTableCell18";
-            this.xrTableCell18.Text = "Camp. Origen";
+            this.xrTableCell18.Text = "U. M.";
             this.xrTableCell18.Weight = 0.15645370582869023D;
             // 
             // xrTableCell21
