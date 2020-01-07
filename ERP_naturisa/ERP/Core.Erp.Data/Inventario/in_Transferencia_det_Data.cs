@@ -118,7 +118,7 @@ namespace Core.Erp.Data.Inventario
                             Bodega_Origen = item.BodegaOrigen,
                             Bodega_Destino = item.BodegaDestino,
                             ObservacionAprobacion = "TR."+item.IdTransferencia.ToString()+" Fecha: "+item.tr_fecha.ToShortDateString()+" Suc. Origen: "+item.SucursalOrigen.Trim()+" Bod. Origen:"+item.BodegaOrigen.Trim(),
-                            dt_cantidadPreDespacho = item.dt_cantidadPreDespacho
+                            //dt_cantidadPreDespacho = item.dt_cantidadPreDespacho
                         });
                     }
                 }

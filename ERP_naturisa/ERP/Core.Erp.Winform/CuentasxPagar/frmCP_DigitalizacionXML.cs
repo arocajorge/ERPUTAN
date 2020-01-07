@@ -179,6 +179,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                         Documento.ValorIVA = Documento.lstDetalle.Sum(q => q.ValorIva);
                         Documento.Total = Documento.lstDetalle.Sum(q => q.Total);
                         */
+
+                        if (Documento.Total == 0)
+                        {
+                            Documento.Subtotal0 = Convert.ToDouble(infoFactura.Element("totalSinImpuestos").Value);
+                            Documento.Total = Documento.Subtotal0; 
+                        }
+
+
                         if (ListaCodigoProveedor.Where(q=> q.IdEmpresa == param.IdEmpresa && q.pe_cedulRuc == Documento.emi_Ruc).Count() == 0)
                         {
                             var ListaDet = bus_codigoProveedor.GetList(param.IdEmpresa, Documento.emi_Ruc);
