@@ -2874,6 +2874,9 @@
     <Compile Include="vwINV_Rpt028.cs">
       <DependentUpon>Model_Inventario_General.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwINV_Rpt029.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

@@ -25,6 +25,7 @@
         <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt023" Width="1.5" PointX="9.0550651741470514" PointY="21.874206135922208" />
         <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt002" Width="1.5" PointX="4.80327546447668" PointY="13.701694018068581" />
         <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt017" Width="1.5" PointX="7.7003296463286173" PointY="11.549333398951838" />
+        <EntityTypeShape EntityType="DBERPModel.vwINV_Rpt029" Width="1.5" PointX="3.9228813033191869" PointY="11.198397790639847" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

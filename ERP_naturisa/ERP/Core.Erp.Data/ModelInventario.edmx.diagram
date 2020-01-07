@@ -166,12 +166,6 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_grupo_in_linea" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega_det" Width="1.5" PointX="7.6614325920405957" PointY="21.296056295417277" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega_det" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega" Width="1.5" PointX="8.365687305278" PointY="19.406483122802566" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_in_Catalogo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_guia_x_traspaso_bodega" Width="1.5" PointX="5.448547607962297" PointY="29.262884570873755" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_aprobacion_x_transaccion" Width="1.5" PointX="5.777709253960154" PointY="6.8642111750618611" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_Familia" Width="1.5" PointX="9.51188684884081" PointY="1.9714629063249858" />
@@ -207,12 +201,18 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det" Width="1.5" PointX="6.9194729267244561" PointY="22.792132194522829" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_transferencia_det" Width="1.5" PointX="0.51378587098502826" PointY="19.417230019074506" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_Guia_x_traspaso_bodega" Width="1.5" PointX="8.07099134664563" PointY="30.27308709839037" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_in_Catalogo" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_in_Guia_x_traspaso_bodega" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

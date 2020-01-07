@@ -542,6 +542,7 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 infoTransferencia.EstadoRevision = "A";
+                GetInfo();
                 if (busTransferencia.Revisar(infoTransferencia))
                 {
                     MessageBox.Show("Transferencia aprobada exitósamente", param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

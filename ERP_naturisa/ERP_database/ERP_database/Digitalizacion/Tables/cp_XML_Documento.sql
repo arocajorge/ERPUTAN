@@ -34,8 +34,16 @@
     [Estado]                    BIT            NOT NULL,
     [IdTipoCbte]                INT            NULL,
     [IdCbteCble]                NUMERIC (18)   NULL,
+    [IdUsuarioCreacion]         VARCHAR (50)   NULL,
+    [FechaCreacion]             DATETIME       NULL,
+    [IdUsuarioModificacion]     VARCHAR (50)   NULL,
+    [FechaModificacion]         DATETIME       NULL,
+    [IdUsuarioAnulacion]        VARCHAR (50)   NULL,
+    [FechaAnulacion]            DATETIME       NULL,
     CONSTRAINT [PK_cp_XML_Documento] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdDocumento] ASC)
 );
+
+
 
 
 

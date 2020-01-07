@@ -29,6 +29,8 @@
     [NombreDestinatario]         VARCHAR (1000) NULL,
     [IdentificacionDestinatario] VARCHAR (50)   NULL,
     [Placa]                      VARCHAR (50)   NULL,
+    [NumeroAutorizacion]         VARCHAR (200)  NULL,
+    [FechaAutorizacion]          DATETIME       NULL,
     CONSTRAINT [PK_in_Guia_x_traspaso_bodega] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdGuia] ASC),
     CONSTRAINT [FK_in_Guia_x_traspaso_bodega_in_Catalogo] FOREIGN KEY ([IdMotivo_Traslado]) REFERENCES [dbo].[in_Catalogo] ([IdCatalogo]),
     CONSTRAINT [FK_in_Guia_x_traspaso_bodega_tb_sis_Documento_Tipo_Talonario] FOREIGN KEY ([IdEmpresa], [CodDocumentoTipo], [IdPuntoEmision], [IdEstablecimiento], [NumDocumento_Guia]) REFERENCES [dbo].[tb_sis_Documento_Tipo_Talonario] ([IdEmpresa], [CodDocumentoTipo], [PuntoEmision], [Establecimiento], [NumDocumento]),
@@ -36,6 +38,8 @@
     CONSTRAINT [FK_in_Guia_x_traspaso_bodega_tb_sucursal1] FOREIGN KEY ([IdEmpresa], [IdSucursal_Llegada]) REFERENCES [dbo].[tb_sucursal] ([IdEmpresa], [IdSucursal]),
     CONSTRAINT [FK_in_Guia_x_traspaso_bodega_tb_transportista] FOREIGN KEY ([IdEmpresa], [IdTransportista]) REFERENCES [dbo].[tb_transportista] ([IdEmpresa], [IdTransportista])
 );
+
+
 
 
 

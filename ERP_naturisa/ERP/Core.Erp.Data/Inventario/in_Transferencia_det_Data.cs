@@ -38,7 +38,8 @@ namespace Core.Erp.Data.Inventario
                             dt_cantidadApro = item.dt_cantidadApro,
                             dt_cantidadFinal = item.dt_cantidadFinal,
                             CantidadAnterior = item.dt_cantidad,
-                            MotivoParcial = item.MotivoParcial
+                            MotivoParcial = item.MotivoParcial,
+                            dt_cantidadPreDespacho = item.dt_cantidadPreDespacho ?? 0
 
                         });
                     }
@@ -74,7 +75,7 @@ namespace Core.Erp.Data.Inventario
                             IdUnidadMedida = item.IdUnidadMedida,
                             IdSucursal_oc = item.IdSucursal,
                             IdOrdenCompra = item.IdOrdenCompra,
-                            Secuencia_oc = item.Secuencia
+                            Secuencia_oc = item.Secuencia,
                         });
                     }
                 }
@@ -116,7 +117,8 @@ namespace Core.Erp.Data.Inventario
                             Sucursal_Destino = item.SucursalDestino,
                             Bodega_Origen = item.BodegaOrigen,
                             Bodega_Destino = item.BodegaDestino,
-                            ObservacionAprobacion = "TR."+item.IdTransferencia.ToString()+" Fecha: "+item.tr_fecha.ToShortDateString()+" Suc. Origen: "+item.SucursalOrigen.Trim()+" Bod. Origen:"+item.BodegaOrigen.Trim()
+                            ObservacionAprobacion = "TR."+item.IdTransferencia.ToString()+" Fecha: "+item.tr_fecha.ToShortDateString()+" Suc. Origen: "+item.SucursalOrigen.Trim()+" Bod. Origen:"+item.BodegaOrigen.Trim(),
+                            dt_cantidadPreDespacho = item.dt_cantidadPreDespacho
                         });
                     }
                 }

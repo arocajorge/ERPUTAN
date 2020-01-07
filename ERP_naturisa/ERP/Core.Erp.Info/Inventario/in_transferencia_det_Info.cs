@@ -31,6 +31,7 @@ namespace Core.Erp.Info.Inventario
         public double cantidad_enviar { get; set; }
         public double Saldo { get; set; }
         public bool check { get; set; }
+        public double dt_cantidadPreDespacho { get; set; }
 
 
         public in_Guia_x_traspaso_bodega_det_Info Info_Guia_x_traspaso_bodega_det { get; set; }
