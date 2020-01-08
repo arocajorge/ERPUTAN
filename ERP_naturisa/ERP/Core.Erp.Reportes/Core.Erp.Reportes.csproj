@@ -107,7 +107,9 @@
     <Compile Include="Academico\XACA_Rpt001_Bus.cs" />
     <Compile Include="Academico\XACA_Rpt001_Data.cs" />
     <Compile Include="Academico\XACA_Rpt001_Info.cs" />
-    <Compile Include="Academico\XACA_Rpt001_rpt.cs" />
+    <Compile Include="Academico\XACA_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Academico\XACA_Rpt001_rpt.Designer.cs">
       <DependentUpon>XACA_Rpt001_rpt.cs</DependentUpon>
     </Compile>
@@ -129,18 +131,24 @@
       <DependentUpon>XACTF_Rpt002_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt002_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt002_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt003_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt003_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt003_frm.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt003_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt003_frm.Designer.cs">
       <DependentUpon>XACTF_Rpt003_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt003_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt003_rpt.cs</DependentUpon>
     </Compile>
@@ -161,12 +169,16 @@
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt005_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt005_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt005_frm.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt005_frm.Designer.cs">
       <DependentUpon>XACTF_Rpt005_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt005_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt005_rpt.cs</DependentUpon>
     </Compile>
@@ -179,13 +191,17 @@
       <DependentUpon>XACTF_Rpt006_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt006_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt006_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt007_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt007_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt007_frm.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt007_frm.Designer.cs">
       <DependentUpon>XACTF_Rpt007_frm.cs</DependentUpon>
     </Compile>
@@ -198,30 +214,40 @@
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt008_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt008_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt008_frm.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt008_frm.Designer.cs">
       <DependentUpon>XACTF_Rpt008_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt008_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt008_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt009_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt009_Data.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt009_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt009_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt010_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt010_Data.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt010_frm.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt010_frm.Designer.cs">
       <DependentUpon>XACTF_Rpt010_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt010_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt010_rpt.cs</DependentUpon>
     </Compile>
@@ -234,7 +260,9 @@
       <DependentUpon>XACTF_Rpt011_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt011_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt011_rpt.cs</DependentUpon>
     </Compile>
@@ -256,14 +284,18 @@
     <Compile Include="ActivoFijo\XACTF_Rpt013_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt013_Data.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt013_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt013_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt014_Bus.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt014_Data.cs" />
     <Compile Include="ActivoFijo\XACTF_Rpt014_Info.cs" />
-    <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.Designer.cs">
       <DependentUpon>XACTF_Rpt014_Rpt.cs</DependentUpon>
     </Compile>
@@ -271,7 +303,9 @@
     <Compile Include="Bancos\XBAN_Rpt007_saldos_Bus.cs" />
     <Compile Include="Bancos\XBAN_Rpt007_saldos_Data.cs" />
     <Compile Include="Bancos\XBAN_Rpt007_saldos_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt007_saldos_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_saldos_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt007_saldos_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt007_saldos_rpt.cs</DependentUpon>
     </Compile>
@@ -284,7 +318,9 @@
       <DependentUpon>XBAN_Rpt001_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt001_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt001_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt001_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt001_rpt.cs</DependentUpon>
     </Compile>
@@ -297,7 +333,9 @@
       <DependentUpon>XBAN_Rpt002_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt002_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt002_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt002_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt002_rpt.cs</DependentUpon>
     </Compile>
@@ -325,7 +363,9 @@
       <DependentUpon>XBAN_Rpt004_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt004_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt004_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt004_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt004_rpt.cs</DependentUpon>
     </Compile>
@@ -368,7 +408,9 @@
       <DependentUpon>XBAN_Rpt007_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt007_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt007_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt007_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt007_rpt.cs</DependentUpon>
     </Compile>
@@ -396,7 +438,9 @@
       <DependentUpon>XBAN_Rpt009_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt009_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt009_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt009_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt009_rpt.cs</DependentUpon>
     </Compile>
@@ -433,7 +477,9 @@
     <Compile Include="Bancos\XBAN_Rpt012_Bus.cs" />
     <Compile Include="Bancos\XBAN_Rpt012_Data.cs" />
     <Compile Include="Bancos\XBAN_Rpt012_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt012_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt012_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt012_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt012_rpt.cs</DependentUpon>
     </Compile>
@@ -449,14 +495,18 @@
     <Compile Include="Bancos\XBAN_Rpt014_Bus.cs" />
     <Compile Include="Bancos\XBAN_Rpt014_Data.cs" />
     <Compile Include="Bancos\XBAN_Rpt014_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt014_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt014_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt014_rpt.designer.cs">
       <DependentUpon>XBAN_Rpt014_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt015_Bus.cs" />
     <Compile Include="Bancos\XBAN_Rpt015_Data.cs" />
     <Compile Include="Bancos\XBAN_Rpt015_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt015_rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt015_rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt015_rpt.cs</DependentUpon>
     </Compile>
@@ -475,14 +525,18 @@
     <Compile Include="Bancos\XBAN_Rpt016_Rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt016_Rpt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bancos\XBAN_Rpt017_Rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt017_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt017_Rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt017_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Bancos\XBAN_Rpt018_Bus.cs" />
     <Compile Include="Bancos\XBAN_Rpt018_Data.cs" />
     <Compile Include="Bancos\XBAN_Rpt018_Info.cs" />
-    <Compile Include="Bancos\XBAN_Rpt018_Rpt.cs" />
+    <Compile Include="Bancos\XBAN_Rpt018_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bancos\XBAN_Rpt018_Rpt.Designer.cs">
       <DependentUpon>XBAN_Rpt018_Rpt.cs</DependentUpon>
     </Compile>
@@ -498,7 +552,9 @@
     <Compile Include="Caja\XCAJ_Rpt004_Bus.cs" />
     <Compile Include="Caja\XCAJ_Rpt004_Data.cs" />
     <Compile Include="Caja\XCAJ_Rpt004_Info.cs" />
-    <Compile Include="Caja\XCAJ_Rpt004_Rpt.cs" />
+    <Compile Include="Caja\XCAJ_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Caja\XCAJ_Rpt004_Rpt.Designer.cs">
       <DependentUpon>XCAJ_Rpt004_Rpt.cs</DependentUpon>
     </Compile>
@@ -511,7 +567,9 @@
       <DependentUpon>XCAJ_Rpt005_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja\XCAJ_Rpt005_Info.cs" />
-    <Compile Include="Caja\XCAJ_Rpt005_Rpt.cs" />
+    <Compile Include="Caja\XCAJ_Rpt005_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Caja\XCAJ_Rpt005_Rpt.Designer.cs">
       <DependentUpon>XCAJ_Rpt005_Rpt.cs</DependentUpon>
     </Compile>
@@ -554,7 +612,9 @@
     <Compile Include="Contabilidad\XCONTA_Rpt008_Bus.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt008_Data.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt008_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt008_Rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt008_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt008_Rpt.cs</DependentUpon>
     </Compile>
@@ -582,7 +642,9 @@
       <DependentUpon>XCONTA_Rpt010_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt010_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt010_Rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt010_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt010_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt010_Rpt.cs</DependentUpon>
     </Compile>
@@ -610,14 +672,18 @@
       <DependentUpon>XCONTA_Rpt012_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt012_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt012_Rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt012_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt012_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt012_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt013_Bus.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt013_Data.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt013_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt013_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt013_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt013_rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt013_rpt.cs</DependentUpon>
     </Compile>
@@ -639,7 +705,9 @@
     <Compile Include="Contabilidad\XCONTA_Rpt015_Bus.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt015_Data.cs" />
     <Compile Include="Contabilidad\XCONTA_Rpt015_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt015_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt015_rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt015_rpt.cs</DependentUpon>
     </Compile>
@@ -652,7 +720,9 @@
       <DependentUpon>XCONTA_Rpt016_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt016_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt016_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt016_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt016_rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt016_rpt.cs</DependentUpon>
     </Compile>
@@ -668,7 +738,9 @@
       <DependentUpon>XCONTA_Rpt018_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt018_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt018_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt018_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt018_rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt018_rpt.cs</DependentUpon>
     </Compile>
@@ -681,7 +753,9 @@
       <DependentUpon>XCONTA_Rpt019_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt019_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt019_Rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt019_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt019_Rpt.designer.cs">
       <DependentUpon>XCONTA_Rpt019_Rpt.cs</DependentUpon>
     </Compile>
@@ -694,7 +768,9 @@
       <DependentUpon>XCONTA_Rpt020_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt020_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt020_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt020_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt020_rpt.designer.cs">
       <DependentUpon>XCONTA_Rpt020_rpt.cs</DependentUpon>
     </Compile>
@@ -707,7 +783,9 @@
       <DependentUpon>XCONTA_Rpt021_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt021_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt021_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt021_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt021_rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt021_rpt.cs</DependentUpon>
     </Compile>
@@ -735,7 +813,9 @@
       <DependentUpon>XCONTA_Rpt023_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt023_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt023_rpt.cs</DependentUpon>
     </Compile>
@@ -767,7 +847,9 @@
       <DependentUpon>XCXC_Rpt015_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt015_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt015_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt015_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt015_rpt.cs</DependentUpon>
     </Compile>
@@ -780,7 +862,9 @@
       <DependentUpon>XCXC_Rpt012_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt012_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt012_Rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt012_Rpt.cs</DependentUpon>
     </Compile>
@@ -808,7 +892,9 @@
       <DependentUpon>XCXC_Rpt014_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt014_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt014_Rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt014_Rpt.cs</DependentUpon>
     </Compile>
@@ -830,7 +916,9 @@
       <DependentUpon>XCXC_Rpt017_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt017_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt017_Rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt017_Rpt.cs</DependentUpon>
     </Compile>
@@ -859,7 +947,9 @@
       <DependentUpon>XCXP_Rpt030_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt030_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt030_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt030_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt030_Rpt.cs</DependentUpon>
     </Compile>
@@ -875,14 +965,18 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt032_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt032_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt032_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt032_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt032_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt032_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt032_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt033_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt033_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt033_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt033_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt033_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt033_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt033_Rpt.cs</DependentUpon>
     </Compile>
@@ -909,16 +1003,22 @@
       <DependentUpon>XCXP_Rpt035_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt035_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt035_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt035_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt035_rpt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\XFAC_Rpt004_Resumen_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt004_Resumen_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt004_Resumen_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt004_Resumen_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt004_Resumen_x_Subtotal_x_Iva_Info.cs" />
-    <Compile Include="frmGe_Esperar.cs" />
+    <Compile Include="frmGe_Esperar.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmGe_Esperar.designer.cs">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
     </Compile>
@@ -931,7 +1031,9 @@
       <DependentUpon>XINV_Rpt013_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt013_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt013_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt013_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt013_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt013_Rpt.cs</DependentUpon>
     </Compile>
@@ -944,7 +1046,9 @@
       <DependentUpon>XINV_Rpt029_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt029_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt029_rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt029_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt029_rpt.Designer.cs">
       <DependentUpon>XINV_Rpt029_rpt.cs</DependentUpon>
     </Compile>
@@ -969,7 +1073,9 @@
       <DependentUpon>XINV_Rpt019_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt019_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt019_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt019_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt019_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt019_Rpt.cs</DependentUpon>
     </Compile>
@@ -982,7 +1088,9 @@
       <DependentUpon>XINV_Rpt024_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt024_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt024_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt024_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt024_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt024_Rpt.cs</DependentUpon>
     </Compile>
@@ -1010,7 +1118,9 @@
       <DependentUpon>XINV_Rpt026_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt026_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt026_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt026_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt026_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt026_Rpt.cs</DependentUpon>
     </Compile>
@@ -1087,7 +1197,9 @@
       <DependentUpon>XCAJ_Rpt002_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja\XCAJ_Rpt002_Info.cs" />
-    <Compile Include="Caja\XCAJ_Rpt002_Rpt.cs" />
+    <Compile Include="Caja\XCAJ_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Caja\XCAJ_Rpt002_Rpt.Designer.cs">
       <DependentUpon>XCAJ_Rpt002_Rpt.cs</DependentUpon>
     </Compile>
@@ -1121,7 +1233,9 @@
     <Compile Include="Compras\XCOMP_Rpt006_Bus.cs" />
     <Compile Include="Compras\XCOMP_Rpt006_Data.cs" />
     <Compile Include="Compras\XCOMP_Rpt006_Info.cs" />
-    <Compile Include="Compras\XCOMP_Rpt006_rpt.cs" />
+    <Compile Include="Compras\XCOMP_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Compras\XCOMP_Rpt006_rpt.Designer.cs">
       <DependentUpon>XCOMP_Rpt006_rpt.cs</DependentUpon>
     </Compile>
@@ -1164,7 +1278,9 @@
       <DependentUpon>XCONTA_Rpt002_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt002_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt002_Rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt002_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt002_Rpt.cs</DependentUpon>
     </Compile>
@@ -1225,7 +1341,9 @@
       <DependentUpon>XCONTA_Rpt007_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt007_Info.cs" />
-    <Compile Include="Contabilidad\XCONTA_Rpt007_Rpt.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Contabilidad\XCONTA_Rpt007_Rpt.Designer.cs">
       <DependentUpon>XCONTA_Rpt007_Rpt.cs</DependentUpon>
     </Compile>
@@ -1322,14 +1440,18 @@
       <DependentUpon>XCXC_Rpt001_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt001_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt001_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt001_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt001_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt002_Bus.cs" />
     <Compile Include="CuentasxCobrar\XCXC_Rpt002_Data.cs" />
     <Compile Include="CuentasxCobrar\XCXC_Rpt002_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt002_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt002_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt002_rpt.cs</DependentUpon>
     </Compile>
@@ -1345,7 +1467,9 @@
     <Compile Include="CuentasxCobrar\XCXC_Rpt004_Bus.cs" />
     <Compile Include="CuentasxCobrar\XCXC_Rpt004_Data.cs" />
     <Compile Include="CuentasxCobrar\XCXC_Rpt004_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt004_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt004_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt004_rpt.cs</DependentUpon>
     </Compile>
@@ -1367,7 +1491,9 @@
       <DependentUpon>XCXC_Rpt006_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt006_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt006_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt006_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt006_rpt.cs</DependentUpon>
     </Compile>
@@ -1380,7 +1506,9 @@
       <DependentUpon>XCXC_Rpt007_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt007_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt007_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt007_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt007_rpt.cs</DependentUpon>
     </Compile>
@@ -1408,7 +1536,9 @@
       <DependentUpon>XCXC_Rpt009_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt009_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt009_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt009_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt009_rpt.cs</DependentUpon>
     </Compile>
@@ -1436,7 +1566,9 @@
       <DependentUpon>XCXC_Rpt011_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt011_Info.cs" />
-    <Compile Include="CuentasxCobrar\XCXC_Rpt011_rpt.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxCobrar\XCXC_Rpt011_rpt.Designer.cs">
       <DependentUpon>XCXC_Rpt011_rpt.cs</DependentUpon>
     </Compile>
@@ -1450,7 +1582,9 @@
       <DependentUpon>XCXP_Rpt001_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt001_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt001_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt001_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt001_Rpt.cs</DependentUpon>
     </Compile>
@@ -1466,14 +1600,18 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt003_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt003_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt003_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt003_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt003_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt003_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt004_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt004_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt004_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt004_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt004_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt004_Rpt.cs</DependentUpon>
     </Compile>
@@ -1489,14 +1627,18 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt006_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt006_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt006_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt006_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt006_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt006_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt006_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt007_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt007_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt007_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt007_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt007_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt007_Rpt.cs</DependentUpon>
     </Compile>
@@ -1539,7 +1681,9 @@
       <DependentUpon>XCXP_Rpt011_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt011_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt011_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt011_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt011_rpt.cs</DependentUpon>
     </Compile>
@@ -1552,7 +1696,9 @@
       <DependentUpon>XCXP_Rpt012_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt012_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt012_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt012_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt012_rpt.cs</DependentUpon>
     </Compile>
@@ -1580,7 +1726,9 @@
       <DependentUpon>XCXP_Rpt014_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt014_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt014_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt014_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt014_rpt.cs</DependentUpon>
     </Compile>
@@ -1608,7 +1756,9 @@
       <DependentUpon>XCXP_Rpt016_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt016_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt016_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt016_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt016_rpt.cs</DependentUpon>
     </Compile>
@@ -1621,7 +1771,9 @@
       <DependentUpon>XCXP_Rpt017_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt017_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt017_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt017_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt017_rpt.cs</DependentUpon>
     </Compile>
@@ -1643,7 +1795,9 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt019_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt019_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt019_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt019_rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt019_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt019_rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt019_rpt.cs</DependentUpon>
     </Compile>
@@ -1656,14 +1810,18 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt021_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt021_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt021_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt021_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt021_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt021_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt021_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt022_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt022_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt022_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt022_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt022_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt022_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt022_Rpt.cs</DependentUpon>
     </Compile>
@@ -1679,7 +1837,9 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt024_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt024_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt024_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt024_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt024_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt024_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt024_Rpt.cs</DependentUpon>
     </Compile>
@@ -1692,7 +1852,9 @@
       <DependentUpon>XCXP_Rpt025_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt025_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt025_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt025_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt025_Rpt.cs</DependentUpon>
     </Compile>
@@ -1708,14 +1870,18 @@
     <Compile Include="CuentasxPagar\XCXP_Rpt027_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt027_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt027_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt027_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt027_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt027_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt027_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt028_Bus.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt028_Data.cs" />
     <Compile Include="CuentasxPagar\XCXP_Rpt028_Info.cs" />
-    <Compile Include="CuentasxPagar\XCXP_Rpt028_Rpt.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt028_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CuentasxPagar\XCXP_Rpt028_Rpt.Designer.cs">
       <DependentUpon>XCXP_Rpt028_Rpt.cs</DependentUpon>
     </Compile>
@@ -1728,7 +1894,9 @@
       <DependentUpon>XFAC_Rpt001_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt001_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt001_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt001_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt001_rpt.cs</DependentUpon>
     </Compile>
@@ -1756,7 +1924,9 @@
       <DependentUpon>XFAC_Rpt003_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt003_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt003_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt003_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt003_rpt.cs</DependentUpon>
     </Compile>
@@ -1769,7 +1939,9 @@
       <DependentUpon>XFAC_Rpt004_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt004_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt004_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt004_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt004_rpt.cs</DependentUpon>
     </Compile>
@@ -1797,7 +1969,9 @@
       <DependentUpon>XFAC_Rpt006_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt006_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt006_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt006_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt006_rpt.cs</DependentUpon>
     </Compile>
@@ -1819,14 +1993,18 @@
       <DependentUpon>XFAC_Rpt008_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt008_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt008_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt008_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt008_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt009_Bus.cs" />
     <Compile Include="Facturacion\XFAC_Rpt009_Data.cs" />
     <Compile Include="Facturacion\XFAC_Rpt009_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt009_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt009_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt009_rpt.cs</DependentUpon>
     </Compile>
@@ -1848,7 +2026,9 @@
     <Compile Include="Facturacion\XFAC_Rpt011_Bus.cs" />
     <Compile Include="Facturacion\XFAC_Rpt011_Data.cs" />
     <Compile Include="Facturacion\XFAC_Rpt011_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt011_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt011_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt011_rpt.cs</DependentUpon>
     </Compile>
@@ -1861,7 +2041,9 @@
       <DependentUpon>XFAC_Rpt013_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\XFAC_Rpt013_Info.cs" />
-    <Compile Include="Facturacion\XFAC_Rpt013_rpt.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt013_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Facturacion\XFAC_Rpt013_rpt.Designer.cs">
       <DependentUpon>XFAC_Rpt013_rpt.cs</DependentUpon>
     </Compile>
@@ -1880,14 +2062,18 @@
     <Compile Include="Inventario\XINV_Rpt002_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt002_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt002_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt002_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt002_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt002_Rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt003_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt003_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt003_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt003_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt003_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt003_Rpt.cs</DependentUpon>
     </Compile>
@@ -1906,7 +2092,9 @@
     <Compile Include="Inventario\XINV_Rpt004_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt004_Rpt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\XINV_Rpt005_rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt005_rpt.Designer.cs">
       <DependentUpon>XINV_Rpt005_rpt.cs</DependentUpon>
     </Compile>
@@ -1922,7 +2110,9 @@
     <Compile Include="Inventario\XINV_Rpt007_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt007_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt007_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt007_rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt007_rpt.Designer.cs">
       <DependentUpon>XINV_Rpt007_rpt.cs</DependentUpon>
     </Compile>
@@ -1944,7 +2134,9 @@
     <Compile Include="Inventario\XINV_Rpt010_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt010_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt010_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt010_rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt010_rpt.Designer.cs">
       <DependentUpon>XINV_Rpt010_rpt.cs</DependentUpon>
     </Compile>
@@ -1959,7 +2151,9 @@
     </Compile>
     <Compile Include="Inventario\XINV_Rpt012_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt012_Data.cs" />
-    <Compile Include="Inventario\XINV_Rpt012_frm.cs" />
+    <Compile Include="Inventario\XINV_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt012_frm.Designer.cs">
       <DependentUpon>XINV_Rpt012_frm.cs</DependentUpon>
     </Compile>
@@ -1973,7 +2167,9 @@
       <DependentUpon>XINV_Rpt015_Frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt015_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt015_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt015_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt015_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt015_Rpt.cs</DependentUpon>
     </Compile>
@@ -1986,7 +2182,9 @@
       <DependentUpon>XINV_Rpt016_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt016_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt016_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt016_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt016_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt016_Rpt.cs</DependentUpon>
     </Compile>
@@ -2008,7 +2206,9 @@
       <DependentUpon>XINV_Rpt018_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt018_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt018_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt018_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt018_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt018_Rpt.cs</DependentUpon>
     </Compile>
@@ -2021,7 +2221,9 @@
       <DependentUpon>XINV_Rpt021_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt021_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt021_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt021_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt021_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt021_Rpt.cs</DependentUpon>
     </Compile>
@@ -2037,7 +2239,9 @@
     <Compile Include="Inventario\XINV_Rpt023_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt023_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt023_Info.cs" />
-    <Compile Include="Inventario\XINV_Rpt023_Rpt.cs" />
+    <Compile Include="Inventario\XINV_Rpt023_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Inventario\XINV_Rpt023_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt023_Rpt.cs</DependentUpon>
     </Compile>

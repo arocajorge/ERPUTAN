@@ -443,22 +443,24 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
-
-                #region ValidarStock
-                var lst = blstDetalle.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
+                if (infoParam.Maneja_Stock_Negativo == "N")
                 {
-                    IdProducto = Q.Key.IdProducto,
-                    pr_descripcion = Q.Key.pr_descripcion,
-                    Cantidad = Q.Sum(q => q.dt_cantidad),
-                    CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
-                });
-
-                foreach (var item in lst)
-                {
-                    if (!busProducto.ValidarStock(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), item.IdProducto ?? 0, item.Cantidad, item.CantidadAnterior))
+                    #region ValidarStock
+                    var lst = blstDetalle.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
                     {
-                        MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente para la transferencia.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
+                        IdProducto = Q.Key.IdProducto,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = Q.Sum(q => q.dt_cantidad),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    });
+
+                    foreach (var item in lst)
+                    {
+                        if (!busProducto.ValidarStock(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), item.IdProducto ?? 0, item.Cantidad, item.CantidadAnterior))
+                        {
+                            MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente para la transferencia.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return false;
+                        }
                     }
                 }
                 #endregion
