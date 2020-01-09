@@ -140,9 +140,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnImprimir.Visible = false;
                         btnConsultarIngreso.Visible = false;
                         btnConsultarEgreso.Visible = false;
-                        colCantidadAprobada.VisibleIndex = -1;
-                        colDiferencia.VisibleIndex = -2;
-                        colMotivoParcial.VisibleIndex = -3;
+                        colCantidadPreDespacho.VisibleIndex = -1;
+                        colCantidadAprobada.VisibleIndex = -2;
+                        colDiferencia.VisibleIndex = -3;
+                        colMotivoParcial.VisibleIndex = -4;
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         ucgeMenu.btnGuardar.Visible = true;
@@ -150,9 +151,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnAnular.Visible = false;
                         ucgeMenu.btnImprimir.Visible = true;
                         SetInfoInControls();
-                        colCantidadAprobada.VisibleIndex = -1;
-                        colDiferencia.VisibleIndex = -2;
-                        colMotivoParcial.VisibleIndex = -3;
+                        colCantidadPreDespacho.VisibleIndex = -1;
+                        colCantidadAprobada.VisibleIndex = -2;
+                        colDiferencia.VisibleIndex = -3;
+                        colMotivoParcial.VisibleIndex = -4;
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
                         ucgeMenu.btnGuardar.Visible = false;
@@ -160,9 +162,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnAnular.Visible = true;
                         ucgeMenu.btnImprimir.Visible = true;
                         SetInfoInControls();
-                        colCantidadAprobada.VisibleIndex = -1;
-                        colDiferencia.VisibleIndex = -2;
-                        colMotivoParcial.VisibleIndex = -3;
+                        colCantidadPreDespacho.VisibleIndex = -1;
+                        colCantidadAprobada.VisibleIndex = -2;
+                        colDiferencia.VisibleIndex = -3;
+                        colMotivoParcial.VisibleIndex = -4;
                         break;
                     case Cl_Enumeradores.eTipo_action.consultar:
                         ucgeMenu.btnGuardar.Visible = false;
@@ -170,9 +173,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnAnular.Visible = false;
                         ucgeMenu.btnImprimir.Visible = true;
                         SetInfoInControls();
-                        colCantidadAprobada.VisibleIndex = 4;
-                        colDiferencia.VisibleIndex = 5;
-                        colMotivoParcial.VisibleIndex = 6;
+                        colCantidadPreDespacho.VisibleIndex = 4;
+                        colCantidadAprobada.VisibleIndex = 5;
+                        colDiferencia.VisibleIndex = 6;
+                        colMotivoParcial.VisibleIndex = 7;
                         break;
                 }
             }
