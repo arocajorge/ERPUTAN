@@ -5,11 +5,12 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Core.Erp.Data.General;
 namespace Core.Erp.Data.Compras
 {
     public class com_CotizacionPedido_Data
     {
+        tb_sis_impuesto_Data odataImp = new tb_sis_impuesto_Data();
         private decimal GetID(int IdEmpresa)
         {
             try
@@ -138,6 +139,7 @@ namespace Core.Erp.Data.Compras
             {
                 try
                 {
+                    
                     using (EntitiesCompras db = new EntitiesCompras())
                     {
                         var Entity = db.com_CotizacionPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdCotizacion == info.IdCotizacion).FirstOrDefault();
@@ -231,6 +233,13 @@ namespace Core.Erp.Data.Compras
                             var lstGeneracion = info.ListaDetalle.Where(q=> q.A && q.cd_Cantidad > 0).ToList();
                             foreach (var item in lstGeneracion)
                             {
+                                var impuesto = odataImp.Get_Info_impuesto(item.IdCod_Impuesto);
+                                if (impuesto != null)
+                                {
+                                    item.Por_Iva = impuesto.porcentaje;
+                                    item.cd_iva = item.cd_subtotal * (impuesto.porcentaje / 100);
+                                    item.cd_total = item.cd_subtotal + item.cd_iva;
+                                }
                                 db.com_ordencompra_local_det.Add(new com_ordencompra_local_det
                                 {
                                     IdEmpresa = info.IdEmpresa,

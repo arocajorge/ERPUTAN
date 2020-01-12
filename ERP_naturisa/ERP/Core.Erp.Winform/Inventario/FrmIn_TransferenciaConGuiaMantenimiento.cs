@@ -140,9 +140,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnImprimir.Visible = false;
                         btnConsultarIngreso.Visible = false;
                         btnConsultarEgreso.Visible = false;
-                        colCantidadAprobada.VisibleIndex = -1;
-                        colDiferencia.VisibleIndex = -2;
-                        colMotivoParcial.VisibleIndex = -3;
+                        colCantidadPreDespacho.VisibleIndex = -1;
+                        colCantidadAprobada.VisibleIndex = -2;
+                        colDiferencia.VisibleIndex = -3;
+                        colMotivoParcial.VisibleIndex = -4;
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar:
                         ucgeMenu.btnGuardar.Visible = true;
@@ -150,9 +151,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnAnular.Visible = false;
                         ucgeMenu.btnImprimir.Visible = true;
                         SetInfoInControls();
-                        colCantidadAprobada.VisibleIndex = -1;
-                        colDiferencia.VisibleIndex = -2;
-                        colMotivoParcial.VisibleIndex = -3;
+                        colCantidadPreDespacho.VisibleIndex = -1;
+                        colCantidadAprobada.VisibleIndex = -2;
+                        colDiferencia.VisibleIndex = -3;
+                        colMotivoParcial.VisibleIndex = -4;
                         break;
                     case Cl_Enumeradores.eTipo_action.Anular:
                         ucgeMenu.btnGuardar.Visible = false;
@@ -160,9 +162,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnAnular.Visible = true;
                         ucgeMenu.btnImprimir.Visible = true;
                         SetInfoInControls();
-                        colCantidadAprobada.VisibleIndex = -1;
-                        colDiferencia.VisibleIndex = -2;
-                        colMotivoParcial.VisibleIndex = -3;
+                        colCantidadPreDespacho.VisibleIndex = -1;
+                        colCantidadAprobada.VisibleIndex = -2;
+                        colDiferencia.VisibleIndex = -3;
+                        colMotivoParcial.VisibleIndex = -4;
                         break;
                     case Cl_Enumeradores.eTipo_action.consultar:
                         ucgeMenu.btnGuardar.Visible = false;
@@ -170,9 +173,10 @@ namespace Core.Erp.Winform.Inventario
                         ucgeMenu.btnAnular.Visible = false;
                         ucgeMenu.btnImprimir.Visible = true;
                         SetInfoInControls();
-                        colCantidadAprobada.VisibleIndex = 4;
-                        colDiferencia.VisibleIndex = 5;
-                        colMotivoParcial.VisibleIndex = 6;
+                        colCantidadPreDespacho.VisibleIndex = 4;
+                        colCantidadAprobada.VisibleIndex = 5;
+                        colDiferencia.VisibleIndex = 6;
+                        colMotivoParcial.VisibleIndex = 7;
                         break;
                 }
             }
@@ -443,22 +447,24 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
-
-                #region ValidarStock
-                var lst = blstDetalle.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
+                if (infoParam.Maneja_Stock_Negativo == "N")
                 {
-                    IdProducto = Q.Key.IdProducto,
-                    pr_descripcion = Q.Key.pr_descripcion,
-                    Cantidad = Q.Sum(q => q.dt_cantidad),
-                    CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
-                });
-
-                foreach (var item in lst)
-                {
-                    if (!busProducto.ValidarStock(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), item.IdProducto ?? 0, item.Cantidad, item.CantidadAnterior))
+                    #region ValidarStock
+                    var lst = blstDetalle.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
                     {
-                        MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente para la transferencia.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
+                        IdProducto = Q.Key.IdProducto,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = Q.Sum(q => q.dt_cantidad),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    });
+
+                    foreach (var item in lst)
+                    {
+                        if (!busProducto.ValidarStock(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), item.IdProducto ?? 0, item.Cantidad, item.CantidadAnterior))
+                        {
+                            MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente para la transferencia.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return false;
+                        }
                     }
                 }
                 #endregion

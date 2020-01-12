@@ -1141,10 +1141,13 @@ namespace Core.Erp.Data.Inventario
         {
             try
             {
+                double Cont = 0;
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
-                    var Cont = db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto).Sum(q => q.dm_cantidad);
-
+                    if (db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto).Count() > 0)
+                    {
+                        Cont = db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto).Sum(q => q.dm_cantidad);    
+                    }
                     double Final = Math.Round((CantidadAnterior + Cont) - Cantidad,2,MidpointRounding.AwayFromZero);
                     if (Final < 0)
                         return false;

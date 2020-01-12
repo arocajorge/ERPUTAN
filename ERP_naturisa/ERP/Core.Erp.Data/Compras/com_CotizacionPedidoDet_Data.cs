@@ -18,6 +18,7 @@ namespace Core.Erp.Data.Compras
 
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
+                    db.SetCommandTimeOut(3000);
                     Lista = db.vwcom_CotizacionPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdCotizacion == IdCotizacion).Select(q => new com_CotizacionPedidoDet_Info
                     {
                         IdEmpresa = q.IdEmpresa,

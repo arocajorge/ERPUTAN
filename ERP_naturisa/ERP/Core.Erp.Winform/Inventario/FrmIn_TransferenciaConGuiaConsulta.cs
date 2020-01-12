@@ -165,7 +165,7 @@ namespace Core.Erp.Winform.Inventario
                 else
                     if (row.Estado == "A" && row.EstadoRevision == "R")
                     {
-                        e.Appearance.ForeColor = Color.Blue;
+                        e.Appearance.ForeColor = Color.Green;
                         return;
                     }
                     else
@@ -177,7 +177,7 @@ namespace Core.Erp.Winform.Inventario
                         else
                             if (row.Estado == "A" && row.EstadoRevision == "A")
                             {
-                                e.Appearance.ForeColor = Color.Green;
+                                e.Appearance.ForeColor = Color.Blue;
                                 return;
                             }
             }
