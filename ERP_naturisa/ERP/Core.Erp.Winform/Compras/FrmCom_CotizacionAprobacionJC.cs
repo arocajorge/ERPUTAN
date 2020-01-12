@@ -151,8 +151,14 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
+
                 txtIdCotizacion.Focus();
                 gv_detalle.MoveNext();
+                if (info.ListaDetalle.Count == 0)
+                {
+                    MessageBox.Show("No se ha cargado el detalle correctamente, vuelva a consultar la cotización",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
                 info.ListaDetalle = new List<com_CotizacionPedidoDet_Info>(blst);
                 info.cp_Observacion = txtObservacion.Text;
                 info.IdUsuario = param.IdUsuario;
