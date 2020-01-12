@@ -1044,6 +1044,9 @@
     <Compile Include="Inventario\XINV_Rpt028_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt028_Rpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\XINV_Rpt030_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt030_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt030_Info.cs" />
     <Compile Include="ModelCXP_Reportes_General.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
