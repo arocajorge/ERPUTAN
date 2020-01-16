@@ -10,7 +10,7 @@ namespace Core.Erp.Reportes.Inventario
 {
     public class XINV_Rpt030_Data
     {
-        public List<XINV_Rpt029_Info> Get_list(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, DateTime fecha_corte)
+        public List<XINV_Rpt030_Info> Get_list(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, DateTime fecha_corte)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace Core.Erp.Reportes.Inventario
                 int IdBodega_ini = IdBodega;
                 int IdBodega_fin = IdBodega == 0 ? 99999 : IdBodega;
 
-                List<XINV_Rpt029_Info> Lista = new List<XINV_Rpt029_Info>();
+                List<XINV_Rpt030_Info> Lista = new List<XINV_Rpt030_Info>();
 
                 using (Entities_Inventario_General Context = new Entities_Inventario_General())
                 {
@@ -37,7 +37,7 @@ namespace Core.Erp.Reportes.Inventario
 
                     foreach (var item in lst)
                     {
-                        XINV_Rpt029_Info itemInfo = new XINV_Rpt029_Info();
+                        XINV_Rpt030_Info itemInfo = new XINV_Rpt030_Info();
                         itemInfo.IdEmpresa = item.IdEmpresa;
                         itemInfo.IdSucursalOrigen = item.IdSucursalOrigen;
                         itemInfo.IdBodegaOrigen = item.IdBodegaOrigen;

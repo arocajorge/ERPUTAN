@@ -188,10 +188,10 @@ namespace Core.Erp.Business.CuentasxPagar
                     {
                         item.IdProveedor = info.IdProveedor;
                     }
-                                        
-                    if (lista.Count != 0)
+
+                    if (odata.EliminarDB(info.IdEmpresa, info.IdProveedor))
                     {
-                        if (odata.EliminarDB(info.IdEmpresa, info.IdProveedor))
+                        if (lista.Count != 0)
                         {
                             if (odata.GrabarDB(info.lista_codigoSRI_Proveedor))
                             {
@@ -205,7 +205,7 @@ namespace Core.Erp.Business.CuentasxPagar
                         {
 
                         }
-                    
+
                     }                                                         
                 }
                 return res;
