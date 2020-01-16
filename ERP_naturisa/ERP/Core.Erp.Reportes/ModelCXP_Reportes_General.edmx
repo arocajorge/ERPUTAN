@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ModelCXP_Reportes_General.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ModelCXP_Reportes_General.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ModelCXP_Reportes_GeneralStoreContainer">
           <EntitySet Name="vwCXP_Rpt001" EntityType="ModelCXP_Reportes_General.Store.vwCXP_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwCXP_Rpt001">
             <DefiningQuery>SELECT 
@@ -33,7 +33,8 @@
       [vwCXP_Rpt001].[tc_TipoCbte_pago] AS [tc_TipoCbte_pago], 
       [vwCXP_Rpt001].[cb_Cheque_pago] AS [cb_Cheque_pago], 
       [vwCXP_Rpt001].[IdClaseProveedor] AS [IdClaseProveedor], 
-      [vwCXP_Rpt001].[descripcion_clas_prove] AS [descripcion_clas_prove]
+      [vwCXP_Rpt001].[descripcion_clas_prove] AS [descripcion_clas_prove], 
+      [vwCXP_Rpt001].[NUMERO] AS [NUMERO]
       FROM [dbo].[vwCXP_Rpt001] AS [vwCXP_Rpt001]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwCXP_Rpt002" EntityType="ModelCXP_Reportes_General.Store.vwCXP_Rpt002" store:Type="Views" store:Schema="dbo" store:Name="vwCXP_Rpt002">
@@ -91,6 +92,7 @@
           </EntitySet>
           <EntitySet Name="vwCXP_Rpt004" EntityType="ModelCXP_Reportes_General.Store.vwCXP_Rpt004" store:Type="Views" store:Schema="dbo" store:Name="vwCXP_Rpt004">
             <DefiningQuery>SELECT 
+      [vwCXP_Rpt004].[IdRow] AS [IdRow], 
       [vwCXP_Rpt004].[IdEmpresa] AS [IdEmpresa], 
       [vwCXP_Rpt004].[IdCbteCble_Ogiro] AS [IdCbteCble_Ogiro], 
       [vwCXP_Rpt004].[IdTipoCbte_Ogiro] AS [IdTipoCbte_Ogiro], 
@@ -801,8 +803,8 @@
       FROM [dbo].[vwCXP_Rpt034] AS [vwCXP_Rpt034]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt001">
           <Key>
@@ -815,6 +817,7 @@
             <PropertyRef Name="Tipo_cbte" />
             <PropertyRef Name="IdClaseProveedor" />
             <PropertyRef Name="descripcion_clas_prove" />
+            <PropertyRef Name="NUMERO" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdCbteCble_Ogiro" Type="numeric" />
@@ -842,9 +845,10 @@
           <Property Name="cb_Cheque_pago" Type="varchar" MaxLength="50" />
           <Property Name="IdClaseProveedor" Type="int" Nullable="false" />
           <Property Name="descripcion_clas_prove" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NUMERO" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt002">
           <Key>
@@ -883,8 +887,8 @@
           <Property Name="IdClaseProveedor" Type="int" Nullable="false" />
           <Property Name="nom_clase_proveedor" Type="varchar" Nullable="false" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt003">
           <Key>
@@ -934,11 +938,12 @@
           <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
           <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt004">
           <Key>
+            <PropertyRef Name="IdRow" />
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="IdCbteCble_Ogiro" />
             <PropertyRef Name="IdTipoCbte_Ogiro" />
@@ -961,6 +966,7 @@
             <PropertyRef Name="Tiene_RTIva" />
             <PropertyRef Name="Tiene_RTFte" />
           </Key>
+          <Property Name="IdRow" Type="bigint" Nullable="false" />
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdCbteCble_Ogiro" Type="numeric" Nullable="false" />
           <Property Name="IdTipoCbte_Ogiro" Type="int" Nullable="false" />
@@ -999,8 +1005,8 @@
           <Property Name="nom_TipoCbte_Ret" Type="char" MaxLength="50" />
           <Property Name="IdEmpresa_Ret" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt005' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt005">
           <Key>
@@ -1039,7 +1045,7 @@
           <Property Name="IdCbteCble_cxp" Type="numeric" />
           <Property Name="IdTipoCbte_cxp" Type="int" />
           <Property Name="Valor_a_pagar" Type="float" Nullable="false" />
-          <Property Name="Referencia" Type="varchar" MaxLength="50" />
+          <Property Name="Referencia" Type="varchar(max)" />
           <Property Name="IdTipo_op" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="nom_Banco" Type="varchar" MaxLength="150" />
           <Property Name="nom_PagoTipo" Type="varchar" Nullable="false" MaxLength="50" />
@@ -1056,8 +1062,8 @@
           <Property Name="co_total" Type="float" />
           <Property Name="Total_Retencion" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt006' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt006">
           <Key>
@@ -1111,8 +1117,8 @@
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
           <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt007' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt007">
           <Key>
@@ -1162,8 +1168,8 @@
           <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt010' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt010' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt010">
           <Key>
@@ -1198,8 +1204,8 @@
           <Property Name="representante_legal" Type="varchar" MaxLength="250" />
           <Property Name="co_FechaFactura_vct" Type="date" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt011' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt011' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt011">
           <Key>
@@ -1258,8 +1264,8 @@
           <Property Name="re_EstaImpresa" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="cod_Tipo_Documento" Type="varchar" Nullable="false" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt012' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt012">
           <Key>
@@ -1298,8 +1304,8 @@
           <Property Name="AnioFiscal" Type="int" />
           <Property Name="co_FechaFactura_vct" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt015' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt015' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt015">
           <Key>
@@ -1356,8 +1362,8 @@
           <Property Name="NumRetencion" Type="varchar" MaxLength="20" />
           <Property Name="co_descripcion" Type="varchar" Nullable="false" MaxLength="350" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt016' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt016' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt016">
           <Key>
@@ -1418,8 +1424,8 @@
           <Property Name="Expr1" Type="int" />
           <Property Name="Su_Descripcion" Type="nchar" MaxLength="60" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt018' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt018' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt018">
           <Key>
@@ -1488,8 +1494,8 @@
           <Property Name="nom_TipoDocumento" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt019' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt019' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt019">
           <Key>
@@ -1525,8 +1531,8 @@
           <Property Name="co_fechaOg" Type="datetime" />
           <Property Name="pr_nombre" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt021' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt021' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt021">
           <Key>
@@ -1598,8 +1604,8 @@
           <Property Name="IdPunto_cargo_grupo" Type="int" />
           <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt022' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt022' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt022">
           <Key>
@@ -1653,8 +1659,8 @@
           <Property Name="cn_baseImponible" Type="float" Nullable="false" />
           <Property Name="cn_total" Type="money" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt023' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt023' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt023">
           <Key>
@@ -1711,8 +1717,8 @@
           <Property Name="co_factura" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Num_Autorizacion" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt024' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt024' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt024">
           <Key>
@@ -1746,8 +1752,8 @@
           <Property Name="re_Porcen_retencion" Type="float" Nullable="false" />
           <Property Name="re_valor_retencion" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt025' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt025' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt025">
           <Key>
@@ -1780,11 +1786,11 @@
           <Property Name="Saldo_x_Pagar_OP" Type="float" Nullable="false" />
           <Property Name="IdEstadoAprobacion" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="IdSubCentro_Costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdSubCentro_Costo" Type="int" Nullable="false" />
           <Property Name="IdFormaPago" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt026' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt026' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt026">
           <Key>
@@ -1820,8 +1826,8 @@
           <Property Name="co_fechaOg" Type="datetime" />
           <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt027' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt027' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt027">
           <Key>
@@ -1853,8 +1859,8 @@
           <Property Name="cm_observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt028' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt028' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt028">
           <Key>
@@ -1899,8 +1905,8 @@
           <Property Name="Centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="Observacion_OP" Type="varchar" Nullable="false" MaxLength="500" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt029' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt029' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt029">
           <Key>
@@ -1926,8 +1932,8 @@
           <Property Name="Tiene_retencion" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="re_tipoRet" Type="char" MaxLength="3" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt030' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt030' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt030">
           <Key>
@@ -1972,8 +1978,8 @@
           <Property Name="TipoServicio" Type="varchar" Nullable="false" MaxLength="18" />
           <Property Name="co_FechaContabilizacion" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt031' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt031' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt031">
           <Key>
@@ -2013,8 +2019,8 @@
           <Property Name="Dif_x_pagar_o_cobrar" Type="float" Nullable="false" />
           <Property Name="ca_Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt032' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt032' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt032">
           <Key>
@@ -2063,8 +2069,8 @@
           <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
           <Property Name="nom_centro_costo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt033' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt033' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt033">
           <Key>
@@ -2100,8 +2106,8 @@
           <Property Name="nom_TipoMovi" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="cm_valor" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwCXP_Rpt034' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCXP_Rpt034' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCXP_Rpt034">
           <Key>
@@ -2192,8 +2198,7 @@
           <Parameter Name="idProveedorIni" Type="decimal" Mode="In" />
           <Parameter Name="idProveedorFIn" Type="decimal" Mode="In" />
         </Function>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ModelCXP_Reportes_General" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2201,7 +2206,6 @@
           <EntitySet Name="vwCXP_Rpt001" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt001" />
           <EntitySet Name="vwCXP_Rpt002" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt002" />
           <EntitySet Name="vwCXP_Rpt003" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt003" />
-          <EntitySet Name="vwCXP_Rpt004" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt004" />
           <EntitySet Name="vwCXP_Rpt005" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt005" />
           <EntitySet Name="vwCXP_Rpt006" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt006" />
           <EntitySet Name="vwCXP_Rpt007" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt007" />
@@ -2216,7 +2220,6 @@
           <EntitySet Name="vwCXP_Rpt022" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt022" />
           <EntitySet Name="vwCXP_Rpt023" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt023" />
           <EntitySet Name="vwCXP_Rpt024" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt024" />
-          <EntitySet Name="vwCXP_Rpt025" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt025" />
           <EntitySet Name="vwCXP_Rpt026" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt026" />
           <EntitySet Name="vwCXP_Rpt027" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt027" />
           <EntitySet Name="vwCXP_Rpt028" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt028" />
@@ -2258,6 +2261,8 @@
             <Parameter Name="idProveedorIni" Mode="In" Type="Decimal" />
             <Parameter Name="idProveedorFIn" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="vwCXP_Rpt004" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt004" />
+          <EntitySet Name="vwCXP_Rpt025" EntityType="ModelCXP_Reportes_General.vwCXP_Rpt025" />
         </EntityContainer>
         <EntityType Name="vwCXP_Rpt001">
           <Key>
@@ -2270,6 +2275,7 @@
             <PropertyRef Name="Tipo_cbte" />
             <PropertyRef Name="IdClaseProveedor" />
             <PropertyRef Name="descripcion_clas_prove" />
+            <PropertyRef Name="NUMERO" />
           </Key>
           <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
           <Property Name="IdCbteCble_Ogiro" Type="Decimal" Precision="18" Scale="0" />
@@ -2297,6 +2303,7 @@
           <Property Name="cb_Cheque_pago" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="IdClaseProveedor" Type="Int32" Nullable="false" />
           <Property Name="descripcion_clas_prove" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="NUMERO" Nullable="false" />
         </EntityType>
         <EntityType Name="vwCXP_Rpt002">
           <Key>
@@ -2383,68 +2390,6 @@
           <Property Name="tc_TipoCbte" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
           <Property Name="em_nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
-        <EntityType Name="vwCXP_Rpt004">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCbteCble_Ogiro" />
-            <PropertyRef Name="IdTipoCbte_Ogiro" />
-            <PropertyRef Name="IdOrden_giro_Tipo" />
-            <PropertyRef Name="IdProveedor" />
-            <PropertyRef Name="Detalle" />
-            <PropertyRef Name="num_comprobante" />
-            <PropertyRef Name="Fecha" />
-            <PropertyRef Name="co_FechaFactura" />
-            <PropertyRef Name="IdRetencion" />
-            <PropertyRef Name="valor_debe" />
-            <PropertyRef Name="valor_haber" />
-            <PropertyRef Name="CodTipoCbte" />
-            <PropertyRef Name="tc_TipoCbte" />
-            <PropertyRef Name="Codigo" />
-            <PropertyRef Name="nom_comprobante" />
-            <PropertyRef Name="em_nombre" />
-            <PropertyRef Name="Fecha_Reten" />
-            <PropertyRef Name="Observacion_Reten" />
-            <PropertyRef Name="Tiene_RTIva" />
-            <PropertyRef Name="Tiene_RTFte" />
-          </Key>
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdCbteCble_Ogiro" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdTipoCbte_Ogiro" Type="Int32" Nullable="false" />
-          <Property Name="IdOrden_giro_Tipo" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="IdProveedor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="num_comprobante" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="co_FechaFactura" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdRetencion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="secuencia" Type="Int32" />
-          <Property Name="IdCtaCble" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="dc_Valor" Type="Double" />
-          <Property Name="valor_debe" Type="Double" Nullable="false" />
-          <Property Name="valor_haber" Type="Double" Nullable="false" />
-          <Property Name="IdCentroCosto" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdCentroCosto_sub_centro_costo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="dc_Observacion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
-          <Property Name="nom_cuenta" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="clave_cuenta" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <Property Name="CodTipoCbte" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
-          <Property Name="tc_TipoCbte" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
-          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="nom_comprobante" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="nom_proveedor" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-          <Property Name="em_nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Serie_Ret" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
-          <Property Name="NumRetencion" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Num_Auto_Reten" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Reten" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Observacion_Reten" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="Tiene_RTIva" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="Tiene_RTFte" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="IdTipoCbte_Ret" Type="Int32" />
-          <Property Name="IdCbteCble_Ret" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="nom_TipoCbte_Ret" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
-          <Property Name="IdEmpresa_Ret" Type="Int32" />
-        </EntityType>
         <EntityType Name="vwCXP_Rpt005">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -2482,7 +2427,7 @@
           <Property Name="IdCbteCble_cxp" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="IdTipoCbte_cxp" Type="Int32" />
           <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Referencia" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Referencia" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="nom_Banco" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="nom_PagoTipo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -3150,40 +3095,6 @@
           <Property Name="re_Porcen_retencion" Type="Double" Nullable="false" />
           <Property Name="re_valor_retencion" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="vwCXP_Rpt025">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdTipo_op" />
-            <PropertyRef Name="IdPersona" />
-            <PropertyRef Name="Fecha_Fa_Prov" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="Valor_a_pagar" />
-            <PropertyRef Name="Saldo_x_Pagar_OP" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="IdCentroCosto" />
-            <PropertyRef Name="IdSubCentro_Costo" />
-            <PropertyRef Name="IdFormaPago" />
-          </Key>
-          <Property Name="nom_Centro_costo" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
-          <Property Name="nom_subCentro_costo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdTipo_op" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia" Type="String" MaxLength="523" Unicode="false" FixedLength="false" />
-          <Property Name="Referencia2" Type="String" MaxLength="34" Unicode="false" FixedLength="false" />
-          <Property Name="IdOrdenPago" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Secuencia_OP" Type="Int32" />
-          <Property Name="IdTipoPersona" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdPersona" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="Nom_Beneficiario" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Fa_Prov" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="Valor_a_pagar" Type="Double" Nullable="false" />
-          <Property Name="Saldo_x_Pagar_OP" Type="Double" Nullable="false" />
-          <Property Name="IdEstadoAprobacion" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="IdCentroCosto" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdSubCentro_Costo" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="IdFormaPago" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-        </EntityType>
         <EntityType Name="vwCXP_Rpt026">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -3655,6 +3566,104 @@
           <Property Type="Double" Name="Vencido_61_180" Nullable="false" />
           <Property Type="Double" Name="Vencido_Mayor_181" Nullable="false" />
         </ComplexType>
+        <EntityType Name="vwCXP_Rpt004">
+          <Key>
+            <PropertyRef Name="IdRow" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="IdOrden_giro_Tipo" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="num_comprobante" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="co_FechaFactura" />
+            <PropertyRef Name="IdRetencion" />
+            <PropertyRef Name="valor_debe" />
+            <PropertyRef Name="valor_haber" />
+            <PropertyRef Name="CodTipoCbte" />
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="nom_comprobante" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="Fecha_Reten" />
+            <PropertyRef Name="Observacion_Reten" />
+            <PropertyRef Name="Tiene_RTIva" />
+            <PropertyRef Name="Tiene_RTFte" />
+          </Key>
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
+          <Property Type="String" Name="IdOrden_giro_Tipo" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Detalle" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="num_comprobante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="co_FechaFactura" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="IdRetencion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" />
+          <Property Type="String" Name="IdCtaCble" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dc_Valor" />
+          <Property Type="Double" Name="valor_debe" Nullable="false" />
+          <Property Type="Double" Name="valor_haber" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dc_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_cuenta" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="clave_cuenta" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodTipoCbte" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_comprobante" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_proveedor" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Serie_Ret" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumRetencion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Auto_Reten" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Reten" Nullable="false" Precision="0" />
+          <Property Type="String" Name="Observacion_Reten" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tiene_RTIva" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Tiene_RTFte" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoCbte_Ret" />
+          <Property Type="Decimal" Name="IdCbteCble_Ret" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_TipoCbte_Ret" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_Ret" />
+        </EntityType>
+        <EntityType Name="vwCXP_Rpt025">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdTipo_op" />
+            <PropertyRef Name="IdPersona" />
+            <PropertyRef Name="Fecha_Fa_Prov" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Valor_a_pagar" />
+            <PropertyRef Name="Saldo_x_Pagar_OP" />
+            <PropertyRef Name="IdEstadoAprobacion" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdSubCentro_Costo" />
+            <PropertyRef Name="IdFormaPago" />
+          </Key>
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subCentro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdTipo_op" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia" MaxLength="523" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Referencia2" MaxLength="34" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdOrdenPago" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia_OP" />
+          <Property Type="String" Name="IdTipoPersona" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Nom_Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Fa_Prov" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor_a_pagar" Nullable="false" />
+          <Property Type="Double" Name="Saldo_x_Pagar_OP" Nullable="false" />
+          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubCentro_Costo" Nullable="false" />
+          <Property Type="String" Name="IdFormaPago" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3664,6 +3673,7 @@
           <EntitySetMapping Name="vwCXP_Rpt001">
             <EntityTypeMapping TypeName="ModelCXP_Reportes_General.vwCXP_Rpt001">
               <MappingFragment StoreEntitySet="vwCXP_Rpt001">
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
                 <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
                 <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
@@ -3747,49 +3757,6 @@
                 <ScalarProperty Name="CodTipoCbte" ColumnName="CodTipoCbte" />
                 <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
                 <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwCXP_Rpt004">
-            <EntityTypeMapping TypeName="ModelCXP_Reportes_General.vwCXP_Rpt004">
-              <MappingFragment StoreEntitySet="vwCXP_Rpt004">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
-                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
-                <ScalarProperty Name="IdOrden_giro_Tipo" ColumnName="IdOrden_giro_Tipo" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
-                <ScalarProperty Name="num_comprobante" ColumnName="num_comprobante" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="co_FechaFactura" ColumnName="co_FechaFactura" />
-                <ScalarProperty Name="IdRetencion" ColumnName="IdRetencion" />
-                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
-                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
-                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
-                <ScalarProperty Name="valor_debe" ColumnName="valor_debe" />
-                <ScalarProperty Name="valor_haber" ColumnName="valor_haber" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
-                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
-                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
-                <ScalarProperty Name="clave_cuenta" ColumnName="clave_cuenta" />
-                <ScalarProperty Name="CodTipoCbte" ColumnName="CodTipoCbte" />
-                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="nom_comprobante" ColumnName="nom_comprobante" />
-                <ScalarProperty Name="nom_proveedor" ColumnName="nom_proveedor" />
-                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
-                <ScalarProperty Name="Serie_Ret" ColumnName="Serie_Ret" />
-                <ScalarProperty Name="NumRetencion" ColumnName="NumRetencion" />
-                <ScalarProperty Name="Num_Auto_Reten" ColumnName="Num_Auto_Reten" />
-                <ScalarProperty Name="Fecha_Reten" ColumnName="Fecha_Reten" />
-                <ScalarProperty Name="Observacion_Reten" ColumnName="Observacion_Reten" />
-                <ScalarProperty Name="Tiene_RTIva" ColumnName="Tiene_RTIva" />
-                <ScalarProperty Name="Tiene_RTFte" ColumnName="Tiene_RTFte" />
-                <ScalarProperty Name="IdTipoCbte_Ret" ColumnName="IdTipoCbte_Ret" />
-                <ScalarProperty Name="IdCbteCble_Ret" ColumnName="IdCbteCble_Ret" />
-                <ScalarProperty Name="nom_TipoCbte_Ret" ColumnName="nom_TipoCbte_Ret" />
-                <ScalarProperty Name="IdEmpresa_Ret" ColumnName="IdEmpresa_Ret" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4253,31 +4220,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwCXP_Rpt025">
-            <EntityTypeMapping TypeName="ModelCXP_Reportes_General.vwCXP_Rpt025">
-              <MappingFragment StoreEntitySet="vwCXP_Rpt025">
-                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
-                <ScalarProperty Name="nom_subCentro_costo" ColumnName="nom_subCentro_costo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
-                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
-                <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
-                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
-                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
-                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwCXP_Rpt026">
             <EntityTypeMapping TypeName="ModelCXP_Reportes_General.vwCXP_Rpt026">
               <MappingFragment StoreEntitySet="vwCXP_Rpt026">
@@ -4652,6 +4594,75 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vwCXP_Rpt004">
+            <EntityTypeMapping TypeName="ModelCXP_Reportes_General.vwCXP_Rpt004">
+              <MappingFragment StoreEntitySet="vwCXP_Rpt004">
+                <ScalarProperty Name="IdEmpresa_Ret" ColumnName="IdEmpresa_Ret" />
+                <ScalarProperty Name="nom_TipoCbte_Ret" ColumnName="nom_TipoCbte_Ret" />
+                <ScalarProperty Name="IdCbteCble_Ret" ColumnName="IdCbteCble_Ret" />
+                <ScalarProperty Name="IdTipoCbte_Ret" ColumnName="IdTipoCbte_Ret" />
+                <ScalarProperty Name="Tiene_RTFte" ColumnName="Tiene_RTFte" />
+                <ScalarProperty Name="Tiene_RTIva" ColumnName="Tiene_RTIva" />
+                <ScalarProperty Name="Observacion_Reten" ColumnName="Observacion_Reten" />
+                <ScalarProperty Name="Fecha_Reten" ColumnName="Fecha_Reten" />
+                <ScalarProperty Name="Num_Auto_Reten" ColumnName="Num_Auto_Reten" />
+                <ScalarProperty Name="NumRetencion" ColumnName="NumRetencion" />
+                <ScalarProperty Name="Serie_Ret" ColumnName="Serie_Ret" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="nom_proveedor" ColumnName="nom_proveedor" />
+                <ScalarProperty Name="nom_comprobante" ColumnName="nom_comprobante" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
+                <ScalarProperty Name="CodTipoCbte" ColumnName="CodTipoCbte" />
+                <ScalarProperty Name="clave_cuenta" ColumnName="clave_cuenta" />
+                <ScalarProperty Name="nom_cuenta" ColumnName="nom_cuenta" />
+                <ScalarProperty Name="dc_Observacion" ColumnName="dc_Observacion" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="valor_haber" ColumnName="valor_haber" />
+                <ScalarProperty Name="valor_debe" ColumnName="valor_debe" />
+                <ScalarProperty Name="dc_Valor" ColumnName="dc_Valor" />
+                <ScalarProperty Name="IdCtaCble" ColumnName="IdCtaCble" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdRetencion" ColumnName="IdRetencion" />
+                <ScalarProperty Name="co_FechaFactura" ColumnName="co_FechaFactura" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="num_comprobante" ColumnName="num_comprobante" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdOrden_giro_Tipo" ColumnName="IdOrden_giro_Tipo" />
+                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdRow" ColumnName="IdRow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXP_Rpt025">
+            <EntityTypeMapping TypeName="ModelCXP_Reportes_General.vwCXP_Rpt025">
+              <MappingFragment StoreEntitySet="vwCXP_Rpt025">
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdSubCentro_Costo" ColumnName="IdSubCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
+                <ScalarProperty Name="Saldo_x_Pagar_OP" ColumnName="Saldo_x_Pagar_OP" />
+                <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Fecha_Fa_Prov" ColumnName="Fecha_Fa_Prov" />
+                <ScalarProperty Name="Nom_Beneficiario" ColumnName="Nom_Beneficiario" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="IdTipoPersona" ColumnName="IdTipoPersona" />
+                <ScalarProperty Name="Secuencia_OP" ColumnName="Secuencia_OP" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="IdTipo_op" ColumnName="IdTipo_op" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="nom_subCentro_costo" ColumnName="nom_subCentro_costo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

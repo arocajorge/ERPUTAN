@@ -19,7 +19,6 @@ namespace Core.Erp.Reportes.CuentasxPagar
                     Lista = (from q in Conexion.vwCXP_Rpt025
                              where q.IdEmpresa == idEmpresa
                              && q.IdCentroCosto.Contains(idCentroCosto)
-                             && q.IdSubCentro_Costo.Contains(idSubcentroCosto)
                              && fechaIni<= q.Fecha_Fa_Prov && q.Fecha_Fa_Prov <= FechaFin
                              select new XCXP_Rpt025_Info
                              {
@@ -40,7 +39,7 @@ namespace Core.Erp.Reportes.CuentasxPagar
                                  Saldo_x_Pagar_OP = q.Saldo_x_Pagar_OP,
                                  IdEstadoAprobacion = q.IdEstadoAprobacion,
                                  IdCentroCosto = q.IdCentroCosto,
-                                 IdSubCentro_Costo = q.IdSubCentro_Costo,
+                                 //IdSubCentro_Costo = q.IdSubCentro_Costo,
                                  IdFormaPago = q.IdFormaPago
 
                              }).ToList();
