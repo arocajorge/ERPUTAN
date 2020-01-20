@@ -58,6 +58,7 @@ namespace Core.Erp.Data.Compras
 
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
+                    db.SetCommandTimeOut(3000);
                     foreach (var item in Lista)
                     {
                         var MejorPrecio = db.SPINV_MejorPrecio(IdEmpresa, item.IdProducto).FirstOrDefault();
