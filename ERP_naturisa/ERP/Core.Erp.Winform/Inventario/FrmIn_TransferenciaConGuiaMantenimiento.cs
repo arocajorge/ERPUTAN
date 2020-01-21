@@ -665,6 +665,23 @@ namespace Core.Erp.Winform.Inventario
             Imprimir();
         }
 
+        private void ImprimirRide()
+        {
+            try
+            {
+                XINV_Rpt030_rpt rpt = new XINV_Rpt030_rpt();
+                rpt.pIdSucursal.Value = infoTransferencia.IdSucursalOrigen;
+                rpt.pIdBodega.Value = infoTransferencia.IdBodegaOrigen;
+                rpt.pIdTransferencia.Value = infoTransferencia.IdTransferencia;
+                rpt.ShowPreviewDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         private void Imprimir()
         {
             try
@@ -690,7 +707,9 @@ namespace Core.Erp.Winform.Inventario
                     DevExpress.XtraReports.UI.ReportPrintTool ptg = new DevExpress.XtraReports.UI.ReportPrintTool(Rpt);
                     ptg.AutoShowParametersPanel = false;
 
-                    Rpt.ShowPreviewDialog();   
+                    Rpt.ShowPreviewDialog();
+
+                    ImprimirRide();
                 }
             }
             catch (Exception ex)

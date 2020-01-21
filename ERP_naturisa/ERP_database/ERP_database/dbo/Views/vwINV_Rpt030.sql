@@ -1,8 +1,15 @@
-﻿CREATE VIEW vwINV_Rpt029
+﻿CREATE VIEW [dbo].[vwINV_Rpt030]
 AS
 SELECT        in_transferencia_det.IdEmpresa, in_transferencia_det.IdSucursalOrigen, in_transferencia_det.IdBodegaOrigen, in_transferencia_det.IdTransferencia, in_transferencia_det.dt_secuencia, in_transferencia_det.IdProducto, 
                          in_transferencia_det.pr_descripcion, in_transferencia_det.dt_cantidad, in_Guia_x_traspaso_bodega.IdEstablecimiento, in_Guia_x_traspaso_bodega.IdPuntoEmision, in_Guia_x_traspaso_bodega.NumDocumento_Guia, 
-                         in_Guia_x_traspaso_bodega.NumeroAutorizacion, in_Guia_x_traspaso_bodega.FechaAutorizacion, tb_transportista.Cedula AS IdentificacionTransportista, tb_transportista.Nombre AS NombreTransportista, 
+                         case when in_Guia_x_traspaso_bodega.NumeroAutorizacion is null then 
+						 right('00'+cast(day(in_Guia_x_traspaso_bodega.Fecha) as varchar),2)
+						 + 
+						 right('00'+cast(month(in_Guia_x_traspaso_bodega.Fecha) as varchar),2)
+						 + 						 
+						 cast(year(in_Guia_x_traspaso_bodega.Fecha) as varchar) + tb_empresa.em_ruc + in_Guia_x_traspaso_bodega.IdEstablecimiento + in_Guia_x_traspaso_bodega.IdPuntoEmision +  in_Guia_x_traspaso_bodega.NumDocumento_Guia + '1234567890'
+						 else in_Guia_x_traspaso_bodega.NumeroAutorizacion end as NumeroAutorizacion
+						 , in_Guia_x_traspaso_bodega.FechaAutorizacion, tb_transportista.Cedula AS IdentificacionTransportista, tb_transportista.Nombre AS NombreTransportista, 
                          in_Guia_x_traspaso_bodega.Placa AS MotivoGuia, in_Guia_x_traspaso_bodega.Direc_sucu_Llegada, in_Guia_x_traspaso_bodega.Direc_sucu_Partida, in_Guia_x_traspaso_bodega.Fecha, in_Catalogo.Nombre, 
                          in_Guia_x_traspaso_bodega.NombreDestinatario, in_Guia_x_traspaso_bodega.IdentificacionDestinatario, tb_sucursal.Su_Descripcion, tb_sucursal.Su_Direccion, tb_empresa.em_nombre AS NombreEmpresa, 
                          tb_empresa.ContribuyenteEspecial AS NumeroContribuyente, tb_empresa.em_ruc

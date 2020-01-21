@@ -12,7 +12,7 @@ namespace Core.Erp.Reportes
     using System;
     using System.Collections.Generic;
     
-    public partial class vwINV_Rpt029
+    public partial class vwINV_Rpt030
     {
         public int IdEmpresa { get; set; }
         public int IdSucursalOrigen { get; set; }

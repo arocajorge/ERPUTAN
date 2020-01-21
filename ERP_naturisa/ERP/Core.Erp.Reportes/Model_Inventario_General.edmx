@@ -600,36 +600,36 @@
       [vwINV_Rpt028].[dm_cantidad] AS [dm_cantidad]
       FROM [dbo].[vwINV_Rpt028] AS [vwINV_Rpt028]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwINV_Rpt029" EntityType="DBERPModel.Store.vwINV_Rpt029" store:Type="Views" store:Schema="dbo" store:Name="vwINV_Rpt029">
+          <EntitySet Name="vwINV_Rpt030" EntityType="DBERPModel.Store.vwINV_Rpt030" store:Type="Views" store:Schema="dbo" store:Name="vwINV_Rpt030">
             <DefiningQuery>SELECT 
-      [vwINV_Rpt029].[IdEmpresa] AS [IdEmpresa], 
-      [vwINV_Rpt029].[IdSucursalOrigen] AS [IdSucursalOrigen], 
-      [vwINV_Rpt029].[IdBodegaOrigen] AS [IdBodegaOrigen], 
-      [vwINV_Rpt029].[IdTransferencia] AS [IdTransferencia], 
-      [vwINV_Rpt029].[dt_secuencia] AS [dt_secuencia], 
-      [vwINV_Rpt029].[IdProducto] AS [IdProducto], 
-      [vwINV_Rpt029].[pr_descripcion] AS [pr_descripcion], 
-      [vwINV_Rpt029].[dt_cantidad] AS [dt_cantidad], 
-      [vwINV_Rpt029].[IdEstablecimiento] AS [IdEstablecimiento], 
-      [vwINV_Rpt029].[IdPuntoEmision] AS [IdPuntoEmision], 
-      [vwINV_Rpt029].[NumDocumento_Guia] AS [NumDocumento_Guia], 
-      [vwINV_Rpt029].[NumeroAutorizacion] AS [NumeroAutorizacion], 
-      [vwINV_Rpt029].[FechaAutorizacion] AS [FechaAutorizacion], 
-      [vwINV_Rpt029].[IdentificacionTransportista] AS [IdentificacionTransportista], 
-      [vwINV_Rpt029].[NombreTransportista] AS [NombreTransportista], 
-      [vwINV_Rpt029].[MotivoGuia] AS [MotivoGuia], 
-      [vwINV_Rpt029].[Direc_sucu_Llegada] AS [Direc_sucu_Llegada], 
-      [vwINV_Rpt029].[Direc_sucu_Partida] AS [Direc_sucu_Partida], 
-      [vwINV_Rpt029].[Fecha] AS [Fecha], 
-      [vwINV_Rpt029].[Nombre] AS [Nombre], 
-      [vwINV_Rpt029].[NombreDestinatario] AS [NombreDestinatario], 
-      [vwINV_Rpt029].[IdentificacionDestinatario] AS [IdentificacionDestinatario], 
-      [vwINV_Rpt029].[Su_Descripcion] AS [Su_Descripcion], 
-      [vwINV_Rpt029].[Su_Direccion] AS [Su_Direccion], 
-      [vwINV_Rpt029].[NombreEmpresa] AS [NombreEmpresa], 
-      [vwINV_Rpt029].[NumeroContribuyente] AS [NumeroContribuyente], 
-      [vwINV_Rpt029].[em_ruc] AS [em_ruc]
-      FROM [dbo].[vwINV_Rpt029] AS [vwINV_Rpt029]</DefiningQuery>
+      [vwINV_Rpt030].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_Rpt030].[IdSucursalOrigen] AS [IdSucursalOrigen], 
+      [vwINV_Rpt030].[IdBodegaOrigen] AS [IdBodegaOrigen], 
+      [vwINV_Rpt030].[IdTransferencia] AS [IdTransferencia], 
+      [vwINV_Rpt030].[dt_secuencia] AS [dt_secuencia], 
+      [vwINV_Rpt030].[IdProducto] AS [IdProducto], 
+      [vwINV_Rpt030].[pr_descripcion] AS [pr_descripcion], 
+      [vwINV_Rpt030].[dt_cantidad] AS [dt_cantidad], 
+      [vwINV_Rpt030].[IdEstablecimiento] AS [IdEstablecimiento], 
+      [vwINV_Rpt030].[IdPuntoEmision] AS [IdPuntoEmision], 
+      [vwINV_Rpt030].[NumDocumento_Guia] AS [NumDocumento_Guia], 
+      [vwINV_Rpt030].[NumeroAutorizacion] AS [NumeroAutorizacion], 
+      [vwINV_Rpt030].[FechaAutorizacion] AS [FechaAutorizacion], 
+      [vwINV_Rpt030].[IdentificacionTransportista] AS [IdentificacionTransportista], 
+      [vwINV_Rpt030].[NombreTransportista] AS [NombreTransportista], 
+      [vwINV_Rpt030].[MotivoGuia] AS [MotivoGuia], 
+      [vwINV_Rpt030].[Direc_sucu_Llegada] AS [Direc_sucu_Llegada], 
+      [vwINV_Rpt030].[Direc_sucu_Partida] AS [Direc_sucu_Partida], 
+      [vwINV_Rpt030].[Fecha] AS [Fecha], 
+      [vwINV_Rpt030].[Nombre] AS [Nombre], 
+      [vwINV_Rpt030].[NombreDestinatario] AS [NombreDestinatario], 
+      [vwINV_Rpt030].[IdentificacionDestinatario] AS [IdentificacionDestinatario], 
+      [vwINV_Rpt030].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwINV_Rpt030].[Su_Direccion] AS [Su_Direccion], 
+      [vwINV_Rpt030].[NombreEmpresa] AS [NombreEmpresa], 
+      [vwINV_Rpt030].[NumeroContribuyente] AS [NumeroContribuyente], 
+      [vwINV_Rpt030].[em_ruc] AS [em_ruc]
+      FROM [dbo].[vwINV_Rpt030] AS [vwINV_Rpt030]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
         <!--Se encontraron errores durante la generación:
@@ -1672,9 +1672,9 @@
           <Property Name="dm_cantidad" Type="float" />
         </EntityType>
         <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwINV_Rpt029' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwINV_Rpt030' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
-        <EntityType Name="vwINV_Rpt029">
+        <EntityType Name="vwINV_Rpt030">
           <Key>
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="IdSucursalOrigen" />
@@ -1699,7 +1699,7 @@
           <Property Name="IdEstablecimiento" Type="varchar" MaxLength="3" />
           <Property Name="IdPuntoEmision" Type="varchar" MaxLength="3" />
           <Property Name="NumDocumento_Guia" Type="varchar" MaxLength="20" />
-          <Property Name="NumeroAutorizacion" Type="varchar" MaxLength="200" />
+          <Property Name="NumeroAutorizacion" Type="nvarchar" MaxLength="200" />
           <Property Name="FechaAutorizacion" Type="datetime" />
           <Property Name="IdentificacionTransportista" Type="varchar" MaxLength="20" />
           <Property Name="NombreTransportista" Type="varchar" MaxLength="500" />
@@ -1923,7 +1923,7 @@
           <EntitySet Name="vwINV_Rpt023" EntityType="DBERPModel.vwINV_Rpt023" />
           <EntitySet Name="vwINV_Rpt002" EntityType="DBERPModel.vwINV_Rpt002" />
           <EntitySet Name="vwINV_Rpt017" EntityType="DBERPModel.vwINV_Rpt017" />
-          <EntitySet Name="vwINV_Rpt029" EntityType="DBERPModel.vwINV_Rpt029" />
+          <EntitySet Name="vwINV_Rpt030" EntityType="DBERPModel.vwINV_Rpt030" />
         </EntityContainer>
         <EntityType Name="vwINV_Rpt004">
           <Key>
@@ -3092,7 +3092,7 @@
           <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="vwINV_Rpt029">
+        <EntityType Name="vwINV_Rpt030">
           <Key>
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="IdSucursalOrigen" />
@@ -3117,7 +3117,7 @@
           <Property Type="String" Name="IdEstablecimiento" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="IdPuntoEmision" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NumDocumento_Guia" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NumeroAutorizacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumeroAutorizacion" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="FechaAutorizacion" Precision="3" />
           <Property Type="String" Name="IdentificacionTransportista" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NombreTransportista" MaxLength="500" FixedLength="false" Unicode="false" />
@@ -3997,9 +3997,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwINV_Rpt029">
-            <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt029">
-              <MappingFragment StoreEntitySet="vwINV_Rpt029">
+          <EntitySetMapping Name="vwINV_Rpt030">
+            <EntityTypeMapping TypeName="DBERPModel.vwINV_Rpt030">
+              <MappingFragment StoreEntitySet="vwINV_Rpt030">
                 <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
                 <ScalarProperty Name="NumeroContribuyente" ColumnName="NumeroContribuyente" />
                 <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />

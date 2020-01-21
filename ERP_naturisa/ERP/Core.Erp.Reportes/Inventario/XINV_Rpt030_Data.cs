@@ -10,30 +10,15 @@ namespace Core.Erp.Reportes.Inventario
 {
     public class XINV_Rpt030_Data
     {
-        public List<XINV_Rpt030_Info> Get_list(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, DateTime fecha_corte)
+        public List<XINV_Rpt030_Info> Get_list(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdTransferencia)
         {
             try
             {
-                decimal IdProducto_ini = IdProducto;
-                decimal IdProducto_fin = IdProducto == 0 ? 9999999 : IdProducto;
-
-                int IdSucursal_ini = IdSucursal;
-                int IdSucursal_fin = IdSucursal == 0 ? 99999 : IdSucursal;
-
-                int IdBodega_ini = IdBodega;
-                int IdBodega_fin = IdBodega == 0 ? 99999 : IdBodega;
-
                 List<XINV_Rpt030_Info> Lista = new List<XINV_Rpt030_Info>();
 
                 using (Entities_Inventario_General Context = new Entities_Inventario_General())
                 {
-                    var lst = from q in Context.vwINV_Rpt029
-                              where q.IdEmpresa == IdEmpresa
-                              && IdSucursal_ini <= q.IdSucursalOrigen && q.IdSucursalOrigen <= IdSucursal_fin
-                              && IdBodega_ini <= q.IdBodegaOrigen && q.IdBodegaOrigen <= IdBodega_fin
-                              && IdProducto_ini <= q.IdProducto && q.IdProducto <= IdProducto_fin
-                              && q.Fecha <= fecha_corte
-                              select q;
+                    var lst = Context.vwINV_Rpt030.Where(q=> q.IdEmpresa == IdEmpresa && q.IdSucursalOrigen == IdSucursal && q.IdBodegaOrigen == IdBodega && q.IdTransferencia == IdTransferencia).ToList();
 
                     foreach (var item in lst)
                     {

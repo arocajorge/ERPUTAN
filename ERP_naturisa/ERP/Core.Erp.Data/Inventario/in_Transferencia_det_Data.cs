@@ -111,6 +111,7 @@ namespace Core.Erp.Data.Inventario
                             IdProducto = item.IdProducto,
                             pr_descripcion = item.pr_descripcion,
                             dt_cantidad = item.dt_cantidad,
+                            Saldo = item.dt_cantidad,
                             tr_Observacion = item.tr_Observacion,
                             IdUnidadMedida = item.IdUnidadMedida,
                             Sucursal_Origen = item.SucursalOrigen,

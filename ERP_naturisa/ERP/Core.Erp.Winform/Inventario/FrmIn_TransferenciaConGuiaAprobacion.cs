@@ -150,13 +150,21 @@ namespace Core.Erp.Winform.Inventario
                     MessageBox.Show("Seleccione registros para aceptar la transferecia",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     return false;
                 }
-                if (blstDet.Where(q=> q.check == true).GroupBy(q=> new {q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia}).Count() > 1)
+                var lst = blstDet.Where(q=> q.check == true).GroupBy(q=> new {q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia}).Select(q=> new {
+                    IdSucursalOrigen = q.Key.IdSucursalOrigen,
+                    IdBodegaOrigen = q.Key.IdBodegaOrigen,
+                    IdTransferencia = q.Key.IdTransferencia
+                }).ToList();
+                if (lst.Count() > 1)
                 {
                     MessageBox.Show("Debe aceptar una transferencia a la vez",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     return false;
                 }
 
-                if (blstDet.Where(Q=> Q.check == true && Q.Saldo != 0 && string.IsNullOrEmpty(Q.MotivoParcial)).Count() > 0)
+                var PrimerTransferencia = lst[0];
+                var lstFinal = blstDet.Where(q => q.IdSucursalOrigen == PrimerTransferencia.IdSucursalOrigen && q.IdBodegaOrigen == PrimerTransferencia.IdBodegaOrigen && q.IdTransferencia == PrimerTransferencia.IdTransferencia).ToList();    
+                                
+                if (lstFinal.Where(Q=> Q.Saldo != 0 && string.IsNullOrEmpty(Q.MotivoParcial)).Count() > 0)
                 {
                     MessageBox.Show("Debe seleccionar un motivo en caso de que no se reciba la transferencia completa",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     return false;
@@ -208,27 +216,12 @@ namespace Core.Erp.Winform.Inventario
 
         private void gvDetalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetFocusedRow();
-            if (row == null)
-                return;
-
-            if (row.check && row.Saldo != 0)
-                colMotivoParcial.OptionsColumn.AllowEdit = true;
-            else
-                colMotivoParcial.OptionsColumn.AllowEdit = false;
+           
         }
 
         private void gvDetalle_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
         {
-            in_transferencia_det_Info row = (in_transferencia_det_Info)gvDetalle.GetFocusedRow();
-            if (row == null)
-                return;
-
-            if (row.check && row.Saldo != 0)
-                colMotivoParcial.OptionsColumn.AllowEdit = true;
-            else
-                colMotivoParcial.OptionsColumn.AllowEdit = false;
-
+         
         }
     }
 }

@@ -26,7 +26,6 @@ namespace Core.Erp.Reportes
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -52,7 +51,7 @@ namespace Core.Erp.Reportes
         public DbSet<vwINV_Rpt023> vwINV_Rpt023 { get; set; }
         public DbSet<vwINV_Rpt002> vwINV_Rpt002 { get; set; }
         public DbSet<vwINV_Rpt017> vwINV_Rpt017 { get; set; }
-        public DbSet<vwINV_Rpt029> vwINV_Rpt029 { get; set; }
+        public DbSet<vwINV_Rpt030> vwINV_Rpt030 { get; set; }
     
         public virtual ObjectResult<spINV_Rpt011_Result> spINV_Rpt011(Nullable<int> idEmpresa, Nullable<int> idSucursalIni, Nullable<int> idSucursalFin, Nullable<int> idBodegaIni, Nullable<int> idBodegaFin, Nullable<decimal> idProductoIni, Nullable<decimal> idProductoFin, Nullable<System.DateTime> fechaCorteIni)
         {

@@ -125,6 +125,7 @@ namespace Core.Erp.Reportes.Inventario
 
                 using (Entities_Inventario_General Context = new Entities_Inventario_General())
                 {
+                    /*
                     var lst = from q in Context.vwINV_Rpt029
                               where q.IdEmpresa == IdEmpresa
                               && IdSucursal_ini <= q.IdSucursalOrigen && q.IdSucursalOrigen <= IdSucursal_fin
@@ -132,7 +133,7 @@ namespace Core.Erp.Reportes.Inventario
                               && IdProducto_ini <= q.IdProducto && q.IdProducto <= IdProducto_fin
                               && q.Fecha <= fecha_corte
                               select q;
-
+                    
                     foreach (var item in lst)
                     {
                         XINV_Rpt029_Info itemInfo = new XINV_Rpt029_Info();
@@ -165,6 +166,7 @@ namespace Core.Erp.Reportes.Inventario
                         itemInfo.em_ruc = item.em_ruc;
                         Lista.Add(itemInfo);
                     }
+                     * */
                 }
 
                 return Lista;

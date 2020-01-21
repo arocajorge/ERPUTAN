@@ -359,7 +359,9 @@ namespace Core.Erp.Winform.Inventario
                     DevExpress.XtraReports.UI.ReportPrintTool ptg = new DevExpress.XtraReports.UI.ReportPrintTool(Rpt);
                     ptg.AutoShowParametersPanel = false;
 
-                    Rpt.ShowPreviewDialog();   
+                    Rpt.ShowPreviewDialog();
+
+                    ImprimirRide();
                 }
             }
             catch (Exception ex)
@@ -547,6 +549,9 @@ namespace Core.Erp.Winform.Inventario
                 if (busTransferencia.Revisar(infoTransferencia))
                 {
                     MessageBox.Show("Transferencia aprobada exitósamente", param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    if (!string.IsNullOrEmpty(txtIdGuia.Text) && txtIdGuia.Text != "0")
+                        ImprimirRide();
+                    
                     this.Close();
                 }
                 else
@@ -555,6 +560,23 @@ namespace Core.Erp.Winform.Inventario
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        private void ImprimirRide()
+        {
+            try
+            {
+                XINV_Rpt030_rpt rpt = new XINV_Rpt030_rpt();
+                rpt.pIdSucursal.Value = infoTransferencia.IdSucursalOrigen;
+                rpt.pIdBodega.Value = infoTransferencia.IdBodegaOrigen;
+                rpt.pIdTransferencia.Value = infoTransferencia.IdTransferencia;
+                rpt.ShowPreviewDialog();
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

@@ -1157,6 +1157,12 @@
     <Compile Include="Inventario\XINV_Rpt030_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt030_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt030_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt030_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt030_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt030_rpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelCXP_Reportes_General.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2877,7 +2883,7 @@
     <Compile Include="vwINV_Rpt028.cs">
       <DependentUpon>Model_Inventario_General.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwINV_Rpt029.cs">
+    <Compile Include="vwINV_Rpt030.cs">
       <DependentUpon>Model_Inventario_General.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -3101,6 +3107,7 @@
     <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt026_Info.datasource" />
     <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt027_Info.datasource" />
     <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt028_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt030_Info.datasource" />
     <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt022_Info.datasource" />
     <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt023_Info.datasource" />
     <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt024_Info.datasource" />
@@ -3525,6 +3532,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_Rpt028_Rpt.resx">
       <DependentUpon>XINV_Rpt028_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt030_rpt.resx">
+      <DependentUpon>XINV_Rpt030_rpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Caja\XCAJ_Rpt001_frm.resx">
