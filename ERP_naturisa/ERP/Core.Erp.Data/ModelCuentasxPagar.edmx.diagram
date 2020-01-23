@@ -178,6 +178,9 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="1.7413212963106677" PointY="6.7518449904172888" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_DocumentoRetAnulado" Width="1.5" PointX="11.317876562158521" PointY="2.5052205037815591" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_DocumentoRetAnuladoDet" Width="1.5" PointX="7.2363901823928538" PointY="11.155755644271036" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_DocumentoRetAnuladoDet_cp_XML_DocumentoRetAnulado" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

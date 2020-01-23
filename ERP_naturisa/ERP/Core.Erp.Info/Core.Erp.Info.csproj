@@ -110,6 +110,8 @@
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_Info.cs" />
     <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_DocumentoDet_Info.cs" />
+    <Compile Include="CuentasxPagar\cp_XML_DocumentoRetAnuladoDet_Info.cs" />
+    <Compile Include="CuentasxPagar\cp_XML_DocumentoRetAnulado_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Retencion_Info.cs" />
     <Compile Include="ActivoFijo\Af_Activo_fijo_Categoria_Info.cs" />

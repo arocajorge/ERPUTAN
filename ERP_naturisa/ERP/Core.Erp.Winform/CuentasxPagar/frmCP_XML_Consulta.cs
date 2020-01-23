@@ -276,5 +276,22 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnMostrarAnulados_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCP_XML_RetencionesAnuladas frm = new frmCP_XML_RetencionesAnuladas();
+                frm.IdEmpresa = param.IdEmpresa;
+                frm.FechaIni = ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde;
+                frm.FechaFin = ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta;
+                frm.ShowDialog();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

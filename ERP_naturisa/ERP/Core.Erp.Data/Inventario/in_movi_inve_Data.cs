@@ -16,7 +16,7 @@ namespace Core.Erp.Data.Inventario
     {
         string mensaje = "";
         public in_movi_inve_Data() { }
-
+        in_UnidadMedida_Data odataUnidadMedida = new in_UnidadMedida_Data();
         tb_Sucursal_Data odata_su = new tb_Sucursal_Data();
         public List<in_movi_inve_Info> Get_list_Movi_inven
             (int idcompany,int idSucursalIni ,int idSucursalFin ,int IdBodegaIni,int IdBodegaFin,
@@ -1519,7 +1519,7 @@ item.Centro_costo.Trim() : "",
                                 mv_tipo_movi = info_ing.signo,
                                 IdProducto = det.IdProducto,
 
-                                dm_cantidad = det.dm_cantidad,
+                                dm_cantidad = odataUnidadMedida.GetCantidadConvertida(det.IdEmpresa, det.IdProducto, det.IdUnidadMedida, (det.dm_cantidad)),
                                 dm_cantidad_sinConversion = det.dm_cantidad_sinConversion,
                                 mv_costo = det.mv_costo,
                                 mv_costo_sinConversion = det.mv_costo_sinConversion,

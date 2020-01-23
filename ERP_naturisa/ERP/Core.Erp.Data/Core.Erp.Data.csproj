@@ -653,6 +653,12 @@
     <Compile Include="cp_XML_DocumentoDet.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="cp_XML_DocumentoRetAnulado.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cp_XML_DocumentoRetAnuladoDet.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="cp_XML_Documento_Retencion.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
@@ -841,6 +847,7 @@
     <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Data.cs" />
     <Compile Include="CuentasxPagar\cp_TipoDocumento_Data.cs" />
     <Compile Include="CuentasxPagar\cp_XML_DocumentoDet_Data.cs" />
+    <Compile Include="CuentasxPagar\cp_XML_DocumentoRetAnulado_Data.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Data.cs" />
     <Compile Include="CuentasxPagar\cp_XML_Documento_Retencion_Data.cs" />
     <Compile Include="CuentasxPagar\vwcp_Anticipos_para_Conciliar_Data.cs" />

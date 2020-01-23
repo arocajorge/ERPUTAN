@@ -23,6 +23,7 @@ namespace Core.Erp.Data.Inventario
         List<in_movi_inve_detalle_Info> listDetalleMoviInvenIngreso = new List<in_movi_inve_detalle_Info>();
         in_producto_x_tb_bodega_Data oProxBodData = new in_producto_x_tb_bodega_Data();
         in_Ing_Egr_Inven_Data odataIngEgr = new in_Ing_Egr_Inven_Data();
+        in_UnidadMedida_Data odataUnidadMedida = new in_UnidadMedida_Data();
 
         public decimal GetId(int idEmpresa, int idSucursal, int idBodega)
         {
@@ -1038,11 +1039,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad * -1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa,item.IdProducto ?? 0,item.IdUnidadMedida,(item.dt_cantidad))*-1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion = item.dt_cantidad * -1,
+                                    dm_cantidad_sinConversion =  (item.dt_cantidad * -1),
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 
@@ -1240,7 +1241,7 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad *-1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)) * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
@@ -1289,7 +1290,7 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad * -1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)) * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
@@ -1544,7 +1545,7 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad * -1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)) * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
@@ -1588,6 +1589,9 @@ namespace Core.Erp.Data.Inventario
                     if (Entity == null)
                         return false;
 
+                    if (Entity.EstadoRevision != "A")
+                        return true;
+
                     #region Ingreso de inventario
                     info.IdNumMovi_Ing_Egr_Inven_Destino = odataIngEgr.GetId(info.IdEmpresa, info.IdSucursalDest, info.IdMovi_inven_tipo_SucuDest ?? 0);
                     var MotivoEgr = db.in_Motivo_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.Tipo_Ing_Egr == "ING" && q.Genera_Movi_Inven == "S").FirstOrDefault();
@@ -1626,7 +1630,7 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaDest,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = item.dt_cantidad,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)),
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
@@ -1727,7 +1731,7 @@ namespace Core.Erp.Data.Inventario
                                 IdBodega = info.IdBodegaOrigen,
                                 IdProducto = item.IdProducto ?? 0,
 
-                                dm_cantidad = item.dt_cantidadApro * -1,
+                                dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidadApro)) * -1,
                                 mv_costo = 0,
                                 IdUnidadMedida = item.IdUnidadMedida,
 

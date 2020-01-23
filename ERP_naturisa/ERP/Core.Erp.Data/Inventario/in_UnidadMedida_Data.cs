@@ -285,5 +285,31 @@ namespace Core.Erp.Data.Inventario
        public in_UnidadMedida_Data()
        {
        }
+
+       public double GetCantidadConvertida(int IdEmpresa, decimal IdProducto, string IdUnidadMedida, double Cantidad)
+       {
+           try
+           {
+               double CantidadConversion = Cantidad;
+               using (EntitiesInventario db = new EntitiesInventario())
+               {
+                   var producto = db.in_Producto.Where(Q => Q.IdEmpresa == IdEmpresa && Q.IdProducto == IdProducto).FirstOrDefault();
+                   if (producto != null)
+                   {
+                       var unidad = db.in_UnidadMedida_Equiv_conversion.Where(q => q.IdUnidadMedida == IdUnidadMedida && q.IdUnidadMedida_equiva == producto.IdUnidadMedida_Consumo).FirstOrDefault();
+                       if (unidad == null)
+                       {
+                           CantidadConversion = Cantidad * unidad.valor_equiv;
+                       }
+                   }
+               }
+               return CantidadConversion;
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
     }
 }

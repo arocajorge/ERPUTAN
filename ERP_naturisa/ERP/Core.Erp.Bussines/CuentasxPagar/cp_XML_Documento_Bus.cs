@@ -279,11 +279,11 @@ namespace Core.Erp.Business.CuentasxPagar
             }
         }
 
-        public bool EliminarRetencion(int IdEmpresa, decimal IdDocumento)
+        public bool EliminarRetencion(int IdEmpresa, decimal IdDocumento, string IdUsuario)
         {
             try
             {
-                return odata.EliminarRetencion(IdEmpresa, IdDocumento);
+                return odata.EliminarRetencion(IdEmpresa, IdDocumento, IdUsuario);
             }
             catch (Exception)
             {

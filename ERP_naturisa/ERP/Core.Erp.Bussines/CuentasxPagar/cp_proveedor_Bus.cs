@@ -176,38 +176,36 @@ namespace Core.Erp.Business.CuentasxPagar
                 Boolean res = true;
 
                 res = data.ModificarDB(info);
-                        
-                if (info.lista_codigoSRI_Proveedor.Count != 0)
+
+                //consultar
+                cp_proveedor_codigo_SRI_Data odata = new cp_proveedor_codigo_SRI_Data();
+                List<cp_proveedor_codigo_SRI_Info> lista = new List<cp_proveedor_codigo_SRI_Info>();
+                lista = odata.Get_List_proveedor_codigo_SRI(info.IdEmpresa, info.IdProveedor);
+
+                foreach (var item in info.lista_codigoSRI_Proveedor)
                 {
-                   //consultar
-                    cp_proveedor_codigo_SRI_Data odata = new cp_proveedor_codigo_SRI_Data();
-                    List<cp_proveedor_codigo_SRI_Info> lista = new List<cp_proveedor_codigo_SRI_Info>();
-                    lista = odata.Get_List_proveedor_codigo_SRI(info.IdEmpresa, info.IdProveedor);
+                    item.IdProveedor = info.IdProveedor;
+                }
 
-                    foreach (var item in info.lista_codigoSRI_Proveedor)
-                    {
-                        item.IdProveedor = info.IdProveedor;
-                    }
-
-                    if (odata.EliminarDB(info.IdEmpresa, info.IdProveedor))
-                    {
-                        if (lista.Count != 0)
-                        {
-                            if (odata.GrabarDB(info.lista_codigoSRI_Proveedor))
-                            {
-
-                            }
-                        }
-                    }
-                    else
+                if (odata.EliminarDB(info.IdEmpresa, info.IdProveedor))
+                {
+                    if (lista.Count != 0)
                     {
                         if (odata.GrabarDB(info.lista_codigoSRI_Proveedor))
                         {
 
                         }
-
-                    }                                                         
+                    }
                 }
+                else
+                {
+                    if (odata.GrabarDB(info.lista_codigoSRI_Proveedor))
+                    {
+
+                    }
+
+                }
+
                 return res;
             }
             catch (Exception ex)

@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>227</ApplicationRevision>
+    <ApplicationRevision>233</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -2028,6 +2028,12 @@
     </Compile>
     <Compile Include="Controles\UCSeg_Propiedades.Designer.cs">
       <DependentUpon>UCSeg_Propiedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_RetencionesAnuladas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_RetencionesAnuladas.Designer.cs">
+      <DependentUpon>frmCP_XML_RetencionesAnuladas.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\FrmFa_PuntoVta_cons.cs">
       <SubType>Form</SubType>
@@ -4820,6 +4826,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\UCSeg_Propiedades.resx">
       <DependentUpon>UCSeg_Propiedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\frmCP_XML_RetencionesAnuladas.resx">
+      <DependentUpon>frmCP_XML_RetencionesAnuladas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\FrmFa_PuntoVta_cons.resx">
       <DependentUpon>FrmFa_PuntoVta_cons.cs</DependentUpon>

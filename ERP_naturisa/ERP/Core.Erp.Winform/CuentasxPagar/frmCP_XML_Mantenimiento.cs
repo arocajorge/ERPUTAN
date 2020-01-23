@@ -323,7 +323,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                if (bus_xml.EliminarRetencion(info.IdEmpresa, info.IdDocumento))
+                if (bus_xml.EliminarRetencion(info.IdEmpresa, info.IdDocumento,param.IdUsuario))
                 {
                     txtRetAutorizacion.Text = "";
                     txtRetNumeroDocumento.Text = "";

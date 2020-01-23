@@ -13,6 +13,7 @@ namespace Core.Erp.Data.CuentasxPagar
     public class cp_XML_Documento_Data
     {
         tb_sis_Documento_Tipo_Talonario_Data odataTalonario = new tb_sis_Documento_Tipo_Talonario_Data();
+        cp_XML_DocumentoRetAnulado_Data odataAnulacion = new cp_XML_DocumentoRetAnulado_Data();
         cp_retencion_Data odataR = new cp_retencion_Data();
 
         public List<cp_XML_Documento_Info> GetList(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
@@ -684,7 +685,7 @@ namespace Core.Erp.Data.CuentasxPagar
             }
         }
 
-        public bool EliminarRetencion(int IdEmpresa, decimal IdDocumento)
+        public bool EliminarRetencion(int IdEmpresa, decimal IdDocumento, string IdUsuario)
         {
             try
             {
@@ -693,12 +694,47 @@ namespace Core.Erp.Data.CuentasxPagar
                     var xml = db.cp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && q.IdDocumento == IdDocumento).FirstOrDefault();
                     if (xml != null)
                     {
+                        int SecuenciaAnu = odataAnulacion.GetId(IdEmpresa,IdDocumento);
+                        db.cp_XML_DocumentoRetAnulado.Add(new cp_XML_DocumentoRetAnulado
+                        {
+                            IdEmpresa = xml.IdEmpresa,
+                            IdDocumento = xml.IdDocumento,
+                            SecuenciaAnu = SecuenciaAnu,
+                            Comprobante = xml.Comprobante,
+                            emi_Ruc = xml.emi_Ruc,
+                            emi_RazonSocial = xml.emi_RazonSocial,
+                            FechaEmision = xml.FechaEmision,
+                            ret_CodDocumentoTipo = xml.ret_CodDocumentoTipo,
+                            ret_Establecimiento = xml.ret_Establecimiento,
+                            ret_PuntoEmision = xml.ret_PuntoEmision,
+                            ret_NumeroDocumento = xml.ret_NumeroDocumento,
+                            ret_Fecha = xml.ret_Fecha,
+                            ret_FechaAutorizacion = xml.ret_FechaAutorizacion,
+                            ret_NumeroAutorizacion = xml.ret_NumeroAutorizacion,
+                            IdUsuarioAnulacion = xml.IdUsuarioAnulacion,
+                            FechaAnulacion = DateTime.Now
+                        });
+
                         xml.ret_NumeroDocumento = null;
                         xml.ret_NumeroAutorizacion = null;
                         xml.ret_Fecha = null;
+
                         var xmldet = db.cp_XML_Documento_Retencion.Where(q => q.IdEmpresa == IdEmpresa && q.IdDocumento == IdDocumento).ToList();
                         foreach (var item in xmldet)
                         {
+                            db.cp_XML_DocumentoRetAnuladoDet.Add(new cp_XML_DocumentoRetAnuladoDet
+                            {
+                                IdEmpresa = item.IdEmpresa,
+                                IdDocumento = item.IdDocumento,
+                                SecuenciaAnu = SecuenciaAnu,
+                                Secuencia = item.Secuencia,
+                                re_tipoRet = item.re_tipoRet,
+                                re_baseRetencion = item.re_baseRetencion,
+                                IdCodigo_SRI = item.IdCodigo_SRI,
+                                re_Codigo_impuesto = item.re_Codigo_impuesto,
+                                re_Porcen_retencion = item.re_Porcen_retencion,
+                                re_valor_retencion = item.re_valor_retencion
+                            });
                             db.cp_XML_Documento_Retencion.Remove(item);
                         }
                         db.SaveChanges();

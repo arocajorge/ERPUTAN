@@ -116,6 +116,18 @@ namespace Core.Erp.Business.Inventario
 
         }
 
+        public double GetCantidadConvertida(int IdEmpresa, decimal IdProducto, string IdUnidadMedida, double Cantidad)
+        {
+            try
+            {
+                return OData.GetCantidadConvertida(IdEmpresa, IdProducto, IdUnidadMedida, Cantidad);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         private void corregirObjeto(ref in_UnidadMedida_Info Info,ref string mensaje)
         {
