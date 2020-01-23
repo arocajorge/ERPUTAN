@@ -39,8 +39,10 @@ namespace Core.Erp.Data.Inventario
                             dt_cantidadFinal = item.dt_cantidadFinal,
                             CantidadAnterior = item.dt_cantidad,
                             MotivoParcial = item.MotivoParcial,
-                            dt_cantidadPreDespacho = item.dt_cantidadPreDespacho ?? 0
-
+                            dt_cantidadPreDespacho = item.dt_cantidadPreDespacho ?? 0,
+                            IdOrdenCompra = item.IdOrdenCompra,
+                            IdSucursal_oc = item.IdSucursal_oc,
+                            Secuencia_oc = item.Secuencia_oc
                         });
                     }
                 }
