@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -139,7 +138,7 @@
             this.NUM_MOVI = new DevExpress.XtraReports.UI.CalculatedField();
             this.NUM_OC = new DevExpress.XtraReports.UI.CalculatedField();
             this.P_Mostrar_registros_0 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -1178,7 +1177,7 @@
             // 
             // NOM_PRODUCTO
             // 
-            this.NOM_PRODUCTO.Expression = "CONCAT(\'[\',[pr_codigo],\' ] \',[pr_descripcion])";
+            this.NOM_PRODUCTO.Expression = "CONCAT(\'[\',[IdProducto],\' ] \',[pr_descripcion])";
             this.NOM_PRODUCTO.Name = "NOM_PRODUCTO";
             // 
             // SALDO_INICIAL

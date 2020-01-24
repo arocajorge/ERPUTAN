@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -43,6 +42,7 @@
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
             this.fr_negativo = new DevExpress.XtraReports.UI.FormattingRule();
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell34 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell19 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell21 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -78,6 +78,7 @@
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell33 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -116,9 +117,7 @@
             this.TOTAL_SUCURSAL = new DevExpress.XtraReports.UI.CalculatedField();
             this.TOTAL_BODEGA = new DevExpress.XtraReports.UI.CalculatedField();
             this.P_Mostrar_registros_0 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.xrTableCell33 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell34 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -166,7 +165,7 @@
             // xrTableCell17
             // 
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "pr_codigo")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "IdProducto")});
             this.xrTableCell17.FormattingRules.Add(this.fr_negativo);
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
@@ -194,6 +193,14 @@
             this.xrTableCell18.StylePriority.UsePadding = false;
             this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.Weight = 0.92380136440019989D;
+            // 
+            // xrTableCell34
+            // 
+            this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cod_unidad_consumo")});
+            this.xrTableCell34.Name = "xrTableCell34";
+            this.xrTableCell34.Text = "xrTableCell34";
+            this.xrTableCell34.Weight = 0.21025207183711953D;
             // 
             // xrTableCell19
             // 
@@ -585,6 +592,12 @@
             this.xrTableCell14.Text = "Producto";
             this.xrTableCell14.Weight = 0.92380114401878977D;
             // 
+            // xrTableCell33
+            // 
+            this.xrTableCell33.Name = "xrTableCell33";
+            this.xrTableCell33.Text = "Uni.";
+            this.xrTableCell33.Weight = 0.2102522922185297D;
+            // 
             // xrTableCell8
             // 
             this.xrTableCell8.Name = "xrTableCell8";
@@ -611,7 +624,7 @@
             // 
             // ReportFooter
             // 
-            this.ReportFooter.HeightF = 37.5F;
+            this.ReportFooter.HeightF = 38.54167F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // P_IdSucursal
@@ -957,20 +970,6 @@
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(Core.Erp.Reportes.Inventario.XINV_Rpt027_Info);
-            // 
-            // xrTableCell33
-            // 
-            this.xrTableCell33.Name = "xrTableCell33";
-            this.xrTableCell33.Text = "Uni.";
-            this.xrTableCell33.Weight = 0.2102522922185297D;
-            // 
-            // xrTableCell34
-            // 
-            this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cod_unidad_consumo")});
-            this.xrTableCell34.Name = "xrTableCell34";
-            this.xrTableCell34.Text = "xrTableCell34";
-            this.xrTableCell34.Weight = 0.21025207183711953D;
             // 
             // XINV_Rpt027_Rpt
             // 
