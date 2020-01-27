@@ -265,7 +265,7 @@ namespace Core.Erp.Data.Compras
                                     IdUnidadMedida = item.IdUnidadMedida,
                                     Por_Iva = item.Por_Iva,
                                     IdCod_Impuesto = item.IdCod_Impuesto,
-                                    do_observacion = string.IsNullOrEmpty(item.cd_DetallePorItem) ? " " : item.cd_DetallePorItem,
+                                    do_observacion = string.IsNullOrEmpty(item.cd_DetallePorItem) ? " " : item.cd_DetallePorItem + (string.IsNullOrEmpty(item.opd_Detalle) ? "" : item.opd_Detalle),
                                     IdSucursalDestino = item.IdSucursalDestino
                                 });
                             }

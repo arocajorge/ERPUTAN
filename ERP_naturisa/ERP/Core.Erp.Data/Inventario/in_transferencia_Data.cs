@@ -1658,6 +1658,8 @@ namespace Core.Erp.Data.Inventario
                             Entity.EstadoRevision = "E";
                             Entity.TuvoError = true;
                         }
+                        else
+                            Entity.EstadoRevision = "R";
 
                         Entity.IdUsuarioUltMod = info.IdUsuario;
                         Entity.Fecha_UltMod = DateTime.Now;
