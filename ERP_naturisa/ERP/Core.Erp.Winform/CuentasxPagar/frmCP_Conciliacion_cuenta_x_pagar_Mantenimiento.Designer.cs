@@ -138,6 +138,8 @@
             this.colCheck_aux1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnImprimirAnticipos = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit21)).BeginInit();
@@ -203,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vwcpordenpagoconcancelacionInfoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.panel1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // repositoryItemTextEdit14
@@ -237,28 +240,31 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 19);
+            this.labelControl1.Location = new System.Drawing.Point(16, 23);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(70, 13);
+            this.labelControl1.Size = new System.Drawing.Size(85, 16);
             this.labelControl1.TabIndex = 28;
             this.labelControl1.Text = "# Conciliación:";
             // 
             // txtIdConciliacion
             // 
-            this.txtIdConciliacion.Location = new System.Drawing.Point(100, 16);
+            this.txtIdConciliacion.Location = new System.Drawing.Point(133, 20);
+            this.txtIdConciliacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdConciliacion.Name = "txtIdConciliacion";
             this.txtIdConciliacion.Properties.Mask.EditMask = "\\d{0,15}";
             this.txtIdConciliacion.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtIdConciliacion.Properties.ReadOnly = true;
-            this.txtIdConciliacion.Size = new System.Drawing.Size(100, 20);
+            this.txtIdConciliacion.Size = new System.Drawing.Size(133, 22);
             this.txtIdConciliacion.TabIndex = 29;
             // 
             // labelControl2
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl2.Location = new System.Drawing.Point(817, 22);
+            this.labelControl2.Location = new System.Drawing.Point(1089, 27);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(33, 13);
+            this.labelControl2.Size = new System.Drawing.Size(39, 16);
             this.labelControl2.TabIndex = 30;
             this.labelControl2.Text = "Fecha:";
             // 
@@ -266,7 +272,8 @@
             // 
             this.dtpFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFecha.EditValue = null;
-            this.dtpFecha.Location = new System.Drawing.Point(875, 19);
+            this.dtpFecha.Location = new System.Drawing.Point(1167, 23);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -274,14 +281,15 @@
             this.dtpFecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.dtpFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpFecha.Size = new System.Drawing.Size(116, 20);
+            this.dtpFecha.Size = new System.Drawing.Size(155, 22);
             this.dtpFecha.TabIndex = 31;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(18, 51);
+            this.labelControl3.Location = new System.Drawing.Point(24, 63);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(64, 13);
+            this.labelControl3.Size = new System.Drawing.Size(75, 16);
             this.labelControl3.TabIndex = 32;
             this.labelControl3.Text = "Observación:";
             // 
@@ -289,9 +297,10 @@
             // 
             this.txtObservacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservacion.Location = new System.Drawing.Point(100, 42);
+            this.txtObservacion.Location = new System.Drawing.Point(133, 52);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(891, 28);
+            this.txtObservacion.Size = new System.Drawing.Size(1188, 34);
             this.txtObservacion.TabIndex = 33;
             // 
             // groupBox3
@@ -300,8 +309,10 @@
             this.groupBox3.Controls.Add(this.tabControl);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1006, 186);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(1344, 232);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ordenes de Pago Disponibles";
@@ -309,9 +320,10 @@
             // lnkAprobar_fac_nd
             // 
             this.lnkAprobar_fac_nd.AutoSize = true;
-            this.lnkAprobar_fac_nd.Location = new System.Drawing.Point(189, 16);
+            this.lnkAprobar_fac_nd.Location = new System.Drawing.Point(252, 20);
+            this.lnkAprobar_fac_nd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lnkAprobar_fac_nd.Name = "lnkAprobar_fac_nd";
-            this.lnkAprobar_fac_nd.Size = new System.Drawing.Size(519, 13);
+            this.lnkAprobar_fac_nd.Size = new System.Drawing.Size(689, 17);
             this.lnkAprobar_fac_nd.TabIndex = 44;
             this.lnkAprobar_fac_nd.TabStop = true;
             this.lnkAprobar_fac_nd.Text = "Aqui solo aparecen Fact/ND APROBADAS si no se encuentra alguna. Presione Aqui par" +
@@ -322,19 +334,21 @@
             // 
             this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(3, 16);
+            this.tabControl.Location = new System.Drawing.Point(4, 19);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1000, 167);
+            this.tabControl.Size = new System.Drawing.Size(1336, 209);
             this.tabControl.TabIndex = 43;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.gridControl_OPxCancelar);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(992, 141);
+            this.tabPage5.Size = new System.Drawing.Size(1328, 180);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Orden Pago por Cancelar";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -342,14 +356,16 @@
             // gridControl_OPxCancelar
             // 
             this.gridControl_OPxCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_OPxCancelar.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_OPxCancelar.Location = new System.Drawing.Point(0, 0);
             this.gridControl_OPxCancelar.MainView = this.gridView_OPxCancelar;
+            this.gridControl_OPxCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_OPxCancelar.Name = "gridControl_OPxCancelar";
             this.gridControl_OPxCancelar.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.txe_Saldo_x_Pagar_OP,
             this.txe_Valor_aplicado,
             this.txe_Valor_estimado_a_pagar_OP});
-            this.gridControl_OPxCancelar.Size = new System.Drawing.Size(992, 141);
+            this.gridControl_OPxCancelar.Size = new System.Drawing.Size(1328, 180);
             this.gridControl_OPxCancelar.TabIndex = 0;
             this.gridControl_OPxCancelar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_OPxCancelar});
@@ -590,8 +606,10 @@
             this.groupBox2.Controls.Add(this.splitContainer3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1006, 236);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1344, 294);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Comprobantes Disponibles";
@@ -599,7 +617,8 @@
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 16);
+            this.splitContainer3.Location = new System.Drawing.Point(4, 19);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -617,40 +636,44 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox5);
-            this.splitContainer3.Size = new System.Drawing.Size(1000, 217);
-            this.splitContainer3.SplitterDistance = 60;
+            this.splitContainer3.Size = new System.Drawing.Size(1336, 271);
+            this.splitContainer3.SplitterDistance = 74;
+            this.splitContainer3.SplitterWidth = 5;
             this.splitContainer3.TabIndex = 44;
             // 
             // dtpHasta
             // 
             this.dtpHasta.EditValue = null;
-            this.dtpHasta.Location = new System.Drawing.Point(281, 26);
+            this.dtpHasta.Location = new System.Drawing.Point(375, 32);
+            this.dtpHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpHasta.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpHasta.Size = new System.Drawing.Size(100, 20);
+            this.dtpHasta.Size = new System.Drawing.Size(133, 22);
             this.dtpHasta.TabIndex = 45;
             // 
             // dtpDesde
             // 
             this.dtpDesde.EditValue = new System.DateTime(2016, 12, 15, 16, 14, 34, 195);
-            this.dtpDesde.Location = new System.Drawing.Point(65, 26);
+            this.dtpDesde.Location = new System.Drawing.Point(87, 32);
+            this.dtpDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpDesde.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dtpDesde.Size = new System.Drawing.Size(100, 20);
+            this.dtpDesde.Size = new System.Drawing.Size(133, 22);
             this.dtpDesde.TabIndex = 44;
             // 
             // BtnBuscar
             // 
             this.BtnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.BtnBuscar.Location = new System.Drawing.Point(710, 11);
+            this.BtnBuscar.Location = new System.Drawing.Point(950, 14);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(100, 28);
+            this.BtnBuscar.Size = new System.Drawing.Size(133, 34);
             this.BtnBuscar.TabIndex = 39;
             this.BtnBuscar.Text = "Buscar";
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
@@ -658,9 +681,10 @@
             // rb_NotaCred
             // 
             this.rb_NotaCred.AutoSize = true;
-            this.rb_NotaCred.Location = new System.Drawing.Point(459, 9);
+            this.rb_NotaCred.Location = new System.Drawing.Point(612, 11);
+            this.rb_NotaCred.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rb_NotaCred.Name = "rb_NotaCred";
-            this.rb_NotaCred.Size = new System.Drawing.Size(104, 17);
+            this.rb_NotaCred.Size = new System.Drawing.Size(135, 21);
             this.rb_NotaCred.TabIndex = 43;
             this.rb_NotaCred.TabStop = true;
             this.rb_NotaCred.Text = "Notas de Crédito";
@@ -669,18 +693,20 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(25, 29);
+            this.labelControl5.Location = new System.Drawing.Point(33, 36);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(34, 13);
+            this.labelControl5.Size = new System.Drawing.Size(40, 16);
             this.labelControl5.TabIndex = 34;
             this.labelControl5.Text = "Desde:";
             // 
             // rbDiarioContable
             // 
             this.rbDiarioContable.AutoSize = true;
-            this.rbDiarioContable.Location = new System.Drawing.Point(281, 6);
+            this.rbDiarioContable.Location = new System.Drawing.Point(375, 7);
+            this.rbDiarioContable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbDiarioContable.Name = "rbDiarioContable";
-            this.rbDiarioContable.Size = new System.Drawing.Size(107, 17);
+            this.rbDiarioContable.Size = new System.Drawing.Size(140, 21);
             this.rbDiarioContable.TabIndex = 42;
             this.rbDiarioContable.TabStop = true;
             this.rbDiarioContable.Text = "Diarios Contables";
@@ -690,9 +716,10 @@
             // rbAnticipo
             // 
             this.rbAnticipo.AutoSize = true;
-            this.rbAnticipo.Location = new System.Drawing.Point(6, 6);
+            this.rbAnticipo.Location = new System.Drawing.Point(8, 7);
+            this.rbAnticipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbAnticipo.Name = "rbAnticipo";
-            this.rbAnticipo.Size = new System.Drawing.Size(155, 17);
+            this.rbAnticipo.Size = new System.Drawing.Size(202, 21);
             this.rbAnticipo.TabIndex = 40;
             this.rbAnticipo.TabStop = true;
             this.rbAnticipo.Text = "Ant. Proveedores/Otras OP";
@@ -701,19 +728,23 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(213, 29);
+            this.labelControl6.Location = new System.Drawing.Point(284, 36);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(32, 13);
+            this.labelControl6.Size = new System.Drawing.Size(37, 16);
             this.labelControl6.TabIndex = 36;
             this.labelControl6.Text = "Hasta:";
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.gridControlCompDis);
+            this.groupBox5.Controls.Add(this.toolStrip1);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1000, 153);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Size = new System.Drawing.Size(1336, 192);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             // 
@@ -721,8 +752,10 @@
             // 
             this.gridControlCompDis.DataSource = this.vwctcbtecbleconsaldocxpInfoBindingSource;
             this.gridControlCompDis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlCompDis.Location = new System.Drawing.Point(3, 16);
+            this.gridControlCompDis.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlCompDis.Location = new System.Drawing.Point(4, 46);
             this.gridControlCompDis.MainView = this.gridViewCompDis;
+            this.gridControlCompDis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlCompDis.Name = "gridControlCompDis";
             this.gridControlCompDis.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2,
@@ -734,7 +767,7 @@
             this.repositoryItemTextEdit10,
             this.repositoryItemTextEdit11,
             this.repositoryItemTextEdit12});
-            this.gridControlCompDis.Size = new System.Drawing.Size(994, 134);
+            this.gridControlCompDis.Size = new System.Drawing.Size(1328, 142);
             this.gridControlCompDis.TabIndex = 0;
             this.gridControlCompDis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCompDis});
@@ -1021,9 +1054,10 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 575);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 713);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1020, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1360, 22);
             this.statusStrip1.TabIndex = 35;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -1038,8 +1072,10 @@
             this.groupBox6.Controls.Add(this.dtpFecha);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1020, 79);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Size = new System.Drawing.Size(1360, 97);
             this.groupBox6.TabIndex = 36;
             this.groupBox6.TabStop = false;
             // 
@@ -1048,9 +1084,10 @@
             this.lblAnular.AutoSize = true;
             this.lblAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnular.ForeColor = System.Drawing.Color.Red;
-            this.lblAnular.Location = new System.Drawing.Point(421, 8);
+            this.lblAnular.Location = new System.Drawing.Point(561, 10);
+            this.lblAnular.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAnular.Name = "lblAnular";
-            this.lblAnular.Size = new System.Drawing.Size(190, 31);
+            this.lblAnular.Size = new System.Drawing.Size(235, 39);
             this.lblAnular.TabIndex = 34;
             this.lblAnular.Text = "**ANULADO**";
             this.lblAnular.Visible = false;
@@ -1059,6 +1096,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1069,8 +1107,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl2);
-            this.splitContainer1.Size = new System.Drawing.Size(1020, 546);
-            this.splitContainer1.SplitterDistance = 84;
+            this.splitContainer1.Size = new System.Drawing.Size(1360, 677);
+            this.splitContainer1.SplitterDistance = 104;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 37;
             // 
             // tabControl2
@@ -1079,18 +1118,20 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1020, 458);
+            this.tabControl2.Size = new System.Drawing.Size(1360, 568);
             this.tabControl2.TabIndex = 35;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.splitContainer2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1012, 432);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Size = new System.Drawing.Size(1352, 539);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Transacciones a Contabilizar";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1098,7 +1139,8 @@
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1109,17 +1151,19 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer2.Size = new System.Drawing.Size(1006, 426);
-            this.splitContainer2.SplitterDistance = 236;
+            this.splitContainer2.Size = new System.Drawing.Size(1344, 531);
+            this.splitContainer2.SplitterDistance = 294;
+            this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 2;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.UC_Diario);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1012, 432);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Size = new System.Drawing.Size(1352, 535);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Diario Contable";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1127,9 +1171,10 @@
             // UC_Diario
             // 
             this.UC_Diario.IdCtaCble_x_Banco = null;
-            this.UC_Diario.Location = new System.Drawing.Point(8, 6);
+            this.UC_Diario.Location = new System.Drawing.Point(11, 7);
+            this.UC_Diario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.UC_Diario.Name = "UC_Diario";
-            this.UC_Diario.Size = new System.Drawing.Size(1051, 365);
+            this.UC_Diario.Size = new System.Drawing.Size(1401, 449);
             this.UC_Diario.TabIndex = 0;
             this.UC_Diario.Visible_Botones = false;
             this.UC_Diario.Visible_Cabecera = false;
@@ -1212,8 +1257,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1020, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1360, 36);
             this.ucGe_Menu.TabIndex = 38;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -1250,19 +1296,40 @@
             // 
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(0, 36);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 546);
+            this.panel1.Size = new System.Drawing.Size(1360, 677);
             this.panel1.TabIndex = 39;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnImprimirAnticipos});
+            this.toolStrip1.Location = new System.Drawing.Point(4, 19);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1328, 27);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnImprimirAnticipos
+            // 
+            this.btnImprimirAnticipos.Image = global::Core.Erp.Winform.Properties.Resources.imprimir_32x32;
+            this.btnImprimirAnticipos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImprimirAnticipos.Name = "btnImprimirAnticipos";
+            this.btnImprimirAnticipos.Size = new System.Drawing.Size(150, 24);
+            this.btnImprimirAnticipos.Text = "Imprimir anticipos";
+            this.btnImprimirAnticipos.Click += new System.EventHandler(this.btnImprimirAnticipos_Click);
             // 
             // frmCP_Conciliacion_cuenta_x_pagar_Mantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 597);
+            this.ClientSize = new System.Drawing.Size(1360, 735);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.statusStrip1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCP_Conciliacion_cuenta_x_pagar_Mantenimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Conciliación de cuentas por pagar";
@@ -1302,6 +1369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpDesde.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpDesde.Properties)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCompDis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwctcbtecbleconsaldocxpInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewCompDis)).EndInit();
@@ -1336,6 +1404,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.vwcpordenpagoconcancelacionInfoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1452,5 +1522,7 @@
         private DevExpress.XtraEditors.DateEdit dtpHasta;
         private DevExpress.XtraEditors.DateEdit dtpDesde;
         private System.Windows.Forms.LinkLabel lnkAprobar_fac_nd;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btnImprimirAnticipos;
     }
 }

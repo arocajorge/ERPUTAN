@@ -1969,5 +1969,18 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnImprimirAnticipos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gridControlCompDis.ShowPrintPreview();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
