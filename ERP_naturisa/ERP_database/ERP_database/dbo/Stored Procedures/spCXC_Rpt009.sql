@@ -53,18 +53,17 @@ select      Facturas_y_notas_deb.IdEmpresa ,Facturas_y_notas_deb.IdSucursal,Fact
 								F.CodCbteVta,F.vt_tipoDoc,F.vt_serie1,F.vt_serie2,F.vt_NumFactura, 
 								dbo.tb_sucursal.Su_Descripcion, LTRIM(dbo.tb_persona.pe_nombreCompleto) + '/'+ cast( fa_cliente.IdCliente as varchar(20)) as pe_nombreCompleto, dbo.tb_persona.pe_cedulaRuc, SUM( FD.vt_total) Valor_Original,F.vt_fech_venc,
 								F.vt_fecha,dbo.fa_cliente.Idtipo_cliente, dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto as pe_telefonoOfic,
-								A.num_op
+								' ' num_op
 			FROM            fa_factura AS F INNER JOIN
                          fa_factura_det AS FD ON F.IdEmpresa = FD.IdEmpresa AND F.IdSucursal = FD.IdSucursal AND F.IdBodega = FD.IdBodega AND F.IdCbteVta = FD.IdCbteVta INNER JOIN
                          fa_cliente ON F.IdEmpresa = fa_cliente.IdEmpresa AND F.IdCliente = fa_cliente.IdCliente INNER JOIN
                          tb_persona ON fa_cliente.IdPersona = tb_persona.IdPersona INNER JOIN
-                         tb_sucursal ON F.IdEmpresa = tb_sucursal.IdEmpresa AND F.IdSucursal = tb_sucursal.IdSucursal LEFT OUTER JOIN
-                         Grafinpren.fa_factura_graf AS A ON A.IdEmpresa = F.IdEmpresa AND A.IdSucursal = F.IdSucursal AND A.IdBodega = F.IdBodega AND A.IdCbteVta = F.IdCbteVta
+                         tb_sucursal ON F.IdEmpresa = tb_sucursal.IdEmpresa AND F.IdSucursal = tb_sucursal.IdSucursal 
 			WHERE				F.IdEmpresa = @IdEmpresa AND F.vt_fecha <= @fechaCorte and F.Estado='A' 
 			GROUP BY            F.IdEmpresa,F.IdSucursal,F.IdBodega, dbo.fa_cliente.IdCliente, dbo.fa_cliente.Codigo,F.IdCbteVta, 
 								F.CodCbteVta,F.vt_tipoDoc,F.vt_serie1,F.vt_serie2,F.vt_NumFactura, 
 								dbo.tb_sucursal.Su_Descripcion, ltrim(dbo.tb_persona.pe_nombreCompleto) + '/'+ cast( fa_cliente.IdCliente as varchar(20)), dbo.tb_persona.pe_cedulaRuc,F.vt_fech_venc,F.vt_fecha,dbo.fa_cliente.Idtipo_cliente
-								,dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto, A.num_op 
+								,dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto 
 		
 -- *******************************************************************************************************************************************
 -- notas de debito
@@ -79,15 +78,13 @@ SELECT			dbo.fa_notaCreDeb.IdEmpresa, dbo.fa_notaCreDeb.IdSucursal, dbo.fa_notaC
 				isnull( dbo.fa_notaCreDeb.NumNota_Impresa, dbo.fa_notaCreDeb.IdNota), dbo.tb_sucursal.Su_Descripcion, 
 				LTRIM(dbo.tb_persona.pe_nombreCompleto) + '/'+ cast( fa_cliente.IdCliente as varchar(20)) , dbo.tb_persona.pe_cedulaRuc, 
 				dbo.fa_notaCreDeb_det.sc_total, dbo.fa_notaCreDeb.no_fecha_venc,dbo.fa_notaCreDeb.no_fecha, dbo.fa_cliente.Idtipo_cliente,
-				dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto as pe_telefonoOfic,A.num_op
+				dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto as pe_telefonoOfic, '' num_op
 FROM            fa_notaCreDeb INNER JOIN
                 fa_notaCreDeb_det ON fa_notaCreDeb.IdEmpresa = fa_notaCreDeb_det.IdEmpresa AND fa_notaCreDeb.IdSucursal = fa_notaCreDeb_det.IdSucursal AND 
                 fa_notaCreDeb.IdBodega = fa_notaCreDeb_det.IdBodega AND fa_notaCreDeb.IdNota = fa_notaCreDeb_det.IdNota INNER JOIN
                 fa_cliente ON fa_notaCreDeb.IdEmpresa = fa_cliente.IdEmpresa AND fa_notaCreDeb.IdCliente = fa_cliente.IdCliente INNER JOIN
                 tb_sucursal ON fa_notaCreDeb.IdEmpresa = tb_sucursal.IdEmpresa AND fa_notaCreDeb.IdSucursal = tb_sucursal.IdSucursal INNER JOIN
-                tb_persona ON fa_cliente.IdPersona = tb_persona.IdPersona LEFT OUTER JOIN
-                Grafinpren.fa_notaCreDeb_graf AS A ON A.IdEmpresa = fa_notaCreDeb.IdEmpresa AND A.IdSucursal = fa_notaCreDeb.IdSucursal AND 
-                A.IdBodega = fa_notaCreDeb.IdBodega AND A.IdNota = fa_notaCreDeb.IdNota
+                tb_persona ON fa_cliente.IdPersona = tb_persona.IdPersona 
 where           dbo.fa_notaCreDeb.IdEmpresa = @IdEmpresa and dbo.fa_notaCreDeb.CreDeb='D' and fa_notaCreDeb.no_fecha <= @fechaCorte
 				and dbo.fa_notaCreDeb.Estado='A' 
 				AND NOT EXISTS(
@@ -100,7 +97,7 @@ GROUP BY		dbo.fa_notaCreDeb.IdEmpresa, dbo.fa_notaCreDeb.IdSucursal, dbo.fa_nota
 				dbo.fa_notaCreDeb.NumNota_Impresa, dbo.tb_sucursal.Su_Descripcion, 
 				LTRIM(dbo.tb_persona.pe_nombreCompleto) + '/'+ cast( fa_cliente.IdCliente as varchar(20)) , dbo.tb_persona.pe_cedulaRuc, 
 				dbo.fa_notaCreDeb_det.sc_total, dbo.fa_notaCreDeb.no_fecha_venc,dbo.fa_notaCreDeb.no_fecha,dbo.fa_cliente.Idtipo_cliente,
-				dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto, a.num_op
+				dbo.tb_persona.pe_telefonoOfic +'/'+ dbo.tb_persona.pe_telfono_Contacto
 
 ) as  Facturas_y_notas_deb left join
 (

@@ -1,8 +1,8 @@
-﻿CREATE view [Naturisa].[vwINV_NAT_Rpt001]
-as
+﻿CREATE VIEW [Naturisa].[vwINV_NAT_Rpt001]
+AS
 SELECT Guia.IdEmpresa, Guia.IdGuia, 'con_oc' AS TipoDetalle, Guia.secuencia, Guia.IdEmpresa_OC, Guia.IdSucursal_OC, Guia.IdOrdenCompra_OC, Guia.Secuencia_OC, Guia.observacion, prod.IdProducto, Guia.Cantidad_enviar, 
                   prod.pr_descripcion AS nom_producto, oc_det.do_Cantidad AS CantOC, oc_det.do_observacion AS Observacion_OC, Guia.Referencia AS Num_Fact, dbo.cp_proveedor.IdProveedor, dbo.cp_proveedor.pr_nombre AS nom_proveedor, 
-                  dbo.in_Guia_x_traspaso_bodega.NumGuia, dbo.in_Guia_x_traspaso_bodega.IdSucursal_Partida, dbo.tb_sucursal.Su_Descripcion AS Nom_Sucursal_Partida, dbo.in_Guia_x_traspaso_bodega.Direc_sucu_Partida, 
+                  cast(dbo.in_Guia_x_traspaso_bodega.IdGuia as varchar) NumGuia, dbo.in_Guia_x_traspaso_bodega.IdSucursal_Partida, dbo.tb_sucursal.Su_Descripcion AS Nom_Sucursal_Partida, dbo.in_Guia_x_traspaso_bodega.Direc_sucu_Partida, 
                   dbo.in_Guia_x_traspaso_bodega.IdSucursal_Llegada, tb_sucursal_1.Su_Descripcion AS Nom_Sucursal_LLegada, dbo.in_Guia_x_traspaso_bodega.Direc_sucu_Llegada, dbo.in_Guia_x_traspaso_bodega.IdTransportista, 
                   dbo.tb_transportista.Nombre AS nom_transportista, dbo.tb_transportista.Cedula AS cedu_transportista, dbo.in_Guia_x_traspaso_bodega.Fecha, dbo.in_Guia_x_traspaso_bodega.Fecha_Traslado, 
                   dbo.in_Guia_x_traspaso_bodega.Fecha_llegada, dbo.in_Guia_x_traspaso_bodega.IdMotivo_Traslado, dbo.in_Guia_x_traspaso_bodega.Hora_Traslado, dbo.in_Guia_x_traspaso_bodega.Hora_Llegada, 
@@ -25,7 +25,7 @@ UNION ALL
 SELECT dbo.in_Guia_x_traspaso_bodega_det_sin_oc.IdEmpresa, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.IdGuia, 'sin_oc' AS TipoDetalle, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.secuencia, NULL AS Expr1, NULL AS Expr2, NULL 
                   AS Expr3, NULL AS Expr4, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.observacion, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.IdProducto, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.Cantidad_enviar, 
                   dbo.in_Guia_x_traspaso_bodega_det_sin_oc.nom_producto AS nom_producto, NULL AS Expr5, NULL AS Expr6, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.Num_Fact, dbo.in_Guia_x_traspaso_bodega_det_sin_oc.IdProveedor, 
-                  dbo.in_Guia_x_traspaso_bodega_det_sin_oc.nom_proveedor AS nom_proveedor, dbo.in_Guia_x_traspaso_bodega.NumGuia, dbo.in_Guia_x_traspaso_bodega.IdSucursal_Partida, 
+                  dbo.in_Guia_x_traspaso_bodega_det_sin_oc.nom_proveedor AS nom_proveedor, cast(dbo.in_Guia_x_traspaso_bodega.IdGuia as varchar) NumGuia, dbo.in_Guia_x_traspaso_bodega.IdSucursal_Partida, 
                   dbo.tb_sucursal.Su_Descripcion AS Nom_Sucursal_Partida, dbo.in_Guia_x_traspaso_bodega.Direc_sucu_Partida, dbo.in_Guia_x_traspaso_bodega.IdSucursal_Llegada, tb_sucursal_1.Su_Descripcion AS Nom_Sucursal_LLegada, 
                   dbo.in_Guia_x_traspaso_bodega.Direc_sucu_Llegada, dbo.in_Guia_x_traspaso_bodega.IdTransportista, dbo.tb_transportista.Nombre AS nom_transportista, dbo.tb_transportista.Cedula AS cedu_transportista, 
                   dbo.in_Guia_x_traspaso_bodega.Fecha, dbo.in_Guia_x_traspaso_bodega.Fecha_Traslado, dbo.in_Guia_x_traspaso_bodega.Fecha_llegada, dbo.in_Guia_x_traspaso_bodega.IdMotivo_Traslado, 

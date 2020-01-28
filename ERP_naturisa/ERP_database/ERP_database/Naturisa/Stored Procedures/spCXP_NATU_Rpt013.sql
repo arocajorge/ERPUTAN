@@ -1,4 +1,4 @@
-﻿--EXEC Naturisa.spCXP_NATU_Rpt013 1,1,9999,1,9999,'01/01/2017','31/01/2017'
+﻿--EXEC Naturisa.spCXP_NATU_Rpt013 3,1,9999,1086,1086,'01/11/2019','30/11/2019'
 CREATE PROCEDURE [Naturisa].[spCXP_NATU_Rpt013]
 (
 @IdEmpresa int,
@@ -179,7 +179,7 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 											DET.dc_Valor,
 
 											LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + cp_nota_DebCre.cod_nota AS referencia						  
-											,3 AS Secuencia_rpt
+											,31 AS Secuencia_rpt
 							FROM            ct_cbtecble_det AS det INNER JOIN
 											ct_cbtecble AS cab ON det.IdEmpresa = cab.IdEmpresa AND det.IdTipoCbte = cab.IdTipoCbte AND det.IdCbteCble = cab.IdCbteCble INNER JOIN
 											cp_nota_DebCre ON cab.IdEmpresa = cp_nota_DebCre.IdEmpresa AND cab.IdTipoCbte = cp_nota_DebCre.IdTipoCbte_Nota AND 
@@ -201,7 +201,7 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 							cp_proveedor_clase.IdClaseProveedor, cp_proveedor_clase.descripcion_clas_prove, cp_proveedor.IdProveedor,cp_proveedor.pr_codigo , cp_proveedor.pr_nombre, 
 							cp_proveedor_clase.IdCtaCble_CXP AS IdCtaCble_CXP_clase, cp_proveedor.IdCtaCble_CXP AS IdCtaCble_CXP_provee, ct_cbtecble_tipo.CodTipoCbte, 
 							ct_cbtecble_tipo.tc_TipoCbte, CASE WHEN ct_cbtecble_det.dc_Valor > 0 THEN ABS(ct_cbtecble_det.dc_Valor) ELSE 0 END AS Debe, CASE WHEN ct_cbtecble_det.dc_Valor < 0 THEN ABS(ct_cbtecble_det.dc_Valor)
-							ELSE 0 END AS Haber, ct_cbtecble_det.dc_Valor, 'CONCI-'+ cast(cp_conciliacion.IdConciliacion as varchar(20)) +' / '+LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + cast(ct_cbtecble.IdCbteCble as varchar(20)) AS referencia, 3 AS Secuencia_rpt
+							ELSE 0 END AS Haber, ct_cbtecble_det.dc_Valor, 'CONCI-'+ cast(cp_conciliacion.IdConciliacion as varchar(20)) +' / '+LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + cast(ct_cbtecble.IdCbteCble as varchar(20)) AS referencia, 32 AS Secuencia_rpt
 							FROM            cp_conciliacion INNER JOIN
 							cp_orden_pago_cancelaciones ON cp_conciliacion.IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa AND 
 							cp_conciliacion.IdCancelacion = cp_orden_pago_cancelaciones.Idcancelacion INNER JOIN
@@ -226,11 +226,18 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 								(SELECT        IdEmpresa
 								FROM            cp_nota_DebCre AS cre
 								WHERE        (IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa_pago) AND (IdTipoCbte_Nota = cp_orden_pago_cancelaciones.IdTipoCbte_pago) AND 
-															(IdCbteCble_Nota = cp_orden_pago_cancelaciones.IdCbteCble_pago))) 
+															(IdCbteCble_Nota = cp_orden_pago_cancelaciones.IdCbteCble_pago)))
+							and		
+							(NOT EXISTS
+								(SELECT        IdEmpresa
+								FROM            ba_Cbte_Ban AS cre
+								WHERE        (IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa_pago) AND (cre.IdTipoCbte = cp_orden_pago_cancelaciones.IdTipoCbte_pago) AND 
+															(cre.IdCbteCble = cp_orden_pago_cancelaciones.IdCbteCble_pago))) 
 															AND EXISTS
 								(SELECT        IdEmpresa
 								FROM            cp_proveedor_clase AS clase
-								WHERE        (IdEmpresa = ct_cbtecble_det.IdEmpresa) AND (IdCtaCble_CXP = ct_cbtecble_det.IdCtaCble)) 
+								WHERE        (IdEmpresa = ct_cbtecble_det.IdEmpresa) AND (IdCtaCble_CXP = ct_cbtecble_det.IdCtaCble))
+								 
 						
 				UNION
 				--CONCILIACION OG
@@ -238,7 +245,7 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 							cp_proveedor_clase.IdClaseProveedor, cp_proveedor_clase.descripcion_clas_prove, cp_proveedor.IdProveedor,cp_proveedor.pr_codigo , cp_proveedor.pr_nombre, 
 							cp_proveedor_clase.IdCtaCble_CXP AS IdCtaCble_CXP_clase, cp_proveedor.IdCtaCble_CXP AS IdCtaCble_CXP_provee, ct_cbtecble_tipo.CodTipoCbte, 
 							ct_cbtecble_tipo.tc_TipoCbte, CASE WHEN ct_cbtecble_det.dc_Valor > 0 THEN ABS(ct_cbtecble_det.dc_Valor) ELSE 0 END AS Debe, CASE WHEN ct_cbtecble_det.dc_Valor < 0 THEN ABS(ct_cbtecble_det.dc_Valor)
-							ELSE 0 END AS Haber, ct_cbtecble_det.dc_Valor, 'CONCI-'+ cast(cp_conciliacion.IdConciliacion as varchar(20)) +' / '+LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + cast(ct_cbtecble.IdCbteCble as varchar(20)) AS referencia, 3 AS Secuencia_rpt
+							ELSE 0 END AS Haber, ct_cbtecble_det.dc_Valor, 'CONCI-'+ cast(cp_conciliacion.IdConciliacion as varchar(20)) +' / '+LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + cast(ct_cbtecble.IdCbteCble as varchar(20)) AS referencia, 33 AS Secuencia_rpt
 							FROM            cp_conciliacion INNER JOIN
 							cp_orden_pago_cancelaciones ON cp_conciliacion.IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa AND 
 							cp_conciliacion.IdCancelacion = cp_orden_pago_cancelaciones.Idcancelacion INNER JOIN
@@ -264,6 +271,12 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 								FROM            cp_nota_DebCre AS cre
 								WHERE        (IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa_pago) AND (IdTipoCbte_Nota = cp_orden_pago_cancelaciones.IdTipoCbte_pago) AND 
 															(IdCbteCble_Nota = cp_orden_pago_cancelaciones.IdCbteCble_pago))) 
+															and		
+							(NOT EXISTS
+								(SELECT        IdEmpresa
+								FROM            ba_Cbte_Ban AS cre
+								WHERE        (IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa_pago) AND (cre.IdTipoCbte = cp_orden_pago_cancelaciones.IdTipoCbte_pago) AND 
+															(cre.IdCbteCble = cp_orden_pago_cancelaciones.IdCbteCble_pago)))
 															AND EXISTS
 								(SELECT        IdEmpresa
 								FROM            cp_proveedor_clase AS clase
@@ -271,40 +284,27 @@ set @Movimientos_en_rango = isnull(@Movimientos_en_rango,0)
 						
 				UNION
 				--PAGOS BANCARIOS
-				SELECT        det.IdEmpresa, det.IdTipoCbte, det.IdCbteCble, det.secuencia, ct_plancta_1.IdCtaCble, ct_plancta_1.pc_Cuenta, cab.cb_Fecha, cab.cb_Observacion, 
+SELECT    distinct    cab.IdEmpresa, cab.IdTipoCbte, cab.IdCbteCble, cp_orden_pago_cancelaciones.secuencia, '' IdCtaCble, '' pc_Cuenta, cab.cb_Fecha, cab.cb_Observacion, 
 								cp_proveedor_clase.IdClaseProveedor, cp_proveedor_clase.descripcion_clas_prove, cp_proveedor.IdProveedor, cp_proveedor.pr_codigo, cp_proveedor.pr_nombre, 
 								cp_proveedor_clase.IdCtaCble_CXP AS IdCtaCble_CXP_clase, cp_proveedor.IdCtaCble_CXP AS IdCtaCble_CXP_provee, ct_cbtecble_tipo.CodTipoCbte, 
-								ct_cbtecble_tipo.tc_TipoCbte, CASE WHEN DET.dc_Valor > 0 THEN ABS(DET.dc_Valor) ELSE 0 END AS Debe, CASE WHEN DET.dc_Valor < 0 THEN ABS(DET.dc_Valor)
-								ELSE 0 END AS Haber, det.dc_Valor, CASE WHEN ba_Cbte_Ban.cb_Cheque is null THEN LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + CAST(ba_Cbte_Ban.IdCbteCble AS VARCHAR)
+								ct_cbtecble_tipo.tc_TipoCbte, cp_orden_pago_cancelaciones.MontoAplicado AS Debe, cast(0 as float) AS Haber, cp_orden_pago_cancelaciones.MontoAplicado, CASE WHEN ba_Cbte_Ban.cb_Cheque is null THEN LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + CAST(ba_Cbte_Ban.IdCbteCble AS VARCHAR)
 								ELSE LTRIM(RTRIM(ct_cbtecble_tipo.CodTipoCbte)) + '-' + ba_Cbte_Ban.cb_Cheque END AS referencia , 
-								3 AS Secuencia_rpt
-				FROM            cp_orden_pago INNER JOIN
-								cp_orden_pago_det ON cp_orden_pago.IdEmpresa = cp_orden_pago_det.IdEmpresa AND 
-								cp_orden_pago.IdOrdenPago = cp_orden_pago_det.IdOrdenPago INNER JOIN
-								cp_proveedor_clase INNER JOIN
-								cp_proveedor ON cp_proveedor_clase.IdEmpresa = cp_proveedor.IdEmpresa AND cp_proveedor_clase.IdClaseProveedor = cp_proveedor.IdClaseProveedor ON 
-								cp_orden_pago.IdEmpresa = cp_proveedor.IdEmpresa AND cp_orden_pago.IdEntidad = cp_proveedor.IdProveedor AND 
-								cp_orden_pago.IdPersona = cp_proveedor.IdPersona INNER JOIN
-								cp_orden_pago_cancelaciones ON cp_orden_pago_det.IdEmpresa_cxp = cp_orden_pago_cancelaciones.IdEmpresa_cxp AND 
-								cp_orden_pago_det.IdCbteCble_cxp = cp_orden_pago_cancelaciones.IdCbteCble_cxp AND 
-								cp_orden_pago_det.IdTipoCbte_cxp = cp_orden_pago_cancelaciones.IdTipoCbte_cxp AND 
-								cp_orden_pago_det.IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa_op AND 
-								cp_orden_pago_det.IdOrdenPago = cp_orden_pago_cancelaciones.IdOrdenPago_op AND 
-								cp_orden_pago_det.Secuencia = cp_orden_pago_cancelaciones.Secuencia_op INNER JOIN
-								ct_cbtecble_tipo INNER JOIN
-								ct_plancta AS ct_plancta_1 INNER JOIN
-								ct_cbtecble AS cab INNER JOIN
-								ct_cbtecble_det AS det ON cab.IdEmpresa = det.IdEmpresa AND cab.IdTipoCbte = det.IdTipoCbte AND cab.IdCbteCble = det.IdCbteCble ON 
-								ct_plancta_1.IdEmpresa = det.IdEmpresa AND ct_plancta_1.IdCtaCble = det.IdCtaCble ON ct_cbtecble_tipo.IdEmpresa = cab.IdEmpresa AND 
-								ct_cbtecble_tipo.IdTipoCbte = cab.IdTipoCbte ON cp_orden_pago_cancelaciones.IdEmpresa_pago = cab.IdEmpresa AND 
-								cp_orden_pago_cancelaciones.IdTipoCbte_pago = cab.IdTipoCbte AND cp_orden_pago_cancelaciones.IdCbteCble_pago = cab.IdCbteCble  INNER JOIN
-								ba_Cbte_Ban ON cab.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND cab.IdTipoCbte = ba_Cbte_Ban.IdTipocbte AND cab.IdCbteCble = ba_Cbte_Ban.IdCbteCble
+								34 AS Secuencia_rpt
+		FROM     cp_orden_pago INNER JOIN
+                  cp_orden_pago_det ON cp_orden_pago.IdEmpresa = cp_orden_pago_det.IdEmpresa AND cp_orden_pago.IdOrdenPago = cp_orden_pago_det.IdOrdenPago INNER JOIN
+                  cp_proveedor_clase INNER JOIN
+                  cp_proveedor ON cp_proveedor_clase.IdEmpresa = cp_proveedor.IdEmpresa AND cp_proveedor_clase.IdClaseProveedor = cp_proveedor.IdClaseProveedor ON cp_orden_pago.IdEmpresa = cp_proveedor.IdEmpresa AND 
+                  cp_orden_pago.IdEntidad = cp_proveedor.IdProveedor AND cp_orden_pago.IdPersona = cp_proveedor.IdPersona INNER JOIN
+                  cp_orden_pago_cancelaciones ON cp_orden_pago_det.IdEmpresa_cxp = cp_orden_pago_cancelaciones.IdEmpresa_cxp AND cp_orden_pago_det.IdCbteCble_cxp = cp_orden_pago_cancelaciones.IdCbteCble_cxp AND 
+                  cp_orden_pago_det.IdTipoCbte_cxp = cp_orden_pago_cancelaciones.IdTipoCbte_cxp AND cp_orden_pago_det.IdEmpresa = cp_orden_pago_cancelaciones.IdEmpresa_op AND 
+                  cp_orden_pago_det.IdOrdenPago = cp_orden_pago_cancelaciones.IdOrdenPago_op AND cp_orden_pago_det.Secuencia = cp_orden_pago_cancelaciones.Secuencia_op INNER JOIN
+                  ct_cbtecble_tipo INNER JOIN
+                  ct_cbtecble AS cab ON ct_cbtecble_tipo.IdEmpresa = cab.IdEmpresa AND ct_cbtecble_tipo.IdTipoCbte = cab.IdTipoCbte ON cp_orden_pago_cancelaciones.IdEmpresa_pago = cab.IdEmpresa AND 
+                  cp_orden_pago_cancelaciones.IdTipoCbte_pago = cab.IdTipoCbte AND cp_orden_pago_cancelaciones.IdCbteCble_pago = cab.IdCbteCble INNER JOIN
+                  ba_Cbte_Ban ON cab.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND cab.IdTipoCbte = ba_Cbte_Ban.IdTipocbte AND cab.IdCbteCble = ba_Cbte_Ban.IdCbteCble
 				WHERE        (cp_orden_pago.IdTipo_Persona = 'PROVEE') AND (cp_orden_pago.IdEmpresa = @IdEmpresa) AND (cp_orden_pago.IdEntidad between @IdProveedor_ini and @IdProveedor_fin) and cp_proveedor.IdClaseProveedor between @IdClaseProveedor_ini and @IdClaseProveedor_fin
 							 AND (ba_Cbte_Ban.cb_Fecha BETWEEN 
-								@Fecha_ini AND @Fecha_fin) AND (cp_orden_pago.Estado = 'A') AND EXISTS
-									(SELECT        IdEmpresa
-									FROM            cp_proveedor_clase AS clase
-									WHERE        (IdEmpresa = det.IdEmpresa) AND (IdCtaCble_CXP = det.IdCtaCble))
+								@Fecha_ini AND @Fecha_fin) AND (cp_orden_pago.Estado = 'A') 
 				UNION
 				SELECT        cp_proveedor.IdEmpresa, 0 IdTipoCbte, 0 IdCbteCble, 0 secuencia, NULL IdCtaCble, NULL pc_Cuenta, @Fecha_fin, 'No existen movimientos'cb_Observacion, 
 								cp_proveedor_clase.IdClaseProveedor, cp_proveedor_clase.descripcion_clas_prove, cp_proveedor.IdProveedor, cp_proveedor.pr_codigo, cp_proveedor.pr_nombre, 

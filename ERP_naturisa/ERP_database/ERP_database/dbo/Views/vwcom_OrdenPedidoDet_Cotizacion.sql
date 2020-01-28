@@ -1,29 +1,28 @@
 ﻿CREATE VIEW [dbo].[vwcom_OrdenPedidoDet_Cotizacion]
 AS
-SELECT d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, d.pr_descripcion, d.IdUnidadMedida, d.IdSucursalOrigen, d.IdSucursalDestino, ISNULL(d.IdPunto_cargo, Cod.IdPunto_cargo) AS IdPunto_cargo, d.opd_Cantidad, d.opd_CantidadApro, 
-                  d.opd_EstadoProceso, d.opd_Detalle, p.IdUnidadMedida_Consumo, CAST(0 AS float) AS Stock, s.nom_solicitante, d.IdProducto, dbo.com_comprador.IdUsuario_com, p.IdCod_Impuesto_Iva, c.IdSolicitante, c.IdDepartamento, 
-                  dbo.com_comprador_familia.IdComprador, c.EsCompraUrgente, d.Adjunto, c.op_Fecha, c.op_Observacion, d.NombreArchivo, CASE WHEN d .opd_EstadoProceso = 'AC' OR
-                  d .opd_EstadoProceso = 'AJC' OR
-                  d .opd_EstadoProceso = 'C' OR
-                  d .opd_EstadoProceso IN ('RGA','I') THEN '4. APROBADOS' WHEN d .opd_EstadoProceso = 'RC' THEN '5. RECHAZADO' WHEN c.EsCompraUrgente = 1 THEN '1. URGENTE' WHEN d .IdProducto IS NULL 
-                  THEN '3. NO CREADOS' ELSE '2. NORMALES' END AS Grupo, d.FechaCantidad, coc.IdProveedor, Cod.cd_precioCompra, Cod.cd_porc_des, Cod.cd_descuento, Cod.cd_precioFinal, Cod.cd_subtotal, Cod.Por_Iva, Cod.cd_iva, Cod.cd_total, 
-                  Cod.cd_DetallePorItem, 
-                  CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso = 'AJC' THEN
-                   'PRECIO APROBADO' WHEN d.opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso
-                   = 'RGA' THEN 'COTIZACION RECHAZADA' 
-				   WHEN d.opd_EstadoProceso = 'I' THEN 'INGRESADO A BODEGA'
-
-				   END AS EstadoDetalle, c.ObservacionGA, su.Su_Descripcion, su.codigo + '-' + CAST(coc.oc_IdOrdenCompra AS varchar(20)) AS CodigoOC
-FROM     dbo.com_comprador INNER JOIN
-                  dbo.com_comprador_familia ON dbo.com_comprador.IdEmpresa = dbo.com_comprador_familia.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_comprador_familia.IdComprador INNER JOIN
-                  dbo.in_Producto AS p ON dbo.com_comprador_familia.IdEmpresa = p.IdEmpresa AND dbo.com_comprador_familia.IdFamilia = p.IdFamilia RIGHT OUTER JOIN
-                  dbo.com_OrdenPedidoDet AS d INNER JOIN
-                  dbo.com_OrdenPedido AS c ON c.IdEmpresa = d.IdEmpresa AND c.IdOrdenPedido = d.IdOrdenPedido INNER JOIN
-                  dbo.com_solicitante AS s ON s.IdEmpresa = c.IdEmpresa AND s.IdSolicitante = c.IdSolicitante ON p.IdEmpresa = d.IdEmpresa AND p.IdProducto = d.IdProducto LEFT OUTER JOIN
-                  dbo.com_CotizacionPedidoDet AS Cod ON d.IdEmpresa = Cod.opd_IdEmpresa AND d.IdOrdenPedido = Cod.opd_IdOrdenPedido AND d.Secuencia = Cod.opd_Secuencia AND Cod.EstadoJC = 1 LEFT OUTER JOIN
-                  dbo.com_CotizacionPedido AS coc ON coc.IdEmpresa = Cod.IdEmpresa AND coc.IdCotizacion = Cod.IdCotizacion AND coc.EstadoJC <> 'R' LEFT OUTER JOIN
-                  dbo.tb_sucursal AS su ON coc.IdEmpresa = su.IdEmpresa AND coc.IdSucursal = su.IdSucursal
-WHERE  (c.Estado = 1) AND (d.opd_EstadoProceso NOT IN ('RA', 'P'))
+SELECT       d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, d.pr_descripcion, d.IdUnidadMedida, d.IdSucursalOrigen, d.IdSucursalDestino, ISNULL(d.IdPunto_cargo, Cod.IdPunto_cargo) AS IdPunto_cargo, d.opd_Cantidad, d.opd_CantidadApro, 
+                         d.opd_EstadoProceso, d.opd_Detalle, p.IdUnidadMedida_Consumo, CAST(0 AS float) AS Stock, s.nom_solicitante, d.IdProducto, dbo.com_comprador.IdUsuario_com, isnull(cod.IdCod_Impuesto, p.IdCod_Impuesto_Iva) IdCod_Impuesto_Iva, c.IdSolicitante, c.IdDepartamento, 
+                         dbo.com_comprador_familia.IdComprador, c.EsCompraUrgente, d.Adjunto, c.op_Fecha, c.op_Observacion, d.NombreArchivo, CASE WHEN d .opd_EstadoProceso = 'AC' OR
+                         d .opd_EstadoProceso = 'AJC' OR
+                         d .opd_EstadoProceso = 'C' OR
+                         d .opd_EstadoProceso = 'T' OR
+                         d .opd_EstadoProceso IN ('RGA', 'I') THEN '4. APROBADOS' WHEN d .opd_EstadoProceso = 'RC' THEN '5. RECHAZADO' WHEN c.EsCompraUrgente = 1 THEN '1. URGENTE' WHEN d .IdProducto IS NULL 
+                         THEN '3. NO CREADOS' ELSE '2. NORMALES' END AS Grupo, d.FechaCantidad, coc.IdProveedor, Cod.cd_precioCompra, Cod.cd_porc_des, Cod.cd_descuento, Cod.cd_precioFinal, Cod.cd_subtotal, Cod.Por_Iva, Cod.cd_iva, 
+                         Cod.cd_total, Cod.cd_DetallePorItem, 
+                         CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso =
+                          'AJC' THEN 'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN
+                          d .opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN d .opd_EstadoProceso = 'I' THEN 'INGRESADO A BODEGA' WHEN d .opd_EstadoProceso = 'T' THEN 'TRANSFERIDO' END AS EstadoDetalle, 
+                         c.ObservacionGA, su.Su_Descripcion, su.codigo + '-' + CAST(coc.oc_IdOrdenCompra AS varchar(20)) AS CodigoOC
+FROM            dbo.com_comprador INNER JOIN
+                         dbo.com_comprador_familia ON dbo.com_comprador.IdEmpresa = dbo.com_comprador_familia.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_comprador_familia.IdComprador INNER JOIN
+                         dbo.in_Producto AS p ON dbo.com_comprador_familia.IdEmpresa = p.IdEmpresa AND dbo.com_comprador_familia.IdFamilia = p.IdFamilia RIGHT OUTER JOIN
+                         dbo.com_OrdenPedidoDet AS d INNER JOIN
+                         dbo.com_OrdenPedido AS c ON c.IdEmpresa = d.IdEmpresa AND c.IdOrdenPedido = d.IdOrdenPedido INNER JOIN
+                         dbo.com_solicitante AS s ON s.IdEmpresa = c.IdEmpresa AND s.IdSolicitante = c.IdSolicitante ON p.IdEmpresa = d.IdEmpresa AND p.IdProducto = d.IdProducto LEFT OUTER JOIN
+                         dbo.com_CotizacionPedidoDet AS Cod ON d.IdEmpresa = Cod.opd_IdEmpresa AND d.IdOrdenPedido = Cod.opd_IdOrdenPedido AND d.Secuencia = Cod.opd_Secuencia AND Cod.EstadoJC = 1 LEFT OUTER JOIN
+                         dbo.com_CotizacionPedido AS coc ON coc.IdEmpresa = Cod.IdEmpresa AND coc.IdCotizacion = Cod.IdCotizacion AND coc.EstadoJC <> 'R' LEFT OUTER JOIN
+                         dbo.tb_sucursal AS su ON coc.IdEmpresa = su.IdEmpresa AND coc.IdSucursal = su.IdSucursal
+WHERE        (c.Estado = 1) AND (d.opd_EstadoProceso NOT IN ('RA', 'P'))
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_OrdenPedidoDet_Cotizacion';
 

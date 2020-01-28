@@ -213,7 +213,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 switch (_Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
-
+                        BtnBuscar_Click(null, null);
                         bus_OPxCancelar = new vwcp_orden_pago_con_cancelacion_Bus();
                         List_OPxCancelar = new List<vwcp_orden_pago_con_cancelacion_Info>();
 

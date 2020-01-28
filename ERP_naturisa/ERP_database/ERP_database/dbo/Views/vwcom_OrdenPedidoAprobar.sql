@@ -1,26 +1,26 @@
 ﻿CREATE VIEW [dbo].[vwcom_OrdenPedidoAprobar]
 AS
-SELECT dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, 
-                  dbo.com_OrdenPedido.IdDepartamento, dbo.com_OrdenPedido.IdSolicitante, CASE WHEN COUNT(*) - A.Cont = 0 THEN 'PRECIO APROBADO' ELSE '' END AS IdCatalogoEstado, dbo.com_OrdenPedido.Estado, 
-                  dbo.com_OrdenPedido.IdPunto_cargo, dbo.com_solicitante_aprobador.IdUsuario, dbo.ct_punto_cargo.nom_punto_cargo, dbo.com_departamento.nom_departamento, dbo.com_solicitante.nom_solicitante, ISNULL(A.cd_total, 0) 
-                  AS cd_total
-FROM     dbo.com_OrdenPedidoDet INNER JOIN
-                  dbo.com_OrdenPedido ON dbo.com_OrdenPedidoDet.IdEmpresa = dbo.com_OrdenPedido.IdEmpresa AND dbo.com_OrdenPedidoDet.IdOrdenPedido = dbo.com_OrdenPedido.IdOrdenPedido INNER JOIN
-                  dbo.com_solicitante ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_solicitante.IdEmpresa AND dbo.com_OrdenPedido.IdSolicitante = dbo.com_solicitante.IdSolicitante INNER JOIN
-                  dbo.com_solicitante_aprobador ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_solicitante_aprobador.IdEmpresa AND dbo.com_OrdenPedido.IdDepartamento = dbo.com_solicitante_aprobador.IdDepartamento AND 
-                  dbo.com_OrdenPedido.IdSolicitante = dbo.com_solicitante_aprobador.IdSolicitante INNER JOIN
-                  dbo.com_departamento ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_departamento.IdEmpresa AND dbo.com_OrdenPedido.IdDepartamento = dbo.com_departamento.IdDepartamento LEFT OUTER JOIN
-                  dbo.ct_punto_cargo ON dbo.com_OrdenPedido.IdPunto_cargo = dbo.ct_punto_cargo.IdPunto_cargo AND dbo.com_OrdenPedido.IdEmpresa = dbo.ct_punto_cargo.IdEmpresa LEFT OUTER JOIN
-                      (SELECT d.IdEmpresa, d.IdOrdenPedido, COUNT(d.IdOrdenPedido) AS Cont, SUM(c.cd_subtotal) AS cd_total
-                       FROM      dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN
-                                         dbo.com_CotizacionPedidoDet AS c ON c.IdEmpresa = d.IdEmpresa AND c.opd_IdOrdenPedido = d.IdOrdenPedido AND c.opd_Secuencia = d.Secuencia AND c.EstadoJC = 1
-                       WHERE   (d.opd_EstadoProceso = 'AJC')
-                       GROUP BY d.IdEmpresa, d.IdOrdenPedido) AS A ON dbo.com_OrdenPedido.IdEmpresa = A.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = A.IdOrdenPedido
-WHERE  (dbo.com_OrdenPedidoDet.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA', 'C','I')) AND (dbo.com_OrdenPedido.IdCatalogoEstado = 'EST_OP_PRO') AND (ISNULL(A.cd_total, 0) BETWEEN dbo.com_solicitante_aprobador.MontoMin AND 
-                  dbo.com_solicitante_aprobador.MontoMax) 
+SELECT        dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, 
+                         dbo.com_OrdenPedido.op_Observacion, dbo.com_OrdenPedido.IdDepartamento, dbo.com_OrdenPedido.IdSolicitante, CASE WHEN COUNT(*) - A.Cont = 0 THEN 'PRECIO APROBADO' ELSE '' END AS IdCatalogoEstado, 
+                         dbo.com_OrdenPedido.Estado, dbo.com_OrdenPedido.IdPunto_cargo, dbo.com_solicitante_aprobador.IdUsuario, dbo.ct_punto_cargo.nom_punto_cargo, dbo.com_departamento.nom_departamento, 
+                         dbo.com_solicitante.nom_solicitante, ISNULL(A.cd_total, 0) AS cd_total
+FROM            dbo.com_OrdenPedidoDet INNER JOIN
+                         dbo.com_OrdenPedido ON dbo.com_OrdenPedidoDet.IdEmpresa = dbo.com_OrdenPedido.IdEmpresa AND dbo.com_OrdenPedidoDet.IdOrdenPedido = dbo.com_OrdenPedido.IdOrdenPedido INNER JOIN
+                         dbo.com_solicitante ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_solicitante.IdEmpresa AND dbo.com_OrdenPedido.IdSolicitante = dbo.com_solicitante.IdSolicitante INNER JOIN
+                         dbo.com_solicitante_aprobador ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_solicitante_aprobador.IdEmpresa AND dbo.com_OrdenPedido.IdDepartamento = dbo.com_solicitante_aprobador.IdDepartamento AND 
+                         dbo.com_OrdenPedido.IdSolicitante = dbo.com_solicitante_aprobador.IdSolicitante INNER JOIN
+                         dbo.com_departamento ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_departamento.IdEmpresa AND dbo.com_OrdenPedido.IdDepartamento = dbo.com_departamento.IdDepartamento LEFT OUTER JOIN
+                         dbo.ct_punto_cargo ON dbo.com_OrdenPedido.IdPunto_cargo = dbo.ct_punto_cargo.IdPunto_cargo AND dbo.com_OrdenPedido.IdEmpresa = dbo.ct_punto_cargo.IdEmpresa LEFT OUTER JOIN
+                             (SELECT        d.IdEmpresa, d.IdOrdenPedido, COUNT(d.IdOrdenPedido) AS Cont, SUM(c.cd_subtotal) AS cd_total
+                               FROM            dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN
+                                                         dbo.com_CotizacionPedidoDet AS c ON c.IdEmpresa = d.IdEmpresa AND c.opd_IdOrdenPedido = d.IdOrdenPedido AND c.opd_Secuencia = d.Secuencia AND c.EstadoJC = 1
+                               WHERE        (d.opd_EstadoProceso = 'AJC')
+                               GROUP BY d.IdEmpresa, d.IdOrdenPedido) AS A ON dbo.com_OrdenPedido.IdEmpresa = A.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = A.IdOrdenPedido
+WHERE        (dbo.com_OrdenPedidoDet.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA', 'C', 'I','T')) AND (dbo.com_OrdenPedido.IdCatalogoEstado = 'EST_OP_PRO') AND (ISNULL(A.cd_total, 0) BETWEEN 
+                         dbo.com_solicitante_aprobador.MontoMin AND dbo.com_solicitante_aprobador.MontoMax)
 GROUP BY dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, dbo.com_OrdenPedido.IdDepartamento, 
-                  dbo.com_OrdenPedido.IdSolicitante, dbo.com_OrdenPedido.IdCatalogoEstado, dbo.com_OrdenPedido.IdPunto_cargo, dbo.com_solicitante_aprobador.IdUsuario, dbo.ct_punto_cargo.nom_punto_cargo, 
-                  dbo.com_departamento.nom_departamento, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.Estado, dbo.com_solicitante.nom_solicitante, A.Cont, A.cd_total
+                         dbo.com_OrdenPedido.IdSolicitante, dbo.com_OrdenPedido.IdCatalogoEstado, dbo.com_OrdenPedido.IdPunto_cargo, dbo.com_solicitante_aprobador.IdUsuario, dbo.ct_punto_cargo.nom_punto_cargo, 
+                         dbo.com_departamento.nom_departamento, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.Estado, dbo.com_solicitante.nom_solicitante, A.Cont, A.cd_total
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwcom_OrdenPedidoAprobar';
 

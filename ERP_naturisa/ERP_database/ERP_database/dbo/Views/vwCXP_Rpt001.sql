@@ -1,12 +1,12 @@
-﻿CREATE VIEW vwCXP_Rpt001
+﻿CREATE VIEW [dbo].[vwCXP_Rpt001]
 AS
 /*-vista antes del cambio*/ SELECT dbo.vwcp_orden_giro_total_saldo.IdEmpresa, dbo.vwcp_orden_giro_total_saldo.IdCbteCble_Ogiro, dbo.vwcp_orden_giro_total_saldo.IdTipoCbte_Ogiro, dbo.vwcp_orden_giro_total_saldo.IdOrden_giro_Tipo, 
                   dbo.cp_TipoDocumento.Codigo + '#:' + CAST(dbo.vwcp_orden_giro_total_saldo.IdCbteCble_Ogiro AS VARCHAR(20)) + '/' + dbo.vwcp_orden_giro_total_saldo.co_serie + '-' + dbo.vwcp_orden_giro_total_saldo.co_factura AS Documento, 
                   dbo.cp_TipoDocumento.Descripcion AS nom_tipo_doc, dbo.cp_TipoDocumento.Codigo AS cod_tipo_doc, dbo.vwcp_orden_giro_total_saldo.co_fechaOg, dbo.cp_proveedor.IdProveedor, dbo.cp_proveedor.pr_nombre AS nom_proveedor, 
                   dbo.vwcp_orden_giro_total_saldo.co_valorpagar AS Valor_a_pagar, 0 AS Valor_debe, dbo.vwcp_orden_giro_total_saldo.co_total AS Valor_Haber, ROUND(dbo.vwcp_orden_giro_total_saldo.SaldoOG, 2) AS Saldo, 
                   dbo.vwcp_orden_giro_total_saldo.co_observacion AS Observacion, dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, dbo.cp_proveedor.representante_legal, 'CBTE_CXP' AS Tipo_cbte, NULL AS IdEmpresa_pago, NULL 
-                  AS IdTipoCbte_pago, NULL AS IdCbteCble_pago, NULL AS cb_Observacion_pago, NULL AS tc_TipoCbte_pago, NULL AS cb_Cheque_pago, dbo.cp_proveedor_clase.IdClaseProveedor, 
-                  dbo.cp_proveedor_clase.descripcion_clas_prove,1 NUMERO
+                  AS IdTipoCbte_pago, NULL AS IdCbteCble_pago, NULL AS cb_Observacion_pago, NULL AS tc_TipoCbte_pago, NULL AS cb_Cheque_pago, dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, 
+                  1 NUMERO
 FROM     dbo.vwcp_orden_giro_total_saldo INNER JOIN
                   dbo.cp_TipoDocumento ON dbo.vwcp_orden_giro_total_saldo.IdOrden_giro_Tipo = dbo.cp_TipoDocumento.CodTipoDocumento INNER JOIN
                   dbo.cp_proveedor ON dbo.vwcp_orden_giro_total_saldo.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.vwcp_orden_giro_total_saldo.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
@@ -22,7 +22,7 @@ SELECT dbo.vwcp_nota_DebCre_total_saldo.IdEmpresa, dbo.vwcp_nota_DebCre_total_sa
                   dbo.cp_proveedor.pr_nombre AS nom_proveedor, dbo.vwcp_nota_DebCre_total_saldo.cn_total AS Valor_a_pagar, 0 AS Valor_debe, dbo.vwcp_nota_DebCre_total_saldo.valorpagar AS Valor_Haber, 
                   ROUND(dbo.vwcp_nota_DebCre_total_saldo.SaldoOG, 2) AS Saldo, dbo.vwcp_nota_DebCre_total_saldo.cn_observacion AS Observacion, dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, dbo.cp_proveedor.representante_legal, 
                   'CBTE_CXP' AS Tipo_cbte, NULL AS IdEmpresa_pago, NULL AS IdTipoCbte_pago, NULL AS IdCbteCble_pago, NULL AS cb_Observacion_pago, NULL AS tc_TipoCbte_pago, NULL AS cb_Cheque_pago, 
-                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove,2
+                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, 2
 FROM     dbo.vwcp_nota_DebCre_total_saldo INNER JOIN
                   dbo.cp_TipoDocumento ON dbo.vwcp_nota_DebCre_total_saldo.DebCre = 'D' AND dbo.cp_TipoDocumento.CodTipoDocumento = '05' INNER JOIN
                   dbo.cp_proveedor ON dbo.vwcp_nota_DebCre_total_saldo.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.vwcp_nota_DebCre_total_saldo.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
@@ -34,11 +34,11 @@ WHERE  nd.Estado = 'A' AND nd.DebCre = 'D'
 /*where cp_proveedor.IdProveedor = 317*/ UNION
 SELECT dbo.cp_orden_giro.IdEmpresa, dbo.cp_orden_giro.IdCbteCble_Ogiro, dbo.cp_orden_giro.IdTipoCbte_Ogiro, dbo.cp_orden_giro.IdOrden_giro_Tipo, 
                   dbo.cp_TipoDocumento.Codigo + '#:' + CAST(dbo.cp_orden_giro.IdCbteCble_Ogiro AS VARCHAR(20)) + '/' + dbo.cp_orden_giro.co_serie + '-' + dbo.cp_orden_giro.co_factura AS Documento, 
-                  dbo.cp_TipoDocumento.Descripcion AS nom_tipo_doc, dbo.cp_TipoDocumento.Codigo AS cod_tipo_doc, isnull(dbo.ba_Cbte_Ban.cb_Fecha,ct_cbtecble.cb_Fecha), dbo.cp_proveedor.IdProveedor, dbo.cp_proveedor.pr_nombre AS nom_proveedor, 
-                  dbo.cp_orden_giro.co_valorpagar AS Valor_a_pagar, dbo.cp_orden_pago_cancelaciones.MontoAplicado AS Valor_debe, 0 AS Valor_Haber, NULL AS Saldo, dbo.cp_orden_giro.co_observacion AS Observacion, 
-                  dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, dbo.cp_proveedor.representante_legal, 'CBTE_PAGO' AS Tipo_cbte, dbo.ct_cbtecble.IdEmpresa AS IdEmpresa_pago, dbo.ct_cbtecble.IdTipoCbte AS IdTipoCbte_pago, 
-                  dbo.ct_cbtecble.IdCbteCble AS IdCbteCble_pago, dbo.ct_cbtecble.cb_Observacion AS cb_Observacion_pago, dbo.ct_cbtecble_tipo.CodTipoCbte AS tc_TipoCbte_pago, dbo.ba_Cbte_Ban.cb_Cheque AS cb_Cheque_pago, 
-                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove,4
+                  dbo.cp_TipoDocumento.Descripcion AS nom_tipo_doc, dbo.cp_TipoDocumento.Codigo AS cod_tipo_doc, isnull(dbo.ba_Cbte_Ban.cb_Fecha, ct_cbtecble.cb_Fecha), dbo.cp_proveedor.IdProveedor, 
+                  dbo.cp_proveedor.pr_nombre AS nom_proveedor, dbo.cp_orden_giro.co_valorpagar AS Valor_a_pagar, dbo.cp_orden_pago_cancelaciones.MontoAplicado AS Valor_debe, 0 AS Valor_Haber, NULL AS Saldo, 
+                  dbo.cp_orden_giro.co_observacion AS Observacion, dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, dbo.cp_proveedor.representante_legal, 'CBTE_PAGO' AS Tipo_cbte, dbo.ct_cbtecble.IdEmpresa AS IdEmpresa_pago, 
+                  dbo.ct_cbtecble.IdTipoCbte AS IdTipoCbte_pago, dbo.ct_cbtecble.IdCbteCble AS IdCbteCble_pago, dbo.ct_cbtecble.cb_Observacion AS cb_Observacion_pago, dbo.ct_cbtecble_tipo.CodTipoCbte AS tc_TipoCbte_pago, 
+                  dbo.ba_Cbte_Ban.cb_Cheque AS cb_Cheque_pago, dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, 4
 FROM     dbo.cp_orden_pago_cancelaciones INNER JOIN
                   dbo.cp_orden_pago_det ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_op = dbo.cp_orden_pago_det.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdOrdenPago_op = dbo.cp_orden_pago_det.IdOrdenPago AND 
                   dbo.cp_orden_pago_cancelaciones.Secuencia_op = dbo.cp_orden_pago_det.Secuencia INNER JOIN
@@ -61,7 +61,7 @@ SELECT dbo.cp_nota_DebCre.IdEmpresa, dbo.cp_nota_DebCre.IdCbteCble_Nota, dbo.cp_
                   dbo.cp_orden_pago_cancelaciones.MontoAplicado AS Valor_debe, 0 AS Valor_Haber, NULL AS Saldo, dbo.cp_nota_DebCre.cn_observacion AS Observacion, dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, 
                   dbo.cp_proveedor.representante_legal, 'CBTE_PAGO' AS Tipo_cbte, dbo.ct_cbtecble.IdEmpresa AS IdEmpresa_pago, dbo.ct_cbtecble.IdTipoCbte AS IdTipoCbte_pago, dbo.ct_cbtecble.IdCbteCble AS IdCbteCble_pago, 
                   dbo.ct_cbtecble.cb_Observacion AS cb_Observacion_pago, dbo.ct_cbtecble_tipo.CodTipoCbte AS tc_TipoCbte_pago, dbo.ba_Cbte_Ban.cb_Cheque AS cb_Cheque_pago, dbo.cp_proveedor_clase.IdClaseProveedor, 
-                  dbo.cp_proveedor_clase.descripcion_clas_prove,5
+                  dbo.cp_proveedor_clase.descripcion_clas_prove, 5
 FROM     dbo.cp_orden_pago_cancelaciones INNER JOIN
                   dbo.cp_orden_pago_det ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_op = dbo.cp_orden_pago_det.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdOrdenPago_op = dbo.cp_orden_pago_det.IdOrdenPago AND 
                   dbo.cp_orden_pago_cancelaciones.Secuencia_op = dbo.cp_orden_pago_det.Secuencia INNER JOIN
@@ -81,7 +81,7 @@ SELECT dbo.vwcp_orden_pago.IdEmpresa, NULL AS IdCbteCble_Ogiro, NULL AS IdTipoCb
                   + ' - ' + dbo.vwcp_orden_pago.IdTipo_op AS Documento, NULL AS nom_tipo_doc, NULL AS cod_tipo_doc, dbo.vwcp_orden_pago.Fecha, dbo.cp_proveedor.IdProveedor, dbo.cp_proveedor.pr_nombre AS nom_proveedor, 
                   dbo.cp_orden_pago_det.Valor_a_pagar, 0 AS Valor_debe, dbo.cp_orden_pago_det.Valor_a_pagar AS Valor_Haber, dbo.vwcp_orden_pago.Saldo, dbo.vwcp_orden_pago.Observacion, dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, 
                   dbo.cp_proveedor.representante_legal, 'CBTE_CXP' AS Tipo_cbte, NULL AS IdEmpresa_pago, NULL AS IdTipoCbte_pago, NULL AS IdCbteCble_pago, NULL AS cb_Observacion_pago, NULL AS tc_TipoCbte_pago, NULL 
-                  AS cb_Cheque_pago, dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove,6
+                  AS cb_Cheque_pago, dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, 6
 FROM     dbo.vwcp_orden_pago INNER JOIN
                   dbo.cp_orden_pago_det ON dbo.vwcp_orden_pago.IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa AND dbo.vwcp_orden_pago.IdOrdenPago = dbo.cp_orden_pago_det.IdOrdenPago INNER JOIN
                   dbo.cp_proveedor ON dbo.vwcp_orden_pago.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.vwcp_orden_pago.IdEntidad = dbo.cp_proveedor.IdProveedor INNER JOIN
@@ -101,7 +101,7 @@ SELECT dbo.cp_orden_pago.IdEmpresa, NULL AS IdCbteCble_Ogiro, NULL AS IdTipoCbte
                   dbo.cp_orden_pago_det.Valor_a_pagar, dbo.cp_orden_pago_cancelaciones.MontoAplicado AS Valor_debe, 0 AS Valor_Haber, NULL AS IdEmpresa_pago, dbo.cp_orden_pago.Observacion, 
                   dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, dbo.cp_proveedor.representante_legal, 'CBTE_PAGO' AS Tipo_cbte, dbo.ct_cbtecble.IdEmpresa AS Expr1, dbo.ct_cbtecble.IdTipoCbte AS IdTipoCbte_pago, 
                   dbo.ct_cbtecble.IdCbteCble AS IdCbteCble_pago, dbo.ct_cbtecble.cb_Observacion AS cb_Observacion_pago, dbo.ct_cbtecble_tipo.CodTipoCbte AS tc_TipoCbte_pago, dbo.ba_Cbte_Ban.cb_Cheque AS cb_Cheque_pago, 
-                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove,7
+                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, 7
 FROM     dbo.cp_orden_pago_cancelaciones INNER JOIN
                   dbo.cp_orden_pago_det ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_op = dbo.cp_orden_pago_det.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdOrdenPago_op = dbo.cp_orden_pago_det.IdOrdenPago AND 
                   dbo.cp_orden_pago_cancelaciones.Secuencia_op = dbo.cp_orden_pago_det.Secuencia INNER JOIN
@@ -127,7 +127,7 @@ SELECT dbo.cp_orden_pago.IdEmpresa, NULL AS IdCbteCble_Ogiro, NULL AS IdTipoCbte
                   dbo.cp_orden_pago_det.Valor_a_pagar AS Valor_a_pagar, dbo.cp_orden_pago_cancelaciones.MontoAplicado AS Valor_debe, 0 AS Valor_Haber, NULL AS IdEmpresa_pago, dbo.cp_orden_pago.Observacion AS Observacion, 
                   dbo.tb_persona.pe_cedulaRuc AS Ruc_Proveedor, dbo.cp_proveedor.representante_legal, 'CBTE_PAGO' AS Tipo_cbte, dbo.ct_cbtecble.IdEmpresa AS Expr1, dbo.ct_cbtecble.IdTipoCbte AS IdTipoCbte_pago, 
                   dbo.ct_cbtecble.IdCbteCble AS IdCbteCble_pago, dbo.ct_cbtecble.cb_Observacion AS cb_Observacion_pago, dbo.ct_cbtecble_tipo.CodTipoCbte AS tc_TipoCbte_pago, NULL AS cb_Cheque_pago, 
-                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove,8
+                  dbo.cp_proveedor_clase.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, 8
 FROM     dbo.cp_orden_pago_cancelaciones INNER JOIN
                   dbo.cp_orden_pago_det ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_op = dbo.cp_orden_pago_det.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdOrdenPago_op = dbo.cp_orden_pago_det.IdOrdenPago AND 
                   dbo.cp_orden_pago_cancelaciones.Secuencia_op = dbo.cp_orden_pago_det.Secuencia INNER JOIN
@@ -153,7 +153,7 @@ SELECT dbo.cp_orden_giro.IdEmpresa, dbo.cp_orden_giro.IdCbteCble_Ogiro, dbo.cp_o
                   + '/' + dbo.cp_orden_giro.co_serie + '-' + dbo.cp_orden_giro.co_factura AS Documento, 'Factura' AS nom_tipo_doc, 'FACT' AS cod_tipo_doc, dbo.vwcp_Retencion_valor_total_x_cbte_cxp.fecha, dbo.cp_orden_giro.IdProveedor, 
                   dbo.cp_proveedor.pr_nombre, dbo.cp_orden_giro.co_total AS valor_a_pagar, dbo.vwcp_Retencion_valor_total_x_cbte_cxp.Total_Retencion AS Debe, 0 AS Haber, 0 AS Saldo, dbo.cp_orden_giro.co_observacion, 
                   dbo.tb_persona.pe_cedulaRuc, dbo.cp_proveedor.representante_legal, 'CBTE_PAGO' AS tipo_cbte_pago, dbo.cp_retencion_x_ct_cbtecble.ct_IdEmpresa, dbo.cp_retencion_x_ct_cbtecble.ct_IdTipoCbte, 
-                  dbo.cp_retencion_x_ct_cbtecble.ct_IdCbteCble, dbo.cp_retencion.observacion, cp_retencion.CodDocumentoTipo, cp_retencion.NumRetencion, cp_proveedor_clase.IdClaseProveedor, cp_proveedor_clase.descripcion_clas_prove,9
+                  dbo.cp_retencion_x_ct_cbtecble.ct_IdCbteCble, dbo.cp_retencion.observacion, cp_retencion.CodDocumentoTipo, cp_retencion.NumRetencion, cp_proveedor_clase.IdClaseProveedor, cp_proveedor_clase.descripcion_clas_prove, 9
 FROM     dbo.cp_orden_giro INNER JOIN
                   dbo.vwcp_Retencion_valor_total_x_cbte_cxp ON dbo.cp_orden_giro.IdEmpresa = dbo.vwcp_Retencion_valor_total_x_cbte_cxp.IdEmpresa_Ogiro AND 
                   dbo.cp_orden_giro.IdTipoCbte_Ogiro = dbo.vwcp_Retencion_valor_total_x_cbte_cxp.IdTipoCbte_Ogiro AND dbo.cp_orden_giro.IdCbteCble_Ogiro = dbo.vwcp_Retencion_valor_total_x_cbte_cxp.IdCbteCble_Ogiro INNER JOIN

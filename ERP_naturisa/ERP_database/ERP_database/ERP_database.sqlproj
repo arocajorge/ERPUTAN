@@ -1309,5 +1309,7 @@
     <Build Include="dbo\Views\vwin_Transferencias_ParaAprobacion.sql" />
     <Build Include="dbo\Views\vwin_transferencia_det_ParaCorreccion.sql" />
     <Build Include="dbo\Views\vwINV_Rpt030.sql" />
+    <Build Include="Digitalizacion\Tables\cp_XML_DocumentoRetAnuladoDet.sql" />
+    <Build Include="Digitalizacion\Tables\cp_XML_DocumentoRetAnulado.sql" />
   </ItemGroup>
 </Project>
