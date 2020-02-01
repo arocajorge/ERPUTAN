@@ -26,10 +26,8 @@ namespace Core.Erp.Data.CuentasxPagar
 
                else
                {
-                   var select_ = (from t in ECXP.cp_orden_pago_det
-                                  where t.IdEmpresa == IdEmpresa && t.IdOrdenPago == IdOrdenPago
-                                  select t.Secuencia).Max();
-                   Id = Convert.ToInt32(select_.ToString()) + 1;
+                   var select_ = ECXP.cp_orden_pago_det.Where(t=> t.IdEmpresa == IdEmpresa && t.IdOrdenPago == IdOrdenPago).Max(t=> t.Secuencia);
+                   Id = Convert.ToInt32(select_) + 1;
                    return Id;
                }
            }

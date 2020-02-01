@@ -47,6 +47,7 @@ namespace Core.Erp.Info.CuentasxPagar
 
         #region Campos que no existen en la tabla
         public int Imagen { get; set; }
+        public double Descuento { get; set; }
         public List<cp_XML_Documento_Retencion_Info> lstRetencion { get; set; }
         public List<cp_XML_DocumentoDet_Info> lstDetalle { get; set; }
         public string serie { get; set; }

@@ -22,8 +22,20 @@ namespace Core.Erp.Business.Inventario
         string CodProducto_x_Categoria = "";
         int SecuencialCodProducto_x_Categoria = 0;
         decimal Id_Producto = 0;
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
 
-       
+        public bool ValidaExisteMovimiento(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                return proD.ValidaExisteMovimiento(IdEmpresa, IdProducto);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public List<in_Producto_Info> Get_list_Producto_ManejaSeries(int IdEmpresa)
         {
@@ -243,6 +255,7 @@ namespace Core.Erp.Business.Inventario
 
                 if (ValidarObjeto(prI, ref mensaje) == true)
                 {
+                    prI.IdUsuario = param.IdUsuario;
                     res = proD.GrabarDB(prI, ref IdProducto, ref mensaje);
                 }
 
@@ -289,7 +302,7 @@ namespace Core.Erp.Business.Inventario
             try
             {
                 Boolean res = false;
-
+                prI.IdUsuarioUltMod = param.IdUsuario;
                 if (ValidarObjeto(prI, ref mensaje) == true)
                 {
                     res = proD.ModificarDB(prI, ref mensaje);

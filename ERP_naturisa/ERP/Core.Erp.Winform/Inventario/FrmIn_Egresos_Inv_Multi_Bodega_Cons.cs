@@ -96,6 +96,12 @@ namespace Core.Erp.Winform.Inventario
                             return;
                         }
 
+                        if (bus_IngEgr.ValidarEstaAprobado(Info.IdEmpresa, Info.IdSucursal, Info.IdMovi_inven_tipo, Info.IdNumMovi))
+                        {
+                            MessageBox.Show("El registro se encuentra aprobado y no puede ser modificado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+
                         frm = new FrmIn_Egresos_Inv_Multi_Bodega_Mant();
                         frm.Text = frm.Text + "***ANULAR REGISTRO***";
                         frm.info_IngEgr = Info;
@@ -164,6 +170,13 @@ namespace Core.Erp.Winform.Inventario
                     {
                         if (Info.IdEstadoAproba == "APRO")
                         { MessageBox.Show("El registro ya se encuentra Aprobado y no se puede modificar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return; }
+
+
+                        if (bus_IngEgr.ValidarEstaAprobado(Info.IdEmpresa, Info.IdSucursal, Info.IdMovi_inven_tipo, Info.IdNumMovi))
+                        {
+                            MessageBox.Show("El registro se encuentra aprobado y no puede ser modificado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
 
                         frm = new FrmIn_Egresos_Inv_Multi_Bodega_Mant();
                         frm.Text = frm.Text + "***ACTUALIZAR REGISTRO***";

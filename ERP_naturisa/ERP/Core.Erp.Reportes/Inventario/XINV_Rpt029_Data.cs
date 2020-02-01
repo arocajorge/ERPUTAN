@@ -20,6 +20,7 @@ namespace Core.Erp.Reportes.Inventario
 
                 using (Entities_Inventario_General BalanceGeneral = new Entities_Inventario_General())
                 {
+                    BalanceGeneral.SetCommandTimeOut(3000);
                     var select = from h in BalanceGeneral.spINV_Rpt029(IdEmpresa,IdSucursal,IdSucursalFin, IdBodega,IdBodegaFin,fecha_corte)
                                  select h;
                     foreach (var item in select)
@@ -39,6 +40,7 @@ namespace Core.Erp.Reportes.Inventario
                         itemInfo.costo = Convert.ToDouble(item.mv_costo);
                         itemInfo.costo_total = Convert.ToDouble(item.costo_total);
                         itemInfo.nom_UnidadMedida = item.nom_UnidadMedida;
+                        itemInfo.nom_UnidadMedidaCompra = item.nom_UnidadMedidaCompra;
                         listadedatos.Add(itemInfo);
                     }
                 }
@@ -65,6 +67,7 @@ namespace Core.Erp.Reportes.Inventario
 
                 using (Entities_Inventario_General BalanceGeneral = new Entities_Inventario_General())
                 {
+                    BalanceGeneral.SetCommandTimeOut(3000);
                     foreach (var item_bod in lst_bod)
                     {
                         var select = from h in BalanceGeneral.spINV_Rpt029(IdEmpresa, IdSucursalIni, IdSucursalFin, item_bod, item_bod, Fecha_corte)
@@ -94,6 +97,7 @@ namespace Core.Erp.Reportes.Inventario
                             itemInfo.IdLinea = item.IdLinea;
                             itemInfo.nom_linea = item.nom_linea;
                             itemInfo.nom_UnidadMedida = item.nom_UnidadMedida;
+                            itemInfo.nom_UnidadMedidaCompra = item.nom_UnidadMedidaCompra;
                             listadedatos.Add(itemInfo);
                         }
                     }

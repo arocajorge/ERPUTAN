@@ -196,15 +196,9 @@ namespace Core.Erp.Data.Contabilidad
              {
                  using (EntitiesDBConta contexto = new EntitiesDBConta())
                  {
-                     var lst = from q in contexto.ct_cbtecble_det
-                               where q.IdEmpresa == _CbteCbleInfo.IdEmpresa
-                               && q.IdTipoCbte == _CbteCbleInfo.IdTipoCbte
-                               && q.IdCbteCble == _CbteCbleInfo.IdCbteCble
-                               && q.secuencia == _CbteCbleInfo.secuencia
-                               select q;
 
-                     if (lst.Count()== 0)
-                     {
+                     contexto.SetCommandTimeOut(3000);
+                   
                          contexto.ct_cbtecble_det.Add(new ct_cbtecble_det
                          {
                              IdEmpresa = _CbteCbleInfo.IdEmpresa,
@@ -222,7 +216,7 @@ namespace Core.Erp.Data.Contabilidad
                          });
 
                          contexto.SaveChanges();                         
-                     }
+                     
                  }
                  return true;
              }

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Business.Inventario;
 using Core.Erp.Business.General;
+using Core.Erp.Info.Contabilidad;
+using Core.Erp.Business.Contabilidad;
 
 
 namespace Core.Erp.Winform.Inventario
@@ -21,6 +23,10 @@ namespace Core.Erp.Winform.Inventario
         in_Producto_Info Info_Producto = new in_Producto_Info();
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
+        ct_centro_costo_sub_centro_costo_Bus busSubCentrCosto = new ct_centro_costo_sub_centro_costo_Bus();
+        ct_Centro_costo_Bus busCentroCosto = new ct_Centro_costo_Bus();
+        List<ct_centro_costo_sub_centro_costo_Info> lstSubCentro = new List<ct_centro_costo_sub_centro_costo_Info>();
+        
 
         public delegate void delegate_FormClosed(object sender, FormClosedEventArgs e);
         public event delegate_FormClosed event_delegate_FormClosed;
@@ -63,6 +69,18 @@ namespace Core.Erp.Winform.Inventario
                     MessageBox.Show("Seleccione el subgrupo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
+
+                if (cmbCentroCosto.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione el centro de costo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
+                if (cmbSubcentroCosto.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione el sub centro de costo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
                 return true;
             }
             catch (Exception ex)
@@ -85,6 +103,8 @@ namespace Core.Erp.Winform.Inventario
                 InfoContaCC.IdGrupo = ucin_cat_lin_gr_sgr.Get_info_grupo().IdGrupo;
                 InfoContaCC.IdSubgrupo = ucin_cat_lin_gr_sgr.Get_info_subgrupo().IdSubgrupo;
                 InfoContaCC.IdCtaCble = ucct_plancta.get_CuentaInfo().IdCtaCble == "" ? null : ucct_plancta.get_CuentaInfo().IdCtaCble;
+                InfoContaCC.IdCentroCosto = cmbCentroCosto.EditValue.ToString();
+                InfoContaCC.IdSub_centro_costo = cmbSubcentroCosto.EditValue.ToString();
             }
             catch (Exception ex)
             {
@@ -188,7 +208,10 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                string MensajeError = string.Empty;
                 ucIn_ProductoCmb1.cargar_productos();
+                cmbCentroCosto.Properties.DataSource = busCentroCosto.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                lstSubCentro = busSubCentrCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 Set_info_in_controls();
             }
             catch (Exception ex)
@@ -232,7 +255,8 @@ namespace Core.Erp.Winform.Inventario
                     ucin_cat_lin_gr_sgr.set_item_Linea(Convert.ToInt32(InfoContaCC.IdLinea));
                     ucin_cat_lin_gr_sgr.set_item_Grupo(Convert.ToInt32(InfoContaCC.IdGrupo));
                     ucin_cat_lin_gr_sgr.set_item_SubGrupo(Convert.ToInt32(InfoContaCC.IdSubgrupo));
-
+                    cmbCentroCosto.EditValue = InfoContaCC.IdCentroCosto;
+                    cmbSubcentroCosto.EditValue = InfoContaCC.IdSub_centro_costo;
                     ucct_plancta.set_IdCtaCble(InfoContaCC.IdCtaCble);
                 }
             }
@@ -267,6 +291,26 @@ namespace Core.Erp.Winform.Inventario
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbCentroCosto_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbCentroCosto.EditValue == null)
+                {
+                    cmbSubcentroCosto.Properties.DataSource = null;
+                }
+                else
+                {
+                    cmbSubcentroCosto.Properties.DataSource = lstSubCentro.Where(q=> q.IdCentroCosto == cmbCentroCosto.EditValue.ToString()).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }

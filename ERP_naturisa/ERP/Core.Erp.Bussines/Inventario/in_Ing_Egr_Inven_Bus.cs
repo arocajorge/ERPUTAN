@@ -826,7 +826,7 @@ namespace Core.Erp.Business.Inventario
        {
            try
            {
-               return odata.Reversar_Aprobacion(IdEmpresa, IdSucursal, IdMovi_inve_tipo, IdNumMovi, Genera_movi_inven);
+               return odata.ReversarAprobacion(IdEmpresa, IdSucursal, IdMovi_inve_tipo, IdNumMovi);
            }
            catch (Exception ex)
            {
@@ -889,6 +889,19 @@ namespace Core.Erp.Business.Inventario
            {
                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ModificarDB_desde_transferencia", ex.Message), ex) { EntityType = typeof(in_Ing_Egr_Inven_Bus) };
+           }
+       }
+
+       public bool ValidarEstaAprobado(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+       {
+           try
+           {
+               return odata.ValidarEstaAprobado(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi);
+           }
+           catch (Exception)
+           {
+               
+               throw;
            }
        }
     }

@@ -824,23 +824,17 @@ namespace Core.Erp.Data.Contabilidad
                 ct_Cbtecble_det_Data _CbteCble_Det_Data = new ct_Cbtecble_det_Data();
                 using(EntitiesDBConta EntCbteCbleDet = new EntitiesDBConta())
                 {
-                    var sql = from C in EntCbteCbleDet.ct_cbtecble_det
-                              where C.IdEmpresa == _CbteCbleInfo.IdEmpresa 
-                              && C.IdCbteCble == _CbteCbleInfo.IdCbteCble 
-                              && C.IdTipoCbte == _CbteCbleInfo.IdTipoCbte
-                              select C;
+                    EntCbteCbleDet.SetCommandTimeOut(3000);
+
+                    var sql = EntCbteCbleDet.ct_cbtecble_det.Where(C => C.IdEmpresa == _CbteCbleInfo.IdEmpresa
+                              && C.IdCbteCble == _CbteCbleInfo.IdCbteCble
+                              && C.IdTipoCbte == _CbteCbleInfo.IdTipoCbte).ToList();
+
                     foreach (var item in sql)
                     {
-                        ct_Cbtecble_det_Info info = new ct_Cbtecble_det_Info();
-                        info.IdEmpresa = item.IdEmpresa;
-                        info.IdCbteCble = item.IdCbteCble;
-                        info.IdTipoCbte = item.IdTipoCbte;
-                        info.IdCentroCosto = item.IdCentroCosto;
-                        info.IdCtaCble = item.IdCtaCble.Trim();
-                        info.dc_Valor = item.dc_Valor;
-                        info.dc_Observacion = item.dc_Observacion;
-                        _CbteCble_Det_Data.EliminarDB(info, ref MensajeError);
+                        EntCbteCbleDet.ct_cbtecble_det.Remove(item);
                     }
+                    EntCbteCbleDet.SaveChanges();
                     ct_Cbtecble_det_Data data = new ct_Cbtecble_det_Data();
 
                     int sec = 0;
@@ -850,8 +844,6 @@ namespace Core.Erp.Data.Contabilidad
                         reg.secuencia = sec;
                         reg.IdCbteCble = _CbteCbleInfo.IdCbteCble;
                         reg.IdTipoCbte = _CbteCbleInfo.IdTipoCbte;
-
-
                         data.GrabarDB(reg, ref MensajeError);
                     }
                 }
@@ -951,15 +943,8 @@ namespace Core.Erp.Data.Contabilidad
                     string codigo_CbteCble = "";
                     using (EntitiesDBConta context = new EntitiesDBConta())
                     {
-
-                        var Q = from tbCbteCble in context.ct_cbtecble
-                                where tbCbteCble.IdCbteCble == _CbteCbleInfo.IdCbteCble
-                                && tbCbteCble.IdTipoCbte == _CbteCbleInfo.IdTipoCbte
-                                && tbCbteCble.IdEmpresa == _CbteCbleInfo.IdEmpresa
-                                select tbCbteCble;
-
-                        if (Q.ToList().Count == 0)
-                        {
+                        context.SetCommandTimeOut(3000);
+                        
                             var address = new ct_cbtecble();
                             address.IdEmpresa = _CbteCbleInfo.IdEmpresa;
                             address.IdCbteCble = IdCbteCble = _CbteCbleInfo.IdCbteCble = Get_IdCbteCble(_CbteCbleInfo.IdEmpresa, _CbteCbleInfo.IdTipoCbte, ref MensajeError);
@@ -1030,9 +1015,6 @@ namespace Core.Erp.Data.Contabilidad
                                 sec = sec + 1;
                                 _CbteCble_Det_Data.GrabarDB(item, ref MensajeError);
                             }
-                        }
-                        else
-                            return false;
                     }
                     MensajeError = "Grabado exitosamente el Cbte#" + IdCbteCble;
                     return true;

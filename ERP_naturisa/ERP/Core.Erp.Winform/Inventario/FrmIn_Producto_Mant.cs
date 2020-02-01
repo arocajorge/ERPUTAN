@@ -334,6 +334,15 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
+                if (_Accion == Cl_Enumeradores.eTipo_action.actualizar)
+                {
+                    if (prob.ValidaExisteMovimiento(param.IdEmpresa, Convert.ToDecimal(lblIdProducto.ToString())))
+                    {
+                        MessageBox.Show("El producto " + txtNombre.Text.Trim() + " ha sido utilizado en movimientos de inventario por lo que no puede ser modificado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
+                }
+
                 if (cmb_familia.EditValue == null)
                 {
                     MessageBox.Show("El campo familia es obligatorio", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

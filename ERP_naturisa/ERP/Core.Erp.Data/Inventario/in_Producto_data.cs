@@ -15,6 +15,26 @@ namespace Core.Erp.Data.Inventario
     {
         string MensajeError = "";
 
+        public bool ValidaExisteMovimiento(int IdEmpresa, decimal IdProducto)
+        {
+            try
+            {
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    int Cont =  db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdProducto == IdProducto).Count();
+                    if (Cont > 0)
+                        return true;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public List<in_Producto_Combo> GetListCombo(int IdEmpresa)
         {
             try
@@ -993,7 +1013,8 @@ namespace Core.Erp.Data.Inventario
                             address.pr_precio_puerta = prI.pr_precio_puerta == null ? 0 : prI.pr_precio_puerta;//59
                             address.pr_ManejaIva = prI.pr_ManejaIva == null ? "N" : prI.pr_ManejaIva;//37
                             address.pr_ManejaSeries = prI.pr_ManejaSeries == null ? "N" : prI.pr_ManejaSeries;//38
-
+                            address.IdUsuarioUltMod = prI.IdUsuario;
+                            address.Fecha_UltMod = DateTime.Now;
                             address.pr_costo_CIF = prI.pr_costo_CIF;//28
                             address.pr_costo_fob = prI.pr_costo_fob;//29
                             address.pr_costo_promedio = prI.pr_costo_promedio == null ? 0 : (double)prI.pr_costo_promedio;//30
@@ -1012,14 +1033,8 @@ namespace Core.Erp.Data.Inventario
                             address.pr_Por_descuento = prI.pr_Por_descuento == null ? 0 : prI.pr_Por_descuento;//60
                             address.pr_stock_maximo = prI.pr_stock_maximo;//49
                             address.pr_stock_minimo = prI.pr_stock_minimo;//50
-                            address.IdUsuario = (prI.IdUsuario == null) ? "" : prI.IdUsuario.Trim();//20
+                            address.IdUsuario = prI.IdUsuario;
                             address.Fecha_Transac = DateTime.Now;//5
-                            address.IdUsuarioUltMod = (prI.IdUsuarioUltMod == null) ? "" : prI.IdUsuarioUltMod.Trim();//22
-                            address.Fecha_UltMod = DateTime.Now;//7
-
-                            //address.IdUsuarioUltAnu = (prI.IdUsuarioUltAnu == null) ? "" : prI.IdUsuarioUltAnu.Trim();//21
-                            //address.Fecha_UltAnu = DateTime.Now;//6
-                            //pr_motivoAnulacion
 
                             address.ip = (prI.ip == null) ? "" : prI.ip;//23
                             address.nom_pc = (prI.nom_pc == null) ? "" : prI.nom_pc;//24
@@ -1216,7 +1231,6 @@ namespace Core.Erp.Data.Inventario
                         contact.IdPresentacion = Convert.ToString(prI.IdPresentacion);//15
                         contact.IdProductoTipo = prI.IdProductoTipo;//18
                         contact.IdUnidadMedida = prI.IdUnidadMedida;//19
-                        contact.IdUsuarioUltMod = string.IsNullOrEmpty(prI.IdUsuario) == true ? (string.IsNullOrEmpty(prI.IdUsuarioUltMod) ? " " : prI.IdUsuarioUltMod) : " ";//22
                         contact.pr_alto = prI.pr_alto;//25
                         contact.pr_codigo = (prI.pr_codigo == null) ? Convert.ToString(contact.IdProducto) : prI.pr_codigo;//26
                         contact.pr_codigo_barra = prI.pr_codigo_barra == null ? "" : prI.pr_codigo_barra;//27
@@ -1261,6 +1275,7 @@ namespace Core.Erp.Data.Inventario
                         contact.Aparece_modu_Activo_F = prI.Aparece_modu_Activo_F;
                         contact.IdFamilia = prI.IdFamilia;
                         contact.Fecha_UltMod = DateTime.Now;
+                        contact.IdUsuarioUltMod = prI.IdUsuarioUltMod;
 
 
                         

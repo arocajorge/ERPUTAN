@@ -131,11 +131,13 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                                 if (Documento.Porcentaje == 0)
                                 {
-                                    Documento.Subtotal0 += Convert.ToDouble(Impuesto.Element("baseImponible").Value);
+                                    Documento.Descuento += Impuesto.Element("descuentoAdicional") == null ? 0 : Convert.ToDouble(Impuesto.Element("descuentoAdicional").Value);
+                                    Documento.Subtotal0 += Convert.ToDouble(Impuesto.Element("baseImponible").Value) - Documento.Descuento;
                                 }
                                 else
                                 {
-                                    Documento.SubtotalIVA += Convert.ToDouble(Impuesto.Element("baseImponible").Value);
+                                    Documento.Descuento += Impuesto.Element("descuentoAdicional") == null ? 0 : Convert.ToDouble(Impuesto.Element("descuentoAdicional").Value);
+                                    Documento.SubtotalIVA += Convert.ToDouble(Impuesto.Element("baseImponible").Value) - Documento.Descuento;
                                     Documento.ValorIVA += Convert.ToDouble(Impuesto.Element("valor").Value);
                                     Documento.Porcentaje = bus_impuesto.Get_Info_impuesto(param.Get_Parametro_Info(tb_parametro_enum.P_IVA).Valor).porcentaje;
                                 }    
@@ -182,7 +184,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         if (Documento.Total == 0)
                         {
-                            Documento.Subtotal0 = Convert.ToDouble(infoFactura.Element("totalSinImpuestos").Value);
+                            Documento.Descuento = infoFactura.Element("totalDescuento") == null ? 0 : Convert.ToDouble(infoFactura.Element("totalDescuento").Value);
+                            Documento.Subtotal0 = Convert.ToDouble(infoFactura.Element("totalSinImpuestos").Value) - Documento.Descuento;
                             Documento.Total = Documento.Subtotal0; 
                         }
 

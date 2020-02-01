@@ -189,13 +189,11 @@ namespace Core.Erp.Business.CuentasxPagar
 
                 if (odata.EliminarDB(info.IdEmpresa, info.IdProveedor))
                 {
-                    if (lista.Count != 0)
+                    if (odata.GrabarDB(info.lista_codigoSRI_Proveedor))
                     {
-                        if (odata.GrabarDB(info.lista_codigoSRI_Proveedor))
-                        {
 
-                        }
                     }
+
                 }
                 else
                 {

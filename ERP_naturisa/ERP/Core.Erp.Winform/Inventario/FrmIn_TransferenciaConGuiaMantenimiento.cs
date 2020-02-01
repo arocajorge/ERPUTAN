@@ -263,8 +263,8 @@ namespace Core.Erp.Winform.Inventario
 
             cmbSucursalDestino.Properties.ReadOnly = false;
             cmbSucursalOrigen.Properties.ReadOnly = false;
-            cmbBodegaDestino.Properties.ReadOnly = true;
-            cmbBodegaOrigen.Properties.ReadOnly = true;
+            cmbBodegaDestino.Properties.ReadOnly = false;
+            cmbBodegaOrigen.Properties.ReadOnly = false;
 
             txtIdNumMoviDestino.Text = string.Empty;
             txtIdNumMoviOrigen.Text = string.Empty;

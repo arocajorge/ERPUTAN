@@ -282,7 +282,7 @@ namespace Core.Erp.Reportes.CuentasxCobrar
                     fileName = saveFileDialog.FileName;
 
 
-                    StreamWriter sw = new StreamWriter(fileName, false, Encoding.Default);
+                    StreamWriter sw = new StreamWriter(fileName, false, Encoding.UTF8);
 
                     //sLinea = "\"" + "CodEntidad" + "\"" + ',' + "\"" + "FechaDatos" + "\"" + ',' + "\"" + "TipoIden" + "\"" + ",";
                     //sLinea = sLinea + "\"" + "Identificacion" + "\"" + ',' + "\"" + "Nom_apellido" + "\"" + ',' + "\"" + "clase_suje" + "\"" + ",";

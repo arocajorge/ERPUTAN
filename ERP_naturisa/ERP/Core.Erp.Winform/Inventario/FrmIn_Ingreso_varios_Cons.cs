@@ -133,6 +133,14 @@ namespace Core.Erp.Winform.Inventario
                     Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;
                 }
 
+
+                if ((Accion == Cl_Enumeradores.eTipo_action.actualizar || Accion == Cl_Enumeradores.eTipo_action.Anular) && bus_IngEgr.ValidarEstaAprobado(Info.IdEmpresa, Info.IdSucursal, Info.IdMovi_inven_tipo, Info.IdNumMovi))
+                {
+                    MessageBox.Show("El registro se encuentra aprobado y no puede ser modificado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;    
+                }
+
+
                 frm = new FrmIn_Ingreso_varios_Mant();
                 frm.MdiParent = this.MdiParent;
                 frm.event_FrmIn_Ingreso_varios_Mant_FormClosing += frm_event_FrmIn_Ingreso_varios_Mant_FormClosing;

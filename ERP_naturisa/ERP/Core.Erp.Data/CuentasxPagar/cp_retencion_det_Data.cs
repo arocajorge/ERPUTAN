@@ -181,6 +181,7 @@ namespace Core.Erp.Data.CuentasxPagar
               EntitiesCuentasxPagar Cp = new EntitiesCuentasxPagar();
               foreach (var item in lista)
               {
+                  Cp.SetCommandTimeOut(3000);
                   cp_retencion_det det = new cp_retencion_det();
                   det.IdEmpresa = item.IdEmpresa;
                 //  det.IdCbteCble_Ogiro = item.IdCbteCble_Ogiro;

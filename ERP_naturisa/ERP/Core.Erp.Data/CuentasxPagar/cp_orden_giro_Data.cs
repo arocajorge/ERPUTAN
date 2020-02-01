@@ -1636,7 +1636,7 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 using (EntitiesCuentasxPagar Entity = new EntitiesCuentasxPagar())
                 {
-
+                    Entity.SetCommandTimeOut(3000);
                     if (String.IsNullOrEmpty(co_Factura) && String.IsNullOrEmpty(co_serie))
                     {
                         return false;
@@ -1650,13 +1650,11 @@ namespace Core.Erp.Data.CuentasxPagar
 
                     co_serie = co_serie.Trim();
                     co_Factura = co_Factura.Trim();
-                    var result = from q in Entity.cp_orden_giro
-                                 where q.IdEmpresa == IdEmpresa && q.IdProveedor == IdProveedor && co_Factura == q.co_factura
+                    var result = Entity.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdProveedor == IdProveedor && co_Factura == q.co_factura
                                  && q.co_serie == co_serie
-                                 && q.Estado == "A"
-                                 select q;
+                                 && q.Estado == "A").Count();
 
-                    if (result.Count() != 0)
+                    if (result != 0)
                     {
                         return true;
                     }

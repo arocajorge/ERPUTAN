@@ -317,6 +317,12 @@ namespace Core.Erp.Winform.Inventario
                         return;
                     }
 
+                    if ((Accion == Cl_Enumeradores.eTipo_action.actualizar || Accion == Cl_Enumeradores.eTipo_action.Anular) && bus_IngEgr.ValidarEstaAprobado(info.IdEmpresa, info.IdSucursal, info.IdMovi_inven_tipo, info.IdNumMovi))
+                    {
+                        MessageBox.Show("El registro se encuentra aprobado y no puede ser modificado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
                     if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (info.co_factura != null || info.IdEstadoAproba == "APRO"))
                     {
                         Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;

@@ -1193,6 +1193,7 @@ namespace Core.Erp.Data.Inventario
                             dt_secuencia = item.dt_secuencia = Secuencia++,
                             IdProducto = item.IdProducto,
                             pr_descripcion = item.pr_descripcion,
+                            dt_cantidadPreDespacho = item.dt_cantidad,
                             dt_cantidad = item.dt_cantidad,
                             tr_Observacion = item.tr_Observacion,
                             IdUnidadMedida = item.IdUnidadMedida,
@@ -1567,6 +1568,61 @@ namespace Core.Erp.Data.Inventario
                         }
                         db.SaveChanges();
                         #endregion
+
+                        if (Entity.IdGuia != 0)
+                        {
+                            #region Modificar Guia
+                            var EntityGuia = db.in_Guia_x_traspaso_bodega.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == info.IdGuia).FirstOrDefault();
+                            if (EntityGuia != null)
+                            {
+                                var lstDetGuia = db.in_Guia_x_traspaso_bodega_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == (info.IdGuia ?? 0)).ToList();
+                                foreach (var item in lstDetGuia)
+                                {
+                                    db.in_Guia_x_traspaso_bodega_det.Remove(item);
+                                }
+                                var lstGuiaOC = info.lista_detalle_transferencia.Where(q => q.EnviarEnGuia == true && q.IdOrdenCompra != null).ToList();
+                                foreach (var item in lstGuiaOC)
+                                {
+                                    db.in_Guia_x_traspaso_bodega_det.Add(new in_Guia_x_traspaso_bodega_det
+                                    {
+                                        IdEmpresa = info.IdEmpresa,
+                                        IdGuia = info.IdGuia ?? 0,
+                                        secuencia = item.dt_secuencia,
+                                        IdEmpresa_OC = info.IdEmpresa,
+                                        IdSucursal_OC = item.IdSucursal_oc,
+                                        IdOrdenCompra_OC = item.IdOrdenCompra,
+                                        Secuencia_OC = item.Secuencia_oc,
+                                        observacion = item.tr_Observacion ?? "",
+                                        Cantidad_enviar = item.dt_cantidad,
+                                        Referencia = item.IdOrdenCompra.ToString()
+                                    });
+                                }
+                                var lstDetGuiaSinOc = db.in_Guia_x_traspaso_bodega_det_sin_oc.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == (info.IdGuia ?? 0)).ToList();
+                                foreach (var item in lstDetGuiaSinOc)
+                                {
+                                    db.in_Guia_x_traspaso_bodega_det_sin_oc.Remove(item);
+                                }
+                                lstGuiaOC = info.lista_detalle_transferencia.Where(q => q.EnviarEnGuia == true && q.IdOrdenCompra == null).ToList();
+                                foreach (var item in lstGuiaOC)
+                                {
+                                    db.in_Guia_x_traspaso_bodega_det_sin_oc.Add(new in_Guia_x_traspaso_bodega_det_sin_oc
+                                    {
+                                        IdEmpresa = info.IdEmpresa,
+                                        IdGuia = info.IdGuia ?? 0,
+                                        secuencia = item.dt_secuencia,
+                                        Num_Fact = "",
+                                        IdProveedor = null,
+                                        Cantidad_enviar = item.dt_cantidad,
+                                        nom_proveedor = "Transferencia # " + info.IdTransferencia,
+
+                                        IdProducto = item.IdProducto,
+                                        nom_producto = item.pr_descripcion,
+                                        observacion = item.tr_Observacion ?? "",
+                                    });
+                                }
+                            }
+                            #endregion
+                        }
                     }
                 }
 

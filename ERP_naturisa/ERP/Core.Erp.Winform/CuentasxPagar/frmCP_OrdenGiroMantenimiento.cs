@@ -2624,6 +2624,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     if (MessageBox.Show("Desea Imprimir el Comprobante de Diario de Retención", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        Imprimir_cbte_retencion();
+                        /*
                         //ingreso deuda
                         XCXP_Rpt004_Rpt reporte = new XCXP_Rpt004_Rpt();
 
@@ -2631,6 +2633,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         reporte.RequestParameters = true;
 
                         reporte.ShowPreviewDialog();
+                         * */
                     }   
                 }                                                  
             }

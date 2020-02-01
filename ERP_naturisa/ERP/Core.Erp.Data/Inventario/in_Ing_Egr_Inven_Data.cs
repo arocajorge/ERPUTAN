@@ -518,6 +518,121 @@ namespace Core.Erp.Data.Inventario
           }
       }
 
+      public bool ReversarAprobacion(int IdEmpresa, int IdSucursal, int IdMovi_inve_tipo, decimal IdNumMovi)
+      {
+          EntitiesInventario db_i = new EntitiesInventario();
+          EntitiesDBConta db_ct = new EntitiesDBConta();
+          try
+          {
+              var lst_det = db_i.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inve_tipo && q.IdNumMovi == IdNumMovi).ToList();
+              if (lst_det.Where(q => q.IdNumMovi_inv == null).Count() == 0)
+              {
+                  var PK_movi = new
+                  {
+                      lst_det.First().IdEmpresa_inv,
+                      lst_det.First().IdSucursal_inv,
+                      lst_det.First().IdBodega_inv,
+                      lst_det.First().IdMovi_inven_tipo_inv,
+                      lst_det.First().IdNumMovi_inv
+                  };
+
+                  #region Elimino detalle de movi inve
+                  var lst_movi_d = db_i.in_movi_inve_detalle.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
+                                  && q.IdSucursal == PK_movi.IdSucursal_inv
+                                  && q.IdBodega == PK_movi.IdBodega_inv
+                                  && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
+                                  && q.IdNumMovi == PK_movi.IdNumMovi_inv
+                                  ).ToList();
+
+                  foreach (var item in lst_movi_d)
+                  {
+                      db_i.in_movi_inve_detalle.Remove(item);    
+                  }
+                  
+                  #endregion
+
+                  #region Elimino cabecera
+                  var movi = db_i.in_movi_inve.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
+                             && q.IdSucursal == PK_movi.IdSucursal_inv
+                             && q.IdBodega == PK_movi.IdBodega_inv
+                             && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
+                             && q.IdNumMovi == PK_movi.IdNumMovi_inv).FirstOrDefault();
+
+                  db_i.in_movi_inve.Remove(movi);
+                  #endregion
+
+                  #region Obtengo relacion contable y la elimino
+                  var PK_conta = db_i.in_movi_inve_x_ct_cbteCble.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
+                                  && q.IdSucursal == PK_movi.IdSucursal_inv
+                                  && q.IdBodega == PK_movi.IdBodega_inv
+                                  && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
+                                  && q.IdNumMovi == PK_movi.IdNumMovi_inv
+                                  ).FirstOrDefault();
+
+                  #endregion
+                  if (PK_conta != null)
+                  {
+                      #region Elimino diario contable
+                      var lst_rel_det = db_i.in_movi_inve_detalle_x_ct_cbtecble_det.Where(q => q.IdEmpresa_inv == PK_movi.IdEmpresa_inv
+                                  && q.IdSucursal_inv == PK_movi.IdSucursal_inv
+                                  && q.IdBodega_inv == PK_movi.IdBodega_inv
+                                  && q.IdMovi_inven_tipo_inv == PK_movi.IdMovi_inven_tipo_inv
+                                  && q.IdNumMovi_inv == PK_movi.IdNumMovi_inv).ToList();
+
+                      foreach (var item in lst_rel_det)
+                      {
+                          db_i.in_movi_inve_detalle_x_ct_cbtecble_det.Remove(item);
+                      }
+                      
+
+                      var lst_conta = db_ct.ct_cbtecble_det.Where(q => q.IdEmpresa == PK_conta.IdEmpresa_ct
+                                      && q.IdTipoCbte == PK_conta.IdTipoCbte
+                                      && q.IdCbteCble == PK_conta.IdCbteCble
+                                      ).ToList();
+
+                      foreach (var item in lst_conta)
+                      {
+                          db_ct.ct_cbtecble_det.Remove(item);
+                      }
+                      
+
+                      var Conta = db_ct.ct_cbtecble.Where(q => q.IdEmpresa == PK_conta.IdEmpresa
+                                  && q.IdTipoCbte == PK_conta.IdTipoCbte
+                                  && q.IdCbteCble == PK_conta.IdCbteCble
+                                  ).FirstOrDefault();
+                      db_ct.ct_cbtecble.Remove(Conta);
+                      #endregion
+                      db_i.in_movi_inve_x_ct_cbteCble.Remove(PK_conta);
+                  }
+              }
+              #region Seteo campos de aprobacion en null
+              lst_det.ForEach(q =>
+              {
+                  q.IdEmpresa_inv = null;
+                  q.IdSucursal_inv = null;
+                  q.IdBodega_inv = null;
+                  q.IdMovi_inven_tipo_inv = null;
+                  q.IdNumMovi_inv = null;
+
+                  q.IdEstadoAproba = "PEND";
+              });
+              #endregion
+
+              db_i.SaveChanges();
+              db_ct.SaveChanges();
+
+              db_ct.Dispose();
+              db_i.Dispose();
+              return true;
+          }
+          catch (Exception)
+          {
+              db_ct.Dispose();
+              db_i.Dispose();
+              throw;
+          }
+      }
+
       public Boolean Reversar_Aprobacion(int IdEmpresa, int IdSucursal, int IdMovi_inve_tipo, decimal IdNumMovi, string Genera_movi_inven)
       {
           try
@@ -949,6 +1064,24 @@ namespace Core.Erp.Data.Inventario
           }
       }
 
-      
+      public bool ValidarEstaAprobado(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+      {
+          try
+          {
+              using (EntitiesInventario db = new EntitiesInventario())
+              {
+                  var cont = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inven_tipo && q.IdNumMovi == IdNumMovi && q.IdNumMovi_inv != null).Count();
+                  if (cont > 0)
+                      return true;
+              }
+
+              return false;
+          }
+          catch (Exception)
+          {
+              
+              throw;
+          }
+      }
   }
 }

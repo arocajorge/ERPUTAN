@@ -55,5 +55,7 @@ namespace Core.Erp.Reportes.Inventario
         public string NombreEmpresa { get; set; }
         public string NumeroContribuyente { get; set; }
         public string em_ruc { get; set; }
+
+        public string nom_UnidadMedidaCompra { get; set; }
     }
 }

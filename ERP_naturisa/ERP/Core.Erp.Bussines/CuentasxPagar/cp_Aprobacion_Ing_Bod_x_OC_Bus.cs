@@ -435,6 +435,7 @@ namespace Core.Erp.Business.CuentasxPagar
               Info_Ogiro.fecha_autorizacion = Info.fecha_autorizacion;
 
               //verificar Id_Num_Autorizacion
+              /*
               cp_Autorizacion_x_Doc_x_Pag_Data data_NumAuto = new cp_Autorizacion_x_Doc_x_Pag_Data();
               string msge = "";
               if (!data_NumAuto.Verificar_NumAutorizacion_Ogiro(Info.num_auto_Proveedor, ref msge))
@@ -446,7 +447,7 @@ namespace Core.Erp.Business.CuentasxPagar
                   data_NumAuto.GuardarDB(info, ref msge);
 
                   Info_Ogiro.Num_Autorizacion = Info.num_auto_Proveedor;
-              }
+              }*/
 
               cp_orden_giro_Bus BusOrdenGiro_B = new cp_orden_giro_Bus();
               List<cp_reembolso_Info> lst_reembolso = null;

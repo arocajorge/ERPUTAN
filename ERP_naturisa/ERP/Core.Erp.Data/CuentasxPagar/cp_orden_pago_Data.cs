@@ -33,10 +33,8 @@ namespace Core.Erp.Data.CuentasxPagar
 
                else
                {
-                   var select_ = (from t in ECXP.cp_orden_pago
-                                  where t.IdEmpresa == IdEmpresa
-                                  select t.IdOrdenPago).Max();
-                   Id = Convert.ToDecimal(select_.ToString()) + 1;
+                   var select_ = (ECXP.cp_orden_pago.Where(t=> t.IdEmpresa == IdEmpresa).Max(t=> t.IdOrdenPago));
+                   Id = Convert.ToDecimal(select_) + 1;
                    return Id;
                }
            }

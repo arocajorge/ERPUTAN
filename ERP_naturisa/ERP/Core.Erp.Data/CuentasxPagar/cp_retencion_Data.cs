@@ -797,7 +797,7 @@ namespace Core.Erp.Data.CuentasxPagar
 
                 using (EntitiesCuentasxPagar context = new EntitiesCuentasxPagar())
                 {
-                    EntitiesCuentasxPagar EDB = new EntitiesCuentasxPagar();
+                    context.SetCommandTimeOut(3000);
                     var address = new cp_retencion();
 
                     address.IdEmpresa = info.IdEmpresa;
@@ -1494,7 +1494,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     IdPeriodo = Convert.ToInt32(Entity.fecha.ToString("yyyyMM")),
                     cb_Fecha = Entity.fecha,
                     cb_Valor = Math.Round(lst.Sum(q=> q.re_valor_retencion),2,MidpointRounding.AwayFromZero),
-                    cb_Observacion = Entity.observacion,
+                    cb_Observacion = Entity.observacion + " Doc." + OG.co_serie + "-" + OG.co_factura,
                     cb_Secuencia = 0,
                     cb_Estado = "A",
                     cb_Anio = Entity.fecha.Year,
