@@ -14,7 +14,7 @@ namespace Core.Erp.Data.Inventario
   public  class in_Ing_Egr_Inven_det_Data
     {
       string mensaje = "";
-
+      in_UnidadMedida_Data odata_uni = new in_UnidadMedida_Data();
       public Boolean GuardarDB(List<in_Ing_Egr_Inven_det_Info> LstInfo)
       {
           try
@@ -61,9 +61,9 @@ namespace Core.Erp.Data.Inventario
                           Address.Motivo_Aprobacion = item.Motivo_Aprobacion;
 
                           if (item.signo == "-")
-                              Address.dm_cantidad = Math.Abs(item.dm_cantidad) * -1;
+                              Address.dm_cantidad =  odata_uni.GetCantidadConvertida(item.IdEmpresa,item.IdProducto,item.IdUnidadMedida_sinConversion, Math.Abs(item.dm_cantidad_sinConversion)) * -1;
                           else
-                              Address.dm_cantidad = Math.Abs(item.dm_cantidad);
+                              Address.dm_cantidad = odata_uni.GetCantidadConvertida(item.IdEmpresa, item.IdProducto, item.IdUnidadMedida_sinConversion, Math.Abs(item.dm_cantidad_sinConversion));
 
                           if (item.signo == "-")
                               Address.dm_cantidad_sinConversion = Math.Abs(item.dm_cantidad_sinConversion) * -1;
