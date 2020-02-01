@@ -1,35 +1,33 @@
 ﻿CREATE VIEW [dbo].[vwin_Ing_Egr_Inven_x_in_movi_inve]
 AS
-SELECT        dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, 
-                         dbo.in_Ing_Egr_Inven.IdMotivo_Inv, dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, 
-                         dbo.in_Ing_Egr_Inven.cm_fecha, dbo.in_Motivo_Inven.Genera_Movi_Inven
-FROM            dbo.in_Ing_Egr_Inven INNER JOIN
-                         dbo.in_Ing_Egr_Inven_det ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal AND 
-                         dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi INNER JOIN
-                         dbo.in_movi_inve_detalle ON dbo.in_Ing_Egr_Inven_det.IdEmpresa_inv = dbo.in_movi_inve_detalle.IdEmpresa AND dbo.in_Ing_Egr_Inven_det.IdSucursal_inv = dbo.in_movi_inve_detalle.IdSucursal AND 
-                         dbo.in_Ing_Egr_Inven_det.IdBodega_inv = dbo.in_movi_inve_detalle.IdBodega AND dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo_inv = dbo.in_movi_inve_detalle.IdMovi_inven_tipo AND 
-                         dbo.in_Ing_Egr_Inven_det.IdNumMovi_inv = dbo.in_movi_inve_detalle.IdNumMovi AND dbo.in_Ing_Egr_Inven_det.secuencia_inv = dbo.in_movi_inve_detalle.Secuencia INNER JOIN
-                         dbo.in_movi_inven_tipo ON dbo.in_Ing_Egr_Inven_det.IdEmpresa = dbo.in_movi_inven_tipo.IdEmpresa AND 
-                         dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo = dbo.in_movi_inven_tipo.IdMovi_inven_tipo INNER JOIN
-                         dbo.in_Motivo_Inven ON dbo.in_Ing_Egr_Inven.IdMotivo_Inv = dbo.in_Motivo_Inven.IdMotivo_Inv AND dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Motivo_Inven.IdEmpresa
-GROUP BY dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, 
-                         dbo.in_Ing_Egr_Inven.IdMotivo_Inv, dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, 
-                         dbo.in_Ing_Egr_Inven.cm_fecha, dbo.in_Motivo_Inven.Genera_Movi_Inven
-
+SELECT dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, dbo.in_Ing_Egr_Inven.IdMotivo_Inv, 
+                  dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, dbo.in_Ing_Egr_Inven.cm_fecha, 
+                  dbo.in_Motivo_Inven.Genera_Movi_Inven
+FROM     dbo.in_Ing_Egr_Inven INNER JOIN
+                  dbo.in_Ing_Egr_Inven_det ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal AND 
+                  dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi INNER JOIN
+                  dbo.in_movi_inve_detalle ON dbo.in_Ing_Egr_Inven_det.IdEmpresa_inv = dbo.in_movi_inve_detalle.IdEmpresa AND dbo.in_Ing_Egr_Inven_det.IdSucursal_inv = dbo.in_movi_inve_detalle.IdSucursal AND 
+                  dbo.in_Ing_Egr_Inven_det.IdBodega_inv = dbo.in_movi_inve_detalle.IdBodega AND dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo_inv = dbo.in_movi_inve_detalle.IdMovi_inven_tipo AND 
+                  dbo.in_Ing_Egr_Inven_det.IdNumMovi_inv = dbo.in_movi_inve_detalle.IdNumMovi AND dbo.in_Ing_Egr_Inven_det.secuencia_inv = dbo.in_movi_inve_detalle.Secuencia INNER JOIN
+                  dbo.in_movi_inven_tipo ON dbo.in_Ing_Egr_Inven_det.IdEmpresa = dbo.in_movi_inven_tipo.IdEmpresa AND dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo = dbo.in_movi_inven_tipo.IdMovi_inven_tipo INNER JOIN
+                  dbo.in_Motivo_Inven ON dbo.in_Ing_Egr_Inven.IdMotivo_Inv = dbo.in_Motivo_Inven.IdMotivo_Inv AND dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Motivo_Inven.IdEmpresa
+GROUP BY dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, dbo.in_Ing_Egr_Inven.IdMotivo_Inv, 
+                  dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, dbo.in_Ing_Egr_Inven.cm_fecha, 
+                  dbo.in_Motivo_Inven.Genera_Movi_Inven
 UNION
-SELECT        dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, 
-                         dbo.in_Ing_Egr_Inven.IdMotivo_Inv, dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, 
-                         dbo.in_Ing_Egr_Inven.cm_fecha, dbo.in_Motivo_Inven.Genera_Movi_Inven
-FROM            dbo.in_Ing_Egr_Inven INNER JOIN
-                         dbo.in_Ing_Egr_Inven_det ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal AND 
-                         dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi INNER JOIN
-                         dbo.in_movi_inven_tipo ON dbo.in_Ing_Egr_Inven_det.IdEmpresa = dbo.in_movi_inven_tipo.IdEmpresa AND 
-                         dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo = dbo.in_movi_inven_tipo.IdMovi_inven_tipo INNER JOIN
-                         dbo.in_Motivo_Inven ON dbo.in_Ing_Egr_Inven.IdMotivo_Inv = dbo.in_Motivo_Inven.IdMotivo_Inv AND dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Motivo_Inven.IdEmpresa
-GROUP BY dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, 
-                         dbo.in_Ing_Egr_Inven.IdMotivo_Inv, dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, 
-                         dbo.in_Ing_Egr_Inven.cm_fecha, dbo.in_Motivo_Inven.Genera_Movi_Inven
-HAVING        (dbo.in_Motivo_Inven.Genera_Movi_Inven = 'N')
+SELECT dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, dbo.in_Ing_Egr_Inven.IdMotivo_Inv, 
+                  dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, dbo.in_Ing_Egr_Inven.cm_fecha, 
+                  dbo.in_Motivo_Inven.Genera_Movi_Inven
+FROM     dbo.in_Ing_Egr_Inven INNER JOIN
+                  dbo.in_Ing_Egr_Inven_det ON dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Ing_Egr_Inven_det.IdEmpresa AND dbo.in_Ing_Egr_Inven.IdSucursal = dbo.in_Ing_Egr_Inven_det.IdSucursal AND 
+                  dbo.in_Ing_Egr_Inven.IdMovi_inven_tipo = dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND dbo.in_Ing_Egr_Inven.IdNumMovi = dbo.in_Ing_Egr_Inven_det.IdNumMovi INNER JOIN
+                  dbo.in_movi_inven_tipo ON dbo.in_Ing_Egr_Inven_det.IdEmpresa = dbo.in_movi_inven_tipo.IdEmpresa AND dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo = dbo.in_movi_inven_tipo.IdMovi_inven_tipo INNER JOIN
+                  dbo.in_Motivo_Inven ON dbo.in_Ing_Egr_Inven.IdMotivo_Inv = dbo.in_Motivo_Inven.IdMotivo_Inv AND dbo.in_Ing_Egr_Inven.IdEmpresa = dbo.in_Motivo_Inven.IdEmpresa
+where dbo.in_Ing_Egr_Inven_det.IdEstadoAproba = 'APRO'
+GROUP BY dbo.in_Ing_Egr_Inven_det.IdEmpresa, dbo.in_Ing_Egr_Inven_det.IdSucursal, dbo.in_Ing_Egr_Inven_det.IdMovi_inven_tipo, dbo.in_Ing_Egr_Inven_det.IdNumMovi, dbo.in_Ing_Egr_Inven.signo, dbo.in_Ing_Egr_Inven.IdMotivo_Inv, 
+                  dbo.in_Motivo_Inven.Desc_mov_inv, dbo.in_movi_inven_tipo.tm_descripcion, dbo.in_movi_inven_tipo.cm_descripcionCorta, dbo.in_Ing_Egr_Inven.cm_observacion, dbo.in_Ing_Egr_Inven.cm_fecha, 
+                  dbo.in_Motivo_Inven.Genera_Movi_Inven
+HAVING (dbo.in_Motivo_Inven.Genera_Movi_Inven = 'N')
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwin_Ing_Egr_Inven_x_in_movi_inve';
 

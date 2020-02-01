@@ -163,6 +163,6 @@ WHERE        (cp_orden_pago.IdTipo_Persona = 'PROVEE') AND NOT EXISTS
                                FROM            cp_nota_DebCre
                                WHERE        cp_nota_DebCre.IdEmpresa = cp_orden_pago_det.IdEmpresa_cxp AND cp_nota_DebCre.IdTipoCbte_Nota = cp_orden_pago_det.IdTipoCbte_cxp AND 
                                                          cp_nota_DebCre.IdCbteCble_Nota = cp_orden_pago_det.IdCbteCble_cxp)
-							and cp_orden_pago.IdEmpresa = @IdEmpresa and cp_orden_pago.Fecha <= @Fecha_corte and cp_proveedor.IdProveedor between @IdProveedor_ini and @IdProveedor_fin and cp_proveedor_clase.IdClaseProveedor between @IdClase_ini and @IdClase_fin
+							and cp_orden_pago.IdEmpresa = @IdEmpresa and cp_orden_pago.Fecha_Pago <= @Fecha_corte and cp_proveedor.IdProveedor between @IdProveedor_ini and @IdProveedor_fin and cp_proveedor_clase.IdClaseProveedor between @IdClase_ini and @IdClase_fin
 						
 END

@@ -1,4 +1,5 @@
-﻿--exec [dbo].[spINV_Rpt029] 1,1,999,1,999,'01/09/2016'
+﻿
+--exec [dbo].[spINV_Rpt029] 1,1,999,1,999,'01/09/2016'
 CREATE PROCEDURE [dbo].[spINV_Rpt029]
 (
 @IdEmpresa int,
@@ -14,7 +15,7 @@ SELECT        in_movi_inve_detalle.IdEmpresa, in_movi_inve_detalle.IdSucursal, i
                          tb_sucursal.Su_Descripcion AS nom_sucursal, in_Producto.pr_codigo, in_Producto.pr_descripcion, in_Producto.pr_observacion, 
                          ISNULL(SUM(in_movi_inve_detalle.dm_cantidad), 0) AS Stock, in_movi_inve_detalle.IdProducto, ISNULL(SUM(in_movi_inve_detalle.dm_cantidad * in_movi_inve_detalle.mv_costo) / IIF(SUM(in_movi_inve_detalle.dm_cantidad) = 0, 1, SUM(in_movi_inve_detalle.dm_cantidad)) ,0) AS mv_costo, 
                          SUM(in_movi_inve_detalle.dm_cantidad * in_movi_inve_detalle.mv_costo) AS costo_total, in_Producto.IdCategoria, 
-                         in_categorias.ca_Categoria, in_Producto.IdLinea, in_linea.nom_linea, in_UnidadMedida.Descripcion AS nom_UnidadMedida
+                         in_categorias.ca_Categoria, in_Producto.IdLinea, in_linea.nom_linea, in_UnidadMedida.cod_alterno AS nom_UnidadMedida, uni.cod_alterno as nom_UnidadMedidaCompra
 FROM            in_categorias INNER JOIN
                          in_linea ON in_categorias.IdEmpresa = in_linea.IdEmpresa AND in_categorias.IdCategoria = in_linea.IdCategoria INNER JOIN
                          tb_bodega INNER JOIN
@@ -27,10 +28,11 @@ FROM            in_categorias INNER JOIN
                          in_UnidadMedida ON in_Producto.IdUnidadMedida_Consumo = in_UnidadMedida.IdUnidadMedida INNER JOIN
                          in_movi_inve ON in_movi_inve.IdEmpresa = in_movi_inve_detalle.IdEmpresa AND in_movi_inve.IdSucursal = in_movi_inve_detalle.IdSucursal AND 
                          in_movi_inve.IdBodega = in_movi_inve_detalle.IdBodega AND in_movi_inve.IdMovi_inven_tipo = in_movi_inve_detalle.IdMovi_inven_tipo AND 
-                         in_movi_inve.IdNumMovi = in_movi_inve_detalle.IdNumMovi 
+                         in_movi_inve.IdNumMovi = in_movi_inve_detalle.IdNumMovi LEFT join
+						 in_UnidadMedida as uni on uni.IdUnidadMedida = in_Producto.IdUnidadMedida
 where (in_movi_inve.IdEmpresa = @IdEmpresa) and (in_movi_inve.IdSucursal between @IdSucursal_ini and @IdSucursal_fin) and (in_movi_inve.IdBodega between @IdBodega_ini and @IdBodega_fin)
 and (in_movi_inve.cm_fecha <= @fecha_corte)
 GROUP BY in_movi_inve_detalle.IdEmpresa, in_movi_inve_detalle.IdSucursal, in_movi_inve_detalle.IdBodega, tb_bodega.bo_Descripcion, tb_sucursal.Su_Descripcion, 
                          in_Producto.pr_codigo, in_Producto.pr_descripcion, in_Producto.pr_observacion, in_movi_inve_detalle.IdProducto, 
-                         in_Producto.IdCategoria, in_categorias.ca_Categoria, in_Producto.IdLinea, in_linea.nom_linea, in_UnidadMedida.Descripcion
+                         in_Producto.IdCategoria, in_categorias.ca_Categoria, in_Producto.IdLinea, in_linea.nom_linea, in_UnidadMedida.cod_alterno,uni.cod_alterno
 end

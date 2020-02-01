@@ -1,8 +1,9 @@
 ﻿CREATE VIEW [dbo].[vwcom_OrdenPedidoDet_Cotizacion]
 AS
-SELECT       d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, d.pr_descripcion, d.IdUnidadMedida, d.IdSucursalOrigen, d.IdSucursalDestino, ISNULL(d.IdPunto_cargo, Cod.IdPunto_cargo) AS IdPunto_cargo, d.opd_Cantidad, d.opd_CantidadApro, 
-                         d.opd_EstadoProceso, d.opd_Detalle, p.IdUnidadMedida_Consumo, CAST(0 AS float) AS Stock, s.nom_solicitante, d.IdProducto, dbo.com_comprador.IdUsuario_com, isnull(cod.IdCod_Impuesto, p.IdCod_Impuesto_Iva) IdCod_Impuesto_Iva, c.IdSolicitante, c.IdDepartamento, 
-                         dbo.com_comprador_familia.IdComprador, c.EsCompraUrgente, d.Adjunto, c.op_Fecha, c.op_Observacion, d.NombreArchivo, CASE WHEN d .opd_EstadoProceso = 'AC' OR
+SELECT        d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, isnull(p.pr_descripcion, d.pr_descripcion) pr_descripcion, d.IdUnidadMedida, d.IdSucursalOrigen, d.IdSucursalDestino, ISNULL(d.IdPunto_cargo, Cod.IdPunto_cargo) AS IdPunto_cargo, d.opd_Cantidad, d.opd_CantidadApro, 
+                         d.opd_EstadoProceso, d.opd_Detalle, p.IdUnidadMedida_Consumo, CAST(0 AS float) AS Stock, s.nom_solicitante, d.IdProducto, dbo.com_comprador.IdUsuario_com, ISNULL(Cod.IdCod_Impuesto, p.IdCod_Impuesto_Iva) 
+                         AS IdCod_Impuesto_Iva, c.IdSolicitante, c.IdDepartamento, dbo.com_comprador_familia.IdComprador, c.EsCompraUrgente, d.Adjunto, c.op_Fecha, c.op_Observacion, d.NombreArchivo, 
+                         CASE WHEN d .opd_EstadoProceso = 'AC' OR
                          d .opd_EstadoProceso = 'AJC' OR
                          d .opd_EstadoProceso = 'C' OR
                          d .opd_EstadoProceso = 'T' OR

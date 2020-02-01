@@ -1,185 +1,142 @@
-﻿CREATE view vwBAN_Rpt007
-as 
-SELECT     dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, 
-                      dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp, dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago, 
-                      ct_cbtecble_tipo_1.CodTipoCbte AS Tipo_cbte_pago, dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago, dbo.cp_orden_giro.co_observacion, 
-                      dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
-                      dbo.cp_orden_pago_cancelaciones.MontoAplicado AS dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, dbo.tb_persona.pe_nombreCompleto, CASE WHEN conci.checked IS NULL 
-                      THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
-FROM         dbo.cp_orden_giro INNER JOIN
-                      dbo.ba_TipoFlujo ON dbo.cp_orden_giro.IdEmpresa = dbo.ba_TipoFlujo.IdEmpresa AND dbo.cp_orden_giro.IdTipoFlujo = dbo.ba_TipoFlujo.IdTipoFlujo INNER JOIN
-                      dbo.cp_orden_pago_cancelaciones INNER JOIN
-                      dbo.ba_Cbte_Ban ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = dbo.ba_Cbte_Ban.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = dbo.ba_Cbte_Ban.IdTipocbte AND 
-                      dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago = dbo.ba_Cbte_Ban.IdCbteCble INNER JOIN
-                      dbo.ct_cbtecble_det ON dbo.ba_Cbte_Ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND dbo.ba_Cbte_Ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte AND 
-                      dbo.ba_Cbte_Ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble INNER JOIN
-                      dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND 
-                      dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
-                      dbo.ct_cbtecble_tipo ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp = dbo.ct_cbtecble_tipo.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
-                      dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = ct_cbtecble_tipo_1.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = ct_cbtecble_tipo_1.IdTipoCbte ON 
-                      dbo.cp_orden_giro.IdEmpresa = dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp AND 
-                      dbo.cp_orden_giro.IdCbteCble_Ogiro = dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp AND 
-                      dbo.cp_orden_giro.IdTipoCbte_Ogiro = dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp INNER JOIN
-                      dbo.cp_proveedor ON dbo.cp_orden_giro.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.cp_orden_giro.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
-                      dbo.tb_persona ON dbo.cp_proveedor.IdPersona = dbo.tb_persona.IdPersona LEFT JOIN
-                          (SELECT     IdEmpresa, IdTipocbte, IdCbteCble, checked
-                            FROM          ba_Conciliacion_det_IngEgr
-                            WHERE      checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND 
-                      ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
+﻿CREATE VIEW [dbo].[vwBAN_Rpt007]
+AS
+SELECT dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp, 
+                  dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago, ct_cbtecble_tipo_1.CodTipoCbte AS Tipo_cbte_pago, dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago, 
+                  dbo.cp_orden_giro.co_observacion, dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
+                  dbo.cp_orden_pago_cancelaciones.MontoAplicado AS dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
+                  CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, dbo.tb_persona.pe_nombreCompleto, 
+                  CASE WHEN conci.checked IS NULL THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
+FROM     dbo.cp_orden_giro INNER JOIN
+                  dbo.ba_TipoFlujo ON dbo.cp_orden_giro.IdEmpresa = dbo.ba_TipoFlujo.IdEmpresa AND dbo.cp_orden_giro.IdTipoFlujo = dbo.ba_TipoFlujo.IdTipoFlujo INNER JOIN
+                  dbo.cp_orden_pago_cancelaciones INNER JOIN
+                  dbo.ba_Cbte_Ban ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = dbo.ba_Cbte_Ban.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = dbo.ba_Cbte_Ban.IdTipocbte AND 
+                  dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago = dbo.ba_Cbte_Ban.IdCbteCble INNER JOIN
+                  dbo.ct_cbtecble_det ON dbo.ba_Cbte_Ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND dbo.ba_Cbte_Ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte AND 
+                  dbo.ba_Cbte_Ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble INNER JOIN
+                  dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
+                  dbo.ct_cbtecble_tipo ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp = dbo.ct_cbtecble_tipo.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
+                  dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = ct_cbtecble_tipo_1.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = ct_cbtecble_tipo_1.IdTipoCbte ON 
+                  dbo.cp_orden_giro.IdEmpresa = dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp AND dbo.cp_orden_giro.IdCbteCble_Ogiro = dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp AND 
+                  dbo.cp_orden_giro.IdTipoCbte_Ogiro = dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp INNER JOIN
+                  dbo.cp_proveedor ON dbo.cp_orden_giro.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.cp_orden_giro.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
+                  dbo.tb_persona ON dbo.cp_proveedor.IdPersona = dbo.tb_persona.IdPersona LEFT JOIN
+                      (SELECT IdEmpresa, IdTipocbte, IdCbteCble, checked
+                       FROM      ba_Conciliacion_det_IngEgr
+                       WHERE   checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
 UNION
-SELECT     dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, 
-                      dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp, dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago, 
-                      ct_cbtecble_tipo_1.CodTipoCbte AS Tipo_cbte_pago, dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago, dbo.cp_nota_DebCre.cn_observacion, 
-                      dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
-                      dbo.cp_orden_pago_cancelaciones.MontoAplicado AS dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, tb_persona.pe_nombreCompleto, CASE WHEN conci.checked IS NULL 
-                      THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
-FROM         dbo.ba_TipoFlujo INNER JOIN
-                      dbo.cp_nota_DebCre ON dbo.ba_TipoFlujo.IdEmpresa = dbo.cp_nota_DebCre.IdEmpresa AND 
-                      dbo.ba_TipoFlujo.IdTipoFlujo = dbo.cp_nota_DebCre.IdTipoFlujo INNER JOIN
-                      dbo.cp_orden_pago_cancelaciones INNER JOIN
-                      dbo.ba_Cbte_Ban ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = dbo.ba_Cbte_Ban.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = dbo.ba_Cbte_Ban.IdTipocbte AND 
-                      dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago = dbo.ba_Cbte_Ban.IdCbteCble INNER JOIN
-                      dbo.ct_cbtecble_det ON dbo.ba_Cbte_Ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND dbo.ba_Cbte_Ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte AND 
-                      dbo.ba_Cbte_Ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble INNER JOIN
-                      dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND 
-                      dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
-                      dbo.ct_cbtecble_tipo ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp = dbo.ct_cbtecble_tipo.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
-                      dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = ct_cbtecble_tipo_1.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = ct_cbtecble_tipo_1.IdTipoCbte ON 
-                      dbo.cp_nota_DebCre.IdEmpresa = dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp AND 
-                      dbo.cp_nota_DebCre.IdCbteCble_Nota = dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp AND 
-                      dbo.cp_nota_DebCre.IdTipoCbte_Nota = dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp INNER JOIN
-                      dbo.cp_proveedor ON dbo.cp_nota_DebCre.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND 
-                      dbo.cp_nota_DebCre.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
-                      dbo.tb_persona ON dbo.cp_proveedor.IdPersona = dbo.tb_persona.IdPersona LEFT JOIN
-                          (SELECT     IdEmpresa, IdTipocbte, IdCbteCble, checked
-                            FROM          ba_Conciliacion_det_IngEgr
-                            WHERE      checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND 
-                      ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
+SELECT dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp, 
+                  dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago, ct_cbtecble_tipo_1.CodTipoCbte AS Tipo_cbte_pago, dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago, 
+                  dbo.cp_nota_DebCre.cn_observacion, dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
+                  dbo.cp_orden_pago_cancelaciones.MontoAplicado AS dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
+                  CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, tb_persona.pe_nombreCompleto, 
+                  CASE WHEN conci.checked IS NULL THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
+FROM     dbo.ba_TipoFlujo INNER JOIN
+                  dbo.cp_nota_DebCre ON dbo.ba_TipoFlujo.IdEmpresa = dbo.cp_nota_DebCre.IdEmpresa AND dbo.ba_TipoFlujo.IdTipoFlujo = dbo.cp_nota_DebCre.IdTipoFlujo INNER JOIN
+                  dbo.cp_orden_pago_cancelaciones INNER JOIN
+                  dbo.ba_Cbte_Ban ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = dbo.ba_Cbte_Ban.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = dbo.ba_Cbte_Ban.IdTipocbte AND 
+                  dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago = dbo.ba_Cbte_Ban.IdCbteCble INNER JOIN
+                  dbo.ct_cbtecble_det ON dbo.ba_Cbte_Ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND dbo.ba_Cbte_Ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte AND 
+                  dbo.ba_Cbte_Ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble INNER JOIN
+                  dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
+                  dbo.ct_cbtecble_tipo ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp = dbo.ct_cbtecble_tipo.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
+                  dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = ct_cbtecble_tipo_1.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = ct_cbtecble_tipo_1.IdTipoCbte ON 
+                  dbo.cp_nota_DebCre.IdEmpresa = dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp AND dbo.cp_nota_DebCre.IdCbteCble_Nota = dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp AND 
+                  dbo.cp_nota_DebCre.IdTipoCbte_Nota = dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp INNER JOIN
+                  dbo.cp_proveedor ON dbo.cp_nota_DebCre.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.cp_nota_DebCre.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN
+                  dbo.tb_persona ON dbo.cp_proveedor.IdPersona = dbo.tb_persona.IdPersona LEFT JOIN
+                      (SELECT IdEmpresa, IdTipocbte, IdCbteCble, checked
+                       FROM      ba_Conciliacion_det_IngEgr
+                       WHERE   checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
 UNION
-SELECT     dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, 
-                      dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp, dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago, 
-                      ct_cbtecble_tipo_1.CodTipoCbte AS Tipo_cbte_pago, dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago, dbo.cp_orden_pago.Observacion, 
-                      dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
-                      dbo.cp_orden_pago_cancelaciones.MontoAplicado AS dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, dbo.tb_persona.pe_nombreCompleto, CASE WHEN conci.checked IS NULL 
-                      THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
-FROM         dbo.ba_TipoFlujo INNER JOIN
-                      dbo.cp_orden_pago ON dbo.ba_TipoFlujo.IdEmpresa = dbo.cp_orden_pago.IdEmpresa AND dbo.ba_TipoFlujo.IdTipoFlujo = dbo.cp_orden_pago.IdTipoFlujo INNER JOIN
-                      dbo.cp_orden_pago_det ON dbo.cp_orden_pago.IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa AND 
-                      dbo.cp_orden_pago.IdOrdenPago = dbo.cp_orden_pago_det.IdOrdenPago INNER JOIN
-                      dbo.cp_orden_pago_cancelaciones INNER JOIN
-                      dbo.ba_Cbte_Ban ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = dbo.ba_Cbte_Ban.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = dbo.ba_Cbte_Ban.IdTipocbte AND 
-                      dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago = dbo.ba_Cbte_Ban.IdCbteCble INNER JOIN
-                      dbo.ct_cbtecble_det ON dbo.ba_Cbte_Ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND dbo.ba_Cbte_Ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte AND 
-                      dbo.ba_Cbte_Ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble INNER JOIN
-                      dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND 
-                      dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
-                      dbo.ct_cbtecble_tipo ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp = dbo.ct_cbtecble_tipo.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
-                      dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = ct_cbtecble_tipo_1.IdEmpresa AND 
-                      dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = ct_cbtecble_tipo_1.IdTipoCbte ON 
-                      dbo.cp_orden_pago_det.IdEmpresa_cxp = dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp AND 
-                      dbo.cp_orden_pago_det.IdTipoCbte_cxp = dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp AND 
-                      dbo.cp_orden_pago_det.IdCbteCble_cxp = dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp INNER JOIN
-                      dbo.tb_persona ON dbo.cp_orden_pago.IdPersona = dbo.tb_persona.IdPersona LEFT JOIN
-                          (SELECT     IdEmpresa, IdTipocbte, IdCbteCble, checked
-                            FROM          ba_Conciliacion_det_IngEgr
-                            WHERE      checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND 
-                      ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
-WHERE     (dbo.cp_orden_pago.IdTipo_op <> 'FACT_PROVEE') AND (NOT EXISTS
-                          (SELECT     IdEmpresa
-                            FROM          dbo.cp_nota_DebCre AS deb
-                            WHERE      (IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa_cxp) AND (IdTipoCbte_Nota = dbo.cp_orden_pago_det.IdTipoCbte_cxp) AND 
-                                                   (IdCbteCble_Nota = dbo.cp_orden_pago_det.IdCbteCble_cxp))) AND (NOT EXISTS
-                          (SELECT     IdEmpresa
-                            FROM          dbo.cp_orden_giro AS giro
-                            WHERE      (IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa_cxp) AND (IdTipoCbte_Ogiro = dbo.cp_orden_pago_det.IdTipoCbte_cxp) AND 
-                                                   (IdCbteCble_Ogiro = dbo.cp_orden_pago_det.IdCbteCble_cxp)))
+SELECT dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp, 
+                  dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago, dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago, ct_cbtecble_tipo_1.CodTipoCbte AS Tipo_cbte_pago, dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago, 
+                  dbo.cp_orden_pago.Observacion, dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
+                  dbo.cp_orden_pago_cancelaciones.MontoAplicado AS dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
+                  CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, dbo.tb_persona.pe_nombreCompleto, 
+                  CASE WHEN conci.checked IS NULL THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
+FROM     dbo.ba_TipoFlujo INNER JOIN
+                  dbo.cp_orden_pago ON dbo.ba_TipoFlujo.IdEmpresa = dbo.cp_orden_pago.IdEmpresa AND dbo.ba_TipoFlujo.IdTipoFlujo = dbo.cp_orden_pago.IdTipoFlujo INNER JOIN
+                  dbo.cp_orden_pago_det ON dbo.cp_orden_pago.IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa AND dbo.cp_orden_pago.IdOrdenPago = dbo.cp_orden_pago_det.IdOrdenPago INNER JOIN
+                  dbo.cp_orden_pago_cancelaciones INNER JOIN
+                  dbo.ba_Cbte_Ban ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = dbo.ba_Cbte_Ban.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = dbo.ba_Cbte_Ban.IdTipocbte AND 
+                  dbo.cp_orden_pago_cancelaciones.IdCbteCble_pago = dbo.ba_Cbte_Ban.IdCbteCble INNER JOIN
+                  dbo.ct_cbtecble_det ON dbo.ba_Cbte_Ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND dbo.ba_Cbte_Ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte AND 
+                  dbo.ba_Cbte_Ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble INNER JOIN
+                  dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
+                  dbo.ct_cbtecble_tipo ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp = dbo.ct_cbtecble_tipo.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
+                  dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.cp_orden_pago_cancelaciones.IdEmpresa_pago = ct_cbtecble_tipo_1.IdEmpresa AND dbo.cp_orden_pago_cancelaciones.IdTipoCbte_pago = ct_cbtecble_tipo_1.IdTipoCbte ON 
+                  dbo.cp_orden_pago_det.IdEmpresa_cxp = dbo.cp_orden_pago_cancelaciones.IdEmpresa_cxp AND dbo.cp_orden_pago_det.IdTipoCbte_cxp = dbo.cp_orden_pago_cancelaciones.IdTipoCbte_cxp AND 
+                  dbo.cp_orden_pago_det.IdCbteCble_cxp = dbo.cp_orden_pago_cancelaciones.IdCbteCble_cxp INNER JOIN
+                  dbo.tb_persona ON dbo.cp_orden_pago.IdPersona = dbo.tb_persona.IdPersona LEFT JOIN
+                      (SELECT IdEmpresa, IdTipocbte, IdCbteCble, checked
+                       FROM      ba_Conciliacion_det_IngEgr
+                       WHERE   checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
+WHERE  (dbo.cp_orden_pago.IdTipo_op <> 'FACT_PROVEE') AND (NOT EXISTS
+                      (SELECT IdEmpresa
+                       FROM      dbo.cp_nota_DebCre AS deb
+                       WHERE   (IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa_cxp) AND (IdTipoCbte_Nota = dbo.cp_orden_pago_det.IdTipoCbte_cxp) AND (IdCbteCble_Nota = dbo.cp_orden_pago_det.IdCbteCble_cxp))) AND (NOT EXISTS
+                      (SELECT IdEmpresa
+                       FROM      dbo.cp_orden_giro AS giro
+                       WHERE   (IdEmpresa = dbo.cp_orden_pago_det.IdEmpresa_cxp) AND (IdTipoCbte_Ogiro = dbo.cp_orden_pago_det.IdTipoCbte_cxp) AND (IdCbteCble_Ogiro = dbo.cp_orden_pago_det.IdCbteCble_cxp)))
 UNION
-SELECT     dbo.caj_Caja_Movimiento.IdEmpresa, dbo.caj_Caja_Movimiento.IdTipocbte, ct_cbtecble_tipo_1.tc_TipoCbte AS Tipo_cbte_cxp, dbo.ba_Cbte_Ban.IdCbteCble, 
-                      dbo.ba_Cbte_Ban.IdEmpresa AS Expr1, dbo.ba_Cbte_Ban.IdTipocbte AS Expr2, dbo.ct_cbtecble_tipo.CodTipoCbte AS Tipo_cbte_pago, 
-                      dbo.ba_Cbte_Ban.IdCbteCble AS Expr3, CASE WHEN dbo.cxc_cobro.IdEmpresa IS NOT NULL 
-                      THEN dbo.cxc_cobro.cr_observacion ELSE caj_Caja_Movimiento.cm_observacion END AS cr_observacion, dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, 
-                      dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, dbo.ct_cbtecble_det.dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, 
-                      dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, CASE WHEN ct_cbtecble_det_1.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, 
-                      CASE WHEN ct_cbtecble_det_1.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, dbo.tb_persona.pe_nombreCompleto, CASE WHEN conci.checked IS NULL 
-                      THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
-FROM         dbo.ct_cbtecble_det INNER JOIN
-                      dbo.ba_TipoFlujo INNER JOIN
-                      dbo.ct_cbtecble_det AS ct_cbtecble_det_1 INNER JOIN
-                      dbo.ct_cbtecble ON ct_cbtecble_det_1.IdEmpresa = dbo.ct_cbtecble.IdEmpresa AND ct_cbtecble_det_1.IdTipoCbte = dbo.ct_cbtecble.IdTipoCbte AND 
-                      ct_cbtecble_det_1.IdCbteCble = dbo.ct_cbtecble.IdCbteCble INNER JOIN
-                      dbo.ba_Cbte_Ban ON dbo.ct_cbtecble.IdEmpresa = dbo.ba_Cbte_Ban.IdEmpresa AND dbo.ct_cbtecble.IdCbteCble = dbo.ba_Cbte_Ban.IdCbteCble AND 
-                      dbo.ct_cbtecble.IdTipoCbte = dbo.ba_Cbte_Ban.IdTipocbte INNER JOIN
-                      dbo.ba_Banco_Cuenta ON ct_cbtecble_det_1.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND 
-                      ct_cbtecble_det_1.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
-                      dbo.caj_Caja_Movimiento INNER JOIN
-                      dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito ON 
-                      dbo.caj_Caja_Movimiento.IdEmpresa = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdEmpresa AND 
-                      dbo.caj_Caja_Movimiento.IdCbteCble = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdCbteCble AND 
-                      dbo.caj_Caja_Movimiento.IdTipocbte = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdTipocbte ON 
-                      dbo.ba_Cbte_Ban.IdEmpresa = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdEmpresa AND 
-                      dbo.ba_Cbte_Ban.IdCbteCble = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdCbteCble AND 
-                      dbo.ba_Cbte_Ban.IdTipocbte = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdTipocbte ON 
-                      dbo.ba_TipoFlujo.IdEmpresa = dbo.ba_Cbte_Ban.IdEmpresa AND dbo.ba_TipoFlujo.IdTipoFlujo = dbo.ba_Cbte_Ban.IdTipoFlujo INNER JOIN
-                      dbo.ct_cbtecble_tipo ON dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdEmpresa = dbo.ct_cbtecble_tipo.IdEmpresa AND 
-                      dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdTipocbte = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
-                      dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdEmpresa = ct_cbtecble_tipo_1.IdEmpresa AND 
-                      dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdTipocbte = ct_cbtecble_tipo_1.IdTipoCbte ON 
-                      dbo.ct_cbtecble_det.IdEmpresa = dbo.caj_Caja_Movimiento.IdEmpresa AND dbo.ct_cbtecble_det.IdTipoCbte = dbo.caj_Caja_Movimiento.IdTipocbte AND 
-                      dbo.ct_cbtecble_det.IdCbteCble = dbo.caj_Caja_Movimiento.IdCbteCble LEFT OUTER JOIN
-                      dbo.tb_persona ON dbo.caj_Caja_Movimiento.IdPersona = dbo.tb_persona.IdPersona LEFT OUTER JOIN
-                      dbo.cxc_cobro INNER JOIN
-                      dbo.cxc_cobro_x_caj_Caja_Movimiento ON dbo.cxc_cobro.IdEmpresa = dbo.cxc_cobro_x_caj_Caja_Movimiento.cbr_IdEmpresa AND 
-                      dbo.cxc_cobro.IdSucursal = dbo.cxc_cobro_x_caj_Caja_Movimiento.cbr_IdSucursal AND 
-                      dbo.cxc_cobro.IdCobro = dbo.cxc_cobro_x_caj_Caja_Movimiento.cbr_IdCobro ON 
-                      dbo.caj_Caja_Movimiento.IdEmpresa = dbo.cxc_cobro_x_caj_Caja_Movimiento.mcj_IdEmpresa AND 
-                      dbo.caj_Caja_Movimiento.IdCbteCble = dbo.cxc_cobro_x_caj_Caja_Movimiento.mcj_IdCbteCble AND 
-                      dbo.caj_Caja_Movimiento.IdTipocbte = dbo.cxc_cobro_x_caj_Caja_Movimiento.mcj_IdTipocbte LEFT JOIN
-                          (SELECT     IdEmpresa, IdTipocbte, IdCbteCble, checked
-                            FROM          ba_Conciliacion_det_IngEgr
-                            WHERE      checked = 1) conci ON conci.IdEmpresa = ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = ba_Cbte_Ban.IdTipocbte AND 
-                      ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
-WHERE     (dbo.ct_cbtecble_det.dc_Valor > 0)
+SELECT dbo.caj_Caja_Movimiento.IdEmpresa, dbo.caj_Caja_Movimiento.IdTipocbte, ct_cbtecble_tipo_1.tc_TipoCbte AS Tipo_cbte_cxp, dbo.ba_Cbte_Ban.IdCbteCble, dbo.ba_Cbte_Ban.IdEmpresa AS Expr1, dbo.ba_Cbte_Ban.IdTipocbte AS Expr2, 
+                  dbo.ct_cbtecble_tipo.CodTipoCbte AS Tipo_cbte_pago, dbo.ba_Cbte_Ban.IdCbteCble AS Expr3, CASE WHEN dbo.cxc_cobro.IdEmpresa IS NOT NULL 
+                  THEN dbo.cxc_cobro.cr_observacion ELSE caj_Caja_Movimiento.cm_observacion END AS cr_observacion, dbo.ba_Cbte_Ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, 
+                  dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, dbo.ct_cbtecble_det.dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
+                  CASE WHEN ct_cbtecble_det_1.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, CASE WHEN ct_cbtecble_det_1.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, dbo.tb_persona.pe_nombreCompleto, 
+                  CASE WHEN conci.checked IS NULL THEN CAST(0 AS bit) ELSE CAST(1 AS bit) END AS en_conci
+FROM     dbo.caj_Caja INNER JOIN
+                  dbo.ct_cbtecble_det INNER JOIN
+                  dbo.ba_TipoFlujo INNER JOIN
+                  dbo.ct_cbtecble_det AS ct_cbtecble_det_1 INNER JOIN
+                  dbo.ct_cbtecble ON ct_cbtecble_det_1.IdEmpresa = dbo.ct_cbtecble.IdEmpresa AND ct_cbtecble_det_1.IdTipoCbte = dbo.ct_cbtecble.IdTipoCbte AND ct_cbtecble_det_1.IdCbteCble = dbo.ct_cbtecble.IdCbteCble INNER JOIN
+                  dbo.ba_Cbte_Ban ON dbo.ct_cbtecble.IdEmpresa = dbo.ba_Cbte_Ban.IdEmpresa AND dbo.ct_cbtecble.IdCbteCble = dbo.ba_Cbte_Ban.IdCbteCble AND dbo.ct_cbtecble.IdTipoCbte = dbo.ba_Cbte_Ban.IdTipocbte INNER JOIN
+                  dbo.ba_Banco_Cuenta ON ct_cbtecble_det_1.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND ct_cbtecble_det_1.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
+                  dbo.caj_Caja_Movimiento INNER JOIN
+                  dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito ON dbo.caj_Caja_Movimiento.IdEmpresa = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdEmpresa AND 
+                  dbo.caj_Caja_Movimiento.IdCbteCble = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdCbteCble AND dbo.caj_Caja_Movimiento.IdTipocbte = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdTipocbte ON 
+                  dbo.ba_Cbte_Ban.IdEmpresa = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdEmpresa AND dbo.ba_Cbte_Ban.IdCbteCble = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdCbteCble AND 
+                  dbo.ba_Cbte_Ban.IdTipocbte = dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdTipocbte ON dbo.ba_TipoFlujo.IdEmpresa = dbo.ba_Cbte_Ban.IdEmpresa AND 
+                  dbo.ba_TipoFlujo.IdTipoFlujo = dbo.ba_Cbte_Ban.IdTipoFlujo INNER JOIN
+                  dbo.ct_cbtecble_tipo ON dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdEmpresa = dbo.ct_cbtecble_tipo.IdEmpresa AND 
+                  dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mba_IdTipocbte = dbo.ct_cbtecble_tipo.IdTipoCbte INNER JOIN
+                  dbo.ct_cbtecble_tipo AS ct_cbtecble_tipo_1 ON dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdEmpresa = ct_cbtecble_tipo_1.IdEmpresa AND 
+                  dbo.ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito.mcj_IdTipocbte = ct_cbtecble_tipo_1.IdTipoCbte ON dbo.ct_cbtecble_det.IdEmpresa = dbo.caj_Caja_Movimiento.IdEmpresa AND 
+                  dbo.ct_cbtecble_det.IdTipoCbte = dbo.caj_Caja_Movimiento.IdTipocbte AND dbo.ct_cbtecble_det.IdCbteCble = dbo.caj_Caja_Movimiento.IdCbteCble ON dbo.caj_Caja.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND 
+                  dbo.caj_Caja.IdCtaCble = dbo.ct_cbtecble_det.IdCtaCble LEFT OUTER JOIN
+                  dbo.cxc_cobro INNER JOIN
+                  dbo.cxc_cobro_x_caj_Caja_Movimiento ON dbo.cxc_cobro.IdEmpresa = dbo.cxc_cobro_x_caj_Caja_Movimiento.cbr_IdEmpresa AND dbo.cxc_cobro.IdSucursal = dbo.cxc_cobro_x_caj_Caja_Movimiento.cbr_IdSucursal AND 
+                  dbo.cxc_cobro.IdCobro = dbo.cxc_cobro_x_caj_Caja_Movimiento.cbr_IdCobro ON dbo.caj_Caja_Movimiento.IdEmpresa = dbo.cxc_cobro_x_caj_Caja_Movimiento.mcj_IdEmpresa AND 
+                  dbo.caj_Caja_Movimiento.IdCbteCble = dbo.cxc_cobro_x_caj_Caja_Movimiento.mcj_IdCbteCble AND dbo.caj_Caja_Movimiento.IdTipocbte = dbo.cxc_cobro_x_caj_Caja_Movimiento.mcj_IdTipocbte LEFT OUTER JOIN
+                  dbo.tb_persona ON dbo.caj_Caja_Movimiento.IdPersona = dbo.tb_persona.IdPersona LEFT OUTER JOIN
+                      (SELECT IdEmpresa, IdTipocbte, IdCbteCble, checked
+                       FROM      dbo.ba_Conciliacion_det_IngEgr
+                       WHERE   (checked = 1)) AS conci ON conci.IdEmpresa = dbo.ba_Cbte_Ban.IdEmpresa AND conci.IdTipocbte = dbo.ba_Cbte_Ban.IdTipocbte AND dbo.ba_Cbte_Ban.IdCbteCble = conci.IdCbteCble
+WHERE  (dbo.ct_cbtecble_det.dc_Valor > 0) and ba_Cbte_Ban.estado = 'A'
 UNION ALL
-SELECT     ban.IdEmpresa AS IdEmpresa_cxp, ban.IdTipocbte AS IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, ban.IdCbteCble AS IdCbteCble_cxp, 
-                      ban.IdEmpresa AS IdEmpresa_pago, ban.IdTipocbte AS IdTipocbte_pago, dbo.ct_cbtecble_tipo.CodTipoCbte AS Tipo_cbte_pago, ban.IdCbteCble AS IdCbteCble_pago, 
-                      ban.cb_Observacion, ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, dbo.ba_TipoFlujo.Tipo, 
-                      ABS(dbo.ct_cbtecble_det.dc_Valor) dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, 
-                      CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, NULL, CASE WHEN f.checked IS NULL THEN cast(0 AS bit) ELSE cast(1 AS bit) 
-                      END AS en_conci
-FROM         dbo.ba_Cbte_Ban AS ban INNER JOIN
-                      dbo.ba_TipoFlujo ON ban.IdEmpresa = dbo.ba_TipoFlujo.IdEmpresa AND ban.IdTipoFlujo = dbo.ba_TipoFlujo.IdTipoFlujo INNER JOIN
-                      dbo.ct_cbtecble_det ON ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble AND 
-                      ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte INNER JOIN
-                      dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND 
-                      dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
-                      dbo.ct_cbtecble_tipo ON ban.IdEmpresa = dbo.ct_cbtecble_tipo.IdEmpresa AND ban.IdTipocbte = dbo.ct_cbtecble_tipo.IdTipoCbte LEFT JOIN
-                          /*(SELECT     IdEmpresa, IdTipocbte, IdCbteCble, checked
+SELECT ban.IdEmpresa AS IdEmpresa_cxp, ban.IdTipocbte AS IdTipoCbte_cxp, dbo.ct_cbtecble_tipo.tc_TipoCbte AS Tipo_cbte_cxp, ban.IdCbteCble AS IdCbteCble_cxp, ban.IdEmpresa AS IdEmpresa_pago, ban.IdTipocbte AS IdTipocbte_pago, 
+                  dbo.ct_cbtecble_tipo.CodTipoCbte AS Tipo_cbte_pago, ban.IdCbteCble AS IdCbteCble_pago, ban.cb_Observacion, ban.cb_Fecha, dbo.ba_TipoFlujo.IdTipoFlujo, dbo.ba_TipoFlujo.Descricion AS nom_tipo_flujo, dbo.ba_TipoFlujo.cod_flujo, 
+                  dbo.ba_TipoFlujo.Tipo, ABS(dbo.ct_cbtecble_det.dc_Valor) dc_Valor, dbo.ba_Banco_Cuenta.IdBanco, dbo.ba_Banco_Cuenta.ba_descripcion AS nom_banco, 
+                  CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 'INGRESOS' ELSE 'EGRESOS' END AS Tipo_movi, CASE WHEN dbo.ct_cbtecble_det.dc_Valor > 0 THEN 1 ELSE 2 END AS orden, NULL, CASE WHEN f.checked IS NULL 
+                  THEN cast(0 AS bit) ELSE cast(1 AS bit) END AS en_conci
+FROM     dbo.ba_Cbte_Ban AS ban INNER JOIN
+                  dbo.ba_TipoFlujo ON ban.IdEmpresa = dbo.ba_TipoFlujo.IdEmpresa AND ban.IdTipoFlujo = dbo.ba_TipoFlujo.IdTipoFlujo INNER JOIN
+                  dbo.ct_cbtecble_det ON ban.IdEmpresa = dbo.ct_cbtecble_det.IdEmpresa AND ban.IdCbteCble = dbo.ct_cbtecble_det.IdCbteCble AND ban.IdTipocbte = dbo.ct_cbtecble_det.IdTipoCbte INNER JOIN
+                  dbo.ba_Banco_Cuenta ON dbo.ct_cbtecble_det.IdEmpresa = dbo.ba_Banco_Cuenta.IdEmpresa AND dbo.ct_cbtecble_det.IdCtaCble = dbo.ba_Banco_Cuenta.IdCtaCble INNER JOIN
+                  dbo.ct_cbtecble_tipo ON ban.IdEmpresa = dbo.ct_cbtecble_tipo.IdEmpresa AND ban.IdTipocbte = dbo.ct_cbtecble_tipo.IdTipoCbte LEFT JOIN
+                  /*(SELECT     IdEmpresa, IdTipocbte, IdCbteCble, checked
                             FROM          ba_Conciliacion_det_IngEgr
-                            WHERE      checked = 1) conci ON conci.IdEmpresa = ban.IdEmpresa AND conci.IdTipocbte = ban.IdTipocbte AND ban.IdCbteCble = conci.IdCbteCble*/
-					 dbo.ba_Conciliacion_det_IngEgr as f on f.IdEmpresa = ban.IdEmpresa and f.IdTipocbte = ban.IdTipocbte and f.IdCbteCble = ban.IdCbteCble and f.checked = 1 and dbo.ct_cbtecble_det.secuencia = f.SecuenciaCbteCble
-WHERE     NOT EXISTS
-                          (SELECT     IdEmpresa
-                            FROM          dbo.cp_orden_pago_cancelaciones can
-                            WHERE      ban.IdEmpresa = can.IdEmpresa_pago AND ban.IdTipocbte = can.IdTipoCbte_pago AND ban.IdCbteCble = can.IdCbteCble_pago) AND 
-                      NOT EXISTS
-                          (SELECT     mba_IdEmpresa
-                            FROM          ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito caj
-                            WHERE      ban.IdEmpresa = caj.mba_IdEmpresa AND ban.IdTipocbte = caj.mba_IdTipocbte AND ban.IdCbteCble = caj.mba_IdCbteCble) AND ban.Estado = 'A'
+                            WHERE      checked = 1) conci ON conci.IdEmpresa = ban.IdEmpresa AND conci.IdTipocbte = ban.IdTipocbte AND ban.IdCbteCble = conci.IdCbteCble*/ dbo.ba_Conciliacion_det_IngEgr
+                   AS f ON f.IdEmpresa = ban.IdEmpresa AND f.IdTipocbte = ban.IdTipocbte AND f.IdCbteCble = ban.IdCbteCble AND f.checked = 1 AND dbo.ct_cbtecble_det.secuencia = f.SecuenciaCbteCble LEFT JOIN
+                  ct_cbtecble_Reversado AS r ON ban.IdEmpresa = r.IdEmpresa AND ban.IdTipocbte = r.IdTipoCbte AND ban.IdCbteCble = r.IdCbteCble LEFT JOIN
+                  ct_cbtecble AS rev ON r.IdEmpresa_Anu = rev.IdEmpresa AND r.IdTipoCbte_Anu = rev.IdTipoCbte AND r.IdCbteCble_Anu = rev.IdCbteCble
+WHERE  isnull(rev.cb_Fecha, dateadd(day, 1, ban.cb_Fecha)) <> ban.cb_Fecha AND NOT EXISTS
+                      (SELECT IdEmpresa
+                       FROM      dbo.cp_orden_pago_cancelaciones can
+                       WHERE   ban.IdEmpresa = can.IdEmpresa_pago AND ban.IdTipocbte = can.IdTipoCbte_pago AND ban.IdCbteCble = can.IdCbteCble_pago) AND NOT EXISTS
+                      (SELECT mba_IdEmpresa
+                       FROM      ba_Caja_Movimiento_x_Cbte_Ban_x_Deposito caj
+                       WHERE   ban.IdEmpresa = caj.mba_IdEmpresa AND ban.IdTipocbte = caj.mba_IdTipocbte AND ban.IdCbteCble = caj.mba_IdCbteCble) AND ban.Estado = 'A'
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'vwBAN_Rpt007';
 
