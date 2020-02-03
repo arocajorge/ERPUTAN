@@ -37,7 +37,7 @@ namespace Core.Erp.Winform.Inventario
         //Listas   
         List<ct_Centro_costo_Info> list_centro_costo;
         List<ct_punto_cargo_Info> list_punto_cargo;
-        List<in_Producto_Info> listProducto;
+        List<in_Producto_Combo> listProducto;
         
         List<in_Ing_Egr_Inven_det_Info> list_IngEgrDet;        
         List<tb_Bodega_Info> list_bodega;
@@ -58,7 +58,7 @@ namespace Core.Erp.Winform.Inventario
         List<ct_centro_costo_sub_centro_costo_Info> list_subcentro_combo = new List<ct_centro_costo_sub_centro_costo_Info>();
         int RowHandle = 0;
 
-        in_Producto_Info Item = new in_Producto_Info();
+        in_Producto_Combo Item = new in_Producto_Combo();
 
         List<in_UnidadMedida_Info> lst_unidad_medida = new List<in_UnidadMedida_Info>();
         in_UnidadMedida_Bus bus_unidad_medida = new in_UnidadMedida_Bus();
@@ -286,9 +286,9 @@ namespace Core.Erp.Winform.Inventario
 
                 // carga combo productos grid  
                 Bus_Producto = new in_producto_Bus();
-                listProducto = new List<in_Producto_Info>();
+                listProducto = new List<in_Producto_Combo>();
                 //listProducto = Bus_Producto.Get_list_Producto(param.IdEmpresa, IdSucursal);
-                listProducto = Bus_Producto.Get_list_Producto(param.IdEmpresa);
+                listProducto = Bus_Producto.GetListCombo(param.IdEmpresa);
                 cmbProducto_grid.DataSource = listProducto;
 
                 // carga bodega 
