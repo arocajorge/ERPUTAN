@@ -1663,7 +1663,7 @@ namespace Core.Erp.Data.Inventario
                             signo = "+",
                             CodMoviInven = "TR" + info.IdTransferencia.ToString(),
                             cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + (info.tr_Observacion ?? ""),
-                            cm_fecha = info.tr_fecha,
+                            cm_fecha = DateTime.Now.Date,
                             IdUsuario = info.IdUsuario,
                             Fecha_Transac = DateTime.Now,
                             Estado = "A",
@@ -1686,7 +1686,7 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaDest,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)),
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.cantidad_enviar)),
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
