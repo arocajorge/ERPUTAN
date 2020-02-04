@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelColecturia_CAH_Rpt.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelColecturia_CAH_RptStoreContainer">
+          <EntitySet Name="vwCOL_Rpt001" EntityType="ModelColecturia_CAH_Rpt.Store.vwCOL_Rpt001" store:Type="Views" store:Schema="Academico" store:Name="vwCOL_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwCOL_Rpt001].[IdInstitucion] AS [IdInstitucion], 
+      [vwCOL_Rpt001].[IdSede] AS [IdSede], 
+      [vwCOL_Rpt001].[IdSeccion] AS [IdSeccion], 
+      [vwCOL_Rpt001].[IdJornada] AS [IdJornada], 
+      [vwCOL_Rpt001].[IdCurso] AS [IdCurso], 
+      [vwCOL_Rpt001].[IdParalelo] AS [IdParalelo], 
+      [vwCOL_Rpt001].[Sede] AS [Sede], 
+      [vwCOL_Rpt001].[Jornada] AS [Jornada], 
+      [vwCOL_Rpt001].[Seccion] AS [Seccion], 
+      [vwCOL_Rpt001].[Curso] AS [Curso], 
+      [vwCOL_Rpt001].[Paralelo] AS [Paralelo], 
+      [vwCOL_Rpt001].[IdEstudiante] AS [IdEstudiante], 
+      [vwCOL_Rpt001].[IdMatricula] AS [IdMatricula], 
+      [vwCOL_Rpt001].[CodMatricula] AS [CodMatricula], 
+      [vwCOL_Rpt001].[IdContrato] AS [IdContrato], 
+      [vwCOL_Rpt001].[IdAnioLectivo] AS [IdAnioLectivo], 
+      [vwCOL_Rpt001].[Tipo_documento_cat] AS [Tipo_documento_cat], 
+      [vwCOL_Rpt001].[IdBanco] AS [IdBanco], 
+      [vwCOL_Rpt001].[vt_total] AS [vt_total], 
+      [vwCOL_Rpt001].[tiene_seguro] AS [tiene_seguro], 
+      [vwCOL_Rpt001].[Cod_convivencia_doy_fe] AS [Cod_convivencia_doy_fe]
+      FROM [Academico].[vwCOL_Rpt001] AS [vwCOL_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCOL_Rpt002" EntityType="ModelColecturia_CAH_Rpt.Store.vwCOL_Rpt002" store:Type="Views" store:Schema="Academico" store:Name="vwCOL_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwCOL_Rpt002].[IdInstitucion] AS [IdInstitucion], 
+      [vwCOL_Rpt002].[IdSede] AS [IdSede], 
+      [vwCOL_Rpt002].[IdParalelo] AS [IdParalelo], 
+      [vwCOL_Rpt002].[IdCurso] AS [IdCurso], 
+      [vwCOL_Rpt002].[IdSeccion] AS [IdSeccion], 
+      [vwCOL_Rpt002].[IdJornada] AS [IdJornada], 
+      [vwCOL_Rpt002].[IdAnioLectivo] AS [IdAnioLectivo], 
+      [vwCOL_Rpt002].[IdMatricula] AS [IdMatricula], 
+      [vwCOL_Rpt002].[IdEstudiante] AS [IdEstudiante], 
+      [vwCOL_Rpt002].[Institucion] AS [Institucion], 
+      [vwCOL_Rpt002].[Sede] AS [Sede], 
+      [vwCOL_Rpt002].[Jornada] AS [Jornada], 
+      [vwCOL_Rpt002].[Seccion] AS [Seccion], 
+      [vwCOL_Rpt002].[Curso] AS [Curso], 
+      [vwCOL_Rpt002].[Paralelo] AS [Paralelo], 
+      [vwCOL_Rpt002].[nombre_estudiante] AS [nombre_estudiante], 
+      [vwCOL_Rpt002].[apellido_estudiante] AS [apellido_estudiante], 
+      [vwCOL_Rpt002].[cedula_estudiante] AS [cedula_estudiante], 
+      [vwCOL_Rpt002].[direccion_estudiante] AS [direccion_estudiante], 
+      [vwCOL_Rpt002].[telefono_casa_estudiante] AS [telefono_casa_estudiante], 
+      [vwCOL_Rpt002].[telefono_oficina_estudiante] AS [telefono_oficina_estudiante], 
+      [vwCOL_Rpt002].[cod_estudiante] AS [cod_estudiante], 
+      [vwCOL_Rpt002].[FechaMatricula] AS [FechaMatricula], 
+      [vwCOL_Rpt002].[Fecha_Ingreso_estudiante] AS [Fecha_Ingreso_estudiante], 
+      [vwCOL_Rpt002].[sexo_estudiante] AS [sexo_estudiante], 
+      [vwCOL_Rpt002].[fecha_nacimiento_estudiante] AS [fecha_nacimiento_estudiante], 
+      [vwCOL_Rpt002].[correo_estudiante] AS [correo_estudiante], 
+      [vwCOL_Rpt002].[CodCurso] AS [CodCurso], 
+      [vwCOL_Rpt002].[estado_matricula] AS [estado_matricula], 
+      [vwCOL_Rpt002].[nacionalidad_estudiante] AS [nacionalidad_estudiante], 
+      [vwCOL_Rpt002].[lugar_estudiante] AS [lugar_estudiante], 
+      [vwCOL_Rpt002].[sector] AS [sector], 
+      [vwCOL_Rpt002].[Si_estoy_deacuerdo_foto] AS [Si_estoy_deacuerdo_foto], 
+      [vwCOL_Rpt002].[No_estoy_deacuerdo_foto] AS [No_estoy_deacuerdo_foto], 
+      [vwCOL_Rpt002].[Cod_convivencia_doy_fe] AS [Cod_convivencia_doy_fe], 
+      [vwCOL_Rpt002].[nombre_familiar] AS [nombre_familiar], 
+      [vwCOL_Rpt002].[apellido_familiar] AS [apellido_familiar], 
+      [vwCOL_Rpt002].[cedula_familiar] AS [cedula_familiar], 
+      [vwCOL_Rpt002].[direccion_familiar] AS [direccion_familiar], 
+      [vwCOL_Rpt002].[telefonoCasa_familiar] AS [telefonoCasa_familiar], 
+      [vwCOL_Rpt002].[telefonoOficina_familiar] AS [telefonoOficina_familiar], 
+      [vwCOL_Rpt002].[celular_familiar] AS [celular_familiar], 
+      [vwCOL_Rpt002].[correo_familiar] AS [correo_familiar], 
+      [vwCOL_Rpt002].[profesion_familiar] AS [profesion_familiar], 
+      [vwCOL_Rpt002].[ocupacion_laboral_familiar] AS [ocupacion_laboral_familiar], 
+      [vwCOL_Rpt002].[empresa_familiar] AS [empresa_familiar], 
+      [vwCOL_Rpt002].[direccion_empresa_familiar] AS [direccion_empresa_familiar], 
+      [vwCOL_Rpt002].[nacionalidad_familiar] AS [nacionalidad_familiar], 
+      [vwCOL_Rpt002].[IdParentesco_cat] AS [IdParentesco_cat], 
+      [vwCOL_Rpt002].[activo] AS [activo]
+      FROM [Academico].[vwCOL_Rpt002] AS [vwCOL_Rpt002]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_CAH_PRUEBA.Academico.vwCOL_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCOL_Rpt001">
+          <Key>
+            <PropertyRef Name="IdInstitucion" />
+            <PropertyRef Name="IdSede" />
+            <PropertyRef Name="IdSeccion" />
+            <PropertyRef Name="IdJornada" />
+            <PropertyRef Name="IdCurso" />
+            <PropertyRef Name="IdParalelo" />
+            <PropertyRef Name="Sede" />
+            <PropertyRef Name="Jornada" />
+            <PropertyRef Name="Seccion" />
+            <PropertyRef Name="Curso" />
+            <PropertyRef Name="Paralelo" />
+            <PropertyRef Name="IdEstudiante" />
+            <PropertyRef Name="IdMatricula" />
+            <PropertyRef Name="CodMatricula" />
+            <PropertyRef Name="IdContrato" />
+            <PropertyRef Name="IdAnioLectivo" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="Cod_convivencia_doy_fe" />
+          </Key>
+          <Property Name="IdInstitucion" Type="int" Nullable="false" />
+          <Property Name="IdSede" Type="int" Nullable="false" />
+          <Property Name="IdSeccion" Type="int" Nullable="false" />
+          <Property Name="IdJornada" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="IdParalelo" Type="int" Nullable="false" />
+          <Property Name="Sede" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Jornada" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Seccion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Curso" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Paralelo" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdEstudiante" Type="numeric" Nullable="false" />
+          <Property Name="IdMatricula" Type="numeric" Nullable="false" />
+          <Property Name="CodMatricula" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdContrato" Type="numeric" Nullable="false" />
+          <Property Name="IdAnioLectivo" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Tipo_documento_cat" Type="varchar" MaxLength="10" />
+          <Property Name="IdBanco" Type="int" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="tiene_seguro" Type="bit" />
+          <Property Name="Cod_convivencia_doy_fe" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_CAH_PRUEBA.Academico.vwCOL_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwCOL_Rpt002">
+          <Key>
+            <PropertyRef Name="IdInstitucion" />
+            <PropertyRef Name="IdSede" />
+            <PropertyRef Name="IdParalelo" />
+            <PropertyRef Name="IdCurso" />
+            <PropertyRef Name="IdSeccion" />
+            <PropertyRef Name="IdJornada" />
+            <PropertyRef Name="IdAnioLectivo" />
+            <PropertyRef Name="IdMatricula" />
+            <PropertyRef Name="IdEstudiante" />
+            <PropertyRef Name="Institucion" />
+            <PropertyRef Name="Sede" />
+            <PropertyRef Name="Jornada" />
+            <PropertyRef Name="Seccion" />
+            <PropertyRef Name="Curso" />
+            <PropertyRef Name="Paralelo" />
+            <PropertyRef Name="nombre_estudiante" />
+            <PropertyRef Name="apellido_estudiante" />
+            <PropertyRef Name="cedula_estudiante" />
+            <PropertyRef Name="direccion_estudiante" />
+            <PropertyRef Name="cod_estudiante" />
+            <PropertyRef Name="FechaMatricula" />
+            <PropertyRef Name="sexo_estudiante" />
+            <PropertyRef Name="CodCurso" />
+            <PropertyRef Name="estado_matricula" />
+            <PropertyRef Name="nacionalidad_estudiante" />
+            <PropertyRef Name="lugar_estudiante" />
+            <PropertyRef Name="sector" />
+            <PropertyRef Name="Si_estoy_deacuerdo_foto" />
+            <PropertyRef Name="No_estoy_deacuerdo_foto" />
+            <PropertyRef Name="Cod_convivencia_doy_fe" />
+            <PropertyRef Name="nombre_familiar" />
+            <PropertyRef Name="apellido_familiar" />
+            <PropertyRef Name="cedula_familiar" />
+            <PropertyRef Name="direccion_familiar" />
+            <PropertyRef Name="profesion_familiar" />
+            <PropertyRef Name="ocupacion_laboral_familiar" />
+            <PropertyRef Name="empresa_familiar" />
+            <PropertyRef Name="direccion_empresa_familiar" />
+            <PropertyRef Name="nacionalidad_familiar" />
+            <PropertyRef Name="IdParentesco_cat" />
+            <PropertyRef Name="activo" />
+          </Key>
+          <Property Name="IdInstitucion" Type="int" Nullable="false" />
+          <Property Name="IdSede" Type="int" Nullable="false" />
+          <Property Name="IdParalelo" Type="int" Nullable="false" />
+          <Property Name="IdCurso" Type="int" Nullable="false" />
+          <Property Name="IdSeccion" Type="int" Nullable="false" />
+          <Property Name="IdJornada" Type="int" Nullable="false" />
+          <Property Name="IdAnioLectivo" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdMatricula" Type="numeric" Nullable="false" />
+          <Property Name="IdEstudiante" Type="numeric" Nullable="false" />
+          <Property Name="Institucion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Sede" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Jornada" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Seccion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Curso" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Paralelo" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="nombre_estudiante" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="apellido_estudiante" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="cedula_estudiante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="direccion_estudiante" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="telefono_casa_estudiante" Type="varchar" MaxLength="50" />
+          <Property Name="telefono_oficina_estudiante" Type="varchar" MaxLength="50" />
+          <Property Name="cod_estudiante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FechaMatricula" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_Ingreso_estudiante" Type="datetime" />
+          <Property Name="sexo_estudiante" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="fecha_nacimiento_estudiante" Type="datetime" />
+          <Property Name="correo_estudiante" Type="varchar" MaxLength="100" />
+          <Property Name="CodCurso" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="estado_matricula" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="nacionalidad_estudiante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="lugar_estudiante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="sector" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Si_estoy_deacuerdo_foto" Type="bit" Nullable="false" />
+          <Property Name="No_estoy_deacuerdo_foto" Type="bit" Nullable="false" />
+          <Property Name="Cod_convivencia_doy_fe" Type="bit" Nullable="false" />
+          <Property Name="nombre_familiar" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="apellido_familiar" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="cedula_familiar" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="direccion_familiar" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="telefonoCasa_familiar" Type="varchar" MaxLength="50" />
+          <Property Name="telefonoOficina_familiar" Type="varchar" MaxLength="50" />
+          <Property Name="celular_familiar" Type="varchar" MaxLength="50" />
+          <Property Name="correo_familiar" Type="varchar" MaxLength="100" />
+          <Property Name="profesion_familiar" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ocupacion_laboral_familiar" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="empresa_familiar" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="direccion_empresa_familiar" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="nacionalidad_familiar" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdParentesco_cat" Type="varchar" Nullable="false" MaxLength="35" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelColecturia_CAH_Rpt" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesColecturia_CAH_Rpt" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwCOL_Rpt001" EntityType="ModelColecturia_CAH_Rpt.vwCOL_Rpt001" />
+          <EntitySet Name="vwCOL_Rpt002" EntityType="ModelColecturia_CAH_Rpt.vwCOL_Rpt002" />
+        </EntityContainer>
+        <EntityType Name="vwCOL_Rpt001">
+          <Key>
+            <PropertyRef Name="IdInstitucion" />
+            <PropertyRef Name="IdSede" />
+            <PropertyRef Name="IdSeccion" />
+            <PropertyRef Name="IdJornada" />
+            <PropertyRef Name="IdCurso" />
+            <PropertyRef Name="IdParalelo" />
+            <PropertyRef Name="IdEstudiante" />
+            <PropertyRef Name="IdMatricula" />
+            <PropertyRef Name="CodMatricula" />
+            <PropertyRef Name="IdContrato" />
+            <PropertyRef Name="IdAnioLectivo" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="Sede" />
+            <PropertyRef Name="Jornada" />
+            <PropertyRef Name="Seccion" />
+            <PropertyRef Name="Curso" />
+            <PropertyRef Name="Paralelo" />
+            <PropertyRef Name="Cod_convivencia_doy_fe" />
+          </Key>
+          <Property Name="IdInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="IdSede" Type="Int32" Nullable="false" />
+          <Property Name="IdSeccion" Type="Int32" Nullable="false" />
+          <Property Name="IdJornada" Type="Int32" Nullable="false" />
+          <Property Name="IdCurso" Type="Int32" Nullable="false" />
+          <Property Name="IdParalelo" Type="Int32" Nullable="false" />
+          <Property Name="IdEstudiante" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdMatricula" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CodMatricula" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdContrato" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdAnioLectivo" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Tipo_documento_cat" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="IdBanco" Type="Int32" />
+          <Property Name="vt_total" Type="Double" Nullable="false" />
+          <Property Type="String" Name="Sede" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Jornada" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Seccion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Curso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Paralelo" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="tiene_seguro" />
+          <Property Type="Boolean" Name="Cod_convivencia_doy_fe" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwCOL_Rpt002">
+          <Key>
+            <PropertyRef Name="IdInstitucion" />
+            <PropertyRef Name="IdSede" />
+            <PropertyRef Name="IdParalelo" />
+            <PropertyRef Name="IdCurso" />
+            <PropertyRef Name="IdSeccion" />
+            <PropertyRef Name="IdJornada" />
+            <PropertyRef Name="IdAnioLectivo" />
+            <PropertyRef Name="IdMatricula" />
+            <PropertyRef Name="IdEstudiante" />
+            <PropertyRef Name="Institucion" />
+            <PropertyRef Name="Sede" />
+            <PropertyRef Name="Jornada" />
+            <PropertyRef Name="Seccion" />
+            <PropertyRef Name="Curso" />
+            <PropertyRef Name="Paralelo" />
+            <PropertyRef Name="nombre_estudiante" />
+            <PropertyRef Name="apellido_estudiante" />
+            <PropertyRef Name="cedula_estudiante" />
+            <PropertyRef Name="direccion_estudiante" />
+            <PropertyRef Name="cod_estudiante" />
+            <PropertyRef Name="FechaMatricula" />
+            <PropertyRef Name="sexo_estudiante" />
+            <PropertyRef Name="CodCurso" />
+            <PropertyRef Name="estado_matricula" />
+            <PropertyRef Name="nacionalidad_estudiante" />
+            <PropertyRef Name="lugar_estudiante" />
+            <PropertyRef Name="sector" />
+            <PropertyRef Name="Si_estoy_deacuerdo_foto" />
+            <PropertyRef Name="No_estoy_deacuerdo_foto" />
+            <PropertyRef Name="Cod_convivencia_doy_fe" />
+            <PropertyRef Name="nombre_familiar" />
+            <PropertyRef Name="apellido_familiar" />
+            <PropertyRef Name="cedula_familiar" />
+            <PropertyRef Name="direccion_familiar" />
+            <PropertyRef Name="profesion_familiar" />
+            <PropertyRef Name="ocupacion_laboral_familiar" />
+            <PropertyRef Name="empresa_familiar" />
+            <PropertyRef Name="direccion_empresa_familiar" />
+            <PropertyRef Name="nacionalidad_familiar" />
+            <PropertyRef Name="IdParentesco_cat" />
+            <PropertyRef Name="activo" />
+          </Key>
+          <Property Type="Int32" Name="IdInstitucion" Nullable="false" />
+          <Property Type="Int32" Name="IdSede" Nullable="false" />
+          <Property Type="Int32" Name="IdParalelo" Nullable="false" />
+          <Property Type="Int32" Name="IdCurso" Nullable="false" />
+          <Property Type="Int32" Name="IdSeccion" Nullable="false" />
+          <Property Type="Int32" Name="IdJornada" Nullable="false" />
+          <Property Type="String" Name="IdAnioLectivo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdMatricula" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdEstudiante" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Institucion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Sede" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Jornada" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Seccion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Curso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Paralelo" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nombre_estudiante" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="apellido_estudiante" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cedula_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="direccion_estudiante" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="telefono_casa_estudiante" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="telefono_oficina_estudiante" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cod_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaMatricula" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Ingreso_estudiante" Precision="3" />
+          <Property Type="String" Name="sexo_estudiante" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha_nacimiento_estudiante" Precision="3" />
+          <Property Type="String" Name="correo_estudiante" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodCurso" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="estado_matricula" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="nacionalidad_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="lugar_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sector" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="Si_estoy_deacuerdo_foto" Nullable="false" />
+          <Property Type="Boolean" Name="No_estoy_deacuerdo_foto" Nullable="false" />
+          <Property Type="Boolean" Name="Cod_convivencia_doy_fe" Nullable="false" />
+          <Property Type="String" Name="nombre_familiar" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="apellido_familiar" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cedula_familiar" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="direccion_familiar" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="telefonoCasa_familiar" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="telefonoOficina_familiar" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="celular_familiar" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="correo_familiar" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="profesion_familiar" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ocupacion_laboral_familiar" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="empresa_familiar" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="direccion_empresa_familiar" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nacionalidad_familiar" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdParentesco_cat" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="activo" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelColecturia_CAH_RptStoreContainer" CdmEntityContainer="EntitiesColecturia_CAH_Rpt">
+          <EntitySetMapping Name="vwCOL_Rpt001">
+            <EntityTypeMapping TypeName="ModelColecturia_CAH_Rpt.vwCOL_Rpt001">
+              <MappingFragment StoreEntitySet="vwCOL_Rpt001">
+                <ScalarProperty Name="Cod_convivencia_doy_fe" ColumnName="Cod_convivencia_doy_fe" />
+                <ScalarProperty Name="tiene_seguro" ColumnName="tiene_seguro" />
+                <ScalarProperty Name="Paralelo" ColumnName="Paralelo" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+                <ScalarProperty Name="Jornada" ColumnName="Jornada" />
+                <ScalarProperty Name="Sede" ColumnName="Sede" />
+                <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+                <ScalarProperty Name="IdSeccion" ColumnName="IdSeccion" />
+                <ScalarProperty Name="IdJornada" ColumnName="IdJornada" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdParalelo" ColumnName="IdParalelo" />
+                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="CodMatricula" ColumnName="CodMatricula" />
+                <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
+                <ScalarProperty Name="IdAnioLectivo" ColumnName="IdAnioLectivo" />
+                <ScalarProperty Name="Tipo_documento_cat" ColumnName="Tipo_documento_cat" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCOL_Rpt002">
+            <EntityTypeMapping TypeName="ModelColecturia_CAH_Rpt.vwCOL_Rpt002">
+              <MappingFragment StoreEntitySet="vwCOL_Rpt002">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="IdParentesco_cat" ColumnName="IdParentesco_cat" />
+                <ScalarProperty Name="nacionalidad_familiar" ColumnName="nacionalidad_familiar" />
+                <ScalarProperty Name="direccion_empresa_familiar" ColumnName="direccion_empresa_familiar" />
+                <ScalarProperty Name="empresa_familiar" ColumnName="empresa_familiar" />
+                <ScalarProperty Name="ocupacion_laboral_familiar" ColumnName="ocupacion_laboral_familiar" />
+                <ScalarProperty Name="profesion_familiar" ColumnName="profesion_familiar" />
+                <ScalarProperty Name="correo_familiar" ColumnName="correo_familiar" />
+                <ScalarProperty Name="celular_familiar" ColumnName="celular_familiar" />
+                <ScalarProperty Name="telefonoOficina_familiar" ColumnName="telefonoOficina_familiar" />
+                <ScalarProperty Name="telefonoCasa_familiar" ColumnName="telefonoCasa_familiar" />
+                <ScalarProperty Name="direccion_familiar" ColumnName="direccion_familiar" />
+                <ScalarProperty Name="cedula_familiar" ColumnName="cedula_familiar" />
+                <ScalarProperty Name="apellido_familiar" ColumnName="apellido_familiar" />
+                <ScalarProperty Name="nombre_familiar" ColumnName="nombre_familiar" />
+                <ScalarProperty Name="Cod_convivencia_doy_fe" ColumnName="Cod_convivencia_doy_fe" />
+                <ScalarProperty Name="No_estoy_deacuerdo_foto" ColumnName="No_estoy_deacuerdo_foto" />
+                <ScalarProperty Name="Si_estoy_deacuerdo_foto" ColumnName="Si_estoy_deacuerdo_foto" />
+                <ScalarProperty Name="sector" ColumnName="sector" />
+                <ScalarProperty Name="lugar_estudiante" ColumnName="lugar_estudiante" />
+                <ScalarProperty Name="nacionalidad_estudiante" ColumnName="nacionalidad_estudiante" />
+                <ScalarProperty Name="estado_matricula" ColumnName="estado_matricula" />
+                <ScalarProperty Name="CodCurso" ColumnName="CodCurso" />
+                <ScalarProperty Name="correo_estudiante" ColumnName="correo_estudiante" />
+                <ScalarProperty Name="fecha_nacimiento_estudiante" ColumnName="fecha_nacimiento_estudiante" />
+                <ScalarProperty Name="sexo_estudiante" ColumnName="sexo_estudiante" />
+                <ScalarProperty Name="Fecha_Ingreso_estudiante" ColumnName="Fecha_Ingreso_estudiante" />
+                <ScalarProperty Name="FechaMatricula" ColumnName="FechaMatricula" />
+                <ScalarProperty Name="cod_estudiante" ColumnName="cod_estudiante" />
+                <ScalarProperty Name="telefono_oficina_estudiante" ColumnName="telefono_oficina_estudiante" />
+                <ScalarProperty Name="telefono_casa_estudiante" ColumnName="telefono_casa_estudiante" />
+                <ScalarProperty Name="direccion_estudiante" ColumnName="direccion_estudiante" />
+                <ScalarProperty Name="cedula_estudiante" ColumnName="cedula_estudiante" />
+                <ScalarProperty Name="apellido_estudiante" ColumnName="apellido_estudiante" />
+                <ScalarProperty Name="nombre_estudiante" ColumnName="nombre_estudiante" />
+                <ScalarProperty Name="Paralelo" ColumnName="Paralelo" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+                <ScalarProperty Name="Jornada" ColumnName="Jornada" />
+                <ScalarProperty Name="Sede" ColumnName="Sede" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+                <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+                <ScalarProperty Name="IdAnioLectivo" ColumnName="IdAnioLectivo" />
+                <ScalarProperty Name="IdJornada" ColumnName="IdJornada" />
+                <ScalarProperty Name="IdSeccion" ColumnName="IdSeccion" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="IdParalelo" ColumnName="IdParalelo" />
+                <ScalarProperty Name="IdSede" ColumnName="IdSede" />
+                <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

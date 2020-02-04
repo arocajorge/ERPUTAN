@@ -1,0 +1,1551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelInventario_FJ_Rpt.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelInventario_FJ_RptStoreContainer">
+          <EntitySet Name="vwINV_FJ_Rpt001" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwINV_FJ_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt001].[IdOrdenSer_x_Af] AS [IdOrdenSer_x_Af], 
+      [vwINV_FJ_Rpt001].[Fecha] AS [Fecha], 
+      [vwINV_FJ_Rpt001].[Num_Fact] AS [Num_Fact], 
+      [vwINV_FJ_Rpt001].[Num_Documento] AS [Num_Documento], 
+      [vwINV_FJ_Rpt001].[Observacion] AS [Observacion], 
+      [vwINV_FJ_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt001].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt001].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt001].[bo_Descripcion] AS [bo_Descripcion], 
+      [vwINV_FJ_Rpt001].[em_nombre] AS [em_nombre], 
+      [vwINV_FJ_Rpt001].[Su_Descripcion] AS [Su_Descripcion], 
+      [vwINV_FJ_Rpt001].[Af_Nombre] AS [Af_Nombre], 
+      [vwINV_FJ_Rpt001].[pr_codigo] AS [pr_codigo], 
+      [vwINV_FJ_Rpt001].[pr_descripcion] AS [pr_descripcion], 
+      [vwINV_FJ_Rpt001].[Secuencia] AS [Secuencia], 
+      [vwINV_FJ_Rpt001].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt001].[Cantidad] AS [Cantidad], 
+      [vwINV_FJ_Rpt001].[Costo] AS [Costo], 
+      [vwINV_FJ_Rpt001].[SubTotal] AS [SubTotal], 
+      [vwINV_FJ_Rpt001].[Iva] AS [Iva], 
+      [vwINV_FJ_Rpt001].[Total] AS [Total], 
+      [vwINV_FJ_Rpt001].[pr_nombre] AS [pr_nombre]
+      FROM [dbo].[vwINV_FJ_Rpt001] AS [vwINV_FJ_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt002" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt002" store:Type="Views" store:Schema="dbo" store:Name="vwINV_FJ_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt002].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt002].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt002].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt002].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt002].[CodMoviInven] AS [CodMoviInven], 
+      [vwINV_FJ_Rpt002].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt002].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt002].[Fecha] AS [Fecha], 
+      [vwINV_FJ_Rpt002].[cod_Movi_Inven_tipo] AS [cod_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt002].[nom_Movi_Inven_tipo] AS [nom_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt002].[NumDocumentoRelacionado] AS [NumDocumentoRelacionado], 
+      [vwINV_FJ_Rpt002].[NumFactura] AS [NumFactura], 
+      [vwINV_FJ_Rpt002].[Observacion] AS [Observacion], 
+      [vwINV_FJ_Rpt002].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwINV_FJ_Rpt002].[CantiIngreso] AS [CantiIngreso], 
+      [vwINV_FJ_Rpt002].[CantiEgreso] AS [CantiEgreso], 
+      [vwINV_FJ_Rpt002].[Saldo] AS [Saldo], 
+      [vwINV_FJ_Rpt002].[Cod_producto] AS [Cod_producto], 
+      [vwINV_FJ_Rpt002].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt002].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt002].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwINV_FJ_Rpt002].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwINV_FJ_Rpt002].[IdSubCentro_costo] AS [IdSubCentro_costo], 
+      [vwINV_FJ_Rpt002].[nom_SubCentro_costo] AS [nom_SubCentro_costo]
+      FROM [dbo].[vwINV_FJ_Rpt002] AS [vwINV_FJ_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt003" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt003" store:Type="Views" store:Schema="dbo" store:Name="vwINV_FJ_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt003].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt003].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt003].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt003].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt003].[CodMoviInven] AS [CodMoviInven], 
+      [vwINV_FJ_Rpt003].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt003].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt003].[Fecha] AS [Fecha], 
+      [vwINV_FJ_Rpt003].[cod_Movi_Inven_tipo] AS [cod_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt003].[nom_Movi_Inven_tipo] AS [nom_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt003].[NumDocumentoRelacionado] AS [NumDocumentoRelacionado], 
+      [vwINV_FJ_Rpt003].[NumFactura] AS [NumFactura], 
+      [vwINV_FJ_Rpt003].[Observacion] AS [Observacion], 
+      [vwINV_FJ_Rpt003].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwINV_FJ_Rpt003].[CantiIngreso] AS [CantiIngreso], 
+      [vwINV_FJ_Rpt003].[CantiEgreso] AS [CantiEgreso], 
+      [vwINV_FJ_Rpt003].[Costo] AS [Costo], 
+      [vwINV_FJ_Rpt003].[Cod_producto] AS [Cod_producto], 
+      [vwINV_FJ_Rpt003].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt003].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt003].[nom_subCentro_costo] AS [nom_subCentro_costo], 
+      [vwINV_FJ_Rpt003].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwINV_FJ_Rpt003].[idCentro_costo] AS [idCentro_costo], 
+      [vwINV_FJ_Rpt003].[idSubCentro_costo] AS [idSubCentro_costo]
+      FROM [dbo].[vwINV_FJ_Rpt003] AS [vwINV_FJ_Rpt003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt004" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt004" store:Type="Views" store:Schema="dbo" store:Name="vwINV_FJ_Rpt004">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt004].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt004].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt004].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt004].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt004].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt004].[CodMoviInven] AS [CodMoviInven], 
+      [vwINV_FJ_Rpt004].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt004].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt004].[Fecha] AS [Fecha], 
+      [vwINV_FJ_Rpt004].[cod_Movi_Inven_tipo] AS [cod_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt004].[nom_Movi_Inven_tipo] AS [nom_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt004].[NumDocumentoRelacionado] AS [NumDocumentoRelacionado], 
+      [vwINV_FJ_Rpt004].[NumFactura] AS [NumFactura], 
+      [vwINV_FJ_Rpt004].[Observacion] AS [Observacion], 
+      [vwINV_FJ_Rpt004].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwINV_FJ_Rpt004].[CantiIngreso] AS [CantiIngreso], 
+      [vwINV_FJ_Rpt004].[CantiEgreso] AS [CantiEgreso], 
+      [vwINV_FJ_Rpt004].[CostoUniIngreso] AS [CostoUniIngreso], 
+      [vwINV_FJ_Rpt004].[CostoUniEgreso] AS [CostoUniEgreso], 
+      [vwINV_FJ_Rpt004].[Costo] AS [Costo], 
+      [vwINV_FJ_Rpt004].[Cod_producto] AS [Cod_producto], 
+      [vwINV_FJ_Rpt004].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt004].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt004].[IdEmpresa_oc] AS [IdEmpresa_oc], 
+      [vwINV_FJ_Rpt004].[IdSucursal_oc] AS [IdSucursal_oc], 
+      [vwINV_FJ_Rpt004].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwINV_FJ_Rpt004].[IdProveedor] AS [IdProveedor], 
+      [vwINV_FJ_Rpt004].[pr_nombre] AS [pr_nombre], 
+      [vwINV_FJ_Rpt004].[IdMotivo_Inv] AS [IdMotivo_Inv], 
+      [vwINV_FJ_Rpt004].[Cod_Motivo_Inv] AS [Cod_Motivo_Inv], 
+      [vwINV_FJ_Rpt004].[Desc_mov_inv] AS [Desc_mov_inv], 
+      [vwINV_FJ_Rpt004].[IdCentro_costo] AS [IdCentro_costo], 
+      [vwINV_FJ_Rpt004].[Id_SubCentro_costo] AS [Id_SubCentro_costo], 
+      [vwINV_FJ_Rpt004].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwINV_FJ_Rpt004].[nom_SubCentro_costo] AS [nom_SubCentro_costo]
+      FROM [dbo].[vwINV_FJ_Rpt004] AS [vwINV_FJ_Rpt004]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt005" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt005" store:Type="Views" store:Schema="dbo" store:Name="vwINV_FJ_Rpt005">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt005].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt005].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt005].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt005].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt005].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt005].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt005].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt005].[Fecha] AS [Fecha], 
+      [vwINV_FJ_Rpt005].[cod_Movi_Inven_tipo] AS [cod_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt005].[nom_Movi_Inven_tipo] AS [nom_Movi_Inven_tipo], 
+      [vwINV_FJ_Rpt005].[NumDocumentoRelacionado] AS [NumDocumentoRelacionado], 
+      [vwINV_FJ_Rpt005].[NumFactura] AS [NumFactura], 
+      [vwINV_FJ_Rpt005].[Observacion] AS [Observacion], 
+      [vwINV_FJ_Rpt005].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwINV_FJ_Rpt005].[CantiIngreso] AS [CantiIngreso], 
+      [vwINV_FJ_Rpt005].[CantiEgreso] AS [CantiEgreso], 
+      [vwINV_FJ_Rpt005].[CostoUniIngreso] AS [CostoUniIngreso], 
+      [vwINV_FJ_Rpt005].[CostoUniEgreso] AS [CostoUniEgreso], 
+      [vwINV_FJ_Rpt005].[Costo] AS [Costo], 
+      [vwINV_FJ_Rpt005].[Cod_producto] AS [Cod_producto], 
+      [vwINV_FJ_Rpt005].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt005].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt005].[IdEmpresa_oc] AS [IdEmpresa_oc], 
+      [vwINV_FJ_Rpt005].[IdSucursal_oc] AS [IdSucursal_oc], 
+      [vwINV_FJ_Rpt005].[IdOrdenCompra] AS [IdOrdenCompra], 
+      [vwINV_FJ_Rpt005].[IdProveedor] AS [IdProveedor], 
+      [vwINV_FJ_Rpt005].[pr_nombre] AS [pr_nombre], 
+      [vwINV_FJ_Rpt005].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwINV_FJ_Rpt005].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwINV_FJ_Rpt005].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwINV_FJ_Rpt005].[nom_SubCentro_costo] AS [nom_SubCentro_costo]
+      FROM [dbo].[vwINV_FJ_Rpt005] AS [vwINV_FJ_Rpt005]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt006" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt006" store:Type="Views" store:Schema="dbo" store:Name="vwINV_FJ_Rpt006">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt006].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt006].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt006].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt006].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt006].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt006].[CodMoviInven] AS [CodMoviInven], 
+      [vwINV_FJ_Rpt006].[cm_tipo] AS [cm_tipo], 
+      [vwINV_FJ_Rpt006].[cm_fecha] AS [cm_fecha], 
+      [vwINV_FJ_Rpt006].[Secuencia] AS [Secuencia], 
+      [vwINV_FJ_Rpt006].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt006].[dm_cantidad] AS [dm_cantidad], 
+      [vwINV_FJ_Rpt006].[dm_observacion] AS [dm_observacion], 
+      [vwINV_FJ_Rpt006].[mv_costo] AS [mv_costo], 
+      [vwINV_FJ_Rpt006].[nom_empresa] AS [nom_empresa], 
+      [vwINV_FJ_Rpt006].[ruc_empresa] AS [ruc_empresa], 
+      [vwINV_FJ_Rpt006].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt006].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt006].[nom_tipo_inven] AS [nom_tipo_inven], 
+      [vwINV_FJ_Rpt006].[cod_producto] AS [cod_producto], 
+      [vwINV_FJ_Rpt006].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt006].[nom_centro_costo] AS [nom_centro_costo], 
+      [vwINV_FJ_Rpt006].[nom_subcentro_costo] AS [nom_subcentro_costo], 
+      [vwINV_FJ_Rpt006].[IdSubcentro_costo] AS [IdSubcentro_costo], 
+      [vwINV_FJ_Rpt006].[IdCentro_costo] AS [IdCentro_costo]
+      FROM [dbo].[vwINV_FJ_Rpt006] AS [vwINV_FJ_Rpt006]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt007" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt007" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwINV_FJ_Rpt007">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt007].[IdFila] AS [IdFila], 
+      [vwINV_FJ_Rpt007].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt007].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt007].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt007].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt007].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt007].[CodMoviInven] AS [CodMoviInven], 
+      [vwINV_FJ_Rpt007].[Tipo_Movimiento] AS [Tipo_Movimiento], 
+      [vwINV_FJ_Rpt007].[Empresa] AS [Empresa], 
+      [vwINV_FJ_Rpt007].[cod_producto] AS [cod_producto], 
+      [vwINV_FJ_Rpt007].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt007].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt007].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt007].[UnidadMedida] AS [UnidadMedida], 
+      [vwINV_FJ_Rpt007].[observacion] AS [observacion], 
+      [vwINV_FJ_Rpt007].[fecha] AS [fecha], 
+      [vwINV_FJ_Rpt007].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt007].[cantidad] AS [cantidad], 
+      [vwINV_FJ_Rpt007].[stock_ant] AS [stock_ant], 
+      [vwINV_FJ_Rpt007].[stock_act] AS [stock_act], 
+      [vwINV_FJ_Rpt007].[observacion_det] AS [observacion_det], 
+      [vwINV_FJ_Rpt007].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwINV_FJ_Rpt007].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwINV_FJ_Rpt007].[IdEstadoAproba] AS [IdEstadoAproba], 
+      [vwINV_FJ_Rpt007].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwINV_FJ_Rpt007].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwINV_FJ_Rpt007].[IdEstadoDespacho_cat] AS [IdEstadoDespacho_cat], 
+      [vwINV_FJ_Rpt007].[Fecha_despacho] AS [Fecha_despacho], 
+      [vwINV_FJ_Rpt007].[Fecha_registro] AS [Fecha_registro], 
+      [vwINV_FJ_Rpt007].[Fecha_ingreso] AS [Fecha_ingreso], 
+      [vwINV_FJ_Rpt007].[dm_cantidad_sinConversion] AS [dm_cantidad_sinConversion], 
+      [vwINV_FJ_Rpt007].[IdUnidadMedida_sinConversion] AS [IdUnidadMedida_sinConversion], 
+      [vwINV_FJ_Rpt007].[UnidadMedida_sinConversion] AS [UnidadMedida_sinConversion], 
+      [vwINV_FJ_Rpt007].[mv_costo_sinConversion] AS [mv_costo_sinConversion], 
+      [vwINV_FJ_Rpt007].[Af_DescripcionCorta] AS [Af_DescripcionCorta]
+      FROM [Fj_servindustrias].[vwINV_FJ_Rpt007] AS [vwINV_FJ_Rpt007]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwINV_FJ_Rpt008" EntityType="ModelInventario_FJ_Rpt.Store.vwINV_FJ_Rpt008" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwINV_FJ_Rpt008">
+            <DefiningQuery>SELECT 
+      [vwINV_FJ_Rpt008].[IdEmpresa] AS [IdEmpresa], 
+      [vwINV_FJ_Rpt008].[IdSucursal] AS [IdSucursal], 
+      [vwINV_FJ_Rpt008].[IdBodega] AS [IdBodega], 
+      [vwINV_FJ_Rpt008].[IdMovi_inven_tipo] AS [IdMovi_inven_tipo], 
+      [vwINV_FJ_Rpt008].[IdNumMovi] AS [IdNumMovi], 
+      [vwINV_FJ_Rpt008].[Secuencia] AS [Secuencia], 
+      [vwINV_FJ_Rpt008].[IdProducto] AS [IdProducto], 
+      [vwINV_FJ_Rpt008].[cod_producto] AS [cod_producto], 
+      [vwINV_FJ_Rpt008].[nom_producto] AS [nom_producto], 
+      [vwINV_FJ_Rpt008].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwINV_FJ_Rpt008].[nom_unidad_medida] AS [nom_unidad_medida], 
+      [vwINV_FJ_Rpt008].[cm_fecha] AS [cm_fecha], 
+      [vwINV_FJ_Rpt008].[cod_bodega] AS [cod_bodega], 
+      [vwINV_FJ_Rpt008].[nom_bodega] AS [nom_bodega], 
+      [vwINV_FJ_Rpt008].[cod_sucursal] AS [cod_sucursal], 
+      [vwINV_FJ_Rpt008].[nom_sucursal] AS [nom_sucursal], 
+      [vwINV_FJ_Rpt008].[IdCentroCosto] AS [IdCentroCosto], 
+      [vwINV_FJ_Rpt008].[nom_centro_costo] AS [nom_centro_costo], 
+      [vwINV_FJ_Rpt008].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwINV_FJ_Rpt008].[nom_subcentro_costo] AS [nom_subcentro_costo], 
+      [vwINV_FJ_Rpt008].[dm_cantidad] AS [dm_cantidad], 
+      [vwINV_FJ_Rpt008].[mv_costo] AS [mv_costo], 
+      [vwINV_FJ_Rpt008].[Total] AS [Total], 
+      [vwINV_FJ_Rpt008].[mv_tipo_movi] AS [mv_tipo_movi], 
+      [vwINV_FJ_Rpt008].[IdPunto_cargo_grupo] AS [IdPunto_cargo_grupo], 
+      [vwINV_FJ_Rpt008].[cod_Punto_cargo_grupo] AS [cod_Punto_cargo_grupo], 
+      [vwINV_FJ_Rpt008].[nom_punto_cargo_grupo] AS [nom_punto_cargo_grupo], 
+      [vwINV_FJ_Rpt008].[IdPunto_cargo] AS [IdPunto_cargo], 
+      [vwINV_FJ_Rpt008].[codPunto_cargo] AS [codPunto_cargo], 
+      [vwINV_FJ_Rpt008].[nom_punto_cargo] AS [nom_punto_cargo]
+      FROM [Fj_servindustrias].[vwINV_FJ_Rpt008] AS [vwINV_FJ_Rpt008]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_FJ_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt001">
+          <Key>
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Num_Fact" />
+            <PropertyRef Name="Num_Documento" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="SubTotal" />
+            <PropertyRef Name="Iva" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Name="IdOrdenSer_x_Af" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Num_Fact" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Num_Documento" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="bo_Descripcion" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Costo" Type="int" Nullable="false" />
+          <Property Name="SubTotal" Type="int" Nullable="false" />
+          <Property Name="Iva" Type="int" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_FJ_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdSubCentro_costo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="nom_bodega" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cod_Movi_Inven_tipo" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="nom_Movi_Inven_tipo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NumDocumentoRelacionado" Type="varchar" MaxLength="25" />
+          <Property Name="NumFactura" Type="varchar" MaxLength="25" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="CantiIngreso" Type="float" Nullable="false" />
+          <Property Name="CantiEgreso" Type="float" Nullable="false" />
+          <Property Name="Saldo" Type="int" Nullable="false" />
+          <Property Name="Cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="IdSubCentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_SubCentro_costo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_FJ_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="idCentro_costo" />
+            <PropertyRef Name="idSubCentro_costo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="nom_bodega" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cod_Movi_Inven_tipo" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="nom_Movi_Inven_tipo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NumDocumentoRelacionado" Type="varchar" MaxLength="25" />
+          <Property Name="NumFactura" Type="varchar" MaxLength="25" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="CantiIngreso" Type="float" Nullable="false" />
+          <Property Name="CantiEgreso" Type="float" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="nom_subCentro_costo" Type="varchar" MaxLength="200" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="idCentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="idSubCentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_FJ_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt004">
+          <Key>
+            
+            
+            
+            <PropertyRef Name="IdCentro_costo" />
+            <PropertyRef Name="Id_SubCentro_costo" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="CostoUniIngreso" />
+            <PropertyRef Name="CostoUniEgreso" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodMoviInven" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" MaxLength="60" Nullable="false" />
+          <Property Name="nom_bodega" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cod_Movi_Inven_tipo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nom_Movi_Inven_tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumDocumentoRelacionado" Type="varchar" MaxLength="25" />
+          <Property Name="NumFactura" Type="varchar" MaxLength="25" />
+          <Property Name="Observacion" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="CantiIngreso" Type="float" Nullable="false" />
+          <Property Name="CantiEgreso" Type="float" Nullable="false" />
+          <Property Name="CostoUniIngreso" Type="float" Nullable="false" />
+          <Property Name="CostoUniEgreso" Type="float" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Cod_producto" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="nom_producto" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa_oc" Type="int" />
+          <Property Name="IdSucursal_oc" Type="int" />
+          <Property Name="IdOrdenCompra" Type="numeric" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
+          <Property Name="IdMotivo_Inv" Type="int" Nullable="false" />
+          <Property Name="Cod_Motivo_Inv" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Desc_mov_inv" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="IdCentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Id_SubCentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="nom_SubCentro_costo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_FJ_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="CostoUniIngreso" />
+            <PropertyRef Name="CostoUniEgreso" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="nom_bodega" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="cod_Movi_Inven_tipo" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="nom_Movi_Inven_tipo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NumDocumentoRelacionado" Type="varchar" MaxLength="25" />
+          <Property Name="NumFactura" Type="varchar" MaxLength="25" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="CantiIngreso" Type="float" Nullable="false" />
+          <Property Name="CantiEgreso" Type="float" Nullable="false" />
+          <Property Name="CostoUniIngreso" Type="float" Nullable="false" />
+          <Property Name="CostoUniEgreso" Type="float" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa_oc" Type="int" />
+          <Property Name="IdSucursal_oc" Type="int" />
+          <Property Name="IdOrdenCompra" Type="numeric" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_Centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="nom_SubCentro_costo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.dbo.vwINV_FJ_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt006">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="cm_tipo" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="dm_cantidad" />
+            <PropertyRef Name="dm_observacion" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="nom_tipo_inven" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdSubcentro_costo" />
+            <PropertyRef Name="IdCentro_costo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="cm_tipo" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="cm_fecha" Type="datetime" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="dm_cantidad" Type="float" Nullable="false" />
+          <Property Name="dm_observacion" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="mv_costo" Type="float" Nullable="false" />
+          <Property Name="nom_empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ruc_empresa" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="nom_bodega" Type="nchar" Nullable="false" MaxLength="100" />
+          <Property Name="nom_tipo_inven" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="nom_centro_costo" Type="varchar" MaxLength="250" />
+          <Property Name="nom_subcentro_costo" Type="varchar" MaxLength="200" />
+          <Property Name="IdSubcentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwINV_FJ_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt007">
+          <Key>
+            <PropertyRef Name="IdFila" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="Tipo_Movimiento" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="stock_ant" />
+            <PropertyRef Name="stock_act" />
+            <PropertyRef Name="observacion_det" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="dm_cantidad_sinConversion" />
+            <PropertyRef Name="IdUnidadMedida_sinConversion" />
+            <PropertyRef Name="UnidadMedida_sinConversion" />
+          </Key>
+          <Property Name="IdFila" Type="bigint" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="IdBodega" Type="int" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Tipo_Movimiento" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Empresa" Type="nvarchar" MaxLength="50" />
+          <Property Name="cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="nom_sucursal" Type="nchar" MaxLength="60" />
+          <Property Name="nom_bodega" Type="nchar" MaxLength="100" />
+          <Property Name="UnidadMedida" Type="varchar" MaxLength="500" />
+          <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="stock_ant" Type="float" Nullable="false" />
+          <Property Name="stock_act" Type="float" Nullable="false" />
+          <Property Name="observacion_det" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="IdCentroCosto" Type="varchar" MaxLength="20" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
+          <Property Name="IdEstadoAproba" Type="varchar" MaxLength="15" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="IdEstadoDespacho_cat" Type="varchar" MaxLength="15" />
+          <Property Name="Fecha_despacho" Type="datetime" />
+          <Property Name="Fecha_registro" Type="datetime" />
+          <Property Name="Fecha_ingreso" Type="datetime" />
+          <Property Name="dm_cantidad_sinConversion" Type="float" Nullable="false" />
+          <Property Name="IdUnidadMedida_sinConversion" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="UnidadMedida_sinConversion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="mv_costo_sinConversion" Type="float" />
+          <Property Name="Af_DescripcionCorta" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwINV_FJ_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwINV_FJ_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="nom_unidad_medida" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="nom_centro_costo" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo" />
+            <PropertyRef Name="nom_subcentro_costo" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="mv_tipo_movi" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdMovi_inven_tipo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="cod_producto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="nom_unidad_medida" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="cm_fecha" Type="datetime" Nullable="false" />
+          <Property Name="cod_bodega" Type="varchar" MaxLength="50" />
+          <Property Name="nom_bodega" Type="nchar" MaxLength="100" />
+          <Property Name="cod_sucursal" Type="varchar" MaxLength="10" />
+          <Property Name="nom_sucursal" Type="nchar" MaxLength="60" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="nom_subcentro_costo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="dm_cantidad" Type="float" />
+          <Property Name="mv_costo" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" />
+          <Property Name="mv_tipo_movi" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="IdPunto_cargo_grupo" Type="int" />
+          <Property Name="cod_Punto_cargo_grupo" Type="varchar" MaxLength="25" />
+          <Property Name="nom_punto_cargo_grupo" Type="varchar" MaxLength="150" />
+          <Property Name="IdPunto_cargo" Type="int" />
+          <Property Name="codPunto_cargo" Type="varchar" MaxLength="20" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Function Name="spINV_FJ_Rpt002" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdSucursalIni" Type="int" Mode="In" />
+          <Parameter Name="IdSucursalFin" Type="int" Mode="In" />
+          <Parameter Name="IdBodegaIni" Type="int" Mode="In" />
+          <Parameter Name="IdBodegaFin" Type="int" Mode="In" />
+          <Parameter Name="IdProductoIni" Type="decimal" Mode="In" />
+          <Parameter Name="IdProductoFin" Type="decimal" Mode="In" />
+          <Parameter Name="FechaCorteIni" Type="datetime" Mode="In" />
+          <Parameter Name="IdCentro_costo" Type="varchar" Mode="In" />
+          <Parameter Name="IdSubCentro_costo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spINV_FJ_Rpt003" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdSucursalIni" Type="int" Mode="In" />
+          <Parameter Name="IdSucursalFin" Type="int" Mode="In" />
+          <Parameter Name="IdBodegaIni" Type="int" Mode="In" />
+          <Parameter Name="IdBodegaFin" Type="int" Mode="In" />
+          <Parameter Name="IdProductoIni" Type="decimal" Mode="In" />
+          <Parameter Name="IdProductoFin" Type="decimal" Mode="In" />
+          <Parameter Name="FechaCorteIni" Type="datetime" Mode="In" />
+          <Parameter Name="IdCentro_Costo" Type="varchar" Mode="In" />
+          <Parameter Name="IdSubcentro_Costo" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelInventario_FJ_Rpt" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesInventario_FJ_Rpt" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwINV_FJ_Rpt005" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt005" />
+          <FunctionImport Name="spINV_FJ_Rpt003" ReturnType="Collection(ModelInventario_FJ_Rpt.spINV_FJ_Rpt003_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="IdBodegaIni" Mode="In" Type="Int32" />
+            <Parameter Name="IdBodegaFin" Mode="In" Type="Int32" />
+            <Parameter Name="IdProductoIni" Mode="In" Type="Decimal" />
+            <Parameter Name="IdProductoFin" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaCorteIni" Mode="In" Type="DateTime" />
+            <Parameter Name="IdCentro_Costo" Mode="In" Type="String" />
+            <Parameter Name="IdSubcentro_Costo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spINV_FJ_Rpt002" ReturnType="Collection(ModelInventario_FJ_Rpt.spINV_FJ_Rpt002_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursalIni" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursalFin" Mode="In" Type="Int32" />
+            <Parameter Name="IdBodegaIni" Mode="In" Type="Int32" />
+            <Parameter Name="IdBodegaFin" Mode="In" Type="Int32" />
+            <Parameter Name="IdProductoIni" Mode="In" Type="Decimal" />
+            <Parameter Name="IdProductoFin" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaCorteIni" Mode="In" Type="DateTime" />
+            <Parameter Name="IdCentro_costo" Mode="In" Type="String" />
+            <Parameter Name="IdSubCentro_costo" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="vwINV_FJ_Rpt002" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt002" />
+          <EntitySet Name="vwINV_FJ_Rpt003" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt003" />
+          <EntitySet Name="vwINV_FJ_Rpt004" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt004" />
+          <EntitySet Name="vwINV_FJ_Rpt006" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt006" />
+          <EntitySet Name="vwINV_FJ_Rpt001" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt001" />
+          <EntitySet Name="vwINV_FJ_Rpt007" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt007" />
+          <EntitySet Name="vwINV_FJ_Rpt008" EntityType="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt008" />
+        </EntityContainer>
+        <EntityType Name="vwINV_FJ_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="CostoUniIngreso" />
+            <PropertyRef Name="CostoUniEgreso" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cod_Movi_Inven_tipo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Movi_Inven_tipo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumDocumentoRelacionado" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumFactura" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CantiIngreso" Nullable="false" />
+          <Property Type="Double" Name="CantiEgreso" Nullable="false" />
+          <Property Type="Double" Name="CostoUniIngreso" Nullable="false" />
+          <Property Type="Double" Name="CostoUniEgreso" Nullable="false" />
+          <Property Type="Double" Name="Costo" Nullable="false" />
+          <Property Type="String" Name="Cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_oc" />
+          <Property Type="Int32" Name="IdSucursal_oc" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_SubCentro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spINV_FJ_Rpt003_Result">
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Costo_Inicial" Nullable="true" />
+          <Property Type="Double" Name="Costo_Inicial_Acum" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spINV_FJ_Rpt002_Result">
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Saldo_x_Fecha" Nullable="true" />
+          <Property Type="Double" Name="Saldo_x_Fecha_Acum" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vwINV_FJ_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="IdSubCentro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cod_Movi_Inven_tipo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Movi_Inven_tipo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumDocumentoRelacionado" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumFactura" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CantiIngreso" Nullable="false" />
+          <Property Type="Double" Name="CantiEgreso" Nullable="false" />
+          <Property Type="Int32" Name="Saldo" Nullable="false" />
+          <Property Type="String" Name="Cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdSubCentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_SubCentro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_FJ_Rpt003">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="idCentro_costo" />
+            <PropertyRef Name="idSubCentro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cod_Movi_Inven_tipo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Movi_Inven_tipo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumDocumentoRelacionado" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumFactura" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CantiIngreso" Nullable="false" />
+          <Property Type="Double" Name="CantiEgreso" Nullable="false" />
+          <Property Type="Double" Name="Costo" Nullable="false" />
+          <Property Type="String" Name="Cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_subCentro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="idCentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="idSubCentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_FJ_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="cod_Movi_Inven_tipo" />
+            <PropertyRef Name="nom_Movi_Inven_tipo" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="mv_tipo_movi" />
+            <PropertyRef Name="CantiIngreso" />
+            <PropertyRef Name="CantiEgreso" />
+            <PropertyRef Name="CostoUniIngreso" />
+            <PropertyRef Name="CostoUniEgreso" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="Cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdCentro_costo" />
+            <PropertyRef Name="Id_SubCentro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cod_Movi_Inven_tipo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Movi_Inven_tipo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NumDocumentoRelacionado" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumFactura" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="CantiIngreso" Nullable="false" />
+          <Property Type="Double" Name="CantiEgreso" Nullable="false" />
+          <Property Type="Double" Name="CostoUniIngreso" Nullable="false" />
+          <Property Type="Double" Name="CostoUniEgreso" Nullable="false" />
+          <Property Type="Double" Name="Costo" Nullable="false" />
+          <Property Type="String" Name="Cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_oc" />
+          <Property Type="Int32" Name="IdSucursal_oc" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMotivo_Inv" Nullable="false" />
+          <Property Type="String" Name="Cod_Motivo_Inv" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="String" Name="Desc_mov_inv" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Type="String" Name="IdCentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Id_SubCentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_SubCentro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_FJ_Rpt006">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="cm_tipo" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="dm_cantidad" />
+            <PropertyRef Name="dm_observacion" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="nom_empresa" />
+            <PropertyRef Name="ruc_empresa" />
+            <PropertyRef Name="nom_sucursal" />
+            <PropertyRef Name="nom_bodega" />
+            <PropertyRef Name="nom_tipo_inven" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdSubcentro_costo" />
+            <PropertyRef Name="IdCentro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cm_tipo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="dm_cantidad" Nullable="false" />
+          <Property Type="String" Name="dm_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="mv_costo" Nullable="false" />
+          <Property Type="String" Name="nom_empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ruc_empresa" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_tipo_inven" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subcentro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdSubcentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_FJ_Rpt001">
+          <Key>
+            <PropertyRef Name="IdOrdenSer_x_Af" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Num_Fact" />
+            <PropertyRef Name="Num_Documento" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="bo_Descripcion" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="Costo" />
+            <PropertyRef Name="SubTotal" />
+            <PropertyRef Name="Iva" />
+            <PropertyRef Name="Total" />
+          </Key>
+          <Property Type="Int32" Name="IdOrdenSer_x_Af" Nullable="false" />
+          <Property Type="String" Name="Fecha" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Fact" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Num_Documento" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="String" Name="bo_Descripcion" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="em_nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Int32" Name="IdProducto" Nullable="false" />
+          <Property Type="Int32" Name="Cantidad" Nullable="false" />
+          <Property Type="Int32" Name="Costo" Nullable="false" />
+          <Property Type="Int32" Name="SubTotal" Nullable="false" />
+          <Property Type="Int32" Name="Iva" Nullable="false" />
+          <Property Type="Int32" Name="Total" Nullable="false" />
+          <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_FJ_Rpt007">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="CodMoviInven" />
+            <PropertyRef Name="Tipo_Movimiento" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="observacion" />
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="stock_ant" />
+            <PropertyRef Name="stock_act" />
+            <PropertyRef Name="observacion_det" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="dm_cantidad_sinConversion" />
+            <PropertyRef Name="IdUnidadMedida_sinConversion" />
+            <PropertyRef Name="UnidadMedida_sinConversion" />
+            <PropertyRef Name="IdFila" />
+          </Key>
+          <Property Type="Int64" Name="IdFila" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdBodega" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="String" Name="CodMoviInven" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo_Movimiento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Empresa" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="nom_bodega" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="UnidadMedida" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="Double" Name="stock_ant" Nullable="false" />
+          <Property Type="Double" Name="stock_act" Nullable="false" />
+          <Property Type="String" Name="observacion_det" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoAproba" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoDespacho_cat" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_despacho" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_registro" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_ingreso" Precision="3" />
+          <Property Type="Double" Name="dm_cantidad_sinConversion" Nullable="false" />
+          <Property Type="String" Name="IdUnidadMedida_sinConversion" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UnidadMedida_sinConversion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="mv_costo_sinConversion" />
+          <Property Type="String" Name="Af_DescripcionCorta" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwINV_FJ_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdMovi_inven_tipo" />
+            <PropertyRef Name="IdNumMovi" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="cod_producto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="nom_unidad_medida" />
+            <PropertyRef Name="cm_fecha" />
+            <PropertyRef Name="IdCentroCosto" />
+            <PropertyRef Name="nom_centro_costo" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo" />
+            <PropertyRef Name="nom_subcentro_costo" />
+            <PropertyRef Name="mv_costo" />
+            <PropertyRef Name="mv_tipo_movi" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="cod_producto" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_unidad_medida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="cod_bodega" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_bodega" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="cod_sucursal" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_sucursal" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_centro_costo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_subcentro_costo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="dm_cantidad" />
+          <Property Type="Double" Name="mv_costo" Nullable="false" />
+          <Property Type="Double" Name="Total" />
+          <Property Type="String" Name="mv_tipo_movi" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdPunto_cargo_grupo" />
+          <Property Type="String" Name="cod_Punto_cargo_grupo" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo_grupo" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="codPunto_cargo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelInventario_FJ_RptStoreContainer" CdmEntityContainer="EntitiesInventario_FJ_Rpt">
+          <EntitySetMapping Name="vwINV_FJ_Rpt005">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt005">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt005">
+                <ScalarProperty Name="nom_SubCentro_costo" ColumnName="nom_SubCentro_costo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="Cod_producto" ColumnName="Cod_producto" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="CostoUniEgreso" ColumnName="CostoUniEgreso" />
+                <ScalarProperty Name="CostoUniIngreso" ColumnName="CostoUniIngreso" />
+                <ScalarProperty Name="CantiEgreso" ColumnName="CantiEgreso" />
+                <ScalarProperty Name="CantiIngreso" ColumnName="CantiIngreso" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
+                <ScalarProperty Name="NumDocumentoRelacionado" ColumnName="NumDocumentoRelacionado" />
+                <ScalarProperty Name="nom_Movi_Inven_tipo" ColumnName="nom_Movi_Inven_tipo" />
+                <ScalarProperty Name="cod_Movi_Inven_tipo" ColumnName="cod_Movi_Inven_tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spINV_FJ_Rpt003" FunctionName="ModelInventario_FJ_Rpt.Store.spINV_FJ_Rpt003">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelInventario_FJ_Rpt.spINV_FJ_Rpt003_Result">
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Costo_Inicial" ColumnName="Costo_Inicial" />
+                <ScalarProperty Name="Costo_Inicial_Acum" ColumnName="Costo_Inicial_Acum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spINV_FJ_Rpt002" FunctionName="ModelInventario_FJ_Rpt.Store.spINV_FJ_Rpt002">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelInventario_FJ_Rpt.spINV_FJ_Rpt002_Result">
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Saldo_x_Fecha" ColumnName="Saldo_x_Fecha" />
+                <ScalarProperty Name="Saldo_x_Fecha_Acum" ColumnName="Saldo_x_Fecha_Acum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt002">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt002">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt002">
+                <ScalarProperty Name="nom_SubCentro_costo" ColumnName="nom_SubCentro_costo" />
+                <ScalarProperty Name="IdSubCentro_costo" ColumnName="IdSubCentro_costo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="Cod_producto" ColumnName="Cod_producto" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="CantiEgreso" ColumnName="CantiEgreso" />
+                <ScalarProperty Name="CantiIngreso" ColumnName="CantiIngreso" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
+                <ScalarProperty Name="NumDocumentoRelacionado" ColumnName="NumDocumentoRelacionado" />
+                <ScalarProperty Name="nom_Movi_Inven_tipo" ColumnName="nom_Movi_Inven_tipo" />
+                <ScalarProperty Name="cod_Movi_Inven_tipo" ColumnName="cod_Movi_Inven_tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt003">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt003">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt003">
+                <ScalarProperty Name="idSubCentro_costo" ColumnName="idSubCentro_costo" />
+                <ScalarProperty Name="idCentro_costo" ColumnName="idCentro_costo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="nom_subCentro_costo" ColumnName="nom_subCentro_costo" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="Cod_producto" ColumnName="Cod_producto" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="CantiEgreso" ColumnName="CantiEgreso" />
+                <ScalarProperty Name="CantiIngreso" ColumnName="CantiIngreso" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
+                <ScalarProperty Name="NumDocumentoRelacionado" ColumnName="NumDocumentoRelacionado" />
+                <ScalarProperty Name="nom_Movi_Inven_tipo" ColumnName="nom_Movi_Inven_tipo" />
+                <ScalarProperty Name="cod_Movi_Inven_tipo" ColumnName="cod_Movi_Inven_tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt004">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt004">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt004">
+                <ScalarProperty Name="nom_SubCentro_costo" ColumnName="nom_SubCentro_costo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="Id_SubCentro_costo" ColumnName="Id_SubCentro_costo" />
+                <ScalarProperty Name="IdCentro_costo" ColumnName="IdCentro_costo" />
+                <ScalarProperty Name="Desc_mov_inv" ColumnName="Desc_mov_inv" />
+                <ScalarProperty Name="Cod_Motivo_Inv" ColumnName="Cod_Motivo_Inv" />
+                <ScalarProperty Name="IdMotivo_Inv" ColumnName="IdMotivo_Inv" />
+                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal_oc" ColumnName="IdSucursal_oc" />
+                <ScalarProperty Name="IdEmpresa_oc" ColumnName="IdEmpresa_oc" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="Cod_producto" ColumnName="Cod_producto" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="CostoUniEgreso" ColumnName="CostoUniEgreso" />
+                <ScalarProperty Name="CostoUniIngreso" ColumnName="CostoUniIngreso" />
+                <ScalarProperty Name="CantiEgreso" ColumnName="CantiEgreso" />
+                <ScalarProperty Name="CantiIngreso" ColumnName="CantiIngreso" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
+                <ScalarProperty Name="NumDocumentoRelacionado" ColumnName="NumDocumentoRelacionado" />
+                <ScalarProperty Name="nom_Movi_Inven_tipo" ColumnName="nom_Movi_Inven_tipo" />
+                <ScalarProperty Name="cod_Movi_Inven_tipo" ColumnName="cod_Movi_Inven_tipo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt006">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt006">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt006">
+                <ScalarProperty Name="IdCentro_costo" ColumnName="IdCentro_costo" />
+                <ScalarProperty Name="IdSubcentro_costo" ColumnName="IdSubcentro_costo" />
+                <ScalarProperty Name="nom_subcentro_costo" ColumnName="nom_subcentro_costo" />
+                <ScalarProperty Name="nom_centro_costo" ColumnName="nom_centro_costo" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
+                <ScalarProperty Name="nom_tipo_inven" ColumnName="nom_tipo_inven" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="ruc_empresa" ColumnName="ruc_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="mv_costo" ColumnName="mv_costo" />
+                <ScalarProperty Name="dm_observacion" ColumnName="dm_observacion" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="cm_tipo" ColumnName="cm_tipo" />
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt001">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt001">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt001">
+                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="bo_Descripcion" ColumnName="bo_Descripcion" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Num_Documento" ColumnName="Num_Documento" />
+                <ScalarProperty Name="Num_Fact" ColumnName="Num_Fact" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdOrdenSer_x_Af" ColumnName="IdOrdenSer_x_Af" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt007">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt007">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt007">
+                <ScalarProperty Name="Af_DescripcionCorta" ColumnName="Af_DescripcionCorta" />
+                <ScalarProperty Name="mv_costo_sinConversion" ColumnName="mv_costo_sinConversion" />
+                <ScalarProperty Name="UnidadMedida_sinConversion" ColumnName="UnidadMedida_sinConversion" />
+                <ScalarProperty Name="IdUnidadMedida_sinConversion" ColumnName="IdUnidadMedida_sinConversion" />
+                <ScalarProperty Name="dm_cantidad_sinConversion" ColumnName="dm_cantidad_sinConversion" />
+                <ScalarProperty Name="Fecha_ingreso" ColumnName="Fecha_ingreso" />
+                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+                <ScalarProperty Name="Fecha_despacho" ColumnName="Fecha_despacho" />
+                <ScalarProperty Name="IdEstadoDespacho_cat" ColumnName="IdEstadoDespacho_cat" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="IdEstadoAproba" ColumnName="IdEstadoAproba" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
+                <ScalarProperty Name="stock_act" ColumnName="stock_act" />
+                <ScalarProperty Name="stock_ant" ColumnName="stock_ant" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Tipo_Movimiento" ColumnName="Tipo_Movimiento" />
+                <ScalarProperty Name="CodMoviInven" ColumnName="CodMoviInven" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdFila" ColumnName="IdFila" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwINV_FJ_Rpt008">
+            <EntityTypeMapping TypeName="ModelInventario_FJ_Rpt.vwINV_FJ_Rpt008">
+              <MappingFragment StoreEntitySet="vwINV_FJ_Rpt008">
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="codPunto_cargo" ColumnName="codPunto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="nom_punto_cargo_grupo" ColumnName="nom_punto_cargo_grupo" />
+                <ScalarProperty Name="cod_Punto_cargo_grupo" ColumnName="cod_Punto_cargo_grupo" />
+                <ScalarProperty Name="IdPunto_cargo_grupo" ColumnName="IdPunto_cargo_grupo" />
+                <ScalarProperty Name="mv_tipo_movi" ColumnName="mv_tipo_movi" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="mv_costo" ColumnName="mv_costo" />
+                <ScalarProperty Name="dm_cantidad" ColumnName="dm_cantidad" />
+                <ScalarProperty Name="nom_subcentro_costo" ColumnName="nom_subcentro_costo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="nom_centro_costo" ColumnName="nom_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="nom_sucursal" ColumnName="nom_sucursal" />
+                <ScalarProperty Name="cod_sucursal" ColumnName="cod_sucursal" />
+                <ScalarProperty Name="nom_bodega" ColumnName="nom_bodega" />
+                <ScalarProperty Name="cod_bodega" ColumnName="cod_bodega" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="nom_unidad_medida" ColumnName="nom_unidad_medida" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="IdMovi_inven_tipo" ColumnName="IdMovi_inven_tipo" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

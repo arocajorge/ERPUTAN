@@ -1,0 +1,1593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelFacturacion_FJ_Rpt.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelFacturacion_FJ_RptStoreContainer">
+          <EntitySet Name="DepreciacionTransgandia_Rpt" EntityType="ModelFacturacion_FJ_Rpt.Store.DepreciacionTransgandia_Rpt" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="GatosTransgandia_Rpt" EntityType="ModelFacturacion_FJ_Rpt.Store.GatosTransgandia_Rpt" store:Type="Tables" Schema="Fj_servindustrias" />
+          <EntitySet Name="vwFAC_FJ_Rpt001" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt001" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt001].[IdOrdenTrabajo_Pla] AS [IdOrdenTrabajo_Pla], 
+      [vwFAC_FJ_Rpt001].[codOrdenTrabajo_Pla] AS [codOrdenTrabajo_Pla], 
+      [vwFAC_FJ_Rpt001].[IdCliente] AS [IdCliente], 
+      [vwFAC_FJ_Rpt001].[Descripcion] AS [Descripcion], 
+      [vwFAC_FJ_Rpt001].[Equipo] AS [Equipo], 
+      [vwFAC_FJ_Rpt001].[serie] AS [serie], 
+      [vwFAC_FJ_Rpt001].[km_salida] AS [km_salida], 
+      [vwFAC_FJ_Rpt001].[km_llegada] AS [km_llegada], 
+      [vwFAC_FJ_Rpt001].[con_atencion_a] AS [con_atencion_a], 
+      [vwFAC_FJ_Rpt001].[IdUsuarioUltMod] AS [IdUsuarioUltMod], 
+      [vwFAC_FJ_Rpt001].[Fecha_UltMod] AS [Fecha_UltMod], 
+      [vwFAC_FJ_Rpt001].[IdUsuarioUltAnu] AS [IdUsuarioUltAnu], 
+      [vwFAC_FJ_Rpt001].[Fecha_UltAnu] AS [Fecha_UltAnu], 
+      [vwFAC_FJ_Rpt001].[MotiAnula] AS [MotiAnula], 
+      [vwFAC_FJ_Rpt001].[nom_pc] AS [nom_pc], 
+      [vwFAC_FJ_Rpt001].[ip] AS [ip], 
+      [vwFAC_FJ_Rpt001].[Estado] AS [Estado], 
+      [vwFAC_FJ_Rpt001].[nom_Cliente] AS [nom_Cliente], 
+      [vwFAC_FJ_Rpt001].[Fecha] AS [Fecha], 
+      [vwFAC_FJ_Rpt001].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_FJ_Rpt001].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_FJ_Rpt001].[secuencia] AS [secuencia], 
+      [vwFAC_FJ_Rpt001].[descrip_equipo_movi] AS [descrip_equipo_movi], 
+      [vwFAC_FJ_Rpt001].[punto_partida] AS [punto_partida], 
+      [vwFAC_FJ_Rpt001].[punto_llegada] AS [punto_llegada], 
+      [vwFAC_FJ_Rpt001].[hora_ini] AS [hora_ini], 
+      [vwFAC_FJ_Rpt001].[hora_fin] AS [hora_fin], 
+      [vwFAC_FJ_Rpt001].[Valor] AS [Valor]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt001] AS [vwFAC_FJ_Rpt001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt002" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt002" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt002">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt002].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt002].[IdLiquidacion] AS [IdLiquidacion], 
+      [vwFAC_FJ_Rpt002].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt002].[cod_liquidacion] AS [cod_liquidacion], 
+      [vwFAC_FJ_Rpt002].[IdCliente] AS [IdCliente], 
+      [vwFAC_FJ_Rpt002].[fecha_liqui] AS [fecha_liqui], 
+      [vwFAC_FJ_Rpt002].[Observacion] AS [Observacion], 
+      [vwFAC_FJ_Rpt002].[estado] AS [estado], 
+      [vwFAC_FJ_Rpt002].[pe_nombre] AS [pe_nombre], 
+      [vwFAC_FJ_Rpt002].[pe_apellido] AS [pe_apellido], 
+      [vwFAC_FJ_Rpt002].[secuencia] AS [secuencia], 
+      [vwFAC_FJ_Rpt002].[IdProducto_Liqui] AS [IdProducto_Liqui], 
+      [vwFAC_FJ_Rpt002].[detalle_x_producto] AS [detalle_x_producto], 
+      [vwFAC_FJ_Rpt002].[cantidad] AS [cantidad], 
+      [vwFAC_FJ_Rpt002].[precio] AS [precio], 
+      [vwFAC_FJ_Rpt002].[subtotal] AS [subtotal], 
+      [vwFAC_FJ_Rpt002].[aplica_iva] AS [aplica_iva], 
+      [vwFAC_FJ_Rpt002].[por_iva] AS [por_iva], 
+      [vwFAC_FJ_Rpt002].[valor_iva] AS [valor_iva], 
+      [vwFAC_FJ_Rpt002].[Total_liq] AS [Total_liq], 
+      [vwFAC_FJ_Rpt002].[nom_producto_Liqui] AS [nom_producto_Liqui]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt002] AS [vwFAC_FJ_Rpt002]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt003" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt003" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt003">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt003].[IdLiquidacion] AS [IdLiquidacion], 
+      [vwFAC_FJ_Rpt003].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt003].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt003].[Observacion_x_liqui] AS [Observacion_x_liqui], 
+      [vwFAC_FJ_Rpt003].[detalle_x_producto] AS [detalle_x_producto], 
+      [vwFAC_FJ_Rpt003].[cantidad] AS [cantidad], 
+      [vwFAC_FJ_Rpt003].[precio] AS [precio], 
+      [vwFAC_FJ_Rpt003].[subtotal] AS [subtotal], 
+      [vwFAC_FJ_Rpt003].[valor_iva] AS [valor_iva], 
+      [vwFAC_FJ_Rpt003].[Total_liq] AS [Total_liq], 
+      [vwFAC_FJ_Rpt003].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_FJ_Rpt003].[pe_razonSocial] AS [pe_razonSocial], 
+      [vwFAC_FJ_Rpt003].[pe_apellido] AS [pe_apellido], 
+      [vwFAC_FJ_Rpt003].[pe_nombre] AS [pe_nombre]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt003] AS [vwFAC_FJ_Rpt003]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt004" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt004" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt004">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt004].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt004].[IdEmpleado] AS [IdEmpleado], 
+      [vwFAC_FJ_Rpt004].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwFAC_FJ_Rpt004].[IdTipoDepreciacion] AS [IdTipoDepreciacion], 
+      [vwFAC_FJ_Rpt004].[CodActivoFijo] AS [CodActivoFijo], 
+      [vwFAC_FJ_Rpt004].[Af_Nombre] AS [Af_Nombre], 
+      [vwFAC_FJ_Rpt004].[Af_ValorUnidad_Actu] AS [Af_ValorUnidad_Actu], 
+      [vwFAC_FJ_Rpt004].[Valor] AS [Valor], 
+      [vwFAC_FJ_Rpt004].[Horas_Trabajada_x_Af] AS [Horas_Trabajada_x_Af], 
+      [vwFAC_FJ_Rpt004].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt004].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_FJ_Rpt004].[hora_trabajada] AS [hora_trabajada], 
+      [vwFAC_FJ_Rpt004].[Centro_costo] AS [Centro_costo]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt004] AS [vwFAC_FJ_Rpt004]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt005" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt005" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt005">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt005].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt005].[IdEmpleado] AS [IdEmpleado], 
+      [vwFAC_FJ_Rpt005].[IdActivoFijo] AS [IdActivoFijo], 
+      [vwFAC_FJ_Rpt005].[IdTipoDepreciacion] AS [IdTipoDepreciacion], 
+      [vwFAC_FJ_Rpt005].[CodActivoFijo] AS [CodActivoFijo], 
+      [vwFAC_FJ_Rpt005].[Af_Nombre] AS [Af_Nombre], 
+      [vwFAC_FJ_Rpt005].[Af_ValorUnidad_Actu] AS [Af_ValorUnidad_Actu], 
+      [vwFAC_FJ_Rpt005].[Valor] AS [Valor], 
+      [vwFAC_FJ_Rpt005].[Horas_Trabajada_x_Af] AS [Horas_Trabajada_x_Af], 
+      [vwFAC_FJ_Rpt005].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt005].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_FJ_Rpt005].[hora_trabajada] AS [hora_trabajada], 
+      [vwFAC_FJ_Rpt005].[Centro_costo] AS [Centro_costo]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt005] AS [vwFAC_FJ_Rpt005]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt006" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt006" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt006">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt006].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt006].[IdPreFacturacion] AS [IdPreFacturacion], 
+      [vwFAC_FJ_Rpt006].[observacion_det] AS [observacion_det], 
+      [vwFAC_FJ_Rpt006].[Cantidad] AS [Cantidad], 
+      [vwFAC_FJ_Rpt006].[Costo_Uni] AS [Costo_Uni], 
+      [vwFAC_FJ_Rpt006].[Subtotal] AS [Subtotal], 
+      [vwFAC_FJ_Rpt006].[Aplica_Iva] AS [Aplica_Iva], 
+      [vwFAC_FJ_Rpt006].[Por_Iva] AS [Por_Iva], 
+      [vwFAC_FJ_Rpt006].[Valor_Iva] AS [Valor_Iva], 
+      [vwFAC_FJ_Rpt006].[Total] AS [Total], 
+      [vwFAC_FJ_Rpt006].[cm_fecha] AS [cm_fecha], 
+      [vwFAC_FJ_Rpt006].[oc_NumDocumento] AS [oc_NumDocumento], 
+      [vwFAC_FJ_Rpt006].[IdProveedor] AS [IdProveedor], 
+      [vwFAC_FJ_Rpt006].[IdProducto] AS [IdProducto], 
+      [vwFAC_FJ_Rpt006].[nom_Cliente] AS [nom_Cliente], 
+      [vwFAC_FJ_Rpt006].[nom_Centro_costo_sub_centro_costo] AS [nom_Centro_costo_sub_centro_costo], 
+      [vwFAC_FJ_Rpt006].[nom_Centro_costo] AS [nom_Centro_costo], 
+      [vwFAC_FJ_Rpt006].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwFAC_FJ_Rpt006].[nom_Producto] AS [nom_Producto], 
+      [vwFAC_FJ_Rpt006].[nom_Proveedor] AS [nom_Proveedor], 
+      [vwFAC_FJ_Rpt006].[co_serie] AS [co_serie], 
+      [vwFAC_FJ_Rpt006].[co_factura] AS [co_factura], 
+      [vwFAC_FJ_Rpt006].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt006].[IdNumMovi_mov_inv] AS [IdNumMovi_mov_inv]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt006] AS [vwFAC_FJ_Rpt006]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt007" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt007" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt007">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt007].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt007].[IdPreFacturacion] AS [IdPreFacturacion], 
+      [vwFAC_FJ_Rpt007].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt007].[IdNomina_Tipo] AS [IdNomina_Tipo], 
+      [vwFAC_FJ_Rpt007].[IdEmpleado] AS [IdEmpleado], 
+      [vwFAC_FJ_Rpt007].[IdCargo] AS [IdCargo], 
+      [vwFAC_FJ_Rpt007].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_FJ_Rpt007].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_FJ_Rpt007].[ca_descripcion] AS [ca_descripcion], 
+      [vwFAC_FJ_Rpt007].[SALARIO] AS [SALARIO], 
+      [vwFAC_FJ_Rpt007].[H.EXTRAS] AS [H.EXTRAS], 
+      [vwFAC_FJ_Rpt007].[ALIMENTACION] AS [ALIMENTACION], 
+      [vwFAC_FJ_Rpt007].[Centro_costo] AS [Centro_costo], 
+      [vwFAC_FJ_Rpt007].[IdCentroCosto_sub_centro_costo] AS [IdCentroCosto_sub_centro_costo], 
+      [vwFAC_FJ_Rpt007].[IdCentroCosto] AS [IdCentroCosto]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt007] AS [vwFAC_FJ_Rpt007]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt008" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt008" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt008">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt008].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt008].[IdEmpleado] AS [IdEmpleado], 
+      [vwFAC_FJ_Rpt008].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt008].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_FJ_Rpt008].[Nombres] AS [Nombres], 
+      [vwFAC_FJ_Rpt008].[ca_descripcion] AS [ca_descripcion], 
+      [vwFAC_FJ_Rpt008].[zo_descripcion] AS [zo_descripcion], 
+      [vwFAC_FJ_Rpt008].[ru_descripcion] AS [ru_descripcion], 
+      [vwFAC_FJ_Rpt008].[Valor] AS [Valor], 
+      [vwFAC_FJ_Rpt008].[rub_visible_reporte] AS [rub_visible_reporte], 
+      [vwFAC_FJ_Rpt008].[IdanioFiscal] AS [IdanioFiscal], 
+      [vwFAC_FJ_Rpt008].[pe_mes] AS [pe_mes], 
+      [vwFAC_FJ_Rpt008].[pe_FechaIni] AS [pe_FechaIni], 
+      [vwFAC_FJ_Rpt008].[pe_FechaFin] AS [pe_FechaFin], 
+      [vwFAC_FJ_Rpt008].[em_fecha_ingreso] AS [em_fecha_ingreso], 
+      [vwFAC_FJ_Rpt008].[em_fechaSalida] AS [em_fechaSalida], 
+      [vwFAC_FJ_Rpt008].[de_descripcion] AS [de_descripcion], 
+      [vwFAC_FJ_Rpt008].[SueldoActual] AS [SueldoActual], 
+      [vwFAC_FJ_Rpt008].[rub_mustra_liquidacion_cliente] AS [rub_mustra_liquidacion_cliente], 
+      [vwFAC_FJ_Rpt008].[Descripcion] AS [Descripcion], 
+      [vwFAC_FJ_Rpt008].[Orden] AS [Orden]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt008] AS [vwFAC_FJ_Rpt008]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt012" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt012" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt012">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt012].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt012].[IdPrestamo] AS [IdPrestamo], 
+      [vwFAC_FJ_Rpt012].[NumCuota] AS [NumCuota], 
+      [vwFAC_FJ_Rpt012].[SaldoInicial] AS [SaldoInicial], 
+      [vwFAC_FJ_Rpt012].[Interes] AS [Interes], 
+      [vwFAC_FJ_Rpt012].[AbonoCapital] AS [AbonoCapital], 
+      [vwFAC_FJ_Rpt012].[TotalCuota] AS [TotalCuota], 
+      [vwFAC_FJ_Rpt012].[Saldo] AS [Saldo], 
+      [vwFAC_FJ_Rpt012].[FechaPago] AS [FechaPago], 
+      [vwFAC_FJ_Rpt012].[IdPreFacturacion] AS [IdPreFacturacion], 
+      [vwFAC_FJ_Rpt012].[IdPeriodo] AS [IdPeriodo], 
+      [vwFAC_FJ_Rpt012].[IdCentroCosto_cc] AS [IdCentroCosto_cc], 
+      [vwFAC_FJ_Rpt012].[Valor] AS [Valor]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt012] AS [vwFAC_FJ_Rpt012]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFAC_FJ_Rpt014" EntityType="ModelFacturacion_FJ_Rpt.Store.vwFAC_FJ_Rpt014" store:Type="Views" store:Schema="Fj_servindustrias" store:Name="vwFAC_FJ_Rpt014">
+            <DefiningQuery>SELECT 
+      [vwFAC_FJ_Rpt014].[IdEmpresa] AS [IdEmpresa], 
+      [vwFAC_FJ_Rpt014].[IdSucursal] AS [IdSucursal], 
+      [vwFAC_FJ_Rpt014].[IdBodega] AS [IdBodega], 
+      [vwFAC_FJ_Rpt014].[IdCbteVta] AS [IdCbteVta], 
+      [vwFAC_FJ_Rpt014].[Secuencia] AS [Secuencia], 
+      [vwFAC_FJ_Rpt014].[vt_tipoDoc] AS [vt_tipoDoc], 
+      [vwFAC_FJ_Rpt014].[vt_serie1] AS [vt_serie1], 
+      [vwFAC_FJ_Rpt014].[vt_serie2] AS [vt_serie2], 
+      [vwFAC_FJ_Rpt014].[vt_NumFactura] AS [vt_NumFactura], 
+      [vwFAC_FJ_Rpt014].[vt_fecha] AS [vt_fecha], 
+      [vwFAC_FJ_Rpt014].[Estado] AS [Estado], 
+      [vwFAC_FJ_Rpt014].[IdProducto] AS [IdProducto], 
+      [vwFAC_FJ_Rpt014].[pr_descripcion] AS [pr_descripcion], 
+      [vwFAC_FJ_Rpt014].[vt_cantidad] AS [vt_cantidad], 
+      [vwFAC_FJ_Rpt014].[vt_PrecioFinal] AS [vt_PrecioFinal], 
+      [vwFAC_FJ_Rpt014].[vt_Subtotal] AS [vt_Subtotal], 
+      [vwFAC_FJ_Rpt014].[Atencion_a] AS [Atencion_a], 
+      [vwFAC_FJ_Rpt014].[num_oc] AS [num_oc], 
+      [vwFAC_FJ_Rpt014].[IdPunto_Cargo] AS [IdPunto_Cargo], 
+      [vwFAC_FJ_Rpt014].[nom_punto_cargo] AS [nom_punto_cargo], 
+      [vwFAC_FJ_Rpt014].[Observacion_x_item] AS [Observacion_x_item], 
+      [vwFAC_FJ_Rpt014].[IdCliente] AS [IdCliente], 
+      [vwFAC_FJ_Rpt014].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwFAC_FJ_Rpt014].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwFAC_FJ_Rpt014].[pe_direccion] AS [pe_direccion], 
+      [vwFAC_FJ_Rpt014].[pe_telefonoOfic] AS [pe_telefonoOfic], 
+      [vwFAC_FJ_Rpt014].[Observacion_central] AS [Observacion_central], 
+      [vwFAC_FJ_Rpt014].[dia] AS [dia], 
+      [vwFAC_FJ_Rpt014].[mes] AS [mes], 
+      [vwFAC_FJ_Rpt014].[anio] AS [anio], 
+      [vwFAC_FJ_Rpt014].[vt_iva] AS [vt_iva], 
+      [vwFAC_FJ_Rpt014].[subtotal_0] AS [subtotal_0], 
+      [vwFAC_FJ_Rpt014].[subtotal_iva] AS [subtotal_iva], 
+      [vwFAC_FJ_Rpt014].[vt_total] AS [vt_total], 
+      [vwFAC_FJ_Rpt014].[nom_producto] AS [nom_producto], 
+      [vwFAC_FJ_Rpt014].[forma_pago_EFECTIVO] AS [forma_pago_EFECTIVO], 
+      [vwFAC_FJ_Rpt014].[forma_pago_DINERO_ELECTRONICO] AS [forma_pago_DINERO_ELECTRONICO], 
+      [vwFAC_FJ_Rpt014].[forma_pago_TARJETA_CRE_DEB] AS [forma_pago_TARJETA_CRE_DEB], 
+      [vwFAC_FJ_Rpt014].[forma_pago_CHEQUE_TRANSFERENCIA] AS [forma_pago_CHEQUE_TRANSFERENCIA], 
+      [vwFAC_FJ_Rpt014].[descto] AS [descto], 
+      [vwFAC_FJ_Rpt014].[pr_descripcion_2] AS [pr_descripcion_2], 
+      [vwFAC_FJ_Rpt014].[vt_por_iva] AS [vt_por_iva]
+      FROM [Fj_servindustrias].[vwFAC_FJ_Rpt014] AS [vwFAC_FJ_Rpt014]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="DepreciacionTransgandia_Rpt">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdActivofijo" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdActivofijo" Type="int" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="Fecha_adquisicion" Type="date" />
+          <Property Name="Proveedor" Type="varchar" MaxLength="100" />
+          <Property Name="Factura" Type="varchar" MaxLength="30" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Af_nombre" Type="varchar" MaxLength="200" />
+          <Property Name="Costo_Unitario_Camion" Type="float" />
+          <Property Name="Costo_unitario_carroceria" Type="float" />
+          <Property Name="ValorSalvamento" Type="float" />
+          <Property Name="TotalDepreciar" Type="float" />
+          <Property Name="DepreciacionMensual" Type="float" />
+        </EntityType>
+        <EntityType Name="GatosTransgandia_Rpt">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="secuencia" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Proveedor" Type="varchar" MaxLength="100" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Factura" Type="varchar" MaxLength="20" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="Costounitario" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Fuerza" Type="varchar" MaxLength="100" />
+          <Property Name="NombreServicio" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenTrabajo_Pla" />
+            <PropertyRef Name="codOrdenTrabajo_Pla" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Equipo" />
+            <PropertyRef Name="serie" />
+            <PropertyRef Name="km_salida" />
+            <PropertyRef Name="km_llegada" />
+            <PropertyRef Name="con_atencion_a" />
+            <PropertyRef Name="nom_pc" />
+            <PropertyRef Name="ip" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="descrip_equipo_movi" />
+            <PropertyRef Name="punto_partida" />
+            <PropertyRef Name="punto_llegada" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdOrdenTrabajo_Pla" Type="numeric" Nullable="false" />
+          <Property Name="codOrdenTrabajo_Pla" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Equipo" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="serie" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="km_salida" Type="float" Nullable="false" />
+          <Property Name="km_llegada" Type="float" Nullable="false" />
+          <Property Name="con_atencion_a" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="IdUsuarioUltMod" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_UltMod" Type="datetime" />
+          <Property Name="IdUsuarioUltAnu" Type="varchar" MaxLength="20" />
+          <Property Name="Fecha_UltAnu" Type="datetime" />
+          <Property Name="MotiAnula" Type="varchar" MaxLength="200" />
+          <Property Name="nom_pc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ip" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="nom_Cliente" Type="varchar" MaxLength="200" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="pe_cedulaRuc" Type="varchar" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" MaxLength="150" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="descrip_equipo_movi" Type="varchar" Nullable="false" MaxLength="1500" />
+          <Property Name="punto_partida" Type="varchar" Nullable="false" MaxLength="1500" />
+          <Property Name="punto_llegada" Type="varchar" Nullable="false" MaxLength="1500" />
+          <Property Name="hora_ini" Type="time" />
+          <Property Name="hora_fin" Type="time" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdLiquidacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cod_liquidacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="fecha_liqui" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="estado" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdProducto_Liqui" />
+            <PropertyRef Name="detalle_x_producto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="subtotal" />
+            <PropertyRef Name="aplica_iva" />
+            <PropertyRef Name="por_iva" />
+            <PropertyRef Name="valor_iva" />
+            <PropertyRef Name="Total_liq" />
+            <PropertyRef Name="nom_producto_Liqui" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdLiquidacion" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="cod_liquidacion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="fecha_liqui" Type="datetime" Nullable="false" />
+          <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="550" />
+          <Property Name="estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto_Liqui" Type="int" Nullable="false" />
+          <Property Name="detalle_x_producto" Type="varchar" Nullable="false" MaxLength="450" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="subtotal" Type="float" Nullable="false" />
+          <Property Name="aplica_iva" Type="bit" Nullable="false" />
+          <Property Name="por_iva" Type="float" Nullable="false" />
+          <Property Name="valor_iva" Type="float" Nullable="false" />
+          <Property Name="Total_liq" Type="float" Nullable="false" />
+          <Property Name="nom_producto_Liqui" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt003">
+          <Key>
+            <PropertyRef Name="IdLiquidacion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="Observacion_x_liqui" />
+            <PropertyRef Name="detalle_x_producto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="subtotal" />
+            <PropertyRef Name="valor_iva" />
+            <PropertyRef Name="Total_liq" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+          </Key>
+          <Property Name="IdLiquidacion" Type="numeric" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="Observacion_x_liqui" Type="varchar" Nullable="false" MaxLength="550" />
+          <Property Name="detalle_x_producto" Type="varchar" Nullable="false" MaxLength="450" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="subtotal" Type="float" Nullable="false" />
+          <Property Name="valor_iva" Type="float" Nullable="false" />
+          <Property Name="Total_liq" Type="float" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdTipoDepreciacion" />
+            <PropertyRef Name="CodActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="Centro_costo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdEmpleado" Type="numeric" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="IdTipoDepreciacion" Type="int" Nullable="false" />
+          <Property Name="CodActivoFijo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Af_ValorUnidad_Actu" Type="float" />
+          <Property Name="Valor" Type="float" />
+          <Property Name="Horas_Trabajada_x_Af" Type="float" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="hora_trabajada" Type="float" />
+          <Property Name="Centro_costo" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdTipoDepreciacion" />
+            <PropertyRef Name="CodActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="Centro_costo" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdEmpleado" Type="numeric" Nullable="false" />
+          <Property Name="IdActivoFijo" Type="int" Nullable="false" />
+          <Property Name="IdTipoDepreciacion" Type="int" Nullable="false" />
+          <Property Name="CodActivoFijo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Af_Nombre" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Af_ValorUnidad_Actu" Type="float" />
+          <Property Name="Valor" Type="float" />
+          <Property Name="Horas_Trabajada_x_Af" Type="float" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="hora_trabajada" Type="float" />
+          <Property Name="Centro_costo" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt006">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPreFacturacion" />
+            <PropertyRef Name="observacion_det" />
+            <PropertyRef Name="nom_Cliente" />
+            <PropertyRef Name="nom_Centro_costo_sub_centro_costo" />
+            <PropertyRef Name="nom_Centro_costo" />
+            <PropertyRef Name="nom_Producto" />
+            <PropertyRef Name="nom_Proveedor" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="co_factura" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdNumMovi_mov_inv" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPreFacturacion" Type="numeric" Nullable="false" />
+          <Property Name="observacion_det" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Cantidad" Type="float" />
+          <Property Name="Costo_Uni" Type="float" />
+          <Property Name="Subtotal" Type="float" />
+          <Property Name="Aplica_Iva" Type="bit" />
+          <Property Name="Por_Iva" Type="float" />
+          <Property Name="Valor_Iva" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="cm_fecha" Type="datetime" />
+          <Property Name="oc_NumDocumento" Type="varchar" MaxLength="50" />
+          <Property Name="IdProveedor" Type="numeric" />
+          <Property Name="IdProducto" Type="numeric" />
+          <Property Name="nom_Cliente" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="nom_Centro_costo_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="nom_Centro_costo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="nom_Producto" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="nom_Proveedor" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="co_serie" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="co_factura" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdNumMovi_mov_inv" Type="numeric" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt007">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPreFacturacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdNomina_Tipo" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdCargo" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="ca_descripcion" />
+            <PropertyRef Name="Centro_costo" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo" />
+            <PropertyRef Name="IdCentroCosto" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPreFacturacion" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdNomina_Tipo" Type="int" Nullable="false" />
+          <Property Name="IdEmpleado" Type="numeric" Nullable="false" />
+          <Property Name="IdCargo" Type="int" Nullable="false" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="ca_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SALARIO" Type="float" />
+          <Property Name="H.EXTRAS" Type="float" />
+          <Property Name="ALIMENTACION" Type="float" />
+          <Property Name="Centro_costo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IdCentroCosto" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="ca_descripcion" />
+            <PropertyRef Name="ru_descripcion" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="de_descripcion" />
+            <PropertyRef Name="SueldoActual" />
+            <PropertyRef Name="Orden" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdEmpleado" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" Nullable="false" MaxLength="201" />
+          <Property Name="ca_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="zo_descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="ru_descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+          <Property Name="rub_visible_reporte" Type="bit" />
+          <Property Name="IdanioFiscal" Type="int" />
+          <Property Name="pe_mes" Type="int" />
+          <Property Name="pe_FechaIni" Type="smalldatetime" />
+          <Property Name="pe_FechaFin" Type="smalldatetime" />
+          <Property Name="em_fecha_ingreso" Type="datetime" />
+          <Property Name="em_fechaSalida" Type="datetime" />
+          <Property Name="de_descripcion" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="SueldoActual" Type="float" Nullable="false" />
+          <Property Name="rub_mustra_liquidacion_cliente" Type="bit" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="Orden" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt012' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt012">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPrestamo" />
+            <PropertyRef Name="NumCuota" />
+            <PropertyRef Name="SaldoInicial" />
+            <PropertyRef Name="Interes" />
+            <PropertyRef Name="AbonoCapital" />
+            <PropertyRef Name="TotalCuota" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="FechaPago" />
+            <PropertyRef Name="IdPreFacturacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdCentroCosto_cc" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdPrestamo" Type="numeric" Nullable="false" />
+          <Property Name="NumCuota" Type="int" Nullable="false" />
+          <Property Name="SaldoInicial" Type="float" Nullable="false" />
+          <Property Name="Interes" Type="float" Nullable="false" />
+          <Property Name="AbonoCapital" Type="float" Nullable="false" />
+          <Property Name="TotalCuota" Type="float" Nullable="false" />
+          <Property Name="Saldo" Type="float" Nullable="false" />
+          <Property Name="FechaPago" Type="datetime" Nullable="false" />
+          <Property Name="IdPreFacturacion" Type="numeric" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdCentroCosto_cc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_FJ_PRODUCCION.Fj_servindustrias.vwFAC_FJ_Rpt014' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwFAC_FJ_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_PrecioFinal" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Observacion_central" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="subtotal_0" />
+            <PropertyRef Name="subtotal_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="forma_pago_EFECTIVO" />
+            <PropertyRef Name="forma_pago_DINERO_ELECTRONICO" />
+            <PropertyRef Name="forma_pago_TARJETA_CRE_DEB" />
+            <PropertyRef Name="forma_pago_CHEQUE_TRANSFERENCIA" />
+            <PropertyRef Name="descto" />
+            <PropertyRef Name="vt_por_iva" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="IdBodega" Type="int" Nullable="false" />
+          <Property Name="IdCbteVta" Type="numeric" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="vt_tipoDoc" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="vt_serie1" Type="varchar" MaxLength="3" />
+          <Property Name="vt_serie2" Type="varchar" MaxLength="3" />
+          <Property Name="vt_NumFactura" Type="varchar" MaxLength="20" />
+          <Property Name="vt_fecha" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="vt_cantidad" Type="float" Nullable="false" />
+          <Property Name="vt_PrecioFinal" Type="float" Nullable="false" />
+          <Property Name="vt_Subtotal" Type="float" Nullable="false" />
+          <Property Name="Atencion_a" Type="varchar" MaxLength="500" />
+          <Property Name="num_oc" Type="varchar" MaxLength="50" />
+          <Property Name="IdPunto_Cargo" Type="int" />
+          <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
+          <Property Name="Observacion_x_item" Type="nvarchar(max)" />
+          <Property Name="IdCliente" Type="numeric" Nullable="false" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="pe_telefonoOfic" Type="varchar" MaxLength="50" />
+          <Property Name="Observacion_central" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="dia" Type="int" />
+          <Property Name="mes" Type="int" />
+          <Property Name="anio" Type="int" />
+          <Property Name="vt_iva" Type="float" Nullable="false" />
+          <Property Name="subtotal_0" Type="float" Nullable="false" />
+          <Property Name="subtotal_iva" Type="float" Nullable="false" />
+          <Property Name="vt_total" Type="float" Nullable="false" />
+          <Property Name="nom_producto" Type="nvarchar" MaxLength="751" />
+          <Property Name="forma_pago_EFECTIVO" Type="float" Nullable="false" />
+          <Property Name="forma_pago_DINERO_ELECTRONICO" Type="float" Nullable="false" />
+          <Property Name="forma_pago_TARJETA_CRE_DEB" Type="float" Nullable="false" />
+          <Property Name="forma_pago_CHEQUE_TRANSFERENCIA" Type="float" Nullable="false" />
+          <Property Name="descto" Type="float" Nullable="false" />
+          <Property Name="pr_descripcion_2" Type="nvarchar" MaxLength="500" />
+          <Property Name="vt_por_iva" Type="varchar" Nullable="false" MaxLength="27" />
+        </EntityType>
+        <Function Name="spFAC_FJ_Rpt013" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Fj_servindustrias">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdPeriodo" Type="int" Mode="In" />
+          <Parameter Name="IdCentroCosto" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelFacturacion_FJ_Rpt" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesFacturacion_FJ_Rpt" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwFAC_FJ_Rpt001" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt001" />
+          <EntitySet Name="vwFAC_FJ_Rpt002" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt002" />
+          <EntitySet Name="vwFAC_FJ_Rpt005" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt005" />
+          <EntitySet Name="vwFAC_FJ_Rpt006" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt006" />
+          <EntitySet Name="vwFAC_FJ_Rpt003" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt003" />
+          <EntitySet Name="vwFAC_FJ_Rpt004" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt004" />
+          <EntitySet Name="vwFAC_FJ_Rpt007" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt007" />
+          <EntitySet Name="DepreciacionTransgandia_Rpt" EntityType="ModelFacturacion_FJ_Rpt.DepreciacionTransgandia_Rpt" />
+          <EntitySet Name="GatosTransgandia_Rpt" EntityType="ModelFacturacion_FJ_Rpt.GatosTransgandia_Rpt" />
+          <FunctionImport Name="spFAC_FJ_Rpt013" ReturnType="Collection(ModelFacturacion_FJ_Rpt.spFAC_FJ_Rpt013_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdPeriodo" Mode="In" Type="Int32" />
+            <Parameter Name="IdCentroCosto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="vwFAC_FJ_Rpt008" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt008" />
+          <EntitySet Name="vwFAC_FJ_Rpt012" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt012" />
+          <EntitySet Name="vwFAC_FJ_Rpt014" EntityType="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt014" />
+        </EntityContainer>
+        <EntityType Name="vwFAC_FJ_Rpt001">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdOrdenTrabajo_Pla" />
+            <PropertyRef Name="codOrdenTrabajo_Pla" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Equipo" />
+            <PropertyRef Name="serie" />
+            <PropertyRef Name="km_salida" />
+            <PropertyRef Name="km_llegada" />
+            <PropertyRef Name="con_atencion_a" />
+            <PropertyRef Name="nom_pc" />
+            <PropertyRef Name="ip" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="descrip_equipo_movi" />
+            <PropertyRef Name="punto_partida" />
+            <PropertyRef Name="punto_llegada" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdOrdenTrabajo_Pla" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="codOrdenTrabajo_Pla" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdCliente" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Equipo" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="serie" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="km_salida" Type="Double" Nullable="false" />
+          <Property Name="km_llegada" Type="Double" Nullable="false" />
+          <Property Name="con_atencion_a" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuarioUltMod" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha_UltMod" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuarioUltAnu" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha_UltAnu" Type="DateTime" Precision="3" />
+          <Property Name="MotiAnula" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="nom_pc" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ip" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="nom_Cliente" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pe_cedulaRuc" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="pe_direccion" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="secuencia" Type="Int32" Nullable="false" />
+          <Property Name="descrip_equipo_movi" Type="String" Nullable="false" MaxLength="1500" Unicode="false" FixedLength="false" />
+          <Property Name="punto_partida" Type="String" Nullable="false" MaxLength="1500" Unicode="false" FixedLength="false" />
+          <Property Name="punto_llegada" Type="String" Nullable="false" MaxLength="1500" Unicode="false" FixedLength="false" />
+          <Property Name="hora_ini" Type="Time" Precision="7" />
+          <Property Name="hora_fin" Type="Time" Precision="7" />
+          <Property Name="Valor" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt002">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdLiquidacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="cod_liquidacion" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="fecha_liqui" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="estado" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="secuencia" />
+            <PropertyRef Name="IdProducto_Liqui" />
+            <PropertyRef Name="detalle_x_producto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="subtotal" />
+            <PropertyRef Name="aplica_iva" />
+            <PropertyRef Name="por_iva" />
+            <PropertyRef Name="valor_iva" />
+            <PropertyRef Name="Total_liq" />
+            <PropertyRef Name="nom_producto_Liqui" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdLiquidacion" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdPeriodo" Type="Int32" Nullable="false" />
+          <Property Name="cod_liquidacion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdCliente" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="fecha_liqui" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="550" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="pe_nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="pe_apellido" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="secuencia" Type="Int32" Nullable="false" />
+          <Property Name="IdProducto_Liqui" Type="Int32" Nullable="false" />
+          <Property Name="detalle_x_producto" Type="String" Nullable="false" MaxLength="450" Unicode="false" FixedLength="false" />
+          <Property Name="cantidad" Type="Double" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="subtotal" Type="Double" Nullable="false" />
+          <Property Name="aplica_iva" Type="Boolean" Nullable="false" />
+          <Property Name="por_iva" Type="Double" Nullable="false" />
+          <Property Name="valor_iva" Type="Double" Nullable="false" />
+          <Property Name="Total_liq" Type="Double" Nullable="false" />
+          <Property Name="nom_producto_Liqui" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt005">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdTipoDepreciacion" />
+            <PropertyRef Name="CodActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="Centro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdEmpleado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoDepreciacion" Nullable="false" />
+          <Property Type="String" Name="CodActivoFijo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_ValorUnidad_Actu" />
+          <Property Type="Double" Name="Valor" />
+          <Property Type="Double" Name="Horas_Trabajada_x_Af" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="hora_trabajada" />
+          <Property Type="String" Name="Centro_costo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt006">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPreFacturacion" />
+            <PropertyRef Name="observacion_det" />
+            <PropertyRef Name="nom_Cliente" />
+            <PropertyRef Name="nom_Centro_costo_sub_centro_costo" />
+            <PropertyRef Name="nom_Centro_costo" />
+            <PropertyRef Name="nom_Producto" />
+            <PropertyRef Name="nom_Proveedor" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="co_factura" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdNumMovi_mov_inv" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPreFacturacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="observacion_det" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Cantidad" />
+          <Property Type="Double" Name="Costo_Uni" />
+          <Property Type="Double" Name="Subtotal" />
+          <Property Type="Boolean" Name="Aplica_Iva" />
+          <Property Type="Double" Name="Por_Iva" />
+          <Property Type="Double" Name="Valor_Iva" />
+          <Property Type="Double" Name="Total" />
+          <Property Type="DateTime" Name="cm_fecha" Precision="3" />
+          <Property Type="String" Name="oc_NumDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_Cliente" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo_sub_centro_costo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Centro_costo" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="nom_Proveedor" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="co_serie" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="co_factura" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Decimal" Name="IdNumMovi_mov_inv" Nullable="false" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt003">
+          <Key>
+            <PropertyRef Name="IdLiquidacion" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="Observacion_x_liqui" />
+            <PropertyRef Name="detalle_x_producto" />
+            <PropertyRef Name="cantidad" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="subtotal" />
+            <PropertyRef Name="valor_iva" />
+            <PropertyRef Name="Total_liq" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+          </Key>
+          <Property Type="Decimal" Name="IdLiquidacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="Observacion_x_liqui" Nullable="false" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="detalle_x_producto" Nullable="false" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="Double" Name="subtotal" Nullable="false" />
+          <Property Type="Double" Name="valor_iva" Nullable="false" />
+          <Property Type="Double" Name="Total_liq" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdActivoFijo" />
+            <PropertyRef Name="IdTipoDepreciacion" />
+            <PropertyRef Name="CodActivoFijo" />
+            <PropertyRef Name="Af_Nombre" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="Centro_costo" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdEmpleado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdActivoFijo" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoDepreciacion" Nullable="false" />
+          <Property Type="String" Name="CodActivoFijo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Af_Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Af_ValorUnidad_Actu" />
+          <Property Type="Double" Name="Valor" />
+          <Property Type="Double" Name="Horas_Trabajada_x_Af" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="hora_trabajada" />
+          <Property Type="String" Name="Centro_costo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt007">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPreFacturacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdNomina_Tipo" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdCargo" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="ca_descripcion" />
+            <PropertyRef Name="Centro_costo" />
+            <PropertyRef Name="IdCentroCosto_sub_centro_costo" />
+            <PropertyRef Name="IdCentroCosto" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPreFacturacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="IdNomina_Tipo" Nullable="false" />
+          <Property Type="Decimal" Name="IdEmpleado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdCargo" Nullable="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ca_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="SALARIO" />
+          <Property Type="Double" Name="H_EXTRAS" />
+          <Property Type="Double" Name="ALIMENTACION" />
+          <Property Type="String" Name="Centro_costo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DepreciacionTransgandia_Rpt">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdActivofijo" />
+            <PropertyRef Name="Secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="IdActivofijo" Nullable="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha_adquisicion" Precision="0" />
+          <Property Type="String" Name="Proveedor" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Factura" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Cantidad" />
+          <Property Type="String" Name="Af_nombre" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Costo_Unitario_Camion" />
+          <Property Type="Double" Name="Costo_unitario_carroceria" />
+          <Property Type="Double" Name="ValorSalvamento" />
+          <Property Type="Double" Name="TotalDepreciar" />
+          <Property Type="Double" Name="DepreciacionMensual" />
+        </EntityType>
+        <EntityType Name="GatosTransgandia_Rpt">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="secuencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="Fecha" Precision="0" />
+          <Property Type="String" Name="Proveedor" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Cantidad" />
+          <Property Type="String" Name="Factura" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Costounitario" />
+          <Property Type="Double" Name="Total" />
+          <Property Type="String" Name="Fuerza" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreServicio" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="spFAC_FJ_Rpt013_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPreFacturacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="secuencia" Nullable="false" />
+          <Property Type="String" Name="IdCentro_Costo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="IdPunto_cargo" Nullable="true" />
+          <Property Type="String" Name="Tipo_Cobro_Poliza_X" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdEmpresa_pol_det" Nullable="true" />
+          <Property Type="Decimal" Name="IdPoliza_pol_det" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdActivoFijo_pol_det" Nullable="true" />
+          <Property Type="Int32" Name="secuencia_pol_det" Nullable="true" />
+          <Property Type="Int32" Name="IdEmpresa_pol_cuota" Nullable="true" />
+          <Property Type="Decimal" Name="IdPoliza_pol_cuota" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="cod_cuota_pol_cuota" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Cantidad" Nullable="true" />
+          <Property Type="Double" Name="Costo_Uni" Nullable="true" />
+          <Property Type="Double" Name="Subtotal" Nullable="true" />
+          <Property Type="Boolean" Name="Aplica_Iva" Nullable="true" />
+          <Property Type="Double" Name="Por_Iva" Nullable="true" />
+          <Property Type="Double" Name="Valor_Iva" Nullable="true" />
+          <Property Type="Double" Name="Total" Nullable="true" />
+          <Property Type="Boolean" Name="Facturar" Nullable="false" />
+          <Property Type="Double" Name="Subtotal_iva" Nullable="true" />
+          <Property Type="Double" Name="Subtotal_0" Nullable="true" />
+          <Property Type="Decimal" Name="IdTarifario" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Double" Name="Porc_ganancia" Nullable="false" />
+          <Property Type="Int32" Name="num_cuotas" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Double" Name="iva" Nullable="false" />
+          <Property Type="Double" Name="pago_contado" Nullable="true" />
+          <Property Type="Double" Name="subtotal_noIva" Nullable="true" />
+          <Property Type="Double" Name="porc_iva" Nullable="false" />
+          <Property Type="Double" Name="MontoAsegurado" Nullable="true" />
+          <Property Type="String" Name="Cuota" Nullable="true" MaxLength="64" />
+          <Property Type="Double" Name="valor_prima" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="vwFAC_FJ_Rpt008">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="ca_descripcion" />
+            <PropertyRef Name="ru_descripcion" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="de_descripcion" />
+            <PropertyRef Name="SueldoActual" />
+            <PropertyRef Name="Orden" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdEmpleado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ca_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="zo_descripcion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ru_descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+          <Property Type="Boolean" Name="rub_visible_reporte" />
+          <Property Type="Int32" Name="IdanioFiscal" />
+          <Property Type="Int32" Name="pe_mes" />
+          <Property Type="DateTime" Name="pe_FechaIni" Precision="0" />
+          <Property Type="DateTime" Name="pe_FechaFin" Precision="0" />
+          <Property Type="DateTime" Name="em_fecha_ingreso" Precision="3" />
+          <Property Type="DateTime" Name="em_fechaSalida" Precision="3" />
+          <Property Type="String" Name="de_descripcion" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="SueldoActual" Nullable="false" />
+          <Property Type="Boolean" Name="rub_mustra_liquidacion_cliente" />
+          <Property Type="String" Name="Descripcion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt012">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdPrestamo" />
+            <PropertyRef Name="NumCuota" />
+            <PropertyRef Name="SaldoInicial" />
+            <PropertyRef Name="Interes" />
+            <PropertyRef Name="AbonoCapital" />
+            <PropertyRef Name="TotalCuota" />
+            <PropertyRef Name="Saldo" />
+            <PropertyRef Name="FechaPago" />
+            <PropertyRef Name="IdPreFacturacion" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdCentroCosto_cc" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdPrestamo" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="NumCuota" Nullable="false" />
+          <Property Type="Double" Name="SaldoInicial" Nullable="false" />
+          <Property Type="Double" Name="Interes" Nullable="false" />
+          <Property Type="Double" Name="AbonoCapital" Nullable="false" />
+          <Property Type="Double" Name="TotalCuota" Nullable="false" />
+          <Property Type="Double" Name="Saldo" Nullable="false" />
+          <Property Type="DateTime" Name="FechaPago" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="IdPreFacturacion" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="String" Name="IdCentroCosto_cc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Valor" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwFAC_FJ_Rpt014">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdBodega" />
+            <PropertyRef Name="IdCbteVta" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="vt_tipoDoc" />
+            <PropertyRef Name="vt_fecha" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="pr_descripcion" />
+            <PropertyRef Name="vt_cantidad" />
+            <PropertyRef Name="vt_PrecioFinal" />
+            <PropertyRef Name="vt_Subtotal" />
+            <PropertyRef Name="IdCliente" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="Observacion_central" />
+            <PropertyRef Name="vt_iva" />
+            <PropertyRef Name="subtotal_0" />
+            <PropertyRef Name="subtotal_iva" />
+            <PropertyRef Name="vt_total" />
+            <PropertyRef Name="forma_pago_EFECTIVO" />
+            <PropertyRef Name="forma_pago_DINERO_ELECTRONICO" />
+            <PropertyRef Name="forma_pago_TARJETA_CRE_DEB" />
+            <PropertyRef Name="forma_pago_CHEQUE_TRANSFERENCIA" />
+            <PropertyRef Name="descto" />
+            <PropertyRef Name="vt_por_iva" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Int32" Name="IdBodega" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteVta" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="String" Name="vt_tipoDoc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_serie1" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_serie2" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vt_NumFactura" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vt_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="vt_cantidad" Nullable="false" />
+          <Property Type="Double" Name="vt_PrecioFinal" Nullable="false" />
+          <Property Type="Double" Name="vt_Subtotal" Nullable="false" />
+          <Property Type="String" Name="Atencion_a" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="num_oc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPunto_Cargo" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion_x_item" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="IdCliente" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telefonoOfic" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observacion_central" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="dia" />
+          <Property Type="Int32" Name="mes" />
+          <Property Type="Int32" Name="anio" />
+          <Property Type="Double" Name="vt_iva" Nullable="false" />
+          <Property Type="Double" Name="subtotal_0" Nullable="false" />
+          <Property Type="Double" Name="subtotal_iva" Nullable="false" />
+          <Property Type="Double" Name="vt_total" Nullable="false" />
+          <Property Type="String" Name="nom_producto" MaxLength="751" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="forma_pago_EFECTIVO" Nullable="false" />
+          <Property Type="Double" Name="forma_pago_DINERO_ELECTRONICO" Nullable="false" />
+          <Property Type="Double" Name="forma_pago_TARJETA_CRE_DEB" Nullable="false" />
+          <Property Type="Double" Name="forma_pago_CHEQUE_TRANSFERENCIA" Nullable="false" />
+          <Property Type="Double" Name="descto" Nullable="false" />
+          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="vt_por_iva" Nullable="false" MaxLength="27" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelFacturacion_FJ_RptStoreContainer" CdmEntityContainer="EntitiesFacturacion_FJ_Rpt">
+          <EntitySetMapping Name="vwFAC_FJ_Rpt001">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt001">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt001">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdOrdenTrabajo_Pla" ColumnName="IdOrdenTrabajo_Pla" />
+                <ScalarProperty Name="codOrdenTrabajo_Pla" ColumnName="codOrdenTrabajo_Pla" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+                <ScalarProperty Name="serie" ColumnName="serie" />
+                <ScalarProperty Name="km_salida" ColumnName="km_salida" />
+                <ScalarProperty Name="km_llegada" ColumnName="km_llegada" />
+                <ScalarProperty Name="con_atencion_a" ColumnName="con_atencion_a" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltAnu" ColumnName="IdUsuarioUltAnu" />
+                <ScalarProperty Name="Fecha_UltAnu" ColumnName="Fecha_UltAnu" />
+                <ScalarProperty Name="MotiAnula" ColumnName="MotiAnula" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="nom_Cliente" ColumnName="nom_Cliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="descrip_equipo_movi" ColumnName="descrip_equipo_movi" />
+                <ScalarProperty Name="punto_partida" ColumnName="punto_partida" />
+                <ScalarProperty Name="punto_llegada" ColumnName="punto_llegada" />
+                <ScalarProperty Name="hora_ini" ColumnName="hora_ini" />
+                <ScalarProperty Name="hora_fin" ColumnName="hora_fin" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt002">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt002">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt002">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdLiquidacion" ColumnName="IdLiquidacion" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="cod_liquidacion" ColumnName="cod_liquidacion" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="fecha_liqui" ColumnName="fecha_liqui" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdProducto_Liqui" ColumnName="IdProducto_Liqui" />
+                <ScalarProperty Name="detalle_x_producto" ColumnName="detalle_x_producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="aplica_iva" ColumnName="aplica_iva" />
+                <ScalarProperty Name="por_iva" ColumnName="por_iva" />
+                <ScalarProperty Name="valor_iva" ColumnName="valor_iva" />
+                <ScalarProperty Name="Total_liq" ColumnName="Total_liq" />
+                <ScalarProperty Name="nom_producto_Liqui" ColumnName="nom_producto_Liqui" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt005">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt005">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt005">
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="hora_trabajada" ColumnName="hora_trabajada" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Horas_Trabajada_x_Af" ColumnName="Horas_Trabajada_x_Af" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Af_ValorUnidad_Actu" ColumnName="Af_ValorUnidad_Actu" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="CodActivoFijo" ColumnName="CodActivoFijo" />
+                <ScalarProperty Name="IdTipoDepreciacion" ColumnName="IdTipoDepreciacion" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt006">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt006">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt006">
+                <ScalarProperty Name="IdNumMovi_mov_inv" ColumnName="IdNumMovi_mov_inv" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="co_factura" ColumnName="co_factura" />
+                <ScalarProperty Name="co_serie" ColumnName="co_serie" />
+                <ScalarProperty Name="nom_Proveedor" ColumnName="nom_Proveedor" />
+                <ScalarProperty Name="nom_Producto" ColumnName="nom_Producto" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="nom_Centro_costo" ColumnName="nom_Centro_costo" />
+                <ScalarProperty Name="nom_Centro_costo_sub_centro_costo" ColumnName="nom_Centro_costo_sub_centro_costo" />
+                <ScalarProperty Name="nom_Cliente" ColumnName="nom_Cliente" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="oc_NumDocumento" ColumnName="oc_NumDocumento" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Valor_Iva" ColumnName="Valor_Iva" />
+                <ScalarProperty Name="Por_Iva" ColumnName="Por_Iva" />
+                <ScalarProperty Name="Aplica_Iva" ColumnName="Aplica_Iva" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Costo_Uni" ColumnName="Costo_Uni" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="observacion_det" ColumnName="observacion_det" />
+                <ScalarProperty Name="IdPreFacturacion" ColumnName="IdPreFacturacion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt003">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt003">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt003">
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="Total_liq" ColumnName="Total_liq" />
+                <ScalarProperty Name="valor_iva" ColumnName="valor_iva" />
+                <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="detalle_x_producto" ColumnName="detalle_x_producto" />
+                <ScalarProperty Name="Observacion_x_liqui" ColumnName="Observacion_x_liqui" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdLiquidacion" ColumnName="IdLiquidacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt004">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt004">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt004">
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="hora_trabajada" ColumnName="hora_trabajada" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Horas_Trabajada_x_Af" ColumnName="Horas_Trabajada_x_Af" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Af_ValorUnidad_Actu" ColumnName="Af_ValorUnidad_Actu" />
+                <ScalarProperty Name="Af_Nombre" ColumnName="Af_Nombre" />
+                <ScalarProperty Name="CodActivoFijo" ColumnName="CodActivoFijo" />
+                <ScalarProperty Name="IdTipoDepreciacion" ColumnName="IdTipoDepreciacion" />
+                <ScalarProperty Name="IdActivoFijo" ColumnName="IdActivoFijo" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt007">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt007">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt007">
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="ALIMENTACION" ColumnName="ALIMENTACION" />
+                <ScalarProperty Name="H_EXTRAS" ColumnName="H.EXTRAS" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+                <ScalarProperty Name="ca_descripcion" ColumnName="ca_descripcion" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdNomina_Tipo" ColumnName="IdNomina_Tipo" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdPreFacturacion" ColumnName="IdPreFacturacion" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepreciacionTransgandia_Rpt">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.DepreciacionTransgandia_Rpt">
+              <MappingFragment StoreEntitySet="DepreciacionTransgandia_Rpt">
+                <ScalarProperty Name="DepreciacionMensual" ColumnName="DepreciacionMensual" />
+                <ScalarProperty Name="TotalDepreciar" ColumnName="TotalDepreciar" />
+                <ScalarProperty Name="ValorSalvamento" ColumnName="ValorSalvamento" />
+                <ScalarProperty Name="Costo_unitario_carroceria" ColumnName="Costo_unitario_carroceria" />
+                <ScalarProperty Name="Costo_Unitario_Camion" ColumnName="Costo_Unitario_Camion" />
+                <ScalarProperty Name="Af_nombre" ColumnName="Af_nombre" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="Fecha_adquisicion" ColumnName="Fecha_adquisicion" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdActivofijo" ColumnName="IdActivofijo" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GatosTransgandia_Rpt">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.GatosTransgandia_Rpt">
+              <MappingFragment StoreEntitySet="GatosTransgandia_Rpt">
+                <ScalarProperty Name="NombreServicio" ColumnName="NombreServicio" />
+                <ScalarProperty Name="Fuerza" ColumnName="Fuerza" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Costounitario" ColumnName="Costounitario" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spFAC_FJ_Rpt013" FunctionName="ModelFacturacion_FJ_Rpt.Store.spFAC_FJ_Rpt013">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelFacturacion_FJ_Rpt.spFAC_FJ_Rpt013_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdPreFacturacion" ColumnName="IdPreFacturacion" />
+                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
+                <ScalarProperty Name="IdCentro_Costo" ColumnName="IdCentro_Costo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="Tipo_Cobro_Poliza_X" ColumnName="Tipo_Cobro_Poliza_X" />
+                <ScalarProperty Name="IdEmpresa_pol_det" ColumnName="IdEmpresa_pol_det" />
+                <ScalarProperty Name="IdPoliza_pol_det" ColumnName="IdPoliza_pol_det" />
+                <ScalarProperty Name="IdActivoFijo_pol_det" ColumnName="IdActivoFijo_pol_det" />
+                <ScalarProperty Name="secuencia_pol_det" ColumnName="secuencia_pol_det" />
+                <ScalarProperty Name="IdEmpresa_pol_cuota" ColumnName="IdEmpresa_pol_cuota" />
+                <ScalarProperty Name="IdPoliza_pol_cuota" ColumnName="IdPoliza_pol_cuota" />
+                <ScalarProperty Name="cod_cuota_pol_cuota" ColumnName="cod_cuota_pol_cuota" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Costo_Uni" ColumnName="Costo_Uni" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Aplica_Iva" ColumnName="Aplica_Iva" />
+                <ScalarProperty Name="Por_Iva" ColumnName="Por_Iva" />
+                <ScalarProperty Name="Valor_Iva" ColumnName="Valor_Iva" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Facturar" ColumnName="Facturar" />
+                <ScalarProperty Name="Subtotal_iva" ColumnName="Subtotal_iva" />
+                <ScalarProperty Name="Subtotal_0" ColumnName="Subtotal_0" />
+                <ScalarProperty Name="IdTarifario" ColumnName="IdTarifario" />
+                <ScalarProperty Name="Porc_ganancia" ColumnName="Porc_ganancia" />
+                <ScalarProperty Name="num_cuotas" ColumnName="num_cuotas" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="iva" ColumnName="iva" />
+                <ScalarProperty Name="pago_contado" ColumnName="pago_contado" />
+                <ScalarProperty Name="subtotal_noIva" ColumnName="subtotal_noIva" />
+                <ScalarProperty Name="porc_iva" ColumnName="porc_iva" />
+                <ScalarProperty Name="MontoAsegurado" ColumnName="MontoAsegurado" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="valor_prima" ColumnName="valor_prima" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt008">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt008">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt008">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="rub_mustra_liquidacion_cliente" ColumnName="rub_mustra_liquidacion_cliente" />
+                <ScalarProperty Name="SueldoActual" ColumnName="SueldoActual" />
+                <ScalarProperty Name="de_descripcion" ColumnName="de_descripcion" />
+                <ScalarProperty Name="em_fechaSalida" ColumnName="em_fechaSalida" />
+                <ScalarProperty Name="em_fecha_ingreso" ColumnName="em_fecha_ingreso" />
+                <ScalarProperty Name="pe_FechaFin" ColumnName="pe_FechaFin" />
+                <ScalarProperty Name="pe_FechaIni" ColumnName="pe_FechaIni" />
+                <ScalarProperty Name="pe_mes" ColumnName="pe_mes" />
+                <ScalarProperty Name="IdanioFiscal" ColumnName="IdanioFiscal" />
+                <ScalarProperty Name="rub_visible_reporte" ColumnName="rub_visible_reporte" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="ru_descripcion" ColumnName="ru_descripcion" />
+                <ScalarProperty Name="zo_descripcion" ColumnName="zo_descripcion" />
+                <ScalarProperty Name="ca_descripcion" ColumnName="ca_descripcion" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt012">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt012">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt012">
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="IdCentroCosto_cc" ColumnName="IdCentroCosto_cc" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdPreFacturacion" ColumnName="IdPreFacturacion" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="TotalCuota" ColumnName="TotalCuota" />
+                <ScalarProperty Name="AbonoCapital" ColumnName="AbonoCapital" />
+                <ScalarProperty Name="Interes" ColumnName="Interes" />
+                <ScalarProperty Name="SaldoInicial" ColumnName="SaldoInicial" />
+                <ScalarProperty Name="NumCuota" ColumnName="NumCuota" />
+                <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFAC_FJ_Rpt014">
+            <EntityTypeMapping TypeName="ModelFacturacion_FJ_Rpt.vwFAC_FJ_Rpt014">
+              <MappingFragment StoreEntitySet="vwFAC_FJ_Rpt014">
+                <ScalarProperty Name="vt_por_iva" ColumnName="vt_por_iva" />
+                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
+                <ScalarProperty Name="descto" ColumnName="descto" />
+                <ScalarProperty Name="forma_pago_CHEQUE_TRANSFERENCIA" ColumnName="forma_pago_CHEQUE_TRANSFERENCIA" />
+                <ScalarProperty Name="forma_pago_TARJETA_CRE_DEB" ColumnName="forma_pago_TARJETA_CRE_DEB" />
+                <ScalarProperty Name="forma_pago_DINERO_ELECTRONICO" ColumnName="forma_pago_DINERO_ELECTRONICO" />
+                <ScalarProperty Name="forma_pago_EFECTIVO" ColumnName="forma_pago_EFECTIVO" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="vt_total" ColumnName="vt_total" />
+                <ScalarProperty Name="subtotal_iva" ColumnName="subtotal_iva" />
+                <ScalarProperty Name="subtotal_0" ColumnName="subtotal_0" />
+                <ScalarProperty Name="vt_iva" ColumnName="vt_iva" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="mes" ColumnName="mes" />
+                <ScalarProperty Name="dia" ColumnName="dia" />
+                <ScalarProperty Name="Observacion_central" ColumnName="Observacion_central" />
+                <ScalarProperty Name="pe_telefonoOfic" ColumnName="pe_telefonoOfic" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Observacion_x_item" ColumnName="Observacion_x_item" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdPunto_Cargo" ColumnName="IdPunto_Cargo" />
+                <ScalarProperty Name="num_oc" ColumnName="num_oc" />
+                <ScalarProperty Name="Atencion_a" ColumnName="Atencion_a" />
+                <ScalarProperty Name="vt_Subtotal" ColumnName="vt_Subtotal" />
+                <ScalarProperty Name="vt_PrecioFinal" ColumnName="vt_PrecioFinal" />
+                <ScalarProperty Name="vt_cantidad" ColumnName="vt_cantidad" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="vt_fecha" ColumnName="vt_fecha" />
+                <ScalarProperty Name="vt_NumFactura" ColumnName="vt_NumFactura" />
+                <ScalarProperty Name="vt_serie2" ColumnName="vt_serie2" />
+                <ScalarProperty Name="vt_serie1" ColumnName="vt_serie1" />
+                <ScalarProperty Name="vt_tipoDoc" ColumnName="vt_tipoDoc" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdCbteVta" ColumnName="IdCbteVta" />
+                <ScalarProperty Name="IdBodega" ColumnName="IdBodega" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

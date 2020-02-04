@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model_Talme.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model_TalmeStoreContainer">
+          <EntitySet Name="vwROL_TALME_Rpt001" EntityType="Model_Talme.Store.vwROL_TALME_Rpt001" store:Type="Views" store:Schema="dbo" store:Name="vwROL_TALME_Rpt001">
+            <DefiningQuery>SELECT 
+      [vwROL_TALME_Rpt001].[NombreCompleto] AS [NombreCompleto], 
+      [vwROL_TALME_Rpt001].[Ruc] AS [Ruc], 
+      [vwROL_TALME_Rpt001].[IdCargo] AS [IdCargo], 
+      [vwROL_TALME_Rpt001].[IdDivision] AS [IdDivision], 
+      [vwROL_TALME_Rpt001].[Empresa] AS [Empresa], 
+      [vwROL_TALME_Rpt001].[RucEmpresa] AS [RucEmpresa], 
+      [vwROL_TALME_Rpt001].[IdEmpresa] AS [IdEmpresa], 
+      [vwROL_TALME_Rpt001].[IdNominaTipo] AS [IdNominaTipo], 
+      [vwROL_TALME_Rpt001].[RubroDescripcion] AS [RubroDescripcion], 
+      [vwROL_TALME_Rpt001].[IdNominaTipoLiqui] AS [IdNominaTipoLiqui], 
+      [vwROL_TALME_Rpt001].[IdPeriodo] AS [IdPeriodo], 
+      [vwROL_TALME_Rpt001].[IdEmpleado] AS [IdEmpleado], 
+      [vwROL_TALME_Rpt001].[IdRubro] AS [IdRubro], 
+      [vwROL_TALME_Rpt001].[Ingreso] AS [Ingreso], 
+      [vwROL_TALME_Rpt001].[Egreso] AS [Egreso], 
+      [vwROL_TALME_Rpt001].[Orden] AS [Orden], 
+      [vwROL_TALME_Rpt001].[Cargo] AS [Cargo], 
+      [vwROL_TALME_Rpt001].[Division] AS [Division], 
+      [vwROL_TALME_Rpt001].[IdSucursal] AS [IdSucursal], 
+      [vwROL_TALME_Rpt001].[Sucursal] AS [Sucursal], 
+      [vwROL_TALME_Rpt001].[CodigoEmpleado] AS [CodigoEmpleado], 
+      [vwROL_TALME_Rpt001].[IdDepartamento] AS [IdDepartamento], 
+      [vwROL_TALME_Rpt001].[de_descripcion] AS [de_descripcion], 
+      [vwROL_TALME_Rpt001].[RazonSocial] AS [RazonSocial], 
+      [vwROL_TALME_Rpt001].[pe_apellido] AS [pe_apellido], 
+      [vwROL_TALME_Rpt001].[pe_nombre] AS [pe_nombre], 
+      [vwROL_TALME_Rpt001].[FechaPago] AS [FechaPago], 
+      [vwROL_TALME_Rpt001].[pe_FechaIni] AS [pe_FechaIni], 
+      [vwROL_TALME_Rpt001].[pe_FechaFin] AS [pe_FechaFin], 
+      [vwROL_TALME_Rpt001].[ru_tipo] AS [ru_tipo], 
+      [vwROL_TALME_Rpt001].[em_status] AS [em_status], 
+      [vwROL_TALME_Rpt001].[NombreComercial] AS [NombreComercial], 
+      [vwROL_TALME_Rpt001].[diastrabajados] AS [diastrabajados], 
+      [vwROL_TALME_Rpt001].[Horas_al_25] AS [Horas_al_25], 
+      [vwROL_TALME_Rpt001].[Horas_al_50] AS [Horas_al_50], 
+      [vwROL_TALME_Rpt001].[Horas_al_100] AS [Horas_al_100]
+      FROM [dbo].[vwROL_TALME_Rpt001] AS [vwROL_TALME_Rpt001]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'TALME.dbo.vwROL_TALME_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwROL_TALME_Rpt001">
+          <Key>
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Ruc" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="RucEmpresa" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdNominaTipo" />
+            <PropertyRef Name="RubroDescripcion" />
+            <PropertyRef Name="IdNominaTipoLiqui" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdRubro" />
+            <PropertyRef Name="Ingreso" />
+            <PropertyRef Name="Egreso" />
+            <PropertyRef Name="Orden" />
+            <PropertyRef Name="Cargo" />
+            <PropertyRef Name="Division" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Sucursal" />
+            <PropertyRef Name="CodigoEmpleado" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="de_descripcion" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_FechaIni" />
+            <PropertyRef Name="pe_FechaFin" />
+            <PropertyRef Name="ru_tipo" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="Horas_al_25" />
+            <PropertyRef Name="Horas_al_50" />
+            <PropertyRef Name="Horas_al_100" />
+          </Key>
+          <Property Name="NombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Ruc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdCargo" Type="int" />
+          <Property Name="IdDivision" Type="int" />
+          <Property Name="Empresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RucEmpresa" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdNominaTipo" Type="int" Nullable="false" />
+          <Property Name="RubroDescripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdNominaTipoLiqui" Type="int" Nullable="false" />
+          <Property Name="IdPeriodo" Type="int" Nullable="false" />
+          <Property Name="IdEmpleado" Type="numeric" Nullable="false" />
+          <Property Name="IdRubro" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Ingreso" Type="float" Nullable="false" />
+          <Property Name="Egreso" Type="float" Nullable="false" />
+          <Property Name="Orden" Type="int" Nullable="false" />
+          <Property Name="Cargo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Division" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdSucursal" Type="int" Nullable="false" />
+          <Property Name="Sucursal" Type="nchar" Nullable="false" MaxLength="60" />
+          <Property Name="CodigoEmpleado" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="de_descripcion" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="RazonSocial" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="FechaPago" Type="varchar" MaxLength="100" />
+          <Property Name="pe_FechaIni" Type="smalldatetime" Nullable="false" />
+          <Property Name="pe_FechaFin" Type="smalldatetime" Nullable="false" />
+          <Property Name="ru_tipo" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="em_status" Type="varchar" MaxLength="10" />
+          <Property Name="NombreComercial" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="diastrabajados" Type="float" />
+          <Property Name="Horas_al_25" Type="float" Nullable="false" />
+          <Property Name="Horas_al_50" Type="float" Nullable="false" />
+          <Property Name="Horas_al_100" Type="float" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model_Talme" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities_Roles_Talme" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwROL_TALME_Rpt001" EntityType="Model_Talme.vwROL_TALME_Rpt001" />
+        </EntityContainer>
+        <EntityType Name="vwROL_TALME_Rpt001">
+          <Key>
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Ruc" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="RucEmpresa" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdNominaTipo" />
+            <PropertyRef Name="RubroDescripcion" />
+            <PropertyRef Name="IdNominaTipoLiqui" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdEmpleado" />
+            <PropertyRef Name="IdRubro" />
+            <PropertyRef Name="Ingreso" />
+            <PropertyRef Name="Egreso" />
+            <PropertyRef Name="Orden" />
+            <PropertyRef Name="Cargo" />
+            <PropertyRef Name="Division" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Sucursal" />
+            <PropertyRef Name="CodigoEmpleado" />
+            <PropertyRef Name="IdDepartamento" />
+            <PropertyRef Name="de_descripcion" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="pe_FechaIni" />
+            <PropertyRef Name="pe_FechaFin" />
+            <PropertyRef Name="ru_tipo" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="Horas_al_25" />
+            <PropertyRef Name="Horas_al_50" />
+            <PropertyRef Name="Horas_al_100" />
+          </Key>
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ruc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdCargo" />
+          <Property Type="Int32" Name="IdDivision" />
+          <Property Type="String" Name="Empresa" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RucEmpresa" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdNominaTipo" Nullable="false" />
+          <Property Type="String" Name="RubroDescripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdNominaTipoLiqui" Nullable="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Decimal" Name="IdEmpleado" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdRubro" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Ingreso" Nullable="false" />
+          <Property Type="Double" Name="Egreso" Nullable="false" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="String" Name="Cargo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Division" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Sucursal" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="CodigoEmpleado" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdDepartamento" Nullable="false" />
+          <Property Type="String" Name="de_descripcion" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FechaPago" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="pe_FechaIni" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="pe_FechaFin" Nullable="false" Precision="0" />
+          <Property Type="String" Name="ru_tipo" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="em_status" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="diastrabajados" />
+          <Property Type="Double" Name="Horas_al_25" Nullable="false" />
+          <Property Type="Double" Name="Horas_al_50" Nullable="false" />
+          <Property Type="Double" Name="Horas_al_100" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model_TalmeStoreContainer" CdmEntityContainer="Entities_Roles_Talme">
+          <EntitySetMapping Name="vwROL_TALME_Rpt001">
+            <EntityTypeMapping TypeName="Model_Talme.vwROL_TALME_Rpt001">
+              <MappingFragment StoreEntitySet="vwROL_TALME_Rpt001">
+                <ScalarProperty Name="Horas_al_100" ColumnName="Horas_al_100" />
+                <ScalarProperty Name="Horas_al_50" ColumnName="Horas_al_50" />
+                <ScalarProperty Name="Horas_al_25" ColumnName="Horas_al_25" />
+                <ScalarProperty Name="diastrabajados" ColumnName="diastrabajados" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="em_status" ColumnName="em_status" />
+                <ScalarProperty Name="ru_tipo" ColumnName="ru_tipo" />
+                <ScalarProperty Name="pe_FechaFin" ColumnName="pe_FechaFin" />
+                <ScalarProperty Name="pe_FechaIni" ColumnName="pe_FechaIni" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="de_descripcion" ColumnName="de_descripcion" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Egreso" ColumnName="Egreso" />
+                <ScalarProperty Name="Ingreso" ColumnName="Ingreso" />
+                <ScalarProperty Name="IdRubro" ColumnName="IdRubro" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="IdNominaTipoLiqui" ColumnName="IdNominaTipoLiqui" />
+                <ScalarProperty Name="RubroDescripcion" ColumnName="RubroDescripcion" />
+                <ScalarProperty Name="IdNominaTipo" ColumnName="IdNominaTipo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="RucEmpresa" ColumnName="RucEmpresa" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="IdDivision" ColumnName="IdDivision" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

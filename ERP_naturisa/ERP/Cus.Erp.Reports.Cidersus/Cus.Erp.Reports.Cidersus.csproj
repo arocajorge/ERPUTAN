@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBC70D63-7A23-4639-87BF-FDFDCF230562}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cus.Erp.Reports.Cidersus</RootNamespace>
+    <AssemblyName>Cus.Erp.Reports.Cidersus</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prueba|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Prueba\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModelProduccion_Edehsa_Rpt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelProduccion_Edehsa_Rpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelProduccion_Edehsa_Rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\vwPRO_CUS_CID_Dimensiones_Elementos_Ensamblados_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt002.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt002.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt001_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt001_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt001_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt002_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt002_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt002_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt003.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt003.Designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt003_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt003_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt003_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt004.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt004.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt004_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt004_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt004_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt005.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt005.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt005_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt005_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt005_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt006.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt006.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt006_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt006_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt006_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt007.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt007.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt007.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt007_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt007_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt007_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt008_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt008_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt008_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt009.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt009.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt009.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt009_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt009_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt009_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt010.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt010.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt010.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt010_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt010_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt010_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt011.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt011.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt011.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt011_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt011_Data.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt011_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_Bus.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_frm.Designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_Info.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_Rpt.Designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt012_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_CodigoBarraProductoTerminado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_CodigoBarraProductoTerminado.designer.cs">
+      <DependentUpon>XRpt_prd_CodigoBarraProductoTerminado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_ControlProduccionGrupo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_ControlProduccionGrupo.designer.cs">
+      <DependentUpon>XRpt_prd_ControlProduccionGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_EficienciaPiezas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_EficienciaPiezas.designer.cs">
+      <DependentUpon>XRpt_prd_EficienciaPiezas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\xrpt_prd_ListadoMateriales.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\xrpt_prd_ListadoMateriales.designer.cs">
+      <DependentUpon>xrpt_prd_ListadoMateriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_ReimpresionCodBarra.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XRpt_prd_ReimpresionCodBarra.designer.cs">
+      <DependentUpon>XRpt_prd_ReimpresionCodBarra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt001.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt001.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt008.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt008.designer.cs">
+      <DependentUpon>XPRO_CUS_CID_Rpt008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vwprd_OrdenCompraCidersus.cs">
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPRO_CUS_CID_Dimensiones_Elementos_Ensamblados.cs">
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPRO_CUS_CID_Rpt001.cs">
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPRO_CUS_CID_Rpt003.cs">
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produccion\XPRO_CUS_CID_Rpt012_Data.cs" />
+    <Compile Include="vwPRO_CUS_CID_Rpt012.cs">
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt002.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt003.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt004.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt005.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt006.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt007.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt007.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt009.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt009.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt010.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt010.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt011.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt011.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt012_frm.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt012_Rpt.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt012_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XRpt_prd_CodigoBarraProductoTerminado.resx">
+      <DependentUpon>XRpt_prd_CodigoBarraProductoTerminado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XRpt_prd_ControlProduccionGrupo.resx">
+      <DependentUpon>XRpt_prd_ControlProduccionGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XRpt_prd_EficienciaPiezas.resx">
+      <DependentUpon>XRpt_prd_EficienciaPiezas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\xrpt_prd_ListadoMateriales.resx">
+      <DependentUpon>xrpt_prd_ListadoMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XRpt_prd_ReimpresionCodBarra.resx">
+      <DependentUpon>XRpt_prd_ReimpresionCodBarra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt001.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produccion\XPRO_CUS_CID_Rpt008.resx">
+      <DependentUpon>XPRO_CUS_CID_Rpt008.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Erp.Bussines\Core.Erp.Business.csproj">
+      <Project>{205389bd-dcd7-4212-91e6-d70ea1fe1705}</Project>
+      <Name>Core.Erp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Data\Core.Erp.Data.csproj">
+      <Project>{650e5cc9-d792-4413-81cd-083deba29df0}</Project>
+      <Name>Core.Erp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Info\Core.Erp.Info.csproj">
+      <Project>{01efa86c-05af-4bf0-9297-4d7b843d997b}</Project>
+      <Name>Core.Erp.Info</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="ModelProduccion_Edehsa_Rpt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelProduccion_Edehsa_Rpt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ModelProduccion_Edehsa_Rpt.edmx.diagram">
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Cidersus.Produccion.XPRO_CUS_CID_Rpt001_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Cidersus.Produccion.XPRO_CUS_CID_Rpt002_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Cidersus.Produccion.XPRO_CUS_CID_Rpt012_Info.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelProduccion_Edehsa_Rpt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelProduccion_Edehsa_Rpt.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelProduccion_Edehsa_Rpt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelProduccion_Edehsa_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelProduccion_Edehsa_Rpt.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
