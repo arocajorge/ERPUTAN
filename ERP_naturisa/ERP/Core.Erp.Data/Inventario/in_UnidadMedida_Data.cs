@@ -297,7 +297,7 @@ namespace Core.Erp.Data.Inventario
                    if (producto != null)
                    {
                        var unidad = db.in_UnidadMedida_Equiv_conversion.Where(q => q.IdUnidadMedida == IdUnidadMedida && q.IdUnidadMedida_equiva == producto.IdUnidadMedida_Consumo).FirstOrDefault();
-                       if (unidad == null)
+                       if (unidad != null)
                        {
                            CantidadConversion = Cantidad * unidad.valor_equiv;
                        }
