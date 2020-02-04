@@ -881,6 +881,76 @@
       [vwcp_orden_giro_consulta].[Estado] AS [Estado]
       FROM [dbo].[vwcp_orden_giro_consulta] AS [vwcp_orden_giro_consulta]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwcp_orden_giro_det_liqui_comp_fac_elect" EntityType="ModelCuentasxPagar.Store.vwcp_orden_giro_det_liqui_comp_fac_elect" store:Type="Views" store:Schema="dbo" store:Name="vwcp_orden_giro_det_liqui_comp_fac_elect">
+            <DefiningQuery>SELECT 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdEmpresa] AS [IdEmpresa], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdCbteCble_Ogiro] AS [IdCbteCble_Ogiro], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdTipoCbte_Ogiro] AS [IdTipoCbte_Ogiro], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[Secuencia] AS [Secuencia], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdProducto] AS [IdProducto], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdUnidadMedida] AS [IdUnidadMedida], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[Cantidad] AS [Cantidad], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[CostoUni] AS [CostoUni], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[PorDescuento] AS [PorDescuento], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[DescuentoUni] AS [DescuentoUni], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[CostoUniFinal] AS [CostoUniFinal], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[Subtotal] AS [Subtotal], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdCod_Impuesto_Iva] AS [IdCod_Impuesto_Iva], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[PorIva] AS [PorIva], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[ValorIva] AS [ValorIva], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[Total] AS [Total], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[pr_codigo] AS [pr_codigo], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[pr_descripcion] AS [pr_descripcion], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[pr_descripcion_2] AS [pr_descripcion_2], 
+      [vwcp_orden_giro_det_liqui_comp_fac_elect].[IdSucursal] AS [IdSucursal]
+      FROM [dbo].[vwcp_orden_giro_det_liqui_comp_fac_elect] AS [vwcp_orden_giro_det_liqui_comp_fac_elect]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwcp_orden_giro_liqui_compra_fact_elect" EntityType="ModelCuentasxPagar.Store.vwcp_orden_giro_liqui_compra_fact_elect" store:Type="Views" store:Schema="dbo" store:Name="vwcp_orden_giro_liqui_compra_fact_elect">
+            <DefiningQuery>SELECT 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdEmpresa] AS [IdEmpresa], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdCbteCble_Ogiro] AS [IdCbteCble_Ogiro], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdTipoCbte_Ogiro] AS [IdTipoCbte_Ogiro], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdOrden_giro_Tipo] AS [IdOrden_giro_Tipo], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdProveedor] AS [IdProveedor], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_fechaOg] AS [co_fechaOg], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_serie] AS [co_serie], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_factura] AS [co_factura], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_FechaFactura] AS [co_FechaFactura], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_FechaContabilizacion] AS [co_FechaContabilizacion], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_FechaFactura_vct] AS [co_FechaFactura_vct], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_plazo] AS [co_plazo], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_observacion] AS [co_observacion], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_subtotal_iva] AS [co_subtotal_iva], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_subtotal_siniva] AS [co_subtotal_siniva], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_baseImponible] AS [co_baseImponible], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_Por_iva] AS [co_Por_iva], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_valoriva] AS [co_valoriva], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_total] AS [co_total], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_valorpagar] AS [co_valorpagar], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[co_vaCoa] AS [co_vaCoa], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[PagoLocExt] AS [PagoLocExt], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[PaisPago] AS [PaisPago], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_Naturaleza] AS [pe_Naturaleza], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_nombreCompleto] AS [pe_nombreCompleto], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_razonSocial] AS [pe_razonSocial], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_apellido] AS [pe_apellido], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_nombre] AS [pe_nombre], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdTipoDocumento] AS [IdTipoDocumento], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_cedulaRuc] AS [pe_cedulaRuc], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_direccion] AS [pe_direccion], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_telfono_Contacto] AS [pe_telfono_Contacto], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_celular] AS [pe_celular], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_correo] AS [pe_correo], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[pe_sexo] AS [pe_sexo], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[em_nombre] AS [em_nombre], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[RazonSocial] AS [RazonSocial], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[NombreComercial] AS [NombreComercial], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[ContribuyenteEspecial] AS [ContribuyenteEspecial], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[em_ruc] AS [em_ruc], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[em_direccion] AS [em_direccion], 
+      [vwcp_orden_giro_liqui_compra_fact_elect].[IdSucursal] AS [IdSucursal]
+      FROM [dbo].[vwcp_orden_giro_liqui_compra_fact_elect] AS [vwcp_orden_giro_liqui_compra_fact_elect]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwcp_Orden_Giro_Pendiente_Conciliar" EntityType="ModelCuentasxPagar.Store.vwcp_Orden_Giro_Pendiente_Conciliar" store:Type="Views" store:Schema="dbo" store:Name="vwcp_Orden_Giro_Pendiente_Conciliar">
             <DefiningQuery>SELECT 
       [vwcp_Orden_Giro_Pendiente_Conciliar].[IdEmpresa] AS [IdEmpresa], 
@@ -3324,8 +3394,8 @@
           <Property Name="re_Porcen_retencion" Type="float" Nullable="false" />
           <Property Name="re_valor_retencion" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Anticipos_para_Conciliar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Anticipos_para_Conciliar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Anticipos_para_Conciliar">
           <Key>
@@ -3362,8 +3432,8 @@
           <Property Name="IdProveedor" Type="numeric" Nullable="false" />
           <Property Name="IdPersona" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Anticipos_x_NotaCred_Saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Anticipos_x_NotaCred_Saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Anticipos_x_NotaCred_Saldo">
           <Key>
@@ -3394,8 +3464,8 @@
           <Property Name="Beneficiario" Type="varchar" MaxLength="246" />
           <Property Name="IdEntidad" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Aprobacion_Ing_Bod_x_OC' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Aprobacion_Ing_Bod_x_OC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -3448,8 +3518,8 @@
           <Property Name="co_plazo" Type="int" Nullable="false" />
           <Property Name="co_FechaVctoAutorizacion" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Aprobacion_Ing_Bod_x_OC_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Aprobacion_Ing_Bod_x_OC_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Aprobacion_Ing_Bod_x_OC_det">
           <Key>
@@ -3492,8 +3562,8 @@
           <Property Name="IdCentroCosto_sub_centro_costo_cxp" Type="varchar" MaxLength="20" />
           <Property Name="IdMovi_inven_tipo_Ing_Egr_Inv" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar">
           <Key>
@@ -3559,8 +3629,8 @@
           <Property Name="ValorIVA" Type="float" />
           <Property Name="Total" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_ba_Archivo_Transferencia_Det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_ba_Archivo_Transferencia_Det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_ba_Archivo_Transferencia_Det">
           <Key>
@@ -3610,8 +3680,8 @@
           <Property Name="IdTipo_Persona" Type="varchar" MaxLength="20" />
           <Property Name="IdEntidad" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Cbte_x_pagar_OG' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Cbte_x_pagar_OG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Cbte_x_pagar_OG">
           <Key>
@@ -3648,8 +3718,8 @@
           <Property Name="Referencia" Type="varchar" MaxLength="67" />
           <Property Name="Total_Retencion" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_cbtes_cxp_para_conciliar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_cbtes_cxp_para_conciliar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_cbtes_cxp_para_conciliar">
           <Key>
@@ -3694,8 +3764,8 @@
           <Property Name="IdCtaCble_CXP" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_Anticipo" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_cbtes_cxp_para_conciliar_consulta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_cbtes_cxp_para_conciliar_consulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_cbtes_cxp_para_conciliar_consulta">
           <Key>
@@ -3736,8 +3806,8 @@
           <Property Name="co_valorpagar" Type="float" Nullable="false" />
           <Property Name="Saldo" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_codigo_SRI' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_codigo_SRI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_codigo_SRI">
           <Key>
@@ -3763,8 +3833,8 @@
           <Property Name="IdTipoSRI" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="IdCtaCble" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_codigo_SRI_x_ctaCble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_codigo_SRI_x_ctaCble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_codigo_SRI_x_ctaCble">
           <Key>
@@ -3788,8 +3858,8 @@
           <Property Name="pc_Cuenta" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="pc_EsMovimiento" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_comprobante_x_retencion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_comprobante_x_retencion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_comprobante_x_retencion">
           <Key>
@@ -3915,8 +3985,8 @@
           <Property Name="re_valor_retencion" Type="float" Nullable="false" />
           <Property Name="re_estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Conciliacion_Caja' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Conciliacion_Caja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Conciliacion_Caja">
           <Key>
@@ -3962,8 +4032,8 @@
           <Property Name="IdTipoCbte_mov_caj" Type="int" />
           <Property Name="IdCbteCble_mov_caj" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Conciliacion_Caja_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Conciliacion_Caja_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Conciliacion_Caja_det">
           <Key>
@@ -4057,8 +4127,8 @@
           <Property Name="IdOrdenPago_OP_Conci" Type="numeric" />
           <Property Name="pe_cedulaRuc" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_Caja_det_Ing_Caja' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_Caja_det_Ing_Caja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_conciliacion_Caja_det_Ing_Caja">
           <Key>
@@ -4086,8 +4156,8 @@
           <Property Name="cm_fecha" Type="datetime" Nullable="false" />
           <Property Name="IdPeriodo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_Caja_det_x_ValeCaja' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_Caja_det_x_ValeCaja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_conciliacion_Caja_det_x_ValeCaja">
           <Key>
@@ -4151,8 +4221,8 @@
           <Property Name="IdPunto_cargo_grupo" Type="int" />
           <Property Name="IdBeneficiario" Type="varchar" MaxLength="49" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_det_x_cbte_pago' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_det_x_cbte_pago' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_conciliacion_det_x_cbte_pago">
           <Key>
@@ -4168,8 +4238,8 @@
           <Property Name="IdCbteCble_pago" Type="numeric" Nullable="false" />
           <Property Name="IdTipoCbte_pago" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Conciliacion_Ing_Bodega_x_Orden_Giro">
           <Key>
@@ -4226,8 +4296,8 @@
           <Property Name="IdUsuario" Type="varchar" MaxLength="20" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_x_cbte_cble' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_x_cbte_cble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_conciliacion_x_cbte_cble">
           <Key>
@@ -4248,8 +4318,8 @@
           <Property Name="valor_Saldo_cbte" Type="float" />
           <Property Name="IdConciliacion" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_x_orden_pago' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_conciliacion_x_orden_pago' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_conciliacion_x_orden_pago">
           <Key>
@@ -4304,8 +4374,8 @@
           <Property Name="SaldoAnterior" Type="float" Nullable="false" />
           <Property Name="SaldoActual" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_nota_DebCre' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_nota_DebCre' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_nota_DebCre">
           <Key>
@@ -4406,8 +4476,8 @@
           <Property Name="descripcion_clas_prove" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="IdClaseProveedor" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_nota_DebCre_ATS' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_nota_DebCre_ATS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_nota_DebCre_ATS">
           <Key>
@@ -4500,8 +4570,8 @@
           <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
           <Property Name="es_empresa_relacionada" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_nota_DebCre_total_saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_nota_DebCre_total_saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_nota_DebCre_total_saldo">
           <Key>
@@ -4535,8 +4605,8 @@
           <Property Name="TotalPagado" Type="float" Nullable="false" />
           <Property Name="SaldoOG" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Conciliado_x_Factura' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Conciliado_x_Factura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Orden_Giro_Conciliado_x_Factura">
           <Key>
@@ -4601,8 +4671,8 @@
           <Property Name="IdCtaCble_Gasto" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_IVA" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Orden_Giro_Conciliado_x_Ing_Bod_x_OC">
           <Key>
@@ -4653,8 +4723,8 @@
           <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
           <Property Name="IdOrdenCompra" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_consulta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_consulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_consulta">
           <Key>
@@ -4702,8 +4772,136 @@
           <Property Name="descripcion_clas_prove" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="2" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Pendiente_Conciliar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_det_liqui_comp_fac_elect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcp_orden_giro_det_liqui_comp_fac_elect">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="CostoUni" />
+            <PropertyRef Name="PorDescuento" />
+            <PropertyRef Name="DescuentoUni" />
+            <PropertyRef Name="CostoUniFinal" />
+            <PropertyRef Name="Subtotal" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+            <PropertyRef Name="PorIva" />
+            <PropertyRef Name="ValorIva" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble_Ogiro" Type="numeric" Nullable="false" />
+          <Property Name="IdTipoCbte_Ogiro" Type="int" Nullable="false" />
+          <Property Name="Secuencia" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="numeric" Nullable="false" />
+          <Property Name="IdUnidadMedida" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="Cantidad" Type="float" Nullable="false" />
+          <Property Name="CostoUni" Type="float" Nullable="false" />
+          <Property Name="PorDescuento" Type="float" Nullable="false" />
+          <Property Name="DescuentoUni" Type="float" Nullable="false" />
+          <Property Name="CostoUniFinal" Type="float" Nullable="false" />
+          <Property Name="Subtotal" Type="float" Nullable="false" />
+          <Property Name="IdCod_Impuesto_Iva" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="PorIva" Type="float" Nullable="false" />
+          <Property Name="ValorIva" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="pr_codigo" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="pr_descripcion" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="pr_descripcion_2" Type="nvarchar" MaxLength="500" />
+          <Property Name="IdSucursal" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_liqui_compra_fact_elect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwcp_orden_giro_liqui_compra_fact_elect">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="IdOrden_giro_Tipo" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="co_fechaOg" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="co_factura" />
+            <PropertyRef Name="co_FechaFactura" />
+            <PropertyRef Name="co_FechaFactura_vct" />
+            <PropertyRef Name="co_plazo" />
+            <PropertyRef Name="co_observacion" />
+            <PropertyRef Name="co_subtotal_iva" />
+            <PropertyRef Name="co_subtotal_siniva" />
+            <PropertyRef Name="co_baseImponible" />
+            <PropertyRef Name="co_Por_iva" />
+            <PropertyRef Name="co_valoriva" />
+            <PropertyRef Name="co_total" />
+            <PropertyRef Name="co_valorpagar" />
+            <PropertyRef Name="co_vaCoa" />
+            <PropertyRef Name="pe_Naturaleza" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="pe_sexo" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="ContribuyenteEspecial" />
+            <PropertyRef Name="em_ruc" />
+            <PropertyRef Name="em_direccion" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCbteCble_Ogiro" Type="numeric" Nullable="false" />
+          <Property Name="IdTipoCbte_Ogiro" Type="int" Nullable="false" />
+          <Property Name="IdOrden_giro_Tipo" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="IdProveedor" Type="numeric" Nullable="false" />
+          <Property Name="co_fechaOg" Type="datetime" Nullable="false" />
+          <Property Name="co_serie" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="co_factura" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="co_FechaFactura" Type="datetime" Nullable="false" />
+          <Property Name="co_FechaContabilizacion" Type="datetime" />
+          <Property Name="co_FechaFactura_vct" Type="datetime" Nullable="false" />
+          <Property Name="co_plazo" Type="int" Nullable="false" />
+          <Property Name="co_observacion" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="co_subtotal_iva" Type="float" Nullable="false" />
+          <Property Name="co_subtotal_siniva" Type="float" Nullable="false" />
+          <Property Name="co_baseImponible" Type="float" Nullable="false" />
+          <Property Name="co_Por_iva" Type="float" Nullable="false" />
+          <Property Name="co_valoriva" Type="float" Nullable="false" />
+          <Property Name="co_total" Type="float" Nullable="false" />
+          <Property Name="co_valorpagar" Type="float" Nullable="false" />
+          <Property Name="co_vaCoa" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="PagoLocExt" Type="varchar" MaxLength="3" />
+          <Property Name="PaisPago" Type="varchar" MaxLength="5" />
+          <Property Name="pe_Naturaleza" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
+          <Property Name="pe_apellido" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pe_nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdTipoDocumento" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="pe_telfono_Contacto" Type="varchar" MaxLength="50" />
+          <Property Name="pe_celular" Type="varchar" MaxLength="50" />
+          <Property Name="pe_correo" Type="varchar(max)" />
+          <Property Name="pe_sexo" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="em_nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RazonSocial" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="NombreComercial" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="ContribuyenteEspecial" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="em_ruc" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="em_direccion" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="IdSucursal" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Orden_Giro_Pendiente_Conciliar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Orden_Giro_Pendiente_Conciliar">
           <Key>
@@ -4760,8 +4958,8 @@
           <Property Name="IdCtaCble_Gasto" Type="varchar" MaxLength="20" />
           <Property Name="IdCtaCble_IVA" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_sin_retenciones' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_sin_retenciones' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_sin_retenciones">
           <Key>
@@ -4864,8 +5062,8 @@
           <Property Name="Tipo_Documento" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="IdCtaCble_CXP" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_SRI' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_SRI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_SRI">
           <Key>
@@ -4940,8 +5138,8 @@
           <Property Name="num_docu_Modificar" Type="varchar" MaxLength="50" />
           <Property Name="aut_doc_Modificar" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_total_saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_total_saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_total_saldo">
           <Key>
@@ -4983,8 +5181,8 @@
           <Property Name="num_docu_Modificar" Type="varchar" MaxLength="50" />
           <Property Name="aut_doc_Modificar" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_x_com_ordencompra_local_det_consulta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_x_com_ordencompra_local_det_consulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_x_com_ordencompra_local_det_consulta">
           <Key>
@@ -5050,8 +5248,8 @@
           <Property Name="IdTipoCbte_Ogiro" Type="int" Nullable="false" />
           <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_x_pagar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_x_pagar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_x_pagar">
           <Key>
@@ -5119,8 +5317,8 @@
           <Property Name="Valor_cuota" Type="float" />
           <Property Name="IdTipoMovi" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_x_Pagos_saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_giro_x_Pagos_saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_giro_x_Pagos_saldo">
           <Key>
@@ -5244,8 +5442,8 @@
           <Property Name="IdTipoMovi" Type="int" />
           <Property Name="En_conciliacion" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago">
           <Key>
@@ -5286,8 +5484,8 @@
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
           <Property Name="IdSucursal" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Anticipo_Saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Anticipo_Saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_Anticipo_Saldo">
           <Key>
@@ -5316,8 +5514,8 @@
           <Property Name="Beneficiario" Type="varchar" MaxLength="246" />
           <Property Name="IdEntidad" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_cancelacion_Saldos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_cancelacion_Saldos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_cancelacion_Saldos">
           <Key>
@@ -5357,8 +5555,8 @@
           <Property Name="EstadoCancelacion" Type="varchar" MaxLength="9" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_con_cancelacion_para_conciliacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_con_cancelacion_para_conciliacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_con_cancelacion_para_conciliacion">
           <Key>
@@ -5411,8 +5609,8 @@
           <Property Name="IdCbteCble_cxp" Type="numeric" />
           <Property Name="IdBanco" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi">
           <Key>
@@ -5478,8 +5676,8 @@
           <Property Name="SaldoAnterior" Type="float" Nullable="false" />
           <Property Name="SaldoActual" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_con_Transferencia' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_con_Transferencia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_con_Transferencia">
           <Key>
@@ -5538,8 +5736,8 @@
           <Property Name="ba_descripcion" Type="varchar" MaxLength="100" />
           <Property Name="CodigoLegal" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_det">
           <Key>
@@ -5573,8 +5771,8 @@
           <Property Name="IdCbteCble_cxp" Type="numeric" />
           <Property Name="IdTipoCbte_cxp" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_det_activa' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_det_activa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_det_activa">
           <Key>
@@ -5609,8 +5807,8 @@
           <Property Name="IdEstadoAprobacion" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="Fecha_Pago" Type="date" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_det_con_cta_acreedora' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_det_con_cta_acreedora' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_det_con_cta_acreedora">
           <Key>
@@ -5645,8 +5843,8 @@
           <Property Name="IdPersona" Type="numeric" Nullable="false" />
           <Property Name="IdEntidad" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_para_aprobacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_para_aprobacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_para_aprobacion">
           <Key>
@@ -5689,8 +5887,8 @@
           <Property Name="Fecha_Pago" Type="date" Nullable="false" />
           <Property Name="IdTipo_op" Type="varchar" Nullable="false" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_tipo_x_empresa' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_tipo_x_empresa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_tipo_x_empresa">
           <Key>
@@ -5713,8 +5911,8 @@
           <Property Name="IdCtaCble_Credito" Type="varchar" MaxLength="20" />
           <Property Name="Dispara_Alerta" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_total' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_total' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_total">
           <Key>
@@ -5725,8 +5923,8 @@
           <Property Name="IdOrdenPago" Type="numeric" Nullable="false" />
           <Property Name="Total_OP" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Total_cancelacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Total_cancelacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_Total_cancelacion">
           <Key>
@@ -5739,8 +5937,8 @@
           <Property Name="Secuencia_op" Type="int" Nullable="false" />
           <Property Name="Total_cancelado" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Total_Pagado' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_orden_pago_Total_Pagado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_orden_pago_Total_Pagado">
           <Key>
@@ -5751,8 +5949,8 @@
           <Property Name="IdOrdenPago_op" Type="numeric" Nullable="false" />
           <Property Name="Total_cancelado" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_OrdenGiroRetencionReport' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_OrdenGiroRetencionReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_OrdenGiroRetencionReport">
           <Key>
@@ -5805,8 +6003,8 @@
           <Property Name="NAutorizacion" Type="varchar" MaxLength="50" />
           <Property Name="IdEmpresa_Ogiro" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_proveedor_codigo_SRI' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_proveedor_codigo_SRI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_proveedor_codigo_SRI">
           <Key>
@@ -5826,8 +6024,8 @@
           <Property Name="re_Codigo_impuesto" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="re_Porcen_retencion" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_proveedor_combo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_proveedor_combo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_proveedor_combo">
           <Key>
@@ -5841,8 +6039,8 @@
           <Property Name="pe_nombrecompleto" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="pe_cedularuc" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_proveedor_vista_previa' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_proveedor_vista_previa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_proveedor_vista_previa">
           <Key>
@@ -5919,8 +6117,8 @@
           <Property Name="IdProvincia" Type="varchar" MaxLength="25" />
           <Property Name="es_empresa_relacionada" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_ProveedorRuc' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_ProveedorRuc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_ProveedorRuc">
           <Key>
@@ -6015,8 +6213,8 @@
           <Property Name="IdPunto_cargo_grupo" Type="int" />
           <Property Name="es_empresa_relacionada" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_retencion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_retencion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_retencion">
           <Key>
@@ -6056,8 +6254,8 @@
           <Property Name="Fecha_Transac" Type="datetime" Nullable="false" />
           <Property Name="Fecha_Autorizacion" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Retencion_sri' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Retencion_sri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Retencion_sri">
           <Key>
@@ -6110,8 +6308,8 @@
           <Property Name="em_direccion" Type="varchar" Nullable="false" MaxLength="300" />
           <Property Name="Estado" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwCP_Retencion_Valor_total' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCP_Retencion_Valor_total' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCP_Retencion_Valor_total">
           <Key>
@@ -6125,8 +6323,8 @@
           <Property Name="IdCbteCble_Ogiro" Type="numeric" />
           <Property Name="IdTipoCbte_Ogiro" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Retencion_valor_total_x_cbte_cxp' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Retencion_valor_total_x_cbte_cxp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Retencion_valor_total_x_cbte_cxp">
           <Key>
@@ -6145,8 +6343,8 @@
           <Property Name="IdCbteCble_Ogiro" Type="numeric" />
           <Property Name="IdTipoCbte_Ogiro" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_retencion_x_RET_FT' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_retencion_x_RET_FT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_retencion_x_RET_FT">
           <Key>
@@ -6167,8 +6365,8 @@
           <Property Name="IdCbteCble_Ogiro" Type="numeric" />
           <Property Name="IdTipoCbte_Ogiro" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_retencion_x_RET_IVA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_retencion_x_RET_IVA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_retencion_x_RET_IVA">
           <Key>
@@ -6189,8 +6387,8 @@
           <Property Name="IdCbteCble_Ogiro" Type="numeric" />
           <Property Name="IdTipoCbte_Ogiro" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Retenciones_x_tipo_impresion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Retenciones_x_tipo_impresion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Retenciones_x_tipo_impresion">
           <Key>
@@ -6228,8 +6426,8 @@
           <Property Name="serie" Type="varchar" MaxLength="7" />
           <Property Name="NumRetencion" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_Tipo_Impresion_Cheq' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_Tipo_Impresion_Cheq' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_Tipo_Impresion_Cheq">
           <Key>
@@ -6239,8 +6437,8 @@
           <Property Name="Codigo" Type="varchar" Nullable="false" MaxLength="25" />
           <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcp_TipoServicioxProve' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcp_TipoServicioxProve' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_TipoServicioxProve">
           <Key>
@@ -6258,8 +6456,8 @@
           <Property Name="orden" Type="int" Nullable="false" />
           <Property Name="IdTipoCatalogo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Digitalizacion.vwcp_XML_Documento' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.Digitalizacion.vwcp_XML_Documento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcp_XML_Documento">
           <Key>
@@ -7538,6 +7736,8 @@
             <End Role="cp_XML_DocumentoRetAnulado" EntitySet="cp_XML_DocumentoRetAnulado" />
             <End Role="cp_XML_DocumentoRetAnuladoDet" EntitySet="cp_XML_DocumentoRetAnuladoDet" />
           </AssociationSet>
+          <EntitySet Name="vwcp_orden_giro_det_liqui_comp_fac_elect" EntityType="ModelCuentasxPagar.vwcp_orden_giro_det_liqui_comp_fac_elect" />
+          <EntitySet Name="vwcp_orden_giro_liqui_compra_fact_elect" EntityType="ModelCuentasxPagar.vwcp_orden_giro_liqui_compra_fact_elect" />
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -12515,6 +12715,128 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vwcp_orden_giro_det_liqui_comp_fac_elect">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="Secuencia" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="IdUnidadMedida" />
+            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="CostoUni" />
+            <PropertyRef Name="PorDescuento" />
+            <PropertyRef Name="DescuentoUni" />
+            <PropertyRef Name="CostoUniFinal" />
+            <PropertyRef Name="Subtotal" />
+            <PropertyRef Name="IdCod_Impuesto_Iva" />
+            <PropertyRef Name="PorIva" />
+            <PropertyRef Name="ValorIva" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="pr_codigo" />
+            <PropertyRef Name="pr_descripcion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUnidadMedida" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="Double" Name="CostoUni" Nullable="false" />
+          <Property Type="Double" Name="PorDescuento" Nullable="false" />
+          <Property Type="Double" Name="DescuentoUni" Nullable="false" />
+          <Property Type="Double" Name="CostoUniFinal" Nullable="false" />
+          <Property Type="Double" Name="Subtotal" Nullable="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="PorIva" Nullable="false" />
+          <Property Type="Double" Name="ValorIva" Nullable="false" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="pr_codigo" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion_2" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdSucursal" />
+        </EntityType>
+        <EntityType Name="vwcp_orden_giro_liqui_compra_fact_elect">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="IdOrden_giro_Tipo" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="co_fechaOg" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="co_factura" />
+            <PropertyRef Name="co_FechaFactura" />
+            <PropertyRef Name="co_FechaFactura_vct" />
+            <PropertyRef Name="co_plazo" />
+            <PropertyRef Name="co_observacion" />
+            <PropertyRef Name="co_subtotal_iva" />
+            <PropertyRef Name="co_subtotal_siniva" />
+            <PropertyRef Name="co_baseImponible" />
+            <PropertyRef Name="co_Por_iva" />
+            <PropertyRef Name="co_valoriva" />
+            <PropertyRef Name="co_total" />
+            <PropertyRef Name="co_valorpagar" />
+            <PropertyRef Name="co_vaCoa" />
+            <PropertyRef Name="pe_Naturaleza" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="pe_apellido" />
+            <PropertyRef Name="pe_nombre" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="pe_cedulaRuc" />
+            <PropertyRef Name="pe_direccion" />
+            <PropertyRef Name="pe_sexo" />
+            <PropertyRef Name="em_nombre" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="ContribuyenteEspecial" />
+            <PropertyRef Name="em_ruc" />
+            <PropertyRef Name="em_direccion" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
+          <Property Type="String" Name="IdOrden_giro_Tipo" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="co_fechaOg" Nullable="false" Precision="3" />
+          <Property Type="String" Name="co_serie" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="co_factura" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="co_FechaFactura" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="co_FechaContabilizacion" Precision="3" />
+          <Property Type="DateTime" Name="co_FechaFactura_vct" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="co_plazo" Nullable="false" />
+          <Property Type="String" Name="co_observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="co_subtotal_iva" Nullable="false" />
+          <Property Type="Double" Name="co_subtotal_siniva" Nullable="false" />
+          <Property Type="Double" Name="co_baseImponible" Nullable="false" />
+          <Property Type="Double" Name="co_Por_iva" Nullable="false" />
+          <Property Type="Double" Name="co_valoriva" Nullable="false" />
+          <Property Type="Double" Name="co_total" Nullable="false" />
+          <Property Type="Double" Name="co_valorpagar" Nullable="false" />
+          <Property Type="String" Name="co_vaCoa" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="PagoLocExt" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PaisPago" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_Naturaleza" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_razonSocial" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_apellido" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_celular" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_sexo" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContribuyenteEspecial" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -15726,6 +16048,80 @@
                 <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
                 <ScalarProperty Name="SecuenciaAnu" ColumnName="SecuenciaAnu" />
                 <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_orden_giro_det_liqui_comp_fac_elect">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_giro_det_liqui_comp_fac_elect">
+              <MappingFragment StoreEntitySet="vwcp_orden_giro_det_liqui_comp_fac_elect">
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="pr_descripcion_2" ColumnName="pr_descripcion_2" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ValorIva" ColumnName="ValorIva" />
+                <ScalarProperty Name="PorIva" ColumnName="PorIva" />
+                <ScalarProperty Name="IdCod_Impuesto_Iva" ColumnName="IdCod_Impuesto_Iva" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="CostoUniFinal" ColumnName="CostoUniFinal" />
+                <ScalarProperty Name="DescuentoUni" ColumnName="DescuentoUni" />
+                <ScalarProperty Name="PorDescuento" ColumnName="PorDescuento" />
+                <ScalarProperty Name="CostoUni" ColumnName="CostoUni" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_orden_giro_liqui_compra_fact_elect">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_orden_giro_liqui_compra_fact_elect">
+              <MappingFragment StoreEntitySet="vwcp_orden_giro_liqui_compra_fact_elect">
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="em_direccion" ColumnName="em_direccion" />
+                <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
+                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="em_nombre" ColumnName="em_nombre" />
+                <ScalarProperty Name="pe_sexo" ColumnName="pe_sexo" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="pe_celular" ColumnName="pe_celular" />
+                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="pe_nombre" ColumnName="pe_nombre" />
+                <ScalarProperty Name="pe_apellido" ColumnName="pe_apellido" />
+                <ScalarProperty Name="pe_razonSocial" ColumnName="pe_razonSocial" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="pe_Naturaleza" ColumnName="pe_Naturaleza" />
+                <ScalarProperty Name="PaisPago" ColumnName="PaisPago" />
+                <ScalarProperty Name="PagoLocExt" ColumnName="PagoLocExt" />
+                <ScalarProperty Name="co_vaCoa" ColumnName="co_vaCoa" />
+                <ScalarProperty Name="co_valorpagar" ColumnName="co_valorpagar" />
+                <ScalarProperty Name="co_total" ColumnName="co_total" />
+                <ScalarProperty Name="co_valoriva" ColumnName="co_valoriva" />
+                <ScalarProperty Name="co_Por_iva" ColumnName="co_Por_iva" />
+                <ScalarProperty Name="co_baseImponible" ColumnName="co_baseImponible" />
+                <ScalarProperty Name="co_subtotal_siniva" ColumnName="co_subtotal_siniva" />
+                <ScalarProperty Name="co_subtotal_iva" ColumnName="co_subtotal_iva" />
+                <ScalarProperty Name="co_observacion" ColumnName="co_observacion" />
+                <ScalarProperty Name="co_plazo" ColumnName="co_plazo" />
+                <ScalarProperty Name="co_FechaFactura_vct" ColumnName="co_FechaFactura_vct" />
+                <ScalarProperty Name="co_FechaContabilizacion" ColumnName="co_FechaContabilizacion" />
+                <ScalarProperty Name="co_FechaFactura" ColumnName="co_FechaFactura" />
+                <ScalarProperty Name="co_factura" ColumnName="co_factura" />
+                <ScalarProperty Name="co_serie" ColumnName="co_serie" />
+                <ScalarProperty Name="co_fechaOg" ColumnName="co_fechaOg" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdOrden_giro_Tipo" ColumnName="IdOrden_giro_Tipo" />
+                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

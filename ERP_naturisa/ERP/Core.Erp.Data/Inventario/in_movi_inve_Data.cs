@@ -1519,7 +1519,7 @@ item.Centro_costo.Trim() : "",
                                 mv_tipo_movi = info_ing.signo,
                                 IdProducto = det.IdProducto,
 
-                                dm_cantidad = odataUnidadMedida.GetCantidadConvertida(det.IdEmpresa, det.IdProducto, det.IdUnidadMedida_sinConversion, (det.dm_cantidad_sinConversion)),
+                                dm_cantidad = odataUnidadMedida.GetCantidadConvertida(det.IdEmpresa, det.IdProducto, det.IdUnidadMedida, (det.dm_cantidad)),
                                 dm_cantidad_sinConversion = det.dm_cantidad_sinConversion,
                                 mv_costo = det.mv_costo,
                                 mv_costo_sinConversion = det.mv_costo_sinConversion,

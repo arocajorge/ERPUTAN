@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -115,7 +116,7 @@
             this.Linea = new DevExpress.XtraReports.UI.CalculatedField();
             this.PRegistro_Cero = new DevExpress.XtraReports.Parameters.Parameter();
             this.P_toma_física = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tbl_det)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -166,7 +167,7 @@
             // cel_det_id
             // 
             this.cel_det_id.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "IdProducto")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "pr_codigo")});
             this.cel_det_id.Name = "cel_det_id";
             this.cel_det_id.Text = "cel_det_id";
             this.cel_det_id.Weight = 0.17198179685799755D;

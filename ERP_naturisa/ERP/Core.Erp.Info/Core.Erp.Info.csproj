@@ -94,6 +94,17 @@
     <Compile Include="Bancos\ba_IngrEgre_x_Cbte_depos_Info.cs" />
     <Compile Include="Caja\caj_catalogo_Info.cs" />
     <Compile Include="Caja\Caj_Talonario_Recibo_Info.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\detalleImpuestosDetalleImpuesto.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\infoTributaria.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\liquidacionCompra.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\liquidacionCompraCampoAdicional.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\liquidacionCompraDetalle.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\liquidacionCompraDetalleDetAdicional.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\liquidacionCompraInfoLiquidacionCompraTotalImpuesto.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\liquidacion_compra_Ride_Info.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\pagosPago.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\pagosPago_info.cs" />
+    <Compile Include="class_sri\LiquidacionCompra\reembolsosReembolsoDetalle.cs" />
     <Compile Include="Compras\com_comprador_familia_Info.cs" />
     <Compile Include="Compras\com_ConvenioPreciosPorProducto_Info.cs" />
     <Compile Include="Compras\com_CotizacionPedidoDet_Info.cs" />

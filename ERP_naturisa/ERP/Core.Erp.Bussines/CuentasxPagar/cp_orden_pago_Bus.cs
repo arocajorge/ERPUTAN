@@ -5,6 +5,7 @@ using System.Text;
 using Core.Erp.Data.CuentasxPagar;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Business.General;
+using Core.Erp.Info.class_sri.LiquidacionCompra;
 
 
 namespace Core.Erp.Business.CuentasxPagar
@@ -220,6 +221,7 @@ namespace Core.Erp.Business.CuentasxPagar
               throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Modificar_tipo_flujo", ex.Message), ex) { EntityType = typeof(cp_orden_giro_Bus) };
           }
       }
-          
+
+       
     }
 }

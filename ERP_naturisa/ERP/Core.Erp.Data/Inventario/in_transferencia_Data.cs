@@ -1521,6 +1521,9 @@ namespace Core.Erp.Data.Inventario
                         var EntityInv = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal_Ing_Egr_Inven_Origen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).FirstOrDefault();
                         if (EntityInv != null)
                         {
+                            EntityInv.cm_fecha = info.tr_fecha;
+                            EntityInv.CodMoviInven = "TR" + info.IdTransferencia.ToString();
+                            EntityInv.cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + (info.tr_Observacion ?? "");
                             EntityInv.IdUsuario = info.IdUsuario;
                             EntityInv.Fecha_UltMod = DateTime.Now;
 
@@ -1660,7 +1663,7 @@ namespace Core.Erp.Data.Inventario
                             signo = "+",
                             CodMoviInven = "TR" + info.IdTransferencia.ToString(),
                             cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + (info.tr_Observacion ?? ""),
-                            cm_fecha = DateTime.Now.Date,
+                            cm_fecha = info.tr_fecha,
                             IdUsuario = info.IdUsuario,
                             Fecha_Transac = DateTime.Now,
                             Estado = "A",
@@ -1683,7 +1686,7 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaDest,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.cantidad_enviar)),
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)),
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
@@ -1761,6 +1764,9 @@ namespace Core.Erp.Data.Inventario
                     var EntityInv = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal_Ing_Egr_Inven_Origen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).FirstOrDefault();
                     if (EntityInv != null)
                     {
+                        EntityInv.cm_fecha = info.tr_fecha;
+                        EntityInv.CodMoviInven = "TR" + info.IdTransferencia.ToString();
+                        EntityInv.cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + (info.tr_Observacion ?? "");
                         EntityInv.IdUsuario = info.IdUsuario;
                         EntityInv.Fecha_UltMod = DateTime.Now;
 

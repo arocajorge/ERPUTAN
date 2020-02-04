@@ -77,13 +77,9 @@
             this.bei_Categoria = new DevExpress.XtraBars.BarEditItem();
             this.cmb_Categoria = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.beiLinea = new DevExpress.XtraBars.BarEditItem();
             this.cmb_Linea = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.GrupoSucu_bod = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.GrupoCategoriaLinea = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -94,6 +90,10 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal_Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
@@ -142,7 +142,6 @@
             this.bei_Categoria,
             this.beiLinea});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -161,7 +160,7 @@
             this.cmb_Categoria,
             this.cmb_Linea});
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbonControl1.Size = new System.Drawing.Size(1764, 104);
+            this.ribbonControl1.Size = new System.Drawing.Size(1323, 96);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // cmbSucursal
@@ -316,7 +315,6 @@
             this.repositoryItemSearchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.repositoryItemSearchLookUpEdit2View.Name = "repositoryItemSearchLookUpEdit2View";
             this.repositoryItemSearchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit2View.OptionsView.ShowAutoFilterRow = true;
             this.repositoryItemSearchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn5
@@ -324,15 +322,14 @@
             this.gridColumn5.Caption = "IdProducto";
             this.gridColumn5.FieldName = "IdProducto";
             this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 0;
-            this.gridColumn5.Width = 160;
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Código";
             this.gridColumn6.FieldName = "pr_codigo";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
             // 
             // gridColumn7
             // 
@@ -341,7 +338,6 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 1;
-            this.gridColumn7.Width = 1111;
             // 
             // cmbTipoMovInve
             // 
@@ -593,24 +589,6 @@
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "Categoria";
-            this.gridColumn18.FieldName = "ca_Categoria";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 0;
-            this.gridColumn18.Width = 1073;
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "ID";
-            this.gridColumn19.FieldName = "IdCategoria";
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 1;
-            this.gridColumn19.Width = 107;
-            // 
             // beiLinea
             // 
             this.beiLinea.Caption = "Línea:         ";
@@ -639,24 +617,6 @@
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.Caption = "ID";
-            this.gridColumn20.FieldName = "IdLinea";
-            this.gridColumn20.Name = "gridColumn20";
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 1;
-            this.gridColumn20.Width = 108;
-            // 
-            // gridColumn21
-            // 
-            this.gridColumn21.Caption = "Linea";
-            this.gridColumn21.FieldName = "nom_linea";
-            this.gridColumn21.Name = "gridColumn21";
-            this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 0;
-            this.gridColumn21.Width = 1072;
             // 
             // ribbonPage1
             // 
@@ -731,14 +691,49 @@
             this.gridColumn13.FieldName = "pr_estado";
             this.gridColumn13.Name = "gridColumn13";
             // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Categoria";
+            this.gridColumn18.FieldName = "ca_Categoria";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 0;
+            this.gridColumn18.Width = 1073;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "ID";
+            this.gridColumn19.FieldName = "IdCategoria";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 1;
+            this.gridColumn19.Width = 107;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "ID";
+            this.gridColumn20.FieldName = "IdLinea";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 1;
+            this.gridColumn20.Width = 108;
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Linea";
+            this.gridColumn21.FieldName = "nom_linea";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 0;
+            this.gridColumn21.Width = 1072;
+            // 
             // UCInv_MenuReportes_2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ribbonControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCInv_MenuReportes_2";
-            this.Size = new System.Drawing.Size(1764, 117);
+            this.Size = new System.Drawing.Size(1323, 95);
             this.Load += new System.EventHandler(this.UCInv_MenuReportes_2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal_Grid)).EndInit();

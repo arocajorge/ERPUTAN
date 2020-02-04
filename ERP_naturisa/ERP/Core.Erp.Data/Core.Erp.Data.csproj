@@ -2311,6 +2311,12 @@
     <Compile Include="vwcp_orden_giro_consulta.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwcp_orden_giro_det_liqui_comp_fac_elect.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcp_orden_giro_liqui_compra_fact_elect.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="vwcp_Orden_Giro_Pendiente_Conciliar.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>

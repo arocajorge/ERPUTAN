@@ -8,6 +8,7 @@ using Core.Erp.Business.General;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.General;
+using Core.Erp.Info.class_sri.LiquidacionCompra;
 
 namespace Core.Erp.Business.CuentasxPagar
 {
@@ -670,7 +671,18 @@ namespace Core.Erp.Business.CuentasxPagar
             return res;
         }
 
-        
+        public liquidacionCompra get_xml(int IdEmpresa, int IdSucursal, int IdTipoCbte_Ogiro, decimal IdCbteCble_Ogiro)
+        {
+            try
+            {
+                return data.get_xml(IdEmpresa, IdSucursal, IdTipoCbte_Ogiro, IdCbteCble_Ogiro);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Generar xml", ex.Message), ex) { EntityType = typeof(cp_orden_giro_Bus) };
+            }
+        }
        
     }
 }
