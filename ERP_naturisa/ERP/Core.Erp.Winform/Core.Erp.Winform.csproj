@@ -5644,7 +5644,6 @@
     <EmbeddedResource Include="MobileSCI\frmApp_usuario_mant.resx">
       <DependentUpon>frmApp_usuario_mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Inventario\FrmIn_Ajuste_Inven_fisico_Cons.resx">
       <DependentUpon>FrmIn_Ajuste_Inven_fisico_Cons.cs</DependentUpon>
     </EmbeddedResource>

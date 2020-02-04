@@ -1764,10 +1764,7 @@ namespace Core.Erp.Data.Inventario
                     var EntityInv = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal_Ing_Egr_Inven_Origen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).FirstOrDefault();
                     if (EntityInv != null)
                     {
-                        EntityInv.cm_fecha = info.tr_fecha;
-                        EntityInv.CodMoviInven = "TR" + info.IdTransferencia.ToString();
-                        EntityInv.cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + (info.tr_Observacion ?? "");
-                        EntityInv.IdUsuario = info.IdUsuario;
+                        EntityInv.IdUsuarioUltModi = info.IdUsuario;
                         EntityInv.Fecha_UltMod = DateTime.Now;
 
                         var lstEgrD = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursalOrigen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).ToList();
@@ -1776,7 +1773,7 @@ namespace Core.Erp.Data.Inventario
                             db.in_Ing_Egr_Inven_det.Remove(item);
                         }
 
-                        var lstEgr = info.lista_detalle_transferencia.Where(q => q.IdProducto != null).ToList();
+                        var lstEgr = info.lista_detalle_transferencia.Where(q => q.IdProducto != null && q.dt_cantidadApro > 0).ToList();
                         foreach (var item in lstEgr)
                         {
                             db.in_Ing_Egr_Inven_det.Add(new in_Ing_Egr_Inven_det

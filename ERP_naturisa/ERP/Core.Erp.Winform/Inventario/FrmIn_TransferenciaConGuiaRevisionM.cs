@@ -152,7 +152,7 @@ namespace Core.Erp.Winform.Inventario
                 cmbBodegaOrigen.Properties.ReadOnly = true;                
                 cmbSucursalOrigen.EditValue = infoTransferencia.IdSucursal_Ing_Egr_Inven_Origen;
                 cmbSucursalDestino.EditValue = infoTransferencia.IdSucursal_Ing_Egr_Inven_Destino;
-
+                deFecha.DateTime = infoTransferencia.tr_fecha;
                 if (infoTransferencia.IdNumMovi_Ing_Egr_Inven_Destino != null)
                 {
                     cmbSucursalDestino.Properties.ReadOnly = true;
