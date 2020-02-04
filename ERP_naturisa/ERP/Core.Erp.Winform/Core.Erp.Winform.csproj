@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>265</ApplicationRevision>
+    <ApplicationRevision>268</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -5734,6 +5734,7 @@
     <EmbeddedResource Include="Inventario\FrmIn_Transferencia_Consulta.resx">
       <DependentUpon>FrmIn_Transferencia_Consulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

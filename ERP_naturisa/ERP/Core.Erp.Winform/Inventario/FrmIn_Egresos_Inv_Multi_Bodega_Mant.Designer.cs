@@ -363,7 +363,7 @@
             // colpr_codigo_cmbgrid
             // 
             this.colpr_codigo_cmbgrid.Caption = "Código";
-            this.colpr_codigo_cmbgrid.FieldName = "pr_codigo";
+            this.colpr_codigo_cmbgrid.FieldName = "IdProducto";
             this.colpr_codigo_cmbgrid.Name = "colpr_codigo_cmbgrid";
             this.colpr_codigo_cmbgrid.Visible = true;
             this.colpr_codigo_cmbgrid.VisibleIndex = 0;
@@ -383,8 +383,6 @@
             this.colpr_precio_publico.Caption = "P.V.P.";
             this.colpr_precio_publico.FieldName = "pr_precio_publico";
             this.colpr_precio_publico.Name = "colpr_precio_publico";
-            this.colpr_precio_publico.Visible = true;
-            this.colpr_precio_publico.VisibleIndex = 4;
             this.colpr_precio_publico.Width = 89;
             // 
             // colpr_stock
@@ -392,8 +390,6 @@
             this.colpr_stock.Caption = "Stock";
             this.colpr_stock.FieldName = "pr_stock_Bodega";
             this.colpr_stock.Name = "colpr_stock";
-            this.colpr_stock.Visible = true;
-            this.colpr_stock.VisibleIndex = 2;
             this.colpr_stock.Width = 121;
             // 
             // colpr_pedidos
@@ -401,8 +397,6 @@
             this.colpr_pedidos.Caption = "Pedidos";
             this.colpr_pedidos.FieldName = "pr_pedidos";
             this.colpr_pedidos.Name = "colpr_pedidos";
-            this.colpr_pedidos.Visible = true;
-            this.colpr_pedidos.VisibleIndex = 3;
             this.colpr_pedidos.Width = 121;
             // 
             // colpr_ManejaIva
@@ -410,8 +404,6 @@
             this.colpr_ManejaIva.Caption = "Maneja Iva";
             this.colpr_ManejaIva.FieldName = "pr_ManejaIva";
             this.colpr_ManejaIva.Name = "colpr_ManejaIva";
-            this.colpr_ManejaIva.Visible = true;
-            this.colpr_ManejaIva.VisibleIndex = 5;
             this.colpr_ManejaIva.Width = 130;
             // 
             // colpr_costo_promedio
@@ -670,7 +662,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(981, 294);
+            this.tabPage2.Size = new System.Drawing.Size(981, 312);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.UseVisualStyleBackColor = true;
             // 

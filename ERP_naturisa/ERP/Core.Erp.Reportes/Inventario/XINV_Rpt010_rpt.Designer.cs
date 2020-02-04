@@ -916,7 +916,7 @@
             // 
             // PRODUCTO
             // 
-            this.PRODUCTO.Expression = "CONCAT(\'[\',[pr_codigo],\'] \',[pr_descripcion])";
+            this.PRODUCTO.Expression = "CONCAT(\'[\',[IdProducto],\'] \',[pr_descripcion])";
             this.PRODUCTO.Name = "PRODUCTO";
             // 
             // BODEGA
