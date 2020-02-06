@@ -69,6 +69,7 @@ namespace Core.Erp.Data.Compras
                             NombreBodegaTransferencia = item.NombreBodegaTransferencia,
                             FechaTransferencia = item.FechaTransferencia,
                             FechaRecepcionTransferencia = item.FechaRecepcionTransferencia,
+                            IdUsuarioGA = item.IdUsuarioGA
                         });
                     }
                 }

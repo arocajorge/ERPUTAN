@@ -59,5 +59,6 @@ namespace Core.Erp.Data
         public string NombreBodegaTransferencia { get; set; }
         public Nullable<System.DateTime> FechaTransferencia { get; set; }
         public Nullable<System.DateTime> FechaRecepcionTransferencia { get; set; }
+        public string IdUsuarioGA { get; set; }
     }
 }

@@ -2954,7 +2954,7 @@
           <Property Name="nom_solicitante" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="IdProducto" Type="numeric" />
           <Property Name="IdUsuario_com" Type="varchar" MaxLength="50" />
-          <Property Name="IdCod_Impuesto_Iva" Type="varchar" MaxLength="50" />
+          <Property Name="IdCod_Impuesto_Iva" Type="varchar" MaxLength="25" />
           <Property Name="IdSolicitante" Type="numeric" Nullable="false" />
           <Property Name="IdDepartamento" Type="numeric" Nullable="false" />
           <Property Name="IdComprador" Type="numeric" />
@@ -6327,7 +6327,7 @@
           <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
           <Property Type="String" Name="IdUsuario_com" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCod_Impuesto_Iva" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCod_Impuesto_Iva" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Type="Decimal" Name="IdSolicitante" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="IdDepartamento" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="IdComprador" Precision="18" Scale="0" />
@@ -6433,6 +6433,7 @@
           <Property Type="String" Name="NombreBodegaTransferencia" Nullable="true" MaxLength="500" />
           <Property Type="DateTime" Name="FechaTransferencia" Nullable="true" />
           <Property Type="DateTime" Name="FechaRecepcionTransferencia" Nullable="true" />
+          <Property Type="String" Name="IdUsuarioGA" Nullable="true" MaxLength="200" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -8074,6 +8075,7 @@
                 <ScalarProperty Name="NombreBodegaTransferencia" ColumnName="NombreBodegaTransferencia" />
                 <ScalarProperty Name="FechaTransferencia" ColumnName="FechaTransferencia" />
                 <ScalarProperty Name="FechaRecepcionTransferencia" ColumnName="FechaRecepcionTransferencia" />
+                <ScalarProperty Name="IdUsuarioGA" ColumnName="IdUsuarioGA" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
