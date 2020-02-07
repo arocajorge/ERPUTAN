@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -138,7 +139,8 @@
             this.NUM_MOVI = new DevExpress.XtraReports.UI.CalculatedField();
             this.NUM_OC = new DevExpress.XtraReports.UI.CalculatedField();
             this.P_Mostrar_registros_0 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.CANTIDADNORMAL = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -159,8 +161,7 @@
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("cm_fecha", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending),
-            new DevExpress.XtraReports.UI.GroupField("cost_ing", DevExpress.XtraReports.UI.XRColumnSortOrder.Descending),
-            new DevExpress.XtraReports.UI.GroupField("cant_egr", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending),
+            new DevExpress.XtraReports.UI.GroupField("CANTIDADNORMAL", DevExpress.XtraReports.UI.XRColumnSortOrder.Descending),
             new DevExpress.XtraReports.UI.GroupField("IdNumMovi", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending),
             new DevExpress.XtraReports.UI.GroupField("Secuencia", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -1204,6 +1205,11 @@
             // 
             this.bindingSource1.DataSource = typeof(Core.Erp.Reportes.Inventario.XINV_Rpt027_Info);
             // 
+            // CANTIDADNORMAL
+            // 
+            this.CANTIDADNORMAL.Expression = "IIF([cant_egr] > 0 ,[cant_egr] *-1,[cant_ing])";
+            this.CANTIDADNORMAL.Name = "CANTIDADNORMAL";
+            // 
             // XINV_Rpt027_Rpt_detallado
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1230,7 +1236,8 @@
             this.NOM_PRODUCTO,
             this.SALDO_INICIAL,
             this.NUM_MOVI,
-            this.NUM_OC});
+            this.NUM_OC,
+            this.CANTIDADNORMAL});
             this.DataSource = this.bindingSource1;
             this.FormattingRuleSheet.AddRange(new DevExpress.XtraReports.UI.FormattingRule[] {
             this.fr_negativo,
@@ -1371,5 +1378,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell35;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell43;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell44;
+        private DevExpress.XtraReports.UI.CalculatedField CANTIDADNORMAL;
     }
 }

@@ -19,14 +19,15 @@ namespace Core.Erp.Reportes.Inventario
                 List<XINV_Rpt002_Info> listadedatos = new List<XINV_Rpt002_Info>();
                 using (Entities_Inventario_General EgresosVarios = new Entities_Inventario_General())
                 {
-                    var select = from h in EgresosVarios.vwINV_Rpt002
-                                 where h.IdEmpresa == IdEmpresa
+                    EgresosVarios.SetCommandTimeOut(3000);
+                    var select = EgresosVarios.vwINV_Rpt002.Where(h => h.IdEmpresa == IdEmpresa
                                  && h.IdSucursal == IdSucursal
                                  && h.IdBodega == IdBodega
                                  && h.IdMovi_inven_tipo == IdMovi_inven_tipo
-                                 && h.IdNumMovi == IdNumMovi
-                                 select h;
+                                 && h.IdNumMovi == IdNumMovi).ToList();
+
                     infoEmp = dataEmp.Get_Info_Empresa(IdEmpresa);
+
                     foreach (var item in select)
                     {
                         XINV_Rpt002_Info itemInfo = new XINV_Rpt002_Info();
