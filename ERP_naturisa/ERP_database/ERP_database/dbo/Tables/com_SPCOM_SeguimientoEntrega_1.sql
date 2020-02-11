@@ -45,8 +45,11 @@
     [NombreBodegaTransferencia]   VARCHAR (500)  NULL,
     [FechaTransferencia]          DATE           NULL,
     [FechaRecepcionTransferencia] DATE           NULL,
+    [IdUsuarioGA]                 VARCHAR (200)  NULL,
     CONSTRAINT [PK_com_SPCOM_SeguimientoEntrega] PRIMARY KEY CLUSTERED ([IdEmpresa] ASC, [IdUsuario] ASC, [IdOrdenPedido] ASC, [Secuencia] ASC)
 );
+
+
 
 
 

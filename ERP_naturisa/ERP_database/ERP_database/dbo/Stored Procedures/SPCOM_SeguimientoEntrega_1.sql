@@ -37,7 +37,7 @@ BEGIN
 			   ([IdEmpresa]           ,[IdUsuario]           ,[IdOrdenPedido]           ,[Secuencia]           ,[IdProducto]           ,[pr_descripcion]           ,[EstadoSolpe]
 			   ,[IdSucursalOrigen]           ,[CodigoSucOrigen]           ,[NombreSucursalOrigen]           ,[IdSucursalDestino]           ,[CodigoSucDestino]           ,[NombreSucursalDestino]
 			   ,[EstadoDetalle]           ,[nom_solicitante]           ,[op_Fecha]           ,[opd_Cantidad]           ,[opd_CantidadApro]           ,[IdUsuarioCantidad]           ,[FechaCantidad]
-			   ,[NombreUsuarioCantidad]           ,[NomUnidadMedida]           ,[op_Observacion]           ,[ObservacionGA]           ,[opd_Detalle]	,[IB_Cantidad]	,[IB_Fecha])
+			   ,[NombreUsuarioCantidad]           ,[NomUnidadMedida]           ,[op_Observacion]           ,[ObservacionGA]           ,[opd_Detalle]	,[IB_Cantidad]	,[IB_Fecha], [IdUsuarioGA])
 
 	select a.IdEmpresa, @IdUsuario, a.IdOrdenPedido, a.Secuencia, a.IdProducto, a.pr_descripcion, c.Nombre, a.IdSucursalOrigen, d.codigo, d.Su_Descripcion, a.IdSucursalDestino, e.codigo, e.Su_Descripcion,
 	CASE WHEN a.opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN a.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN a.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN a.opd_EstadoProceso =
@@ -45,17 +45,18 @@ BEGIN
 							  a.opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN a.opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA' 
 							  WHEN a.opd_EstadoProceso = 'T' THEN 'TRANSFERIDO' WHEN a.opd_EstadoProceso = 'R' THEN 'RECIBIDO POR SOLICITANTE'
 							  END AS EstadoDetalle, f.nom_solicitante, b.op_Fecha, a.opd_Cantidad, a.opd_CantidadApro,
-							  a.IdUsuarioCantidad, a.FechaCantidad, a.IdUsuarioCantidad, g.Descripcion, b.op_Observacion, b.ObservacionGA, a.opd_Detalle, 0 ,cast(getdate() as date)
+							  a.IdUsuarioCantidad, a.FechaCantidad, a.IdUsuarioCantidad, g.Descripcion, b.op_Observacion, b.ObservacionGA, a.opd_Detalle, 0 ,cast(getdate() as date), u.Nombre
 	from com_OrdenPedidoDet as a inner join
 	com_OrdenPedido as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido inner join
 	com_catalogo as c on b.IdCatalogoEstado = c.IdCatalogocompra left join 
 	tb_sucursal as d on d.IdEmpresa = a.IdEmpresa and d.IdSucursal = a.IdSucursalOrigen left join 
 	tb_sucursal as e on e.IdEmpresa = a.IdEmpresa and e.IdSucursal = a.IdSucursalDestino left join
 	com_solicitante as f on f.IdEmpresa = b.IdEmpresa and f.IdSolicitante = b.IdSolicitante left join
-	in_UnidadMedida as g on g.IdUnidadMedida = a.IdUnidadMedida
+	in_UnidadMedida as g on g.IdUnidadMedida = a.IdUnidadMedida left join
+	seg_usuario as u on b.IdUsuarioAprobacion = u.IdUsuario
 	where a.IdEmpresa = @IdEmpresa and b.IdSolicitante between @IdSolicitante and @IdSolicitanteFin
 	and isnull(a.IdProducto,0) between @IdProducto and @IdProductoFin
-	and b.op_Fecha between @FechaIni and @FechaFin
+	and b.op_Fecha between @FechaIni and @FechaFin 
 END
 ELSE
 BEGIN
@@ -63,7 +64,7 @@ BEGIN
 			   ([IdEmpresa]           ,[IdUsuario]           ,[IdOrdenPedido]           ,[Secuencia]           ,[IdProducto]           ,[pr_descripcion]           ,[EstadoSolpe]
 			   ,[IdSucursalOrigen]           ,[CodigoSucOrigen]           ,[NombreSucursalOrigen]           ,[IdSucursalDestino]           ,[CodigoSucDestino]           ,[NombreSucursalDestino]
 			   ,[EstadoDetalle]           ,[nom_solicitante]           ,[op_Fecha]           ,[opd_Cantidad]           ,[opd_CantidadApro]           ,[IdUsuarioCantidad]           ,[FechaCantidad]
-			   ,[NombreUsuarioCantidad]           ,[NomUnidadMedida]           ,[op_Observacion]           ,[ObservacionGA]           ,[opd_Detalle],[IB_Cantidad]	,[IB_Fecha])
+			   ,[NombreUsuarioCantidad]           ,[NomUnidadMedida]           ,[op_Observacion]           ,[ObservacionGA]           ,[opd_Detalle],[IB_Cantidad]	,[IB_Fecha],  [IdUsuarioGA])
 
 	select a.IdEmpresa, @IdUsuario, a.IdOrdenPedido, a.Secuencia, a.IdProducto, a.pr_descripcion, c.Nombre, a.IdSucursalOrigen, d.codigo, d.Su_Descripcion, a.IdSucursalDestino, e.codigo, e.Su_Descripcion,
 	CASE WHEN a.opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN a.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN a.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN a.opd_EstadoProceso =
@@ -71,14 +72,15 @@ BEGIN
 							  a.opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN a.opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA' 
 							  WHEN a.opd_EstadoProceso = 'T' THEN 'TRANSFERIDO' WHEN a.opd_EstadoProceso = 'R' THEN 'RECIBIDO POR SOLICITANTE'
 							  END AS EstadoDetalle, f.nom_solicitante, b.op_Fecha, a.opd_Cantidad, a.opd_CantidadApro,
-							  a.IdUsuarioCantidad, a.FechaCantidad, a.IdUsuarioCantidad, g.Descripcion, b.op_Observacion, b.ObservacionGA, a.opd_Detalle, 0, cast(getdate() as date)
+							  a.IdUsuarioCantidad, a.FechaCantidad, a.IdUsuarioCantidad, g.Descripcion, b.op_Observacion, b.ObservacionGA, a.opd_Detalle, 0, cast(getdate() as date), u.Nombre
 	from com_OrdenPedidoDet as a inner join
 	com_OrdenPedido as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido inner join
 	com_catalogo as c on b.IdCatalogoEstado = c.IdCatalogocompra left join 
 	tb_sucursal as d on d.IdEmpresa = a.IdEmpresa and d.IdSucursal = a.IdSucursalOrigen left join 
 	tb_sucursal as e on e.IdEmpresa = a.IdEmpresa and e.IdSucursal = a.IdSucursalDestino left join
 	com_solicitante as f on f.IdEmpresa = b.IdEmpresa and f.IdSolicitante = b.IdSolicitante left join
-	in_UnidadMedida as g on g.IdUnidadMedida = a.IdUnidadMedida
+	in_UnidadMedida as g on g.IdUnidadMedida = a.IdUnidadMedida left join
+	seg_usuario as u on b.IdUsuarioAprobacion = u.IdUsuario
 	where a.IdEmpresa = @IdEmpresa and B.IdOrdenPedido = @IdOrdenPedido
 END
 

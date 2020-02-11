@@ -1311,5 +1311,8 @@
     <Build Include="dbo\Views\vwINV_Rpt030.sql" />
     <Build Include="Digitalizacion\Tables\cp_XML_DocumentoRetAnuladoDet.sql" />
     <Build Include="Digitalizacion\Tables\cp_XML_DocumentoRetAnulado.sql" />
+    <Build Include="dbo\Tables\cp_orden_giro_det.sql" />
+    <Build Include="dbo\Views\vwcp_orden_giro_liqui_compra_fact_elect.sql" />
+    <Build Include="dbo\Views\vwcp_orden_giro_det_liqui_comp_fac_elect.sql" />
   </ItemGroup>
 </Project>

@@ -136,7 +136,7 @@ BEGIN
 						in_Ing_Egr_Inven_det ON in_Ing_Egr_Inven.IdEmpresa = in_Ing_Egr_Inven_det.IdEmpresa AND in_Ing_Egr_Inven.IdSucursal = in_Ing_Egr_Inven_det.IdSucursal AND 
 						in_Ing_Egr_Inven.IdMovi_inven_tipo = in_Ing_Egr_Inven_det.IdMovi_inven_tipo AND 
 						in_Ing_Egr_Inven.IdNumMovi = in_Ing_Egr_Inven_det.IdNumMovi
-						inner join in_Motivo_Inven mot on mot.IdEmpresa = in_Ing_Egr_Inven.IdEmpresa
+						left join in_Motivo_Inven mot on mot.IdEmpresa = in_Ing_Egr_Inven.IdEmpresa
 						and mot.IdMotivo_Inv = in_Ing_Egr_Inven.IdMotivo_Inv
 				WHERE	in_Ing_Egr_Inven.cm_fecha between @Fecha_ini and @Fecha_fin and in_Ing_Egr_Inven.Estado = 'A' AND Genera_Movi_Inven = 'S'
 				group by in_Ing_Egr_Inven_det.IdEmpresa, in_Ing_Egr_Inven_det.IdSucursal, in_Ing_Egr_Inven_det.IdBodega, in_Ing_Egr_Inven_det.IdProducto
