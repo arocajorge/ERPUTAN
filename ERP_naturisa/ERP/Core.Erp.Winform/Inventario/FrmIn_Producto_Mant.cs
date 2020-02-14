@@ -334,20 +334,23 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
-                if (_Accion == Cl_Enumeradores.eTipo_action.actualizar)
-                {
-                    if (prob.ValidaExisteMovimiento(param.IdEmpresa, Convert.ToDecimal(lblIdProducto.ToString())))
-                    {
-                        MessageBox.Show("El producto " + txtNombre.Text.Trim() + " ha sido utilizado en movimientos de inventario por lo que no puede ser modificado", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
-                    }
-                }
-
                 if (cmb_familia.EditValue == null)
                 {
                     MessageBox.Show("El campo familia es obligatorio", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
+
+                if (_Accion == Cl_Enumeradores.eTipo_action.actualizar)
+                {
+                    if (prob.ValidaExisteMovimiento(param.IdEmpresa, Convert.ToDecimal(lblIdProducto.Text.ToString())))
+                    {
+                        MessageBox.Show("El producto " + txtNombre.Text.Trim() + " ha sido utilizado en movimientos de inventario por lo que no puede ser modificada la unidad de medida, nombres y porcentaje de IVA", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        _Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;
+                    }
+                }
+
+                
+
                 return Valido;
             }
             catch (Exception ex)
@@ -408,31 +411,40 @@ namespace Core.Erp.Winform.Inventario
 
 
                     Info_Producto.IdUsuario = param.IdUsuario;
-                    perBu.ModificarDB(Info_Producto, ref MensajeError);
-
-                    busComposicion.eliminarRegistro_x_producto(param.IdEmpresa, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
-                    busComposicion.GrabarDB(lsComposicionProducto, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
-            
-                    foreach (var item in lsProductoBodega_Insert)
+                    if (_Accion == Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado)
                     {
-                        item.IdEmpresa = param.IdEmpresa;
-                        if (busProductoBodega.VerificarExisteProductoXSucursalXBodega(param.IdEmpresa,item.IdSucursal,item.IdBodega,item.IdProducto))
+                        if (perBu.ModificarDBProcesoCerrado(Info_Producto))
                         {
-                            
-                                busProductoBodega.ModificarDB(item,ref MensajeError);
+                            string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Modificar, "El producto ", Info_Producto.IdProducto);
+                            MessageBox.Show(smensaje, param.Nombre_sistema);
                         }
-                        else
-                        {
-                            busProductoBodega.GrabaDB(item, param.IdEmpresa, ref MensajeError);
-                        }
-
-                        
                     }
+                    else
+                    {
+                        if (perBu.ModificarDB(Info_Producto, ref MensajeError))
+                        {
+                            busComposicion.eliminarRegistro_x_producto(param.IdEmpresa, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
+                            busComposicion.GrabarDB(lsComposicionProducto, Convert.ToInt32(lblIdProducto.Text), ref MensajeError);
 
-                   
+                            foreach (var item in lsProductoBodega_Insert)
+                            {
+                                item.IdEmpresa = param.IdEmpresa;
+                                if (busProductoBodega.VerificarExisteProductoXSucursalXBodega(param.IdEmpresa, item.IdSucursal, item.IdBodega, item.IdProducto))
+                                {
 
-                    string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Modificar, "El producto ", Info_Producto.IdProducto);
-                    MessageBox.Show(smensaje, param.Nombre_sistema);
+                                    busProductoBodega.ModificarDB(item, ref MensajeError);
+                                }
+                                else
+                                {
+                                    busProductoBodega.GrabaDB(item, param.IdEmpresa, ref MensajeError);
+                                }
+                            }
+                            
+                        }
+
+                        string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Modificar, "El producto ", Info_Producto.IdProducto);
+                        MessageBox.Show(smensaje, param.Nombre_sistema);                        
+                    }
 
                     LimpiarDatos();
                     return true;

@@ -1299,6 +1299,40 @@ namespace Core.Erp.Data.Inventario
 
         }
 
+        public Boolean ModificarDBProcesoCerrado(in_Producto_Info prI)
+        {
+            try
+            {
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var Entity = db.in_Producto.Where(q => q.IdEmpresa == prI.IdEmpresa && q.IdProducto == prI.IdProducto).FirstOrDefault();
+                    if (Entity == null)
+                        return false;
+
+                    Entity.IdCategoria = prI.IdCategoria;
+                    Entity.IdGrupo = prI.IdGrupo;
+                    Entity.IdLinea = prI.IdLinea;
+                    Entity.IdSubGrupo = prI.IdSubGrupo;
+                    Entity.Aparece_modu_Activo_F = prI.Aparece_modu_Activo_F;
+                    Entity.Aparece_modu_Compras = prI.Aparece_modu_Compras;
+                    Entity.Aparece_modu_Inventario = prI.Aparece_modu_Inventario;
+                    Entity.Aparece_modu_Ventas = prI.Aparece_modu_Ventas;
+                    Entity.IdFamilia = prI.IdFamilia;
+
+                    Entity.IdUsuarioUltMod = prI.IdUsuario;
+                    Entity.Fecha_UltMod = DateTime.Now;
+                    db.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public decimal GetIdProducto(int IdEmpresa)
         {
             try

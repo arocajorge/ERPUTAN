@@ -62,10 +62,8 @@ namespace Core.Erp.Data.Contabilidad
                 List<ct_centro_costo_sub_centro_costo_Info> lst = new List<ct_centro_costo_sub_centro_costo_Info>();
                 using (EntitiesDBConta conta = new EntitiesDBConta())
                 {
-                    var consulta = from q in conta.ct_centro_costo_sub_centro_costo
-                                   where q.IdEmpresa == IdEmpresa &&
-                                         q.IdCentroCosto == IdCentroCosto
-                                   select q;
+                    var consulta = conta.ct_centro_costo_sub_centro_costo.Where(q => q.IdEmpresa == IdEmpresa &&
+                                         q.IdCentroCosto == IdCentroCosto).ToList();
 
                     foreach (var item in consulta)
                     {

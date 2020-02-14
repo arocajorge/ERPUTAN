@@ -322,7 +322,18 @@ namespace Core.Erp.Business.Inventario
 
 
         }
-
+        public Boolean ModificarDBProcesoCerrado(in_Producto_Info prI)
+        {
+            try
+            {
+                return proD.ModificarDBProcesoCerrado(prI);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         public decimal GetIdProducto(int idempresa)
         {
 
