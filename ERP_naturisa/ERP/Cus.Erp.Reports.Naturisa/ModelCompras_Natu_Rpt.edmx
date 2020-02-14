@@ -365,7 +365,10 @@
       [vwCOMP_NATU_Rpt008].[SubtotalIva] AS [SubtotalIva], 
       [vwCOMP_NATU_Rpt008].[SubtotalSinIva] AS [SubtotalSinIva], 
       [vwCOMP_NATU_Rpt008].[op_Fecha] AS [op_Fecha], 
-      [vwCOMP_NATU_Rpt008].[op_Observacion] AS [op_Observacion]
+      [vwCOMP_NATU_Rpt008].[op_Observacion] AS [op_Observacion], 
+      [vwCOMP_NATU_Rpt008].[Descripcion] AS [Descripcion], 
+      [vwCOMP_NATU_Rpt008].[Dias] AS [Dias], 
+      [vwCOMP_NATU_Rpt008].[cp_PlazoEntrega] AS [cp_PlazoEntrega]
       FROM [Naturisa].[vwCOMP_NATU_Rpt008] AS [vwCOMP_NATU_Rpt008]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwCONTA_NATU_Rpt003" EntityType="ModelCompras_Natu_Rpt.Store.vwCONTA_NATU_Rpt003" store:Type="Views" store:Schema="Naturisa" store:Name="vwCONTA_NATU_Rpt003">
@@ -391,8 +394,8 @@
       FROM [Naturisa].[vwCONTA_NATU_Rpt003] AS [vwCONTA_NATU_Rpt003]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_NATU_Rpt002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwCOMP_NATU_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_NATU_Rpt002">
           <Key>
@@ -435,8 +438,8 @@
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
           <Property Name="pr_codigo" Type="nvarchar" MaxLength="40" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_NATU_Rpt004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwCOMP_NATU_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_NATU_Rpt004">
           <Key>
@@ -487,8 +490,8 @@
           <Property Name="do_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
           <Property Name="Termino_pago" Type="varchar" Nullable="false" MaxLength="500" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_Rpt001">
           <Key>
@@ -580,8 +583,8 @@
           <Property Name="departamento" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="nom_EstadoCierre" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt002' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt002' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_Rpt002">
           <Key>
@@ -634,8 +637,8 @@
           <Property Name="nom_departamento" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="pr_codigo" Type="nvarchar" MaxLength="40" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_Rpt003">
           <Key>
@@ -710,8 +713,8 @@
           <Property Name="SubTotal_sinConversion" Type="float" />
           <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt001' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_NATU_Rpt001">
           <Key>
@@ -780,8 +783,8 @@
           <Property Name="nom_estado_aprobacion" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="oc_plazo" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_NATU_Rpt003">
           <Key>
@@ -825,8 +828,8 @@
           <Property Name="fecha_ing" Type="datetime" />
           <Property Name="Su_Descripcion" Type="nchar" MaxLength="60" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt007' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt007' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_NATU_Rpt007">
           <Key>
@@ -927,8 +930,8 @@
           <Property Name="oc_fechaVencimiento" Type="datetime" />
           <Property Name="ObservacionGA" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt008' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCOMP_NATU_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCOMP_NATU_Rpt008">
           <Key>
@@ -948,7 +951,7 @@
           <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
           <Property Name="Secuencia" Type="int" Nullable="false" />
           <Property Name="IdProducto" Type="numeric" />
-          <Property Name="pr_descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="pr_descripcion" Type="nvarchar" MaxLength="759" />
           <Property Name="IdCotizacion" Type="numeric" />
           <Property Name="cd_cantidad" Type="float" Nullable="false" />
           <Property Name="cd_precioCompra" Type="float" />
@@ -976,7 +979,7 @@
           <Property Name="cp_Observacion" Type="varchar(max)" />
           <Property Name="cp_ObservacionAdicional" Type="varchar(max)" />
           <Property Name="cp_Fecha" Type="date" />
-          <Property Name="Comprador" Type="varchar" MaxLength="100" />
+          <Property Name="Comprador" Type="varchar" MaxLength="50" />
           <Property Name="opd_Detalle" Type="varchar(max)" />
           <Property Name="pe_nombreCompleto" Type="varchar" MaxLength="200" />
           <Property Name="SucursalOrigen" Type="varchar" MaxLength="10" />
@@ -985,9 +988,12 @@
           <Property Name="SubtotalSinIva" Type="float" />
           <Property Name="op_Fecha" Type="date" Nullable="false" />
           <Property Name="op_Observacion" Type="varchar(max)" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="cp_PlazoEntrega" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.Naturisa.vwCONTA_NATU_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="vwCONTA_NATU_Rpt003">
           <Key>
@@ -1607,7 +1613,7 @@
           <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Int32" Name="Secuencia" Nullable="false" />
           <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_descripcion" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pr_descripcion" MaxLength="759" FixedLength="false" Unicode="true" />
           <Property Type="Decimal" Name="IdCotizacion" Precision="18" Scale="0" />
           <Property Type="Double" Name="cd_cantidad" Nullable="false" />
           <Property Type="Double" Name="cd_precioCompra" />
@@ -1635,7 +1641,7 @@
           <Property Type="String" Name="cp_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="cp_ObservacionAdicional" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="cp_Fecha" Precision="0" />
-          <Property Type="String" Name="Comprador" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comprador" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="opd_Detalle" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="pe_nombreCompleto" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SucursalOrigen" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1644,6 +1650,9 @@
           <Property Type="Double" Name="SubtotalSinIva" />
           <Property Type="DateTime" Name="op_Fecha" Nullable="false" Precision="0" />
           <Property Type="String" Name="op_Observacion" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Descripcion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Dias" />
+          <Property Type="Int32" Name="cp_PlazoEntrega" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2011,6 +2020,9 @@
           <EntitySetMapping Name="vwCOMP_NATU_Rpt008">
             <EntityTypeMapping TypeName="ModelCompras_Natu_Rpt.vwCOMP_NATU_Rpt008">
               <MappingFragment StoreEntitySet="vwCOMP_NATU_Rpt008">
+                <ScalarProperty Name="cp_PlazoEntrega" ColumnName="cp_PlazoEntrega" />
+                <ScalarProperty Name="Dias" ColumnName="Dias" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
                 <ScalarProperty Name="op_Fecha" ColumnName="op_Fecha" />
                 <ScalarProperty Name="SubtotalSinIva" ColumnName="SubtotalSinIva" />
