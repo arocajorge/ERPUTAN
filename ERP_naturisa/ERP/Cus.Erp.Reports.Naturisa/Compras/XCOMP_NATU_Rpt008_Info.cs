@@ -52,5 +52,11 @@ namespace Cus.Erp.Reports.Naturisa.Compras
         public string op_Observacion { get; set; }
 
         public DateTime op_Fecha { get; set; }
+
+        public int? Dias { get; set; }
+
+        public string Descripcion { get; set; }
+
+        public int? cp_PlazoEntrega { get; set; }
     }
 }

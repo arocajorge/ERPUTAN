@@ -59,7 +59,10 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                         SubtotalIva = q.SubtotalIva,
                         SubtotalSinIva = q.SubtotalSinIva,
                         op_Observacion = q.op_Observacion,
-                        op_Fecha = q.op_Fecha
+                        op_Fecha = q.op_Fecha,
+                        Dias = q.Dias,
+                        Descripcion = q.Descripcion,
+                        cp_PlazoEntrega = q.cp_PlazoEntrega
                     }).ToList();
                 }
 
