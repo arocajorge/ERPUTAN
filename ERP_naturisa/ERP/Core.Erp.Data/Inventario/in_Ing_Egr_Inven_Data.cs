@@ -1083,5 +1083,103 @@ namespace Core.Erp.Data.Inventario
               throw;
           }
       }
+
+      public bool ReversarContabilizacion(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+      {
+          try
+          {
+              EntitiesInventario dbInv = new EntitiesInventario();
+              EntitiesDBConta dbConta = new EntitiesDBConta();
+              dbInv.SetCommandTimeOut(3000);
+              dbConta.SetCommandTimeOut(3000);
+              var lstMovi = dbInv.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inven_tipo && q.IdNumMovi == IdNumMovi && q.IdNumMovi_inv != null).ToList();
+              if (lstMovi.Count > 0)
+              {
+                  var ListaPKMovi_inven = lstMovi.GroupBy(q => new { q.IdEmpresa_inv, q.IdSucursal_inv, q.IdBodega_inv, q.IdMovi_inven_tipo_inv, q.IdNumMovi_inv}).ToList();
+                  foreach (var item in ListaPKMovi_inven)
+                  {
+                      var lstRelCab = dbInv.in_movi_inve_x_ct_cbteCble.Where(q => 
+                          q.IdEmpresa == item.Key.IdEmpresa_inv &&
+                          q.IdSucursal == item.Key.IdSucursal_inv &&
+                          q.IdBodega == item.Key.IdBodega_inv &&
+                          q.IdMovi_inven_tipo == item.Key.IdMovi_inven_tipo_inv &&
+                          q.IdNumMovi == item.Key.IdNumMovi_inv).ToList();
+
+                      foreach (var relCab in lstRelCab)
+                      {
+                          dbInv.in_movi_inve_x_ct_cbteCble.Remove(relCab);
+
+                          var lstCtDet = dbConta.ct_cbtecble_det.Where(q => q.IdEmpresa == relCab.IdEmpresa_ct && q.IdTipoCbte == relCab.IdTipoCbte && q.IdCbteCble == relCab.IdCbteCble).ToList();
+                          foreach (var CtDet in lstCtDet)
+                          {
+                              dbConta.ct_cbtecble_det.Remove(CtDet);
+                          }
+
+                          var CtCab = dbConta.ct_cbtecble.Where(q => q.IdEmpresa == relCab.IdEmpresa_ct && q.IdTipoCbte == relCab.IdTipoCbte && q.IdCbteCble == relCab.IdCbteCble).FirstOrDefault();
+                          dbConta.ct_cbtecble.Remove(CtCab);
+                      }
+
+                      var lstRelDet = dbInv.in_movi_inve_detalle_x_ct_cbtecble_det.Where(q =>
+                          q.IdEmpresa_inv == item.Key.IdEmpresa_inv &&
+                          q.IdSucursal_inv == item.Key.IdSucursal_inv &&
+                          q.IdBodega_inv == item.Key.IdBodega_inv &&
+                          q.IdMovi_inven_tipo_inv == item.Key.IdMovi_inven_tipo_inv &&
+                          q.IdNumMovi_inv == item.Key.IdNumMovi_inv).ToList();
+
+                      foreach (var relDet in lstRelDet)
+                      {
+                          dbInv.in_movi_inve_detalle_x_ct_cbtecble_det.Remove(relDet);
+                      }
+                  }
+                  dbInv.SaveChanges();
+                  dbConta.SaveChanges();
+              }
+
+              return true;
+          }
+          catch (Exception)
+          {
+              throw;
+          }
+      }
+
+      public List<in_Ing_Egr_Inven_Info> GetListDiferenciasContable(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+      {
+          try
+          {
+              List<in_Ing_Egr_Inven_Info> Lista = new List<in_Ing_Egr_Inven_Info>();
+
+              using (EntitiesInventario db = new EntitiesInventario())
+              {
+                  db.SetCommandTimeOut(3000);
+                  var lst = db.SPINV_GetMovimientosPorContabilizar(IdEmpresa, FechaIni, FechaFin);
+                  foreach (var item in lst)
+                  {
+                      Lista.Add(new in_Ing_Egr_Inven_Info
+                      {
+                          IdEmpresa = item.IdEmpresa,
+                          IdSucursal = item.IdSucursal,
+                          IdMovi_inven_tipo = item.IdMovi_inven_tipo,
+                          IdNumMovi = item.IdNumMovi,
+                          nom_sucursal = item.Su_Descripcion,
+                          cm_fecha = item.cm_fecha,
+                          cm_observacion = item.cm_observacion,
+                          signo = item.signo,
+                          tm_descripcion = item.tm_descripcion,
+                          TotalInventario = item.TotalInventario,
+                          TotalContabilidad = item.TotalContabilidad,
+                          Diferencia = item.Diferencia,
+                      });
+                  }
+              }
+
+              return Lista;
+          }
+          catch (Exception)
+          {
+              
+              throw;
+          }
+      }
   }
 }

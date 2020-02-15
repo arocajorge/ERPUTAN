@@ -904,5 +904,31 @@ namespace Core.Erp.Business.Inventario
                throw;
            }
        }
+
+       public bool ReversarContabilizacion(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+       {
+           try
+           {
+               return odata.ReversarContabilizacion(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
+
+       public List<in_Ing_Egr_Inven_Info> GetListDiferenciasContable(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+       {
+           try
+           {
+               return odata.GetListDiferenciasContable(IdEmpresa, FechaIni, FechaFin);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
     }
 }

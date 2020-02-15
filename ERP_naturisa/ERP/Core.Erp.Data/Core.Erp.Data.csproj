@@ -1673,6 +1673,9 @@
     <Compile Include="SPINV_ComprasAnteriores_Result.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>
+    <Compile Include="SPINV_GetMovimientosPorContabilizar_Result.cs">
+      <DependentUpon>ModelInventario.tt</DependentUpon>
+    </Compile>
     <Compile Include="SPINV_MejorPrecio_Result.cs">
       <DependentUpon>ModelInventario.tt</DependentUpon>
     </Compile>

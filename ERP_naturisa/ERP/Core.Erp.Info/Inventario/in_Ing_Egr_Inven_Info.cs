@@ -73,5 +73,11 @@ namespace Core.Erp.Info.Inventario
         public string Bodega2 { get; set; }
 
         public string Bodega1 { get; set; }
+
+        public double? TotalInventario { get; set; }
+
+        public double? Diferencia { get; set; }
+
+        public double? TotalContabilidad { get; set; }
     }
 }

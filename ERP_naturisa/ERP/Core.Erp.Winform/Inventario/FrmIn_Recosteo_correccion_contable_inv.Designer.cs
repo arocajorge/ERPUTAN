@@ -105,6 +105,26 @@
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
+            this.TabPage_Diferencias = new DevExpress.XtraTab.XtraTabPage();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.btnBuscarDiferencias = new System.Windows.Forms.ToolStripButton();
+            this.btnReversarContabilizacion = new System.Windows.Forms.ToolStripButton();
+            this.gcDiferencias = new DevExpress.XtraGrid.GridControl();
+            this.gvDiferencias = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.deFechaFinD = new DevExpress.XtraEditors.DateEdit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.deFechaIniD = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -146,6 +166,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_fecha_x_prod.Properties)).BeginInit();
             this.toolStrip4.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
+            this.TabPage_Diferencias.SuspendLayout();
+            this.toolStrip5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDiferencias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDiferencias)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -203,7 +232,8 @@
             this.tabPage_recosteo,
             this.tabPage_transferencias,
             this.tabPage_contabilizar,
-            this.TabPage_recosteo_x_producto});
+            this.TabPage_recosteo_x_producto,
+            this.TabPage_Diferencias});
             // 
             // tabPage_recosteo
             // 
@@ -611,8 +641,6 @@
             this.gridColumn10.FieldName = "nom_bodega";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 2;
             this.gridColumn10.Width = 188;
             // 
             // gridColumn13
@@ -622,7 +650,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 3;
+            this.gridColumn13.VisibleIndex = 2;
             this.gridColumn13.Width = 188;
             // 
             // gridColumn14
@@ -632,7 +660,7 @@
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.VisibleIndex = 4;
             this.gridColumn14.Width = 77;
             // 
             // gridColumn15
@@ -644,7 +672,7 @@
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 4;
+            this.gridColumn15.VisibleIndex = 3;
             this.gridColumn15.Width = 88;
             // 
             // gridColumn16
@@ -656,7 +684,7 @@
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 6;
+            this.gridColumn16.VisibleIndex = 5;
             this.gridColumn16.Width = 405;
             // 
             // col_check_cont
@@ -895,12 +923,12 @@
             // ucIn_Sucursal_Bodega1
             // 
             this.ucIn_Sucursal_Bodega1.Location = new System.Drawing.Point(12, 14);
-            this.ucIn_Sucursal_Bodega1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucIn_Sucursal_Bodega1.Margin = new System.Windows.Forms.Padding(4);
             this.ucIn_Sucursal_Bodega1.Name = "ucIn_Sucursal_Bodega1";
             this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(616, 65);
             this.ucIn_Sucursal_Bodega1.TabIndex = 2;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.todos;
-            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
+            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = false;
             // 
             // label5
             // 
@@ -962,6 +990,232 @@
             this.btn_salir.Size = new System.Drawing.Size(58, 24);
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
+            // TabPage_Diferencias
+            // 
+            this.TabPage_Diferencias.Controls.Add(this.gcDiferencias);
+            this.TabPage_Diferencias.Controls.Add(this.panel7);
+            this.TabPage_Diferencias.Controls.Add(this.toolStrip5);
+            this.TabPage_Diferencias.Name = "TabPage_Diferencias";
+            this.TabPage_Diferencias.Size = new System.Drawing.Size(1337, 445);
+            this.TabPage_Diferencias.Text = "Diferencias contables";
+            // 
+            // toolStrip5
+            // 
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnBuscarDiferencias,
+            this.btnReversarContabilizacion});
+            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip5.TabIndex = 3;
+            this.toolStrip5.Text = "toolStrip5";
+            // 
+            // btnBuscarDiferencias
+            // 
+            this.btnBuscarDiferencias.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarDiferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarDiferencias.Name = "btnBuscarDiferencias";
+            this.btnBuscarDiferencias.Size = new System.Drawing.Size(162, 24);
+            this.btnBuscarDiferencias.Text = "Buscar movimientos";
+            this.btnBuscarDiferencias.Click += new System.EventHandler(this.btnBuscarDiferencias_Click);
+            // 
+            // btnReversarContabilizacion
+            // 
+            this.btnReversarContabilizacion.Image = global::Core.Erp.Winform.Properties.Resources.Dinero_16x16;
+            this.btnReversarContabilizacion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReversarContabilizacion.Name = "btnReversarContabilizacion";
+            this.btnReversarContabilizacion.Size = new System.Drawing.Size(190, 24);
+            this.btnReversarContabilizacion.Text = "Reversar contabilización";
+            this.btnReversarContabilizacion.Click += new System.EventHandler(this.btnReversarContabilizacion_Click);
+            // 
+            // gcDiferencias
+            // 
+            this.gcDiferencias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDiferencias.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gcDiferencias.Location = new System.Drawing.Point(0, 127);
+            this.gcDiferencias.MainView = this.gvDiferencias;
+            this.gcDiferencias.Margin = new System.Windows.Forms.Padding(4);
+            this.gcDiferencias.Name = "gcDiferencias";
+            this.gcDiferencias.Size = new System.Drawing.Size(1337, 318);
+            this.gcDiferencias.TabIndex = 4;
+            this.gcDiferencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDiferencias});
+            // 
+            // gvDiferencias
+            // 
+            this.gvDiferencias.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn20,
+            this.gridColumn22,
+            this.gridColumn23,
+            this.gridColumn24,
+            this.gridColumn25,
+            this.gridColumn26,
+            this.gridColumn21,
+            this.gridColumn27,
+            this.gridColumn28});
+            this.gvDiferencias.GridControl = this.gcDiferencias;
+            this.gvDiferencias.Images = this.lst_imagenes_trans;
+            this.gvDiferencias.Name = "gvDiferencias";
+            this.gvDiferencias.OptionsView.ShowAutoFilterRow = true;
+            this.gvDiferencias.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "Sucursal";
+            this.gridColumn20.FieldName = "nom_sucursal";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.OptionsColumn.AllowEdit = false;
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 1;
+            this.gridColumn20.Width = 203;
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.Caption = "Tipo de movimiento";
+            this.gridColumn22.FieldName = "tm_descripcion";
+            this.gridColumn22.Name = "gridColumn22";
+            this.gridColumn22.OptionsColumn.AllowEdit = false;
+            this.gridColumn22.Visible = true;
+            this.gridColumn22.VisibleIndex = 2;
+            this.gridColumn22.Width = 203;
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "# Movimiento";
+            this.gridColumn23.FieldName = "IdNumMovi";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.OptionsColumn.AllowEdit = false;
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 4;
+            this.gridColumn23.Width = 83;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.Caption = "Fecha";
+            this.gridColumn24.DisplayFormat.FormatString = "d";
+            this.gridColumn24.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn24.FieldName = "cm_fecha";
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.OptionsColumn.AllowEdit = false;
+            this.gridColumn24.Visible = true;
+            this.gridColumn24.VisibleIndex = 3;
+            this.gridColumn24.Width = 95;
+            // 
+            // gridColumn25
+            // 
+            this.gridColumn25.Caption = "Observación";
+            this.gridColumn25.DisplayFormat.FormatString = "d";
+            this.gridColumn25.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn25.FieldName = "cm_observacion";
+            this.gridColumn25.Name = "gridColumn25";
+            this.gridColumn25.OptionsColumn.AllowEdit = false;
+            this.gridColumn25.Visible = true;
+            this.gridColumn25.VisibleIndex = 5;
+            this.gridColumn25.Width = 363;
+            // 
+            // gridColumn26
+            // 
+            this.gridColumn26.Caption = "*";
+            this.gridColumn26.FieldName = "Checked";
+            this.gridColumn26.Name = "gridColumn26";
+            this.gridColumn26.Visible = true;
+            this.gridColumn26.VisibleIndex = 0;
+            this.gridColumn26.Width = 49;
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "V. Contabilidad";
+            this.gridColumn21.DisplayFormat.FormatString = "n2";
+            this.gridColumn21.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn21.FieldName = "TotalContabilidad";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.OptionsColumn.AllowEdit = false;
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 6;
+            this.gridColumn21.Width = 105;
+            // 
+            // gridColumn27
+            // 
+            this.gridColumn27.Caption = "V. Inventario";
+            this.gridColumn27.DisplayFormat.FormatString = "n2";
+            this.gridColumn27.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn27.FieldName = "TotalInventario";
+            this.gridColumn27.Name = "gridColumn27";
+            this.gridColumn27.OptionsColumn.AllowEdit = false;
+            this.gridColumn27.Visible = true;
+            this.gridColumn27.VisibleIndex = 7;
+            this.gridColumn27.Width = 105;
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.Caption = "Diferencia";
+            this.gridColumn28.DisplayFormat.FormatString = "n2";
+            this.gridColumn28.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn28.FieldName = "Diferencia";
+            this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.OptionsColumn.AllowEdit = false;
+            this.gridColumn28.Visible = true;
+            this.gridColumn28.VisibleIndex = 8;
+            this.gridColumn28.Width = 113;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.deFechaFinD);
+            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.deFechaIniD);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 27);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1337, 100);
+            this.panel7.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(31, 59);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 17);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Hasta:";
+            // 
+            // deFechaFinD
+            // 
+            this.deFechaFinD.EditValue = null;
+            this.deFechaFinD.Location = new System.Drawing.Point(94, 55);
+            this.deFechaFinD.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaFinD.Name = "deFechaFinD";
+            this.deFechaFinD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaFinD.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaFinD.Size = new System.Drawing.Size(167, 22);
+            this.deFechaFinD.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(31, 27);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 17);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Desde:";
+            // 
+            // deFechaIniD
+            // 
+            this.deFechaIniD.EditValue = null;
+            this.deFechaIniD.Location = new System.Drawing.Point(94, 23);
+            this.deFechaIniD.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaIniD.Name = "deFechaIniD";
+            this.deFechaIniD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaIniD.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaIniD.Size = new System.Drawing.Size(167, 22);
+            this.deFechaIniD.TabIndex = 6;
             // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
@@ -1027,6 +1281,18 @@
             this.toolStrip4.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
+            this.TabPage_Diferencias.ResumeLayout(false);
+            this.TabPage_Diferencias.PerformLayout();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDiferencias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDiferencias)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1108,6 +1374,26 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraTab.XtraTabPage TabPage_Diferencias;
+        private System.Windows.Forms.ToolStrip toolStrip5;
+        private System.Windows.Forms.ToolStripButton btnBuscarDiferencias;
+        private System.Windows.Forms.ToolStripButton btnReversarContabilizacion;
+        private DevExpress.XtraGrid.GridControl gcDiferencias;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDiferencias;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.DateEdit deFechaFinD;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.DateEdit deFechaIniD;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

@@ -10,22 +10,20 @@
 namespace Core.Erp.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class vwin_movi_inve_x_Ing_Ordencompra_local
+    public partial class SPINV_GetMovimientosPorContabilizar_Result
     {
         public int IdEmpresa { get; set; }
         public int IdSucursal { get; set; }
-        public int IdBodega { get; set; }
-        public int IdTipoMoviInven { get; set; }
+        public int IdMovi_inven_tipo { get; set; }
         public decimal IdNumMovi { get; set; }
-        public string nom_sucursal { get; set; }
-        public string nom_bodega { get; set; }
-        public string tipo_movi_inven { get; set; }
-        public decimal IdProveedor { get; set; }
-        public string nom_proveedor { get; set; }
-        public string Estado { get; set; }
+        public string Su_Descripcion { get; set; }
         public System.DateTime cm_fecha { get; set; }
         public string cm_observacion { get; set; }
+        public string signo { get; set; }
+        public string tm_descripcion { get; set; }
+        public Nullable<double> TotalInventario { get; set; }
+        public Nullable<double> TotalContabilidad { get; set; }
+        public Nullable<double> Diferencia { get; set; }
     }
 }

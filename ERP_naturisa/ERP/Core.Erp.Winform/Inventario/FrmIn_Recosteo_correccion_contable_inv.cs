@@ -29,7 +29,7 @@ namespace Core.Erp.Winform.Inventario
         tb_Sucursal_Info info_sucursal = new tb_Sucursal_Info();
         in_producto_x_tb_bodega_Costo_Historico_Bus bus_costo_historico = new in_producto_x_tb_bodega_Costo_Historico_Bus();
         BindingList<in_producto_x_tb_bodega_Costo_Historico_Info> blst_costo_historico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>();
-
+        in_Ing_Egr_Inven_Bus bus_inger = new in_Ing_Egr_Inven_Bus();
         in_movi_inve_Info info_movi_inven = new in_movi_inve_Info();
         BindingList<in_movi_inve_Info> lst_movi_inven = new BindingList<in_movi_inve_Info>();
         in_movi_inve_Bus bus_movi_inven = new in_movi_inve_Bus();
@@ -39,6 +39,7 @@ namespace Core.Erp.Winform.Inventario
         List<in_Producto_Info> lst_producto = new List<in_Producto_Info>();
         in_producto_Bus bus_producto = new in_producto_Bus();
         int RowHandle_cont = 0;
+        BindingList<in_Ing_Egr_Inven_Info> blstDiferencias = new BindingList<in_Ing_Egr_Inven_Info>();
         #endregion
 
         public FrmIn_Recosteo_correccion_contable_inv()
@@ -72,6 +73,8 @@ namespace Core.Erp.Winform.Inventario
                 de_fecha_x_prod.EditValue = DateTime.Now;
                 lst_producto = bus_producto.Get_list_Producto(param.IdEmpresa);
                 cmb_producto.Properties.DataSource = lst_producto;
+                deFechaIniD.DateTime = DateTime.Now.Date.AddMonths(-1);
+                deFechaFinD.DateTime = DateTime.Now.Date;
             }
             catch (Exception ex)
             {
@@ -348,6 +351,7 @@ namespace Core.Erp.Winform.Inventario
                 cmb_estado_contabilizacion.Focus();
                 string signo = rdb_egresos.Checked == true ? "-" : "+";
                 lst_movi_inven = new BindingList<in_movi_inve_Info>(bus_movi_inven.Get_list_Movi_inven_para_contabilizar(param.IdEmpresa, signo, Convert.ToDateTime(de_fecha_ini_cont.EditValue).Date, Convert.ToDateTime(de_fecha_fin_cont.EditValue), cmb_estado_contabilizacion.SelectedItem.ToString()));
+
                 gridControlContabilizacion.DataSource = lst_movi_inven;
             }
             catch (Exception ex)
@@ -405,16 +409,7 @@ namespace Core.Erp.Winform.Inventario
                 string mensaje_cbte = "";
                 string mensaje_error = "";
                 foreach (var item in lst_movi_inven.Where(q => q.Checked == true).ToList())
-                {                    
-                    /*
-                    info_movi_inven = bus_movi_inven.Get_Info_Movi_inven(item.IdEmpresa, item.IdSucursal, item.IdBodega, item.IdMovi_inven_tipo, item.IdNumMovi);
-                    if (!bus_movi_inven.Contabilizar(info_movi_inven, ref mensaje_cbte, ref mensaje_error))
-                    {
-                        MessageBox.Show("Sucursal: " + item.nom_sucursal.Trim() + "\nBodega: " + item.nom_bodega.Trim() + "\nTipo movimiento: " + item.tipo_movi_inven + "\n# Movi: " + item.IdNumMovi.ToString() + "\n" + mensaje_error, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        Buscar_movimientos_para_contabilizar();
-                        return false;
-                    }
-                     */
+                {            
                     if (!bus_movi_inven.ContabilizacionData(item.IdEmpresa, item.IdSucursal, item.IdBodega, item.IdMovi_inven_tipo, item.IdNumMovi, param.IdUsuario, ref mensaje_error))
                     {
                         MessageBox.Show("Sucursal: " + item.nom_sucursal.Trim() + "\nBodega: " + item.nom_bodega.Trim() + "\nTipo movimiento: " + item.tipo_movi_inven + "\n# Movi: " + item.IdNumMovi.ToString() + "\n" + mensaje_error, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -478,6 +473,55 @@ namespace Core.Erp.Winform.Inventario
                 }
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show("Comuníquese con sistemas, " + ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscarDiferencias_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BuscarDiferencias();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        private void BuscarDiferencias()
+        {
+            blstDiferencias = new BindingList<in_Ing_Egr_Inven_Info>(bus_inger.GetListDiferenciasContable(param.IdEmpresa, deFechaIniD.DateTime.Date, deFechaFinD.DateTime.Date));
+            gcDiferencias.DataSource = null;
+            gcDiferencias.DataSource = blstDiferencias;
+        }
+
+        private void btnReversarContabilizacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gvDiferencias.MoveNext();
+                deFechaIniD.Focus();
+                bool TodoOK = true;
+                foreach (var item in blstDiferencias.Where(q=> q.Checked == true).ToList())
+                {
+                    if (!bus_inger.ReversarContabilizacion(item.IdEmpresa, item.IdSucursal, item.IdMovi_inven_tipo, item.IdNumMovi))
+                    {
+                        MessageBox.Show("No se ha podido reversar la transacción:\nSucursal: "+item.nom_sucursal.Trim()+"\nTipo movimiento: "+item.tm_descripcion+"\nNúmero movimiento: "+item.IdNumMovi.ToString(),param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        TodoOK = false;
+                    }
+                    break;
+                }
+                if (TodoOK)
+                {
+                    MessageBox.Show("Transacciones reversadas exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                }
+                 BuscarDiferencias();
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }
