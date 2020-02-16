@@ -1,47 +1,37 @@
-﻿CREATE VIEW [Naturisa].[vwCOMP_NATU_Rpt008]
+﻿CREATE VIEW Naturisa.vwCOMP_NATU_Rpt008
 AS
-SELECT d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, c.IdProducto, 
-
-ISNULL(p.pr_descripcion, d.pr_descripcion) 
-+
- case when d.IdPunto_cargo is null then '' else ' /Cargo: '+pc.nom_punto_cargo end
-AS pr_descripcion, 
-
-c.IdCotizacion, ISNULL(c.cd_Cantidad, d.opd_CantidadApro) AS cd_cantidad, c.cd_precioCompra, c.cd_porc_des, 
-                  c.cd_descuento, c.cd_precioFinal, c.cd_subtotal, c.IdCod_Impuesto, c.Por_Iva, c.cd_iva, c.cd_total, c.IdUnidadMedida, ISNULL(c.IdPunto_cargo, d.IdPunto_cargo) AS IdPunto_cargo, pc.nom_punto_cargo, dc.IdSolicitante, 
-                  dc.IdDepartamento, sol.nom_solicitante, u.Descripcion AS nomUnidadMedida, 
-                  CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso = 'AJC' THEN
-                   'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'COMPRADO' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso
-                   = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle, d.opd_EstadoProceso, d.IdSucursalDestino, d.IdSucursalOrigen, c.Secuencia AS SecuenciaCot, 
-				   case when d.opd_Detalle is null then '' else ('Sol:'+d.opd_Detalle+' ')end
-				   +
-				   case when c.cd_DetallePorItem is null then '' else (' Com:'+ c.cd_DetallePorItem) end cd_DetallePorItem, 
-				   
-				   dbo.com_CotizacionPedido.cp_Observacion, 
-                  dbo.com_CotizacionPedido.cp_ObservacionAdicional, ISNULL(dbo.com_CotizacionPedido.cp_Fecha, CAST(GETDATE() AS date)) AS cp_Fecha, dbo.com_comprador.IdUsuario_com AS Comprador, d.opd_Detalle, per.pe_nombreCompleto, 
-                  suori.codigo AS SucursalOrigen, sudes.codigo AS SucursalDestino, CASE WHEN c.por_iva > 0 THEN c.cd_subtotal END AS SubtotalIva, CASE WHEN isnull(c.por_iva, 0) = 0 THEN c.cd_subtotal END AS SubtotalSinIva, dc.op_Fecha, 
-                  dc.op_Observacion
-FROM     dbo.tb_persona AS per INNER JOIN
-                  dbo.cp_proveedor AS pro ON per.IdPersona = pro.IdPersona RIGHT OUTER JOIN
-                  dbo.com_comprador INNER JOIN
-                  dbo.com_CotizacionPedido ON dbo.com_comprador.IdEmpresa = dbo.com_CotizacionPedido.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_CotizacionPedido.IdComprador RIGHT OUTER JOIN
-                  dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN
-                  dbo.com_CotizacionPedidoDet AS c ON d.IdEmpresa = c.opd_IdEmpresa AND d.IdOrdenPedido = c.opd_IdOrdenPedido AND d.Secuencia = c.opd_Secuencia AND c.EstadoJC = 1 LEFT OUTER JOIN
-                  dbo.in_Producto AS p ON c.IdEmpresa = p.IdEmpresa AND c.IdProducto = p.IdProducto LEFT OUTER JOIN
-                  dbo.ct_punto_cargo AS pc ON d.IdEmpresa = pc.IdEmpresa AND ISNULL(c.IdPunto_cargo, d.IdPunto_cargo) = pc.IdPunto_cargo INNER JOIN
-                  dbo.com_OrdenPedido AS dc ON dc.IdEmpresa = d.IdEmpresa AND dc.IdOrdenPedido = d.IdOrdenPedido INNER JOIN
-                  dbo.com_solicitante AS sol ON dc.IdEmpresa = sol.IdEmpresa AND dc.IdSolicitante = sol.IdSolicitante ON dbo.com_CotizacionPedido.IdEmpresa = c.IdEmpresa AND 
-                  dbo.com_CotizacionPedido.IdCotizacion = c.IdCotizacion LEFT OUTER JOIN
-                  dbo.in_UnidadMedida AS u ON d.IdUnidadMedida = u.IdUnidadMedida ON pro.IdEmpresa = dbo.com_CotizacionPedido.IdEmpresa AND pro.IdProveedor = dbo.com_CotizacionPedido.IdProveedor LEFT OUTER JOIN
-                  dbo.tb_sucursal AS sudes ON sudes.IdEmpresa = d.IdEmpresa AND sudes.IdSucursal = d.IdSucursalDestino LEFT OUTER JOIN
-                  dbo.tb_sucursal AS suori ON suori.IdEmpresa = d.IdEmpresa AND suori.IdSucursal = d.IdSucursalOrigen 
-WHERE  (d.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA'))
+SELECT        d.IdEmpresa, d.IdOrdenPedido, d.Secuencia, c.IdProducto, ISNULL(p.pr_descripcion, d.pr_descripcion) + CASE WHEN d .IdPunto_cargo IS NULL THEN '' ELSE ' /Cargo: ' + pc.nom_punto_cargo END AS pr_descripcion, 
+                         c.IdCotizacion, ISNULL(c.cd_Cantidad, d.opd_CantidadApro) AS cd_cantidad, c.cd_precioCompra, c.cd_porc_des, c.cd_descuento, c.cd_precioFinal, c.cd_subtotal, c.IdCod_Impuesto, c.Por_Iva, c.cd_iva, c.cd_total, 
+                         c.IdUnidadMedida, ISNULL(c.IdPunto_cargo, d.IdPunto_cargo) AS IdPunto_cargo, pc.nom_punto_cargo, dc.IdSolicitante, dc.IdDepartamento, sol.nom_solicitante, u.Descripcion AS nomUnidadMedida, 
+                         CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso =
+                          'AJC' THEN 'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'COMPRADO' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN
+                          d .opd_EstadoProceso = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle, d.opd_EstadoProceso, d.IdSucursalDestino, d.IdSucursalOrigen, c.Secuencia AS SecuenciaCot, CASE WHEN d .opd_Detalle IS NULL 
+                         THEN '' ELSE ('Sol:' + d .opd_Detalle + ' ') END + CASE WHEN c.cd_DetallePorItem IS NULL THEN '' ELSE (' Com:' + c.cd_DetallePorItem) END AS cd_DetallePorItem, dbo.com_CotizacionPedido.cp_Observacion, 
+                         dbo.com_CotizacionPedido.cp_ObservacionAdicional, ISNULL(dbo.com_CotizacionPedido.cp_Fecha, CAST(GETDATE() AS date)) AS cp_Fecha, dbo.com_comprador.IdUsuario_com AS Comprador, d.opd_Detalle, 
+                         per.pe_nombreCompleto, suori.codigo AS SucursalOrigen, sudes.codigo AS SucursalDestino, CASE WHEN c.por_iva > 0 THEN c.cd_subtotal END AS SubtotalIva, CASE WHEN isnull(c.por_iva, 0) 
+                         = 0 THEN c.cd_subtotal END AS SubtotalSinIva, dc.op_Fecha, dc.op_Observacion, dbo.com_TerminoPago.Descripcion, dbo.com_TerminoPago.Dias, dbo.com_CotizacionPedido.cp_PlazoEntrega
+FROM            dbo.in_UnidadMedida AS u RIGHT OUTER JOIN
+                         dbo.com_comprador INNER JOIN
+                         dbo.com_CotizacionPedido ON dbo.com_comprador.IdEmpresa = dbo.com_CotizacionPedido.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_CotizacionPedido.IdComprador INNER JOIN
+                         dbo.com_TerminoPago ON dbo.com_CotizacionPedido.IdTerminoPago = dbo.com_TerminoPago.IdTerminoPago RIGHT OUTER JOIN
+                         dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN
+                         dbo.com_CotizacionPedidoDet AS c ON d.IdEmpresa = c.opd_IdEmpresa AND d.IdOrdenPedido = c.opd_IdOrdenPedido AND d.Secuencia = c.opd_Secuencia AND c.EstadoJC = 1 LEFT OUTER JOIN
+                         dbo.in_Producto AS p ON c.IdEmpresa = p.IdEmpresa AND c.IdProducto = p.IdProducto LEFT OUTER JOIN
+                         dbo.ct_punto_cargo AS pc ON d.IdEmpresa = pc.IdEmpresa AND ISNULL(c.IdPunto_cargo, d.IdPunto_cargo) = pc.IdPunto_cargo INNER JOIN
+                         dbo.com_OrdenPedido AS dc ON dc.IdEmpresa = d.IdEmpresa AND dc.IdOrdenPedido = d.IdOrdenPedido INNER JOIN
+                         dbo.com_solicitante AS sol ON dc.IdEmpresa = sol.IdEmpresa AND dc.IdSolicitante = sol.IdSolicitante ON dbo.com_CotizacionPedido.IdEmpresa = c.IdEmpresa AND dbo.com_CotizacionPedido.IdCotizacion = c.IdCotizacion ON 
+                         u.IdUnidadMedida = d.IdUnidadMedida LEFT OUTER JOIN
+                         dbo.tb_persona AS per INNER JOIN
+                         dbo.cp_proveedor AS pro ON per.IdPersona = pro.IdPersona ON dbo.com_CotizacionPedido.IdEmpresa = pro.IdEmpresa AND dbo.com_CotizacionPedido.IdProveedor = pro.IdProveedor LEFT OUTER JOIN
+                         dbo.tb_sucursal AS sudes ON sudes.IdEmpresa = d.IdEmpresa AND sudes.IdSucursal = d.IdSucursalDestino LEFT OUTER JOIN
+                         dbo.tb_sucursal AS suori ON suori.IdEmpresa = d.IdEmpresa AND suori.IdSucursal = d.IdSucursalOrigen
+WHERE        (d.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA'))
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwCOMP_NATU_Rpt008';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'           TopColumn = 0
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'         TopColumn = 0
          End
          Begin Table = "pc"
             Begin Extent = 
@@ -103,12 +93,36 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'          
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "com_TerminoPago"
+            Begin Extent = 
+               Top = 518
+               Left = 400
+               Bottom = 648
+               Right = 579
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
       End
    End
    Begin SQLPane = 
    End
    Begin DataPane = 
       Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 12
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
       End
    End
    Begin CriteriaPane = 
@@ -132,13 +146,15 @@ End
 ', @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwCOMP_NATU_Rpt008';
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+         Configuration = "(H (1[68] 4[3] 2[11] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -200,7 +216,7 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = -1320
+         Top = -480
          Left = 0
       End
       Begin Tables = 
@@ -242,7 +258,7 @@ Begin DesignProperties =
                Right = 310
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 4
          End
          Begin Table = "d"
             Begin Extent = 
@@ -272,5 +288,7 @@ Begin DesignProperties =
                Right = 323
             End
             DisplayFlags = 280
- ', @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwCOMP_NATU_Rpt008';
+   ', @level0type = N'SCHEMA', @level0name = N'Naturisa', @level1type = N'VIEW', @level1name = N'vwCOMP_NATU_Rpt008';
+
+
 

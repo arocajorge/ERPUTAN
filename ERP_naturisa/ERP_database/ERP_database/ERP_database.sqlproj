@@ -1314,5 +1314,6 @@
     <Build Include="dbo\Tables\cp_orden_giro_det.sql" />
     <Build Include="dbo\Views\vwcp_orden_giro_liqui_compra_fact_elect.sql" />
     <Build Include="dbo\Views\vwcp_orden_giro_det_liqui_comp_fac_elect.sql" />
+    <Build Include="dbo\Stored Procedures\SPINV_GetMovimientosPorContabilizar.sql" />
   </ItemGroup>
 </Project>

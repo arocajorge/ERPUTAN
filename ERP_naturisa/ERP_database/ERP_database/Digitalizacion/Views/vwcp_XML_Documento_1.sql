@@ -1,4 +1,4 @@
-﻿CREATE VIEW [Digitalizacion].[vwcp_XML_Documento]
+﻿CREATE VIEW Digitalizacion.vwcp_XML_Documento
 AS
 SELECT a.IdEmpresa, a.IdDocumento, a.ret_Establecimiento + '-' + a.ret_PuntoEmision AS serie, a.ret_NumeroDocumento, a.ret_Fecha, a.emi_RazonSocial AS pe_nombreCompleto, a.emi_RazonSocial, a.emi_Ruc, per.pe_correo, per.pe_direccion, 
                   per.pe_telfono_Contacto, pro.IdProveedor, a.Establecimiento + '-' + a.PuntoEmision AS co_serie, a.NumeroDocumento, a.FechaEmision, a.CodDocumento, CASE WHEN LEN(A.emi_Ruc) = 10 THEN 'CED' WHEN LEN(A.emi_Ruc) 
@@ -15,8 +15,10 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @leve
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'd
 ', @level0type = N'SCHEMA', @level0name = N'Digitalizacion', @level1type = N'VIEW', @level1name = N'vwcp_XML_Documento';
+
+
 
 
 GO
@@ -99,7 +101,7 @@ Begin DesignProperties =
                Right = 321
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 37
          End
          Begin Table = "per"
             Begin Extent = 
@@ -153,18 +155,20 @@ Begin DesignProperties =
       Begin ColumnWidths = 11
          Column = 1440
          Alias = 900
-         Table = 1170
+         Table = 1176
          Output = 720
          Append = 1400
          NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
+         SortType = 1356
+         SortOrder = 1416
          GroupBy = 1350
-         Filter = 1350
+         Filter = 1356
          Or = 1350
          Or = 1350
          Or = 1350
       End
    End
-End', @level0type = N'SCHEMA', @level0name = N'Digitalizacion', @level1type = N'VIEW', @level1name = N'vwcp_XML_Documento';
+En', @level0type = N'SCHEMA', @level0name = N'Digitalizacion', @level1type = N'VIEW', @level1name = N'vwcp_XML_Documento';
+
+
 
