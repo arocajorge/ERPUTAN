@@ -53,6 +53,7 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnMostrarAnulados = new System.Windows.Forms.ToolStripButton();
+            this.btnValidarDocumentos = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
@@ -85,16 +86,16 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2020, 1, 16, 0, 0, 0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 1, 23, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2020, 2, 9, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 2, 16, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(836, 144);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1115, 177);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 0;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = false;
@@ -139,15 +140,15 @@
             // gcDetalle
             // 
             this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gcDetalle.Location = new System.Drawing.Point(0, 169);
+            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcDetalle.Location = new System.Drawing.Point(0, 204);
             this.gcDetalle.MainView = this.gvDetalle;
-            this.gcDetalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcDetalle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcDetalle.Name = "gcDetalle";
             this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbImagen,
             this.cmbImagenD});
-            this.gcDetalle.Size = new System.Drawing.Size(836, 388);
+            this.gcDetalle.Size = new System.Drawing.Size(1115, 482);
             this.gcDetalle.TabIndex = 3;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalle});
@@ -359,10 +360,11 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnMostrarAnulados});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 144);
+            this.btnMostrarAnulados,
+            this.btnValidarDocumentos});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 177);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(836, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1115, 27);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -371,19 +373,28 @@
             this.btnMostrarAnulados.Image = global::Core.Erp.Winform.Properties.Resources.anular_32x32;
             this.btnMostrarAnulados.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnMostrarAnulados.Name = "btnMostrarAnulados";
-            this.btnMostrarAnulados.Size = new System.Drawing.Size(182, 22);
+            this.btnMostrarAnulados.Size = new System.Drawing.Size(223, 24);
             this.btnMostrarAnulados.Text = "Mostrar retenciones anuladas";
             this.btnMostrarAnulados.Click += new System.EventHandler(this.btnMostrarAnulados_Click);
             // 
+            // btnValidarDocumentos
+            // 
+            this.btnValidarDocumentos.Image = global::Core.Erp.Winform.Properties.Resources.check_16x16;
+            this.btnValidarDocumentos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnValidarDocumentos.Name = "btnValidarDocumentos";
+            this.btnValidarDocumentos.Size = new System.Drawing.Size(251, 24);
+            this.btnValidarDocumentos.Text = "Validar documentos digitalizados";
+            this.btnValidarDocumentos.Click += new System.EventHandler(this.btnValidarDocumentos_Click);
+            // 
             // frmCP_XML_Consulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 557);
+            this.ClientSize = new System.Drawing.Size(1115, 686);
             this.Controls.Add(this.gcDetalle);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCP_XML_Consulta";
             this.Text = "frmCP_XML_Consulta";
             this.Load += new System.EventHandler(this.frmCP_XML_Consulta_Load);
@@ -423,5 +434,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnMostrarAnulados;
+        private System.Windows.Forms.ToolStripButton btnValidarDocumentos;
     }
 }

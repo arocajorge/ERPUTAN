@@ -293,5 +293,20 @@ namespace Core.Erp.Winform.CuentasxPagar
                 throw;
             }
         }
+
+        private void btnValidarDocumentos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCP_XML_ValidacionMasiva frm = new frmCP_XML_ValidacionMasiva();
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -127,6 +127,7 @@
             this.wizardControlActualizar_Archivo.Controls.Add(this.wpArchivo_Seleccionado);
             this.wizardControlActualizar_Archivo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardControlActualizar_Archivo.Location = new System.Drawing.Point(0, 0);
+            this.wizardControlActualizar_Archivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardControlActualizar_Archivo.Name = "wizardControlActualizar_Archivo";
             this.wizardControlActualizar_Archivo.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
             this.welcomeWizardPage1,
@@ -135,7 +136,7 @@
             this.wpArchivos_actuales,
             this.wpArchivo_Actualizado,
             this.completionWizardPage1});
-            this.wizardControlActualizar_Archivo.Size = new System.Drawing.Size(1027, 519);
+            this.wizardControlActualizar_Archivo.Size = new System.Drawing.Size(1369, 639);
             this.wizardControlActualizar_Archivo.Text = "";
             this.wizardControlActualizar_Archivo.SelectedPageChanged += new DevExpress.XtraWizard.WizardPageChangedEventHandler(this.wizardControlActualizar_Archivo_SelectedPageChanged);
             this.wizardControlActualizar_Archivo.CancelClick += new System.ComponentModel.CancelEventHandler(this.wizardControlActualizar_Archivo_CancelClick);
@@ -147,8 +148,9 @@
             // 
             this.welcomeWizardPage1.IntroductionText = "El asistente lo guiará a través del proceso para actualizar los registros del arc" +
     "hivo enviado al banco en base al archivo de respuesta recibido";
+            this.welcomeWizardPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.welcomeWizardPage1.Name = "welcomeWizardPage1";
-            this.welcomeWizardPage1.Size = new System.Drawing.Size(810, 386);
+            this.welcomeWizardPage1.Size = new System.Drawing.Size(1152, 490);
             this.welcomeWizardPage1.Text = "Bienvenido al asistente para actualizar archivos";
             // 
             // wpSeleccion_archivo_excel
@@ -158,50 +160,56 @@
             this.wpSeleccion_archivo_excel.Controls.Add(this.btnSeleccionar);
             this.wpSeleccion_archivo_excel.DescriptionText = "1.- De Click en el boton\"Seleccionar el Archivo\" para buscar el archivo enviado p" +
     "or el banco como respuesta";
+            this.wpSeleccion_archivo_excel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wpSeleccion_archivo_excel.Name = "wpSeleccion_archivo_excel";
-            this.wpSeleccion_archivo_excel.Size = new System.Drawing.Size(995, 374);
+            this.wpSeleccion_archivo_excel.Size = new System.Drawing.Size(1337, 483);
             this.wpSeleccion_archivo_excel.Text = "Respuesta del banco";
             this.wpSeleccion_archivo_excel.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.wpSeleccion_archivo_excel_PageValidating);
             // 
             // TxtRuraFile
             // 
-            this.TxtRuraFile.Location = new System.Drawing.Point(492, 138);
+            this.TxtRuraFile.Location = new System.Drawing.Point(656, 170);
+            this.TxtRuraFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtRuraFile.Name = "TxtRuraFile";
             this.TxtRuraFile.Properties.ReadOnly = true;
-            this.TxtRuraFile.Size = new System.Drawing.Size(300, 20);
+            this.TxtRuraFile.Size = new System.Drawing.Size(400, 22);
             this.TxtRuraFile.TabIndex = 20;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(110, 92);
+            this.pictureBox1.Location = new System.Drawing.Point(147, 113);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 174);
+            this.pictureBox1.Size = new System.Drawing.Size(264, 214);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(337, 135);
+            this.btnSeleccionar.Location = new System.Drawing.Point(449, 166);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(120, 23);
+            this.btnSeleccionar.Size = new System.Drawing.Size(160, 28);
             this.btnSeleccionar.TabIndex = 0;
             this.btnSeleccionar.Text = "Seleccione el archivo";
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // completionWizardPage1
             // 
+            this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.completionWizardPage1.Name = "completionWizardPage1";
-            this.completionWizardPage1.Size = new System.Drawing.Size(810, 386);
+            this.completionWizardPage1.Size = new System.Drawing.Size(1152, 490);
             // 
             // wpArchivos_actuales
             // 
             this.wpArchivos_actuales.Controls.Add(this.panel4);
             this.wpArchivos_actuales.Controls.Add(this.panel3);
             this.wpArchivos_actuales.DescriptionText = "Aquí puede visualizar ambos archivos de manera simultánea";
+            this.wpArchivos_actuales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wpArchivos_actuales.Name = "wpArchivos_actuales";
-            this.wpArchivos_actuales.Size = new System.Drawing.Size(995, 374);
+            this.wpArchivos_actuales.Size = new System.Drawing.Size(1337, 483);
             this.wpArchivos_actuales.Text = "Respuesta del banco";
             this.wpArchivos_actuales.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.wpArchivos_Actuales_PageValidating);
             // 
@@ -209,21 +217,23 @@
             // 
             this.panel4.Controls.Add(this.splitContainerControl1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 20);
+            this.panel4.Location = new System.Drawing.Point(0, 25);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(995, 354);
+            this.panel4.Size = new System.Drawing.Size(1337, 458);
             this.panel4.TabIndex = 1;
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControlArchivo_Plano);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.gridControlArchivo_Excel);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(995, 354);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1337, 458);
             this.splitContainerControl1.SplitterPosition = 453;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -231,10 +241,12 @@
             // gridControlArchivo_Plano
             // 
             this.gridControlArchivo_Plano.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlArchivo_Plano.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlArchivo_Plano.Location = new System.Drawing.Point(0, 0);
             this.gridControlArchivo_Plano.MainView = this.gridViewArchivo_Plano;
+            this.gridControlArchivo_Plano.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlArchivo_Plano.Name = "gridControlArchivo_Plano";
-            this.gridControlArchivo_Plano.Size = new System.Drawing.Size(453, 354);
+            this.gridControlArchivo_Plano.Size = new System.Drawing.Size(453, 458);
             this.gridControlArchivo_Plano.TabIndex = 0;
             this.gridControlArchivo_Plano.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewArchivo_Plano});
@@ -319,10 +331,12 @@
             // gridControlArchivo_Excel
             // 
             this.gridControlArchivo_Excel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlArchivo_Excel.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlArchivo_Excel.Location = new System.Drawing.Point(0, 0);
             this.gridControlArchivo_Excel.MainView = this.gridViewArchivo_Excel;
+            this.gridControlArchivo_Excel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlArchivo_Excel.Name = "gridControlArchivo_Excel";
-            this.gridControlArchivo_Excel.Size = new System.Drawing.Size(537, 354);
+            this.gridControlArchivo_Excel.Size = new System.Drawing.Size(879, 458);
             this.gridControlArchivo_Excel.TabIndex = 0;
             this.gridControlArchivo_Excel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewArchivo_Excel});
@@ -409,17 +423,19 @@
             this.panel3.Controls.Add(this.lblError);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(995, 20);
+            this.panel3.Size = new System.Drawing.Size(1337, 25);
             this.panel3.TabIndex = 1;
             // 
             // lblError
             // 
             this.lblError.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(609, 2);
+            this.lblError.Location = new System.Drawing.Point(812, 2);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(231, 16);
+            this.lblError.Size = new System.Drawing.Size(298, 18);
             this.lblError.TabIndex = 0;
             this.lblError.Text = "INCONSISTENCIA DE REGISTROS";
             this.lblError.Visible = false;
@@ -428,18 +444,21 @@
             // 
             this.wpArchivo_Actualizado.Controls.Add(this.gridControlActualizacion);
             this.wpArchivo_Actualizado.Controls.Add(this.panel5);
+            this.wpArchivo_Actualizado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wpArchivo_Actualizado.Name = "wpArchivo_Actualizado";
-            this.wpArchivo_Actualizado.Size = new System.Drawing.Size(995, 374);
+            this.wpArchivo_Actualizado.Size = new System.Drawing.Size(1337, 483);
             // 
             // gridControlActualizacion
             // 
             this.gridControlActualizacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlActualizacion.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlActualizacion.Location = new System.Drawing.Point(0, 0);
             this.gridControlActualizacion.MainView = this.gridViewActualizacion;
+            this.gridControlActualizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlActualizacion.Name = "gridControlActualizacion";
             this.gridControlActualizacion.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_img_Estado_Actualizacion});
-            this.gridControlActualizacion.Size = new System.Drawing.Size(995, 337);
+            this.gridControlActualizacion.Size = new System.Drawing.Size(1337, 437);
             this.gridControlActualizacion.TabIndex = 3;
             this.gridControlActualizacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewActualizacion});
@@ -567,20 +586,22 @@
             this.panel5.Controls.Add(this.progressBarActualizacion);
             this.panel5.Controls.Add(this.btnActualizar);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 337);
+            this.panel5.Location = new System.Drawing.Point(0, 437);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(995, 37);
+            this.panel5.Size = new System.Drawing.Size(1337, 46);
             this.panel5.TabIndex = 2;
             // 
             // progressBarActualizacion
             // 
-            this.progressBarActualizacion.Location = new System.Drawing.Point(17, 10);
+            this.progressBarActualizacion.Location = new System.Drawing.Point(23, 12);
+            this.progressBarActualizacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBarActualizacion.Name = "progressBarActualizacion";
             this.progressBarActualizacion.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.progressBarActualizacion.Properties.ProgressViewStyle = DevExpress.XtraEditors.Controls.ProgressViewStyle.Solid;
             this.progressBarActualizacion.Properties.ShowTitle = true;
             this.progressBarActualizacion.Properties.Step = 0;
-            this.progressBarActualizacion.Size = new System.Drawing.Size(744, 16);
+            this.progressBarActualizacion.Size = new System.Drawing.Size(992, 20);
             this.progressBarActualizacion.TabIndex = 2;
             // 
             // btnActualizar
@@ -590,9 +611,10 @@
             this.btnActualizar.Appearance.Options.UseFont = true;
             this.btnActualizar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnActualizar.Image = global::Core.Erp.Winform.Properties.Resources.Actualizar_Archivo_32x32;
-            this.btnActualizar.Location = new System.Drawing.Point(767, 3);
+            this.btnActualizar.Location = new System.Drawing.Point(1033, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(225, 32);
+            this.btnActualizar.Size = new System.Drawing.Size(300, 39);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar archivo enviado";
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -603,17 +625,19 @@
             this.wpArchivo_Seleccionado.Controls.Add(this.panel1);
             this.wpArchivo_Seleccionado.DescriptionText = "Aquí se muestra el estado actual de los registros en el archivo antes de ser actu" +
     "alizados";
+            this.wpArchivo_Seleccionado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wpArchivo_Seleccionado.Name = "wpArchivo_Seleccionado";
-            this.wpArchivo_Seleccionado.Size = new System.Drawing.Size(995, 374);
+            this.wpArchivo_Seleccionado.Size = new System.Drawing.Size(1337, 483);
             this.wpArchivo_Seleccionado.Text = "Archivo Seleccionado";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.RTBArchivo_Plano);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 56);
+            this.panel2.Location = new System.Drawing.Point(0, 69);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(995, 318);
+            this.panel2.Size = new System.Drawing.Size(1337, 414);
             this.panel2.TabIndex = 2;
             // 
             // RTBArchivo_Plano
@@ -621,9 +645,10 @@
             this.RTBArchivo_Plano.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RTBArchivo_Plano.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTBArchivo_Plano.Location = new System.Drawing.Point(0, 0);
+            this.RTBArchivo_Plano.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RTBArchivo_Plano.Name = "RTBArchivo_Plano";
             this.RTBArchivo_Plano.ReadOnly = true;
-            this.RTBArchivo_Plano.Size = new System.Drawing.Size(995, 318);
+            this.RTBArchivo_Plano.Size = new System.Drawing.Size(1337, 414);
             this.RTBArchivo_Plano.TabIndex = 0;
             this.RTBArchivo_Plano.Text = "";
             this.RTBArchivo_Plano.WordWrap = false;
@@ -640,80 +665,90 @@
             this.panel1.Controls.Add(this.txtNom_Archivo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(995, 56);
+            this.panel1.Size = new System.Drawing.Size(1337, 69);
             this.panel1.TabIndex = 1;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(27, 16);
+            this.txtId.Location = new System.Drawing.Point(36, 20);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
             this.txtId.Properties.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(73, 20);
+            this.txtId.Size = new System.Drawing.Size(97, 22);
             this.txtId.TabIndex = 7;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(13, 19);
+            this.labelControl5.Location = new System.Drawing.Point(17, 23);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(8, 13);
+            this.labelControl5.Size = new System.Drawing.Size(9, 16);
             this.labelControl5.TabIndex = 6;
             this.labelControl5.Text = "#";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(649, 19);
+            this.labelControl4.Location = new System.Drawing.Point(865, 23);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(42, 13);
+            this.labelControl4.Size = new System.Drawing.Size(50, 16);
             this.labelControl4.TabIndex = 5;
             this.labelControl4.Text = "Proceso:";
             // 
             // txtProceso
             // 
-            this.txtProceso.Location = new System.Drawing.Point(697, 16);
+            this.txtProceso.Location = new System.Drawing.Point(929, 20);
+            this.txtProceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtProceso.Name = "txtProceso";
             this.txtProceso.Properties.ReadOnly = true;
-            this.txtProceso.Size = new System.Drawing.Size(278, 20);
+            this.txtProceso.Size = new System.Drawing.Size(371, 22);
             this.txtProceso.TabIndex = 4;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(381, 19);
+            this.labelControl3.Location = new System.Drawing.Point(508, 23);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(33, 13);
+            this.labelControl3.Size = new System.Drawing.Size(39, 16);
             this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "Banco:";
             // 
             // txtBanco
             // 
-            this.txtBanco.Location = new System.Drawing.Point(420, 16);
+            this.txtBanco.Location = new System.Drawing.Point(560, 20);
+            this.txtBanco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBanco.Name = "txtBanco";
             this.txtBanco.Properties.ReadOnly = true;
-            this.txtBanco.Size = new System.Drawing.Size(223, 20);
+            this.txtBanco.Size = new System.Drawing.Size(297, 22);
             this.txtBanco.TabIndex = 2;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(106, 19);
+            this.labelControl2.Location = new System.Drawing.Point(141, 23);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(40, 13);
+            this.labelControl2.Size = new System.Drawing.Size(47, 16);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Archivo:";
             // 
             // txtNom_Archivo
             // 
-            this.txtNom_Archivo.Location = new System.Drawing.Point(152, 16);
+            this.txtNom_Archivo.Location = new System.Drawing.Point(203, 20);
+            this.txtNom_Archivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNom_Archivo.Name = "txtNom_Archivo";
             this.txtNom_Archivo.Properties.ReadOnly = true;
-            this.txtNom_Archivo.Size = new System.Drawing.Size(223, 20);
+            this.txtNom_Archivo.Size = new System.Drawing.Size(297, 22);
             this.txtNom_Archivo.TabIndex = 0;
             // 
             // FrmBA_Actualizar_Archivos_Wizard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1027, 519);
+            this.ClientSize = new System.Drawing.Size(1369, 639);
             this.Controls.Add(this.wizardControlActualizar_Archivo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmBA_Actualizar_Archivos_Wizard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wizard actualizador de archivos";

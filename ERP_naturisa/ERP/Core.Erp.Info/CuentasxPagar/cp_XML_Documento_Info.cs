@@ -73,5 +73,11 @@ namespace Core.Erp.Info.CuentasxPagar
         public bool EnviaXML { get; set; }
 
         public string IdUsuario { get; set; }
+
+        public bool ValidacionD { get; set; }
+
+        public bool ValidacionR { get; set; }
+
+        public bool ValidacionC { get; set; }
     }
 }

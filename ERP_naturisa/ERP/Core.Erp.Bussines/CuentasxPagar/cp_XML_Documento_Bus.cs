@@ -252,6 +252,18 @@ namespace Core.Erp.Business.CuentasxPagar
                 throw;
             }
         }
+        public cp_XML_Documento_Info GetInfo(int IdEmpresa, string CodDocumento, string Comprobante, string pe_cedulaRuc)
+        {
+            try
+            {
+                return odata.GetInfo(IdEmpresa, CodDocumento, Comprobante, pe_cedulaRuc);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public List<cp_XML_Documento_Info> GetList(int IdEmpresa, string pe_cedulaRuc)
         {

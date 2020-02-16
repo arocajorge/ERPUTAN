@@ -34,7 +34,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>274</ApplicationRevision>
+    <ApplicationRevision>275</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -194,6 +194,9 @@
     <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraWizard.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
+    </Reference>
+    <Reference Include="GenericParsing">
+      <HintPath>..\packages\GenericParsing.1.2.1\lib\net452\GenericParsing.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -2034,6 +2037,12 @@
     </Compile>
     <Compile Include="CuentasxPagar\frmCP_XML_RetencionesAnuladas.Designer.cs">
       <DependentUpon>frmCP_XML_RetencionesAnuladas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_ValidacionMasiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\frmCP_XML_ValidacionMasiva.Designer.cs">
+      <DependentUpon>frmCP_XML_ValidacionMasiva.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\FrmFa_PuntoVta_cons.cs">
       <SubType>Form</SubType>
@@ -4829,6 +4838,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CuentasxPagar\frmCP_XML_RetencionesAnuladas.resx">
       <DependentUpon>frmCP_XML_RetencionesAnuladas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\frmCP_XML_ValidacionMasiva.resx">
+      <DependentUpon>frmCP_XML_ValidacionMasiva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\FrmFa_PuntoVta_cons.resx">
       <DependentUpon>FrmFa_PuntoVta_cons.cs</DependentUpon>

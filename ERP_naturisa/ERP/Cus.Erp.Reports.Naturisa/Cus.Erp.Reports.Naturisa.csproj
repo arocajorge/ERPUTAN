@@ -911,7 +911,6 @@
     <EmbeddedResource Include="Inventario\XINV_NAT_Rpt006_Rpt.resx">
       <DependentUpon>XINV_NAT_Rpt006_Rpt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -574,6 +574,94 @@ namespace Core.Erp.Data.CuentasxPagar
                 throw;
             }
         }
+        public cp_XML_Documento_Info GetInfo(int IdEmpresa, string CodDocumento, string Comprobante, string pe_cedulaRuc)
+        {
+            try
+            {
+                cp_XML_Documento_Info retorno = new cp_XML_Documento_Info();
+                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                {
+                    var info = db.cp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && q.emi_Ruc == pe_cedulaRuc && q.CodDocumento == CodDocumento && q.Comprobante == Comprobante && q.Estado == true).FirstOrDefault();
+                    if (info != null)
+                    {
+                        retorno = new cp_XML_Documento_Info
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdDocumento = info.IdDocumento,
+                            XML = info.XML,
+                            Tipo = info.Tipo,
+                            emi_RazonSocial = info.emi_RazonSocial,
+                            emi_NombreComercial = info.emi_NombreComercial,
+                            emi_Ruc = info.emi_Ruc,
+                            emi_DireccionMatriz = info.emi_DireccionMatriz,
+                            ClaveAcceso = info.ClaveAcceso,
+                            CodDocumento = info.CodDocumento,
+                            Establecimiento = info.Establecimiento,
+                            PuntoEmision = info.PuntoEmision,
+                            NumeroDocumento = info.NumeroDocumento,
+                            FechaEmision = info.FechaEmision,
+                            rec_RazonSocial = info.rec_RazonSocial,
+                            rec_Identificacion = info.rec_Identificacion,
+                            Subtotal0 = info.Subtotal0,
+                            SubtotalIVA = info.SubtotalIVA,
+                            Porcentaje = info.Porcentaje,
+                            ValorIVA = info.ValorIVA,
+                            Total = info.Total,
+                            FormaPago = info.FormaPago,
+                            Plazo = info.Plazo,
+                            Comprobante = info.Comprobante,
+                            Estado = info.Estado,
+
+                            ret_CodDocumentoTipo = info.ret_CodDocumentoTipo,
+                            ret_Establecimiento = info.ret_Establecimiento,
+                            ret_Fecha = info.ret_Fecha,
+                            ret_FechaAutorizacion = info.ret_FechaAutorizacion,
+                            ret_NumeroAutorizacion = info.ret_NumeroAutorizacion,
+                            ret_NumeroDocumento = info.ret_NumeroDocumento,
+                            ret_PuntoEmision = info.ret_PuntoEmision,
+
+                            IdTipoCbte = info.IdTipoCbte,
+                            IdCbteCble = info.IdCbteCble,
+
+                            ValidacionD = true,
+                            ValidacionR = string.IsNullOrEmpty(info.ret_NumeroDocumento) ? false : true,
+                            ValidacionC = info.IdTipoCbte == null ? false : true
+                        };
+                        if (retorno.IdTipoCbte != null && retorno.ValidacionR == false)
+                        {
+                            var Ret = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == retorno.IdEmpresa && q.IdTipoCbte_Ogiro == retorno.IdTipoCbte && q.IdCbteCble_Ogiro == retorno.IdCbteCble &&  q.Estado == "A").FirstOrDefault();
+                            if (Ret != null)
+                            {
+                                retorno.ValidacionR = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var Proveedor = db.vwcp_proveedor_combo.Where(q => q.IdEmpresa == IdEmpresa && q.pe_cedularuc == pe_cedulaRuc).FirstOrDefault();
+                        if (Proveedor != null)
+                        {
+                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == CodDocumento && (q.IdOrden_giro_Tipo + "-" + q.co_serie + "-" + q.co_factura) == Comprobante && q.IdProveedor == Proveedor.IdProveedor && q.Estado == "A").FirstOrDefault();
+                            if (OG != null)
+                            {
+                                var Ret = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro &&  q.Estado == "A").FirstOrDefault();
+                                retorno = new cp_XML_Documento_Info
+                                {
+                                    ValidacionC = true,
+                                    ValidacionR = Ret == null ? false : true
+                                };
+                            }
+                        }
+                    }
+                }
+                return retorno;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public bool ContabilizarDocumento(int IdEmpresa, decimal IdDocumento, int IdTipoCbte, decimal IdCbteCble, string IdUsuario, bool GenerarRetencion)
         {
