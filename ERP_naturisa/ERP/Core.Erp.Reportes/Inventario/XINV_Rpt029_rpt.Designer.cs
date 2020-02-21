@@ -167,7 +167,7 @@
             // cel_det_id
             // 
             this.cel_det_id.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "pr_codigo")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "IdProducto")});
             this.cel_det_id.Name = "cel_det_id";
             this.cel_det_id.Text = "cel_det_id";
             this.cel_det_id.Weight = 0.17198179685799755D;

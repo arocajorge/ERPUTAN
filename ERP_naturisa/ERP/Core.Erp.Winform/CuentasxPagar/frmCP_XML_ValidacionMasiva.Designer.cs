@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRutaXml = new DevExpress.XtraEditors.ButtonEdit();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -47,7 +48,6 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnRefrescar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaXml.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -65,6 +65,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1111, 55);
             this.panel1.TabIndex = 3;
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::Core.Erp.Winform.Properties.Resources.re_hacer_16x16;
+            this.btnRefrescar.Location = new System.Drawing.Point(820, 14);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(44, 23);
+            this.btnRefrescar.TabIndex = 51;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // label1
             // 
@@ -125,6 +135,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(58, 24);
             this.btnSalir.Text = "Salir";
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // openFileDialogValidar
             // 
@@ -230,16 +241,6 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 7;
-            // 
-            // btnRefrescar
-            // 
-            this.btnRefrescar.Image = global::Core.Erp.Winform.Properties.Resources.re_hacer_16x16;
-            this.btnRefrescar.Location = new System.Drawing.Point(820, 14);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(44, 23);
-            this.btnRefrescar.TabIndex = 51;
-            this.btnRefrescar.UseVisualStyleBackColor = true;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // frmCP_XML_ValidacionMasiva
             // 

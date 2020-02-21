@@ -642,21 +642,17 @@ namespace Core.Erp.Data.CuentasxPagar
 
                     if (!String.IsNullOrEmpty(ptoEmision) && !String.IsNullOrEmpty(Establecimiento) && !String.IsNullOrEmpty(secuencial))
                     {
-
-
                         ptoEmision = ptoEmision.Trim();
                         Establecimiento = Establecimiento.Trim();
                         secuencial = secuencial.Trim();
-                        var result = from q in Entity.cp_nota_DebCre
-                                     where q.IdEmpresa == IdEmpresa 
-                                     && q.IdProveedor == IdProveedor 
+                        var result = Entity.cp_nota_DebCre.Where(q => q.IdEmpresa == IdEmpresa
+                                     && q.IdProveedor == IdProveedor
                                      && q.cn_serie1 == ptoEmision
-                                     && q.cn_serie2 == Establecimiento 
-                                     && q.cn_Nota == secuencial 
+                                     && q.cn_serie2 == Establecimiento
+                                     && q.cn_Nota == secuencial
                                      && q.DebCre == Tipo
                                      && q.IdTipoNota == IdTipoNota
-                                     && q.Estado == "A"
-                                     select q;
+                                     && q.Estado == "A").ToList();
 
                         if (result.Count() != 0)
                         {

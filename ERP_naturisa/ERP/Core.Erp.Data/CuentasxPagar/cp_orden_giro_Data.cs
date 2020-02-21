@@ -1508,6 +1508,13 @@ namespace Core.Erp.Data.CuentasxPagar
                     contact.IdCbteCble_Anulacion=info.IdCbteCble_Anulacion;
                     contact.IdTipoCbte_Anulacion=info.IdTipoCbte_Anulacion;
 
+                    var Docu = context.cp_XML_Documento.Where(q => q.IdEmpresa == contact.IdEmpresa && q.IdTipoCbte == contact.IdTipoCbte_Ogiro && q.IdCbteCble == contact.IdCbteCble_Ogiro).FirstOrDefault();
+                    if (Docu != null)
+                    {
+                        Docu.IdTipoCbte = null;
+                        Docu.IdCbteCble = null;
+                    }
+
                     context.SaveChanges();
                 }
                 return true;

@@ -145,5 +145,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show("Ha ocurrido un error", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);   
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
