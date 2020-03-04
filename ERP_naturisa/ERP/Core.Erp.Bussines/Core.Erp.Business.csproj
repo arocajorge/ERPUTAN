@@ -255,6 +255,7 @@
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_nota_DebCre_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_Bus.cs" />
+    <Compile Include="CuentasxPagar\cp_orden_giro_det_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_pagos_sri_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_x_com_ordencompra_local_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_x_com_ordencompra_local_det_Bus.cs" />

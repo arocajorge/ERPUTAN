@@ -54,8 +54,32 @@ namespace Core.Erp.Data.General
                throw new Exception(ex.ToString());
            }
        }
+       public tb_sis_Documento_Tipo_Talonario_Info GetInfoElectronico(int IdEmpresa, string CodDocumentoTipo)
+       {
+           try
+           {
+               tb_sis_Documento_Tipo_Talonario_Info info = new tb_sis_Documento_Tipo_Talonario_Info();
 
-      
+               using (EntitiesGeneral db = new EntitiesGeneral())
+               {
+                   var Talonario = db.tb_sis_Documento_Tipo_Talonario.Where(q => q.IdEmpresa == IdEmpresa && q.CodDocumentoTipo == CodDocumentoTipo && q.es_Documento_Electronico == true && q.Estado == "A" && q.Usado == false).GroupBy(q => new { q.Establecimiento, q.PuntoEmision }).ToList();
+                   var Primero = Talonario.OrderBy(q => q.Key.Establecimiento).ThenBy(q => q.Key.PuntoEmision).FirstOrDefault();
+                   if (Primero != null)
+                   {
+                       info.Establecimiento = Primero.Key.Establecimiento;
+                       info.PuntoEmision = Primero.Key.PuntoEmision;
+                       info.CodDocumentoTipo = CodDocumentoTipo;
+                   }
+               }
+
+               return info;
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }      
 
        public List<tb_sis_Documento_Tipo_Talonario_Info> Get_List_Docu_Tipo_Talonario_x_TipoDocu
            (int IdEmpresa,string TipoDocu,bool Es_Documento_Electronico)

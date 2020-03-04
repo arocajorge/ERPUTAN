@@ -48,7 +48,18 @@ namespace Core.Erp.Business.General
         
         }
 
-       
+        public tb_sis_Documento_Tipo_Talonario_Info GetInfoRetElectronico(int IdEmpresa,string CodDocumentoTipo)
+        {
+            try
+            {
+                return data.GetInfoElectronico(IdEmpresa, CodDocumentoTipo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         
         public tb_sis_Documento_Tipo_Talonario_Info Get_Info_Ult_Documento(int idEmpresa, string puntoemision, string establecimiento, string tipodoc)
         {

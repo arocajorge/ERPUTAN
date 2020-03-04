@@ -267,7 +267,7 @@ namespace Core.Erp.Business.CuentasxPagar
                 if (Validar_y_corregir_objeto(Info_OrdenGiro, ref mensaje))
                 {
 
-
+                    /*
                     if (data.ExisteFacturaPorProveedor(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdProveedor, Info_OrdenGiro.co_serie, Info_OrdenGiro.co_factura))
                     {
 
@@ -276,7 +276,7 @@ namespace Core.Erp.Business.CuentasxPagar
                         return false;
 
                     }
-
+                    */
 
                     if (!CbteCble_B.GrabarDB(Info_OrdenGiro.Info_CbteCble_x_OG, ref idCbteCble, ref mensaje))
                     {

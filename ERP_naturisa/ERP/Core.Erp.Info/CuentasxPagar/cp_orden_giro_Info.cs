@@ -150,6 +150,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public List<cp_orden_giro_pagos_sri_Info> lst_formasPagoSRI{ get; set; }
         public List<cp_orden_giro_x_imp_ordencompra_ext_Info> LisImportacion { get; set; }
         public List<cp_orden_giro_x_com_ordencompra_local_Info> LstImportacionOC  { get; set; }
+        public List<cp_orden_giro_det_Info> ListDet { get; set; }
 
         public Nullable<Boolean> es_retencion_electronica { get; set; }
         public Nullable<Boolean> cp_es_comprobante_electronico { get; set; }

@@ -569,6 +569,9 @@
     <Compile Include="cp_orden_giro.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
+    <Compile Include="cp_orden_giro_det.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
     <Compile Include="cp_orden_giro_pagos_sri.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
@@ -825,6 +828,7 @@
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Data.cs" />
     <Compile Include="CuentasxPagar\cp_nota_DebCre_Data.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_Data.cs" />
+    <Compile Include="CuentasxPagar\cp_orden_giro_det_Data.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_pagos_sri_Data.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_x_com_ordencompra_local_Data.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_x_com_ordencompra_local_det_Data.cs" />
@@ -2390,6 +2394,9 @@
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcp_proveedor_combo.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwcp_proveedor_ValidarAnticipos.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="vwcp_proveedor_vista_previa.cs">

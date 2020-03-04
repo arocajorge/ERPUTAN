@@ -8,6 +8,8 @@ using Core.Erp.Info.Compras;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Info.General;
+using Core.Erp.Info.Inventario;
+using Core.Erp.Business.Inventario;
 using Core.Erp.Winform.Controles;
 using Core.Erp.Winform.Compras;
 using Core.Erp.Winform.General;
@@ -34,7 +36,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 {
     public partial class frmCP_OrdenGiroMantenimiento : Form
     {
-        BindingList<cp_orden_giro_x_com_ordencompra_local_det_Info> BindList_OG_x_detOC;
         Boolean resp = true;
         Boolean resp_2 = true;
         Boolean res = true;
@@ -42,12 +43,21 @@ namespace Core.Erp.Winform.CuentasxPagar
         Boolean Diario_generado = false;
         cp_XML_Documento_Bus busXml = new cp_XML_Documento_Bus();
         cp_XML_Documento_Info infoXML = new cp_XML_Documento_Info();
+        BindingList<cp_orden_giro_det_Info> blstDet = new BindingList<cp_orden_giro_det_Info>();
+        cp_orden_giro_det_Bus busOgDet = new cp_orden_giro_det_Bus();
         #region declaracion de variables y delegados
         string IdCtaCble_Proveedor = "";
         string nomProveedor = "";
         Nullable<int> IdPunto_cargo = null;
         Nullable<int> IdPunto_cargo_grupo = null;
         //Bus
+
+        in_UnidadMedida_Bus busUnidadMedida = new in_UnidadMedida_Bus();
+        in_producto_Bus busProducto = new in_producto_Bus();
+        tb_sis_impuesto_Bus busImpuesto = new tb_sis_impuesto_Bus();
+        List<tb_sis_impuesto_Info> lstImpuest = new List<tb_sis_impuesto_Info>();
+        List<in_Producto_Combo> lstProducto = new List<in_Producto_Combo>();
+        List<in_UnidadMedida_Info> lstUnidadMedida = new List<in_UnidadMedida_Info>();
 
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
         cp_proveedor_Bus proveedorB = new cp_proveedor_Bus();
@@ -95,7 +105,6 @@ namespace Core.Erp.Winform.CuentasxPagar
         ct_Cbtecble_Info Info_CbteCble_x_Ret = new ct_Cbtecble_Info();
 
         //BindingList
-        BindingList<cp_reembolso_Info> BindingList_Reembolso;
         BindingList<cp_orden_giro_pagos_sri_Info> BindingList_pagosSRI;
 
 
@@ -497,8 +506,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cmb_101.Properties.ReadOnly = true;
                 //ucBa_TipoFlujo1.ReadOnly(true);
                 UC_Diario_x_cxp.HabilitarGrid(false);               
-                chk_coa.Enabled = false;                                   
-                gridViewGastos.OptionsBehavior.Editable = false;
+                chk_coa.Enabled = false;                          
                 gridView_formasPagoSRI.OptionsBehavior.Editable = false;
             }
             catch (Exception ex)
@@ -558,7 +566,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                         chk_TieneRetencion.Enabled = false;
                         check_propina.Enabled = false;
                         btn_Autoriza.Enabled = false;
-                        btn_Buscar.Enabled = false;
 
                         break;
                     case Cl_Enumeradores.eTipo_action.consultar:
@@ -577,7 +584,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                         txeNumDocum.Properties.ReadOnly = true;
                         dteFecAutoriza.Enabled = false;                        
                         cmbTipoDocu.Properties.ReadOnly = true;
-                        btn_Buscar.Enabled = false;
                         break;
                     case Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado:
                         uCMenu.Enabled_bntAnular = false;
@@ -592,9 +598,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         btn_Autoriza.Enabled = false;
                         //txeSerie.Properties.ReadOnly = true;
                         txeNumDocum.Properties.ReadOnly = true;
-                        dteFecAutoriza.Enabled = false;                        
-                        //cmbTipoDocu.Properties.ReadOnly = false;
-                        btn_Buscar.Enabled = false;
+                        dteFecAutoriza.Enabled = false;      
                         break;
                     default:
                         break;
@@ -654,12 +658,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 ba_TipoFlujo_Bus b = new ba_TipoFlujo_Bus();
                 var a = b.Get_List_TipoFlujo(param.IdEmpresa);
                 
-                BindingList_Reembolso = new BindingList<cp_reembolso_Info>();
-                gridControl_reembolso.DataSource = BindingList_Reembolso;
-
-                BindList_OG_x_detOC = new BindingList<cp_orden_giro_x_com_ordencompra_local_det_Info>();
-                gridControl_OC.DataSource = BindList_OG_x_detOC;
-
 
                 BindingList_pagosSRI = new BindingList<cp_orden_giro_pagos_sri_Info>();
                 cp_orden_giro_pagos_sri_Bus BusPagosSri = new cp_orden_giro_pagos_sri_Bus();
@@ -670,19 +668,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                 lst_sucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
                 cmb_sucursal.Properties.DataSource = lst_sucursal;
 
-                cmb_TipoDocu.DataSource = LstTipDoc.FindAll(c => c.Estado == "A");
-                cmb_TipoDocu.DisplayMember = "Descripcion";
-                cmb_TipoDocu.ValueMember = "CodTipoDocumento";
-
 
                 cmbTipoDocu_a_modificar.Properties.DataSource = ListTipDoc_Modi.FindAll(c => c.Estado == "A");
                 cmbTipoDocu_a_modificar.Properties.DisplayMember = "Descripcion";
                 cmbTipoDocu_a_modificar.Properties.ValueMember = "CodTipoDocumento";
                 
-                cmb_Proveedor.DataSource = proveedorB.Get_List_proveedor(param.IdEmpresa).FindAll(c => c.pr_estado == "A");
-                cmb_Proveedor.DisplayMember = "pr_nombre";
-                cmb_Proveedor.ValueMember = "IdProveedor";
-
                 cmbTipoDocu.Properties.DisplayMember = "Descripcion";
                 cmbTipoDocu.Properties.ValueMember = "CodTipoDocumento";
 
@@ -917,13 +907,45 @@ namespace Core.Erp.Winform.CuentasxPagar
                     return false;
                 }
 
-
-
-                if(String.IsNullOrEmpty(Convert.ToString(txeIdNumAutoriza.EditValue)))
+                if (cmbTipoDocu.EditValue == null || cmbTipoDocu.EditValue == "")
                 {
-                    MessageBox.Show("Ingrese el Número de Autorización del Documento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txeIdNumAutoriza.Focus();
-                    return false;                                
+                    MessageBox.Show("Antes de continuar debe seleccionar Tipo de Documento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cmbTipoDocu.Focus();
+                    return false;
+                }
+
+                var TipoDoc = LstTipDoc.Where(q => q.CodTipoDocumento == cmbTipoDocu.EditValue.ToString()).FirstOrDefault();
+                if (!(TipoDoc.ManejaTalonario ?? false))
+                {
+                    if (String.IsNullOrEmpty(Convert.ToString(txeIdNumAutoriza.EditValue)))
+                    {
+                        MessageBox.Show("Ingrese el Número de Autorización del Documento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        txeIdNumAutoriza.Focus();
+                        return false;
+                    }
+
+                    if (!String.IsNullOrEmpty(Convert.ToString(txeNumDocum.EditValue)))
+                    {
+                        if (_Accion == Cl_Enumeradores.eTipo_action.grabar && ordenGiro_B.ExisteFacturaPorProveedor(param.IdEmpresa, ucCp_Proveedor1.get_ProveedorInfo().IdProveedor, txeSerie.Text, Convert.ToString(txeNumDocum.EditValue)))
+                        {
+                            MessageBox.Show("El número de documento ya fue ingresado verifique ", param.Nombre_sistema);
+                            return false;
+                        }
+
+                    }
+                }
+                else
+                {
+                    tb_sis_Documento_Tipo_Talonario_Bus busTalonario = new tb_sis_Documento_Tipo_Talonario_Bus();
+                    var Talonario = busTalonario.GetInfoRetElectronico(param.IdEmpresa, TipoDoc.Codigo);
+                    if (Talonario != null)
+                    {
+                        txeSerie.Text = Talonario.Establecimiento + "-" + Talonario.PuntoEmision;
+                        if (_Accion == Cl_Enumeradores.eTipo_action.grabar)
+                        {
+                            txeNumDocum.Text = "000000000";    
+                        }
+                    }
                 }
 
                 if (String.IsNullOrEmpty(Convert.ToString(txeSerie.EditValue)))
@@ -958,14 +980,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (InfoProveedor == null && _Accion==Cl_Enumeradores.eTipo_action.grabar)
                 {
                     MessageBox.Show("Antes de continuar debe seleccionar Proveedor", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return false;
-                }
-
-   
-                if (cmbTipoDocu.EditValue == null || cmbTipoDocu.EditValue =="")
-                {
-                    MessageBox.Show("Antes de continuar debe seleccionar Tipo de Documento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    cmbTipoDocu.Focus();
                     return false;
                 }
 
@@ -1137,16 +1151,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                     }
 
                 }
-
-                if ( !String.IsNullOrEmpty(Convert.ToString(txeNumDocum.EditValue)))
-               {
-                   if (_Accion == Cl_Enumeradores.eTipo_action.grabar && ordenGiro_B.ExisteFacturaPorProveedor(param.IdEmpresa, ucCp_Proveedor1.get_ProveedorInfo().IdProveedor,txeSerie.Text, Convert.ToString(txeNumDocum.EditValue)))
-                   {
-                       MessageBox.Show("El número de documento ya fue ingresado verifique ", param.Nombre_sistema);
-                       return false;
-                   }
-               
-               }
                               
                 string mensaje = "";
               
@@ -1318,8 +1322,26 @@ namespace Core.Erp.Winform.CuentasxPagar
                 FechaAu = FechaAu.AddSeconds(tm_hora_aut.Time.Second);
 
                 Info_OrdenGiro.co_baseImponible = Convert.ToDouble(txE_BaseImponible.EditValue);    
-                Info_OrdenGiro.co_BaseSeguro = Convert.ToDouble(txE_baseSeguros.EditValue);           
-                Info_OrdenGiro.co_factura = Convert.ToString(txeNumDocum.EditValue);
+                Info_OrdenGiro.co_BaseSeguro = Convert.ToDouble(txE_baseSeguros.EditValue);
+
+                var TipoDoc = LstTipDoc.Where(q => q.CodTipoDocumento == cmbTipoDocu.EditValue.ToString()).FirstOrDefault();
+                if (TipoDoc != null && _Accion == Cl_Enumeradores.eTipo_action.grabar)
+                {
+                    if (TipoDoc.ManejaTalonario ?? false)
+                    {
+                        tb_sis_Documento_Tipo_Talonario_Bus odataTalonario = new tb_sis_Documento_Tipo_Talonario_Bus();
+                        var Talonario = odataTalonario.GetDocumentoElectronicoUpdateUsado(param.IdEmpresa, TipoDoc.Codigo, txeSerie.Text.Substring(0, 3), txeSerie.Text.Substring(4, 3));
+                        if (Talonario != null)
+                        {
+                            Info_OrdenGiro.co_factura = Talonario.NumDocumento;
+                            txeNumDocum.Text = Talonario.NumDocumento;
+                        }
+                    }else
+                        Info_OrdenGiro.co_factura = Convert.ToString(txeNumDocum.EditValue);
+                }else
+                    Info_OrdenGiro.co_factura = Convert.ToString(txeNumDocum.EditValue);
+
+
                 Info_OrdenGiro.co_FechaFactura = dtp_fechaFactura.Value;          
                 Info_OrdenGiro.co_FechaFactura_vct = this.dtp_FechaVcto.Value;
                 Info_OrdenGiro.co_FechaContabilizacion = dtp_fecha_contabilizacion.Value; 
@@ -1427,7 +1449,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
 
 
-
+                Info_OrdenGiro.ListDet = new List<cp_orden_giro_det_Info>(blstDet);
  
             }
             catch (Exception ex)
@@ -1477,13 +1499,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-
-                int focus = gridView_reembolso.FocusedRowHandle;
-                gridView_reembolso.FocusedRowHandle = focus + 1;
-                
-                lst_reembolso = BindingList_Reembolso.ToList();
                 lst_formasPagoSRI = BindingList_pagosSRI.ToList();
-
             }
             catch (Exception ex)
             { Log_Error_bus.Log_Error(ex.ToString());
@@ -1737,53 +1753,9 @@ namespace Core.Erp.Winform.CuentasxPagar
                 #endregion
 
             
-
-                ///se esta seteando el valor a la variable local ordenGiro_I 
-                ///para posterior uso de los datos del comprobante por pagar (Orden de Giro)
-             
-                /// se obtiene los asientos contables y se los setea al grid 
                 set_CbteCbleInfo();
-                /*
-                ///IMPORTACIONES 
-                LisImportacionOld = Importacion_B.Get_List_orden_giro_x_imp_ordencompra_ext(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdCbteCble_Ogiro, Info_OrdenGiro.IdTipoCbte_Ogiro);
-                set_Importacion();
-                 * */
-                ///IMPORTACIONES
                 Diario_generado = true;
-                //corregido por luis yanza NO PUEDE IR RETURN POR  Q NO SE EJECUTA POR ESO LO MOMENTE
-                //return;
-
-                /*
-                #region obtiene si hay compras locales OC
-
-                //OC -- incomplit
-                List<com_ordencompra_local_Info> lstCom = new List<com_ordencompra_local_Info>();
-                List<com_ordencompra_local_Info> lstCom2 = new List<com_ordencompra_local_Info>();
-                lstCom = OC_B.Get_List_ordencompra_local(param.IdEmpresa, Info_OrdenGiro.IdCbteCble_Ogiro, Info_OrdenGiro.IdTipoCbte_Ogiro);
-                decimal NOC = 0;
-
-                foreach (var item in lstCom)
-                {
-                    NOC = item.IdOrdenCompra;
-                }
-
-                lstCom2 = OC_B.Get_List_ordencompra_local(param.IdEmpresa);
-
                 
-                #endregion
-
-
-                cp_orden_giro_x_com_ordencompra_local_det_Bus bus = new cp_orden_giro_x_com_ordencompra_local_det_Bus();
-                List<cp_orden_giro_x_com_ordencompra_local_det_Info> lista = new List<cp_orden_giro_x_com_ordencompra_local_det_Info>();
-                string mensaje = "";
-                lista = bus.GetList_OGiro_x_OCompra(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdCbteCble_Ogiro, Info_OrdenGiro.IdTipoCbte_Ogiro, ref mensaje);
-
-                if (lista.Count != 0)
-                {
-                    BindList_OG_x_detOC = new BindingList<cp_orden_giro_x_com_ordencompra_local_det_Info>(lista);
-                    gridControl_OC.DataSource = BindList_OG_x_detOC;
-                }
-                */
                 cmb_Local_Exterios.SelectedIndex = (Info_OrdenGiro.PagoLocExt == "LOC") ? 0 : 1;
                 cmbPais.EditValue = Info_OrdenGiro.PaisPago;
 
@@ -1798,15 +1770,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     rb_pagExtSujRetNorLegNO.Checked = true;
 
                 #region ///obtiene comprobantes de reembolso y pagos de SRI
-                var c = Reem_B.Get_List_reembolso(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
-
-                foreach (var item in c)
-                {
-                    BindingList_Reembolso.Add(item);
-                }
-
-               
-
+                
 
                 BindingList_pagosSRI = new BindingList<cp_orden_giro_pagos_sri_Info>();
                 cp_orden_giro_pagos_sri_Bus BusPagosSri = new cp_orden_giro_pagos_sri_Bus();
@@ -1818,7 +1782,13 @@ namespace Core.Erp.Winform.CuentasxPagar
                 #endregion
 
                 ucCp_cuotas_x_doc1.Set_info_cuota(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
-                
+                cp_orden_giro_det_Bus busDet = new cp_orden_giro_det_Bus();
+                blstDet = new BindingList<cp_orden_giro_det_Info>(busDet.GetList(param.IdEmpresa,Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro));
+                gc_detalle.DataSource = blstDet;
+                if (blstDet.Count > 0)
+                {
+                    CargarCombosDetalle();
+                }
 
             }
             catch (Exception ex)
@@ -1980,23 +1950,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     if (ordenGiro_B.GrabarDB(Info_OrdenGiro, ref idCbteCble, ref msg))
                     {
                         txt_NOrdeG.Text = idCbteCble.ToString();
-                        // grabar tabla intermedia cp_orden_giro_x_com_ordencompra_local_det                         
-                        foreach (var item in BindList_OG_x_detOC)
-                        {
-                            cp_orden_giro_x_com_ordencompra_local_det_Info info = new cp_orden_giro_x_com_ordencompra_local_det_Info();
-                            info.IdEmpresa_Ogiro = Info_OrdenGiro.IdEmpresa;
-                            info.IdCbteCble_Ogiro = idCbteCble;
-                            info.IdTipoCbte_Ogiro = Info_OrdenGiro.IdTipoCbte_Ogiro;
-                            info.IdEmpresa_OC = item.IdEmpresa_OC;
-                            info.IdSucursal_OC = item.IdSucursal_OC;
-                            info.IdOrdenCompra = item.IdOrdenCompra;
-                            info.Secuencia_OC = item.Secuencia_OC;
-                            info.Observacion = item.Observacion;
-
-                            cp_orden_giro_x_com_ordencompra_local_det_Bus bus = new cp_orden_giro_x_com_ordencompra_local_det_Bus();
-                            if (bus.GrabarDB(info, ref msg))
-                            { }
-                        }
+                        
                         // CbteCble_I.IdCbteCble +
                         string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "Factura Proveedor: ", Info_OrdenGiro.co_serie + "-" + Info_OrdenGiro.co_factura + "/" + CbteCble_I.IdCbteCble);
                         MessageBox.Show(smensaje, param.Nombre_sistema);
@@ -2008,11 +1962,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 MessageBox.Show("Documento XML contabilizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             }
                         }
-
-
-                        //btn_imprimirFP.Enabled = true;
-                        btn_Buscar.Enabled = true;
-                        btn_Refrescar.Visible = false;
 
                         switch (param.IdCliente_Ven_x_Default)
                         {
@@ -2231,30 +2180,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     Info_OrdenGiro.LstImportacionOC=LstImportacionOC;
                    
                     if (res = ordenGiro_B.ModificarDB(Info_OrdenGiro,ref msg))
-                    {
-                        cp_orden_giro_x_com_ordencompra_local_det_Bus bus = new cp_orden_giro_x_com_ordencompra_local_det_Bus();
-
-                        foreach (var item in BindList_OG_x_detOC)
-                        {
-                            if (!bus.VerificarRegistro(item.IdEmpresa_OC, item.IdSucursal_OC, item.IdOrdenCompra, item.Secuencia_OC))
-                            {
-                                //no existe
-                                //grabo en base
-                                cp_orden_giro_x_com_ordencompra_local_det_Info info = new cp_orden_giro_x_com_ordencompra_local_det_Info();
-                                info.IdEmpresa_Ogiro = Info_OrdenGiro.IdEmpresa;
-                                info.IdCbteCble_Ogiro = Info_OrdenGiro.IdCbteCble_Ogiro;
-                                info.IdTipoCbte_Ogiro = Info_OrdenGiro.IdTipoCbte_Ogiro;
-                                info.IdEmpresa_OC = item.IdEmpresa_OC;
-                                info.IdSucursal_OC = item.IdSucursal_OC;
-                                info.IdOrdenCompra = item.IdOrdenCompra;
-                                info.Secuencia_OC = item.Secuencia_OC;
-                                info.Observacion = item.Observacion;
-
-                                if (bus.GrabarDB(info, ref msg))
-                                { }
-                            }
-                        }
-
+                    {                        
                         if (!chk_TieneRetencion.Checked == false)
                         {
                             if (this.ucCp_Retencion1.Get_BindingList().Count != 0)
@@ -3027,25 +2953,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void gridView_reembolso_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Delete)
-                {
-                    if (MessageBox.Show("¿Está seguro que desea Eliminar este registro ?", "Elimina", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        gridView_reembolso.DeleteSelectedRows();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-     
+       
 
         private void dtp_fechaFactura_ValueChanged(object sender, EventArgs e)
         {
@@ -3081,22 +2989,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 
         }
         
-        private void gridViewGastos_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode.ToString() == "Delete")
-                {
-                    gridViewGastos.DeleteSelectedRows();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 #endregion
 
         private void cmbTipoDocu_EditValueChanged(object sender, EventArgs e)
@@ -3111,6 +3003,20 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                     if (item != null)
                     {
+                        blstDet = new BindingList<cp_orden_giro_det_Info>();
+                        gc_detalle.DataSource = blstDet;
+
+                        if (item.ManejaTalonario ?? false)
+                        {
+                            CargarCombosDetalle();
+                            tp_Detalle.PageVisible = true;
+                            gbTalonario.Visible = false;
+                        }
+                        else
+                        {
+                            tp_Detalle.PageVisible = false;
+                            gbTalonario.Visible = true;
+                        }
                        
                         //txeNumDocum.EditValue = "";
 
@@ -3128,55 +3034,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                          
                             deshabilitarCamposRet();
                             suma();
-                        }
-
-                        if (item.CodSRI == "41")
-                        {
-                          //  gridControl_reembolso.Enabled = true;
-                          //gridView_reembolso.OptionsBehavior.Editable = false;
-
-                            colIdProveedor.OptionsColumn.AllowEdit = true;
-                            colTipoDoc_CodSRI.OptionsColumn.AllowEdit = true;
-                            colEstablecimiento.OptionsColumn.AllowEdit = true;
-                            colPunto_Emision.OptionsColumn.AllowEdit = true;
-                            colSecuencial.OptionsColumn.AllowEdit = true;
-                            colAutorizacion.OptionsColumn.AllowEdit = true;
-                            colFecha_Emision.OptionsColumn.AllowEdit = true;
-                            colTarifaIVAcero.OptionsColumn.AllowEdit = true;
-                            colTarifaIVADiferentecero.OptionsColumn.AllowEdit = true;
-                            colTarifaNoObjetoIVA.OptionsColumn.AllowEdit = true;
-                            colMontoICE.OptionsColumn.AllowEdit = true;
-                          //  colMontoIVA.OptionsColumn.AllowEdit = true;
-                            colbaseImponible.OptionsColumn.AllowEdit = true;
-                            colTotal.OptionsColumn.AllowEdit = true;
-
-
-                           
-                        }
-                        else
-                        {
-                           // gridControl_reembolso.Enabled = false;
-                           // gridView_reembolso.OptionsBehavior.Editable = true;
-
-                            colIdProveedor.OptionsColumn.AllowEdit = false;
-                            colTipoDoc_CodSRI.OptionsColumn.AllowEdit = false;
-                            colEstablecimiento.OptionsColumn.AllowEdit = false;
-                            colPunto_Emision.OptionsColumn.AllowEdit = false;
-                            colSecuencial.OptionsColumn.AllowEdit = false;
-                            colAutorizacion.OptionsColumn.AllowEdit = false;
-                            colFecha_Emision.OptionsColumn.AllowEdit = false;
-                            colTarifaIVAcero.OptionsColumn.AllowEdit = false;
-                            colTarifaIVADiferentecero.OptionsColumn.AllowEdit = false;
-                            colTarifaNoObjetoIVA.OptionsColumn.AllowEdit = false;
-                            colMontoICE.OptionsColumn.AllowEdit = false;
-                            colMontoIVA.OptionsColumn.AllowEdit = false;
-
-                            colbaseImponible.OptionsColumn.AllowEdit = false;
-                            colTotal.OptionsColumn.AllowEdit = false;
-
-
-
-                            BindingList_Reembolso.Clear();
                         }
                     }
                 }
@@ -3740,23 +3597,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 
         }
 
-        private void cmb_Proveedor_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                
-                var info_Pro = (cp_proveedor_Info)cmb_Proveedor.View.GetFocusedRow();
-
-                gridView_reembolso.SetFocusedRowCellValue(colTipoIdProveedor, info_Pro.Persona_Info.IdTipoDocumento);
-                gridView_reembolso.SetFocusedRowCellValue(colIdentificacionProveedor, info_Pro.Persona_Info.pe_cedulaRuc);
-            }
-            catch (Exception ex)
-            {
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void txeNumDocum_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -3786,56 +3626,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 
                Log_Error_bus.Log_Error(ex.ToString());
                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void gridView_reembolso_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-            try
-            {
-                if(e.Column.Name=="colSecuencial")
-                {
-               
-                    string secuencia_aux = "";
-                    string secuencia = "";
-
-                    string valor_secu = "";
-                    valor_secu = Convert.ToString(gridView_reembolso.GetFocusedRowCellValue(colSecuencial));
-
-                    if (!String.IsNullOrEmpty(valor_secu))
-                    {
-                        if (valor_secu.Length < 9)
-                        {
-                            int conta = valor_secu.Length;
-                            int diferencia = 9 - conta;
-
-                            secuencia_aux = secuencia_aux.PadLeft(diferencia, '0');
-                            secuencia = secuencia_aux + valor_secu;
-                      
-                            gridView_reembolso.SetFocusedRowCellValue(colSecuencial, secuencia);
-                        }
-                    }               
-                }
-
-                if (e.Column.Name == "colTarifaIVADiferentecero")
-                {
-                       
-                    double valor_iva = 0;
-                    double total_iva = 0;
-                    valor_iva = Convert.ToDouble(gridView_reembolso.GetFocusedRowCellValue(colTarifaIVADiferentecero));
-
-                    total_iva = (valor_iva * 12) / 100;
-               
-                    gridView_reembolso.SetFocusedRowCellValue(colMontoIVA, total_iva);
-                             
-                
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -3922,58 +3712,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                 
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void gridView_reembolso_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            try
-            {
-                               
-                e.HitInfo.Column.FieldName = gridView_reembolso.FocusedColumn.FieldName;
-
-                if (e.HitInfo.Column.FieldName == "Ico_Prove")
-                {
-                    frmCP_Proveedor_Mant frmManProve = new frmCP_Proveedor_Mant();
-                    frmManProve.set_Accion(Erp.Info.General.Cl_Enumeradores.eTipo_action.grabar);                
-                    frmManProve.ShowDialog();
-                 
-                    cmb_Proveedor.DataSource = proveedorB.Get_List_proveedor(param.IdEmpresa).FindAll(c => c.pr_estado == "A");                
-                }
-
-                if (e.HitInfo.Column.FieldName == "Ico_Autoriza")
-                {
-                    decimal IdProveedor = 0;
-                    IdProveedor = Convert.ToDecimal(gridView_reembolso.GetFocusedRowCellValue(colIdProveedor));
-
-
-                    if (IdProveedor == 0)
-                    {
-                        MessageBox.Show("Seleccione un Proveedor");
-                        return;
-                    }
-                    else
-                    {
-                        frmCP_AutorizacionProveedor frm_ProveeAut = new frmCP_AutorizacionProveedor(IdProveedor);
-                        cp_proveedor_Autorizacion_Info autori_I = new cp_proveedor_Autorizacion_Info();
-
-                        frm_ProveeAut.ShowDialog();
-                        autori_I = frm_ProveeAut.OtroFrm_Aut_I;
-
-                        if (autori_I != null)
-                        {
-                            gridView_reembolso.SetFocusedRowCellValue(colAutorizacion, autori_I.nAutorizacion);
-                            
-                        }
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                
-                 Log_Error_bus.Log_Error(ex.ToString());
-                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -4304,123 +4042,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btn_Buscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FrmCom_OrdenCompra_x_Detalle_Cons ofrm = new FrmCom_OrdenCompra_x_Detalle_Cons();
-
-                ofrm.ShowDialog();
-
-                List<cp_orden_giro_x_com_ordencompra_local_det_Info> lista = new List<cp_orden_giro_x_com_ordencompra_local_det_Info>();
-
-                lista=ofrm.List_OG_x_OCdet;
-
-                if (lista.Count !=0)
-                {
-                   
-
-                    foreach (var item in lista)
-                    {
-                        cp_orden_giro_x_com_ordencompra_local_det_Info info = new cp_orden_giro_x_com_ordencompra_local_det_Info();
-
-                        info.IdOrdenCompra = item.IdOrdenCompra;
-                        info.IdEmpresa_OC = item.IdEmpresa_OC;
-                        info.IdSucursal_OC = item.IdSucursal_OC;
-                        info.Secuencia_OC = item.Secuencia_OC;
-                        info.IdProducto = item.IdProducto;
-                        info.do_Cantidad = item.do_Cantidad;
-                        info.do_precioCompra = item.do_precioCompra;
-                        info.do_porc_des = item.do_porc_des;
-                        info.do_descuento = item.do_descuento;
-                        info.do_subtotal = item.do_subtotal;
-                        info.do_iva = item.do_iva;
-                        info.do_total = item.do_total;
-                        info.Observacion = item.Observacion;
-                        info.IdUnidadMedida = item.IdUnidadMedida;
-                        info.producto = item.producto;
-                        info.nom_medida = item.nom_medida;
-
-                        BindList_OG_x_detOC.Add(info);     
-                    }                                                                                 
-                }
-
-                gridControl_OC.DataSource = BindList_OG_x_detOC; 
-                         
-            }
-            catch (Exception ex)
-            {
                 
-               Log_Error_bus.Log_Error(ex.ToString());
-               MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btn_Refrescar_Click(object sender, EventArgs e)
-        {
-            try
-            {   
-                BindList_OG_x_detOC = new BindingList<cp_orden_giro_x_com_ordencompra_local_det_Info>();
-                gridControl_OC.DataSource = BindList_OG_x_detOC;
-            }
-            catch (Exception ex)
-            {
-                
-                Log_Error_bus.Log_Error(ex.ToString());
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void gridView_OC_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                cp_orden_giro_x_com_ordencompra_local_det_Info info;
-                info = (cp_orden_giro_x_com_ordencompra_local_det_Info)this.gridView_OC.GetFocusedRow();
-
-                
-                string mensaje="";
-                
-                if (e.KeyValue.ToString() == "46")
-                {                                                           
-                    cp_orden_giro_x_com_ordencompra_local_det_Bus bus = new cp_orden_giro_x_com_ordencompra_local_det_Bus();
-
-                    //foreach (var item in BindList_OG_x_detOC)
-                    //{
-                    if (bus.VerificarRegistro(info.IdEmpresa_OC, info.IdSucursal_OC, info.IdOrdenCompra, info.Secuencia_OC))
-                        {
-                            ////si existe en base
-                            if (MessageBox.Show("El Registro se encuentra en Base.Está seguro que desea eliminar el registro", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            {
-                                //eliminar registro
-                                if (bus.EliminarDB(info.IdEmpresa_OC, info.IdSucursal_OC, info.IdOrdenCompra, info.Secuencia_OC, ref mensaje))
-                                {
-                                    gridView_OC.DeleteSelectedRows();
-                                }
-                                else
-                                {
-                                    MessageBox.Show(mensaje);
-                                }                              
-                            }                         
-                        }
-                        else
-                        {
-                            gridView_OC.DeleteSelectedRows();
-                        
-                        }
-                  //  }                                                           
-                }
-
-            }
-            catch (Exception ex)
-            {
-                
-               Log_Error_bus.Log_Error(ex.ToString());
-               MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btn_Limpiar_Click(object sender, EventArgs e)
         {
             try
@@ -4480,11 +4102,6 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 ucCp_Retencion1.LimpiarGrid_Retencion();
 
-                BindingList_Reembolso = new BindingList<cp_reembolso_Info>();
-                gridControl_reembolso.DataSource = BindingList_Reembolso;
-
-                BindList_OG_x_detOC = new BindingList<cp_orden_giro_x_com_ordencompra_local_det_Info>();
-                gridControl_OC.DataSource = BindList_OG_x_detOC;  
  
                 Info_OrdenGiro = new cp_orden_giro_Info();
                 CbteCble_I = new ct_Cbtecble_Info();
@@ -4501,6 +4118,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                 _ListaRetencionOld = new List<cp_retencion_det_Info>();
                 LisImportacion = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();
                 LstImportacionOC = new List<cp_orden_giro_x_com_ordencompra_local_Info>();
+                blstDet = new BindingList<cp_orden_giro_det_Info>();
+                gc_detalle.DataSource = blstDet;
                           
             }
             catch (Exception ex)
@@ -4937,8 +4556,6 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
         }
 
-
-
         public Boolean Generar_Xml()
         {
             try
@@ -4973,6 +4590,72 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
 
 
+        }
+
+        private void gv_detalle_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                cp_orden_giro_det_Info row = (cp_orden_giro_det_Info)gv_detalle.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+
+                if (e.Column == ColProductoDet)
+                {
+                    var Producto = lstProducto.Where(q => q.IdProducto == row.IdProducto).FirstOrDefault();
+                    if (Producto != null)
+                    {
+                        row.IdUnidadMedida = Producto.IdUnidadMedida;
+                        row.IdCod_Impuesto_Iva = Producto.IdCod_Impuesto_Iva;
+                        var impuesto = lstImpuest.Where(q => q.IdCod_Impuesto == row.IdCod_Impuesto_Iva).FirstOrDefault();
+                        if (impuesto != null)
+                        {
+                            row.PorIva = impuesto.porcentaje;
+                        }
+                    }
+                }
+
+                if (e.Column == ColIdCodImpuestoDet)
+                {
+                    var impuesto = lstImpuest.Where(q => q.IdCod_Impuesto == row.IdCod_Impuesto_Iva).FirstOrDefault();
+                    if (impuesto != null)
+                    {
+                        row.PorIva = impuesto.porcentaje;
+                    }
+                }
+
+                row.DescuentoUni = row.CostoUni * (row.PorDescuento / 100);
+                row.CostoUniFinal = row.CostoUni - row.DescuentoUni;
+                row.Subtotal = row.Cantidad * row.CostoUniFinal;
+                row.ValorIva = row.Subtotal * (row.PorIva / 100);
+                row.Total = row.Subtotal + row.ValorIva;
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "gv_detalle_CellValueChanged", ex.Message), ex) { EntityType = typeof(cp_orden_giro_Bus) };
+            }
+        }
+
+        private void CargarCombosDetalle()
+        {
+            try
+            {
+                if (lstProducto.Count == 0)
+                {
+                    lstImpuest = busImpuesto.Get_List_impuesto("IVA");
+                    cmbImpuestoDet.DataSource = lstImpuest;
+                    lstProducto = busProducto.GetListCombo(param.IdEmpresa);
+                    cmbProductoDet.DataSource = lstProducto;
+                    lstUnidadMedida = busUnidadMedida.Get_list_UnidadMedida();
+                    cmbUnidadMedidaDet.DataSource = lstUnidadMedida;    
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
     }

@@ -1225,85 +1225,110 @@ namespace Core.Erp.Data.CuentasxPagar
             {                             
                 using (EntitiesCuentasxPagar context = new EntitiesCuentasxPagar())
                 {
-                    EntitiesCuentasxPagar EDB = new EntitiesCuentasxPagar();
+                    cp_orden_giro dat = new cp_orden_giro
+                    {
 
-                    var dat = new cp_orden_giro();
+                        IdEmpresa = item.IdEmpresa,
+                        IdCbteCble_Ogiro = item.IdCbteCble_Ogiro,
+                        IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro,
+                        IdOrden_giro_Tipo = item.IdOrden_giro_Tipo,
+                        IdProveedor = item.IdProveedor,
+                        co_fechaOg = item.co_fechaOg.Date,
+                        co_FechaContabilizacion = (item.co_FechaContabilizacion == null) ? item.co_fechaOg :
+                           Convert.ToDateTime(item.co_FechaContabilizacion).Date,
+                        co_serie = item.co_serie,
+                        co_factura = item.co_factura,
+                        co_FechaFactura = item.co_FechaFactura.Date,
+                        co_FechaFactura_vct = item.co_FechaFactura_vct.Date,
+                        co_plazo = item.co_plazo,
+                        co_observacion = item.co_observacion,
+                        co_subtotal_iva = item.co_subtotal_iva,
+                        co_subtotal_siniva = item.co_subtotal_siniva,
+                        co_baseImponible = item.co_baseImponible,
+                        co_Por_iva = item.co_Por_iva,
+                        co_valoriva = item.co_valoriva,
+                        IdCod_ICE = item.IdCod_ICE,
+                        co_Ice_base = item.co_Ice_base,
+                        co_Ice_por = item.co_Ice_por,
+                        co_Ice_valor = item.co_Ice_valor,
+                        co_Serv_por = item.co_Serv_por,
+                        co_Serv_valor = item.co_Serv_valor,
+                        co_OtroValor_a_descontar = item.co_OtroValor_a_descontar,
+                        co_OtroValor_a_Sumar = item.co_OtroValor_a_Sumar,
+                        co_BaseSeguro = item.co_BaseSeguro,
+                        co_total = item.co_total,
+                        co_valorpagar = item.co_valorpagar,
 
-                    dat.IdEmpresa = item.IdEmpresa;
-                    dat.IdCbteCble_Ogiro = item.IdCbteCble_Ogiro;
-                    dat.IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro;
-                    dat.IdOrden_giro_Tipo = item.IdOrden_giro_Tipo;
-                    dat.IdProveedor = item.IdProveedor;
-                    dat.co_fechaOg = item.co_fechaOg.Date;
-                    dat.co_FechaContabilizacion = (item.co_FechaContabilizacion == null) ? item.co_fechaOg :
-                        Convert.ToDateTime(item.co_FechaContabilizacion).Date;
-                    dat.co_serie = item.co_serie;
-                    dat.co_factura = item.co_factura;
-                    dat.co_FechaFactura = item.co_FechaFactura.Date;
-                    dat.co_FechaFactura_vct = item.co_FechaFactura_vct.Date;
-                    dat.co_plazo = item.co_plazo;
-                    dat.co_observacion = item.co_observacion;
-                    dat.co_subtotal_iva = item.co_subtotal_iva;
-                    dat.co_subtotal_siniva = item.co_subtotal_siniva;
-                    dat.co_baseImponible = item.co_baseImponible;
-                    dat.co_Por_iva = item.co_Por_iva;
-                    dat.co_valoriva = item.co_valoriva;
-                    dat.IdCod_ICE = item.IdCod_ICE;
-                    dat.co_Ice_base = item.co_Ice_base;
-                    dat.co_Ice_por = item.co_Ice_por;
-                    dat.co_Ice_valor = item.co_Ice_valor;
-                    dat.co_Serv_por = item.co_Serv_por;
-                    dat.co_Serv_valor = item.co_Serv_valor;
-                    dat.co_OtroValor_a_descontar = item.co_OtroValor_a_descontar;
-                    dat.co_OtroValor_a_Sumar = item.co_OtroValor_a_Sumar;
-                    dat.co_BaseSeguro = item.co_BaseSeguro;
-                    dat.co_total = item.co_total;
-                    dat.co_valorpagar = item.co_valorpagar;
+                        co_vaCoa = (item.co_vaCoa == null || item.co_vaCoa == "") ? "S" : item.co_vaCoa,
+                        //   IdAutorizacion = item.IdAutorizacion,
+                        IdIden_credito = item.IdIden_credito,
+                        IdCod_101 = item.IdCod_101,
+                        IdTipoServicio = item.IdTipoServicio,
+                        IdCtaCble_Gasto = item.IdCtaCble_Gasto,
+                        IdUsuario = item.IdUsuario,
+                        IdUsuarioUltMod = (item.IdUsuario == null) ? "" : item.IdUsuario,
+                        Fecha_Transac = DateTime.Now,
+                        Estado = "A",
 
-                    dat.co_vaCoa = (item.co_vaCoa == null || item.co_vaCoa == "") ? "S" : item.co_vaCoa;
-                  //  dat.IdAutorizacion = item.IdAutorizacion;
-                    dat.IdIden_credito = item.IdIden_credito;
-                    dat.IdCod_101 = item.IdCod_101;
-                    dat.IdTipoServicio = item.IdTipoServicio;
-                    dat.IdCtaCble_Gasto = item.IdCtaCble_Gasto;
-                    dat.IdUsuario =item.IdUsuario;
-                    dat.IdUsuarioUltMod = (item.IdUsuario == null) ? "" : item.IdUsuario;
-                    dat.Fecha_Transac = DateTime.Now;
-                    dat.Estado = "A";
-                 
-                    dat.IdCtaCble_IVA = item.IdCtaCble_IVA;
-                    dat.nom_pc = item.nom_pc;
-                    dat.ip = item.ip;
-                    dat.co_retencionManual = item.co_retencionManual;
-                    dat.IdCentroCosto = (item.IdCentroCosto == "") ? null : item.IdCentroCosto;
-                    dat.IdTipoFlujo = item.IdTipoFlujo;
-                    dat.IdSucursal = item.IdSucursal;
+                        IdCtaCble_IVA = item.IdCtaCble_IVA,
+                        nom_pc = item.nom_pc,
+                        ip = item.ip,
+                        co_retencionManual = item.co_retencionManual,
+                        IdCentroCosto = (item.IdCentroCosto == "") ? null : item.IdCentroCosto,
+                        IdTipoFlujo = item.IdTipoFlujo,
+                        IdSucursal = item.IdSucursal,
 
-                    dat.PagoLocExt=item.PagoLocExt;
-                    dat.PaisPago = item.PaisPago;
-                    dat.ConvenioTributacion = item.ConvenioTributacion;
-                    dat.PagoSujetoRetencion = item.PagoSujetoRetencion;
-                    dat.BseImpNoObjDeIva = item.BseImpNoObjDeIva;
-                    dat.fecha_autorizacion = Convert.ToDateTime(item.co_fechaOg.ToShortDateString());
+                        PagoLocExt = item.PagoLocExt,
+                        PaisPago = item.PaisPago,
+                        ConvenioTributacion = item.ConvenioTributacion,
+                        PagoSujetoRetencion = item.PagoSujetoRetencion,
+                        BseImpNoObjDeIva = item.BseImpNoObjDeIva,
+                        fecha_autorizacion = Convert.ToDateTime(item.co_fechaOg.ToShortDateString()),
 
-                    dat.Num_Autorizacion = item.Num_Autorizacion;
-                    dat.Num_Autorizacion_Imprenta = item.Num_Autorizacion_Imprenta;
+                        Num_Autorizacion = item.Num_Autorizacion,
+                        Num_Autorizacion_Imprenta = item.Num_Autorizacion_Imprenta,
 
-                    dat.co_propina = item.co_propina;
-                    dat.co_IRBPNR = item.co_IRBPNR;
-                    //para saber si es comprobante electrónico o no
-                    dat.cp_es_comprobante_electronico = item.cp_es_comprobante_electronico;
+                        co_propina = item.co_propina,
+                        co_IRBPNR = item.co_IRBPNR,
+                        //para saber si es comprobante electrónico o no
+                        cp_es_comprobante_electronico = item.cp_es_comprobante_electronico,
 
-                    dat.Tipodoc_a_Modificar = item.Tipodoc_a_Modificar;
-                    dat.estable_a_Modificar = item.estable_a_Modificar;
-                    dat.ptoEmi_a_Modificar = item.ptoEmi_a_Modificar;
-                    dat.num_docu_Modificar = item.num_docu_Modificar;
-                    dat.aut_doc_Modificar = item.aut_doc_Modificar;
+                        Tipodoc_a_Modificar = item.Tipodoc_a_Modificar,
+                        estable_a_Modificar = item.estable_a_Modificar,
+                        ptoEmi_a_Modificar = item.ptoEmi_a_Modificar,
+                        num_docu_Modificar = item.num_docu_Modificar,
+                        aut_doc_Modificar = item.aut_doc_Modificar,
 
 
-                    //Campo donde se guarda el tipo de movimiento al ser creado desde caja chica
-                    dat.IdTipoMovi = item.IdTipoMovi;
+                        //Campo donde se guarda el tipo de movimiento al ser creado desde caja chica
+                        IdTipoMovi = item.IdTipoMovi,
+                    };
                     context.cp_orden_giro.Add(dat);
+                    int Secuencia = 1;
+                    item.ListDet = item.ListDet == null ? new List<cp_orden_giro_det_Info>() : item.ListDet;
+                    foreach (var Det in item.ListDet)
+                    {
+                        context.cp_orden_giro_det.Add(new cp_orden_giro_det
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro,
+                            IdCbteCble_Ogiro = item.IdCbteCble_Ogiro,
+                            Secuencia = Secuencia++,
+                            IdProducto = Det.IdProducto,
+                            IdUnidadMedida = Det.IdUnidadMedida,
+                            Cantidad = Det.Cantidad,
+                            CostoUni = Det.CostoUni,
+                            PorDescuento = Det.PorDescuento,
+                            DescuentoUni = Det.DescuentoUni,
+                            CostoUniFinal = Det.CostoUniFinal,
+                            Subtotal = Det.Subtotal,
+                            IdCod_Impuesto_Iva = Det.IdCod_Impuesto_Iva,
+                            PorIva = Det.PorIva,
+                            ValorIva = Det.ValorIva,
+                            Total = Det.Total
+                        });
+                    }
+
                     context.SaveChanges();        
                 }
                 return true;
@@ -1395,7 +1420,36 @@ namespace Core.Erp.Data.CuentasxPagar
                     contact.num_docu_Modificar = info.num_docu_Modificar;
                     contact.aut_doc_Modificar = info.aut_doc_Modificar;
 
+                    var lstDet = context.cp_orden_giro_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdTipoCbte_Ogiro == info.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == info.IdCbteCble_Ogiro).ToList();
+                    foreach (var item in lstDet)
+                    {
+                        context.cp_orden_giro_det.Remove(item);
+                    }
 
+                    int Secuencia = 1;
+                    info.ListDet = info.ListDet == null ? new List<cp_orden_giro_det_Info>() : info.ListDet;
+                    foreach (var Det in info.ListDet)
+                    {
+                        context.cp_orden_giro_det.Add(new cp_orden_giro_det
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdTipoCbte_Ogiro = info.IdTipoCbte_Ogiro,
+                            IdCbteCble_Ogiro = info.IdCbteCble_Ogiro,
+                            Secuencia = Secuencia++,
+                            IdProducto = Det.IdProducto,
+                            IdUnidadMedida = Det.IdUnidadMedida,
+                            Cantidad = Det.Cantidad,
+                            CostoUni = Det.CostoUni,
+                            PorDescuento = Det.PorDescuento,
+                            DescuentoUni = Det.DescuentoUni,
+                            CostoUniFinal = Det.CostoUniFinal,
+                            Subtotal = Det.Subtotal,
+                            IdCod_Impuesto_Iva = Det.IdCod_Impuesto_Iva,
+                            PorIva = Det.PorIva,
+                            ValorIva = Det.ValorIva,
+                            Total = Det.Total
+                        });
+                    }
 
                     context.SaveChanges();
                 }

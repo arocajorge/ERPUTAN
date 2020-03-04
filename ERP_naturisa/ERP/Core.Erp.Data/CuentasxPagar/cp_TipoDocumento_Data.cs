@@ -37,6 +37,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     Address.ip = Info.ip;
                     Address.Codigo_Secuenciales_Transaccion = Info.Codigo_Secuenciales_Transaccion;
                     Address.Sustento_Tributario = Info.Sustento_Tributario;
+                    Address.ManejaTalonario = Info.ManejaTalonario;
 
                     //contact = Address;
                     Context.cp_TipoDocumento.Add(Address);
@@ -81,7 +82,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     Obj.Codigo_Secuenciales_Transaccion = item.Codigo_Secuenciales_Transaccion;
                     Obj.Sustento_Tributario = item.Sustento_Tributario;
                     Obj.GeneraRetencion = item.GeneraRetencion;
-                   
+                    Obj.ManejaTalonario = item.ManejaTalonario;
                     Lst.Add(Obj);
 
                 }
@@ -122,6 +123,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     Obj.Codigo_Secuenciales_Transaccion = item.Codigo_Secuenciales_Transaccion;
                     Obj.Sustento_Tributario = item.Sustento_Tributario;
                     Obj.GeneraRetencion = item.GeneraRetencion;
+                    Obj.ManejaTalonario = item.ManejaTalonario;
                     Lst.Add(Obj);
 
                 }
@@ -162,6 +164,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         contact.Codigo_Secuenciales_Transaccion = info.Codigo_Secuenciales_Transaccion;
                         contact.Sustento_Tributario = info.Sustento_Tributario;
                         contact.GeneraRetencion = info.GeneraRetencion;
+                        contact.ManejaTalonario = info.ManejaTalonario;
                         context.SaveChanges();
                         res = true;
                     }

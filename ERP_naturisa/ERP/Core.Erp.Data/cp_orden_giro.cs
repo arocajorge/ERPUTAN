@@ -23,6 +23,7 @@ namespace Core.Erp.Data
             this.cp_orden_giro_x_imp_ordencompra_ext = new HashSet<cp_orden_giro_x_imp_ordencompra_ext>();
             this.cp_reembolso = new HashSet<cp_reembolso>();
             this.cp_retencion = new HashSet<cp_retencion>();
+            this.cp_orden_giro_det = new HashSet<cp_orden_giro_det>();
         }
     
         public int IdEmpresa { get; set; }
@@ -107,5 +108,6 @@ namespace Core.Erp.Data
         public virtual ICollection<cp_orden_giro_x_imp_ordencompra_ext> cp_orden_giro_x_imp_ordencompra_ext { get; set; }
         public virtual ICollection<cp_reembolso> cp_reembolso { get; set; }
         public virtual ICollection<cp_retencion> cp_retencion { get; set; }
+        public virtual ICollection<cp_orden_giro_det> cp_orden_giro_det { get; set; }
     }
 }

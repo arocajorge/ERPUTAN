@@ -33,5 +33,7 @@ namespace Core.Erp.Info.CuentasxPagar
 
         }
 
+
+        public bool? ManejaTalonario { get; set; }
     }
 }

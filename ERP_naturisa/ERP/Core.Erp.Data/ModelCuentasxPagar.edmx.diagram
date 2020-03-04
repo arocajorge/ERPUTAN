@@ -46,7 +46,6 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_retencion" Width="1.5" PointX="18.75" PointY="51.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_retencion_det" Width="1.5" PointX="21" PointY="53.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_retencion_x_ct_cbtecble" Width="1.5" PointX="21" PointY="60" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_TipoDocumento" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_trans_a_generar_x_FormaPago_OP" Width="1.5" PointX="1.5" PointY="30" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_Anticipos_x_NotaCred_Saldo" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_Aprobacion_Ing_Bod_x_OC" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
@@ -183,6 +182,10 @@
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_DocumentoRetAnuladoDet_cp_XML_DocumentoRetAnulado" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_det_liqui_comp_fac_elect" Width="1.5" PointX="3.5100696997298257" PointY="28.55437920827157" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_giro_liqui_compra_fact_elect" Width="1.5" PointX="7.2823777288582079" PointY="24.458804052536749" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_giro_det" Width="1.5" PointX="1.2213979499514205" PointY="6.5885624022169793" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_TipoDocumento" Width="1.5" PointX="5.7094171055170788" PointY="9.9849552707676565" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_giro_det_cp_orden_giro" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_proveedor_ValidarAnticipos" Width="1.5" PointX="6.5942341175834809" PointY="2.9082426293325807" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

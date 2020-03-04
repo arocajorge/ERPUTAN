@@ -101,7 +101,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     parser.FirstRowHasHeader = false;
                     parser.SkipStartingDataRows = 2;
                     parser.MaxBufferSize = 4096;
-                    parser.MaxRows = 500;
+                    parser.MaxRows = 999999999;
                     parser.TextQualifier = '\"';
                     int Fila = 0;
                     cp_XML_Documento_Info info = new cp_XML_Documento_Info();
@@ -138,6 +138,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     }
                 }
                 gcDetalle.DataSource = ListaXml;
+                lblContador.Text = ListaXml.Count.ToString();
             }
             catch (Exception ex)
             {

@@ -22,7 +22,6 @@ namespace Core.Erp.Data
             : base("name=EntitiesCuentasxPagar")
         {
         }
-        //poner esta funcion dentro de la clase entities no viene por defecto
         public void SetCommandTimeOut(int TimeOut)
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
@@ -74,7 +73,6 @@ namespace Core.Erp.Data
         public DbSet<cp_retencion> cp_retencion { get; set; }
         public DbSet<cp_retencion_det> cp_retencion_det { get; set; }
         public DbSet<cp_retencion_x_ct_cbtecble> cp_retencion_x_ct_cbtecble { get; set; }
-        public DbSet<cp_TipoDocumento> cp_TipoDocumento { get; set; }
         public DbSet<cp_trans_a_generar_x_FormaPago_OP> cp_trans_a_generar_x_FormaPago_OP { get; set; }
         public DbSet<vwcp_Anticipos_x_NotaCred_Saldo> vwcp_Anticipos_x_NotaCred_Saldo { get; set; }
         public DbSet<vwcp_Aprobacion_Ing_Bod_x_OC> vwcp_Aprobacion_Ing_Bod_x_OC { get; set; }
@@ -151,6 +149,9 @@ namespace Core.Erp.Data
         public DbSet<cp_XML_DocumentoRetAnuladoDet> cp_XML_DocumentoRetAnuladoDet { get; set; }
         public DbSet<vwcp_orden_giro_det_liqui_comp_fac_elect> vwcp_orden_giro_det_liqui_comp_fac_elect { get; set; }
         public DbSet<vwcp_orden_giro_liqui_compra_fact_elect> vwcp_orden_giro_liqui_compra_fact_elect { get; set; }
+        public DbSet<cp_orden_giro_det> cp_orden_giro_det { get; set; }
+        public DbSet<cp_TipoDocumento> cp_TipoDocumento { get; set; }
+        public DbSet<vwcp_proveedor_ValidarAnticipos> vwcp_proveedor_ValidarAnticipos { get; set; }
     
         public virtual ObjectResult<string> spCXP_eliminar_factura_vale_conciliacion_caja(Nullable<int> idEmpresa, Nullable<int> idTipoCbte, Nullable<decimal> idCbteCble, string tipoCbte_conci, Nullable<bool> borrar_o_desvincular)
         {

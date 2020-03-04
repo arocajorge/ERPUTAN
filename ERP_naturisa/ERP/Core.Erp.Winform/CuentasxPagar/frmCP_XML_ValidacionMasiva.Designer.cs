@@ -48,6 +48,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblContador = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaXml.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblContador);
             this.panel1.Controls.Add(this.btnRefrescar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtRutaXml);
@@ -242,6 +244,15 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 7;
             // 
+            // lblContador
+            // 
+            this.lblContador.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContador.Location = new System.Drawing.Point(980, 13);
+            this.lblContador.Name = "lblContador";
+            this.lblContador.Size = new System.Drawing.Size(11, 21);
+            this.lblContador.TabIndex = 52;
+            this.lblContador.Text = "0";
+            // 
             // frmCP_XML_ValidacionMasiva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -286,5 +297,6 @@
         private DevExpress.XtraEditors.ButtonEdit txtRutaXml;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRefrescar;
+        private DevExpress.XtraEditors.LabelControl lblContador;
     }
 }
