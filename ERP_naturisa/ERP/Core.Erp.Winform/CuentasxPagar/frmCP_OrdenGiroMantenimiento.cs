@@ -1996,6 +1996,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                             }
                         }
 
+                        if (string.IsNullOrEmpty(txeIdNumAutoriza.Text))
+                        {
+                            if (MessageBox.Show("Desea generar el XML del documento", param.Nombre_sistema, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                            {
+                                Generar_Xml();
+                            }    
+                        }
+
                         if (chk_TieneRetencion.Checked == true)
                         {
 
@@ -2221,6 +2229,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     reporte1.RequestParameters = true;
                                     reporte1.ShowPreviewDialog();
                                     break;
+                            }
+                        }
+
+                        if (string.IsNullOrEmpty(txeIdNumAutoriza.Text))
+                        {
+                            if (MessageBox.Show("Desea generar el XML del documento", param.Nombre_sistema, MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                            {
+                                Generar_Xml();
                             }
                         }
 
@@ -4564,32 +4580,28 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cp_parametros_Bus busParam = new cp_parametros_Bus();
 
                 parametro = busParam.Get_Info_parametros(Info_OrdenGiro.IdEmpresa);
-                      
 
+                string sIdCbteFact = "";
 
-                          string sIdCbteFact="";
+                var item = ordenGiro_B.get_xml(param.IdEmpresa, Convert.ToInt32(cmb_sucursal.EditValue), Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);
 
-                          var item = ordenGiro_B.get_xml(param.IdEmpresa, Convert.ToInt32(cmb_sucursal.Properties.ValueMember), Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro);          
+                sIdCbteFact = item.infoTributaria.razonSocial.Substring(0, 3) + "-" + Cl_Enumeradores.eTipoCodComprobante.LIQ + "-" + item.infoTributaria.estab + "-" + item.infoTributaria.ptoEmi + "-" + item.infoTributaria.secuencial;
+                XmlSerializerNamespaces NamespaceObject = new XmlSerializerNamespaces();
+                NamespaceObject.Add("", "");
+                XmlSerializer mySerializer = new XmlSerializer(typeof(Core.Erp.Info.class_sri.LiquidacionCompra.liquidacionCompra));
+                StreamWriter myWriter = new StreamWriter(parametro.pa_ruta_descarga_xml_fac_elct + sIdCbteFact + ".xml");
+                mySerializer.Serialize(myWriter, item, NamespaceObject);
+                myWriter.Close();
 
-                            sIdCbteFact = item.infoTributaria.razonSocial.Substring(0, 3) + "-" + Cl_Enumeradores.eTipoCodComprobante.FAC + "-" + item.infoTributaria.estab + "-" + item.infoTributaria.ptoEmi + "-" + item.infoTributaria.secuencial;
-                            XmlSerializerNamespaces NamespaceObject = new XmlSerializerNamespaces();
-                            NamespaceObject.Add("", "");
-                            XmlSerializer mySerializer = new XmlSerializer(typeof(factura));
-                            StreamWriter myWriter = new StreamWriter(parametro.pa_ruta_descarga_xml_fac_elct + sIdCbteFact + ".xml");
-                            mySerializer.Serialize(myWriter, item, NamespaceObject);
-                            myWriter.Close();
-                            return true;
+                MessageBox.Show("Generación de XML exitósa",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
 
+                return true;
             }
             catch (Exception ex)
             {
-
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "get_CbteCble_x_Costo_Info", ex.Message), ex) { EntityType = typeof(cp_orden_giro_Bus) };
-
             }
-
-
         }
 
         private void gv_detalle_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

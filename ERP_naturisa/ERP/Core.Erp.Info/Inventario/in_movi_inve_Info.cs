@@ -108,5 +108,7 @@ namespace Core.Erp.Info.Inventario
 #endregion;
 
         public System.Drawing.Bitmap Icono { get; set; }
+
+        public decimal IdNumMoviPreAprobado { get; set; }
     }
 }

@@ -102,13 +102,7 @@
             this.de_fecha_x_prod = new DevExpress.XtraEditors.DateEdit();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.btn_recostear_x_producto = new System.Windows.Forms.ToolStripButton();
-            this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
-            this.btn_salir = new System.Windows.Forms.ToolStripButton();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
             this.TabPage_Diferencias = new DevExpress.XtraTab.XtraTabPage();
-            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.btnBuscarDiferencias = new System.Windows.Forms.ToolStripButton();
-            this.btnReversarContabilizacion = new System.Windows.Forms.ToolStripButton();
             this.gcDiferencias = new DevExpress.XtraGrid.GridControl();
             this.gvDiferencias = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -125,6 +119,12 @@
             this.deFechaFinD = new DevExpress.XtraEditors.DateEdit();
             this.label8 = new System.Windows.Forms.Label();
             this.deFechaIniD = new DevExpress.XtraEditors.DateEdit();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.btnBuscarDiferencias = new System.Windows.Forms.ToolStripButton();
+            this.btnReversarContabilizacion = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
+            this.btn_salir = new System.Windows.Forms.ToolStripButton();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -165,9 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_fecha_x_prod.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_fecha_x_prod.Properties)).BeginInit();
             this.toolStrip4.SuspendLayout();
-            this.toolStripCabecera.SuspendLayout();
             this.TabPage_Diferencias.SuspendLayout();
-            this.toolStrip5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDiferencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDiferencias)).BeginInit();
             this.panel7.SuspendLayout();
@@ -175,6 +173,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).BeginInit();
+            this.toolStrip5.SuspendLayout();
+            this.toolStripCabecera.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -656,7 +656,7 @@
             // gridColumn14
             // 
             this.gridColumn14.Caption = "# Movimiento";
-            this.gridColumn14.FieldName = "IdNumMovi";
+            this.gridColumn14.FieldName = "IdNumMoviPreAprobado";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Visible = true;
@@ -972,25 +972,6 @@
             this.btn_recostear_x_producto.Text = "Recostear";
             this.btn_recostear_x_producto.Click += new System.EventHandler(this.btn_recostear_x_producto_Click);
             // 
-            // toolStripCabecera
-            // 
-            this.toolStripCabecera.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_salir});
-            this.toolStripCabecera.Location = new System.Drawing.Point(0, 0);
-            this.toolStripCabecera.Name = "toolStripCabecera";
-            this.toolStripCabecera.Size = new System.Drawing.Size(1343, 27);
-            this.toolStripCabecera.TabIndex = 7;
-            this.toolStripCabecera.Text = "toolStrip3";
-            // 
-            // btn_salir
-            // 
-            this.btn_salir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
-            this.btn_salir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(58, 24);
-            this.btn_salir.Text = "Salir";
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
-            // 
             // TabPage_Diferencias
             // 
             this.TabPage_Diferencias.Controls.Add(this.gcDiferencias);
@@ -999,35 +980,6 @@
             this.TabPage_Diferencias.Name = "TabPage_Diferencias";
             this.TabPage_Diferencias.Size = new System.Drawing.Size(1337, 445);
             this.TabPage_Diferencias.Text = "Diferencias contables";
-            // 
-            // toolStrip5
-            // 
-            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnBuscarDiferencias,
-            this.btnReversarContabilizacion});
-            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(1337, 27);
-            this.toolStrip5.TabIndex = 3;
-            this.toolStrip5.Text = "toolStrip5";
-            // 
-            // btnBuscarDiferencias
-            // 
-            this.btnBuscarDiferencias.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
-            this.btnBuscarDiferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBuscarDiferencias.Name = "btnBuscarDiferencias";
-            this.btnBuscarDiferencias.Size = new System.Drawing.Size(162, 24);
-            this.btnBuscarDiferencias.Text = "Buscar movimientos";
-            this.btnBuscarDiferencias.Click += new System.EventHandler(this.btnBuscarDiferencias_Click);
-            // 
-            // btnReversarContabilizacion
-            // 
-            this.btnReversarContabilizacion.Image = global::Core.Erp.Winform.Properties.Resources.Dinero_16x16;
-            this.btnReversarContabilizacion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnReversarContabilizacion.Name = "btnReversarContabilizacion";
-            this.btnReversarContabilizacion.Size = new System.Drawing.Size(190, 24);
-            this.btnReversarContabilizacion.Text = "Reversar contabilización";
-            this.btnReversarContabilizacion.Click += new System.EventHandler(this.btnReversarContabilizacion_Click);
             // 
             // gcDiferencias
             // 
@@ -1217,6 +1169,54 @@
             this.deFechaIniD.Size = new System.Drawing.Size(167, 22);
             this.deFechaIniD.TabIndex = 6;
             // 
+            // toolStrip5
+            // 
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnBuscarDiferencias,
+            this.btnReversarContabilizacion});
+            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip5.TabIndex = 3;
+            this.toolStrip5.Text = "toolStrip5";
+            // 
+            // btnBuscarDiferencias
+            // 
+            this.btnBuscarDiferencias.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarDiferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarDiferencias.Name = "btnBuscarDiferencias";
+            this.btnBuscarDiferencias.Size = new System.Drawing.Size(162, 24);
+            this.btnBuscarDiferencias.Text = "Buscar movimientos";
+            this.btnBuscarDiferencias.Click += new System.EventHandler(this.btnBuscarDiferencias_Click);
+            // 
+            // btnReversarContabilizacion
+            // 
+            this.btnReversarContabilizacion.Image = global::Core.Erp.Winform.Properties.Resources.Dinero_16x16;
+            this.btnReversarContabilizacion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReversarContabilizacion.Name = "btnReversarContabilizacion";
+            this.btnReversarContabilizacion.Size = new System.Drawing.Size(190, 24);
+            this.btnReversarContabilizacion.Text = "Reversar contabilización";
+            this.btnReversarContabilizacion.Click += new System.EventHandler(this.btnReversarContabilizacion_Click);
+            // 
+            // toolStripCabecera
+            // 
+            this.toolStripCabecera.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_salir});
+            this.toolStripCabecera.Location = new System.Drawing.Point(0, 0);
+            this.toolStripCabecera.Name = "toolStripCabecera";
+            this.toolStripCabecera.Size = new System.Drawing.Size(1343, 27);
+            this.toolStripCabecera.TabIndex = 7;
+            this.toolStripCabecera.Text = "toolStrip3";
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
+            this.btn_salir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(58, 24);
+            this.btn_salir.Text = "Salir";
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1279,12 +1279,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_fecha_x_prod.Properties)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            this.toolStripCabecera.ResumeLayout(false);
-            this.toolStripCabecera.PerformLayout();
             this.TabPage_Diferencias.ResumeLayout(false);
             this.TabPage_Diferencias.PerformLayout();
-            this.toolStrip5.ResumeLayout(false);
-            this.toolStrip5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDiferencias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDiferencias)).EndInit();
             this.panel7.ResumeLayout(false);
@@ -1293,6 +1289,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).EndInit();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
+            this.toolStripCabecera.ResumeLayout(false);
+            this.toolStripCabecera.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

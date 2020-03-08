@@ -213,7 +213,8 @@ namespace Core.Erp.Info.General
            NTD,
            GUI,
            RET,
-           FACR
+           FACR,
+           LIQ
        }
 
 

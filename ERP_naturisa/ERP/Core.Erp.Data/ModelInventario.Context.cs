@@ -22,10 +22,13 @@ namespace Core.Erp.Data
             : base("name=EntitiesInventario")
         {
         }
+
         public void SetCommandTimeOut(int TimeOut)
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
+    
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -119,7 +122,6 @@ namespace Core.Erp.Data
         public DbSet<vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det> vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det { get; set; }
         public DbSet<vwin_Guia_x_traspaso_bodega_det> vwin_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det> vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det { get; set; }
-        public DbSet<vwin_movi_inve_x_estado_contabilizacion> vwin_movi_inve_x_estado_contabilizacion { get; set; }
         public DbSet<vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det> vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<in_responsable> in_responsable { get; set; }
         public DbSet<in_Ing_Egr_Inven> in_Ing_Egr_Inven { get; set; }
@@ -154,6 +156,7 @@ namespace Core.Erp.Data
         public DbSet<vwin_Transferencias> vwin_Transferencias { get; set; }
         public DbSet<in_transferencia_det> in_transferencia_det { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega> in_Guia_x_traspaso_bodega { get; set; }
+        public DbSet<vwin_movi_inve_x_estado_contabilizacion> vwin_movi_inve_x_estado_contabilizacion { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {

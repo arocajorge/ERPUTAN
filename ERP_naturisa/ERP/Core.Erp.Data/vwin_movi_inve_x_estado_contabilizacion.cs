@@ -31,5 +31,6 @@ namespace Core.Erp.Data
         public Nullable<int> IdTipoCbte { get; set; }
         public Nullable<decimal> IdCbteCble { get; set; }
         public string Estado_contabilizacion { get; set; }
+        public decimal IdNumMoviPreAprobado { get; set; }
     }
 }

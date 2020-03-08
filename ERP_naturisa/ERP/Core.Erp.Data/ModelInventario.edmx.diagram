@@ -117,7 +117,6 @@
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Ing_Egr_Inven_det_x_com_ordencompra_local_det" Width="1.5" PointX="10.165436836967913" PointY="3.4734341518364076" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_det" Width="1.5" PointX="7.5666836479523614" PointY="30.011032103566002" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_x_ordencompra_local_det" Width="1.5" PointX="4.5595117716861484" PointY="28.90454232548575" />
-        <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_estado_contabilizacion" Width="1.5" PointX="1.8116749179603882" PointY="21.135206500596929" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Width="1.5" PointX="3.7751232924755302" PointY="22.150825481000741" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_responsable" Width="1.5" PointX="4.8407308202426558" PointY="3.0008273734714965" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_Ing_Egr_Inven" Width="1.5" PointX="10.722715950907542" PointY="7.4940801744787393" />
@@ -213,6 +212,7 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_det_sin_oc_in_Guia_x_traspaso_bodega" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" />
+        <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_estado_contabilizacion" Width="1.5" PointX="2.611292471462531" PointY="8.0403919406423316" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
