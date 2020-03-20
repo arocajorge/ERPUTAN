@@ -253,7 +253,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     if (row.IdTipoCbte == null || row.IdCbteCble == null)
                     {
-                        var infoXML = busOG.GetInfoPorDocumento(param.IdEmpresa, row.Establecimiento, row.PuntoEmision, row.NumeroDocumento, row.emi_Ruc);
+                        var infoXML = busOG.GetInfoPorDocumento(param.IdEmpresa, row.Establecimiento, row.PuntoEmision, row.NumeroDocumento, row.emi_Ruc,row.FechaEmision);
                         if (infoXML == null)
                         {
                             MessageBox.Show("No existe la factura contabilizada", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

@@ -192,11 +192,11 @@ namespace Core.Erp.Business.CuentasxPagar
             }
         }
 
-        public cp_orden_giro_Info GetInfoPorDocumento(int IdEmpresa, string Establecimiento, string PuntoEmision, string NumDocumento, string pe_cedulaRuc)
+        public cp_orden_giro_Info GetInfoPorDocumento(int IdEmpresa, string Establecimiento, string PuntoEmision, string NumDocumento, string pe_cedulaRuc, DateTime Fecha)
         {
             try
             {
-                return data.GetInfoPorDocumento(IdEmpresa, Establecimiento, PuntoEmision, NumDocumento, pe_cedulaRuc);
+                return data.GetInfoPorDocumento(IdEmpresa, Establecimiento, PuntoEmision, NumDocumento, pe_cedulaRuc,Fecha);
             }
             catch (Exception ex)
             {
@@ -500,24 +500,12 @@ namespace Core.Erp.Business.CuentasxPagar
 
         }
 
-        public Boolean ExisteFacturaPorProveedor(int IdEmpresa, decimal IdProveedor, String co_Factura)
-        {
-            try
-            {
-                return data.ExisteFacturaPorProveedor(IdEmpresa, IdProveedor, co_Factura);
-            }
-            catch (Exception ex)
-            {
-                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ExisteFacturaPorProveedor", ex.Message), ex) { EntityType = typeof(cp_orden_giro_Bus) };
-            }
-        }
 
-        public Boolean ExisteFacturaPorProveedor(int IdEmpresa, decimal IdProveedor, String co_serie, String co_Factura)
+        public Boolean ExisteFacturaPorProveedor(int IdEmpresa, decimal IdProveedor, String co_serie, String co_Factura, DateTime Fecha)
         {
             try
             {
-                return data.ExisteFacturaPorProveedor(IdEmpresa, IdProveedor, co_serie, co_Factura);
+                return data.ExisteFacturaPorProveedor(IdEmpresa, IdProveedor, co_serie, co_Factura, Fecha);
             }
             catch (Exception ex)
             {
@@ -573,6 +561,7 @@ namespace Core.Erp.Business.CuentasxPagar
                 else
                 { 
                   //valido
+                    /*
                     if (data.ExisteFacturaPorProveedor(InfoOrdenGiro_I.IdEmpresa, InfoOrdenGiro_I.IdProveedor, InfoOrdenGiro_I.co_serie, InfoOrdenGiro_I.co_factura))
                     {
                         msg = "La Factura#: " + InfoOrdenGiro_I.co_serie + "-" + InfoOrdenGiro_I.co_factura + ". Ya se encuentra ingresada";
@@ -580,7 +569,7 @@ namespace Core.Erp.Business.CuentasxPagar
                         return false;
 
                     }
-                
+                */
                 }
 
 

@@ -165,7 +165,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         proveedor = db.cp_proveedor.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdPersona == persona.IdPersona).FirstOrDefault();
                         if (proveedor != null)
                         {
-                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A" && q.IdProveedor == proveedor.IdProveedor).FirstOrDefault();
+                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A" && q.IdProveedor == proveedor.IdProveedor && q.co_FechaFactura == info.FechaEmision).FirstOrDefault();
                             if (OG != null)
                             {
                                 info.IdTipoCbte = OG.IdTipoCbte_Ogiro;
@@ -368,7 +368,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         var proveedor = db.cp_proveedor.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdPersona == persona.IdPersona).FirstOrDefault();
                         if (proveedor != null)
                         {
-                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A" && q.IdProveedor == proveedor.IdProveedor).FirstOrDefault();
+                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrden_giro_Tipo == info.CodDocumento && q.co_serie == info.Establecimiento + "-" + info.PuntoEmision && q.co_factura == info.NumeroDocumento && q.Estado == "A" && q.IdProveedor == proveedor.IdProveedor && q.co_FechaFactura == info.FechaEmision).FirstOrDefault();
                             if (OG != null)
                             {
                                 var retencion = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro && q.Estado == "A").FirstOrDefault();
@@ -641,7 +641,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         var Proveedor = db.vwcp_proveedor_combo.Where(q => q.IdEmpresa == IdEmpresa && q.pe_cedularuc == pe_cedulaRuc).FirstOrDefault();
                         if (Proveedor != null)
                         {
-                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == CodDocumento && (q.IdOrden_giro_Tipo + "-" + q.co_serie + "-" + q.co_factura) == Comprobante && q.IdProveedor == Proveedor.IdProveedor && q.Estado == "A").FirstOrDefault();
+                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == CodDocumento && (q.IdOrden_giro_Tipo + "-" + q.co_serie + "-" + q.co_factura) == Comprobante && q.IdProveedor == Proveedor.IdProveedor && q.Estado == "A" && q.co_FechaFactura == info.FechaEmision).FirstOrDefault();
                             if (OG != null)
                             {
                                 var Ret = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro &&  q.Estado == "A").FirstOrDefault();

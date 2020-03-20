@@ -50,7 +50,7 @@ namespace Core.Erp.Data.CuentasxPagar
        }
 
        
-       public Boolean VerificarNumDocumento(int IdEmpresa, string serie1, string serie2, string numDocu,decimal IdProveedor, ref string mensaje)
+       public Boolean VerificarNumDocumento(int IdEmpresa, string serie1, string serie2, string numDocu,decimal IdProveedor, ref string mensaje, DateTime Fecha)
        {
            try
            {
@@ -67,6 +67,7 @@ namespace Core.Erp.Data.CuentasxPagar
                              && t.IdEmpresa == IdEmpresa
                              && t.IdProveedor == IdProveedor
                              && t.IdCbteCble_Ogiro!=null
+                             && t.Fecha_Factura == Fecha
                              select t;
 
 

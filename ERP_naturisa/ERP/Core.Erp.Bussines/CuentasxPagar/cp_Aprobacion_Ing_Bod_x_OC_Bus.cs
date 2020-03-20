@@ -215,11 +215,11 @@ namespace Core.Erp.Business.CuentasxPagar
           }
       }
 
-      public Boolean VerificarNumDocumento(int IdEmpresa, string serie, string serie2, string numDocu,decimal IdProveedor, ref string mensaj)
+      public Boolean VerificarNumDocumento(int IdEmpresa, string serie1, string serie2, string numDocu, decimal IdProveedor, ref string mensaje, DateTime Fecha)
       {
           try
           {
-              return odata.VerificarNumDocumento(IdEmpresa, serie, serie2,numDocu,IdProveedor, ref mensaj);
+              return odata.VerificarNumDocumento(IdEmpresa, serie1, serie2, numDocu, IdProveedor, ref mensaje, Fecha);
           }
           catch (Exception ex)
           {
@@ -474,7 +474,7 @@ namespace Core.Erp.Business.CuentasxPagar
               Info_Ogiro.LstImportacionOC=LstImportacionOC;             
 
 
-              if (BusOrdenGiro_B.ExisteFacturaPorProveedor(Info_Ogiro.IdEmpresa,Info_Ogiro.IdProveedor,Info_Ogiro.co_serie,Info_Ogiro.co_factura))
+              if (BusOrdenGiro_B.ExisteFacturaPorProveedor(Info_Ogiro.IdEmpresa,Info_Ogiro.IdProveedor,Info_Ogiro.co_serie,Info_Ogiro.co_factura, Info_Ogiro.co_FechaFactura))
               {
 
                       if (BusOrdenGiro_B.ModificarDB(Info_Ogiro,  ref msg))

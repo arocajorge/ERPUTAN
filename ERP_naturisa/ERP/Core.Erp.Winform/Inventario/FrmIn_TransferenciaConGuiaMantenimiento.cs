@@ -466,8 +466,10 @@ namespace Core.Erp.Winform.Inventario
                             return false;
                         }
                     }
+
+                    #endregion
                 }
-                #endregion
+                
 
                 return true;
             }

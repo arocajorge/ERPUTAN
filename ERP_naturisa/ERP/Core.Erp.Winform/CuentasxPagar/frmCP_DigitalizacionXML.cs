@@ -237,7 +237,11 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 // removiendo los datos de la firma 
                 XmlNodeList nodeFirma = xml_valido.GetElementsByTagName("ds:Signature");
-                nodeFirma.Item(0).RemoveAll();
+                if (nodeFirma.Count > 0)
+                {
+                    nodeFirma.Item(0).RemoveAll();    
+                }
+                
 
                 string valorareem = "<ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"></ds:Signature>";
 

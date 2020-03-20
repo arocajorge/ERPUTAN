@@ -70,6 +70,7 @@ namespace Core.Erp.Info.Inventario
         public double dm_cantidad_sinConversion { get; set; }
         public string IdUnidadMedida_sinConversion { get; set; }
         public double mv_costo_sinConversion { get; set; }
+        public double CantidadAnterior { get; set; }
 
         #region prop para vista vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo
            

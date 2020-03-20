@@ -453,7 +453,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 if (!string.IsNullOrEmpty(Convert.ToString(txtSerie.EditValue)) && !String.IsNullOrEmpty(Convert.ToString(txtSerie2.EditValue)) && !String.IsNullOrEmpty(Convert.ToString(txtNumDocu.EditValue)))
                 {
                     Bus_Aprob = new cp_Aprobacion_Ing_Bod_x_OC_Bus();
-                    if (Bus_Aprob.VerificarNumDocumento(param.IdEmpresa, Convert.ToString(txtSerie.EditValue), Convert.ToString(txtSerie2.EditValue), Convert.ToString(txtNumDocu.EditValue),ucCp_Proveedor1.get_ProveedorInfo().IdProveedor, ref mensaje))
+                    if (Bus_Aprob.VerificarNumDocumento(param.IdEmpresa, Convert.ToString(txtSerie.EditValue), Convert.ToString(txtSerie2.EditValue), Convert.ToString(txtNumDocu.EditValue),ucCp_Proveedor1.get_ProveedorInfo().IdProveedor, ref mensaje, Convert.ToDateTime(dtpFecFactura.DateTime.Date)))
                     {
                         MessageBox.Show("El número de Documento : " + mensaje + " ya se encuentra registrado"+ " Para este proveedor verifique..", param.Nombre_sistema);
                         return false;

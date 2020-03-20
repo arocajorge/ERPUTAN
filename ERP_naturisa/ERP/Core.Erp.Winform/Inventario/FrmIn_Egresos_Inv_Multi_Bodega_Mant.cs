@@ -740,7 +740,34 @@ namespace Core.Erp.Winform.Inventario
 
                 if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.INV, Convert.ToDateTime(dtpFecha.Value)))
                     return false;
-                
+
+
+                in_Parametro_Bus busParam = new in_Parametro_Bus();
+                var infoParam = busParam.Get_Info_Parametro(param.IdEmpresa);
+                if (infoParam.Maneja_Stock_Negativo == "N")
+                {
+                    #region ValidarStock
+                    var lst = ListaBind.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdBodega, q.IdProducto, q.pr_descripcion }).Select(Q => new
+                    {
+                        IdProducto = Q.Key.IdProducto,
+                        IdBodega = Q.Key.IdBodega,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = Q.Sum(q => q.dm_cantidad_sinConversion),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    });
+
+                    foreach (var item in lst)
+                    {
+                        if (!Bus_Producto.ValidarStock(param.IdEmpresa, ucGe_Sucursal.Get_IdSucursal(), item.IdBodega ?? 0, item.IdProducto, item.Cantidad, item.CantidadAnterior))
+                        {
+                            MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente para el egreso.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return false;
+                        }
+                    }
+
+                    #endregion
+                }
+
                 return true;
             }
             catch (Exception ex)

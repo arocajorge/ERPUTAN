@@ -72,7 +72,7 @@ namespace Core.Erp.Data.Inventario
                       Address.IdMovi_inven_tipo = info.IdMovi_inven_tipo;
                       Address.CodMoviInven = (info.CodMoviInven == "" || info.CodMoviInven == null) ? IdNumMovi.ToString() : info.CodMoviInven;
                       Address.cm_observacion = (info.cm_observacion == "") ? "" : info.cm_observacion;
-                      Address.cm_fecha = info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date;
+                      Address.cm_fecha = DateTime.Now.Date; //info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date;
                       Address.IdUsuario = info.IdUsuario;
                       Address.Fecha_Transac = DateTime.Now;
                       Address.nom_pc = info.nom_pc;
@@ -148,7 +148,7 @@ namespace Core.Erp.Data.Inventario
                   if (contact != null)
                   {
                       contact.CodMoviInven = info.CodMoviInven;
-                      contact.cm_fecha = info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date; 
+                     // contact.cm_fecha = info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date; 
                       contact.cm_observacion = info.cm_observacion;
                       contact.IdUsuarioUltModi = info.IdUsuarioUltModi;
                       contact.Fecha_UltMod = DateTime.Now;

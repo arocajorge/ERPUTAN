@@ -443,7 +443,7 @@ namespace Core.Erp.Data.CuentasxPagar
             }
         }
 
-        public cp_orden_giro_Info GetInfoPorDocumento(int IdEmpresa, string Establecimiento, string PuntoEmision, string NumDocumento, string pe_cedulaRuc)
+        public cp_orden_giro_Info GetInfoPorDocumento(int IdEmpresa, string Establecimiento, string PuntoEmision, string NumDocumento, string pe_cedulaRuc, DateTime Fecha)
         {
             try
             {
@@ -460,7 +460,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     if (proveedor == null)
                         return null;
                     string Serie = Establecimiento + "-"+ PuntoEmision;
-                    var og = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == "01" && q.IdProveedor == proveedor.IdProveedor && q.co_serie == Serie && q.co_factura == NumDocumento && q.Estado == "A").FirstOrDefault();
+                    var og = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == "01" && q.IdProveedor == proveedor.IdProveedor && q.co_serie == Serie && q.co_factura == NumDocumento && q.Estado == "A" && q.co_FechaFactura == Fecha).FirstOrDefault();
                     if (og == null)
                         return null;
 
@@ -1659,40 +1659,7 @@ namespace Core.Erp.Data.CuentasxPagar
             }
         }
 
-        public Boolean ExisteFacturaPorProveedor(int IdEmpresa, decimal IdProveedor, string co_Factura) 
-        {
-            try
-            {
-                using (EntitiesCuentasxPagar Entity = new EntitiesCuentasxPagar())
-                {
-                               
-                    var result = from q in Entity.cp_orden_giro
-                                 where q.IdEmpresa == IdEmpresa 
-                                 && q.IdProveedor == IdProveedor 
-                                 && co_Factura == q.co_factura
-                               
-                                 select q;
-
-                    if (result.Count() != 0)
-                    {
-                        return true;
-                    }
-                    else
-                    { return false; }
-                }                
-            }
-            catch (Exception ex)
-            {
-                string arreglo = ToString();
-                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
-                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
-                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
-                mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        public Boolean ExisteFacturaPorProveedor(int IdEmpresa, decimal IdProveedor, String co_serie, String co_Factura)
+        public Boolean ExisteFacturaPorProveedor(int IdEmpresa, decimal IdProveedor, String co_serie, String co_Factura, DateTime Fecha)
         {
             try
             {
@@ -1714,6 +1681,7 @@ namespace Core.Erp.Data.CuentasxPagar
                     co_Factura = co_Factura.Trim();
                     var result = Entity.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdProveedor == IdProveedor && co_Factura == q.co_factura
                                  && q.co_serie == co_serie
+                                 && q.co_FechaFactura == Fecha
                                  && q.Estado == "A").Count();
 
                     if (result != 0)

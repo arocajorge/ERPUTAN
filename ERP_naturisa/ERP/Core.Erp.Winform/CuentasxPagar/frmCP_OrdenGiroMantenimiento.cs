@@ -926,7 +926,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                     if (!String.IsNullOrEmpty(Convert.ToString(txeNumDocum.EditValue)))
                     {
-                        if (_Accion == Cl_Enumeradores.eTipo_action.grabar && ordenGiro_B.ExisteFacturaPorProveedor(param.IdEmpresa, ucCp_Proveedor1.get_ProveedorInfo().IdProveedor, txeSerie.Text, Convert.ToString(txeNumDocum.EditValue)))
+                        if (_Accion == Cl_Enumeradores.eTipo_action.grabar && ordenGiro_B.ExisteFacturaPorProveedor(param.IdEmpresa, ucCp_Proveedor1.get_ProveedorInfo().IdProveedor, txeSerie.Text, Convert.ToString(txeNumDocum.EditValue), dtp_fechaFactura.Value.Date))
                         {
                             MessageBox.Show("El número de documento ya fue ingresado verifique ", param.Nombre_sistema);
                             return false;

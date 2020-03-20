@@ -250,7 +250,8 @@ namespace Core.Erp.Data.Inventario
                                secuencia_inv = q.secuencia_inv,
                                dm_cantidad_sinConversion = q.dm_cantidad_sinConversion,
                                dm_cantidad = q.dm_cantidad,
-                               cod_producto = p.pr_codigo
+                               cod_producto = p.pr_codigo,
+                               CantidadAnterior = q.dm_cantidad_sinConversion
                            };
 
               foreach (var item in select)
@@ -292,7 +293,7 @@ namespace Core.Erp.Data.Inventario
                   info.secuencia_inv = item.secuencia_inv;
                   info.dm_cantidad_sinConversion = item.dm_cantidad_sinConversion;
                   info.dm_cantidad = item.dm_cantidad;
-
+                  info.CantidadAnterior = Math.Abs(item.CantidadAnterior);
                   lM.Add(info);
               }          
               return lM;
