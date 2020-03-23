@@ -450,11 +450,28 @@ namespace Core.Erp.Winform.Inventario
                 if (infoParam.Maneja_Stock_Negativo == "N")
                 {
                     #region ValidarStock
+                    /*
                     var lst = blstDetalle.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
                     {
                         IdProducto = Q.Key.IdProducto,
                         pr_descripcion = Q.Key.pr_descripcion,
                         Cantidad = Q.Sum(q => q.dt_cantidad),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    });
+                    */
+                    var lst = blstDetalle.Where(Q => Q.IdProducto != null).GroupBy(q => new {q.IdProducto, q.pr_descripcion, q.IdUnidadMedida }).Select(Q => new
+                    {
+                        IdProducto = Q.Key.IdProducto,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = busUnidadMedida.GetCantidadConvertida(param.IdEmpresa, Q.Key.IdProducto ?? 0, Q.Key.IdUnidadMedida, Q.Sum(q => q.dt_cantidad)),
+                        CantidadAnterior = busUnidadMedida.GetCantidadConvertida(param.IdEmpresa, Q.Key.IdProducto ?? 0, Q.Key.IdUnidadMedida, Q.Sum(q => q.CantidadAnterior))
+                    });
+
+                    lst = lst.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
+                    {
+                        IdProducto = Q.Key.IdProducto,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = Q.Sum(q => q.Cantidad),
                         CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
                     });
 

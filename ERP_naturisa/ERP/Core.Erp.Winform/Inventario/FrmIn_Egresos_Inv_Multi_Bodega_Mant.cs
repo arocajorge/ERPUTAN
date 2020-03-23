@@ -747,12 +747,21 @@ namespace Core.Erp.Winform.Inventario
                 if (infoParam.Maneja_Stock_Negativo == "N")
                 {
                     #region ValidarStock
-                    var lst = ListaBind.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdBodega, q.IdProducto, q.pr_descripcion }).Select(Q => new
+                    var lst = ListaBind.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdBodega, q.IdProducto, q.pr_descripcion, q.IdUnidadMedida_sinConversion }).Select(Q => new
                     {
                         IdProducto = Q.Key.IdProducto,
                         IdBodega = Q.Key.IdBodega,
                         pr_descripcion = Q.Key.pr_descripcion,
-                        Cantidad = Q.Sum(q => q.dm_cantidad_sinConversion),
+                        Cantidad = bus_unidad_medida.GetCantidadConvertida(param.IdEmpresa,Q.Key.IdProducto, Q.Key.IdUnidadMedida_sinConversion, Q.Sum(q => q.dm_cantidad_sinConversion)),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    });
+
+                    lst = lst.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdBodega, q.IdProducto, q.pr_descripcion }).Select(Q => new
+                    {
+                        IdProducto = Q.Key.IdProducto,
+                        IdBodega = Q.Key.IdBodega,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = Q.Sum(q=>q.Cantidad),
                         CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
                     });
 

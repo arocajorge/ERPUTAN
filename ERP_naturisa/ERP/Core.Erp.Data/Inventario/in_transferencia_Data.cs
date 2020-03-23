@@ -1019,7 +1019,7 @@ namespace Core.Erp.Data.Inventario
                                 signo = "-",
                                 CodMoviInven = "TR" + info.IdTransferencia.ToString(),
                                 cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + info.tr_Observacion,
-                                cm_fecha = info.tr_fecha,
+                                cm_fecha = DateTime.Now.Date,
                                 IdUsuario = info.IdUsuario,
                                 Fecha_Transac = DateTime.Now,
                                 Estado = "A",
@@ -1075,9 +1075,9 @@ namespace Core.Erp.Data.Inventario
                                 Direc_sucu_Partida = info.InfoGuia.Direc_sucu_Partida,
                                 Direc_sucu_Llegada = info.InfoGuia.Direc_sucu_Llegada,
                                 IdTransportista = info.InfoGuia.IdTransportista,
-                                Fecha = info.tr_fecha,
-                                Fecha_llegada = info.tr_fecha,
-                                Fecha_Traslado = info.tr_fecha,
+                                Fecha = DateTime.Now.Date,
+                                Fecha_llegada = DateTime.Now.Date,
+                                Fecha_Traslado = DateTime.Now.Date,
                                 Fecha_Transac = DateTime.Now,
                                 IdMotivo_Traslado = info.InfoGuia.IdMotivo_Traslado,
                                 IdUsuario = info.IdUsuario,
@@ -1170,7 +1170,7 @@ namespace Core.Erp.Data.Inventario
                         Entity.IdBodegaDest = info.IdBodegaDest;
                     }
 
-                    Entity.tr_fecha = info.tr_fecha;
+                    //Entity.tr_fecha = info.tr_fecha;
                     Entity.tr_Observacion = info.tr_Observacion ?? "";
                     Entity.IdUsuarioUltMod = info.IdUsuario;
                     Entity.Fecha_UltMod = DateTime.Now;
@@ -1222,7 +1222,7 @@ namespace Core.Erp.Data.Inventario
                                 signo = "-",
                                 CodMoviInven = "TR" + info.IdTransferencia.ToString(),
                                 cm_observacion = "TR" + info.IdTransferencia.ToString() + " - " + info.tr_Observacion,
-                                cm_fecha = info.tr_fecha,
+                                cm_fecha = DateTime.Now.Date,//info.tr_fecha,
                                 IdUsuario = info.IdUsuario,
                                 Fecha_Transac = DateTime.Now,
                                 Estado = "A",
@@ -1322,7 +1322,7 @@ namespace Core.Erp.Data.Inventario
                             Direc_sucu_Partida = info.InfoGuia.Direc_sucu_Partida,
                             Direc_sucu_Llegada = info.InfoGuia.Direc_sucu_Llegada,
                             IdTransportista = info.InfoGuia.IdTransportista,
-                            Fecha = info.tr_fecha,
+                            Fecha = DateTime.Now.Date,
                             Fecha_llegada = info.tr_fecha,
                             Fecha_Traslado = info.tr_fecha,
                             Fecha_Transac = DateTime.Now,
@@ -1714,6 +1714,18 @@ namespace Core.Erp.Data.Inventario
                         Entity.Fecha_UltMod = DateTime.Now;
                         db.SaveChanges();
                     }
+
+                    if (Entity.Estado == "R")
+                    {
+                        in_movi_inve_Data odataMovInve = new in_movi_inve_Data();
+                        if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalOrigen, Entity.IdMovi_inven_tipo_SucuOrig ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                        {
+                            if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                            {
+
+                            }
+                        }
+                    }
                     
                     #endregion
                 }
@@ -1797,6 +1809,15 @@ namespace Core.Erp.Data.Inventario
                     }
 
                     db.SaveChanges();
+
+                    in_movi_inve_Data odataMovInve = new in_movi_inve_Data();
+                    if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalOrigen, Entity.IdMovi_inven_tipo_SucuOrig ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                    {
+                        if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                        {
+
+                        }
+                    }
                 }
                 return true;
             }

@@ -293,7 +293,7 @@ namespace Core.Erp.Data.Inventario
                   info.secuencia_inv = item.secuencia_inv;
                   info.dm_cantidad_sinConversion = item.dm_cantidad_sinConversion;
                   info.dm_cantidad = item.dm_cantidad;
-                  info.CantidadAnterior = Math.Abs(item.CantidadAnterior);
+                  info.CantidadAnterior = Math.Abs(item.dm_cantidad);
                   lM.Add(info);
               }          
               return lM;
