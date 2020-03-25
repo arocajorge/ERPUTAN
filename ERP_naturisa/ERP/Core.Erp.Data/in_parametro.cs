@@ -51,6 +51,7 @@ namespace Core.Erp.Data
         public string P_IdCtaCble_transitoria_transf_inven { get; set; }
         public Nullable<int> IdMovi_inven_tipo_mobile_ing { get; set; }
         public Nullable<int> IdMovi_inven_tipo_mobile_egr { get; set; }
+        public Nullable<int> P_ValidarDiasHaciaAtras { get; set; }
     
         public virtual in_Catalogo in_Catalogo { get; set; }
         public virtual in_Catalogo in_Catalogo1 { get; set; }

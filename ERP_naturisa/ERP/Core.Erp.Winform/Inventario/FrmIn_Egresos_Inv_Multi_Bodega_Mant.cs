@@ -777,6 +777,18 @@ namespace Core.Erp.Winform.Inventario
                     #endregion
                 }
 
+                if (Accion == Cl_Enumeradores.eTipo_action.grabar && infoParam.P_ValidarDiasHaciaAtras != null && infoParam.P_ValidarDiasHaciaAtras != 0)
+                {
+                    // Difference in days, hours, and minutes.
+                    TimeSpan ts = Convert.ToDateTime(dtpFecha.Value).Date - DateTime.Now.Date;
+                    int differenceInDays = ts.Days;
+                    if (differenceInDays < infoParam.P_ValidarDiasHaciaAtras)
+                    {
+                        MessageBox.Show("No se puede registrar una transacción mayor a los dias permitidos de atraso\nDias de atraso permitidos: "+infoParam.P_ValidarDiasHaciaAtras.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
+                }
+
                 return true;
             }
             catch (Exception ex)

@@ -817,6 +817,20 @@ namespace Core.Erp.Winform.Inventario
 
                 if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.INV, Convert.ToDateTime(dtpFecha.Value)))
                     return false;
+
+                var infoParam = parametros_B.Get_Info_Parametro(param.IdEmpresa);
+                if (Accion == Cl_Enumeradores.eTipo_action.grabar && infoParam.P_ValidarDiasHaciaAtras != null && infoParam.P_ValidarDiasHaciaAtras != 0)
+                {
+                    // Difference in days, hours, and minutes.
+                    TimeSpan ts = Convert.ToDateTime(dtpFecha.Value).Date - DateTime.Now.Date;
+                    int differenceInDays = ts.Days;
+                    if (differenceInDays < infoParam.P_ValidarDiasHaciaAtras)
+                    {
+                        MessageBox.Show("No se puede registrar una transacción anterior a los dias permitidos de atraso\nDias de atraso permitidos: " + infoParam.P_ValidarDiasHaciaAtras.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
+                    }
+                }
+
                 return true;
             }
             catch (Exception ex)

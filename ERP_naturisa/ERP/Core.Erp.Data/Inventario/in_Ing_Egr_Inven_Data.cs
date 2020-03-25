@@ -72,7 +72,7 @@ namespace Core.Erp.Data.Inventario
                       Address.IdMovi_inven_tipo = info.IdMovi_inven_tipo;
                       Address.CodMoviInven = (info.CodMoviInven == "" || info.CodMoviInven == null) ? IdNumMovi.ToString() : info.CodMoviInven;
                       Address.cm_observacion = (info.cm_observacion == "") ? "" : info.cm_observacion;
-                      Address.cm_fecha = DateTime.Now.Date; //info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date;
+                      Address.cm_fecha = info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date;
                       Address.IdUsuario = info.IdUsuario;
                       Address.Fecha_Transac = DateTime.Now;
                       Address.nom_pc = info.nom_pc;
@@ -148,7 +148,7 @@ namespace Core.Erp.Data.Inventario
                   if (contact != null)
                   {
                       contact.CodMoviInven = info.CodMoviInven;
-                     // contact.cm_fecha = info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date; 
+                      //contact.cm_fecha = info.cm_fecha == null ? DateTime.Now : info.cm_fecha.Date; 
                       contact.cm_observacion = info.cm_observacion;
                       contact.IdUsuarioUltModi = info.IdUsuarioUltModi;
                       contact.Fecha_UltMod = DateTime.Now;
@@ -524,6 +524,8 @@ namespace Core.Erp.Data.Inventario
           EntitiesDBConta db_ct = new EntitiesDBConta();
           try
           {
+              db_i.SetCommandTimeOut(3000);
+              db_ct.SetCommandTimeOut(3000);
               var lst_det = db_i.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inve_tipo && q.IdNumMovi == IdNumMovi).ToList();
               if (lst_det.Where(q => q.IdNumMovi_inv == null).Count() == 0)
               {

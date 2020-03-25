@@ -145,21 +145,6 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_movi_inve_detalle_x_com_ordencompra_local_det_in_movi_inve_detalle" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_movi_inve_detalle_x_item_in_movi_inve_detalle" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_Guia_x_traspaso_bodega_det_sin_Transferencia" Width="1.5" PointX="0.024854209285627218" PointY="25.695620116635979" />
-        <EntityTypeShape EntityType="DBERPModelInventario.in_parametro" Width="1.5" PointX="0.246641675125175" PointY="21.35650105278776" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Catalogo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Catalogo1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo1" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo2" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo3" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo4" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo5" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo6" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo7" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo8" />
-        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo9" />
         <EntityTypeShape EntityType="DBERPModelInventario.in_linea" Width="1.5" PointX="5.0944272918135054" PointY="0.16822302349294677" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_linea_in_categorias" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_grupo_in_linea" />
@@ -213,6 +198,21 @@
         <AssociationConnector Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_Guia_x_traspaso_bodega" />
         <AssociationConnector Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" />
         <EntityTypeShape EntityType="DBERPModelInventario.vwin_movi_inve_x_estado_contabilizacion" Width="1.5" PointX="2.611292471462531" PointY="8.0403919406423316" />
+        <EntityTypeShape EntityType="DBERPModelInventario.in_parametro" Width="1.5" PointX="0.21230053166500318" PointY="10.418572281682199" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Catalogo" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Catalogo1" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_Ing_Egr_Inven_estado_apro1" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo1" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo2" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo3" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo4" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo5" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo6" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo7" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo8" />
+        <AssociationConnector Association="DBERPModelInventario.FK_in_parametro_in_movi_inven_tipo9" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

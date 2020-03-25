@@ -71,6 +71,7 @@ namespace Core.Erp.Data.Inventario
                         addressG.P_IdCtaCble_transitoria_transf_inven = (info.P_IdCtaCble_transitoria_transf_inven == null) ? null : Convert.ToString(info.P_IdCtaCble_transitoria_transf_inven);
                         addressG.IdMovi_inven_tipo_mobile_ing = info.IdMovi_inven_tipo_mobile_ing;
                         addressG.IdMovi_inven_tipo_mobile_egr = info.IdMovi_inven_tipo_mobile_egr;
+                        addressG.P_ValidarDiasHaciaAtras = info.P_ValidarDiasHaciaAtras;
                         context.in_parametro.Add(addressG);
                         context.SaveChanges();
                     }
@@ -122,6 +123,7 @@ namespace Core.Erp.Data.Inventario
 
                         contact.IdMovi_inven_tipo_mobile_ing = info.IdMovi_inven_tipo_mobile_ing;
                         contact.IdMovi_inven_tipo_mobile_egr = info.IdMovi_inven_tipo_mobile_egr;
+                        contact.P_ValidarDiasHaciaAtras = info.P_ValidarDiasHaciaAtras;
                         contact.P_IdCtaCble_transitoria_transf_inven = (info.P_IdCtaCble_transitoria_transf_inven == null) ? null : Convert.ToString(info.P_IdCtaCble_transitoria_transf_inven);
 
 
@@ -192,6 +194,7 @@ namespace Core.Erp.Data.Inventario
                     Cbt.P_IdCtaCble_transitoria_transf_inven = item.P_IdCtaCble_transitoria_transf_inven;
                     Cbt.IdMovi_inven_tipo_mobile_ing = item.IdMovi_inven_tipo_mobile_ing;
                     Cbt.IdMovi_inven_tipo_mobile_egr = item.IdMovi_inven_tipo_mobile_egr;
+                    Cbt.P_ValidarDiasHaciaAtras = item.P_ValidarDiasHaciaAtras;
 
                 }
                 return (Cbt);

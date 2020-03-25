@@ -1159,9 +1159,9 @@ namespace Core.Erp.Data.Inventario
                 double Cont = 0;
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
-                    if (db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto).Count() > 0)
+                    if (db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto && q.in_Ing_Egr_Inven.Estado == "A" && q.in_Ing_Egr_Inven.in_Motivo_Inven.Genera_Movi_Inven == "S").Count() > 0)
                     {
-                        Cont = db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto).Sum(q => q.dm_cantidad);    
+                        Cont = db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto && q.in_Ing_Egr_Inven.Estado == "A" && q.in_Ing_Egr_Inven.in_Motivo_Inven.Genera_Movi_Inven=="S").Sum(q => q.dm_cantidad);    
                     }
                     double Final = Math.Round((CantidadAnterior + Cont) - Cantidad,2,MidpointRounding.AwayFromZero);
                     if (Final < 0)

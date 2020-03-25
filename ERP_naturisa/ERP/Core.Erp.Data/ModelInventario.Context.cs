@@ -22,13 +22,10 @@ namespace Core.Erp.Data
             : base("name=EntitiesInventario")
         {
         }
-
         public void SetCommandTimeOut(int TimeOut)
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -139,7 +136,6 @@ namespace Core.Erp.Data
         public DbSet<vwin_devolucion_inven_det> vwin_devolucion_inven_det { get; set; }
         public DbSet<vwin_movi_inve_detalle> vwin_movi_inve_detalle { get; set; }
         public DbSet<vwin_Guia_x_traspaso_bodega_det_sin_Transferencia> vwin_Guia_x_traspaso_bodega_det_sin_Transferencia { get; set; }
-        public DbSet<in_parametro> in_parametro { get; set; }
         public DbSet<in_linea> in_linea { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega_det> in_Guia_x_traspaso_bodega_det { get; set; }
         public DbSet<vwin_guia_x_traspaso_bodega> vwin_guia_x_traspaso_bodega { get; set; }
@@ -157,6 +153,7 @@ namespace Core.Erp.Data
         public DbSet<in_transferencia_det> in_transferencia_det { get; set; }
         public DbSet<in_Guia_x_traspaso_bodega> in_Guia_x_traspaso_bodega { get; set; }
         public DbSet<vwin_movi_inve_x_estado_contabilizacion> vwin_movi_inve_x_estado_contabilizacion { get; set; }
+        public DbSet<in_parametro> in_parametro { get; set; }
     
         public virtual ObjectResult<spIn_CuerpoDelCardex_Result> spIn_CuerpoDelCardex(Nullable<int> idEmpresa, Nullable<int> idBodega, Nullable<int> idSucursal, Nullable<decimal> idProducto, Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {

@@ -66,5 +66,7 @@ namespace Core.Erp.Info.Inventario
 
         public in_Parametro_Info() { }
 
+
+        public int? P_ValidarDiasHaciaAtras { get; set; }
     }
 }
