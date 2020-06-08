@@ -1159,9 +1159,32 @@ namespace Core.Erp.Winform.Inventario
                 {
                     if (info_parametros.Maneja_Stock_Negativo.Trim() == "N")
                     {
-                        string Producto_no_contabilizado = "";
-                        List<decimal> revisados = new List<decimal>();
-                        int res = 0;
+
+                        var lst = List_Bind_IngEgrDet.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion, q.IdUnidadMedida }).Select(Q => new
+                        {
+                            IdProducto = Q.Key.IdProducto,
+                            pr_descripcion = Q.Key.pr_descripcion,
+                            Cantidad = bus_unidad_medida.GetCantidadConvertida(param.IdEmpresa, Q.Key.IdProducto, Q.Key.IdUnidadMedida, Q.Sum(q => q.dm_cantidad_sinConversion)),
+                            CantidadAnterior = bus_unidad_medida.GetCantidadConvertida(param.IdEmpresa, Q.Key.IdProducto, Q.Key.IdUnidadMedida, Q.Sum(q => q.CantidadAnterior))
+                        });
+
+                        lst = lst.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdProducto, q.pr_descripcion }).Select(Q => new
+                        {
+                            IdProducto = Q.Key.IdProducto,
+                            pr_descripcion = Q.Key.pr_descripcion,
+                            Cantidad = Q.Sum(q => q.Cantidad),
+                            CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                        });
+
+                        foreach (var item in lst)
+                        {
+                            if (!Bus_Producto.ValidarStock(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue), Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_bodega.EditValue), item.IdProducto, item.Cantidad, item.CantidadAnterior))
+                            {
+                                MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return false;
+                            }
+                        }
+
                         foreach (var item in List_Bind_IngEgrDet)
                         {
 
@@ -1174,34 +1197,7 @@ namespace Core.Erp.Winform.Inventario
                                 }
                             }
                             
-                            res = revisados.Where(q => q == item.IdProducto).Count();
-                            if (res == 0)
-                            {
-                                double cantidad_pedida = Math.Round(List_Bind_IngEgrDet.Where(q => q.IdProducto == item.IdProducto).Sum(q => q.dm_cantidad), 2,MidpointRounding.AwayFromZero);
-                                in_Producto_Info producto = listProducto.FirstOrDefault(q => q.IdProducto == item.IdProducto && q.IdEmpresa == param.IdEmpresa && q.IdSucursal == ucIn_Sucursal_Bodega1.get_sucursal().IdSucursal && q.IdBodega == ucIn_Sucursal_Bodega1.get_bodega().IdBodega);
-                                double cantidad_disponible = Convert.ToDouble(producto.pr_stock) - Math.Abs(Convert.ToDouble(producto.pr_Pedidos_inv));
-
-                                if (cantidad_disponible < cantidad_pedida)
-                                {
-                                    MessageBox.Show("Producto: " + producto.pr_descripcion_2 + "\nStock actual en bodega: " + producto.pr_stock.ToString() + " " + producto.nom_UnidadMedida_Consumo + "\nCantidad pedida no aprobada :" + Math.Abs(Convert.ToDouble(producto.pr_Pedidos_inv)) + " " + producto.nom_UnidadMedida_Consumo + " \nCantidad pedida en este egreso: " + cantidad_pedida.ToString() + " " + producto.nom_UnidadMedida_Consumo + " \nCorrija las cantidades.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    return false;
-                                }
-                                bool se_valida_paramatrizacion_contable_x_producto = info_parametros.P_se_valida_parametrizacion_x_producto==null ? false : (bool)info_parametros.P_se_valida_parametrizacion_x_producto;
-                                if (se_valida_paramatrizacion_contable_x_producto)
-                                {
-                                    if (producto.IdCtaCble_Inventario==null || producto.IdCtaCble_Costo == null)
-                                    {
-                                        if (Producto_no_contabilizado == "") Producto_no_contabilizado = producto.pr_descripcion_2;
-                                        else Producto_no_contabilizado += "\n" + producto.pr_descripcion_2;
-                                    }
-                                }
-                                revisados.Add(item.IdProducto);
-                            }
-                        }
-                        if (Producto_no_contabilizado != "")
-                        {
-                            MessageBox.Show("Los siguientes productos no estan parametrizados contablemente, por favor corrija:\n"+Producto_no_contabilizado, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return false;
+                            
                         }
                     }
                 }

@@ -509,8 +509,8 @@ namespace Core.Erp.Winform.Inventario
                     {
                         MessageBox.Show("No se ha podido reversar la transacción:\nSucursal: "+item.nom_sucursal.Trim()+"\nTipo movimiento: "+item.tm_descripcion+"\nNúmero movimiento: "+item.IdNumMovi.ToString(),param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Error);
                         TodoOK = false;
+                        break;
                     }
-                    break;
                 }
                 if (TodoOK)
                 {
@@ -522,6 +522,22 @@ namespace Core.Erp.Winform.Inventario
             {
                 
                 throw;
+            }
+        }
+
+        private void chkSeleccionarVisiblesReversos_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < gvDiferencias.RowCount; i++)
+                {
+                    gvDiferencias.SetRowCellValue(i, col_check_cont, chkSeleccionarVisiblesReversos.Checked);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show("Comuníquese con sistemas, " + ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

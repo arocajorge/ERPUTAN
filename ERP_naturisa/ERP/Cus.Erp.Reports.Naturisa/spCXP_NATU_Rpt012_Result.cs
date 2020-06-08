@@ -28,7 +28,7 @@ namespace Cus.Erp.Reports.Naturisa
         public Nullable<System.DateTime> co_FechaFactura { get; set; }
         public double subtotal_iva { get; set; }
         public double subtotal_sin_iva { get; set; }
-        public Nullable<double> valor_iva { get; set; }
+        public double valor_iva { get; set; }
         public string NAutorizacion { get; set; }
         public string serie_ret { get; set; }
         public string NumRetencion { get; set; }
@@ -46,6 +46,8 @@ namespace Cus.Erp.Reports.Naturisa
         public Nullable<double> RTF_0_1 { get; set; }
         public Nullable<double> RTF_1 { get; set; }
         public Nullable<double> RTF_2 { get; set; }
+        public Nullable<double> RTF_175 { get; set; }
+        public Nullable<double> RTF_275 { get; set; }
         public Nullable<double> RTF_8 { get; set; }
         public Nullable<double> RTF_10 { get; set; }
         public Nullable<double> RTF_100 { get; set; }

@@ -351,6 +351,8 @@
       [vwCXP_NATU_Rpt012].[RTF_0_1] AS [RTF_0_1], 
       [vwCXP_NATU_Rpt012].[RTF_1] AS [RTF_1], 
       [vwCXP_NATU_Rpt012].[RTF_2] AS [RTF_2], 
+      [vwCXP_NATU_Rpt012].[RTF_175] AS [RTF_175], 
+      [vwCXP_NATU_Rpt012].[RTF_275] AS [RTF_275], 
       [vwCXP_NATU_Rpt012].[RTF_8] AS [RTF_8], 
       [vwCXP_NATU_Rpt012].[RTF_10] AS [RTF_10], 
       [vwCXP_NATU_Rpt012].[RTF_100] AS [RTF_100], 
@@ -409,14 +411,14 @@
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="cod_tipo_doc" />
             <PropertyRef Name="tipo_doc" />
-            <PropertyRef Name="Fecha" />
-            <PropertyRef Name="co_FechaFactura_vct" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="IdPersona" />
             <PropertyRef Name="Iva" />
             <PropertyRef Name="Total_a_Pagar" />
             <PropertyRef Name="IdClaseProveedor" />
             <PropertyRef Name="descripcion_clas_prove" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="co_FechaFactura_vct" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdOrdenPago" Type="numeric" />
@@ -426,8 +428,8 @@
           <Property Name="cod_tipo_doc" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="tipo_doc" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="Documento" Type="varchar" MaxLength="24" />
-          <Property Name="Fecha" Type="datetime" Nullable="false" />
-          <Property Name="co_FechaFactura_vct" Type="datetime" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="co_FechaFactura_vct" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="IdPersona" Type="numeric" Nullable="false" />
           <Property Name="IdProveedor" Type="numeric" />
@@ -946,6 +948,8 @@
           <Property Name="RTF_0_1" Type="float" />
           <Property Name="RTF_1" Type="float" />
           <Property Name="RTF_2" Type="float" />
+          <Property Name="RTF_175" Type="float" />
+          <Property Name="RTF_275" Type="float" />
           <Property Name="RTF_8" Type="float" />
           <Property Name="RTF_10" Type="float" />
           <Property Name="RTF_100" Type="float" />
@@ -1028,13 +1032,13 @@
             <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="vwCXP_NATU_Rpt012" EntityType="DBERPModel1.vwCXP_NATU_Rpt012" />
+          <EntitySet Name="vwCXP_NATU_Rpt002" EntityType="DBERPModel1.vwCXP_NATU_Rpt002" />
           <FunctionImport Name="spCXP_NATU_Rpt012" ReturnType="Collection(DBERPModel1.spCXP_NATU_Rpt012_Result)">
             <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
             <Parameter Name="Fecha_ini" Mode="In" Type="DateTime" />
             <Parameter Name="Fecha_fin" Mode="In" Type="DateTime" />
             <Parameter Name="Mostrar_agrupado" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <EntitySet Name="vwCXP_NATU_Rpt002" EntityType="DBERPModel1.vwCXP_NATU_Rpt002" />
         </EntityContainer>
         <EntityType Name="vwCXP_NATU_Rpt006">
           <Key>
@@ -1613,49 +1617,9 @@
           <Property Type="String" Name="re_tipoRet" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Type="String" Name="Num_Autorizacion_OG" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Double" Name="RTF_175" />
+          <Property Type="Double" Name="RTF_275" />
         </EntityType>
-        <ComplexType Name="spCXP_NATU_Rpt012_Result">
-          <Property Type="Int64" Name="IdRow" Nullable="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
-          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdOrden_giro_Tipo" Nullable="false" MaxLength="5" />
-          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="10" />
-          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_nombre" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="serie_fact" Nullable="true" MaxLength="21" />
-          <Property Type="String" Name="num_factura" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="co_FechaFactura" Nullable="true" Precision="23" />
-          <Property Type="Double" Name="subtotal_iva" Nullable="false" />
-          <Property Type="Double" Name="subtotal_sin_iva" Nullable="false" />
-          <Property Type="Double" Name="valor_iva" Nullable="true" />
-          <Property Type="String" Name="NAutorizacion" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="serie_ret" Nullable="true" MaxLength="7" />
-          <Property Type="String" Name="NumRetencion" Nullable="true" MaxLength="20" />
-          <Property Type="Double" Name="re_baseRetencion" Nullable="true" />
-          <Property Type="Double" Name="re_Porcen_retencion" Nullable="true" />
-          <Property Type="Double" Name="re_valor_retencion" Nullable="true" />
-          <Property Type="String" Name="re_Codigo_impuesto" Nullable="true" MaxLength="50" />
-          <Property Type="Double" Name="RIVA_0" Nullable="true" />
-          <Property Type="Double" Name="RIVA_10" Nullable="true" />
-          <Property Type="Double" Name="RIVA_20" Nullable="true" />
-          <Property Type="Double" Name="RIVA_30" Nullable="true" />
-          <Property Type="Double" Name="RIVA_70" Nullable="true" />
-          <Property Type="Double" Name="RIVA_100" Nullable="true" />
-          <Property Type="Double" Name="RTF_0" Nullable="true" />
-          <Property Type="Double" Name="RTF_0_1" Nullable="true" />
-          <Property Type="Double" Name="RTF_1" Nullable="true" />
-          <Property Type="Double" Name="RTF_2" Nullable="true" />
-          <Property Type="Double" Name="RTF_8" Nullable="true" />
-          <Property Type="Double" Name="RTF_10" Nullable="true" />
-          <Property Type="Double" Name="RTF_100" Nullable="true" />
-          <Property Type="String" Name="Documento" Nullable="false" MaxLength="250" />
-          <Property Type="String" Name="descripcion_cod_sri" Nullable="true" MaxLength="350" />
-          <Property Type="String" Name="re_tipoRet" Nullable="true" MaxLength="3" />
-          <Property Type="String" Name="Num_Autorizacion_OG" Nullable="true" MaxLength="50" />
-        </ComplexType>
         <EntityType Name="vwCXP_NATU_Rpt002">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -1678,8 +1642,8 @@
           <Property Type="String" Name="cod_tipo_doc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="tipo_doc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Documento" MaxLength="24" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="co_FechaFactura_vct" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="co_FechaFactura_vct" Nullable="false" Precision="0" />
           <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
@@ -1694,6 +1658,50 @@
           <Property Type="Int32" Name="IdSucursal" />
           <Property Type="String" Name="Su_Descripcion" MaxLength="60" FixedLength="true" Unicode="true" />
         </EntityType>
+        <ComplexType Name="spCXP_NATU_Rpt012_Result">
+          <Property Type="Int64" Name="IdRow" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdOrden_giro_Tipo" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="pe_cedulaRuc" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="serie_fact" Nullable="true" MaxLength="21" />
+          <Property Type="String" Name="num_factura" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="co_FechaFactura" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="subtotal_iva" Nullable="false" />
+          <Property Type="Double" Name="subtotal_sin_iva" Nullable="false" />
+          <Property Type="Double" Name="valor_iva" Nullable="false" />
+          <Property Type="String" Name="NAutorizacion" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="serie_ret" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="NumRetencion" Nullable="true" MaxLength="20" />
+          <Property Type="Double" Name="re_baseRetencion" Nullable="true" />
+          <Property Type="Double" Name="re_Porcen_retencion" Nullable="true" />
+          <Property Type="Double" Name="re_valor_retencion" Nullable="true" />
+          <Property Type="String" Name="re_Codigo_impuesto" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="RIVA_0" Nullable="true" />
+          <Property Type="Double" Name="RIVA_10" Nullable="true" />
+          <Property Type="Double" Name="RIVA_20" Nullable="true" />
+          <Property Type="Double" Name="RIVA_30" Nullable="true" />
+          <Property Type="Double" Name="RIVA_70" Nullable="true" />
+          <Property Type="Double" Name="RIVA_100" Nullable="true" />
+          <Property Type="Double" Name="RTF_0" Nullable="true" />
+          <Property Type="Double" Name="RTF_0_1" Nullable="true" />
+          <Property Type="Double" Name="RTF_1" Nullable="true" />
+          <Property Type="Double" Name="RTF_2" Nullable="true" />
+          <Property Type="Double" Name="RTF_175" Nullable="true" />
+          <Property Type="Double" Name="RTF_275" Nullable="true" />
+          <Property Type="Double" Name="RTF_8" Nullable="true" />
+          <Property Type="Double" Name="RTF_10" Nullable="true" />
+          <Property Type="Double" Name="RTF_100" Nullable="true" />
+          <Property Type="String" Name="Documento" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="descripcion_cod_sri" Nullable="true" MaxLength="350" />
+          <Property Type="String" Name="re_tipoRet" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Num_Autorizacion_OG" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2080,6 +2088,8 @@
           <EntitySetMapping Name="vwCXP_NATU_Rpt012">
             <EntityTypeMapping TypeName="DBERPModel1.vwCXP_NATU_Rpt012">
               <MappingFragment StoreEntitySet="vwCXP_NATU_Rpt012">
+                <ScalarProperty Name="RTF_275" ColumnName="RTF_275" />
+                <ScalarProperty Name="RTF_175" ColumnName="RTF_175" />
                 <ScalarProperty Name="IdRow" ColumnName="IdRow" />
                 <ScalarProperty Name="Num_Autorizacion_OG" ColumnName="Num_Autorizacion_OG" />
                 <ScalarProperty Name="re_tipoRet" ColumnName="re_tipoRet" />
@@ -2119,6 +2129,35 @@
                 <ScalarProperty Name="IdOrden_giro_Tipo" ColumnName="IdOrden_giro_Tipo" />
                 <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
                 <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCXP_NATU_Rpt002">
+            <EntityTypeMapping TypeName="DBERPModel1.vwCXP_NATU_Rpt002">
+              <MappingFragment StoreEntitySet="vwCXP_NATU_Rpt002">
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="descripcion_clas_prove" ColumnName="descripcion_clas_prove" />
+                <ScalarProperty Name="IdClaseProveedor" ColumnName="IdClaseProveedor" />
+                <ScalarProperty Name="Saldo_x_pagar" ColumnName="Saldo_x_pagar" />
+                <ScalarProperty Name="Total_a_Pagar" ColumnName="Total_a_Pagar" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Nom_Proveedor" ColumnName="Nom_Proveedor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="co_FechaFactura_vct" ColumnName="co_FechaFactura_vct" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="tipo_doc" ColumnName="tipo_doc" />
+                <ScalarProperty Name="cod_tipo_doc" ColumnName="cod_tipo_doc" />
+                <ScalarProperty Name="IdOrden_giro_Tipo" ColumnName="IdOrden_giro_Tipo" />
+                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
+                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2159,6 +2198,8 @@
                 <ScalarProperty Name="RTF_0_1" ColumnName="RTF_0_1" />
                 <ScalarProperty Name="RTF_1" ColumnName="RTF_1" />
                 <ScalarProperty Name="RTF_2" ColumnName="RTF_2" />
+                <ScalarProperty Name="RTF_175" ColumnName="RTF_175" />
+                <ScalarProperty Name="RTF_275" ColumnName="RTF_275" />
                 <ScalarProperty Name="RTF_8" ColumnName="RTF_8" />
                 <ScalarProperty Name="RTF_10" ColumnName="RTF_10" />
                 <ScalarProperty Name="RTF_100" ColumnName="RTF_100" />
@@ -2169,35 +2210,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="vwCXP_NATU_Rpt002">
-            <EntityTypeMapping TypeName="DBERPModel1.vwCXP_NATU_Rpt002">
-              <MappingFragment StoreEntitySet="vwCXP_NATU_Rpt002">
-                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="descripcion_clas_prove" ColumnName="descripcion_clas_prove" />
-                <ScalarProperty Name="IdClaseProveedor" ColumnName="IdClaseProveedor" />
-                <ScalarProperty Name="Saldo_x_pagar" ColumnName="Saldo_x_pagar" />
-                <ScalarProperty Name="Total_a_Pagar" ColumnName="Total_a_Pagar" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Iva" ColumnName="Iva" />
-                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
-                <ScalarProperty Name="Nom_Proveedor" ColumnName="Nom_Proveedor" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
-                <ScalarProperty Name="co_FechaFactura_vct" ColumnName="co_FechaFactura_vct" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Documento" ColumnName="Documento" />
-                <ScalarProperty Name="tipo_doc" ColumnName="tipo_doc" />
-                <ScalarProperty Name="cod_tipo_doc" ColumnName="cod_tipo_doc" />
-                <ScalarProperty Name="IdOrden_giro_Tipo" ColumnName="IdOrden_giro_Tipo" />
-                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
-                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
-                <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

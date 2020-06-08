@@ -21,5 +21,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost;Initial Catalog=DBERP_CAH;User ID=sa;Password=admin*2012</Value>
     </Setting>
+    <Setting Name="DBERP_NAT_PRODConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=192.168.50.1;Initial Catalog=DBERP_NAT_PROD;User ID=sa;Password=@dmin*2015.12&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=192.168.50.1;Initial Catalog=DBERP_NAT_PROD;User ID=sa;Password=@dmin*2015.12</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

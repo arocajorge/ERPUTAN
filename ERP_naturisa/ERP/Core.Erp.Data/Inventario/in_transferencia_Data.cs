@@ -1467,7 +1467,7 @@ namespace Core.Erp.Data.Inventario
                     var EntityE = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursalOrigen && q.IdMovi_inven_tipo == (info.IdMovi_inven_tipo_SucuOrig ?? 0) && q.IdNumMovi == (info.IdNumMovi_Ing_Egr_Inven_Origen ?? 0)).FirstOrDefault();
                     if (EntityE != null)
                     {
-                        int ContE = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == EntityE.IdEmpresa && q.IdSucursal == EntityE.IdSucursal && q.IdMovi_inven_tipo == EntityE.IdMovi_inven_tipo && q.IdNumMovi == EntityE.IdNumMovi && q.IdNumMovi_inv != null).Count();
+                        int ContE = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == EntityE.IdEmpresa && q.IdSucursal == EntityE.IdSucursal && q.IdMovi_inven_tipo == EntityE.IdMovi_inven_tipo && q.IdNumMovi == EntityE.IdNumMovi).Count();
                         if (ContE != 0)
                             return false;
 
@@ -1479,7 +1479,7 @@ namespace Core.Erp.Data.Inventario
                     var EntityI = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursalDest && q.IdMovi_inven_tipo == (info.IdMovi_inven_tipo_SucuDest ?? 0) && q.IdNumMovi == (info.IdNumMovi_Ing_Egr_Inven_Destino ?? 0)).FirstOrDefault();
                     if (EntityI != null)
                     {
-                        int ContI = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == EntityE.IdEmpresa && q.IdSucursal == EntityI.IdSucursal && q.IdMovi_inven_tipo == EntityI.IdMovi_inven_tipo && q.IdNumMovi == EntityI.IdNumMovi && q.IdNumMovi_inv != null).Count();
+                        int ContI = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == EntityE.IdEmpresa && q.IdSucursal == EntityI.IdSucursal && q.IdMovi_inven_tipo == EntityI.IdMovi_inven_tipo && q.IdNumMovi == EntityI.IdNumMovi).Count();
                         if (ContI != 0)
                             return false;
 

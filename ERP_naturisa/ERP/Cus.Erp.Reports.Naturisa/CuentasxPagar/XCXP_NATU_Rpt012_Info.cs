@@ -40,6 +40,8 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
         public Nullable<double> RTF_0_1 { get; set; }
         public Nullable<double> RTF_1 { get; set; }
         public Nullable<double> RTF_2 { get; set; }
+        public Nullable<double> RTF_175 { get; set; }
+        public Nullable<double> RTF_275 { get; set; }
         public Nullable<double> RTF_8 { get; set; }
         public Nullable<double> RTF_10 { get; set; }
         public Nullable<double> RTF_100 { get; set; }

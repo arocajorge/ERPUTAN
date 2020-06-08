@@ -54,5 +54,7 @@ namespace Cus.Erp.Reports.Naturisa
         public string re_tipoRet { get; set; }
         public string Num_Autorizacion_OG { get; set; }
         public long IdRow { get; set; }
+        public Nullable<double> RTF_175 { get; set; }
+        public Nullable<double> RTF_275 { get; set; }
     }
 }

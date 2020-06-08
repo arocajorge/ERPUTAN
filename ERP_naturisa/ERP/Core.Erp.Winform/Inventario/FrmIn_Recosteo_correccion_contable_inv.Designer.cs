@@ -125,6 +125,7 @@
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
+            this.chkSeleccionarVisiblesReversos = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -175,6 +176,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).BeginInit();
             this.toolStrip5.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccionarVisiblesReversos.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -985,11 +987,11 @@
             // 
             this.gcDiferencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcDiferencias.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gcDiferencias.Location = new System.Drawing.Point(0, 127);
+            this.gcDiferencias.Location = new System.Drawing.Point(0, 138);
             this.gcDiferencias.MainView = this.gvDiferencias;
             this.gcDiferencias.Margin = new System.Windows.Forms.Padding(4);
             this.gcDiferencias.Name = "gcDiferencias";
-            this.gcDiferencias.Size = new System.Drawing.Size(1337, 318);
+            this.gcDiferencias.Size = new System.Drawing.Size(1337, 307);
             this.gcDiferencias.TabIndex = 4;
             this.gcDiferencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDiferencias});
@@ -1113,6 +1115,7 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.chkSeleccionarVisiblesReversos);
             this.panel7.Controls.Add(this.label7);
             this.panel7.Controls.Add(this.deFechaFinD);
             this.panel7.Controls.Add(this.label8);
@@ -1120,7 +1123,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 27);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1337, 100);
+            this.panel7.Size = new System.Drawing.Size(1337, 111);
             this.panel7.TabIndex = 5;
             // 
             // label7
@@ -1217,6 +1220,16 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
+            // chkSeleccionarVisiblesReversos
+            // 
+            this.chkSeleccionarVisiblesReversos.Location = new System.Drawing.Point(92, 85);
+            this.chkSeleccionarVisiblesReversos.Margin = new System.Windows.Forms.Padding(4);
+            this.chkSeleccionarVisiblesReversos.Name = "chkSeleccionarVisiblesReversos";
+            this.chkSeleccionarVisiblesReversos.Properties.Caption = "Seleccionar visibles";
+            this.chkSeleccionarVisiblesReversos.Size = new System.Drawing.Size(168, 21);
+            this.chkSeleccionarVisiblesReversos.TabIndex = 10;
+            this.chkSeleccionarVisiblesReversos.CheckedChanged += new System.EventHandler(this.chkSeleccionarVisiblesReversos_CheckedChanged);
+            // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1293,6 +1306,7 @@
             this.toolStrip5.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccionarVisiblesReversos.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1394,6 +1408,7 @@
         private DevExpress.XtraEditors.DateEdit deFechaFinD;
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.DateEdit deFechaIniD;
+        private DevExpress.XtraEditors.CheckEdit chkSeleccionarVisiblesReversos;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

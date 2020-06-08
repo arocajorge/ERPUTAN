@@ -90,9 +90,10 @@ namespace Core.Erp.Winform.CuentasxPagar
 
         private void Opcion2()
         {
+            int Fila = 0;
+            ListaXml = new List<cp_XML_Documento_Info>();
             try
             {
-                ListaXml = new List<cp_XML_Documento_Info>();
                 using (GenericParser parser = new GenericParser())
                 {
                     parser.SetDataSource(txtRutaXml.Text);
@@ -103,10 +104,15 @@ namespace Core.Erp.Winform.CuentasxPagar
                     parser.MaxBufferSize = 4096;
                     parser.MaxRows = 999999999;
                     parser.TextQualifier = '\"';
-                    int Fila = 0;
+                    
                     cp_XML_Documento_Info info = new cp_XML_Documento_Info();
                     while (parser.Read())
                     {
+                        if (Fila == 104)
+                        {
+                            
+                        }
+
                         if ((Fila % 2) == 0)
                         {
                             info = new cp_XML_Documento_Info
@@ -142,8 +148,10 @@ namespace Core.Erp.Winform.CuentasxPagar
             }
             catch (Exception ex)
             {
+                gcDetalle.DataSource = ListaXml;
+                lblContador.Text = ListaXml.Count.ToString();
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
-                MessageBox.Show("Ha ocurrido un error", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);   
+                MessageBox.Show("Ha ocurrido un error en la fila: "+Fila.ToString(), param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);   
             }
         }
 

@@ -17,6 +17,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                 Fecha_fin = Fecha_fin.Date;
                 using (EntitiesCXP_Rpt_Naturisa Context = new EntitiesCXP_Rpt_Naturisa())
                 {
+                    
                     Context.SetCommandTimeOut(3000);
                     var lst = Context.spCXP_NATU_Rpt012(IdEmpresa, Fecha_ini, Fecha_fin, Mostrar_agrupado).ToList();
                     
@@ -56,6 +57,8 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                         info.RTF_0_1 = item.RTF_0_1;
                         info.RTF_1 = item.RTF_1;
                         info.RTF_2 = item.RTF_2;
+                        info.RTF_175 = item.RTF_175;
+                        info.RTF_275 = item.RTF_275;
                         info.RTF_8 = item.RTF_8;
                         info.RTF_10 = item.RTF_10;
                         info.RTF_100 = item.RTF_100;

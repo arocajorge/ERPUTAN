@@ -641,7 +641,7 @@ namespace Core.Erp.Data.CuentasxPagar
                         var Proveedor = db.vwcp_proveedor_combo.Where(q => q.IdEmpresa == IdEmpresa && q.pe_cedularuc == pe_cedulaRuc).FirstOrDefault();
                         if (Proveedor != null)
                         {
-                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == CodDocumento && (q.IdOrden_giro_Tipo + "-" + q.co_serie + "-" + q.co_factura) == Comprobante && q.IdProveedor == Proveedor.IdProveedor && q.Estado == "A" && q.co_FechaFactura == info.FechaEmision).FirstOrDefault();
+                            var OG = db.cp_orden_giro.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrden_giro_Tipo == CodDocumento && (q.IdOrden_giro_Tipo + "-" + q.co_serie + "-" + q.co_factura) == Comprobante && q.IdProveedor == Proveedor.IdProveedor && q.Estado == "A" /*&& q.co_FechaFactura == info.FechaEmision*/).FirstOrDefault();
                             if (OG != null)
                             {
                                 var Ret = db.cp_retencion.Where(q => q.IdEmpresa_Ogiro == OG.IdEmpresa && q.IdTipoCbte_Ogiro == OG.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == OG.IdCbteCble_Ogiro &&  q.Estado == "A").FirstOrDefault();
