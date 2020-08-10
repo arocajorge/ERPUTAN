@@ -26,7 +26,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -69,7 +68,6 @@ namespace Core.Erp.Data
         public DbSet<cp_proveedor_clase> cp_proveedor_clase { get; set; }
         public DbSet<cp_proveedor_codigo_SRI> cp_proveedor_codigo_SRI { get; set; }
         public DbSet<cp_proveedor_contactos> cp_proveedor_contactos { get; set; }
-        public DbSet<cp_reembolso> cp_reembolso { get; set; }
         public DbSet<cp_retencion> cp_retencion { get; set; }
         public DbSet<cp_retencion_det> cp_retencion_det { get; set; }
         public DbSet<cp_retencion_x_ct_cbtecble> cp_retencion_x_ct_cbtecble { get; set; }
@@ -143,7 +141,6 @@ namespace Core.Erp.Data
         public DbSet<vwcp_conciliacion_x_orden_pago> vwcp_conciliacion_x_orden_pago { get; set; }
         public DbSet<vwcp_orden_pago_con_cancelacion_para_conciliacion> vwcp_orden_pago_con_cancelacion_para_conciliacion { get; set; }
         public DbSet<vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi> vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi { get; set; }
-        public DbSet<vwcp_XML_Documento> vwcp_XML_Documento { get; set; }
         public DbSet<cp_XML_Documento> cp_XML_Documento { get; set; }
         public DbSet<cp_XML_DocumentoRetAnulado> cp_XML_DocumentoRetAnulado { get; set; }
         public DbSet<cp_XML_DocumentoRetAnuladoDet> cp_XML_DocumentoRetAnuladoDet { get; set; }
@@ -152,6 +149,8 @@ namespace Core.Erp.Data
         public DbSet<cp_orden_giro_det> cp_orden_giro_det { get; set; }
         public DbSet<cp_TipoDocumento> cp_TipoDocumento { get; set; }
         public DbSet<vwcp_proveedor_ValidarAnticipos> vwcp_proveedor_ValidarAnticipos { get; set; }
+        public DbSet<vwcp_XML_Documento> vwcp_XML_Documento { get; set; }
+        public DbSet<cp_reembolso> cp_reembolso { get; set; }
     
         public virtual ObjectResult<string> spCXP_eliminar_factura_vale_conciliacion_caja(Nullable<int> idEmpresa, Nullable<int> idTipoCbte, Nullable<decimal> idCbteCble, string tipoCbte_conci, Nullable<bool> borrar_o_desvincular)
         {

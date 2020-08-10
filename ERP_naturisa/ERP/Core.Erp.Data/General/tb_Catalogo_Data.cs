@@ -52,10 +52,7 @@ namespace Core.Erp.Data.General
             {
                 List<Cl_TipoDoc_Personales_Info> lEstC = new List<Cl_TipoDoc_Personales_Info>();
                 EntitiesGeneral OCatalogo = new EntitiesGeneral();
-                var Doc = from C in OCatalogo.tb_Catalogo
-                          where C.IdTipoCatalogo == 3
-                          orderby C.ca_orden
-                          select C;
+                var Doc = OCatalogo.tb_Catalogo.Where(q=> q.IdTipoCatalogo == 3).ToList();
                 
                 foreach (var item in Doc)
                 {

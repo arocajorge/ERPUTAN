@@ -90,7 +90,7 @@ namespace Core.Erp.Data.Compras
                             cd_DetallePorItem = item.cd_DetallePorItem
                         });
 
-                        var det_op = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.opd_IdEmpresa && q.IdOrdenPedido == item.opd_IdOrdenPedido && q.Secuencia == item.opd_Secuencia).FirstOrDefault();
+                        var det_op = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.opd_IdEmpresa && q.IdOrdenPedido == item.opd_IdOrdenPedido && q.Secuencia == item.opd_Secuencia && q.opd_EstadoProceso == "A").FirstOrDefault();
                         if (det_op != null)
                         {
                             det_op.opd_EstadoProceso = "AC";
@@ -265,7 +265,7 @@ namespace Core.Erp.Data.Compras
                                     IdUnidadMedida = item.IdUnidadMedida,
                                     Por_Iva = item.Por_Iva,
                                     IdCod_Impuesto = item.IdCod_Impuesto,
-                                    do_observacion = string.IsNullOrEmpty(item.cd_DetallePorItem) ? " " : item.cd_DetallePorItem + (string.IsNullOrEmpty(item.opd_Detalle) ? "" : item.opd_Detalle),
+                                    do_observacion = (string.IsNullOrEmpty(item.cd_DetallePorItem) ? "" : item.cd_DetallePorItem+" ") + (string.IsNullOrEmpty(item.opd_Detalle) ? "" : item.opd_Detalle),
                                     IdSucursalDestino = item.IdSucursalDestino
                                 });
                             }

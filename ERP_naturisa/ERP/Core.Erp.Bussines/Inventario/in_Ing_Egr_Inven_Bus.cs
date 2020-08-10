@@ -930,5 +930,18 @@ namespace Core.Erp.Business.Inventario
                throw;
            }
        }
+
+       public bool CambiarFecha(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi, DateTime Fecha, string IdUsuario)
+       {
+           try
+           {
+               return odata.CambiarFecha(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi, Fecha, IdUsuario);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
     }
 }

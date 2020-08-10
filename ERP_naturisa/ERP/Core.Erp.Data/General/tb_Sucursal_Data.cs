@@ -11,6 +11,7 @@ namespace Core.Erp.Data.General
     {
         string mensaje = "";
 
+
         public List<tb_Sucursal_Info> Get_List_Sucursal(int IdEmpresa)
         {
             try

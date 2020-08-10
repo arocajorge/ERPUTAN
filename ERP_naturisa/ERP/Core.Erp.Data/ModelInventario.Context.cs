@@ -473,5 +473,30 @@ namespace Core.Erp.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPINV_GetMovimientosPorContabilizar_Result>("SPINV_GetMovimientosPorContabilizar", idEmpresaParameter, fechaIniParameter, fechaFinParameter);
         }
+    
+        public virtual int SPINV_CambiarFechaMovimiento(Nullable<int> idEmpresa, Nullable<int> idSucursal, Nullable<int> idMovi_inven_tipo, Nullable<decimal> idNumMovi, Nullable<System.DateTime> fecha)
+        {
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("IdEmpresa", idEmpresa) :
+                new ObjectParameter("IdEmpresa", typeof(int));
+    
+            var idSucursalParameter = idSucursal.HasValue ?
+                new ObjectParameter("IdSucursal", idSucursal) :
+                new ObjectParameter("IdSucursal", typeof(int));
+    
+            var idMovi_inven_tipoParameter = idMovi_inven_tipo.HasValue ?
+                new ObjectParameter("IdMovi_inven_tipo", idMovi_inven_tipo) :
+                new ObjectParameter("IdMovi_inven_tipo", typeof(int));
+    
+            var idNumMoviParameter = idNumMovi.HasValue ?
+                new ObjectParameter("IdNumMovi", idNumMovi) :
+                new ObjectParameter("IdNumMovi", typeof(decimal));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPINV_CambiarFechaMovimiento", idEmpresaParameter, idSucursalParameter, idMovi_inven_tipoParameter, idNumMoviParameter, fechaParameter);
+        }
     }
 }

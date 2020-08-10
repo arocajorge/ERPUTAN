@@ -51,9 +51,12 @@
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbImagenD = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnMostrarAnulados = new System.Windows.Forms.ToolStripButton();
             this.btnValidarDocumentos = new System.Windows.Forms.ToolStripButton();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
@@ -86,13 +89,13 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2020, 2, 9, 0, 0, 0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 2, 16, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2020, 8, 3, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 8, 10, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1115, 177);
@@ -170,7 +173,10 @@
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.gridColumn16,
+            this.gridColumn17,
+            this.gridColumn18});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Images = this.imageList1;
             this.gvDetalle.Name = "gvDetalle";
@@ -189,7 +195,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
-            this.gridColumn1.Width = 428;
+            this.gridColumn1.Width = 376;
             // 
             // gridColumn2
             // 
@@ -198,7 +204,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 3;
-            this.gridColumn2.Width = 167;
+            this.gridColumn2.Width = 140;
             // 
             // gridColumn3
             // 
@@ -243,7 +249,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
-            this.gridColumn7.Width = 134;
+            this.gridColumn7.Width = 103;
             // 
             // gridColumn8
             // 
@@ -252,7 +258,7 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;
-            this.gridColumn8.Width = 177;
+            this.gridColumn8.Width = 136;
             // 
             // gridColumn9
             // 
@@ -261,7 +267,7 @@
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 0;
-            this.gridColumn9.Width = 101;
+            this.gridColumn9.Width = 92;
             // 
             // gridColumn10
             // 
@@ -270,7 +276,7 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 6;
-            this.gridColumn10.Width = 149;
+            this.gridColumn10.Width = 128;
             // 
             // gridColumn11
             // 
@@ -279,7 +285,7 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 7;
-            this.gridColumn11.Width = 166;
+            this.gridColumn11.Width = 155;
             // 
             // gridColumn12
             // 
@@ -288,7 +294,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 8;
-            this.gridColumn12.Width = 90;
+            this.gridColumn12.Width = 91;
             // 
             // gridColumn13
             // 
@@ -298,8 +304,8 @@
             this.gridColumn13.ImageIndex = 0;
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 9;
-            this.gridColumn13.Width = 90;
+            this.gridColumn13.VisibleIndex = 10;
+            this.gridColumn13.Width = 70;
             // 
             // cmbImagen
             // 
@@ -329,8 +335,8 @@
             this.gridColumn14.ImageIndex = 1;
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 10;
-            this.gridColumn14.Width = 97;
+            this.gridColumn14.VisibleIndex = 11;
+            this.gridColumn14.Width = 76;
             // 
             // cmbImagenD
             // 
@@ -355,7 +361,25 @@
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 2;
-            this.gridColumn15.Width = 135;
+            this.gridColumn15.Width = 112;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Cancelación";
+            this.gridColumn16.FieldName = "EstadoCancelacion";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 9;
+            this.gridColumn16.Width = 154;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Estado";
+            this.gridColumn17.FieldName = "Estado";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 12;
+            this.gridColumn17.Width = 101;
             // 
             // toolStrip1
             // 
@@ -385,6 +409,13 @@
             this.btnValidarDocumentos.Size = new System.Drawing.Size(251, 24);
             this.btnValidarDocumentos.Text = "Validar documentos digitalizados";
             this.btnValidarDocumentos.Click += new System.EventHandler(this.btnValidarDocumentos_Click);
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Clase proveedor";
+            this.gridColumn18.FieldName = "descripcion_clas_prove";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Width = 200;
             // 
             // frmCP_XML_Consulta
             // 
@@ -435,5 +466,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnMostrarAnulados;
         private System.Windows.Forms.ToolStripButton btnValidarDocumentos;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }

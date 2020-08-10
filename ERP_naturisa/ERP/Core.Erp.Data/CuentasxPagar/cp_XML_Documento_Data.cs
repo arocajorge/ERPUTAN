@@ -27,14 +27,14 @@ namespace Core.Erp.Data.CuentasxPagar
 
                 using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
                 {
-                    var lst = db.cp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && FechaIni <= q.FechaEmision && q.FechaEmision <= FechaFin).ToList();
+                    var lst = db.vwcp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && FechaIni <= q.FechaEmision && q.FechaEmision <= FechaFin).ToList();
                     foreach (var info in lst)
                     {
                         Lista.Add(new cp_XML_Documento_Info
                     {
                         IdEmpresa = info.IdEmpresa,
                         IdDocumento = info.IdDocumento,
-                        XML = info.XML,
+                        //XML = info.XML,
                         Tipo = info.Tipo,
                         emi_RazonSocial = info.emi_RazonSocial,
                         emi_NombreComercial = info.emi_NombreComercial,
@@ -68,7 +68,9 @@ namespace Core.Erp.Data.CuentasxPagar
                         ret_PuntoEmision = info.ret_PuntoEmision,
                         IdTipoCbte = info.IdTipoCbte,
                         IdCbteCble = info.IdCbteCble,
-                        EnviaXML = info.Estado && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion)
+                        EnviaXML = info.Estado && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion),
+                        EstadoCancelacion = info.EstadoCancelacion,
+                        descripcion_clas_prove = info.descripcion_clas_prove
                     });
                     }
                 }

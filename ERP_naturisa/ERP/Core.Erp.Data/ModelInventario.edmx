@@ -7541,6 +7541,13 @@
           <Parameter Name="IdBodega" Type="int" Mode="In" />
           <Parameter Name="IdNumMovi" Type="numeric" Mode="In" />
         </Function>
+        <Function Name="SPINV_CambiarFechaMovimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdSucursal" Type="int" Mode="In" />
+          <Parameter Name="IdMovi_inven_tipo" Type="int" Mode="In" />
+          <Parameter Name="IdNumMovi" Type="numeric" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+        </Function>
         <Function Name="SPINV_ComprasAnteriores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEmpresa" Type="int" Mode="In" />
           <Parameter Name="IdProducto" Type="numeric" Mode="In" />
@@ -8152,6 +8159,13 @@
             <End Role="in_movi_inven_tipo" EntitySet="in_movi_inven_tipo" />
             <End Role="in_parametro" EntitySet="in_parametro" />
           </AssociationSet>
+          <FunctionImport Name="SPINV_CambiarFechaMovimiento">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursal" Mode="In" Type="Int32" />
+            <Parameter Name="IdMovi_inven_tipo" Mode="In" Type="Int32" />
+            <Parameter Name="IdNumMovi" Mode="In" Type="Decimal" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
           <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="23" />
@@ -17051,6 +17065,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPINV_CambiarFechaMovimiento" FunctionName="DBERPModelInventario.Store.SPINV_CambiarFechaMovimiento" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

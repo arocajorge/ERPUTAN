@@ -33,6 +33,14 @@ namespace Core.Erp.Winform.Inventario
         in_movi_inve_Info info_movi_inven = new in_movi_inve_Info();
         BindingList<in_movi_inve_Info> lst_movi_inven = new BindingList<in_movi_inve_Info>();
         in_movi_inve_Bus bus_movi_inven = new in_movi_inve_Bus();
+        
+        
+        List<in_movi_inven_tipo_Info> ListaTipoMovi = new List<in_movi_inven_tipo_Info>();
+        in_movi_inven_tipo_Bus busTipoMovi = new in_movi_inven_tipo_Bus();
+
+        tb_Sucursal_Bus busSucursal = new tb_Sucursal_Bus();
+        List<tb_Sucursal_Info> ListaSucursal = new List<tb_Sucursal_Info>();
+
         bool recosteo = false;
         bool correccion_transferencias = false;
         bool recosteo_x_producto = false;
@@ -52,7 +60,8 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 Cargar_combos();
-                cmb_estado_contabilizacion.SelectedItem = "NO CONTABILIZADO";                
+                cmb_estado_contabilizacion.SelectedItem = "NO CONTABILIZADO";
+                ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
             }
             catch (Exception ex)
             {
@@ -75,6 +84,11 @@ namespace Core.Erp.Winform.Inventario
                 cmb_producto.Properties.DataSource = lst_producto;
                 deFechaIniD.DateTime = DateTime.Now.Date.AddMonths(-1);
                 deFechaFinD.DateTime = DateTime.Now.Date;
+
+                ListaSucursal = busSucursal.Get_List_Sucursal(param.IdEmpresa);
+                ListaTipoMovi = busTipoMovi.GetList(param.IdEmpresa);
+                cmbTipoMovimientoCambioFecha.Properties.DataSource = ListaTipoMovi;
+                cmbSucursalCambioFecha.Properties.DataSource = ListaSucursal;
             }
             catch (Exception ex)
             {
@@ -488,7 +502,6 @@ namespace Core.Erp.Winform.Inventario
             }
         }
 
-
         private void BuscarDiferencias()
         {
             blstDiferencias = new BindingList<in_Ing_Egr_Inven_Info>(bus_inger.GetListDiferenciasContable(param.IdEmpresa, deFechaIniD.DateTime.Date, deFechaFinD.DateTime.Date));
@@ -538,6 +551,96 @@ namespace Core.Erp.Winform.Inventario
             {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show("Comuníquese con sistemas, " + ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscarCambioFecha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                deFechaActualCambioFecha.DateTime = DateTime.Now.Date;
+                txtObservacionCambioFecha.Text = string.Empty;
+
+                if (cmbSucursalCambioFecha.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione la sucursal",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (cmbTipoMovimientoCambioFecha.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione el tipo de movimiento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtNumMovimiento.Text))
+                {
+                    MessageBox.Show("Ingrese el numero de movimiento",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                var info =  bus_inger.Get_Info_Ing_Egr_Inven(param.IdEmpresa, Convert.ToInt32(cmbSucursalCambioFecha.EditValue), Convert.ToInt32(cmbTipoMovimientoCambioFecha.EditValue), Convert.ToDecimal(txtNumMovimiento.Text));
+                if (info == null || info.IdEmpresa == 0)
+                {
+                    MessageBox.Show("El movimiento ingresado no existe",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                deFechaActualCambioFecha.DateTime = info.cm_fecha.Date;
+                txtObservacionCambioFecha.Text = info.cm_observacion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error \n"+ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btnCambiarFecha_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbSucursalCambioFecha.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione la sucursal", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (cmbTipoMovimientoCambioFecha.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione el tipo de movimiento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtNumMovimiento.Text))
+                {
+                    MessageBox.Show("Ingrese el numero de movimiento", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                var info = bus_inger.Get_Info_Ing_Egr_Inven(param.IdEmpresa, Convert.ToInt32(cmbSucursalCambioFecha.EditValue), Convert.ToInt32(cmbTipoMovimientoCambioFecha.EditValue), Convert.ToDecimal(txtNumMovimiento.Text));
+                if (info == null)
+                {
+                    MessageBox.Show("El movimiento ingresado no existe", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (deFechaNuevaCambio.EditValue == null)
+                {
+                    MessageBox.Show("Ingrese la nueva fecha", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                if (bus_inger.CambiarFecha(param.IdEmpresa,Convert.ToInt32(cmbSucursalCambioFecha.EditValue), Convert.ToInt32(cmbTipoMovimientoCambioFecha.EditValue), Convert.ToDecimal(txtNumMovimiento.Text),deFechaNuevaCambio.DateTime.Date,param.IdUsuario))
+                {
+                    MessageBox.Show("Cambio de fecha exitoso", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    btnBuscarCambioFecha_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error \n"+ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
             }
         }
     }

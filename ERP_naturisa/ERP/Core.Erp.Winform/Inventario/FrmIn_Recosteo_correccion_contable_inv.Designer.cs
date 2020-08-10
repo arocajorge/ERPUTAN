@@ -115,6 +115,7 @@
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.chkSeleccionarVisiblesReversos = new DevExpress.XtraEditors.CheckEdit();
             this.label7 = new System.Windows.Forms.Label();
             this.deFechaFinD = new DevExpress.XtraEditors.DateEdit();
             this.label8 = new System.Windows.Forms.Label();
@@ -122,10 +123,34 @@
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.btnBuscarDiferencias = new System.Windows.Forms.ToolStripButton();
             this.btnReversarContabilizacion = new System.Windows.Forms.ToolStripButton();
+            this.TabPage_CambiarFecha = new DevExpress.XtraTab.XtraTabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.deFechaActualCambioFecha = new DevExpress.XtraEditors.DateEdit();
+            this.txtObservacionCambioFecha = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.txtNumMovimiento = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbTipoMovimientoCambioFecha = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbSucursalCambioFecha = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.deFechaNuevaCambio = new DevExpress.XtraEditors.DateEdit();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.btnBuscarCambioFecha = new System.Windows.Forms.ToolStripButton();
+            this.btnCambiarFecha = new System.Windows.Forms.ToolStripButton();
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
-            this.chkSeleccionarVisiblesReversos = new DevExpress.XtraEditors.CheckEdit();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -170,13 +195,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcDiferencias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDiferencias)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccionarVisiblesReversos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).BeginInit();
             this.toolStrip5.SuspendLayout();
+            this.TabPage_CambiarFecha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaActualCambioFecha.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaActualCambioFecha.Properties)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoMovimientoCambioFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSucursalCambioFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties)).BeginInit();
+            this.toolStrip6.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccionarVisiblesReversos.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -235,7 +271,8 @@
             this.tabPage_transferencias,
             this.tabPage_contabilizar,
             this.TabPage_recosteo_x_producto,
-            this.TabPage_Diferencias});
+            this.TabPage_Diferencias,
+            this.TabPage_CambiarFecha});
             // 
             // tabPage_recosteo
             // 
@@ -1126,6 +1163,16 @@
             this.panel7.Size = new System.Drawing.Size(1337, 111);
             this.panel7.TabIndex = 5;
             // 
+            // chkSeleccionarVisiblesReversos
+            // 
+            this.chkSeleccionarVisiblesReversos.Location = new System.Drawing.Point(92, 85);
+            this.chkSeleccionarVisiblesReversos.Margin = new System.Windows.Forms.Padding(4);
+            this.chkSeleccionarVisiblesReversos.Name = "chkSeleccionarVisiblesReversos";
+            this.chkSeleccionarVisiblesReversos.Properties.Caption = "Seleccionar visibles";
+            this.chkSeleccionarVisiblesReversos.Size = new System.Drawing.Size(168, 21);
+            this.chkSeleccionarVisiblesReversos.TabIndex = 10;
+            this.chkSeleccionarVisiblesReversos.CheckedChanged += new System.EventHandler(this.chkSeleccionarVisiblesReversos_CheckedChanged);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -1201,6 +1248,243 @@
             this.btnReversarContabilizacion.Text = "Reversar contabilización";
             this.btnReversarContabilizacion.Click += new System.EventHandler(this.btnReversarContabilizacion_Click);
             // 
+            // TabPage_CambiarFecha
+            // 
+            this.TabPage_CambiarFecha.Controls.Add(this.label14);
+            this.TabPage_CambiarFecha.Controls.Add(this.deFechaActualCambioFecha);
+            this.TabPage_CambiarFecha.Controls.Add(this.txtObservacionCambioFecha);
+            this.TabPage_CambiarFecha.Controls.Add(this.label13);
+            this.TabPage_CambiarFecha.Controls.Add(this.panel8);
+            this.TabPage_CambiarFecha.Controls.Add(this.toolStrip6);
+            this.TabPage_CambiarFecha.Name = "TabPage_CambiarFecha";
+            this.TabPage_CambiarFecha.Size = new System.Drawing.Size(1337, 445);
+            this.TabPage_CambiarFecha.Text = "Cambiar fecha de movimientos";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(38, 169);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 17);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Fecha actual";
+            // 
+            // deFechaActualCambioFecha
+            // 
+            this.deFechaActualCambioFecha.EditValue = null;
+            this.deFechaActualCambioFecha.Location = new System.Drawing.Point(201, 166);
+            this.deFechaActualCambioFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaActualCambioFecha.Name = "deFechaActualCambioFecha";
+            this.deFechaActualCambioFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaActualCambioFecha.Properties.ReadOnly = true;
+            this.deFechaActualCambioFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaActualCambioFecha.Size = new System.Drawing.Size(167, 22);
+            this.deFechaActualCambioFecha.TabIndex = 15;
+            // 
+            // txtObservacionCambioFecha
+            // 
+            this.txtObservacionCambioFecha.Location = new System.Drawing.Point(201, 200);
+            this.txtObservacionCambioFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservacionCambioFecha.Multiline = true;
+            this.txtObservacionCambioFecha.Name = "txtObservacionCambioFecha";
+            this.txtObservacionCambioFecha.ReadOnly = true;
+            this.txtObservacionCambioFecha.Size = new System.Drawing.Size(527, 82);
+            this.txtObservacionCambioFecha.TabIndex = 14;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(38, 203);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(92, 17);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Observación:";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.txtNumMovimiento);
+            this.panel8.Controls.Add(this.label12);
+            this.panel8.Controls.Add(this.label11);
+            this.panel8.Controls.Add(this.cmbTipoMovimientoCambioFecha);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.cmbSucursalCambioFecha);
+            this.panel8.Controls.Add(this.label10);
+            this.panel8.Controls.Add(this.deFechaNuevaCambio);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 27);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1337, 122);
+            this.panel8.TabIndex = 5;
+            // 
+            // txtNumMovimiento
+            // 
+            this.txtNumMovimiento.Location = new System.Drawing.Point(201, 77);
+            this.txtNumMovimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumMovimiento.Name = "txtNumMovimiento";
+            this.txtNumMovimiento.Size = new System.Drawing.Size(132, 22);
+            this.txtNumMovimiento.TabIndex = 12;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(38, 80);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(91, 17);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "# Movimiento";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(38, 51);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(131, 17);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Tipo de movimiento";
+            // 
+            // cmbTipoMovimientoCambioFecha
+            // 
+            this.cmbTipoMovimientoCambioFecha.Location = new System.Drawing.Point(201, 48);
+            this.cmbTipoMovimientoCambioFecha.Name = "cmbTipoMovimientoCambioFecha";
+            this.cmbTipoMovimientoCambioFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTipoMovimientoCambioFecha.Properties.DisplayMember = "tm_descripcion2";
+            this.cmbTipoMovimientoCambioFecha.Properties.ValueMember = "IdMovi_inven_tipo";
+            this.cmbTipoMovimientoCambioFecha.Properties.View = this.gridView2;
+            this.cmbTipoMovimientoCambioFecha.Size = new System.Drawing.Size(527, 22);
+            this.cmbTipoMovimientoCambioFecha.TabIndex = 9;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn32,
+            this.gridColumn33,
+            this.gridColumn34});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowAutoFilterRow = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 23);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 17);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Sucursal";
+            // 
+            // cmbSucursalCambioFecha
+            // 
+            this.cmbSucursalCambioFecha.Location = new System.Drawing.Point(201, 20);
+            this.cmbSucursalCambioFecha.Name = "cmbSucursalCambioFecha";
+            this.cmbSucursalCambioFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSucursalCambioFecha.Properties.DisplayMember = "Su_Descripcion2";
+            this.cmbSucursalCambioFecha.Properties.ValueMember = "IdSucursal";
+            this.cmbSucursalCambioFecha.Properties.View = this.gridView1;
+            this.cmbSucursalCambioFecha.Size = new System.Drawing.Size(527, 22);
+            this.cmbSucursalCambioFecha.TabIndex = 7;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn29,
+            this.gridColumn30,
+            this.gridColumn31});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn29
+            // 
+            this.gridColumn29.Caption = "ID";
+            this.gridColumn29.FieldName = "IdSucursal";
+            this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.Visible = true;
+            this.gridColumn29.VisibleIndex = 2;
+            this.gridColumn29.Width = 283;
+            // 
+            // gridColumn30
+            // 
+            this.gridColumn30.Caption = "Sucursal";
+            this.gridColumn30.FieldName = "Su_Descripcion";
+            this.gridColumn30.Name = "gridColumn30";
+            this.gridColumn30.Visible = true;
+            this.gridColumn30.VisibleIndex = 0;
+            this.gridColumn30.Width = 1169;
+            // 
+            // gridColumn31
+            // 
+            this.gridColumn31.Caption = "Codigo";
+            this.gridColumn31.FieldName = "Codigo";
+            this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.Visible = true;
+            this.gridColumn31.VisibleIndex = 1;
+            this.gridColumn31.Width = 282;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(407, 80);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Nueva fecha:";
+            // 
+            // deFechaNuevaCambio
+            // 
+            this.deFechaNuevaCambio.EditValue = null;
+            this.deFechaNuevaCambio.Location = new System.Drawing.Point(561, 77);
+            this.deFechaNuevaCambio.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaNuevaCambio.Name = "deFechaNuevaCambio";
+            this.deFechaNuevaCambio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaNuevaCambio.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaNuevaCambio.Size = new System.Drawing.Size(167, 22);
+            this.deFechaNuevaCambio.TabIndex = 5;
+            // 
+            // toolStrip6
+            // 
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnBuscarCambioFecha,
+            this.btnCambiarFecha});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip6.TabIndex = 4;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // btnBuscarCambioFecha
+            // 
+            this.btnBuscarCambioFecha.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarCambioFecha.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarCambioFecha.Name = "btnBuscarCambioFecha";
+            this.btnBuscarCambioFecha.Size = new System.Drawing.Size(76, 24);
+            this.btnBuscarCambioFecha.Text = "Buscar ";
+            this.btnBuscarCambioFecha.Click += new System.EventHandler(this.btnBuscarCambioFecha_Click);
+            // 
+            // btnCambiarFecha
+            // 
+            this.btnCambiarFecha.Image = global::Core.Erp.Winform.Properties.Resources.editar1_16x16;
+            this.btnCambiarFecha.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCambiarFecha.Name = "btnCambiarFecha";
+            this.btnCambiarFecha.Size = new System.Drawing.Size(125, 24);
+            this.btnCambiarFecha.Text = "Cambiar fecha";
+            this.btnCambiarFecha.Click += new System.EventHandler(this.btnCambiarFecha_Click);
+            // 
             // toolStripCabecera
             // 
             this.toolStripCabecera.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1220,15 +1504,32 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // chkSeleccionarVisiblesReversos
+            // gridColumn32
             // 
-            this.chkSeleccionarVisiblesReversos.Location = new System.Drawing.Point(92, 85);
-            this.chkSeleccionarVisiblesReversos.Margin = new System.Windows.Forms.Padding(4);
-            this.chkSeleccionarVisiblesReversos.Name = "chkSeleccionarVisiblesReversos";
-            this.chkSeleccionarVisiblesReversos.Properties.Caption = "Seleccionar visibles";
-            this.chkSeleccionarVisiblesReversos.Size = new System.Drawing.Size(168, 21);
-            this.chkSeleccionarVisiblesReversos.TabIndex = 10;
-            this.chkSeleccionarVisiblesReversos.CheckedChanged += new System.EventHandler(this.chkSeleccionarVisiblesReversos_CheckedChanged);
+            this.gridColumn32.Caption = "Tipo movimiento";
+            this.gridColumn32.FieldName = "tm_descripcion";
+            this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.Visible = true;
+            this.gridColumn32.VisibleIndex = 0;
+            this.gridColumn32.Width = 828;
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.Caption = "ID";
+            this.gridColumn33.FieldName = "IdMovi_inven_tipo";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 2;
+            this.gridColumn33.Width = 183;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "Tipo";
+            this.gridColumn34.FieldName = "cm_tipo_movi";
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 1;
+            this.gridColumn34.Width = 182;
             // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
@@ -1298,15 +1599,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDiferencias)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccionarVisiblesReversos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFinD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaIniD.Properties)).EndInit();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
+            this.TabPage_CambiarFecha.ResumeLayout(false);
+            this.TabPage_CambiarFecha.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaActualCambioFecha.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaActualCambioFecha.Properties)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoMovimientoCambioFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSucursalCambioFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties)).EndInit();
+            this.toolStrip6.ResumeLayout(false);
+            this.toolStrip6.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccionarVisiblesReversos.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1409,6 +1724,31 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.DateEdit deFechaIniD;
         private DevExpress.XtraEditors.CheckEdit chkSeleccionarVisiblesReversos;
+        private DevExpress.XtraTab.XtraTabPage TabPage_CambiarFecha;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label11;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbTipoMovimientoCambioFecha;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private System.Windows.Forms.Label label9;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbSucursalCambioFecha;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.Label label10;
+        private DevExpress.XtraEditors.DateEdit deFechaNuevaCambio;
+        private System.Windows.Forms.ToolStrip toolStrip6;
+        private System.Windows.Forms.ToolStripButton btnBuscarCambioFecha;
+        private System.Windows.Forms.ToolStripButton btnCambiarFecha;
+        private System.Windows.Forms.TextBox txtNumMovimiento;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private DevExpress.XtraEditors.DateEdit deFechaActualCambioFecha;
+        private System.Windows.Forms.TextBox txtObservacionCambioFecha;
+        private System.Windows.Forms.Label label13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn30;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

@@ -93,7 +93,8 @@ namespace Core.Erp.Data.General
                         Estado = (item.Estado == "A") ? true : false,
                         NomSucursal = item.tb_sucursal.Su_Descripcion.Trim(),
                         IdCtaCtble_Inve = item.IdCtaCtble_Inve,
-                        IdCtaCtble_Costo = item.IdCtaCtble_Costo
+                        IdCtaCtble_Costo = item.IdCtaCtble_Costo,
+                        bo_Descripcion2 = "["+item.IdBodega.ToString()+"] "+ item.bo_Descripcion
                     });
                 }
                 return (lM);

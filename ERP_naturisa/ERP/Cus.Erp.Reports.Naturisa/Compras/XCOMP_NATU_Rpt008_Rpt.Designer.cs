@@ -46,6 +46,8 @@
             this.xrTableCell29 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell30 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell31 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell51 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell53 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell32 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -85,6 +87,8 @@
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell22 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell49 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell52 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell23 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
@@ -118,10 +122,6 @@
             this.xrTableCell44 = new DevExpress.XtraReports.UI.XRTableCell();
             this.p_IdOrdenPedido = new DevExpress.XtraReports.Parameters.Parameter();
             this.p_IdEmpresa = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xrTableCell49 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell51 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell52 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell53 = new DevExpress.XtraReports.UI.XRTableCell();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -277,6 +277,30 @@
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.Text = "xrTableCell31";
             this.xrTableCell31.Weight = 0.444100460763705D;
+            // 
+            // xrTableCell51
+            // 
+            this.xrTableCell51.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Dias")});
+            this.xrTableCell51.Name = "xrTableCell51";
+            this.xrTableCell51.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 3, 3, 0, 100F);
+            this.xrTableCell51.StylePriority.UsePadding = false;
+            this.xrTableCell51.StylePriority.UseTextAlignment = false;
+            this.xrTableCell51.Text = "xrTableCell51";
+            this.xrTableCell51.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell51.Weight = 0.11734028185828259D;
+            // 
+            // xrTableCell53
+            // 
+            this.xrTableCell53.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cp_PlazoEntrega")});
+            this.xrTableCell53.Name = "xrTableCell53";
+            this.xrTableCell53.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 3, 3, 0, 100F);
+            this.xrTableCell53.StylePriority.UsePadding = false;
+            this.xrTableCell53.StylePriority.UseTextAlignment = false;
+            this.xrTableCell53.Text = "xrTableCell53";
+            this.xrTableCell53.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell53.Weight = 0.11734028434504744D;
             // 
             // xrTableCell32
             // 
@@ -602,6 +626,18 @@
             this.xrTableCell17.Text = "Proveedor";
             this.xrTableCell17.Weight = 0.444100460763705D;
             // 
+            // xrTableCell49
+            // 
+            this.xrTableCell49.Name = "xrTableCell49";
+            this.xrTableCell49.Text = "Plazo cré.";
+            this.xrTableCell49.Weight = 0.11734028931857708D;
+            // 
+            // xrTableCell52
+            // 
+            this.xrTableCell52.Name = "xrTableCell52";
+            this.xrTableCell52.Text = "Dias entr.";
+            this.xrTableCell52.Weight = 0.11734028061490014D;
+            // 
             // xrTableCell23
             // 
             this.xrTableCell23.Name = "xrTableCell23";
@@ -742,7 +778,7 @@
             this.xrTableCell47.Borders = DevExpress.XtraPrinting.BorderSide.Top;
             this.xrTableCell47.Name = "xrTableCell47";
             this.xrTableCell47.StylePriority.UseBorders = false;
-            this.xrTableCell47.Text = "Jefe_compras";
+            this.xrTableCell47.Text = "Gerente_compras";
             this.xrTableCell47.Weight = 3D;
             // 
             // xrTable5
@@ -927,42 +963,6 @@
             // 
             this.p_IdEmpresa.Name = "p_IdEmpresa";
             this.p_IdEmpresa.Visible = false;
-            // 
-            // xrTableCell49
-            // 
-            this.xrTableCell49.Name = "xrTableCell49";
-            this.xrTableCell49.Text = "Plazo cré.";
-            this.xrTableCell49.Weight = 0.11734028931857708D;
-            // 
-            // xrTableCell51
-            // 
-            this.xrTableCell51.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Dias")});
-            this.xrTableCell51.Name = "xrTableCell51";
-            this.xrTableCell51.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 3, 3, 0, 100F);
-            this.xrTableCell51.StylePriority.UsePadding = false;
-            this.xrTableCell51.StylePriority.UseTextAlignment = false;
-            this.xrTableCell51.Text = "xrTableCell51";
-            this.xrTableCell51.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell51.Weight = 0.11734028185828259D;
-            // 
-            // xrTableCell52
-            // 
-            this.xrTableCell52.Name = "xrTableCell52";
-            this.xrTableCell52.Text = "Dias entr.";
-            this.xrTableCell52.Weight = 0.11734028061490014D;
-            // 
-            // xrTableCell53
-            // 
-            this.xrTableCell53.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "cp_PlazoEntrega")});
-            this.xrTableCell53.Name = "xrTableCell53";
-            this.xrTableCell53.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 3, 3, 0, 100F);
-            this.xrTableCell53.StylePriority.UsePadding = false;
-            this.xrTableCell53.StylePriority.UseTextAlignment = false;
-            this.xrTableCell53.Text = "xrTableCell53";
-            this.xrTableCell53.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell53.Weight = 0.11734028434504744D;
             // 
             // bindingSource1
             // 

@@ -403,7 +403,7 @@
             this.cmbBodegaDestino.Name = "cmbBodegaDestino";
             this.cmbBodegaDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbBodegaDestino.Properties.DisplayMember = "bo_Descripcion";
+            this.cmbBodegaDestino.Properties.DisplayMember = "bo_Descripcion2";
             this.cmbBodegaDestino.Properties.ValueMember = "IdBodega";
             this.cmbBodegaDestino.Properties.View = this.gridView2;
             this.cmbBodegaDestino.Size = new System.Drawing.Size(268, 22);
@@ -454,7 +454,7 @@
             this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
             this.cmbBodegaOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbBodegaOrigen.Properties.DisplayMember = "bo_Descripcion";
+            this.cmbBodegaOrigen.Properties.DisplayMember = "bo_Descripcion2";
             this.cmbBodegaOrigen.Properties.ValueMember = "IdBodega";
             this.cmbBodegaOrigen.Properties.View = this.gridView1;
             this.cmbBodegaOrigen.Size = new System.Drawing.Size(268, 22);
@@ -496,7 +496,7 @@
             this.cmbSucursalDestino.Name = "cmbSucursalDestino";
             this.cmbSucursalDestino.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSucursalDestino.Properties.DisplayMember = "Su_Descripcion";
+            this.cmbSucursalDestino.Properties.DisplayMember = "Su_Descripcion2";
             this.cmbSucursalDestino.Properties.ValueMember = "IdSucursal";
             this.cmbSucursalDestino.Properties.View = this.gridView3;
             this.cmbSucursalDestino.Size = new System.Drawing.Size(268, 22);
@@ -567,7 +567,7 @@
             this.cmbSucursalOrigen.Name = "cmbSucursalOrigen";
             this.cmbSucursalOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSucursalOrigen.Properties.DisplayMember = "Su_Descripcion";
+            this.cmbSucursalOrigen.Properties.DisplayMember = "Su_Descripcion2";
             this.cmbSucursalOrigen.Properties.ValueMember = "IdSucursal";
             this.cmbSucursalOrigen.Properties.View = this.searchLookUpEdit1View;
             this.cmbSucursalOrigen.Size = new System.Drawing.Size(268, 22);
@@ -687,7 +687,7 @@
             this.xtraTabPage2.Controls.Add(this.pnlGuia);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1333, 178);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1334, 179);
             this.xtraTabPage2.Text = "Datos guia";
             // 
             // txtIdGuia
@@ -1008,7 +1008,7 @@
             this.ucgeMenu.Enabled_btnImprimirSoporte = true;
             this.ucgeMenu.Enabled_btnproductos = true;
             this.ucgeMenu.Location = new System.Drawing.Point(0, 0);
-            this.ucgeMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucgeMenu.Margin = new System.Windows.Forms.Padding(5);
             this.ucgeMenu.Name = "ucgeMenu";
             this.ucgeMenu.Size = new System.Drawing.Size(1344, 30);
             this.ucgeMenu.TabIndex = 1;

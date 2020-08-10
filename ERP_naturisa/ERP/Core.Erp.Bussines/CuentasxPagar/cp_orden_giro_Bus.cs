@@ -24,6 +24,7 @@ namespace Core.Erp.Business.CuentasxPagar
         cp_parametros_Bus busParam = new cp_parametros_Bus();
         cp_retencion_Bus Bus_Retencion = new cp_retencion_Bus();
         cp_cuotas_x_doc_Bus bus_cuotas_x_doc = new cp_cuotas_x_doc_Bus();
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         string mensaje = "";
 
 
@@ -131,8 +132,9 @@ namespace Core.Erp.Business.CuentasxPagar
                 {
                     orden_giro_Info.PaisPago = null;
                 }
-               
 
+                orden_giro_Info.IdUsuario = param.IdUsuario;
+                orden_giro_Info.IdUsuarioUltMod = param.IdUsuario;
                 /*--- corrigiendo data */
 
                 #endregion
@@ -290,19 +292,6 @@ namespace Core.Erp.Business.CuentasxPagar
                             mensaje = "No se pudo Ingresar la Factura Proveedor \n Comuníquese con sistema por favor" + mensaje; return false;
                         }
 
-                        if (Info_OrdenGiro.lst_reembolso != null )
-                        {
-                            if (Info_OrdenGiro.lst_reembolso.Count != 0)
-                            {
-                                if (!Reem_B.GuardarDBLst(Info_OrdenGiro.lst_reembolso, Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro, ref mensaje))
-                                {
-
-                                    mensaje = "No se pudo Ingresar lo(s) reembolso(s) \n Comuníquese con sistema por favor" + mensaje; return false;
-                                }
-
-                            }
-
-                        }
 
 
                         if (Info_OrdenGiro.lst_formasPagoSRI != null)
@@ -581,14 +570,7 @@ namespace Core.Erp.Business.CuentasxPagar
                     if (OdataOG.ModificarDB(InfoOrdenGiro_I, ref msg))
                     {
                         #region reembolso formaspago y retenciones
-                        InfoOrdenGiro_I.lst_reembolso.ForEach(p => { p.IdCbteCble_Ogiro = InfoOrdenGiro_I.IdCbteCble_Ogiro; p.IdTipoCbte_Ogiro = InfoOrdenGiro_I.IdTipoCbte_Ogiro; });
-
-                        if (!Reem_B.ModificarLst(InfoOrdenGiro_I.lst_reembolso, InfoOrdenGiro_I.IdEmpresa, InfoOrdenGiro_I.IdCbteCble_Ogiro, InfoOrdenGiro_I.IdTipoCbte_Ogiro))
-                        {
-                            msg = "No se pudo Modificar lo(s) reembolso(s) \n Comuníquese con sistemas por favor";
-
-                            res = false;
-                        }
+                      
                         InfoOrdenGiro_I.lst_formasPagoSRI.ForEach(p => { p.IdCbteCble_Ogiro = InfoOrdenGiro_I.IdCbteCble_Ogiro; p.IdTipoCbte_Ogiro = InfoOrdenGiro_I.IdTipoCbte_Ogiro; });
                         if (!pagoSRI_B.ModificarDB(InfoOrdenGiro_I.lst_formasPagoSRI, InfoOrdenGiro_I.IdEmpresa, InfoOrdenGiro_I.IdCbteCble_Ogiro, InfoOrdenGiro_I.IdTipoCbte_Ogiro, ref msg))
                         {

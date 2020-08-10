@@ -145,8 +145,8 @@ namespace Core.Erp.Info.CuentasxPagar
         public cp_retencion_Info Info_Retencion { get; set; }
         public cp_orden_pago_Info Info_Orden_Pago { get; set; }
         public cp_cuotas_x_doc_Info Info_cuotas_x_doc { get; set; }
-        public List<cp_reembolso_Info> lst_reembolso { get; set; }
-
+        //public List<cp_reembolso_Info> lst_reembolso { get; set; }
+        public List<cp_reembolso_Info> ListaReembolso { get; set; }
         public List<cp_orden_giro_pagos_sri_Info> lst_formasPagoSRI{ get; set; }
         public List<cp_orden_giro_x_imp_ordencompra_ext_Info> LisImportacion { get; set; }
         public List<cp_orden_giro_x_com_ordencompra_local_Info> LstImportacionOC  { get; set; }
@@ -176,7 +176,7 @@ namespace Core.Erp.Info.CuentasxPagar
             Info_Retencion = new cp_retencion_Info();
             Info_Orden_Pago = new cp_orden_pago_Info();
             Info_cuotas_x_doc = new cp_cuotas_x_doc_Info();
-            lst_reembolso = new List<cp_reembolso_Info>();
+            //lst_reembolso = new List<cp_reembolso_Info>();
 
             lst_formasPagoSRI= new List<cp_orden_giro_pagos_sri_Info>();
             LisImportacion = new List<cp_orden_giro_x_imp_ordencompra_ext_Info>();

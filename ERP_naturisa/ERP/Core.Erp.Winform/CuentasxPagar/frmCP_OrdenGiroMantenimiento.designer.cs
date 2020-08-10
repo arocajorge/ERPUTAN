@@ -177,6 +177,7 @@
             this.colcodigo_pago_sri1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colformas_pago_sri1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcheck = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label48 = new System.Windows.Forms.Label();
             this.cmbPais = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -212,7 +213,31 @@
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ColValorIvaDet = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ColTotalDet = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tp_Reembolso = new DevExpress.XtraTab.XtraTabPage();
+            this.gcReembolso = new DevExpress.XtraGrid.GridControl();
+            this.gvReembolso = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbTipoIdentificacionReembolso = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbTipoDocumento = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.impordencompraextximpgastosxImportInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpreembolsoInfoBindingSource)).BeginInit();
@@ -278,6 +303,7 @@
             this.tp_info_pago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_formasPagoSRI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_formasPagoSRI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPais.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView11)).BeginInit();
             this.grupo_PagoSujetoRetencion.SuspendLayout();
@@ -292,7 +318,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImpuestoDet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            this.tp_Reembolso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcReembolso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvReembolso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoIdentificacionReembolso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoDocumento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2View)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -368,6 +400,7 @@
             this.uCMenu.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.uCMenu_event_btnAnular_Click);
             this.uCMenu.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.uCMenu_event_btnSalir_Click);
             this.uCMenu.event_btn_Generar_XML_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btn_Generar_XML_Click(this.uCMenu_event_btn_Generar_XML_Click);
+            this.uCMenu.Load += new System.EventHandler(this.uCMenu_Load);
             // 
             // panel5
             // 
@@ -965,7 +998,8 @@
             this.tp_campos_ND,
             this.tp_info_pago,
             this.tp_detalle_cuotas,
-            this.tp_Detalle});
+            this.tp_Detalle,
+            this.tp_Reembolso});
             // 
             // tp_Datos_generales
             // 
@@ -1972,6 +2006,11 @@
             this.colcheck.VisibleIndex = 0;
             this.colcheck.Width = 27;
             // 
+            // gridView5
+            // 
+            this.gridView5.GridControl = this.gridControl_formasPagoSRI;
+            this.gridView5.Name = "gridView5";
+            // 
             // label48
             // 
             this.label48.AutoSize = true;
@@ -2154,6 +2193,7 @@
             this.gv_detalle.OptionsView.ShowFooter = true;
             this.gv_detalle.OptionsView.ShowGroupPanel = false;
             this.gv_detalle.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gv_detalle_CellValueChanged);
+            this.gv_detalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gv_detalle_KeyDown);
             // 
             // ColProductoDet
             // 
@@ -2344,10 +2384,255 @@
             this.ColTotalDet.VisibleIndex = 8;
             this.ColTotalDet.Width = 67;
             // 
-            // gridView5
+            // tp_Reembolso
             // 
-            this.gridView5.GridControl = this.gridControl_formasPagoSRI;
-            this.gridView5.Name = "gridView5";
+            this.tp_Reembolso.Controls.Add(this.gcReembolso);
+            this.tp_Reembolso.Name = "tp_Reembolso";
+            this.tp_Reembolso.Size = new System.Drawing.Size(1357, 403);
+            this.tp_Reembolso.Text = "Reembolso";
+            // 
+            // gcReembolso
+            // 
+            this.gcReembolso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcReembolso.Location = new System.Drawing.Point(0, 0);
+            this.gcReembolso.MainView = this.gvReembolso;
+            this.gcReembolso.Name = "gcReembolso";
+            this.gcReembolso.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbTipoIdentificacionReembolso,
+            this.cmbTipoDocumento});
+            this.gcReembolso.Size = new System.Drawing.Size(1357, 403);
+            this.gcReembolso.TabIndex = 4;
+            this.gcReembolso.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvReembolso});
+            // 
+            // gvReembolso
+            // 
+            this.gvReembolso.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn11,
+            this.gridColumn12,
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn15,
+            this.gridColumn16,
+            this.gridColumn17,
+            this.gridColumn18,
+            this.gridColumn19,
+            this.gridColumn20,
+            this.gridColumn21,
+            this.gridColumn22,
+            this.gridColumn23,
+            this.gridColumn24});
+            this.gvReembolso.GridControl = this.gcReembolso;
+            this.gvReembolso.Name = "gvReembolso";
+            this.gvReembolso.OptionsView.ColumnAutoWidth = false;
+            this.gvReembolso.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvReembolso.OptionsView.ShowFooter = true;
+            this.gvReembolso.OptionsView.ShowGroupPanel = false;
+            this.gvReembolso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvReembolso_KeyDown);
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Tipo identificación";
+            this.gridColumn11.ColumnEdit = this.cmbTipoIdentificacionReembolso;
+            this.gridColumn11.FieldName = "TipoIdProveedor";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 0;
+            this.gridColumn11.Width = 100;
+            // 
+            // cmbTipoIdentificacionReembolso
+            // 
+            this.cmbTipoIdentificacionReembolso.AutoHeight = false;
+            this.cmbTipoIdentificacionReembolso.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTipoIdentificacionReembolso.DisplayMember = "descripcion";
+            this.cmbTipoIdentificacionReembolso.Name = "cmbTipoIdentificacionReembolso";
+            this.cmbTipoIdentificacionReembolso.ValueMember = "codigo";
+            this.cmbTipoIdentificacionReembolso.View = this.gridView4;
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn28,
+            this.gridColumn29});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.Caption = "Codigo";
+            this.gridColumn28.FieldName = "codigo";
+            this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.Visible = true;
+            this.gridColumn28.VisibleIndex = 1;
+            this.gridColumn28.Width = 381;
+            // 
+            // gridColumn29
+            // 
+            this.gridColumn29.Caption = "Documento";
+            this.gridColumn29.FieldName = "descripcion";
+            this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.Visible = true;
+            this.gridColumn29.VisibleIndex = 0;
+            this.gridColumn29.Width = 1353;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "RUC";
+            this.gridColumn12.FieldName = "IdentificacionProveedor";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 1;
+            this.gridColumn12.Width = 150;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Tipo Documento";
+            this.gridColumn13.ColumnEdit = this.cmbTipoDocumento;
+            this.gridColumn13.FieldName = "TipoDoc_CodSRI";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 2;
+            this.gridColumn13.Width = 150;
+            // 
+            // cmbTipoDocumento
+            // 
+            this.cmbTipoDocumento.AutoHeight = false;
+            this.cmbTipoDocumento.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTipoDocumento.DisplayMember = "Descripcion";
+            this.cmbTipoDocumento.Name = "cmbTipoDocumento";
+            this.cmbTipoDocumento.ValueMember = "CodTipoDocumento";
+            this.cmbTipoDocumento.View = this.repositoryItemSearchLookUpEdit2View;
+            // 
+            // repositoryItemSearchLookUpEdit2View
+            // 
+            this.repositoryItemSearchLookUpEdit2View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn26,
+            this.gridColumn27});
+            this.repositoryItemSearchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit2View.Name = "repositoryItemSearchLookUpEdit2View";
+            this.repositoryItemSearchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit2View.OptionsView.ShowAutoFilterRow = true;
+            this.repositoryItemSearchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn26
+            // 
+            this.gridColumn26.Caption = "Codigo";
+            this.gridColumn26.FieldName = "CodTipoDocumento";
+            this.gridColumn26.Name = "gridColumn26";
+            this.gridColumn26.Visible = true;
+            this.gridColumn26.VisibleIndex = 1;
+            this.gridColumn26.Width = 278;
+            // 
+            // gridColumn27
+            // 
+            this.gridColumn27.Caption = "Documento";
+            this.gridColumn27.FieldName = "Descripcion";
+            this.gridColumn27.Name = "gridColumn27";
+            this.gridColumn27.Visible = true;
+            this.gridColumn27.VisibleIndex = 0;
+            this.gridColumn27.Width = 1438;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Establecimiento";
+            this.gridColumn14.FieldName = "Establecimiento";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 3;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Punto emisión";
+            this.gridColumn15.FieldName = "Punto_Emision";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 4;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "# Documento";
+            this.gridColumn16.FieldName = "Secuencial";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 5;
+            this.gridColumn16.Width = 100;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "# Autorización";
+            this.gridColumn17.FieldName = "Autorizacion";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 6;
+            this.gridColumn17.Width = 300;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Fecha Emisión";
+            this.gridColumn18.FieldName = "Fecha_Emision";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 7;
+            this.gridColumn18.Width = 100;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "Tarifa IVA 0%";
+            this.gridColumn19.FieldName = "TarifaIVAcero";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 8;
+            this.gridColumn19.Width = 100;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "Tarifa IVA diferente 0%";
+            this.gridColumn20.FieldName = "TarifaIVADiferentecero";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 9;
+            this.gridColumn20.Width = 100;
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Tarifa No Objeto de IVA";
+            this.gridColumn21.FieldName = "TarifaNoObjetoIVA";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 10;
+            this.gridColumn21.Width = 100;
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.Caption = "Base exenta de IVA";
+            this.gridColumn22.FieldName = "TarifaExcentaDeIVA";
+            this.gridColumn22.Name = "gridColumn22";
+            this.gridColumn22.Visible = true;
+            this.gridColumn22.VisibleIndex = 11;
+            this.gridColumn22.Width = 100;
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "Monto IVA";
+            this.gridColumn23.FieldName = "MontoIVA";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 12;
+            this.gridColumn23.Width = 100;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.Caption = "Monto ICE";
+            this.gridColumn24.FieldName = "MontoICE";
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.Visible = true;
+            this.gridColumn24.VisibleIndex = 13;
+            this.gridColumn24.Width = 100;
             // 
             // panel4
             // 
@@ -2445,6 +2730,7 @@
             this.tp_info_pago.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_formasPagoSRI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_formasPagoSRI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPais.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView11)).EndInit();
             this.grupo_PagoSujetoRetencion.ResumeLayout(false);
@@ -2461,7 +2747,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImpuestoDet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            this.tp_Reembolso.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcReembolso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvReembolso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoIdentificacionReembolso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoDocumento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2View)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -2654,5 +2946,30 @@
         private DevExpress.XtraGrid.Columns.GridColumn ColTotalDet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private System.Windows.Forms.Panel panel4;
+        private DevExpress.XtraTab.XtraTabPage tp_Reembolso;
+        private DevExpress.XtraGrid.GridControl gcReembolso;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvReembolso;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbTipoIdentificacionReembolso;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn28;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbTipoDocumento;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit2View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
     }
 }

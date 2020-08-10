@@ -79,5 +79,9 @@ namespace Core.Erp.Info.CuentasxPagar
         public bool ValidacionR { get; set; }
 
         public bool ValidacionC { get; set; }
+
+        public string EstadoCancelacion { get; set; }
+
+        public string descripcion_clas_prove { get; set; }
     }
 }

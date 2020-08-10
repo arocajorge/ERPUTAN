@@ -42,7 +42,6 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_proveedor_clase" Width="1.5" PointX="9" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_proveedor_codigo_SRI" Width="1.5" PointX="13.5" PointY="34.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_proveedor_contactos" Width="1.5" PointX="13.5" PointY="73.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_reembolso" Width="1.5" PointX="21.75" PointY="33.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_retencion" Width="1.5" PointX="18.75" PointY="51.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_retencion_det" Width="1.5" PointX="21" PointY="53.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_retencion_x_ct_cbtecble" Width="1.5" PointX="21" PointY="60" IsExpanded="true" />
@@ -130,7 +129,6 @@
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_proveedor_codigo_SRI_cp_proveedor" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_proveedor_contactos_cp_proveedor" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_proveedor_cp_proveedor_clase" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_reembolso_cp_proveedor" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_retencion_det_cp_retencion" ManuallyRouted="false" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_retencion_x_ct_cbtecble_cp_retencion" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_orden_giro" Width="1.5" PointX="6.97652446803475" PointY="16.993526019618624" />
@@ -144,7 +142,6 @@
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_giro_x_com_ordencompra_local_cp_orden_giro" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_giro_x_com_ordencompra_local_det_cp_orden_giro" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_giro_x_imp_ordencompra_ext_cp_orden_giro" />
-        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_retencion_cp_orden_giro" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_nota_DebCre_ATS" Width="1.5" PointX="2.8655140078000323" PointY="11.3306308590484" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_Conciliacion_Caja_det" Width="1.5" PointX="1.482576974426665" PointY="0.74381069873637085" />
@@ -173,7 +170,6 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago" Width="1.5" PointX="0.45009530915417484" PointY="3.9536283183626963" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" Width="1.5" PointX="8.8840195708368057" PointY="20.700666347844837" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" Width="1.5" PointX="7.1251153271296594" PointY="6.9797304901200024" />
-        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="8.2749858201830584" PointY="11.4468247496741" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_XML_Documento" Width="1.5" PointX="1.7413212963106677" PointY="6.7518449904172888" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_XML_DocumentoDet_cp_XML_Documento" />
@@ -186,6 +182,9 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_TipoDocumento" Width="1.5" PointX="5.7094171055170788" PointY="9.9849552707676565" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_orden_giro_det_cp_orden_giro" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_proveedor_ValidarAnticipos" Width="1.5" PointX="6.5942341175834809" PointY="2.9082426293325807" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="8.0600140821468145" PointY="19.3734844715211" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_reembolso" Width="1.5" PointX="7.6115911694297527" PointY="18.89761064336524" />
+        <AssociationConnector Association="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

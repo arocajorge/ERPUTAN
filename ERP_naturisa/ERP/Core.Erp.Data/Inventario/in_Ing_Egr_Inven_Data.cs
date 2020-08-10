@@ -1020,7 +1020,7 @@ namespace Core.Erp.Data.Inventario
                     if (Entity != null)
                     {
                         Entity.cm_observacion = info.cm_observacion;
-                        Entity.cm_fecha = info.cm_fecha.Date;
+                        //Entity.cm_fecha = info.cm_fecha.Date;
                         Entity.CodMoviInven = info.CodMoviInven;
                         Entity.IdMotivo_Inv = info.IdMotivo_Inv;
 
@@ -1036,7 +1036,7 @@ namespace Core.Erp.Data.Inventario
                                 info_movi.IdMovi_inven_tipo = Convert.ToInt32(item.IdMovi_inven_tipo_inv);
                                 info_movi.IdNumMovi = Convert.ToDecimal(item.IdNumMovi_inv);
                                 info_movi.cm_observacion = info.cm_observacion;
-                                info_movi.cm_fecha = info.cm_fecha;
+                                //info_movi.cm_fecha = info.cm_fecha;
                                 info_movi.CodMoviInven = info.CodMoviInven;
 
                                 in_movi_inve_Data data_movi = new in_movi_inve_Data();
@@ -1044,6 +1044,7 @@ namespace Core.Erp.Data.Inventario
                             }
                             else
                             {
+                                /*
                                 in_Ing_Egr_Inven_det_Data odata = new in_Ing_Egr_Inven_det_Data();
 
                                 if (info.IdBodega != null)
@@ -1052,7 +1053,7 @@ namespace Core.Erp.Data.Inventario
                                     odata.ModificarDB_proceso_cerrado(item);
                                     Entity.IdBodega = info.IdBodega;
                                     Context.SaveChanges();
-                                }
+                                }*/
 
                                 msgs = "Se actualizó la transacción exitosamente.";
                             }
@@ -1251,6 +1252,34 @@ namespace Core.Erp.Data.Inventario
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public bool CambiarFecha(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi, DateTime Fecha, string IdUsuario)
+        {
+            try
+            {
+                Fecha = Fecha.Date;
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    db.SPINV_CambiarFechaMovimiento(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi, Fecha);
+
+                    var Entity = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inven_tipo && q.IdNumMovi == IdNumMovi).FirstOrDefault();
+                    if (Entity == null)
+                        return false;
+
+
+                    Entity.IdUsuarioUltModi = IdUsuario;
+                    Entity.Fecha_UltMod = DateTime.Now;
+                    db.SaveChanges();
+                        
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

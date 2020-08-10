@@ -2000,7 +2000,33 @@
       [vwcp_XML_Documento].[ObligadoAllevarConta] AS [ObligadoAllevarConta], 
       [vwcp_XML_Documento].[em_ruc] AS [em_ruc], 
       [vwcp_XML_Documento].[em_direccion] AS [em_direccion], 
-      [vwcp_XML_Documento].[Estado] AS [Estado]
+      [vwcp_XML_Documento].[Estado] AS [Estado], 
+      [vwcp_XML_Documento].[EstadoCancelacion] AS [EstadoCancelacion], 
+      [vwcp_XML_Documento].[Tipo] AS [Tipo], 
+      [vwcp_XML_Documento].[emi_NombreComercial] AS [emi_NombreComercial], 
+      [vwcp_XML_Documento].[emi_DireccionMatriz] AS [emi_DireccionMatriz], 
+      [vwcp_XML_Documento].[ClaveAcceso] AS [ClaveAcceso], 
+      [vwcp_XML_Documento].[Establecimiento] AS [Establecimiento], 
+      [vwcp_XML_Documento].[PuntoEmision] AS [PuntoEmision], 
+      [vwcp_XML_Documento].[rec_RazonSocial] AS [rec_RazonSocial], 
+      [vwcp_XML_Documento].[rec_Identificacion] AS [rec_Identificacion], 
+      [vwcp_XML_Documento].[Subtotal0] AS [Subtotal0], 
+      [vwcp_XML_Documento].[SubtotalIVA] AS [SubtotalIVA], 
+      [vwcp_XML_Documento].[Porcentaje] AS [Porcentaje], 
+      [vwcp_XML_Documento].[ValorIVA] AS [ValorIVA], 
+      [vwcp_XML_Documento].[Total] AS [Total], 
+      [vwcp_XML_Documento].[FormaPago] AS [FormaPago], 
+      [vwcp_XML_Documento].[Plazo] AS [Plazo], 
+      [vwcp_XML_Documento].[Comprobante] AS [Comprobante], 
+      [vwcp_XML_Documento].[emi_ContribuyenteEspecial] AS [emi_ContribuyenteEspecial], 
+      [vwcp_XML_Documento].[ret_CodDocumentoTipo] AS [ret_CodDocumentoTipo], 
+      [vwcp_XML_Documento].[ret_Establecimiento] AS [ret_Establecimiento], 
+      [vwcp_XML_Documento].[ret_FechaAutorizacion] AS [ret_FechaAutorizacion], 
+      [vwcp_XML_Documento].[ret_NumeroAutorizacion] AS [ret_NumeroAutorizacion], 
+      [vwcp_XML_Documento].[ret_PuntoEmision] AS [ret_PuntoEmision], 
+      [vwcp_XML_Documento].[IdTipoCbte] AS [IdTipoCbte], 
+      [vwcp_XML_Documento].[IdCbteCble] AS [IdCbteCble], 
+      [vwcp_XML_Documento].[descripcion_clas_prove] AS [descripcion_clas_prove]
       FROM [Digitalizacion].[vwcp_XML_Documento] AS [vwcp_XML_Documento]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_cp_Aprobacion_Ing_Bod_x_OC_cp_orden_giro" Association="ModelCuentasxPagar.Store.FK_cp_Aprobacion_Ing_Bod_x_OC_cp_orden_giro">
@@ -2213,10 +2239,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_cp_reembolso_cp_orden_giro" Association="ModelCuentasxPagar.Store.FK_cp_reembolso_cp_orden_giro">
             <End Role="cp_orden_giro" EntitySet="cp_orden_giro" />
-            <End Role="cp_reembolso" EntitySet="cp_reembolso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cp_reembolso_cp_proveedor" Association="ModelCuentasxPagar.Store.FK_cp_reembolso_cp_proveedor">
-            <End Role="cp_proveedor" EntitySet="cp_proveedor" />
             <End Role="cp_reembolso" EntitySet="cp_reembolso" />
           </AssociationSet>
           <AssociationSet Name="FK_cp_retencion_cp_orden_giro" Association="ModelCuentasxPagar.Store.FK_cp_retencion_cp_orden_giro">
@@ -3192,22 +3214,21 @@
           <Property Name="IdCbteCble_Ogiro" Type="numeric" Nullable="false" />
           <Property Name="IdTipoCbte_Ogiro" Type="int" Nullable="false" />
           <Property Name="IdReembolso" Type="numeric" Nullable="false" />
-          <Property Name="IdProveedor" Type="numeric" />
           <Property Name="TipoIdProveedor" Type="varchar" MaxLength="50" />
           <Property Name="IdentificacionProveedor" Type="varchar" MaxLength="50" />
           <Property Name="TipoDoc_CodSRI" Type="varchar" MaxLength="5" />
           <Property Name="Establecimiento" Type="varchar" MaxLength="25" />
           <Property Name="Punto_Emision" Type="varchar" MaxLength="25" />
           <Property Name="Secuencial" Type="varchar" MaxLength="25" />
-          <Property Name="Autorizacion" Type="varchar" MaxLength="25" />
-          <Property Name="Fecha_Emision" Type="date" />
-          <Property Name="TarifaIVAcero" Type="float" />
-          <Property Name="TarifaIVADiferentecero" Type="float" />
-          <Property Name="TarifaNoObjetoIVA" Type="float" />
-          <Property Name="MontoICE" Type="float" />
-          <Property Name="MontoIVA" Type="float" />
-          <Property Name="baseImponible" Type="float" />
-          <Property Name="Total" Type="float" />
+          <Property Name="Autorizacion" Type="varchar" MaxLength="200" />
+          <Property Name="Fecha_Emision" Type="date" Nullable="false" />
+          <Property Name="TarifaIVAcero" Type="float" Nullable="false" />
+          <Property Name="TarifaIVADiferentecero" Type="float" Nullable="false" />
+          <Property Name="TarifaNoObjetoIVA" Type="float" Nullable="false" />
+          <Property Name="TarifaExcentaDeIVA" Type="float" Nullable="false" />
+          <Property Name="TotalBaseImponible" Type="float" Nullable="false" />
+          <Property Name="MontoICE" Type="float" Nullable="false" />
+          <Property Name="MontoIVA" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="cp_retencion">
           <Key>
@@ -6338,7 +6359,6 @@
           <Key>
             <PropertyRef Name="IdEmpresa" />
             <PropertyRef Name="IdRetencion" />
-            <PropertyRef Name="fecha" />
             <PropertyRef Name="pe_nombreCompleto" />
             <PropertyRef Name="pe_cedulaRuc" />
             <PropertyRef Name="pe_direccion" />
@@ -6356,6 +6376,7 @@
             <PropertyRef Name="em_ruc" />
             <PropertyRef Name="em_direccion" />
             <PropertyRef Name="Estado" />
+            <PropertyRef Name="fecha" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdRetencion" Type="numeric" Nullable="false" />
@@ -6365,7 +6386,7 @@
           <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="pe_razonSocial" Type="varchar" MaxLength="150" />
           <Property Name="pe_cedulaRuc" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="pe_correo" Type="varchar" MaxLength="100" />
+          <Property Name="pe_correo" Type="varchar(max)" />
           <Property Name="pe_direccion" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="pe_telfono_Contacto" Type="varchar" MaxLength="50" />
           <Property Name="IdProveedor" Type="numeric" Nullable="false" />
@@ -6557,6 +6578,23 @@
             <PropertyRef Name="em_ruc" />
             <PropertyRef Name="em_direccion" />
             <PropertyRef Name="Estado" />
+            <PropertyRef Name="EstadoCancelacion" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="emi_NombreComercial" />
+            <PropertyRef Name="emi_DireccionMatriz" />
+            <PropertyRef Name="ClaveAcceso" />
+            <PropertyRef Name="Establecimiento" />
+            <PropertyRef Name="PuntoEmision" />
+            <PropertyRef Name="rec_RazonSocial" />
+            <PropertyRef Name="rec_Identificacion" />
+            <PropertyRef Name="Subtotal0" />
+            <PropertyRef Name="SubtotalIVA" />
+            <PropertyRef Name="Porcentaje" />
+            <PropertyRef Name="ValorIVA" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="Plazo" />
+            <PropertyRef Name="Comprobante" />
+            <PropertyRef Name="emi_ContribuyenteEspecial" />
           </Key>
           <Property Name="IdEmpresa" Type="int" Nullable="false" />
           <Property Name="IdDocumento" Type="numeric" Nullable="false" />
@@ -6585,6 +6623,32 @@
           <Property Name="em_ruc" Type="nvarchar" Nullable="false" MaxLength="13" />
           <Property Name="em_direccion" Type="varchar" Nullable="false" MaxLength="300" />
           <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="EstadoCancelacion" Type="varchar" Nullable="false" MaxLength="9" />
+          <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="emi_NombreComercial" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="emi_DireccionMatriz" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="ClaveAcceso" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Establecimiento" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="PuntoEmision" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="rec_RazonSocial" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="rec_Identificacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Subtotal0" Type="float" Nullable="false" />
+          <Property Name="SubtotalIVA" Type="float" Nullable="false" />
+          <Property Name="Porcentaje" Type="float" Nullable="false" />
+          <Property Name="ValorIVA" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="FormaPago" Type="varchar" MaxLength="2" />
+          <Property Name="Plazo" Type="int" Nullable="false" />
+          <Property Name="Comprobante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="emi_ContribuyenteEspecial" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ret_CodDocumentoTipo" Type="varchar" MaxLength="20" />
+          <Property Name="ret_Establecimiento" Type="varchar" MaxLength="3" />
+          <Property Name="ret_FechaAutorizacion" Type="date" />
+          <Property Name="ret_NumeroAutorizacion" Type="varchar" MaxLength="200" />
+          <Property Name="ret_PuntoEmision" Type="varchar" MaxLength="3" />
+          <Property Name="IdTipoCbte" Type="int" />
+          <Property Name="IdCbteCble" Type="numeric" />
+          <Property Name="descripcion_clas_prove" Type="varchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_cp_Aprobacion_Ing_Bod_x_OC_cp_orden_giro">
           <End Role="cp_orden_giro" Type="ModelCuentasxPagar.Store.cp_orden_giro" Multiplicity="0..1" />
@@ -7304,20 +7368,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_cp_reembolso_cp_proveedor">
-          <End Role="cp_proveedor" Type="ModelCuentasxPagar.Store.cp_proveedor" Multiplicity="0..1" />
-          <End Role="cp_reembolso" Type="ModelCuentasxPagar.Store.cp_reembolso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_proveedor">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProveedor" />
-            </Principal>
-            <Dependent Role="cp_reembolso">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_cp_retencion_cp_orden_giro">
           <End Role="cp_orden_giro" Type="ModelCuentasxPagar.Store.cp_orden_giro" Multiplicity="0..1" />
           <End Role="cp_retencion" Type="ModelCuentasxPagar.Store.cp_retencion" Multiplicity="*" />
@@ -7485,7 +7535,6 @@
           <EntitySet Name="cp_proveedor_clase" EntityType="ModelCuentasxPagar.cp_proveedor_clase" />
           <EntitySet Name="cp_proveedor_codigo_SRI" EntityType="ModelCuentasxPagar.cp_proveedor_codigo_SRI" />
           <EntitySet Name="cp_proveedor_contactos" EntityType="ModelCuentasxPagar.cp_proveedor_contactos" />
-          <EntitySet Name="cp_reembolso" EntityType="ModelCuentasxPagar.cp_reembolso" />
           <EntitySet Name="cp_retencion" EntityType="ModelCuentasxPagar.cp_retencion" />
           <EntitySet Name="cp_retencion_det" EntityType="ModelCuentasxPagar.cp_retencion_det" />
           <EntitySet Name="cp_retencion_x_ct_cbtecble" EntityType="ModelCuentasxPagar.cp_retencion_x_ct_cbtecble" />
@@ -7681,10 +7730,6 @@
             <End Role="cp_proveedor_clase" EntitySet="cp_proveedor_clase" />
             <End Role="cp_proveedor" EntitySet="cp_proveedor" />
           </AssociationSet>
-          <AssociationSet Name="FK_cp_reembolso_cp_proveedor" Association="ModelCuentasxPagar.FK_cp_reembolso_cp_proveedor">
-            <End Role="cp_proveedor" EntitySet="cp_proveedor" />
-            <End Role="cp_reembolso" EntitySet="cp_reembolso" />
-          </AssociationSet>
           <AssociationSet Name="FK_cp_retencion_det_cp_retencion" Association="ModelCuentasxPagar.FK_cp_retencion_det_cp_retencion">
             <End Role="cp_retencion" EntitySet="cp_retencion" />
             <End Role="cp_retencion_det" EntitySet="cp_retencion_det" />
@@ -7740,10 +7785,6 @@
           <AssociationSet Name="FK_cp_orden_giro_x_imp_ordencompra_ext_cp_orden_giro" Association="ModelCuentasxPagar.FK_cp_orden_giro_x_imp_ordencompra_ext_cp_orden_giro">
             <End Role="cp_orden_giro" EntitySet="cp_orden_giro" />
             <End Role="cp_orden_giro_x_imp_ordencompra_ext" EntitySet="cp_orden_giro_x_imp_ordencompra_ext" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cp_reembolso_cp_orden_giro" Association="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro">
-            <End Role="cp_orden_giro" EntitySet="cp_orden_giro" />
-            <End Role="cp_reembolso" EntitySet="cp_reembolso" />
           </AssociationSet>
           <AssociationSet Name="FK_cp_retencion_cp_orden_giro" Association="ModelCuentasxPagar.FK_cp_retencion_cp_orden_giro">
             <End Role="cp_orden_giro" EntitySet="cp_orden_giro" />
@@ -7812,7 +7853,6 @@
           <EntitySet Name="vwcp_conciliacion_x_orden_pago" EntityType="ModelCuentasxPagar.vwcp_conciliacion_x_orden_pago" />
           <EntitySet Name="vwcp_orden_pago_con_cancelacion_para_conciliacion" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_para_conciliacion" />
           <EntitySet Name="vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" EntityType="ModelCuentasxPagar.vwcp_orden_pago_con_cancelacion_x_CbteBan_Debi" />
-          <EntitySet Name="vwcp_XML_Documento" EntityType="ModelCuentasxPagar.vwcp_XML_Documento" />
           <EntitySet Name="cp_XML_Documento" EntityType="ModelCuentasxPagar.cp_XML_Documento" />
           <AssociationSet Name="FK_cp_XML_Documento_Retencion_cp_XML_Documento" Association="ModelCuentasxPagar.FK_cp_XML_Documento_Retencion_cp_XML_Documento">
             <End Role="cp_XML_Documento" EntitySet="cp_XML_Documento" />
@@ -7837,6 +7877,12 @@
             <End Role="cp_orden_giro_det" EntitySet="cp_orden_giro_det" />
           </AssociationSet>
           <EntitySet Name="vwcp_proveedor_ValidarAnticipos" EntityType="ModelCuentasxPagar.vwcp_proveedor_ValidarAnticipos" />
+          <EntitySet Name="vwcp_XML_Documento" EntityType="ModelCuentasxPagar.vwcp_XML_Documento" />
+          <EntitySet Name="cp_reembolso" EntityType="ModelCuentasxPagar.cp_reembolso" />
+          <AssociationSet Name="FK_cp_reembolso_cp_orden_giro" Association="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro">
+            <End Role="cp_orden_giro" EntitySet="cp_orden_giro" />
+            <End Role="cp_reembolso" EntitySet="cp_reembolso" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -8581,7 +8627,6 @@
           <NavigationProperty Name="cp_proveedor_codigo_SRI" Relationship="ModelCuentasxPagar.FK_cp_proveedor_codigo_SRI_cp_proveedor" FromRole="cp_proveedor" ToRole="cp_proveedor_codigo_SRI" />
           <NavigationProperty Name="cp_proveedor_contactos" Relationship="ModelCuentasxPagar.FK_cp_proveedor_contactos_cp_proveedor" FromRole="cp_proveedor" ToRole="cp_proveedor_contactos" />
           <NavigationProperty Name="cp_proveedor_clase" Relationship="ModelCuentasxPagar.FK_cp_proveedor_cp_proveedor_clase" FromRole="cp_proveedor" ToRole="cp_proveedor_clase" />
-          <NavigationProperty Name="cp_reembolso" Relationship="ModelCuentasxPagar.FK_cp_reembolso_cp_proveedor" FromRole="cp_proveedor" ToRole="cp_reembolso" />
           <NavigationProperty Name="cp_orden_giro" Relationship="ModelCuentasxPagar.FK_cp_orden_giro_cp_proveedor" FromRole="cp_proveedor" ToRole="cp_orden_giro" />
         </EntityType>
         <EntityType Name="cp_proveedor_Autorizacion">
@@ -8653,36 +8698,6 @@
           <Property Name="IdContacto" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="observacion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="cp_proveedor" Relationship="ModelCuentasxPagar.FK_cp_proveedor_contactos_cp_proveedor" FromRole="cp_proveedor_contactos" ToRole="cp_proveedor" />
-        </EntityType>
-        <EntityType Name="cp_reembolso">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCbteCble_Ogiro" />
-            <PropertyRef Name="IdTipoCbte_Ogiro" />
-            <PropertyRef Name="IdReembolso" />
-          </Key>
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="IdCbteCble_Ogiro" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdTipoCbte_Ogiro" Type="Int32" Nullable="false" />
-          <Property Name="IdReembolso" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="IdProveedor" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TipoIdProveedor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="IdentificacionProveedor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="TipoDoc_CodSRI" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
-          <Property Name="Establecimiento" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
-          <Property Name="Punto_Emision" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
-          <Property Name="Secuencial" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
-          <Property Name="Autorizacion" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
-          <Property Name="Fecha_Emision" Type="DateTime" Precision="0" />
-          <Property Name="TarifaIVAcero" Type="Double" />
-          <Property Name="TarifaIVADiferentecero" Type="Double" />
-          <Property Name="TarifaNoObjetoIVA" Type="Double" />
-          <Property Name="MontoICE" Type="Double" />
-          <Property Name="MontoIVA" Type="Double" />
-          <Property Name="baseImponible" Type="Double" />
-          <Property Name="Total" Type="Double" />
-          <NavigationProperty Name="cp_proveedor" Relationship="ModelCuentasxPagar.FK_cp_reembolso_cp_proveedor" FromRole="cp_reembolso" ToRole="cp_proveedor" />
-          <NavigationProperty Name="cp_orden_giro" Relationship="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" FromRole="cp_reembolso" ToRole="cp_orden_giro" />
         </EntityType>
         <EntityType Name="cp_retencion">
           <Key>
@@ -10558,7 +10573,7 @@
           <Property Name="pe_nombreCompleto" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="pe_razonSocial" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="pe_cedulaRuc" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="pe_correo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="pe_correo" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="pe_direccion" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="pe_telfono_Contacto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="IdProveedor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
@@ -11179,20 +11194,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_cp_reembolso_cp_proveedor">
-          <End Role="cp_proveedor" Type="ModelCuentasxPagar.cp_proveedor" Multiplicity="0..1" />
-          <End Role="cp_reembolso" Type="ModelCuentasxPagar.cp_reembolso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_proveedor">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProveedor" />
-            </Principal>
-            <Dependent Role="cp_reembolso">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_cp_retencion_det_cp_retencion">
           <End Role="cp_retencion" Type="ModelCuentasxPagar.cp_retencion" Multiplicity="1" />
           <End Role="cp_retencion_det" Type="ModelCuentasxPagar.cp_retencion_det" Multiplicity="*" />
@@ -11306,9 +11307,9 @@
           <NavigationProperty Name="cp_orden_giro_x_com_ordencompra_local" Relationship="ModelCuentasxPagar.FK_cp_orden_giro_x_com_ordencompra_local_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_orden_giro_x_com_ordencompra_local" />
           <NavigationProperty Name="cp_orden_giro_x_com_ordencompra_local_det" Relationship="ModelCuentasxPagar.FK_cp_orden_giro_x_com_ordencompra_local_det_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_orden_giro_x_com_ordencompra_local_det" />
           <NavigationProperty Name="cp_orden_giro_x_imp_ordencompra_ext" Relationship="ModelCuentasxPagar.FK_cp_orden_giro_x_imp_ordencompra_ext_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_orden_giro_x_imp_ordencompra_ext" />
-          <NavigationProperty Name="cp_reembolso" Relationship="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_reembolso" />
           <NavigationProperty Name="cp_retencion" Relationship="ModelCuentasxPagar.FK_cp_retencion_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_retencion" />
           <NavigationProperty Name="cp_orden_giro_det" Relationship="ModelCuentasxPagar.FK_cp_orden_giro_det_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_orden_giro_det" />
+          <NavigationProperty Name="cp_reembolso" Relationship="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" FromRole="cp_orden_giro" ToRole="cp_reembolso" />
         </EntityType>
         <Association Name="FK_cp_Aprobacion_Ing_Bod_x_OC_cp_orden_giro">
           <End Type="ModelCuentasxPagar.cp_orden_giro" Role="cp_orden_giro" Multiplicity="0..1" />
@@ -11449,22 +11450,6 @@
               <PropertyRef Name="og_IdEmpresa" />
               <PropertyRef Name="og_IdCbteCble" />
               <PropertyRef Name="og_IdTipoCbte" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cp_reembolso_cp_orden_giro">
-          <End Type="ModelCuentasxPagar.cp_orden_giro" Role="cp_orden_giro" Multiplicity="1" />
-          <End Type="ModelCuentasxPagar.cp_reembolso" Role="cp_reembolso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cp_orden_giro">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdCbteCble_Ogiro" />
-              <PropertyRef Name="IdTipoCbte_Ogiro" />
-            </Principal>
-            <Dependent Role="cp_reembolso">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdCbteCble_Ogiro" />
-              <PropertyRef Name="IdTipoCbte_Ogiro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -12606,56 +12591,6 @@
           <Property Type="Double" Name="SaldoAnterior" Nullable="false" />
           <Property Type="Double" Name="SaldoActual" Nullable="false" />
         </EntityType>
-        <EntityType Name="vwcp_XML_Documento">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdDocumento" />
-            <PropertyRef Name="pe_nombreCompleto" />
-            <PropertyRef Name="emi_RazonSocial" />
-            <PropertyRef Name="emi_Ruc" />
-            <PropertyRef Name="co_serie" />
-            <PropertyRef Name="NumeroDocumento" />
-            <PropertyRef Name="FechaEmision" />
-            <PropertyRef Name="CodDocumento" />
-            <PropertyRef Name="IdTipoDocumento" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="Su_Descripcion" />
-            <PropertyRef Name="RazonSocial" />
-            <PropertyRef Name="NombreComercial" />
-            <PropertyRef Name="ContribuyenteEspecial" />
-            <PropertyRef Name="ObligadoAllevarConta" />
-            <PropertyRef Name="em_ruc" />
-            <PropertyRef Name="em_direccion" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="serie" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ret_NumeroDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="ret_Fecha" Precision="0" />
-          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_RazonSocial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="emi_Ruc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_correo" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_direccion" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
-          <Property Type="String" Name="co_serie" Nullable="false" MaxLength="21" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NumeroDocumento" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaEmision" Nullable="false" Precision="0" />
-          <Property Type="String" Name="CodDocumento" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ContribuyenteEspecial" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ObligadoAllevarConta" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="em_ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="Estado" Nullable="false" />
-        </EntityType>
         <EntityType Name="cp_XML_Documento">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -13008,6 +12943,143 @@
           <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="vwcp_XML_Documento">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdDocumento" />
+            <PropertyRef Name="pe_nombreCompleto" />
+            <PropertyRef Name="emi_RazonSocial" />
+            <PropertyRef Name="emi_Ruc" />
+            <PropertyRef Name="co_serie" />
+            <PropertyRef Name="NumeroDocumento" />
+            <PropertyRef Name="FechaEmision" />
+            <PropertyRef Name="CodDocumento" />
+            <PropertyRef Name="IdTipoDocumento" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="Su_Descripcion" />
+            <PropertyRef Name="RazonSocial" />
+            <PropertyRef Name="NombreComercial" />
+            <PropertyRef Name="ContribuyenteEspecial" />
+            <PropertyRef Name="ObligadoAllevarConta" />
+            <PropertyRef Name="em_ruc" />
+            <PropertyRef Name="em_direccion" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="EstadoCancelacion" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="emi_NombreComercial" />
+            <PropertyRef Name="emi_DireccionMatriz" />
+            <PropertyRef Name="ClaveAcceso" />
+            <PropertyRef Name="Establecimiento" />
+            <PropertyRef Name="PuntoEmision" />
+            <PropertyRef Name="rec_RazonSocial" />
+            <PropertyRef Name="rec_Identificacion" />
+            <PropertyRef Name="Subtotal0" />
+            <PropertyRef Name="SubtotalIVA" />
+            <PropertyRef Name="Porcentaje" />
+            <PropertyRef Name="ValorIVA" />
+            <PropertyRef Name="Total" />
+            <PropertyRef Name="Plazo" />
+            <PropertyRef Name="Comprobante" />
+            <PropertyRef Name="emi_ContribuyenteEspecial" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdDocumento" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="serie" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_NumeroDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ret_Fecha" Precision="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_RazonSocial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_Ruc" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_correo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_direccion" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_telfono_Contacto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="String" Name="co_serie" Nullable="false" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NumeroDocumento" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaEmision" Nullable="false" Precision="0" />
+          <Property Type="String" Name="CodDocumento" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Su_Direccion" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RazonSocial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreComercial" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContribuyenteEspecial" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ObligadoAllevarConta" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="em_ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="em_direccion" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="EstadoCancelacion" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_NombreComercial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_DireccionMatriz" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ClaveAcceso" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Establecimiento" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PuntoEmision" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="rec_RazonSocial" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="rec_Identificacion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Subtotal0" Nullable="false" />
+          <Property Type="Double" Name="SubtotalIVA" Nullable="false" />
+          <Property Type="Double" Name="Porcentaje" Nullable="false" />
+          <Property Type="Double" Name="ValorIVA" Nullable="false" />
+          <Property Type="Double" Name="Total" Nullable="false" />
+          <Property Type="String" Name="FormaPago" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Plazo" Nullable="false" />
+          <Property Type="String" Name="Comprobante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="emi_ContribuyenteEspecial" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_CodDocumentoTipo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_Establecimiento" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ret_FechaAutorizacion" Precision="0" />
+          <Property Type="String" Name="ret_NumeroAutorizacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ret_PuntoEmision" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdTipoCbte" />
+          <Property Type="Decimal" Name="IdCbteCble" Precision="18" Scale="0" />
+          <Property Type="String" Name="descripcion_clas_prove" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cp_reembolso">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble_Ogiro" />
+            <PropertyRef Name="IdTipoCbte_Ogiro" />
+            <PropertyRef Name="IdReembolso" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Ogiro" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Ogiro" Nullable="false" />
+          <Property Type="Decimal" Name="IdReembolso" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="TipoIdProveedor" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentificacionProveedor" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TipoDoc_CodSRI" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Establecimiento" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Punto_Emision" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Secuencial" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Autorizacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_Emision" Nullable="false" Precision="0" />
+          <Property Type="Double" Name="TarifaIVAcero" Nullable="false" />
+          <Property Type="Double" Name="TarifaIVADiferentecero" Nullable="false" />
+          <Property Type="Double" Name="TarifaNoObjetoIVA" Nullable="false" />
+          <Property Type="Double" Name="TarifaExcentaDeIVA" Nullable="false" />
+          <Property Type="Double" Name="TotalBaseImponible" Nullable="false" />
+          <Property Type="Double" Name="MontoICE" Nullable="false" />
+          <Property Type="Double" Name="MontoIVA" Nullable="false" />
+          <NavigationProperty Name="cp_orden_giro" Relationship="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" FromRole="cp_reembolso" ToRole="cp_orden_giro" />
+        </EntityType>
+        <Association Name="FK_cp_reembolso_cp_orden_giro">
+          <End Type="ModelCuentasxPagar.cp_orden_giro" Role="cp_orden_giro" Multiplicity="1" />
+          <End Type="ModelCuentasxPagar.cp_reembolso" Role="cp_reembolso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cp_orden_giro">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdCbteCble_Ogiro" />
+              <PropertyRef Name="IdTipoCbte_Ogiro" />
+            </Principal>
+            <Dependent Role="cp_reembolso">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdCbteCble_Ogiro" />
+              <PropertyRef Name="IdTipoCbte_Ogiro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13721,32 +13793,6 @@
                 <ScalarProperty Name="IdEmpresa_cont" ColumnName="IdEmpresa_cont" />
                 <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
                 <ScalarProperty Name="observacion" ColumnName="observacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cp_reembolso">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_reembolso">
-              <MappingFragment StoreEntitySet="cp_reembolso">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
-                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
-                <ScalarProperty Name="IdReembolso" ColumnName="IdReembolso" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="TipoIdProveedor" ColumnName="TipoIdProveedor" />
-                <ScalarProperty Name="IdentificacionProveedor" ColumnName="IdentificacionProveedor" />
-                <ScalarProperty Name="TipoDoc_CodSRI" ColumnName="TipoDoc_CodSRI" />
-                <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
-                <ScalarProperty Name="Punto_Emision" ColumnName="Punto_Emision" />
-                <ScalarProperty Name="Secuencial" ColumnName="Secuencial" />
-                <ScalarProperty Name="Autorizacion" ColumnName="Autorizacion" />
-                <ScalarProperty Name="Fecha_Emision" ColumnName="Fecha_Emision" />
-                <ScalarProperty Name="TarifaIVAcero" ColumnName="TarifaIVAcero" />
-                <ScalarProperty Name="TarifaIVADiferentecero" ColumnName="TarifaIVADiferentecero" />
-                <ScalarProperty Name="TarifaNoObjetoIVA" ColumnName="TarifaNoObjetoIVA" />
-                <ScalarProperty Name="MontoICE" ColumnName="MontoICE" />
-                <ScalarProperty Name="MontoIVA" ColumnName="MontoIVA" />
-                <ScalarProperty Name="baseImponible" ColumnName="baseImponible" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -16081,39 +16127,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwcp_XML_Documento">
-            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_XML_Documento">
-              <MappingFragment StoreEntitySet="vwcp_XML_Documento">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="em_direccion" ColumnName="em_direccion" />
-                <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
-                <ScalarProperty Name="ObligadoAllevarConta" ColumnName="ObligadoAllevarConta" />
-                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
-                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
-                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
-                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
-                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
-                <ScalarProperty Name="CodDocumento" ColumnName="CodDocumento" />
-                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
-                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
-                <ScalarProperty Name="co_serie" ColumnName="co_serie" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
-                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
-                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
-                <ScalarProperty Name="emi_Ruc" ColumnName="emi_Ruc" />
-                <ScalarProperty Name="emi_RazonSocial" ColumnName="emi_RazonSocial" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="ret_Fecha" ColumnName="ret_Fecha" />
-                <ScalarProperty Name="ret_NumeroDocumento" ColumnName="ret_NumeroDocumento" />
-                <ScalarProperty Name="serie" ColumnName="serie" />
-                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="cp_XML_Documento">
             <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_XML_Documento">
               <MappingFragment StoreEntitySet="cp_XML_Documento">
@@ -16338,6 +16351,90 @@
                 <ScalarProperty Name="MontoAplicado" ColumnName="MontoAplicado" />
                 <ScalarProperty Name="Valor_a_pagar" ColumnName="Valor_a_pagar" />
                 <ScalarProperty Name="IdOrdenPago" ColumnName="IdOrdenPago" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwcp_XML_Documento">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.vwcp_XML_Documento">
+              <MappingFragment StoreEntitySet="vwcp_XML_Documento">
+                <ScalarProperty Name="descripcion_clas_prove" ColumnName="descripcion_clas_prove" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdTipoCbte" ColumnName="IdTipoCbte" />
+                <ScalarProperty Name="ret_PuntoEmision" ColumnName="ret_PuntoEmision" />
+                <ScalarProperty Name="ret_NumeroAutorizacion" ColumnName="ret_NumeroAutorizacion" />
+                <ScalarProperty Name="ret_FechaAutorizacion" ColumnName="ret_FechaAutorizacion" />
+                <ScalarProperty Name="ret_Establecimiento" ColumnName="ret_Establecimiento" />
+                <ScalarProperty Name="ret_CodDocumentoTipo" ColumnName="ret_CodDocumentoTipo" />
+                <ScalarProperty Name="emi_ContribuyenteEspecial" ColumnName="emi_ContribuyenteEspecial" />
+                <ScalarProperty Name="Comprobante" ColumnName="Comprobante" />
+                <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+                <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ValorIVA" ColumnName="ValorIVA" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="SubtotalIVA" ColumnName="SubtotalIVA" />
+                <ScalarProperty Name="Subtotal0" ColumnName="Subtotal0" />
+                <ScalarProperty Name="rec_Identificacion" ColumnName="rec_Identificacion" />
+                <ScalarProperty Name="rec_RazonSocial" ColumnName="rec_RazonSocial" />
+                <ScalarProperty Name="PuntoEmision" ColumnName="PuntoEmision" />
+                <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
+                <ScalarProperty Name="ClaveAcceso" ColumnName="ClaveAcceso" />
+                <ScalarProperty Name="emi_DireccionMatriz" ColumnName="emi_DireccionMatriz" />
+                <ScalarProperty Name="emi_NombreComercial" ColumnName="emi_NombreComercial" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="EstadoCancelacion" ColumnName="EstadoCancelacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="em_direccion" ColumnName="em_direccion" />
+                <ScalarProperty Name="em_ruc" ColumnName="em_ruc" />
+                <ScalarProperty Name="ObligadoAllevarConta" ColumnName="ObligadoAllevarConta" />
+                <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
+                <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Su_Direccion" ColumnName="Su_Direccion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="CodDocumento" ColumnName="CodDocumento" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="co_serie" ColumnName="co_serie" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="pe_telfono_Contacto" ColumnName="pe_telfono_Contacto" />
+                <ScalarProperty Name="pe_direccion" ColumnName="pe_direccion" />
+                <ScalarProperty Name="pe_correo" ColumnName="pe_correo" />
+                <ScalarProperty Name="emi_Ruc" ColumnName="emi_Ruc" />
+                <ScalarProperty Name="emi_RazonSocial" ColumnName="emi_RazonSocial" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="ret_Fecha" ColumnName="ret_Fecha" />
+                <ScalarProperty Name="ret_NumeroDocumento" ColumnName="ret_NumeroDocumento" />
+                <ScalarProperty Name="serie" ColumnName="serie" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cp_reembolso">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_reembolso">
+              <MappingFragment StoreEntitySet="cp_reembolso">
+                <ScalarProperty Name="MontoIVA" ColumnName="MontoIVA" />
+                <ScalarProperty Name="MontoICE" ColumnName="MontoICE" />
+                <ScalarProperty Name="TotalBaseImponible" ColumnName="TotalBaseImponible" />
+                <ScalarProperty Name="TarifaExcentaDeIVA" ColumnName="TarifaExcentaDeIVA" />
+                <ScalarProperty Name="TarifaNoObjetoIVA" ColumnName="TarifaNoObjetoIVA" />
+                <ScalarProperty Name="TarifaIVADiferentecero" ColumnName="TarifaIVADiferentecero" />
+                <ScalarProperty Name="TarifaIVAcero" ColumnName="TarifaIVAcero" />
+                <ScalarProperty Name="Fecha_Emision" ColumnName="Fecha_Emision" />
+                <ScalarProperty Name="Autorizacion" ColumnName="Autorizacion" />
+                <ScalarProperty Name="Secuencial" ColumnName="Secuencial" />
+                <ScalarProperty Name="Punto_Emision" ColumnName="Punto_Emision" />
+                <ScalarProperty Name="Establecimiento" ColumnName="Establecimiento" />
+                <ScalarProperty Name="TipoDoc_CodSRI" ColumnName="TipoDoc_CodSRI" />
+                <ScalarProperty Name="IdentificacionProveedor" ColumnName="IdentificacionProveedor" />
+                <ScalarProperty Name="TipoIdProveedor" ColumnName="TipoIdProveedor" />
+                <ScalarProperty Name="IdReembolso" ColumnName="IdReembolso" />
+                <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
+                <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>

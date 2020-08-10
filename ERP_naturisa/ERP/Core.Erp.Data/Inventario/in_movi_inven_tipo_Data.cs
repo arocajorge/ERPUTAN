@@ -126,6 +126,41 @@ namespace Core.Erp.Data.Inventario
             }
         }
 
+        public List<in_movi_inven_tipo_Info> GetList(int IdEmpresa)
+        {
+            try
+            {
+                List<in_movi_inven_tipo_Info> Lista = new List<in_movi_inven_tipo_Info>();
+
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var lst = db.in_movi_inven_tipo.Where(q => q.IdEmpresa == IdEmpresa && q.Estado == "A").ToList();
+                    foreach (var item in lst)
+                    {
+                        Lista.Add(new in_movi_inven_tipo_Info
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdMovi_inven_tipo = item.IdMovi_inven_tipo,
+                            Codigo = item.Codigo,
+                            tm_descripcion = item.tm_descripcion,
+                            cm_tipo_movi = item.cm_tipo_movi,
+                            cm_interno = item.cm_interno,
+                            cm_descripcionCorta = item.cm_descripcionCorta,
+                            tm_descripcion2 = "["+item.IdMovi_inven_tipo.ToString()+"] "+item.tm_descripcion.Trim(),
+                            Estado = item.Estado
+                        });
+                    }
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public List<in_movi_inven_tipo_Info> Get_list_movi_inven_tipo_x_bodega(int IdEmpresa,int IdSucursal,
             int IdBodega, string tipoMovi, string Interno)
         {

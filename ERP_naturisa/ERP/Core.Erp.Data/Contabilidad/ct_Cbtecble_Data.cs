@@ -990,6 +990,7 @@ namespace Core.Erp.Data.Contabilidad
                                 cb_para_conciliar = false,
                             });
 
+
                             context.SaveChanges();
 
                             ct_Cbtecble_det_Data _CbteCble_Det_Data = new ct_Cbtecble_det_Data();

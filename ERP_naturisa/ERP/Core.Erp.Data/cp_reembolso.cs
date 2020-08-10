@@ -18,7 +18,6 @@ namespace Core.Erp.Data
         public decimal IdCbteCble_Ogiro { get; set; }
         public int IdTipoCbte_Ogiro { get; set; }
         public decimal IdReembolso { get; set; }
-        public Nullable<decimal> IdProveedor { get; set; }
         public string TipoIdProveedor { get; set; }
         public string IdentificacionProveedor { get; set; }
         public string TipoDoc_CodSRI { get; set; }
@@ -26,16 +25,15 @@ namespace Core.Erp.Data
         public string Punto_Emision { get; set; }
         public string Secuencial { get; set; }
         public string Autorizacion { get; set; }
-        public Nullable<System.DateTime> Fecha_Emision { get; set; }
-        public Nullable<double> TarifaIVAcero { get; set; }
-        public Nullable<double> TarifaIVADiferentecero { get; set; }
-        public Nullable<double> TarifaNoObjetoIVA { get; set; }
-        public Nullable<double> MontoICE { get; set; }
-        public Nullable<double> MontoIVA { get; set; }
-        public Nullable<double> baseImponible { get; set; }
-        public Nullable<double> Total { get; set; }
+        public System.DateTime Fecha_Emision { get; set; }
+        public double TarifaIVAcero { get; set; }
+        public double TarifaIVADiferentecero { get; set; }
+        public double TarifaNoObjetoIVA { get; set; }
+        public double TarifaExcentaDeIVA { get; set; }
+        public double TotalBaseImponible { get; set; }
+        public double MontoICE { get; set; }
+        public double MontoIVA { get; set; }
     
-        public virtual cp_proveedor cp_proveedor { get; set; }
         public virtual cp_orden_giro cp_orden_giro { get; set; }
     }
 }

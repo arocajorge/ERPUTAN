@@ -17,7 +17,7 @@ namespace Core.Erp.Business.CuentasxPagar
     {
       string mensaje = "";
       tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
-
+      cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
       cp_Aprobacion_Ing_Bod_x_OC_Data odata = new cp_Aprobacion_Ing_Bod_x_OC_Data();
       cp_Aprobacion_Ing_Bod_x_OC_det_Bus Bus_Det = new cp_Aprobacion_Ing_Bod_x_OC_det_Bus();
   
@@ -301,6 +301,7 @@ namespace Core.Erp.Business.CuentasxPagar
               info_CbteCble.Mes = Info.Fecha_Factura.Month;
               info_CbteCble.Mayorizado = "N";
               info_CbteCble.IdSucursal = Info.IdSucursal ?? 1;
+              info_CbteCble.IdUsuario = param.IdUsuario;
               //detalle
               List<ct_Cbtecble_det_Info> lista = new List<ct_Cbtecble_det_Info>();
               int Secuencia = 0;
@@ -404,11 +405,10 @@ namespace Core.Erp.Business.CuentasxPagar
               Info_Ogiro.IdTipoFlujo = Info.IdTipoFlujo;
               Info_Ogiro.IdTipoServicio = "BIEN";
               Info_Ogiro.IdCtaCble_Gasto = Info.IdCtaCble_Gasto;
-
+              Info_Ogiro.IdUsuario = param.IdUsuario;
               Info_Ogiro.IdCtaCble_IVA = Info.co_valoriva > 0 ? Info.pa_ctacble_iva.Trim() : null;
               Info_Ogiro.Estado = "A";
-
-              Info_Ogiro.IdUsuario = "";          
+     
               Info_Ogiro.Fecha_Transac = DateTime.Now;
              
               Info_Ogiro.IdUsuarioUltMod = "";          
@@ -462,7 +462,7 @@ namespace Core.Erp.Business.CuentasxPagar
               decimal idCbteCble = 0;
 
               Info_Ogiro.Info_CbteCble_x_OG=info_CbteCble;
-              Info_Ogiro.lst_reembolso=lst_reembolso;
+              //Info_Ogiro.lst_reembolso=lst_reembolso;
               Info_Ogiro.lst_formasPagoSRI=lst_formasPagoSRI;
               Info_Ogiro.Info_Retencion=InfoRetencion;
 
@@ -565,7 +565,7 @@ namespace Core.Erp.Business.CuentasxPagar
                }
                           
             
-
+              
 
                foreach (var item in Info.listDetalle)
                {

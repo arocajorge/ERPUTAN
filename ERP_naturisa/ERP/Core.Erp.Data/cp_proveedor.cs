@@ -21,7 +21,6 @@ namespace Core.Erp.Data
             this.cp_proveedor_Autorizacion = new HashSet<cp_proveedor_Autorizacion>();
             this.cp_proveedor_codigo_SRI = new HashSet<cp_proveedor_codigo_SRI>();
             this.cp_proveedor_contactos = new HashSet<cp_proveedor_contactos>();
-            this.cp_reembolso = new HashSet<cp_reembolso>();
             this.cp_orden_giro = new HashSet<cp_orden_giro>();
         }
     
@@ -78,7 +77,6 @@ namespace Core.Erp.Data
         public virtual ICollection<cp_proveedor_codigo_SRI> cp_proveedor_codigo_SRI { get; set; }
         public virtual ICollection<cp_proveedor_contactos> cp_proveedor_contactos { get; set; }
         public virtual cp_proveedor_clase cp_proveedor_clase { get; set; }
-        public virtual ICollection<cp_reembolso> cp_reembolso { get; set; }
         public virtual ICollection<cp_orden_giro> cp_orden_giro { get; set; }
     }
 }

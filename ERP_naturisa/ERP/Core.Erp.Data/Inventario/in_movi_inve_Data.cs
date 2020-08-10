@@ -1058,7 +1058,7 @@ item.Centro_costo.Trim() : "",
                     if (Entity!= null)
                     {
                         Entity.cm_observacion = info.cm_observacion;
-                        Entity.cm_fecha = info.cm_fecha.Date;
+                        //Entity.cm_fecha = info.cm_fecha.Date;
                         Entity.CodMoviInven = info.CodMoviInven;
                         Context.SaveChanges();
 

@@ -39,12 +39,15 @@ namespace Core.Erp.Winform.CuentasxPagar
         Boolean resp = true;
         Boolean resp_2 = true;
         Boolean res = true;
+        cp_reembolso_Bus busReembolso = new cp_reembolso_Bus();
         Boolean Ejecutar_Evento = true;
         Boolean Diario_generado = false;
         cp_XML_Documento_Bus busXml = new cp_XML_Documento_Bus();
         cp_XML_Documento_Info infoXML = new cp_XML_Documento_Info();
         BindingList<cp_orden_giro_det_Info> blstDet = new BindingList<cp_orden_giro_det_Info>();
         cp_orden_giro_det_Bus busOgDet = new cp_orden_giro_det_Bus();
+        tb_Catalogo_Bus busCatalogoGen = new tb_Catalogo_Bus();
+        BindingList<cp_reembolso_Info> blstReembolso = new BindingList<cp_reembolso_Info>();
         #region declaracion de variables y delegados
         string IdCtaCble_Proveedor = "";
         string nomProveedor = "";
@@ -464,7 +467,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 deshabilitarCamposRet();
 
                 CargarImportaciones();
-
+                gc_detalle.DataSource = blstReembolso;
             }
             catch (Exception ex)
             {
@@ -520,6 +523,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                blstReembolso = new BindingList<cp_reembolso_Info>();
+                gcReembolso.DataSource = blstReembolso;
                 ucCp_Retencion1.Visible_GridRetencion(false);
                 chk_TieneRetencion.Visible = true;
 
@@ -681,7 +686,9 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cmb_ICE.Properties.DisplayMember = "descriConcate";
                 cmb_ICE.Properties.ValueMember = "IdCodigo_SRI";
 
-         
+
+                cmbTipoIdentificacionReembolso.DataSource = busCatalogoGen.Get_List_TipoDoc_Personales();
+                cmbTipoDocumento.DataSource = ListTipDoc_Modi.FindAll(c => c.Estado == "A");
             }
             catch (Exception ex)
             {
@@ -1499,6 +1506,9 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                txt_NOrdeG.Focus();
+                gvReembolso.MoveNext();
+                Info_OrdenGiro.ListaReembolso = new List<cp_reembolso_Info>(blstReembolso);
                 lst_formasPagoSRI = BindingList_pagosSRI.ToList();
             }
             catch (Exception ex)
@@ -1790,6 +1800,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                     CargarCombosDetalle();
                 }
 
+                blstReembolso = new BindingList<cp_reembolso_Info>(busReembolso.GetList(Info_OrdenGiro.IdEmpresa, Info_OrdenGiro.IdTipoCbte_Ogiro, Info_OrdenGiro.IdCbteCble_Ogiro));
+                gcReembolso.DataSource = blstReembolso;
             }
             catch (Exception ex)
             {
@@ -1938,7 +1950,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                     // su Tab Intermedia
 
                     Info_OrdenGiro.Info_CbteCble_x_OG=CbteCble_I;
-                    Info_OrdenGiro.lst_reembolso=lst_reembolso;
+                    //Info_OrdenGiro.lst_reembolso=lst_reembolso;
                     Info_OrdenGiro.lst_formasPagoSRI=lst_formasPagoSRI;
                     Info_OrdenGiro.Info_Retencion=Info_Retencion;
                     Info_OrdenGiro.Info_Retencion.Info_CbteCble_x_RT=Info_CbteCble_x_Ret;
@@ -2180,7 +2192,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
 
                     Info_OrdenGiro.Info_CbteCble_x_OG=CbteCble_I;
-                    Info_OrdenGiro.lst_reembolso=lst_reembolso;
+                    //Info_OrdenGiro.lst_reembolso=lst_reembolso;
                     Info_OrdenGiro.lst_formasPagoSRI=lst_formasPagoSRI;
                     Info_OrdenGiro.Info_Retencion=Info_Retencion;
                     Info_OrdenGiro.Info_Retencion.Info_CbteCble_x_RT=Info_CbteCble_x_Ret;
@@ -4667,6 +4679,27 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 
                 throw;
+            }
+        }
+
+        private void uCMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gvReembolso_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                gvReembolso.DeleteSelectedRows();
+            }
+        }
+
+        private void gv_detalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                gv_detalle.DeleteSelectedRows();
             }
         }
 

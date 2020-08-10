@@ -33,6 +33,23 @@ namespace Core.Erp.Business.Inventario
            
         }
 
+
+        public List<in_movi_inven_tipo_Info> GetList(int IdEmpresa)
+        {
+            try
+            {
+                return md.GetList(IdEmpresa);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ObtenerListaMovimientoInventarioTipoXEmpresa", ex.Message), ex) { EntityType = typeof(in_movi_inven_tipo_Bus) };
+
+            }
+
+
+        }
+
         public List<in_movi_inven_tipo_Info> Get_list_movi_inven_tipo(int IdEmpresa, string tipoMovi, string Interno, string todos)
         {
             try

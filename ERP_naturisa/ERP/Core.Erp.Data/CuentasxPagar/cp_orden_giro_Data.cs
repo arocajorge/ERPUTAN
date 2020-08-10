@@ -1328,6 +1328,33 @@ namespace Core.Erp.Data.CuentasxPagar
                             Total = Det.Total
                         });
                     }
+                    item.ListaReembolso = item.ListaReembolso ?? new List<cp_reembolso_Info>();
+                    Secuencia = 1;
+                    foreach (var Reem in item.ListaReembolso)
+                    {
+                        context.cp_reembolso.Add(new cp_reembolso
+                        {
+                            IdEmpresa = item.IdEmpresa,
+                            IdCbteCble_Ogiro = item.IdCbteCble_Ogiro,
+                            IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro,
+                            IdReembolso = Secuencia++,
+                            TipoIdProveedor = Reem.TipoIdProveedor,
+                            IdentificacionProveedor = Reem.IdentificacionProveedor,
+                            TipoDoc_CodSRI = Reem.TipoDoc_CodSRI,
+                            Establecimiento = Reem.Establecimiento,
+                            Punto_Emision = Reem.Punto_Emision,
+                            Secuencial = Reem.Secuencial,
+                            Autorizacion = Reem.Autorizacion,
+                            Fecha_Emision = Reem.Fecha_Emision,
+                            TarifaIVAcero = Reem.TarifaIVAcero,
+                            TarifaIVADiferentecero = Reem.TarifaIVADiferentecero,
+                            TarifaNoObjetoIVA = Reem.TarifaNoObjetoIVA,
+                            TarifaExcentaDeIVA = Reem.TarifaExcentaDeIVA,
+                            TotalBaseImponible = Reem.TarifaExcentaDeIVA + Reem.TarifaIVAcero + Reem.TarifaIVADiferentecero + Reem.TarifaNoObjetoIVA,
+                            MontoICE = Reem.MontoICE,
+                            MontoIVA = Reem.MontoIVA,
+                        });
+                    }
 
                     context.SaveChanges();        
                 }
@@ -1451,6 +1478,39 @@ namespace Core.Erp.Data.CuentasxPagar
                         });
                     }
 
+                    info.ListaReembolso = info.ListaReembolso ?? new List<cp_reembolso_Info>();
+                    Secuencia = 1;
+                    var lstReembolso = context.cp_reembolso.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdTipoCbte_Ogiro == info.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == info.IdCbteCble_Ogiro).ToList();
+                    foreach (var item in lstReembolso)
+                    {
+                        context.cp_reembolso.Remove(item);
+                    }
+                    foreach (var Reem in info.ListaReembolso)
+                    {
+                        context.cp_reembolso.Add(new cp_reembolso
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdCbteCble_Ogiro = info.IdCbteCble_Ogiro,
+                            IdTipoCbte_Ogiro = info.IdTipoCbte_Ogiro,
+                            IdReembolso = Secuencia++,
+                            TipoIdProveedor = Reem.TipoIdProveedor,
+                            IdentificacionProveedor = Reem.IdentificacionProveedor,
+                            TipoDoc_CodSRI = Reem.TipoDoc_CodSRI,
+                            Establecimiento = Reem.Establecimiento,
+                            Punto_Emision = Reem.Punto_Emision,
+                            Secuencial = Reem.Secuencial,
+                            Autorizacion = Reem.Autorizacion,
+                            Fecha_Emision = Reem.Fecha_Emision,
+                            TarifaIVAcero = Reem.TarifaIVAcero,
+                            TarifaIVADiferentecero = Reem.TarifaIVADiferentecero,
+                            TarifaNoObjetoIVA = Reem.TarifaNoObjetoIVA,
+                            TarifaExcentaDeIVA = Reem.TarifaExcentaDeIVA,
+                            TotalBaseImponible = Reem.TarifaExcentaDeIVA + Reem.TarifaIVAcero + Reem.TarifaIVADiferentecero + Reem.TarifaNoObjetoIVA,
+                            MontoICE = Reem.MontoICE,
+                            MontoIVA = Reem.MontoIVA,
+                        });
+                    }
+
                     context.SaveChanges();
                 }
                 return true;
@@ -1498,6 +1558,40 @@ namespace Core.Erp.Data.CuentasxPagar
                         contact.ptoEmi_a_Modificar = info.ptoEmi_a_Modificar;
                         contact.num_docu_Modificar = info.num_docu_Modificar;
                         contact.aut_doc_Modificar = info.aut_doc_Modificar;
+
+
+                        info.ListaReembolso = info.ListaReembolso ?? new List<cp_reembolso_Info>();
+                        int Secuencia = 1;
+                        var lstReembolso = context.cp_reembolso.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdTipoCbte_Ogiro == info.IdTipoCbte_Ogiro && q.IdCbteCble_Ogiro == info.IdCbteCble_Ogiro).ToList();
+                        foreach (var item in lstReembolso)
+                        {
+                            context.cp_reembolso.Remove(item);
+                        }
+                        foreach (var Reem in info.ListaReembolso)
+                        {
+                            context.cp_reembolso.Add(new cp_reembolso
+                            {
+                                IdEmpresa = info.IdEmpresa,
+                                IdCbteCble_Ogiro = info.IdCbteCble_Ogiro,
+                                IdTipoCbte_Ogiro = info.IdTipoCbte_Ogiro,
+                                IdReembolso = Secuencia++,
+                                TipoIdProveedor = Reem.TipoIdProveedor,
+                                IdentificacionProveedor = Reem.IdentificacionProveedor,
+                                TipoDoc_CodSRI = Reem.TipoDoc_CodSRI,
+                                Establecimiento = Reem.Establecimiento,
+                                Punto_Emision = Reem.Punto_Emision,
+                                Secuencial = Reem.Secuencial,
+                                Autorizacion = Reem.Autorizacion,
+                                Fecha_Emision = Reem.Fecha_Emision,
+                                TarifaIVAcero = Reem.TarifaIVAcero,
+                                TarifaIVADiferentecero = Reem.TarifaIVADiferentecero,
+                                TarifaNoObjetoIVA = Reem.TarifaNoObjetoIVA,
+                                TarifaExcentaDeIVA = Reem.TarifaExcentaDeIVA,
+                                TotalBaseImponible = Reem.TarifaExcentaDeIVA + Reem.TarifaIVAcero + Reem.TarifaIVADiferentecero + Reem.TarifaNoObjetoIVA,
+                                MontoICE = Reem.MontoICE,
+                                MontoIVA = Reem.MontoIVA,
+                            });
+                        }
 
                         context.SaveChanges();
 
