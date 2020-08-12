@@ -723,11 +723,12 @@ namespace Core.Erp.Winform.Inventario
                         resultB = true;
 
                         decimal IdNumMovi = 0;
-                        
-                        if (Bus_IngEgr.GuardarDB(Info_ing_egr_Inven_ , ref   IdNumMovi, ref mensaje))
+                        Info_ing_egr_Inven_.IdUsuario = param.IdUsuario;
+                        //if (Bus_IngEgr.GuardarDB(Info_ing_egr_Inven_ , ref   IdNumMovi, ref mensaje))
+                        if (Bus_IngEgr.NuevoGuardar(Info_ing_egr_Inven_))
                         {
-                            txtNumIngreso.Text = Convert.ToString(IdNumMovi);
-                            msgRecurso = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del Ingreso a Bodega ", IdNumMovi.ToString());
+                            txtNumIngreso.Text = Convert.ToString(Info_ing_egr_Inven_.IdNumMovi.ToString());
+                            msgRecurso = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del Ingreso a Bodega ", Info_ing_egr_Inven_.IdNumMovi.ToString());
                             MessageBox.Show(msgRecurso, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             //consulta detalle
@@ -751,9 +752,11 @@ namespace Core.Erp.Winform.Inventario
 
                     case Cl_Enumeradores.eTipo_action.actualizar:
 
+                        Info_ing_egr_Inven_.IdUsuario = param.IdUsuario;
                         Info_ing_egr_Inven_.IdUsuarioUltModi = param.IdUsuario;
                         Info_ing_egr_Inven_.Fecha_UltMod = param.Fecha_Transac;
-                        if (Bus_IngEgr.ModificarDB(Info_ing_egr_Inven_, ref mensaje))
+                        //if (Bus_IngEgr.ModificarDB(Info_ing_egr_Inven_, ref mensaje))
+                        if (Bus_IngEgr.NuevoModificar(Info_ing_egr_Inven_))
                         {
                             if (lst_ing_x_oc.Where(q => q.IdOrdenCompra != null).Count() > 0)
                             {
@@ -762,7 +765,7 @@ namespace Core.Erp.Winform.Inventario
                                     Modificar_estado_cierre_oc(Convert.ToInt32(item.IdEmpresa_oc), Convert.ToInt32(item.IdSucursal_oc), Convert.ToDecimal(item.IdOrdenCompra));
                                 }
                             }
-                            MessageBox.Show(mensaje, "Sistemas");
+                            MessageBox.Show("El registro #" + Info_ing_egr_Inven_.IdNumMovi.ToString()+" ha sido actualizado exitósamente", "Sistemas");
                             LimpiarDatos();
                         }
                         else

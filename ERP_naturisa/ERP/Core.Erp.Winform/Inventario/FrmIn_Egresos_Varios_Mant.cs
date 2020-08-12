@@ -706,33 +706,16 @@ namespace Core.Erp.Winform.Inventario
 
                 Get();
                 string mensaje = "";
-                switch (param.IdCliente_Ven_x_Default)
-                {
-                    case Cl_Enumeradores.eCliente_Vzen.CAH:
-                        foreach (var item in info_IngEgr.listIng_Egr)
-                        {
-                            in_Producto_Info Info_Prod_msg = new in_Producto_Info();
-                            Info_Prod_msg = listProducto.First(q => q.IdProducto == item.IdProducto);
-
-                            if (Info_Prod_msg.pr_stock_minimo <= (Info_Prod_msg.pr_Disponible - item.dm_cantidad_sinConversion))
-                            {
-                                MessageBox.Show("El item " + Info_Prod_msg.pr_descripcion + " están a punto de terminarse", "Sistemas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        break;
-                    default:
-                        break;
-                }
-
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
 
                         decimal IdNumMovi = 0;
                         bus_IngEgr = new in_Ing_Egr_Inven_Bus();
-                        if (bus_IngEgr.GuardarDB(info_IngEgr, ref   IdNumMovi, ref mensaje))
+                        //if (bus_IngEgr.GuardarDB(info_IngEgr, ref   IdNumMovi, ref mensaje))*
+                        if (bus_IngEgr.NuevoGuardar(info_IngEgr))
                         {
-                            txtNumIngreso.Text = Convert.ToString(IdNumMovi);
+                            txtNumIngreso.Text = Convert.ToString(info_IngEgr.IdNumMovi);
                             string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del egreso a Bodega ", IdNumMovi.ToString());
                             MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //MessageBox.Show("Se ha procedido a grabar el registro del Ingreso a Bodega #: " + IdNumMovi.ToString() + " exitosamente.", "Operación Exitosa");
@@ -764,9 +747,10 @@ namespace Core.Erp.Winform.Inventario
                         info_IngEgr.IdUsuarioUltModi = param.IdUsuario;
                         info_IngEgr.Fecha_UltMod = param.Fecha_Transac;
                         bus_IngEgr = new in_Ing_Egr_Inven_Bus();
-                        if (bus_IngEgr.ModificarDB(info_IngEgr, ref mensaje))
+                        //if (bus_IngEgr.ModificarDB(info_IngEgr, ref mensaje))
+                        if (bus_IngEgr.NuevoModificar(info_IngEgr))
                         {
-                            MessageBox.Show(mensaje, param.Nombre_sistema);
+                            MessageBox.Show("El registro "+info_IngEgr.IdNumMovi.ToString()+" ha sido actualizado exitósamente", param.Nombre_sistema);
                             LimpiarDatos();
                         }
                         else

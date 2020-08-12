@@ -860,12 +860,13 @@ namespace Core.Erp.Winform.Inventario
                         decimal IdIngreso_oc = 0;
                         Bus_IngEgr = new in_Ing_Egr_Inven_Bus();
 
-                        if (Bus_IngEgr.GuardarDB(info_IngComp, ref   IdIngreso_oc, ref mensaje))
-                        {                            
-                            txtNumIngreso.Text = Convert.ToString(IdIngreso_oc);
+                        //if (Bus_IngEgr.GuardarDB(info_IngComp, ref   IdIngreso_oc, ref mensaje))
+                        if (Bus_IngEgr.NuevoGuardar(info_IngComp))
+                        {
+                            txtNumIngreso.Text = Convert.ToString(info_IngComp.IdNumMovi.ToString());
                             string smensaje ="";
                             if (mensaje == "")
-                                smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del Ingreso a Bodega ", IdIngreso_oc.ToString());
+                                smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del Ingreso a Bodega ", info_IngComp.IdNumMovi.ToString());
                             else
                                 smensaje = mensaje;
                             MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -922,7 +923,7 @@ namespace Core.Erp.Winform.Inventario
                                 bus_pedido.ValidarProceso(OCD.IdEmpresa_oc ?? 0, OCD.IdSucursal_oc ?? 0, OCD.IdOrdenCompra ?? 0, OCD.Secuencia_oc ?? 0);
                             }
 
-                            if (MessageBox.Show("¿Desea Imprimir el Ingreso a Bodega x OC. # " + IdIngreso_oc + "\n" + "Imprimir", "Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (MessageBox.Show("¿Desea Imprimir el Ingreso a Bodega x OC. # " +    info_IngComp.IdNumMovi.ToString() + "\n" + "Imprimir", "Sistemas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 ucGe_Menu_Superior_Mant1_event_btnImprimir_Click(null, null);
                             }
@@ -941,7 +942,8 @@ namespace Core.Erp.Winform.Inventario
                         info_IngComp.IdUsuarioUltModi = param.IdUsuario;
                         info_IngComp.Fecha_UltMod = param.Fecha_Transac;
                         Bus_IngEgr = new in_Ing_Egr_Inven_Bus();
-                        if (Bus_IngEgr.ModificarDB(info_IngComp, ref mensaje))
+                        //if (Bus_IngEgr.ModificarDB(info_IngComp, ref mensaje))
+                        if (Bus_IngEgr.NuevoModificar(info_IngComp))
                         {
                             //ucGe_Menu_Superior_Mant1.Enabled_bntGuardar_y_Salir = false;
                             //ucGe_Menu_Superior_Mant1.Enabled_btnGuardar = false;

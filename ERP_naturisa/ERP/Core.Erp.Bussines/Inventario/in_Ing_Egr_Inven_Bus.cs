@@ -943,5 +943,31 @@ namespace Core.Erp.Business.Inventario
                throw;
            }
        }
+
+       public bool NuevoGuardar(in_Ing_Egr_Inven_Info info)
+       {
+           try
+           {
+               return odata.NuevoGuardar(info);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
+
+       public bool NuevoModificar(in_Ing_Egr_Inven_Info info)
+       {
+           try
+           {
+               return odata.NuevoModificar(info);
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }
     }
 }

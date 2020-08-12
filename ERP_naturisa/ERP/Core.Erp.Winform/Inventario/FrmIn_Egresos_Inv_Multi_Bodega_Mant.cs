@@ -632,10 +632,11 @@ namespace Core.Erp.Winform.Inventario
                     {
                         case Cl_Enumeradores.eTipo_action.grabar:
                             decimal IdNumMovi = 0;
-                            if (bus_IngEgr.GuardarDB(info_IngEgr, ref   IdNumMovi, ref mensaje))
+                            //if (bus_IngEgr.GuardarDB(info_IngEgr, ref   IdNumMovi, ref mensaje))
+                            if (bus_IngEgr.NuevoGuardar(info_IngEgr))
                             {
-                                txtNumIngreso.Text = Convert.ToString(IdNumMovi);
-                                string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del Ingreso a Bodega ", IdNumMovi.ToString());
+                                txtNumIngreso.Text = Convert.ToString(info_IngEgr.IdNumMovi.ToString());
+                                string smensaje = string.Format(Core.Erp.Recursos.Properties.Resources.msgDespues_Grabar, "El registro del Ingreso a Bodega ", info_IngEgr.IdNumMovi.ToString());
                                 MessageBox.Show(smensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 if (MessageBox.Show("Desea Imprimir el Egreso Multibodega", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
@@ -656,11 +657,13 @@ namespace Core.Erp.Winform.Inventario
                             info_IngEgr.IdUsuarioUltModi = param.IdUsuario;
                             info_IngEgr.Fecha_UltMod = param.Fecha_Transac;
                             bus_IngEgr = new in_Ing_Egr_Inven_Bus();
-                            if (bus_IngEgr.ModificarDB(info_IngEgr, ref mensaje))
+
+                            //if (bus_IngEgr.ModificarDB(info_IngEgr, ref mensaje))
+                            if (bus_IngEgr.NuevoModificar(info_IngEgr))
                             {
                                 //ucGe_Menu.Enabled_bntGuardar_y_Salir = false;
                                 //ucGe_Menu.Enabled_btnGuardar = false;
-                                MessageBox.Show(mensaje, param.Nombre_sistema);
+                                MessageBox.Show("El registro #" + info_IngEgr.IdNumMovi.ToString() + " ha sido actualizado exitósamente", param.Nombre_sistema);
                                 LimpiarDatos();
                                 res = true;
                             }

@@ -12,7 +12,7 @@ namespace Core.Erp.Data.Inventario
 {
     public class in_Ing_Egr_Inven_Data
     {
-
+        
         string mensaje = "";
         in_UnidadMedida_Data odataUnidadMedida = new in_UnidadMedida_Data();
         public decimal GetId(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo)
@@ -1220,6 +1220,20 @@ namespace Core.Erp.Data.Inventario
                     var lstEgr = info.listIng_Egr.Where(q => q.IdProducto != null && Math.Abs(q.dm_cantidad_sinConversion) > 0).ToList();
                     foreach (var item in lstEgr)
                     {
+                        var producto = db.in_Producto.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdProducto == item.IdProducto).FirstOrDefault();
+                        if (producto == null)
+                            return false;
+                        if (info.signo == "-")
+                        {
+                            var costo_historico = db.in_producto_x_tb_bodega_Costo_Historico.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal && q.IdBodega == item.IdBodega && q.IdProducto == item.IdProducto).OrderByDescending(q => q.fecha).ThenByDescending(q=> q.Secuencia).FirstOrDefault();
+                            if (costo_historico != null)
+                            {
+                                item.mv_costo_sinConversion = costo_historico == null ? 0 : costo_historico.costo;
+                                item.mv_costo = costo_historico == null ? 0 : costo_historico.costo;        
+                            }
+                            
+                        }
+
                         db.in_Ing_Egr_Inven_det.Add(new in_Ing_Egr_Inven_det
                         {
                             IdEmpresa = info.IdEmpresa,
@@ -1231,20 +1245,37 @@ namespace Core.Erp.Data.Inventario
                             IdProducto = item.IdProducto,
 
                             dm_cantidad = CantidadConvertida = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto, item.IdUnidadMedida, Math.Abs(item.dm_cantidad_sinConversion)) * (info.signo == "+" ? 1 : -1),
-                            mv_costo = item.mv_costo_sinConversion / (CantidadConvertida == 0 ? 1 : CantidadConvertida),
-                            IdUnidadMedida = item.IdUnidadMedida,
+                            mv_costo = info.signo == "+" ? ((Math.Abs(item.dm_cantidad_sinConversion) * item.mv_costo_sinConversion) / (CantidadConvertida == 0 ? 1 : CantidadConvertida)) : (item.mv_costo),
+                            IdUnidadMedida = producto.IdUnidadMedida_Consumo,
 
-                            dm_cantidad_sinConversion = item.dm_cantidad_sinConversion,
+                            dm_cantidad_sinConversion = Math.Abs(item.dm_cantidad_sinConversion) * (info.signo == "+" ? 1 : -1),
                             mv_costo_sinConversion = item.mv_costo_sinConversion,
                             IdUnidadMedida_sinConversion = item.IdUnidadMedida,
+                            
+                            IdSucursal_oc = item.IdSucursal_oc,
+                            IdEmpresa_oc = item.IdEmpresa_oc,
+                            IdOrdenCompra = item.IdOrdenCompra,
+                            Secuencia_oc = item.Secuencia_oc,
 
                             IdEstadoAproba = "PEND",
                             dm_precio = 0,
-                            dm_observacion = item.dm_observacion ?? ""
+                            dm_observacion = item.dm_observacion ?? "",
+
+                            IdCentroCosto = item.IdCentroCosto,
+                            IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo
                         });
                     }
-
                     db.SaveChanges();
+
+                    var param = db.in_parametro.Where(q => q.IdEmpresa == info.IdEmpresa).FirstOrDefault();
+                    if (param != null && (info.signo == "-" ? param.IdEstadoAproba_x_Egr  : param.IdEstadoAproba_x_Ing) == "APRO")
+                    {
+                        in_movi_inve_Data odataMoviInven = new in_movi_inve_Data();
+                        if (!odataMoviInven.AprobarData(info.IdEmpresa,info.IdSucursal,info.IdMovi_inven_tipo,info.IdNumMovi,info.signo,info.IdUsuario,ref mensaje))
+                        {
+                            return false;
+                        }
+                    }
                 }
 
                 return true;
@@ -1252,6 +1283,95 @@ namespace Core.Erp.Data.Inventario
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public bool NuevoModificar(in_Ing_Egr_Inven_Info info)
+        {
+            try
+            {
+                using (EntitiesInventario db = new EntitiesInventario())
+                {
+                    var Entity = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo && q.IdNumMovi == info.IdNumMovi).FirstOrDefault();
+                    if (Entity == null)
+                        return false;
+
+                    #region Cabecera
+                    //Entity.IdMotivo_oc = info.IdMotivo_oc;
+                    Entity.CodMoviInven = info.CodMoviInven;
+                    Entity.cm_observacion = info.cm_observacion ?? "";
+                    Entity.cm_fecha = info.cm_fecha;
+                    Entity.IdUsuarioUltModi = info.IdUsuario;
+                    Entity.Fecha_UltMod = DateTime.Now;
+                    #endregion
+
+                    #region Detalle
+                    var lst = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo && q.IdNumMovi == info.IdNumMovi).ToList();
+                    foreach (var item in lst)
+                    {
+                        db.in_Ing_Egr_Inven_det.Remove(item);
+                    }
+                    int Secuencia = 1;
+                    double CantidadConvertida = 0;
+                    var lstEgr = info.listIng_Egr.Where(q => q.IdProducto != null && Math.Abs(q.dm_cantidad_sinConversion) > 0).ToList();
+                    foreach (var item in lstEgr)
+                    {
+                        var producto = db.in_Producto.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdProducto == item.IdProducto).FirstOrDefault();
+                        if (producto == null)
+                            return false;
+
+                        db.in_Ing_Egr_Inven_det.Add(new in_Ing_Egr_Inven_det
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdSucursal = info.IdSucursal,
+                            IdMovi_inven_tipo = info.IdMovi_inven_tipo,
+                            IdNumMovi = info.IdNumMovi,
+                            Secuencia = Secuencia++,
+                            IdBodega = item.IdBodega ?? (info.IdBodega ?? 0),
+                            IdProducto = item.IdProducto,
+
+                            dm_cantidad = CantidadConvertida = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto, item.IdUnidadMedida, Math.Abs(item.dm_cantidad_sinConversion)) * (info.signo == "+" ? 1 : -1),
+                            mv_costo = (Math.Abs(item.dm_cantidad_sinConversion) * item.mv_costo_sinConversion) / (CantidadConvertida == 0 ? 1 : CantidadConvertida),
+                            IdUnidadMedida = producto.IdUnidadMedida_Consumo,
+
+                            dm_cantidad_sinConversion = Math.Abs(item.dm_cantidad_sinConversion) * (info.signo == "+" ? 1 : -1),
+                            mv_costo_sinConversion = item.mv_costo_sinConversion,
+                            IdUnidadMedida_sinConversion = item.IdUnidadMedida,
+
+                            IdSucursal_oc = item.IdSucursal_oc,
+                            IdEmpresa_oc = item.IdEmpresa_oc,
+                            IdOrdenCompra = item.IdOrdenCompra,
+                            Secuencia_oc = item.Secuencia_oc,
+
+                            IdEstadoAproba = "PEND",
+                            dm_precio = 0,
+                            dm_observacion = item.dm_observacion ?? "",
+
+                            IdCentroCosto = item.IdCentroCosto,
+                            IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo
+                        });
+                    }
+                    #endregion
+                    
+                    db.SaveChanges();
+
+                    var param = db.in_parametro.Where(q => q.IdEmpresa == info.IdEmpresa).FirstOrDefault();
+                    if (param != null && (info.signo == "-" ? param.IdEstadoAproba_x_Egr : param.IdEstadoAproba_x_Ing) == "APRO")
+                    {
+                        in_movi_inve_Data odataMoviInven = new in_movi_inve_Data();
+                        if (!odataMoviInven.AprobarData(info.IdEmpresa, info.IdSucursal, info.IdMovi_inven_tipo, info.IdNumMovi, info.signo, info.IdUsuario, ref mensaje))
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }
