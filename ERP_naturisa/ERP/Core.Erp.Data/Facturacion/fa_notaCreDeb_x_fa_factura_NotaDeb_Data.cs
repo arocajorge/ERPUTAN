@@ -54,6 +54,7 @@ namespace Core.Erp.Data.Facturacion
                         info.vt_total = item.vt_total;
                         info.num_doc = item.num_doc;
                         info.esta_en_base = true;
+                        info.NoAplicaCobro = item.NoAplicaCobro;
 
                         Lista.Add(info);
                     }
@@ -122,6 +123,56 @@ namespace Core.Erp.Data.Facturacion
                 throw new Exception(ex.ToString());
             }
         }
+        public List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info> Get_list_docs_x_cruzarSaldo0(int IdEmpresa, decimal IdCliente)
+        {
+            try
+            {
+                List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info> Lista = new List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info>();
+
+                using (EntitiesCuentas_x_Cobrar Context = new EntitiesCuentas_x_Cobrar())
+                {
+                    var lst = from q in Context.vwcxc_cartera_x_cobrar
+                              where IdEmpresa == q.IdEmpresa
+                              && IdCliente == q.IdCliente
+                              && q.Saldo == 0
+                              select q;
+                    foreach (var item in lst)
+                    {
+                        fa_notaCreDeb_x_fa_factura_NotaDeb_Info info = new fa_notaCreDeb_x_fa_factura_NotaDeb_Info();
+
+                        info.IdEmpresa_fac_nd_doc_mod = item.IdEmpresa;
+                        info.IdSucursal_fac_nd_doc_mod = item.IdSucursal;
+                        info.IdBodega_fac_nd_doc_mod = item.IdBodega;
+                        info.IdCbteVta_fac_nd_doc_mod = item.IdComprobante;
+                        info.vt_tipoDoc = item.vt_tipoDoc;
+                        info.saldo = item.Saldo == null ? 0 : (double)item.Saldo;
+                        info.vt_NumFactura = item.vt_NunDocumento;
+                        info.IdCliente = item.IdCliente;
+                        info.nom_Cliente = item.NomCliente;
+                        info.vt_fecha = item.vt_fecha;
+                        info.vt_fech_venc = item.vt_fech_venc;
+                        info.vt_Observacion = item.Referencia;
+                        info.vt_total = item.vt_total;
+                        info.num_doc = item.vt_NunDocumento;
+                        info.esta_en_base = false;
+                        info.NoAplicaCobro = true;
+                        Lista.Add(info);
+                    }
+                }
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "";
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                mensaje = ex.ToString();
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                throw new Exception(ex.ToString());
+            }
+        }
 
         public Boolean GuardarDB(List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info> Lista)
         {
@@ -156,6 +207,14 @@ namespace Core.Erp.Data.Facturacion
                 {
                     fa_notaCreDeb_x_fa_factura_NotaDeb Entity = new fa_notaCreDeb_x_fa_factura_NotaDeb();
 
+                    var EnBase = Context.fa_notaCreDeb_x_fa_factura_NotaDeb.Where(q => q.IdEmpresa_nt == info.IdEmpresa_nt && q.IdSucursal_nt == info.IdSucursal_nt && q.IdBodega_nt == info.IdBodega_nt && q.IdNota_nt == info.IdNota_nt
+                        && q.IdEmpresa_fac_nd_doc_mod == info.IdEmpresa_fac_nd_doc_mod && q.IdSucursal_fac_nd_doc_mod == info.IdSucursal_fac_nd_doc_mod && q.IdBodega_fac_nd_doc_mod == info.IdBodega_fac_nd_doc_mod && q.IdCbteVta_fac_nd_doc_mod == info.IdCbteVta_fac_nd_doc_mod && q.vt_tipoDoc == info.vt_tipoDoc).FirstOrDefault();
+
+                    if (EnBase != null)
+                    {
+                        return true;
+                    }
+
                     Entity.IdEmpresa_nt = info.IdEmpresa_nt;
                     Entity.IdSucursal_nt = info.IdSucursal_nt;
                     Entity.IdBodega_nt = info.IdBodega_nt;
@@ -168,6 +227,7 @@ namespace Core.Erp.Data.Facturacion
                     Entity.vt_tipoDoc = info.vt_tipoDoc;
                     Entity.Valor_Aplicado = info.Valor_Aplicado;
                     Entity.fecha_cruce = DateTime.Now;
+                    Entity.NoAplicaCobro = info.NoAplicaCobro;
                     Context.fa_notaCreDeb_x_fa_factura_NotaDeb.Add(Entity);
                     Context.SaveChanges();
                 }
@@ -233,5 +293,27 @@ namespace Core.Erp.Data.Facturacion
                 throw new Exception(ex.ToString());
             }
         }
+
+        public bool Eliminar(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdNota)
+        {
+            try
+            {
+                using (EntitiesFacturacion db = new EntitiesFacturacion())
+                {
+                    var lst = db.fa_notaCreDeb_x_fa_factura_NotaDeb.Where(q => q.IdEmpresa_nt == IdEmpresa && q.IdSucursal_nt == IdSucursal && q.IdBodega_nt == IdBodega && q.IdNota_nt == IdNota).ToList();
+                    foreach (var item in lst)
+                    {
+                        db.fa_notaCreDeb_x_fa_factura_NotaDeb.Remove(item);
+                    }
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }   
     }
 }

@@ -36,5 +36,6 @@ namespace Core.Erp.Data
         public string vt_Observacion { get; set; }
         public Nullable<double> vt_total { get; set; }
         public string num_doc { get; set; }
+        public Nullable<bool> NoAplicaCobro { get; set; }
     }
 }

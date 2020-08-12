@@ -52,22 +52,33 @@ namespace Core.Erp.Business.Facturacion
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_list_docs_x_cruzar", ex.Message), ex) { EntityType = typeof(fa_notaCreDeb_x_fa_factura_NotaDeb_Bus) };
             }
         }
+        public List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info> Get_list_docs_x_cruzarSaldo0(int IdEmpresa, decimal IdCliente)
+        {
+            try
+            {
+                return oData.Get_list_docs_x_cruzarSaldo0(IdEmpresa, IdCliente);
+            }
+            catch (Exception ex)
+            {
+                Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
+                throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_list_docs_x_cruzar", ex.Message), ex) { EntityType = typeof(fa_notaCreDeb_x_fa_factura_NotaDeb_Bus) };
+            }
+        }
 
         public Boolean ModificarDB(List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info> Lista)
         {
             try
             {
+                
+
                 if (Lista.Count == 0)
                     return false;
                 int sec = Lista.Max(q => q.secuencia) + 1;
                 foreach (var item in Lista)
                 {
-                    if (!item.esta_en_base)
-                    {
-                        item.secuencia = sec;
-                        GuardarDB(item);
-                        sec++;
-                    }
+                    item.secuencia = sec;
+                    GuardarDB(item);
+                    sec++;
                 }
 
                 return true;
@@ -76,6 +87,19 @@ namespace Core.Erp.Business.Facturacion
             {
                 Core.Erp.Info.Log_Exception.LoggingManager.Logger.Log(Core.Erp.Info.Log_Exception.LoggingCategory.Error, ex.Message);
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ModificarDB", ex.Message), ex) { EntityType = typeof(fa_notaCreDeb_x_fa_factura_NotaDeb_Bus) };
+            }
+        }
+
+        public bool Eliminar(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdNota)
+        {
+            try
+            {
+                return oData.Eliminar(IdEmpresa, IdSucursal, IdBodega, IdNota);
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
 

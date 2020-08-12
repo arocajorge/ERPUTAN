@@ -18,6 +18,33 @@ namespace Core.Erp.Data.CuentasxPagar
 
                 using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
                 {
+                    /*
+                    var lst = (from a in db.cp_reembolso
+                               join b in db.cp_TipoDocumento
+                               on new { TipoDoc_CodSRI = a.TipoDoc_CodSRI } equals new { TipoDoc_CodSRI = b.CodTipoDocumento }
+                               select new cp_reembolso_Info
+                               {
+                                   IdEmpresa = a.IdEmpresa,
+                                   IdCbteCble_Ogiro = a.IdCbteCble_Ogiro,
+                                   IdTipoCbte_Ogiro = a.IdTipoCbte_Ogiro,
+                                   IdReembolso = a.IdReembolso,
+                                   TipoIdProveedor = a.TipoIdProveedor,
+                                   IdentificacionProveedor = a.IdentificacionProveedor,
+                                   TipoDoc_CodSRI = a.TipoDoc_CodSRI,
+                                   Establecimiento = a.Establecimiento,
+                                   Punto_Emision = a.Punto_Emision,
+                                   Secuencial = a.Secuencial,
+                                   Autorizacion = a.Autorizacion,
+                                   Fecha_Emision = a.Fecha_Emision,
+                                   TarifaIVAcero = a.TarifaIVAcero,
+                                   TarifaIVADiferentecero = a.TarifaIVADiferentecero,
+                                   TarifaNoObjetoIVA = a.TarifaNoObjetoIVA,
+                                   TarifaExcentaDeIVA = a.TarifaExcentaDeIVA,
+                                   TotalBaseImponible = a.TotalBaseImponible,
+                                   MontoICE = a.MontoICE,
+                                   MontoIVA = a.MontoIVA,
+                                   b.cod
+                               }).ToList();*/
                     var lst = db.cp_reembolso.Where(q => q.IdEmpresa == IdEmpresa && q.IdTipoCbte_Ogiro == IdTipoCbte && q.IdCbteCble_Ogiro == IdCbteCble).ToList();
                     foreach (var item in lst)
                     {
@@ -42,6 +69,7 @@ namespace Core.Erp.Data.CuentasxPagar
                             TotalBaseImponible = item.TotalBaseImponible,
                             MontoICE = item.MontoICE,
                             MontoIVA = item.MontoIVA,
+                            CodigoTipoIdentificacion = item.TipoIdProveedor == "RUC" ? "01" : (item.TipoIdProveedor == "CED" ? "02" : "03")
                         });
                     }
                 }

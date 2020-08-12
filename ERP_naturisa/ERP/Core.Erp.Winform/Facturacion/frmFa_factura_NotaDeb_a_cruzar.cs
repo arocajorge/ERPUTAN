@@ -23,10 +23,12 @@ namespace Core.Erp.Winform.Facturacion
         fa_notaCreDeb_x_fa_factura_NotaDeb_Bus Bus_FactNotaDeb_x_cruzar = new fa_notaCreDeb_x_fa_factura_NotaDeb_Bus();
         List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info> Lst_FactNotaDeb_x_cruzar = new List<fa_notaCreDeb_x_fa_factura_NotaDeb_Info>();
         fa_notaCreDeb_x_fa_factura_NotaDeb_Info Info_FactNotaDeb_x_cruzar = new fa_notaCreDeb_x_fa_factura_NotaDeb_Info();
+        public bool MostrarSaldo0 { get; set; }
         #endregion
 
-        public frmFa_factura_NotaDeb_a_cruzar()
+        public frmFa_factura_NotaDeb_a_cruzar(bool _MostrarSaldo0 = false)
         {
+            MostrarSaldo0 = _MostrarSaldo0;
             InitializeComponent();
         }
 
@@ -34,7 +36,12 @@ namespace Core.Erp.Winform.Facturacion
         {
             try
             {
-                Lst_FactNotaDeb_x_cruzar = Bus_FactNotaDeb_x_cruzar.Get_list_docs_x_cruzar(param.IdEmpresa, IdCliente);
+                if (MostrarSaldo0)
+                {
+                    Lst_FactNotaDeb_x_cruzar = Bus_FactNotaDeb_x_cruzar.Get_list_docs_x_cruzarSaldo0(param.IdEmpresa, IdCliente);
+                }
+                else
+                    Lst_FactNotaDeb_x_cruzar = Bus_FactNotaDeb_x_cruzar.Get_list_docs_x_cruzar(param.IdEmpresa, IdCliente);
                 gridControlDocs.DataSource = Lst_FactNotaDeb_x_cruzar;
             }
             catch (Exception ex)

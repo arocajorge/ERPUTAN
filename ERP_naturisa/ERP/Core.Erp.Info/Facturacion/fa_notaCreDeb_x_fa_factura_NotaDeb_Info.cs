@@ -42,5 +42,7 @@ namespace Core.Erp.Info.Facturacion
         public Nullable<int> IdEmpresa_cbr { get; set; }
         public Nullable<int> IdSucursal_cbr { get; set; }
         public Nullable<decimal> IdCobro_cbr { get; set; }
+
+        public bool? NoAplicaCobro { get; set; }
     }
 }

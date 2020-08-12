@@ -29,5 +29,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public double TotalBaseImponible { get; set; }
         public double MontoICE { get; set; }
         public double MontoIVA { get; set; }
+
+        public string CodigoTipoIdentificacion { get; set; }
     }
 }

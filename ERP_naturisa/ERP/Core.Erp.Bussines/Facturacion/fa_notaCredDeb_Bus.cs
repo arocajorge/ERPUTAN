@@ -441,7 +441,7 @@ namespace Core.Erp.Business.Facturacion
                         {
                             item.IdNota_nt = Info.IdNota;
                         }
-
+                        bus_notaCreDeb_x_fa_factura_NotaDeb.Eliminar(Info.IdEmpresa, Info.IdSucursal, Info.IdBodega, Info.IdNota);
                         if (bus_notaCreDeb_x_fa_factura_NotaDeb.ModificarDB(Info.lst_docs_relacionados))
                         {
                             Generar_Cobro_x_NC(Info.IdEmpresa, Info.IdSucursal, Info.IdBodega, Info.IdNota, ref mensaje);
@@ -1066,7 +1066,7 @@ namespace Core.Erp.Business.Facturacion
                 list_cbts_vtas_x_NC = BusNota_deb_x_factura.Get_list_docs_x_NC_x_cobro(IdEmpresa, IdSucursal, IdBodega, IdNota_Cred);
                 foreach (var item in list_cbts_vtas_x_NC)
                 {
-                    if (item.IdCobro_cbr==null)
+                    if (item.IdCobro_cbr==null && item.Valor_Aplicado > 0)
                     {
                         fa_notaCreDeb_x_fa_factura_NotaDeb_Info info = new fa_notaCreDeb_x_fa_factura_NotaDeb_Info();
                         info = item;

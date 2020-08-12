@@ -1953,5 +1953,126 @@ namespace Core.Erp.Winform.Facturacion
             }
         }
 
+        private void btnBuscarDocumentoSinSaldo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal IdCliente = ctrl_Cliente.get_ClienteInfo().IdCliente;
+                if (IdCliente != 0)
+                {
+                    frmFa_factura_NotaDeb_a_cruzar frm = new frmFa_factura_NotaDeb_a_cruzar(true);
+                    frm.Cargar_combos(IdCliente);
+                    frm.ShowDialog();
+                    Info_Doc_rel = frm.Get_Info();
+                    if (Info_Doc_rel != null)
+                    {
+                        Info_Doc_rel.Valor_Aplicado = Info_Doc_rel.vt_total == null ? 0 : (double)Info_Doc_rel.vt_total;
+                        int cont = BList_Documentos_relacionados.Where(q => q.IdEmpresa_fac_nd_doc_mod == Info_Doc_rel.IdEmpresa_fac_nd_doc_mod && q.IdSucursal_fac_nd_doc_mod == Info_Doc_rel.IdSucursal_fac_nd_doc_mod && q.IdBodega_fac_nd_doc_mod == Info_Doc_rel.IdBodega_fac_nd_doc_mod
+                            && q.IdCbteVta_fac_nd_doc_mod == Info_Doc_rel.IdCbteVta_fac_nd_doc_mod).Count();
+
+
+                        if (cont == 0)
+                        {
+                            if (Info_Doc_rel != null && Info_Doc_rel.IdCbteVta_fac_nd_doc_mod != 0)
+                            {
+                                switch (Info_Doc_rel.vt_tipoDoc)
+                                {
+                                    case "FACT":
+                                        info_fact = bus_fact.Get_Info_factura(Info_Doc_rel.IdEmpresa_fac_nd_doc_mod, Info_Doc_rel.IdSucursal_fac_nd_doc_mod, Info_Doc_rel.IdBodega_fac_nd_doc_mod, Info_Doc_rel.IdCbteVta_fac_nd_doc_mod);
+
+
+                                        cmb_vendedor.set_VendedorInfo(info_fact.IdVendedor);
+
+
+                                        if (info_fact != null)
+                                        {
+                                            info_fact.DetFactura_List = bus_fact_det.Get_List_factura_det(info_fact.IdEmpresa, info_fact.IdSucursal, info_fact.IdBodega, info_fact.IdCbteVta, ref MensajeError);
+
+                                            foreach (var item in info_fact.DetFactura_List)
+                                            {
+                                                fa_notaCreDeb_det_Info info = new fa_notaCreDeb_det_Info();
+                                                info.IdEmpresa = item.IdEmpresa;
+                                                info.IdSucursal = item.IdSucursal;
+                                                info.IdBodega = item.IdBodega;
+                                                info.IdProducto = item.IdProducto;
+                                                info.sc_cantidad = item.vt_cantidad;
+                                                info.sc_Precio = item.vt_Precio;
+                                                info.sc_precioFinal = item.vt_PrecioFinal;
+                                                info.sc_descUni = item.vt_DescUnitario;
+                                                info.sc_PordescUni = item.vt_PorDescUnitario;
+                                                info.sc_precioFinal = item.vt_PrecioFinal;
+                                                info.sc_subtotal = item.vt_Subtotal;
+                                                info.sc_iva = item.vt_iva;
+                                                info.sc_total = item.vt_total;
+                                                info.DetallexItems = item.vt_detallexItems;
+                                                info.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
+
+
+                                                info.IdEmpresa_docRel = Info_Doc_rel.IdEmpresa_fac_nd_doc_mod;
+                                                info.IdSucursal_docRel = Info_Doc_rel.IdSucursal_fac_nd_doc_mod;
+                                                info.IdBodega_docRel = Info_Doc_rel.IdBodega_fac_nd_doc_mod;
+                                                info.IdCbte_docRel = Info_Doc_rel.IdCbteVta_fac_nd_doc_mod;
+
+                                                BindiList_det_NC.Add(info);
+                                            }
+                                        }
+                                        break;
+                                    case "NTDB":
+                                        info_notaDeb = bus_notaDeb.Get_Info_notaCreDeb_x_ND(Info_Doc_rel.IdEmpresa_fac_nd_doc_mod, Info_Doc_rel.IdSucursal_fac_nd_doc_mod, Info_Doc_rel.IdBodega_fac_nd_doc_mod, Info_Doc_rel.IdCbteVta_fac_nd_doc_mod);
+                                        if (info_notaDeb != null)
+                                        {
+                                            info_notaDeb.ListaDetalles = bus_notaDeb_det.Get_List_notaCreDeb_det(info_notaDeb);
+
+                                            foreach (var item in info_notaDeb.ListaDetalles)
+                                            {
+                                                fa_notaCreDeb_det_Info info = new fa_notaCreDeb_det_Info();
+                                                info.IdEmpresa = item.IdEmpresa;
+                                                info.IdSucursal = item.IdSucursal;
+                                                info.IdBodega = item.IdBodega;
+                                                info.IdProducto = item.IdProducto;
+                                                info.sc_cantidad = item.sc_cantidad;
+                                                info.sc_Precio = item.sc_Precio;
+                                                info.sc_precioFinal = item.sc_precioFinal;
+                                                info.sc_descUni = item.sc_descUni;
+                                                info.sc_PordescUni = item.sc_PordescUni;
+                                                info.sc_precioFinal = item.sc_precioFinal;
+                                                info.sc_subtotal = item.sc_subtotal;
+                                                info.sc_iva = item.sc_iva;
+                                                info.sc_total = item.sc_total;
+                                                info.DetallexItems = item.sc_observacion;
+
+                                                info.IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva;
+
+                                                info.IdEmpresa_docRel = Info_Doc_rel.IdEmpresa_fac_nd_doc_mod;
+                                                info.IdSucursal_docRel = Info_Doc_rel.IdSucursal_fac_nd_doc_mod;
+                                                info.IdBodega_docRel = Info_Doc_rel.IdBodega_fac_nd_doc_mod;
+                                                info.IdCbte_docRel = Info_Doc_rel.IdCbteVta_fac_nd_doc_mod;
+
+                                                BindiList_det_NC.Add(info);
+                                            }
+                                        }
+                                        break;
+                                }
+                                BList_Documentos_relacionados.Add(Info_Doc_rel);
+                                gridControlDocRelacionados.DataSource = BList_Documentos_relacionados;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El documento seleccionado ya se encuentra en esta nota crédito.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+
+                    gridControlNotaCreDeb.DataSource = BindiList_det_NC;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

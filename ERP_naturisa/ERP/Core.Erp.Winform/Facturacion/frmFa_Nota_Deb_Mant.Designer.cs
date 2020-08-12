@@ -121,6 +121,7 @@
             this.colIdentificador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtNumNot = new DevExpress.XtraEditors.TextEdit();
             this.ucSucursalBode = new Core.Erp.Winform.Controles.UCIn_Sucursal_Bodega();
+            this.btnBuscarSaldo0 = new System.Windows.Forms.ToolStripButton();
             this.panelMain.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageDetalle.SuspendLayout();
@@ -179,8 +180,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1030, 29);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1373, 36);
             this.ucGe_Menu.TabIndex = 0;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -214,9 +216,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 555);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 683);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1030, 24);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1373, 30);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 1;
             // 
             // panelMain
@@ -224,9 +227,10 @@
             this.panelMain.Controls.Add(this.tabControl1);
             this.panelMain.Controls.Add(this.panelTop);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 29);
+            this.panelMain.Location = new System.Drawing.Point(0, 36);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1030, 526);
+            this.panelMain.Size = new System.Drawing.Size(1373, 647);
             this.panelMain.TabIndex = 2;
             // 
             // tabControl1
@@ -234,19 +238,21 @@
             this.tabControl1.Controls.Add(this.tabPageDetalle);
             this.tabControl1.Controls.Add(this.tabPageDiarioConta);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 241);
+            this.tabControl1.Location = new System.Drawing.Point(0, 297);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1030, 285);
+            this.tabControl1.Size = new System.Drawing.Size(1373, 350);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPageDetalle
             // 
             this.tabPageDetalle.Controls.Add(this.gridControlNotaCreDeb);
-            this.tabPageDetalle.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDetalle.Location = new System.Drawing.Point(4, 25);
+            this.tabPageDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageDetalle.Name = "tabPageDetalle";
-            this.tabPageDetalle.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDetalle.Size = new System.Drawing.Size(1022, 259);
+            this.tabPageDetalle.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageDetalle.Size = new System.Drawing.Size(1365, 321);
             this.tabPageDetalle.TabIndex = 0;
             this.tabPageDetalle.Text = "Detalle de Nota";
             this.tabPageDetalle.UseVisualStyleBackColor = true;
@@ -254,14 +260,16 @@
             // gridControlNotaCreDeb
             // 
             this.gridControlNotaCreDeb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlNotaCreDeb.Location = new System.Drawing.Point(3, 3);
+            this.gridControlNotaCreDeb.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlNotaCreDeb.Location = new System.Drawing.Point(4, 4);
             this.gridControlNotaCreDeb.MainView = this.gridViewNotaCreDeb;
+            this.gridControlNotaCreDeb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlNotaCreDeb.Name = "gridControlNotaCreDeb";
             this.gridControlNotaCreDeb.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbProducto_grid,
             this.col_txtObservacion,
             this.cmbImpuestoIva});
-            this.gridControlNotaCreDeb.Size = new System.Drawing.Size(1016, 253);
+            this.gridControlNotaCreDeb.Size = new System.Drawing.Size(1357, 313);
             this.gridControlNotaCreDeb.TabIndex = 0;
             this.gridControlNotaCreDeb.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNotaCreDeb});
@@ -521,10 +529,11 @@
             // 
             this.tabPageDiarioConta.Controls.Add(this.ucCon_GridDiario);
             this.tabPageDiarioConta.Controls.Add(this.toolStrip1);
-            this.tabPageDiarioConta.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDiarioConta.Location = new System.Drawing.Point(4, 25);
+            this.tabPageDiarioConta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageDiarioConta.Name = "tabPageDiarioConta";
-            this.tabPageDiarioConta.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDiarioConta.Size = new System.Drawing.Size(1022, 259);
+            this.tabPageDiarioConta.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageDiarioConta.Size = new System.Drawing.Size(1365, 322);
             this.tabPageDiarioConta.TabIndex = 1;
             this.tabPageDiarioConta.Text = "Diario Contable";
             this.tabPageDiarioConta.UseVisualStyleBackColor = true;
@@ -533,11 +542,12 @@
             // 
             this.ucCon_GridDiario.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucCon_GridDiario.IdCtaCble_x_Banco = null;
-            this.ucCon_GridDiario.Location = new System.Drawing.Point(3, 28);
+            this.ucCon_GridDiario.Location = new System.Drawing.Point(4, 31);
+            this.ucCon_GridDiario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucCon_GridDiario.Name = "ucCon_GridDiario";
-            this.ucCon_GridDiario.Size = new System.Drawing.Size(1016, 300);
+            this.ucCon_GridDiario.Size = new System.Drawing.Size(1357, 369);
             this.ucCon_GridDiario.TabIndex = 0;
-            this.ucCon_GridDiario.Visible_Botones = true;
+            this.ucCon_GridDiario.Visible_Botones = false;
             this.ucCon_GridDiario.Visible_Cabecera = false;
             this.ucCon_GridDiario.Visible_columna_GrupoPuntoCargo = true;
             this.ucCon_GridDiario.Visible_columna_PuntoCargo = true;
@@ -546,9 +556,9 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnCargar_diario});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 4);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1016, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1357, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -557,7 +567,7 @@
             this.btnCargar_diario.Image = ((System.Drawing.Image)(resources.GetObject("btnCargar_diario.Image")));
             this.btnCargar_diario.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCargar_diario.Name = "btnCargar_diario";
-            this.btnCargar_diario.Size = new System.Drawing.Size(95, 22);
+            this.btnCargar_diario.Size = new System.Drawing.Size(116, 24);
             this.btnCargar_diario.Text = "Cargar diario";
             this.btnCargar_diario.Click += new System.EventHandler(this.btnCargar_diario_Click);
             // 
@@ -582,16 +592,18 @@
             this.panelTop.Controls.Add(this.ucSucursalBode);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1030, 241);
+            this.panelTop.Size = new System.Drawing.Size(1373, 297);
             this.panelTop.TabIndex = 0;
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Location = new System.Drawing.Point(446, 9);
+            this.xtraTabControl1.Location = new System.Drawing.Point(595, 11);
+            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.tabPage_General;
-            this.xtraTabControl1.Size = new System.Drawing.Size(581, 233);
+            this.xtraTabControl1.Size = new System.Drawing.Size(775, 287);
             this.xtraTabControl1.TabIndex = 1;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPage_General,
@@ -603,8 +615,9 @@
             this.tabPage_General.Controls.Add(this.groupBox1);
             this.tabPage_General.Controls.Add(this.lblAnulado);
             this.tabPage_General.Controls.Add(this.chkActivo);
+            this.tabPage_General.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage_General.Name = "tabPage_General";
-            this.tabPage_General.Size = new System.Drawing.Size(575, 205);
+            this.tabPage_General.Size = new System.Drawing.Size(769, 256);
             this.tabPage_General.Text = "Datos generales";
             // 
             // grp_naturaleza_nota
@@ -612,9 +625,11 @@
             this.grp_naturaleza_nota.Controls.Add(this.rdbUsoInt);
             this.grp_naturaleza_nota.Controls.Add(this.rdbAutSri);
             this.grp_naturaleza_nota.Controls.Add(this.ctrl_NumDoc);
-            this.grp_naturaleza_nota.Location = new System.Drawing.Point(15, 96);
+            this.grp_naturaleza_nota.Location = new System.Drawing.Point(20, 118);
+            this.grp_naturaleza_nota.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grp_naturaleza_nota.Name = "grp_naturaleza_nota";
-            this.grp_naturaleza_nota.Size = new System.Drawing.Size(462, 74);
+            this.grp_naturaleza_nota.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grp_naturaleza_nota.Size = new System.Drawing.Size(616, 91);
             this.grp_naturaleza_nota.TabIndex = 19;
             this.grp_naturaleza_nota.TabStop = false;
             // 
@@ -622,9 +637,10 @@
             // 
             this.rdbUsoInt.AutoSize = true;
             this.rdbUsoInt.Checked = true;
-            this.rdbUsoInt.Location = new System.Drawing.Point(231, 6);
+            this.rdbUsoInt.Location = new System.Drawing.Point(308, 7);
+            this.rdbUsoInt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbUsoInt.Name = "rdbUsoInt";
-            this.rdbUsoInt.Size = new System.Drawing.Size(105, 17);
+            this.rdbUsoInt.Size = new System.Drawing.Size(136, 21);
             this.rdbUsoInt.TabIndex = 12;
             this.rdbUsoInt.TabStop = true;
             this.rdbUsoInt.Text = "Para Uso Interno";
@@ -634,9 +650,10 @@
             // rdbAutSri
             // 
             this.rdbAutSri.AutoSize = true;
-            this.rdbAutSri.Location = new System.Drawing.Point(46, 6);
+            this.rdbAutSri.Location = new System.Drawing.Point(61, 7);
+            this.rdbAutSri.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbAutSri.Name = "rdbAutSri";
-            this.rdbAutSri.Size = new System.Drawing.Size(125, 17);
+            this.rdbAutSri.Size = new System.Drawing.Size(163, 21);
             this.rdbAutSri.TabIndex = 0;
             this.rdbAutSri.Text = "Autorizada por el SRI";
             this.rdbAutSri.UseVisualStyleBackColor = true;
@@ -647,9 +664,10 @@
             this.ctrl_NumDoc.IdEstablecimiento = null;
             this.ctrl_NumDoc.IdPuntoEmision = null;
             this.ctrl_NumDoc.IdTipoDocumento = Core.Erp.Info.General.Cl_Enumeradores.eTipoDocumento_Talonario.NTDB;
-            this.ctrl_NumDoc.Location = new System.Drawing.Point(12, 23);
+            this.ctrl_NumDoc.Location = new System.Drawing.Point(16, 28);
+            this.ctrl_NumDoc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ctrl_NumDoc.Name = "ctrl_NumDoc";
-            this.ctrl_NumDoc.Size = new System.Drawing.Size(391, 51);
+            this.ctrl_NumDoc.Size = new System.Drawing.Size(521, 63);
             this.ctrl_NumDoc.TabIndex = 11;
             // 
             // groupBox1
@@ -660,9 +678,11 @@
             this.groupBox1.Controls.Add(this.dateFecha);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dateFechaVencimiento);
-            this.groupBox1.Location = new System.Drawing.Point(15, 3);
+            this.groupBox1.Location = new System.Drawing.Point(20, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(462, 73);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(616, 90);
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fechas";
@@ -670,53 +690,59 @@
             // dt_fechaCtble
             // 
             this.dt_fechaCtble.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_fechaCtble.Location = new System.Drawing.Point(259, 40);
+            this.dt_fechaCtble.Location = new System.Drawing.Point(345, 49);
+            this.dt_fechaCtble.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dt_fechaCtble.Name = "dt_fechaCtble";
-            this.dt_fechaCtble.Size = new System.Drawing.Size(85, 20);
+            this.dt_fechaCtble.Size = new System.Drawing.Size(112, 22);
             this.dt_fechaCtble.TabIndex = 17;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(150, 40);
+            this.label14.Location = new System.Drawing.Point(200, 49);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 13);
+            this.label14.Size = new System.Drawing.Size(109, 17);
             this.label14.TabIndex = 16;
             this.label14.Text = "Fecha contable:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(2, 16);
+            this.label4.Location = new System.Drawing.Point(3, 20);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(51, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Fecha:";
             // 
             // dateFecha
             // 
             this.dateFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFecha.Location = new System.Drawing.Point(48, 14);
+            this.dateFecha.Location = new System.Drawing.Point(64, 17);
+            this.dateFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateFecha.Name = "dateFecha";
-            this.dateFecha.Size = new System.Drawing.Size(89, 20);
+            this.dateFecha.Size = new System.Drawing.Size(117, 22);
             this.dateFecha.TabIndex = 12;
             this.dateFecha.ValueChanged += new System.EventHandler(this.dateFecha_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(150, 16);
+            this.label5.Location = new System.Drawing.Point(200, 20);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 13);
+            this.label5.Size = new System.Drawing.Size(132, 17);
             this.label5.TabIndex = 15;
             this.label5.Text = "Fecha /Vencimiento";
             // 
             // dateFechaVencimiento
             // 
             this.dateFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateFechaVencimiento.Location = new System.Drawing.Point(259, 14);
+            this.dateFechaVencimiento.Location = new System.Drawing.Point(345, 17);
+            this.dateFechaVencimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateFechaVencimiento.Name = "dateFechaVencimiento";
-            this.dateFechaVencimiento.Size = new System.Drawing.Size(85, 20);
+            this.dateFechaVencimiento.Size = new System.Drawing.Size(112, 22);
             this.dateFechaVencimiento.TabIndex = 14;
             // 
             // lblAnulado
@@ -724,9 +750,10 @@
             this.lblAnulado.AutoSize = true;
             this.lblAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnulado.ForeColor = System.Drawing.Color.Red;
-            this.lblAnulado.Location = new System.Drawing.Point(202, 177);
+            this.lblAnulado.Location = new System.Drawing.Point(269, 218);
+            this.lblAnulado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAnulado.Name = "lblAnulado";
-            this.lblAnulado.Size = new System.Drawing.Size(104, 16);
+            this.lblAnulado.Size = new System.Drawing.Size(126, 20);
             this.lblAnulado.TabIndex = 3;
             this.lblAnulado.Text = "**ANULADO**";
             this.lblAnulado.Visible = false;
@@ -734,27 +761,31 @@
             // chkActivo
             // 
             this.chkActivo.EditValue = true;
-            this.chkActivo.Location = new System.Drawing.Point(323, 176);
+            this.chkActivo.Location = new System.Drawing.Point(431, 217);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Properties.Caption = "Activo";
-            this.chkActivo.Size = new System.Drawing.Size(83, 19);
+            this.chkActivo.Size = new System.Drawing.Size(111, 21);
             this.chkActivo.TabIndex = 77;
             // 
             // tabPage_DocsRelacionados
             // 
             this.tabPage_DocsRelacionados.Controls.Add(this.gridControlDocRelacionados);
             this.tabPage_DocsRelacionados.Controls.Add(this.toolStrip2);
+            this.tabPage_DocsRelacionados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage_DocsRelacionados.Name = "tabPage_DocsRelacionados";
-            this.tabPage_DocsRelacionados.Size = new System.Drawing.Size(575, 205);
+            this.tabPage_DocsRelacionados.Size = new System.Drawing.Size(769, 256);
             this.tabPage_DocsRelacionados.Text = "Documentos relacionados";
             // 
             // gridControlDocRelacionados
             // 
             this.gridControlDocRelacionados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlDocRelacionados.Location = new System.Drawing.Point(0, 25);
+            this.gridControlDocRelacionados.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlDocRelacionados.Location = new System.Drawing.Point(0, 27);
             this.gridControlDocRelacionados.MainView = this.gridViewDocRelacionados;
+            this.gridControlDocRelacionados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlDocRelacionados.Name = "gridControlDocRelacionados";
-            this.gridControlDocRelacionados.Size = new System.Drawing.Size(575, 180);
+            this.gridControlDocRelacionados.Size = new System.Drawing.Size(769, 229);
             this.gridControlDocRelacionados.TabIndex = 3;
             this.gridControlDocRelacionados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDocRelacionados});
@@ -892,10 +923,11 @@
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Buscar_doc});
+            this.btn_Buscar_doc,
+            this.btnBuscarSaldo0});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(575, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(769, 27);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -904,28 +936,30 @@
             this.btn_Buscar_doc.Image = global::Core.Erp.Winform.Properties.Resources.Buscar1_32X32;
             this.btn_Buscar_doc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Buscar_doc.Name = "btn_Buscar_doc";
-            this.btn_Buscar_doc.Size = new System.Drawing.Size(127, 22);
+            this.btn_Buscar_doc.Size = new System.Drawing.Size(152, 24);
             this.btn_Buscar_doc.Text = "Buscar documento";
             this.btn_Buscar_doc.Click += new System.EventHandler(this.btn_Buscar_doc_Click);
             // 
             // ctrl_Cliente
             // 
-            this.ctrl_Cliente.Location = new System.Drawing.Point(70, 144);
+            this.ctrl_Cliente.Location = new System.Drawing.Point(93, 177);
+            this.ctrl_Cliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ctrl_Cliente.Name = "ctrl_Cliente";
-            this.ctrl_Cliente.Size = new System.Drawing.Size(374, 26);
+            this.ctrl_Cliente.Size = new System.Drawing.Size(499, 32);
             this.ctrl_Cliente.TabIndex = 1;
             this.ctrl_Cliente.event_cmb_cliente_EditValueChanged += new Core.Erp.Winform.Controles.UCFa_ClienteCmb.delegate_cmb_cliente_EditValueChanged(this.ctrl_Cliente_Event_cmb_cliente_EditValueChanged);
             // 
             // cmbCredito
             // 
-            this.cmbCredito.Location = new System.Drawing.Point(71, 92);
+            this.cmbCredito.Location = new System.Drawing.Point(95, 113);
+            this.cmbCredito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbCredito.Name = "cmbCredito";
             this.cmbCredito.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCredito.Properties.DisplayMember = "no_Descripcion";
             this.cmbCredito.Properties.ValueMember = "IdTipoNota";
             this.cmbCredito.Properties.View = this.searchLookUpEdit1View;
-            this.cmbCredito.Size = new System.Drawing.Size(354, 20);
+            this.cmbCredito.Size = new System.Drawing.Size(472, 22);
             this.cmbCredito.TabIndex = 4;
             this.cmbCredito.EditValueChanged += new System.EventHandler(this.cmbCredito_EditValueChanged_1);
             // 
@@ -967,106 +1001,118 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 95);
+            this.label11.Location = new System.Drawing.Point(20, 117);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.Size = new System.Drawing.Size(57, 17);
             this.label11.TabIndex = 79;
             this.label11.Text = "Motivo :";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 114);
+            this.label10.Location = new System.Drawing.Point(12, 140);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 26);
+            this.label10.Size = new System.Drawing.Size(72, 34);
             this.label10.TabIndex = 78;
             this.label10.Text = "Cta \r\nContable :";
             // 
             // cmbCtaCble_TipoNota
             // 
-            this.cmbCtaCble_TipoNota.Location = new System.Drawing.Point(70, 113);
+            this.cmbCtaCble_TipoNota.Location = new System.Drawing.Point(93, 139);
+            this.cmbCtaCble_TipoNota.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmbCtaCble_TipoNota.Name = "cmbCtaCble_TipoNota";
-            this.cmbCtaCble_TipoNota.Size = new System.Drawing.Size(370, 29);
+            this.cmbCtaCble_TipoNota.Size = new System.Drawing.Size(493, 36);
             this.cmbCtaCble_TipoNota.TabIndex = 20;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 214);
+            this.label6.Location = new System.Drawing.Point(12, 263);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.Size = new System.Drawing.Size(92, 17);
             this.label6.TabIndex = 18;
             this.label6.Text = "Observacion:";
             // 
             // txtObservacion
             // 
             this.txtObservacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtObservacion.Location = new System.Drawing.Point(87, 208);
+            this.txtObservacion.Location = new System.Drawing.Point(116, 256);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(353, 30);
+            this.txtObservacion.Size = new System.Drawing.Size(469, 36);
             this.txtObservacion.TabIndex = 17;
             // 
             // cmb_vendedor
             // 
-            this.cmb_vendedor.Location = new System.Drawing.Point(7, 176);
+            this.cmb_vendedor.Location = new System.Drawing.Point(9, 217);
+            this.cmb_vendedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmb_vendedor.Name = "cmb_vendedor";
-            this.cmb_vendedor.Size = new System.Drawing.Size(433, 26);
+            this.cmb_vendedor.Size = new System.Drawing.Size(577, 32);
             this.cmb_vendedor.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(315, 16);
+            this.label3.Location = new System.Drawing.Point(420, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Caja:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 153);
+            this.label2.Location = new System.Drawing.Point(24, 188);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(55, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Cliente:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 16);
+            this.label1.Location = new System.Drawing.Point(217, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Codigo";
             // 
             // lblIdNotaCred
             // 
             this.lblIdNotaCred.AutoSize = true;
-            this.lblIdNotaCred.Location = new System.Drawing.Point(12, 16);
+            this.lblIdNotaCred.Location = new System.Drawing.Point(16, 20);
+            this.lblIdNotaCred.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdNotaCred.Name = "lblIdNotaCred";
-            this.lblIdNotaCred.Size = new System.Drawing.Size(62, 13);
+            this.lblIdNotaCred.Size = new System.Drawing.Size(79, 17);
             this.lblIdNotaCred.TabIndex = 7;
             this.lblIdNotaCred.Text = "IdNota Deb";
             // 
             // txtCodigoNot
             // 
-            this.txtCodigoNot.Location = new System.Drawing.Point(209, 13);
+            this.txtCodigoNot.Location = new System.Drawing.Point(279, 16);
+            this.txtCodigoNot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodigoNot.Name = "txtCodigoNot";
-            this.txtCodigoNot.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoNot.Size = new System.Drawing.Size(133, 22);
             this.txtCodigoNot.TabIndex = 6;
             // 
             // cmbCaja
             // 
-            this.cmbCaja.Location = new System.Drawing.Point(352, 13);
+            this.cmbCaja.Location = new System.Drawing.Point(469, 16);
+            this.cmbCaja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbCaja.Name = "cmbCaja";
             this.cmbCaja.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCaja.Properties.DisplayMember = "ca_Descripcion";
             this.cmbCaja.Properties.ValueMember = "IdCaja";
             this.cmbCaja.Properties.View = this.gridView1;
-            this.cmbCaja.Size = new System.Drawing.Size(73, 20);
+            this.cmbCaja.Size = new System.Drawing.Size(97, 22);
             this.cmbCaja.TabIndex = 5;
             // 
             // gridView1
@@ -1097,29 +1143,42 @@
             // 
             // txtNumNot
             // 
-            this.txtNumNot.Location = new System.Drawing.Point(82, 13);
+            this.txtNumNot.Location = new System.Drawing.Point(109, 16);
+            this.txtNumNot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumNot.Name = "txtNumNot";
-            this.txtNumNot.Size = new System.Drawing.Size(75, 20);
+            this.txtNumNot.Size = new System.Drawing.Size(100, 22);
             this.txtNumNot.TabIndex = 2;
             // 
             // ucSucursalBode
             // 
-            this.ucSucursalBode.Location = new System.Drawing.Point(12, 42);
+            this.ucSucursalBode.Location = new System.Drawing.Point(16, 52);
+            this.ucSucursalBode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucSucursalBode.Name = "ucSucursalBode";
-            this.ucSucursalBode.Size = new System.Drawing.Size(418, 53);
+            this.ucSucursalBode.Size = new System.Drawing.Size(557, 65);
             this.ucSucursalBode.TabIndex = 0;
             this.ucSucursalBode.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.todos;
+            this.ucSucursalBode.Visible_cmb_bodega = true;
             this.ucSucursalBode.Event_cmb_sucursal1_EditValueChanged += new Core.Erp.Winform.Controles.UCIn_Sucursal_Bodega.delegate_cmb_sucursal1_EditValueChanged(this.ucSucursalBode_Event_cmb_sucursal1_EditValueChanged);
             this.ucSucursalBode.Event_cmb_bodega1_EditValueChanged += new Core.Erp.Winform.Controles.UCIn_Sucursal_Bodega.delegate_cmb_bodega1_EditValueChanged(this.ucSucursalBode_Event_cmb_bodega1_EditValueChanged);
             // 
+            // btnBuscarSaldo0
+            // 
+            this.btnBuscarSaldo0.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarSaldo0.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarSaldo0.Name = "btnBuscarSaldo0";
+            this.btnBuscarSaldo0.Size = new System.Drawing.Size(220, 24);
+            this.btnBuscarSaldo0.Text = "Buscar documentos sin saldo";
+            this.btnBuscarSaldo0.Click += new System.EventHandler(this.btnBuscarSaldo0_Click);
+            // 
             // frmFa_Nota_Deb_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 579);
+            this.ClientSize = new System.Drawing.Size(1373, 713);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.ucGe_Menu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmFa_Nota_Deb_Mant";
             this.Text = "Nota de Débito";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFa_Nota_Cred_Mant_FormClosing);
@@ -1259,5 +1318,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSaldoNC;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btn_Buscar_doc;
+        private System.Windows.Forms.ToolStripButton btnBuscarSaldo0;
     }
 }

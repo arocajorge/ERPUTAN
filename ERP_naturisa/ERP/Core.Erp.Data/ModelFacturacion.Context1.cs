@@ -23,7 +23,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -93,8 +92,6 @@ namespace Core.Erp.Data
         public DbSet<vwfa_Guia_Remision> vwfa_Guia_Remision { get; set; }
         public DbSet<vwfa_guia_remision_det> vwfa_guia_remision_det { get; set; }
         public DbSet<fa_factura_x_in_Ing_Egr_Inven> fa_factura_x_in_Ing_Egr_Inven { get; set; }
-        public DbSet<fa_notaCreDeb_x_fa_factura_NotaDeb> fa_notaCreDeb_x_fa_factura_NotaDeb { get; set; }
-        public DbSet<vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC> vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC { get; set; }
         public DbSet<vwfa_factura_x_cbte_cble> vwfa_factura_x_cbte_cble { get; set; }
         public DbSet<vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro> vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro { get; set; }
         public DbSet<vwfa_ContabilizacionFactura> vwfa_ContabilizacionFactura { get; set; }
@@ -134,5 +131,7 @@ namespace Core.Erp.Data
         public DbSet<vwfa_PuntoVta> vwfa_PuntoVta { get; set; }
         public DbSet<fa_factura_det_subcentro> fa_factura_det_subcentro { get; set; }
         public DbSet<vwfa_ContabilizacionFactura_x_Subcentro> vwfa_ContabilizacionFactura_x_Subcentro { get; set; }
+        public DbSet<fa_notaCreDeb_x_fa_factura_NotaDeb> fa_notaCreDeb_x_fa_factura_NotaDeb { get; set; }
+        public DbSet<vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC> vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC { get; set; }
     }
 }

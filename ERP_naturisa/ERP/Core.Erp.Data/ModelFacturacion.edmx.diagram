@@ -94,8 +94,6 @@
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_Guia_Remision" Width="1.5" PointX="21.75" PointY="7.75" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_guia_remision_det" Width="1.5" PointX="21.75" PointY="19.75" />
         <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_x_in_Ing_Egr_Inven" Width="1.5" PointX="16.5" PointY="60.5" />
-        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb_x_fa_factura_NotaDeb" Width="1.5" PointX="0.75" PointY="21.75" />
-        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC" Width="1.5" PointX="23.75" PointY="0.75" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_factura_x_cbte_cble" Width="1.5" PointX="23.75" PointY="6.75" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_cxc_cobro" Width="1.5" PointX="23.75" PointY="12.75" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura" Width="1.5" PointX="23.75" PointY="17.75" />
@@ -169,6 +167,8 @@
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_PuntoVta" Width="1.5" PointX="5.7862708427879355" PointY="24.205796834177242" />
         <EntityTypeShape EntityType="DBERPModelFAC.fa_factura_det_subcentro" Width="1.5" PointX="9.9196824309973426" PointY="19.112709426839235" />
         <EntityTypeShape EntityType="DBERPModelFAC.vwfa_ContabilizacionFactura_x_Subcentro" Width="1.5" PointX="9.6787994195142772" PointY="4.6782517156928085" />
+        <EntityTypeShape EntityType="DBERPModelFAC.fa_notaCreDeb_x_fa_factura_NotaDeb" Width="1.5" PointX="1.2687628889776592" PointY="14.321833855622371" />
+        <EntityTypeShape EntityType="DBERPModelFAC.vwfa_notaCreDeb_x_fa_factura_NotaDeb_x_NC" Width="1.5" PointX="5.3781324575553331" PointY="4.3248541226260615" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

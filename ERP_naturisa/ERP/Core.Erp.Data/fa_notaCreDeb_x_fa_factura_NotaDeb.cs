@@ -26,5 +26,6 @@ namespace Core.Erp.Data
         public string vt_tipoDoc { get; set; }
         public double Valor_Aplicado { get; set; }
         public System.DateTime fecha_cruce { get; set; }
+        public Nullable<bool> NoAplicaCobro { get; set; }
     }
 }

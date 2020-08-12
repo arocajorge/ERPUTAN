@@ -299,6 +299,39 @@ namespace Core.Erp.Winform.CuentasxPagar
                                 itemDetalleCompras.fechaEmiRet1 = fecRet;
                             }
 
+                            #region Reembolsos
+                            
+                            cp_reembolso_Bus busReembolso = new cp_reembolso_Bus();
+                            var Reembolsos = busReembolso.GetList(param.IdEmpresa, item.IdTipoCbte_Ogiro, item.IdCbteCble_Ogiro);
+                            if (Reembolsos.Count > 0)
+                            {
+                                itemDetalleCompras.reembolsos = new List<reembolso>();
+                                foreach (var reem in Reembolsos)
+                                {
+                                    itemDetalleCompras.reembolsos.Add(new reembolso
+                                    {
+                                        tipoComprobanteReemb = reem.TipoDoc_CodSRI,
+                                        tpIdProvReemb = reem.CodigoTipoIdentificacion,
+                                        idProvReemb = reem.IdentificacionProveedor,
+                                        establecimientoReemb = reem.Establecimiento,
+                                        puntoEmisionReemb = reem.Punto_Emision,
+                                        secuencialReemb = reem.Secuencial,
+                                        fechaEmisionReemb = reem.Fecha_Emision.ToString("dd/MM/yyyy"),
+                                        autorizacionReemb = reem.Autorizacion,
+                                        baseImponibleReemb = Convert.ToDecimal(reem.TarifaIVAcero),
+                                        baseImpGravReemb = Convert.ToDecimal(reem.TarifaIVADiferentecero),
+                                        baseNoGraIvaReemb = Convert.ToDecimal(reem.TarifaNoObjetoIVA),
+                                        baseImpExeReemb = Convert.ToDecimal(reem.TarifaExcentaDeIVA),
+                                        montoIceRemb = Convert.ToDecimal(reem.MontoICE),
+                                        montoIvaRemb = Convert.ToDecimal(reem.MontoIVA)
+                                    });
+                                }
+                                itemDetalleCompras.totbasesImpReemb = Math.Round(Reembolsos.Sum(q => q.TotalBaseImponible), 2, MidpointRounding.AwayFromZero).ToString();
+                            }
+                            
+                            #endregion
+
+
                             lstDetalleCompras.Add(itemDetalleCompras);
 
                             pagoExterior Item_pagoExterior = new pagoExterior();
@@ -311,14 +344,17 @@ namespace Core.Erp.Winform.CuentasxPagar
                             {
                                 Item_pagoExterior.pagoLocExt = pagoLocExtType.Item02;
                             }
-                            
 
-                            Item_pagoExterior.paisEfecPago = (Item_pagoExterior.pagoLocExt == pagoLocExtType.Item01) ? "NA" : (item.PaisPago != null || item.PaisPago != "") ? item.PaisPago : "NA";
+
+                            if (Item_pagoExterior.pagoLocExt == pagoLocExtType.Item01)
+                            {
+                                Item_pagoExterior.paisEfecPago = "NA";    
+                            }else
+                                Item_pagoExterior.paisEfecPago = item.PaisPago;    
+                            //Item_pagoExterior.paisEfecPago = (Item_pagoExterior.pagoLocExt == pagoLocExtType.Item01) ? "NA" : (item.PaisPago != null || item.PaisPago != "") ? item.PaisPago : "NA";
 
                             Item_pagoExterior.aplicConvDobTrib = (item.ConvenioTributacion == "S") ? aplicConvDobTribType.SI : (item.ConvenioTributacion == "N") ? aplicConvDobTribType.NO :aplicConvDobTribType.NA;
                             Item_pagoExterior.pagExtSujRetNorLeg = (item.PagoSujetoRetencion == "S") ? aplicConvDobTribType.SI : (item.PagoSujetoRetencion == "N") ? aplicConvDobTribType.NO : aplicConvDobTribType.NA;
-
-
 
                             itemDetalleCompras.pagoExterior = Item_pagoExterior;
 
