@@ -664,6 +664,66 @@ namespace Core.Erp.Data.CuentasxPagar
                 throw;
             }
         }
+        public cp_XML_Documento_Info GetInfo(int IdEmpresa, decimal IdDocumento)
+        {
+            try
+            {
+                cp_XML_Documento_Info info = new cp_XML_Documento_Info();
+
+                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                {
+                    var Entity = db.cp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && q.IdDocumento == IdDocumento).FirstOrDefault();
+                    if (Entity == null)
+                        return null;
+
+                    info = new cp_XML_Documento_Info
+                    {
+                        IdEmpresa = Entity.IdEmpresa,
+                        IdDocumento = Entity.IdDocumento,
+                        Comprobante = Entity.Comprobante,
+                        XML = Entity.XML,
+                        Tipo = Entity.Tipo,
+                        emi_RazonSocial = Entity.emi_RazonSocial,
+                        emi_NombreComercial = Entity.emi_NombreComercial,
+                        emi_Ruc = Entity.emi_Ruc,
+                        emi_DireccionMatriz = Entity.emi_DireccionMatriz,
+                        emi_ContribuyenteEspecial = Entity.emi_ContribuyenteEspecial,
+                        ClaveAcceso = Entity.ClaveAcceso,
+                        CodDocumento = Entity.CodDocumento,
+                        Establecimiento = Entity.Establecimiento,
+                        PuntoEmision = Entity.PuntoEmision,
+                        NumeroDocumento = Entity.NumeroDocumento,
+                        FechaEmision = Entity.FechaEmision,
+                        rec_RazonSocial = Entity.rec_RazonSocial,
+                        rec_Identificacion = Entity.rec_Identificacion,
+                        Subtotal0 = Entity.Subtotal0,
+                        SubtotalIVA = Entity.SubtotalIVA,
+                        Porcentaje = Entity.Porcentaje,
+                        ValorIVA = Entity.ValorIVA,
+                        Total = Entity.Total,
+                        FormaPago = Entity.FormaPago,
+                        Plazo = Entity.Plazo,
+                        ret_CodDocumentoTipo = Entity.ret_CodDocumentoTipo,
+                        ret_Establecimiento = Entity.ret_Establecimiento,
+                        ret_PuntoEmision = Entity.ret_PuntoEmision,
+                        ret_NumeroDocumento = Entity.ret_NumeroDocumento,
+                        ret_Fecha = Entity.ret_Fecha,
+                        ret_FechaAutorizacion = Entity.ret_FechaAutorizacion,
+                        ret_NumeroAutorizacion = Entity.ret_NumeroAutorizacion,
+                        Estado = Entity.Estado,
+                        IdTipoCbte = Entity.IdTipoCbte,
+                        IdCbteCble = Entity.IdCbteCble
+                    };
+                }
+
+                return info;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public bool ContabilizarDocumento(int IdEmpresa, decimal IdDocumento, int IdTipoCbte, decimal IdCbteCble, string IdUsuario, bool GenerarRetencion)
         {

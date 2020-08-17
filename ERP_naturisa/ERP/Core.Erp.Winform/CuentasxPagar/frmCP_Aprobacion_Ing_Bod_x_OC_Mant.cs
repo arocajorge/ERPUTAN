@@ -19,6 +19,9 @@ using Core.Erp.Winform.General;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Winform.Inventario;
 
+using Core.Erp.Info.Facturacion;
+using Core.Erp.Business.Facturacion;
+
 namespace Core.Erp.Winform.CuentasxPagar
 {
     public partial class frmCP_Aprobacion_Ing_Bod_x_OC_Mant : Form
@@ -42,7 +45,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         List<cp_Aprobacion_Ing_Bod_x_OC_det_Info> lista;
         List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
         ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
-        
+        fa_formaPago_Bus busFormaPago = new fa_formaPago_Bus();
 
         List<ct_centro_costo_sub_centro_costo_Info> listaSubcentero = new List<ct_centro_costo_sub_centro_costo_Info>();
         ct_centro_costo_sub_centro_costo_Bus bus_subcentro = new ct_centro_costo_sub_centro_costo_Bus();
@@ -250,6 +253,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 listaSubcentero = bus_subcentro.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmbSubcentro.DataSource = listaSubcentero;
+
+                cmbFormaPago.Properties.DataSource = busFormaPago.Get_List_fa_formaPago();
             }
             catch (Exception ex)
             {
@@ -338,8 +343,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                 Info.co_FechaContabilizacion = Convert.ToDateTime(Convert.ToDateTime(dtp_fecha_contabilizacion.EditValue).ToShortDateString());
                 Info.Fecha_vcto = Convert.ToDateTime(dtpFecVtc.EditValue);
                 Info.co_plazo = Convert.ToInt32(txt_plazo.Text);
-                Info.IdSucursal = cmb_Sucursal.EditValue != null ? (int?)cmb_Sucursal.EditValue : null; 
-
+                Info.IdSucursal = cmb_Sucursal.EditValue != null ? (int?)cmb_Sucursal.EditValue : null;
+                if (cmbFormaPago.EditValue == null)
+                    Info.IdFormaPago = null;
+                else
+                    Info.IdFormaPago = cmbFormaPago.EditValue.ToString();
 
                 Info.IdOrden_giro_Tipo = Convert.ToString(cmbTipoDocu.EditValue).Trim();
                 Info.IdIden_credito = Convert.ToInt32(cmbSustTrib.EditValue);
@@ -513,6 +521,12 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.CONTA, Convert.ToDateTime(dtp_fecha_contabilizacion.EditValue)))
                     return false;
+
+                if (Convert.ToDouble(txtTotal.Text ?? "0") >= 1000 && cmbFormaPago.EditValue == null)
+                {
+                    MessageBox.Show("Seleccione la forma de pago", param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    return false;
+                }
 
                 return res;
             }
@@ -1419,6 +1433,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txtSubtotalIVAXML.Text = XML.SubtotalIVA.ToString();
                 txtValorIVAXML.Text = XML.ValorIVA.ToString();
                 txtTotalXML.Text = XML.Total.ToString();
+                cmbFormaPago.EditValue = XML.FormaPago;
 
                 de_FechaVctoAuto.EditValue = DateTime.Now.Date.AddYears(20);
             }

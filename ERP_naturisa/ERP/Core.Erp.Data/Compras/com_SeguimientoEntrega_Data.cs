@@ -17,6 +17,7 @@ namespace Core.Erp.Data.Compras
 
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
+                    db.SetCommandTimeOut(3000);
                     var lst = db.SPCOM_SeguimientoEntrega(IdEmpresa, IdUsuario, IdSolicitante, IdComprador, IdProducto, IdProveedor, FechaIni, FechaFin,IdOrdenPedido).ToList();
 
                     foreach (var item in lst)

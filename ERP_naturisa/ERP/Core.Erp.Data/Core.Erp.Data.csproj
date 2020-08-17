@@ -1452,6 +1452,7 @@
     <Compile Include="MobileSCI\tbl_bodega_Data.cs" />
     <Compile Include="MobileSCI\tbl_movimientos_det_Data.cs" />
     <Compile Include="MobileSCI\tbl_producto_Data.cs" />
+    <Compile Include="MobileSCI\tbl_producto_x_tbl_bodega_Data.cs" />
     <Compile Include="MobileSCI\tbl_subcentro_Data.cs" />
     <Compile Include="MobileSCI\tbl_usuario_Data.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_bodega_Data.cs" />
@@ -1773,6 +1774,9 @@
       <DependentUpon>Model_mobileSCI.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_producto.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_producto_x_tbl_bodega.cs">
       <DependentUpon>Model_mobileSCI.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_subcentro.cs">
@@ -2960,6 +2964,12 @@
     </Compile>
     <Compile Include="vwseg_usuario_x_tb_sis_reporte.cs">
       <DependentUpon>ModelSeguAcceso.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwtbl_producto.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwtbl_producto_x_tbl_bodega.cs">
+      <DependentUpon>Model_mobileSCI.tt</DependentUpon>
     </Compile>
     <Compile Include="vwtb_Bodega_x_Sucursal_TreeList.cs">
       <DependentUpon>ModelGeneral.tt</DependentUpon>

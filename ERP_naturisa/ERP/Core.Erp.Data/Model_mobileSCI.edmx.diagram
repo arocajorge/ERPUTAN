@@ -18,6 +18,9 @@
         <EntityTypeShape EntityType="Model_mobileSCI.vw_movimientos_csv" Width="1.5" PointX="8.4099239112855511" PointY="23.279291551224556" />
         <EntityTypeShape EntityType="Model_mobileSCI.tbl_movimientos_det" Width="1.5" PointX="3.0151064093295048" PointY="0.01393364370518068" />
         <AssociationConnector Association="Model_mobileSCI.FK_tbl_movimientos_det_apro_tbl_movimientos_det" />
+        <EntityTypeShape EntityType="Model_mobileSCI.tbl_producto_x_tbl_bodega" Width="1.5" PointX="0.46438690110314029" PointY="25.863606852415767" />
+        <EntityTypeShape EntityType="Model_mobileSCI.vwtbl_producto" Width="1.5" PointX="11.215906111158386" PointY="1.2937437450949771" />
+        <EntityTypeShape EntityType="Model_mobileSCI.vwtbl_producto_x_tbl_bodega" Width="1.5" PointX="7.6438535841386077" PointY="23.727605696640726" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

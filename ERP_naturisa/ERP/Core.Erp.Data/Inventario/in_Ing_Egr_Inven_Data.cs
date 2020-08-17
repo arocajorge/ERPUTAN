@@ -536,82 +536,83 @@ namespace Core.Erp.Data.Inventario
                 var lst_det = db_i.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdMovi_inven_tipo == IdMovi_inve_tipo && q.IdNumMovi == IdNumMovi).ToList();
                 if (lst_det.Where(q => q.IdNumMovi_inv == null).Count() == 0)
                 {
-                    var PK_movi = new
+                    var lst_PK_movi = lst_det.GroupBy(q => new { q.IdEmpresa_inv, q.IdSucursal_inv, q.IdBodega_inv, q.IdMovi_inven_tipo_inv, q.IdNumMovi_inv}).Select(q=> new {
+                        IdEmpresa_inv = q.Key.IdEmpresa_inv,
+                        IdSucursal_inv = q.Key.IdSucursal_inv,
+                        IdBodega_inv = q.Key.IdBodega_inv,
+                        IdMovi_inven_tipo_inv = q.Key.IdMovi_inven_tipo_inv,
+                        IdNumMovi_inv = q.Key.IdNumMovi_inv
+                    }).ToList();
+
+                    foreach (var PK_movi in lst_PK_movi)
                     {
-                        lst_det.First().IdEmpresa_inv,
-                        lst_det.First().IdSucursal_inv,
-                        lst_det.First().IdBodega_inv,
-                        lst_det.First().IdMovi_inven_tipo_inv,
-                        lst_det.First().IdNumMovi_inv
-                    };
-
-                    #region Elimino detalle de movi inve
-                    var lst_movi_d = db_i.in_movi_inve_detalle.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
-                                    && q.IdSucursal == PK_movi.IdSucursal_inv
-                                    && q.IdBodega == PK_movi.IdBodega_inv
-                                    && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
-                                    && q.IdNumMovi == PK_movi.IdNumMovi_inv
-                                    ).ToList();
-
-                    foreach (var item in lst_movi_d)
-                    {
-                        db_i.in_movi_inve_detalle.Remove(item);
-                    }
-
-                    #endregion
-
-                    #region Elimino cabecera
-                    var movi = db_i.in_movi_inve.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
-                               && q.IdSucursal == PK_movi.IdSucursal_inv
-                               && q.IdBodega == PK_movi.IdBodega_inv
-                               && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
-                               && q.IdNumMovi == PK_movi.IdNumMovi_inv).FirstOrDefault();
-
-                    db_i.in_movi_inve.Remove(movi);
-                    #endregion
-
-                    #region Obtengo relacion contable y la elimino
-                    var PK_conta = db_i.in_movi_inve_x_ct_cbteCble.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
-                                    && q.IdSucursal == PK_movi.IdSucursal_inv
-                                    && q.IdBodega == PK_movi.IdBodega_inv
-                                    && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
-                                    && q.IdNumMovi == PK_movi.IdNumMovi_inv
-                                    ).FirstOrDefault();
-
-                    #endregion
-                    if (PK_conta != null)
-                    {
-                        #region Elimino diario contable
-                        var lst_rel_det = db_i.in_movi_inve_detalle_x_ct_cbtecble_det.Where(q => q.IdEmpresa_inv == PK_movi.IdEmpresa_inv
-                                    && q.IdSucursal_inv == PK_movi.IdSucursal_inv
-                                    && q.IdBodega_inv == PK_movi.IdBodega_inv
-                                    && q.IdMovi_inven_tipo_inv == PK_movi.IdMovi_inven_tipo_inv
-                                    && q.IdNumMovi_inv == PK_movi.IdNumMovi_inv).ToList();
-
-                        foreach (var item in lst_rel_det)
-                        {
-                            db_i.in_movi_inve_detalle_x_ct_cbtecble_det.Remove(item);
-                        }
-
-
-                        var lst_conta = db_ct.ct_cbtecble_det.Where(q => q.IdEmpresa == PK_conta.IdEmpresa_ct
-                                        && q.IdTipoCbte == PK_conta.IdTipoCbte
-                                        && q.IdCbteCble == PK_conta.IdCbteCble
+                        #region Elimino detalle de movi inve
+                        var lst_movi_d = db_i.in_movi_inve_detalle.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
+                                        && q.IdSucursal == PK_movi.IdSucursal_inv
+                                        && q.IdBodega == PK_movi.IdBodega_inv
+                                        && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
+                                        && q.IdNumMovi == PK_movi.IdNumMovi_inv
                                         ).ToList();
 
-                        foreach (var item in lst_conta)
+                        foreach (var item in lst_movi_d)
                         {
-                            db_ct.ct_cbtecble_det.Remove(item);
+                            db_i.in_movi_inve_detalle.Remove(item);
                         }
-
-
-                        var Conta = db_ct.ct_cbtecble.Where(q => q.IdEmpresa == PK_conta.IdEmpresa
-                                    && q.IdTipoCbte == PK_conta.IdTipoCbte
-                                    && q.IdCbteCble == PK_conta.IdCbteCble
-                                    ).FirstOrDefault();
-                        db_ct.ct_cbtecble.Remove(Conta);
                         #endregion
-                        db_i.in_movi_inve_x_ct_cbteCble.Remove(PK_conta);
+
+                        #region Elimino cabecera
+                        var movi = db_i.in_movi_inve.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
+                                   && q.IdSucursal == PK_movi.IdSucursal_inv
+                                   && q.IdBodega == PK_movi.IdBodega_inv
+                                   && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
+                                   && q.IdNumMovi == PK_movi.IdNumMovi_inv).FirstOrDefault();
+
+                        db_i.in_movi_inve.Remove(movi);
+                        #endregion
+
+                        #region Obtengo relacion contable y la elimino
+                        var PK_conta = db_i.in_movi_inve_x_ct_cbteCble.Where(q => q.IdEmpresa == PK_movi.IdEmpresa_inv
+                                        && q.IdSucursal == PK_movi.IdSucursal_inv
+                                        && q.IdBodega == PK_movi.IdBodega_inv
+                                        && q.IdMovi_inven_tipo == PK_movi.IdMovi_inven_tipo_inv
+                                        && q.IdNumMovi == PK_movi.IdNumMovi_inv
+                                        ).FirstOrDefault();
+                        #endregion
+
+                        if (PK_conta != null)
+                        {
+                            #region Elimino diario contable
+                            var lst_rel_det = db_i.in_movi_inve_detalle_x_ct_cbtecble_det.Where(q => q.IdEmpresa_inv == PK_movi.IdEmpresa_inv
+                                        && q.IdSucursal_inv == PK_movi.IdSucursal_inv
+                                        && q.IdBodega_inv == PK_movi.IdBodega_inv
+                                        && q.IdMovi_inven_tipo_inv == PK_movi.IdMovi_inven_tipo_inv
+                                        && q.IdNumMovi_inv == PK_movi.IdNumMovi_inv).ToList();
+
+                            foreach (var item in lst_rel_det)
+                            {
+                                db_i.in_movi_inve_detalle_x_ct_cbtecble_det.Remove(item);
+                            }
+
+
+                            var lst_conta = db_ct.ct_cbtecble_det.Where(q => q.IdEmpresa == PK_conta.IdEmpresa_ct
+                                            && q.IdTipoCbte == PK_conta.IdTipoCbte
+                                            && q.IdCbteCble == PK_conta.IdCbteCble
+                                            ).ToList();
+
+                            foreach (var item in lst_conta)
+                            {
+                                db_ct.ct_cbtecble_det.Remove(item);
+                            }
+
+
+                            var Conta = db_ct.ct_cbtecble.Where(q => q.IdEmpresa == PK_conta.IdEmpresa
+                                        && q.IdTipoCbte == PK_conta.IdTipoCbte
+                                        && q.IdCbteCble == PK_conta.IdCbteCble
+                                        ).FirstOrDefault();
+                            db_ct.ct_cbtecble.Remove(Conta);
+                            #endregion
+                            db_i.in_movi_inve_x_ct_cbteCble.Remove(PK_conta);
+                        }
                     }
                 }
                 #region Seteo campos de aprobacion en null
@@ -622,7 +623,7 @@ namespace Core.Erp.Data.Inventario
                     q.IdBodega_inv = null;
                     q.IdMovi_inven_tipo_inv = null;
                     q.IdNumMovi_inv = null;
-
+                    q.secuencia_inv = null;
                     q.IdEstadoAproba = "PEND";
                 });
                 #endregion
@@ -692,7 +693,7 @@ namespace Core.Erp.Data.Inventario
                 sql += " co_factura,                   IdUsuario, cm_fecha ";
                 sql += " from vwin_Ing_Egr_Inven ";
                 sql += " where Idempresa = " + IdEmpresa.ToString() + " and IdBodega is null ";
-                sql += "and cm_fecha between '" + FechaIniS + "' and '" + FechaFinS + "' ";
+                sql += "and cm_fecha between datefromparts(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and datefromparts(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ") ";
                 sql += "and IdSucursal between " + IdSucursalIni.ToString() + " and " + IdSucursalFin.ToString() + " and signo = '-'";
 
                 var result = oEnti.Database.SqlQuery<in_Ing_Egr_Inven_Info>(sql).ToList();
@@ -1244,13 +1245,13 @@ namespace Core.Erp.Data.Inventario
                             IdBodega = item.IdBodega ?? (info.IdBodega ?? 0),
                             IdProducto = item.IdProducto,
 
-                            dm_cantidad = CantidadConvertida = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto, item.IdUnidadMedida, Math.Abs(item.dm_cantidad_sinConversion)) * (info.signo == "+" ? 1 : -1),
+                            dm_cantidad = CantidadConvertida = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto, item.IdUnidadMedida_sinConversion, Math.Abs(item.dm_cantidad_sinConversion)) * (info.signo == "+" ? 1 : -1),
                             mv_costo = info.signo == "+" ? ((Math.Abs(item.dm_cantidad_sinConversion) * item.mv_costo_sinConversion) / (CantidadConvertida == 0 ? 1 : CantidadConvertida)) : (item.mv_costo),
                             IdUnidadMedida = producto.IdUnidadMedida_Consumo,
 
                             dm_cantidad_sinConversion = Math.Abs(item.dm_cantidad_sinConversion) * (info.signo == "+" ? 1 : -1),
                             mv_costo_sinConversion = item.mv_costo_sinConversion,
-                            IdUnidadMedida_sinConversion = item.IdUnidadMedida,
+                            IdUnidadMedida_sinConversion = item.IdUnidadMedida_sinConversion,
                             
                             IdSucursal_oc = item.IdSucursal_oc,
                             IdEmpresa_oc = item.IdEmpresa_oc,
@@ -1331,13 +1332,13 @@ namespace Core.Erp.Data.Inventario
                             IdBodega = item.IdBodega ?? (info.IdBodega ?? 0),
                             IdProducto = item.IdProducto,
 
-                            dm_cantidad = CantidadConvertida = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto, item.IdUnidadMedida, Math.Abs(item.dm_cantidad_sinConversion)) * (info.signo == "+" ? 1 : -1),
+                            dm_cantidad = CantidadConvertida = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto, item.IdUnidadMedida_sinConversion, Math.Abs(item.dm_cantidad_sinConversion)) * (info.signo == "+" ? 1 : -1),
                             mv_costo = (Math.Abs(item.dm_cantidad_sinConversion) * item.mv_costo_sinConversion) / (CantidadConvertida == 0 ? 1 : CantidadConvertida),
                             IdUnidadMedida = producto.IdUnidadMedida_Consumo,
 
                             dm_cantidad_sinConversion = Math.Abs(item.dm_cantidad_sinConversion) * (info.signo == "+" ? 1 : -1),
                             mv_costo_sinConversion = item.mv_costo_sinConversion,
-                            IdUnidadMedida_sinConversion = item.IdUnidadMedida,
+                            IdUnidadMedida_sinConversion = item.IdUnidadMedida_sinConversion,
 
                             IdSucursal_oc = item.IdSucursal_oc,
                             IdEmpresa_oc = item.IdEmpresa_oc,

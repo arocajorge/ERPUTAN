@@ -12,14 +12,13 @@ namespace Core.Erp.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_usuario_x_subcentro
+    public partial class vwtbl_producto
     {
-        public string IdUsuarioSCI { get; set; }
-        public decimal IdSCI { get; set; }
         public int IdEmpresa { get; set; }
-        public string IdCentroCosto { get; set; }
-        public string IdCentroCosto_sub_centro_costo { get; set; }
-    
-        public virtual tbl_usuario tbl_usuario { get; set; }
+        public decimal IdProducto { get; set; }
+        public string pr_codigo { get; set; }
+        public string pr_descripcion { get; set; }
+        public string ca_Categoria { get; set; }
+        public string nom_linea { get; set; }
     }
 }

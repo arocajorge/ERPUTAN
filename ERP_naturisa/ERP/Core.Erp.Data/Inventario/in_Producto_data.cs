@@ -1152,13 +1152,19 @@ namespace Core.Erp.Data.Inventario
             }
         }
 
-        public bool ValidarStock(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, double Cantidad, double CantidadAnterior)
+        public bool ValidarStock(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, double Cantidad, double CantidadAnterior, ref string pr_descripcion)
         {
             try
             {
                 double Cont = 0;
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
+                    var producto = db.in_Producto.Where(q => q.IdEmpresa == IdEmpresa && q.IdProducto == IdProducto).FirstOrDefault();
+                    if (producto == null)
+                        return false;
+
+                    pr_descripcion = producto.pr_descripcion;
+
                     if (db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto && q.in_Ing_Egr_Inven.Estado == "A" && q.in_Ing_Egr_Inven.in_Motivo_Inven.Genera_Movi_Inven == "S").Count() > 0)
                     {
                         Cont = db.in_Ing_Egr_Inven_det.Include("in_Ing_Egr_Inven").Where(q => q.IdEmpresa == IdEmpresa && q.IdSucursal == IdSucursal && q.IdBodega == IdBodega && q.IdProducto == IdProducto && q.in_Ing_Egr_Inven.Estado == "A" && q.in_Ing_Egr_Inven.in_Motivo_Inven.Genera_Movi_Inven=="S").Sum(q => q.dm_cantidad);    

@@ -99,6 +99,10 @@
             this.txtRetPuntoEmision = new DevExpress.XtraEditors.TextEdit();
             this.txtRetEstablecimiento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbFormaPago = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
@@ -139,6 +143,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRetNumeroDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetPuntoEmision.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetEstablecimiento.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -205,6 +211,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cmbFormaPago);
             this.panel1.Controls.Add(this.labelControl19);
             this.panel1.Controls.Add(this.txtContribuyente);
             this.panel1.Controls.Add(this.txtTotal);
@@ -920,6 +927,47 @@
             this.labelControl15.TabIndex = 16;
             this.labelControl15.Text = "# Retención:";
             // 
+            // cmbFormaPago
+            // 
+            this.cmbFormaPago.Location = new System.Drawing.Point(232, 289);
+            this.cmbFormaPago.Name = "cmbFormaPago";
+            this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFormaPago.Properties.DisplayMember = "nom_FormaPago";
+            this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
+            this.cmbFormaPago.Properties.View = this.gridView6;
+            this.cmbFormaPago.Size = new System.Drawing.Size(617, 22);
+            this.cmbFormaPago.TabIndex = 55;
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn13,
+            this.gridColumn14});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "ID";
+            this.gridColumn13.FieldName = "IdFormaPago";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 1;
+            this.gridColumn13.Width = 503;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Forma pago";
+            this.gridColumn14.FieldName = "nom_FormaPago";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 0;
+            this.gridColumn14.Width = 1231;
+            // 
             // frmCP_XML_Mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -973,6 +1021,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRetNumeroDocumento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetPuntoEmision.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetEstablecimiento.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1050,6 +1100,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraEditors.SimpleButton btnEliminarRetencion;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbFormaPago;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
 
     }
 }

@@ -843,11 +843,11 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
-        public bool ValidarStock(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, double Cantidad, double CantidadAnterior)
+        public bool ValidarStock(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, double Cantidad, double CantidadAnterior, ref string pr_descripcion)
         {
             try
             {
-                return proD.ValidarStock(IdEmpresa, IdSucursal, IdBodega, IdProducto,Cantidad,CantidadAnterior);
+                return proD.ValidarStock(IdEmpresa, IdSucursal, IdBodega, IdProducto,Cantidad,CantidadAnterior, ref pr_descripcion);
             }
             catch (Exception)
             {

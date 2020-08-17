@@ -201,6 +201,15 @@ namespace Core.Erp.Winform.CuentasxPagar
                         }else
                             Documento.Automatico = true;
 
+                        var CodigoProveedor = ListaCodigoProveedor.Where(q => q.IdEmpresa == param.IdEmpresa && q.pe_cedulRuc == Documento.emi_Ruc).ToList();
+                        if (CodigoProveedor != null && Documento.ValorIVA > 0)
+                        {
+                            if (CodigoProveedor.Where(q => q.re_tipo == "IVA").Count() == 0)
+                            {
+                                MessageBox.Show("El proveedor " + Documento.emi_RazonSocial + " no tiene parametrizada un código para retención de IVA para el documento " + Documento.CodDocumento, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+
 
                         Documento.Imagen = bus_xml.Existe(param.IdEmpresa, Documento.emi_Ruc, Documento.CodDocumento, Documento.Establecimiento, Documento.PuntoEmision, Documento.NumeroDocumento);
                         if(blst.Where(q=> q.Comprobante == Documento.Comprobante && q.emi_Ruc == Documento.emi_Ruc).Count() == 0)

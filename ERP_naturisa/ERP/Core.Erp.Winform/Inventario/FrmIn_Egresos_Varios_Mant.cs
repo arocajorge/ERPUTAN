@@ -1160,11 +1160,13 @@ namespace Core.Erp.Winform.Inventario
                             CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
                         });
 
+                        string pr_descripcion = string.Empty;
                         foreach (var item in lst)
                         {
-                            if (!Bus_Producto.ValidarStock(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue), Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_bodega.EditValue), item.IdProducto, item.Cantidad, item.CantidadAnterior))
+                            pr_descripcion = string.Empty;
+                            if (!Bus_Producto.ValidarStock(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue), Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_bodega.EditValue), item.IdProducto, item.Cantidad, item.CantidadAnterior, ref pr_descripcion))
                             {
-                                MessageBox.Show("El producto " + item.pr_descripcion + " no tiene stock suficiente.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El producto " + pr_descripcion + " no tiene stock suficiente.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 return false;
                             }
                         }

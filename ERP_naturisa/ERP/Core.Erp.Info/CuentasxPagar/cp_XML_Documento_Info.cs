@@ -68,20 +68,15 @@ namespace Core.Erp.Info.CuentasxPagar
         public string em_ruc { get; set; }
         public string em_direccion { get; set; }
         public bool Automatico { get; set; }
+        public bool EnviaXML { get; set; }
+        public string IdUsuario { get; set; }
+        public bool ValidacionD { get; set; }
+        public bool ValidacionR { get; set; }
+        public bool ValidacionC { get; set; }
+        public string EstadoCancelacion { get; set; }
+        public string descripcion_clas_prove { get; set; }
         #endregion
 
-        public bool EnviaXML { get; set; }
 
-        public string IdUsuario { get; set; }
-
-        public bool ValidacionD { get; set; }
-
-        public bool ValidacionR { get; set; }
-
-        public bool ValidacionC { get; set; }
-
-        public string EstadoCancelacion { get; set; }
-
-        public string descripcion_clas_prove { get; set; }
     }
 }

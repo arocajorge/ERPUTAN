@@ -1596,7 +1596,8 @@
       [vwin_Transferencias].[EstadoRevision] AS [EstadoRevision], 
       [vwin_Transferencias].[IdUsuarioRevision] AS [IdUsuarioRevision], 
       [vwin_Transferencias].[FechaRevision] AS [FechaRevision], 
-      [vwin_Transferencias].[TuvoError] AS [TuvoError]
+      [vwin_Transferencias].[TuvoError] AS [TuvoError], 
+      [vwin_Transferencias].[TuvoErrorDespacho] AS [TuvoErrorDespacho]
       FROM [dbo].[vwin_Transferencias] AS [vwin_Transferencias]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwin_Transferencias_ParaAprobacion" EntityType="DBERPModelInventario.Store.vwin_Transferencias_ParaAprobacion" store:Type="Views" store:Schema="dbo" store:Name="vwin_Transferencias_ParaAprobacion">
@@ -3450,6 +3451,7 @@
           <Property Name="IdUsuarioRevision" Type="varchar" MaxLength="50" />
           <Property Name="FechaRevision" Type="datetime" />
           <Property Name="TuvoError" Type="bit" />
+          <Property Name="TuvoErrorDespacho" Type="bit" />
         </EntityType>
         <EntityType Name="in_transferencia_det">
           <Key>
@@ -6032,6 +6034,7 @@
           <Property Name="IdUsuarioRevision" Type="varchar" MaxLength="50" />
           <Property Name="FechaRevision" Type="datetime" />
           <Property Name="TuvoError" Type="bit" />
+          <Property Name="TuvoErrorDespacho" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwin_Transferencias_ParaAprobacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -8036,24 +8039,6 @@
           <EntitySet Name="vwin_transferencia_det_ParaCorreccion" EntityType="DBERPModelInventario.vwin_transferencia_det_ParaCorreccion" />
           <EntitySet Name="vwin_Transferencias_ParaProcesar" EntityType="DBERPModelInventario.vwin_Transferencias_ParaProcesar" />
           <EntitySet Name="vwin_Transferencias_ParaAprobacion" EntityType="DBERPModelInventario.vwin_Transferencias_ParaAprobacion" />
-          <EntitySet Name="in_transferencia" EntityType="DBERPModelInventario.in_transferencia" />
-          <EntitySet Name="vwin_Transferencias" EntityType="DBERPModelInventario.vwin_Transferencias" />
-          <AssociationSet Name="FK_in_transferencia_in_Ing_Egr_Inven" Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven">
-            <End Role="in_Ing_Egr_Inven" EntitySet="in_Ing_Egr_Inven" />
-            <End Role="in_transferencia" EntitySet="in_transferencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_in_Ing_Egr_Inven1" Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1">
-            <End Role="in_Ing_Egr_Inven" EntitySet="in_Ing_Egr_Inven" />
-            <End Role="in_transferencia" EntitySet="in_transferencia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_x_fa_guia_remision_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia">
-            <End Role="in_transferencia" EntitySet="in_transferencia" />
-            <End Role="in_transferencia_x_fa_guia_remision" EntitySet="in_transferencia_x_fa_guia_remision" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia">
-            <End Role="in_transferencia" EntitySet="in_transferencia" />
-            <End Role="in_transferencia_x_in_Guia_x_traspaso_bodega" EntitySet="in_transferencia_x_in_Guia_x_traspaso_bodega" />
-          </AssociationSet>
           <EntitySet Name="in_transferencia_det" EntityType="DBERPModelInventario.in_transferencia_det" />
           <AssociationSet Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" Association="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det">
             <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
@@ -8061,10 +8046,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_in_transferencia_det_in_Producto" Association="DBERPModelInventario.FK_in_transferencia_det_in_Producto">
             <End Role="in_Producto" EntitySet="in_Producto" />
-            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
-          </AssociationSet>
-          <AssociationSet Name="FK_in_transferencia_det_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia">
-            <End Role="in_transferencia" EntitySet="in_transferencia" />
             <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
           </AssociationSet>
           <AssociationSet Name="FK_in_transferencia_det_in_UnidadMedida" Association="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida">
@@ -8166,6 +8147,28 @@
             <Parameter Name="IdNumMovi" Mode="In" Type="Decimal" />
             <Parameter Name="Fecha" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="in_transferencia" EntityType="DBERPModelInventario.in_transferencia" />
+          <EntitySet Name="vwin_Transferencias" EntityType="DBERPModelInventario.vwin_Transferencias" />
+          <AssociationSet Name="FK_in_transferencia_in_Ing_Egr_Inven" Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven">
+            <End Role="in_Ing_Egr_Inven" EntitySet="in_Ing_Egr_Inven" />
+            <End Role="in_transferencia" EntitySet="in_transferencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_in_Ing_Egr_Inven1" Association="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1">
+            <End Role="in_Ing_Egr_Inven" EntitySet="in_Ing_Egr_Inven" />
+            <End Role="in_transferencia" EntitySet="in_transferencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_det_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_det_in_transferencia">
+            <End Role="in_transferencia" EntitySet="in_transferencia" />
+            <End Role="in_transferencia_det" EntitySet="in_transferencia_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_x_fa_guia_remision_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia">
+            <End Role="in_transferencia" EntitySet="in_transferencia" />
+            <End Role="in_transferencia_x_fa_guia_remision" EntitySet="in_transferencia_x_fa_guia_remision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" Association="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia">
+            <End Role="in_transferencia" EntitySet="in_transferencia" />
+            <End Role="in_transferencia_x_in_Guia_x_traspaso_bodega" EntitySet="in_transferencia_x_in_Guia_x_traspaso_bodega" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="spIn_CuerpoDelCardex_Result">
           <Property Type="DateTime" Name="cm_fecha" Nullable="false" Precision="23" />
@@ -9609,8 +9612,8 @@
           <Property Type="Int32" Name="IdEmpresa_Guia" Nullable="false" />
           <Property Type="Decimal" Name="IdGuia" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="in_transferencia" Relationship="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" FromRole="in_transferencia_x_in_Guia_x_traspaso_bodega" ToRole="in_transferencia" />
           <NavigationProperty Name="in_Guia_x_traspaso_bodega" Relationship="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_Guia_x_traspaso_bodega" FromRole="in_transferencia_x_in_Guia_x_traspaso_bodega" ToRole="in_Guia_x_traspaso_bodega" />
+          <NavigationProperty Name="in_transferencia" Relationship="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" FromRole="in_transferencia_x_in_Guia_x_traspaso_bodega" ToRole="in_transferencia" />
         </EntityType>
         <EntityType Name="in_UnidadMedida">
           <Key>
@@ -13055,170 +13058,6 @@
           <Property Type="Int32" Name="dt_secuencia" Nullable="false" />
           <Property Type="Decimal" Name="IdProducto" Precision="18" Scale="0" />
         </EntityType>
-        <EntityType Name="in_transferencia">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursalOrigen" />
-            <PropertyRef Name="IdBodegaOrigen" />
-            <PropertyRef Name="IdTransferencia" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
-          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursalDest" Nullable="false" />
-          <Property Type="Int32" Name="IdBodegaDest" Nullable="false" />
-          <Property Type="String" Name="tr_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="tr_fecha" Nullable="false" Precision="3" />
-          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Origen" />
-          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Origen" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuOrig" />
-          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Origen" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Destino" />
-          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Destino" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuDest" />
-          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Destino" Precision="18" Scale="0" />
-          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="tr_userAnulo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="tr_fechaAnulacion" Precision="3" />
-          <Property Type="DateTime" Name="tr_fecha_transaccion" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
-          <Property Type="String" Name="motivo_anula" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdGuia" Precision="18" Scale="0" />
-          <Property Type="String" Name="EstadoRevision" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuarioRevision" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaRevision" Precision="3" />
-          <Property Type="Boolean" Name="TuvoError" />
-          <NavigationProperty Name="in_Ing_Egr_Inven" Relationship="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven" FromRole="in_transferencia" ToRole="in_Ing_Egr_Inven" />
-          <NavigationProperty Name="in_Ing_Egr_Inven1" Relationship="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" FromRole="in_transferencia" ToRole="in_Ing_Egr_Inven" />
-          <NavigationProperty Name="in_transferencia_x_fa_guia_remision" Relationship="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_x_fa_guia_remision" />
-          <NavigationProperty Name="in_transferencia_x_in_Guia_x_traspaso_bodega" Relationship="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_x_in_Guia_x_traspaso_bodega" />
-          <NavigationProperty Name="in_transferencia_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_det" />
-        </EntityType>
-        <EntityType Name="vwin_Transferencias">
-          <Key>
-            <PropertyRef Name="SucuOrigen" />
-            <PropertyRef Name="BodegaORIG" />
-            <PropertyRef Name="SucuDEST" />
-            <PropertyRef Name="BodegDest" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursalOrigen" />
-            <PropertyRef Name="IdBodegaOrigen" />
-            <PropertyRef Name="IdTransferencia" />
-            <PropertyRef Name="IdSucursalDest" />
-            <PropertyRef Name="IdBodegaDest" />
-            <PropertyRef Name="tr_Observacion" />
-            <PropertyRef Name="tr_fecha" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Type="String" Name="SucuOrigen" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="BodegaORIG" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="SucuDEST" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="BodegDest" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
-          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdSucursalDest" Nullable="false" />
-          <Property Type="Int32" Name="IdBodegaDest" Nullable="false" />
-          <Property Type="String" Name="tr_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="tr_fecha" Nullable="false" Precision="3" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Origen" />
-          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Origen" />
-          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Origen" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Destino" />
-          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Destino" />
-          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Destino" Precision="18" Scale="0" />
-          <Property Type="DateTime" Name="tr_fechaAnulacion" Precision="3" />
-          <Property Type="String" Name="tr_userAnulo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuOrig" />
-          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuDest" />
-          <Property Type="String" Name="IdEstadoAproba_ing" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstadoAproba_egr" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdGuia" Precision="18" Scale="0" />
-          <Property Type="String" Name="EstadoRevision" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuarioRevision" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaRevision" Precision="3" />
-          <Property Type="Boolean" Name="TuvoError" />
-        </EntityType>
-        <Association Name="FK_in_transferencia_in_Ing_Egr_Inven">
-          <End Type="DBERPModelInventario.in_Ing_Egr_Inven" Role="in_Ing_Egr_Inven" Multiplicity="0..1" />
-          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Ing_Egr_Inven">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursal" />
-              <PropertyRef Name="IdMovi_inven_tipo" />
-              <PropertyRef Name="IdNumMovi" />
-            </Principal>
-            <Dependent Role="in_transferencia">
-              <PropertyRef Name="IdEmpresa_Ing_Egr_Inven_Origen" />
-              <PropertyRef Name="IdSucursal_Ing_Egr_Inven_Origen" />
-              <PropertyRef Name="IdMovi_inven_tipo_SucuOrig" />
-              <PropertyRef Name="IdNumMovi_Ing_Egr_Inven_Origen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_in_Ing_Egr_Inven1">
-          <End Type="DBERPModelInventario.in_Ing_Egr_Inven" Role="in_Ing_Egr_Inven" Multiplicity="0..1" />
-          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_Ing_Egr_Inven">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursal" />
-              <PropertyRef Name="IdMovi_inven_tipo" />
-              <PropertyRef Name="IdNumMovi" />
-            </Principal>
-            <Dependent Role="in_transferencia">
-              <PropertyRef Name="IdEmpresa_Ing_Egr_Inven_Destino" />
-              <PropertyRef Name="IdSucursal_Ing_Egr_Inven_Destino" />
-              <PropertyRef Name="IdMovi_inven_tipo_SucuDest" />
-              <PropertyRef Name="IdNumMovi_Ing_Egr_Inven_Destino" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_x_fa_guia_remision_in_transferencia">
-          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_transferencia_x_fa_guia_remision" Role="in_transferencia_x_fa_guia_remision" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_transferencia">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-            </Principal>
-            <Dependent Role="in_transferencia_x_fa_guia_remision">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia">
-          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_transferencia_x_in_Guia_x_traspaso_bodega" Role="in_transferencia_x_in_Guia_x_traspaso_bodega" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_transferencia">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-            </Principal>
-            <Dependent Role="in_transferencia_x_in_Guia_x_traspaso_bodega">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrgen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="in_transferencia_det">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -13251,9 +13090,9 @@
           <Property Type="String" Name="MotivoParcial" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="in_Guia_x_traspaso_bodega_x_in_transferencia_det" Relationship="DBERPModelInventario.FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det" FromRole="in_transferencia_det" ToRole="in_Guia_x_traspaso_bodega_x_in_transferencia_det" />
           <NavigationProperty Name="in_Producto" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_Producto" FromRole="in_transferencia_det" ToRole="in_Producto" />
-          <NavigationProperty Name="in_transferencia" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia_det" ToRole="in_transferencia" />
           <NavigationProperty Name="in_UnidadMedida" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_UnidadMedida" FromRole="in_transferencia_det" ToRole="in_UnidadMedida" />
           <NavigationProperty Name="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_in_transferencia_det" FromRole="in_transferencia_det" ToRole="in_transferencia_det_x_in_Guia_x_traspaso_bodega_det" />
+          <NavigationProperty Name="in_transferencia" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia_det" ToRole="in_transferencia" />
         </EntityType>
         <Association Name="FK_in_Guia_x_traspaso_bodega_x_in_transferencia_det_in_transferencia_det">
           <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="1" />
@@ -13286,24 +13125,6 @@
             <Dependent Role="in_transferencia_det">
               <PropertyRef Name="IdEmpresa" />
               <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_in_transferencia_det_in_transferencia">
-          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
-          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="in_transferencia">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
-            </Principal>
-            <Dependent Role="in_transferencia_det">
-              <PropertyRef Name="IdEmpresa" />
-              <PropertyRef Name="IdSucursalOrigen" />
-              <PropertyRef Name="IdBodegaOrigen" />
-              <PropertyRef Name="IdTransferencia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -13739,6 +13560,190 @@
             <Dependent Role="in_parametro">
               <PropertyRef Name="IdEmpresa" />
               <PropertyRef Name="IdMovi_inven_tipo_mobile_egr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="in_transferencia">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdBodegaOrigen" />
+            <PropertyRef Name="IdTransferencia" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
+          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursalDest" Nullable="false" />
+          <Property Type="Int32" Name="IdBodegaDest" Nullable="false" />
+          <Property Type="String" Name="tr_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="tr_fecha" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Origen" />
+          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Origen" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuOrig" />
+          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Origen" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Destino" />
+          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Destino" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuDest" />
+          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Destino" Precision="18" Scale="0" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="tr_userAnulo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="tr_fechaAnulacion" Precision="3" />
+          <Property Type="DateTime" Name="tr_fecha_transaccion" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="motivo_anula" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdGuia" Precision="18" Scale="0" />
+          <Property Type="String" Name="EstadoRevision" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioRevision" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaRevision" Precision="3" />
+          <Property Type="Boolean" Name="TuvoError" />
+          <Property Type="Boolean" Name="TuvoErrorDespacho" />
+          <NavigationProperty Name="in_Ing_Egr_Inven" Relationship="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven" FromRole="in_transferencia" ToRole="in_Ing_Egr_Inven" />
+          <NavigationProperty Name="in_Ing_Egr_Inven1" Relationship="DBERPModelInventario.FK_in_transferencia_in_Ing_Egr_Inven1" FromRole="in_transferencia" ToRole="in_Ing_Egr_Inven" />
+          <NavigationProperty Name="in_transferencia_det" Relationship="DBERPModelInventario.FK_in_transferencia_det_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_det" />
+          <NavigationProperty Name="in_transferencia_x_fa_guia_remision" Relationship="DBERPModelInventario.FK_in_transferencia_x_fa_guia_remision_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_x_fa_guia_remision" />
+          <NavigationProperty Name="in_transferencia_x_in_Guia_x_traspaso_bodega" Relationship="DBERPModelInventario.FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia" FromRole="in_transferencia" ToRole="in_transferencia_x_in_Guia_x_traspaso_bodega" />
+        </EntityType>
+        <EntityType Name="vwin_Transferencias">
+          <Key>
+            <PropertyRef Name="SucuOrigen" />
+            <PropertyRef Name="BodegaORIG" />
+            <PropertyRef Name="SucuDEST" />
+            <PropertyRef Name="BodegDest" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursalOrigen" />
+            <PropertyRef Name="IdBodegaOrigen" />
+            <PropertyRef Name="IdTransferencia" />
+            <PropertyRef Name="IdSucursalDest" />
+            <PropertyRef Name="IdBodegaDest" />
+            <PropertyRef Name="tr_Observacion" />
+            <PropertyRef Name="tr_fecha" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Type="String" Name="SucuOrigen" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="BodegaORIG" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="SucuDEST" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="BodegDest" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="Int32" Name="IdBodegaOrigen" Nullable="false" />
+          <Property Type="Decimal" Name="IdTransferencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdSucursalDest" Nullable="false" />
+          <Property Type="Int32" Name="IdBodegaDest" Nullable="false" />
+          <Property Type="String" Name="tr_Observacion" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="tr_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="IdUsuario" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Origen" />
+          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Origen" />
+          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Origen" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdEmpresa_Ing_Egr_Inven_Destino" />
+          <Property Type="Int32" Name="IdSucursal_Ing_Egr_Inven_Destino" />
+          <Property Type="Decimal" Name="IdNumMovi_Ing_Egr_Inven_Destino" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="tr_fechaAnulacion" Precision="3" />
+          <Property Type="String" Name="tr_userAnulo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Codigo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuOrig" />
+          <Property Type="Int32" Name="IdMovi_inven_tipo_SucuDest" />
+          <Property Type="String" Name="IdEstadoAproba_ing" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoAproba_egr" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdGuia" Precision="18" Scale="0" />
+          <Property Type="String" Name="EstadoRevision" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuarioRevision" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaRevision" Precision="3" />
+          <Property Type="Boolean" Name="TuvoError" />
+          <Property Type="Boolean" Name="TuvoErrorDespacho" />
+        </EntityType>
+        <Association Name="FK_in_transferencia_in_Ing_Egr_Inven">
+          <End Type="DBERPModelInventario.in_Ing_Egr_Inven" Role="in_Ing_Egr_Inven" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Ing_Egr_Inven">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+              <PropertyRef Name="IdMovi_inven_tipo" />
+              <PropertyRef Name="IdNumMovi" />
+            </Principal>
+            <Dependent Role="in_transferencia">
+              <PropertyRef Name="IdEmpresa_Ing_Egr_Inven_Origen" />
+              <PropertyRef Name="IdSucursal_Ing_Egr_Inven_Origen" />
+              <PropertyRef Name="IdMovi_inven_tipo_SucuOrig" />
+              <PropertyRef Name="IdNumMovi_Ing_Egr_Inven_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_in_Ing_Egr_Inven1">
+          <End Type="DBERPModelInventario.in_Ing_Egr_Inven" Role="in_Ing_Egr_Inven" Multiplicity="0..1" />
+          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_Ing_Egr_Inven">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursal" />
+              <PropertyRef Name="IdMovi_inven_tipo" />
+              <PropertyRef Name="IdNumMovi" />
+            </Principal>
+            <Dependent Role="in_transferencia">
+              <PropertyRef Name="IdEmpresa_Ing_Egr_Inven_Destino" />
+              <PropertyRef Name="IdSucursal_Ing_Egr_Inven_Destino" />
+              <PropertyRef Name="IdMovi_inven_tipo_SucuDest" />
+              <PropertyRef Name="IdNumMovi_Ing_Egr_Inven_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_det_in_transferencia">
+          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_transferencia_det" Role="in_transferencia_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_transferencia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="in_transferencia_det">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_x_fa_guia_remision_in_transferencia">
+          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_transferencia_x_fa_guia_remision" Role="in_transferencia_x_fa_guia_remision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_transferencia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="in_transferencia_x_fa_guia_remision">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_in_transferencia_x_in_Guia_x_traspaso_bodega_in_transferencia">
+          <End Type="DBERPModelInventario.in_transferencia" Role="in_transferencia" Multiplicity="1" />
+          <End Type="DBERPModelInventario.in_transferencia_x_in_Guia_x_traspaso_bodega" Role="in_transferencia_x_in_Guia_x_traspaso_bodega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="in_transferencia">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrigen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
+            </Principal>
+            <Dependent Role="in_transferencia_x_in_Guia_x_traspaso_bodega">
+              <PropertyRef Name="IdEmpresa" />
+              <PropertyRef Name="IdSucursalOrgen" />
+              <PropertyRef Name="IdBodegaOrigen" />
+              <PropertyRef Name="IdTransferencia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -16839,80 +16844,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="in_transferencia">
-            <EntityTypeMapping TypeName="DBERPModelInventario.in_transferencia">
-              <MappingFragment StoreEntitySet="in_transferencia">
-                <ScalarProperty Name="TuvoError" ColumnName="TuvoError" />
-                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
-                <ScalarProperty Name="IdUsuarioRevision" ColumnName="IdUsuarioRevision" />
-                <ScalarProperty Name="EstadoRevision" ColumnName="EstadoRevision" />
-                <ScalarProperty Name="IdGuia" ColumnName="IdGuia" />
-                <ScalarProperty Name="motivo_anula" ColumnName="motivo_anula" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="tr_fecha_transaccion" ColumnName="tr_fecha_transaccion" />
-                <ScalarProperty Name="tr_fechaAnulacion" ColumnName="tr_fechaAnulacion" />
-                <ScalarProperty Name="tr_userAnulo" ColumnName="tr_userAnulo" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Destino" ColumnName="IdNumMovi_Ing_Egr_Inven_Destino" />
-                <ScalarProperty Name="IdMovi_inven_tipo_SucuDest" ColumnName="IdMovi_inven_tipo_SucuDest" />
-                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Destino" ColumnName="IdSucursal_Ing_Egr_Inven_Destino" />
-                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Destino" ColumnName="IdEmpresa_Ing_Egr_Inven_Destino" />
-                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Origen" ColumnName="IdNumMovi_Ing_Egr_Inven_Origen" />
-                <ScalarProperty Name="IdMovi_inven_tipo_SucuOrig" ColumnName="IdMovi_inven_tipo_SucuOrig" />
-                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Origen" ColumnName="IdSucursal_Ing_Egr_Inven_Origen" />
-                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Origen" ColumnName="IdEmpresa_Ing_Egr_Inven_Origen" />
-                <ScalarProperty Name="tr_fecha" ColumnName="tr_fecha" />
-                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
-                <ScalarProperty Name="IdBodegaDest" ColumnName="IdBodegaDest" />
-                <ScalarProperty Name="IdSucursalDest" ColumnName="IdSucursalDest" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
-                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwin_Transferencias">
-            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_Transferencias">
-              <MappingFragment StoreEntitySet="vwin_Transferencias">
-                <ScalarProperty Name="TuvoError" ColumnName="TuvoError" />
-                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
-                <ScalarProperty Name="IdUsuarioRevision" ColumnName="IdUsuarioRevision" />
-                <ScalarProperty Name="EstadoRevision" ColumnName="EstadoRevision" />
-                <ScalarProperty Name="IdGuia" ColumnName="IdGuia" />
-                <ScalarProperty Name="IdEstadoAproba_egr" ColumnName="IdEstadoAproba_egr" />
-                <ScalarProperty Name="IdEstadoAproba_ing" ColumnName="IdEstadoAproba_ing" />
-                <ScalarProperty Name="IdMovi_inven_tipo_SucuDest" ColumnName="IdMovi_inven_tipo_SucuDest" />
-                <ScalarProperty Name="IdMovi_inven_tipo_SucuOrig" ColumnName="IdMovi_inven_tipo_SucuOrig" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="tr_userAnulo" ColumnName="tr_userAnulo" />
-                <ScalarProperty Name="tr_fechaAnulacion" ColumnName="tr_fechaAnulacion" />
-                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Destino" ColumnName="IdNumMovi_Ing_Egr_Inven_Destino" />
-                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Destino" ColumnName="IdSucursal_Ing_Egr_Inven_Destino" />
-                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Destino" ColumnName="IdEmpresa_Ing_Egr_Inven_Destino" />
-                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Origen" ColumnName="IdNumMovi_Ing_Egr_Inven_Origen" />
-                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Origen" ColumnName="IdSucursal_Ing_Egr_Inven_Origen" />
-                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Origen" ColumnName="IdEmpresa_Ing_Egr_Inven_Origen" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="tr_fecha" ColumnName="tr_fecha" />
-                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
-                <ScalarProperty Name="IdBodegaDest" ColumnName="IdBodegaDest" />
-                <ScalarProperty Name="IdSucursalDest" ColumnName="IdSucursalDest" />
-                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
-                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="BodegDest" ColumnName="BodegDest" />
-                <ScalarProperty Name="SucuDEST" ColumnName="SucuDEST" />
-                <ScalarProperty Name="BodegaORIG" ColumnName="BodegaORIG" />
-                <ScalarProperty Name="SucuOrigen" ColumnName="SucuOrigen" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="in_transferencia_det">
             <EntityTypeMapping TypeName="DBERPModelInventario.in_transferencia_det">
               <MappingFragment StoreEntitySet="in_transferencia_det">
@@ -17066,6 +16997,82 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SPINV_CambiarFechaMovimiento" FunctionName="DBERPModelInventario.Store.SPINV_CambiarFechaMovimiento" />
+          <EntitySetMapping Name="in_transferencia">
+            <EntityTypeMapping TypeName="DBERPModelInventario.in_transferencia">
+              <MappingFragment StoreEntitySet="in_transferencia">
+                <ScalarProperty Name="TuvoErrorDespacho" ColumnName="TuvoErrorDespacho" />
+                <ScalarProperty Name="TuvoError" ColumnName="TuvoError" />
+                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
+                <ScalarProperty Name="IdUsuarioRevision" ColumnName="IdUsuarioRevision" />
+                <ScalarProperty Name="EstadoRevision" ColumnName="EstadoRevision" />
+                <ScalarProperty Name="IdGuia" ColumnName="IdGuia" />
+                <ScalarProperty Name="motivo_anula" ColumnName="motivo_anula" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="tr_fecha_transaccion" ColumnName="tr_fecha_transaccion" />
+                <ScalarProperty Name="tr_fechaAnulacion" ColumnName="tr_fechaAnulacion" />
+                <ScalarProperty Name="tr_userAnulo" ColumnName="tr_userAnulo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Destino" ColumnName="IdNumMovi_Ing_Egr_Inven_Destino" />
+                <ScalarProperty Name="IdMovi_inven_tipo_SucuDest" ColumnName="IdMovi_inven_tipo_SucuDest" />
+                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Destino" ColumnName="IdSucursal_Ing_Egr_Inven_Destino" />
+                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Destino" ColumnName="IdEmpresa_Ing_Egr_Inven_Destino" />
+                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Origen" ColumnName="IdNumMovi_Ing_Egr_Inven_Origen" />
+                <ScalarProperty Name="IdMovi_inven_tipo_SucuOrig" ColumnName="IdMovi_inven_tipo_SucuOrig" />
+                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Origen" ColumnName="IdSucursal_Ing_Egr_Inven_Origen" />
+                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Origen" ColumnName="IdEmpresa_Ing_Egr_Inven_Origen" />
+                <ScalarProperty Name="tr_fecha" ColumnName="tr_fecha" />
+                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
+                <ScalarProperty Name="IdBodegaDest" ColumnName="IdBodegaDest" />
+                <ScalarProperty Name="IdSucursalDest" ColumnName="IdSucursalDest" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwin_Transferencias">
+            <EntityTypeMapping TypeName="DBERPModelInventario.vwin_Transferencias">
+              <MappingFragment StoreEntitySet="vwin_Transferencias">
+                <ScalarProperty Name="TuvoErrorDespacho" ColumnName="TuvoErrorDespacho" />
+                <ScalarProperty Name="TuvoError" ColumnName="TuvoError" />
+                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
+                <ScalarProperty Name="IdUsuarioRevision" ColumnName="IdUsuarioRevision" />
+                <ScalarProperty Name="EstadoRevision" ColumnName="EstadoRevision" />
+                <ScalarProperty Name="IdGuia" ColumnName="IdGuia" />
+                <ScalarProperty Name="IdEstadoAproba_egr" ColumnName="IdEstadoAproba_egr" />
+                <ScalarProperty Name="IdEstadoAproba_ing" ColumnName="IdEstadoAproba_ing" />
+                <ScalarProperty Name="IdMovi_inven_tipo_SucuDest" ColumnName="IdMovi_inven_tipo_SucuDest" />
+                <ScalarProperty Name="IdMovi_inven_tipo_SucuOrig" ColumnName="IdMovi_inven_tipo_SucuOrig" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="tr_userAnulo" ColumnName="tr_userAnulo" />
+                <ScalarProperty Name="tr_fechaAnulacion" ColumnName="tr_fechaAnulacion" />
+                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Destino" ColumnName="IdNumMovi_Ing_Egr_Inven_Destino" />
+                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Destino" ColumnName="IdSucursal_Ing_Egr_Inven_Destino" />
+                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Destino" ColumnName="IdEmpresa_Ing_Egr_Inven_Destino" />
+                <ScalarProperty Name="IdNumMovi_Ing_Egr_Inven_Origen" ColumnName="IdNumMovi_Ing_Egr_Inven_Origen" />
+                <ScalarProperty Name="IdSucursal_Ing_Egr_Inven_Origen" ColumnName="IdSucursal_Ing_Egr_Inven_Origen" />
+                <ScalarProperty Name="IdEmpresa_Ing_Egr_Inven_Origen" ColumnName="IdEmpresa_Ing_Egr_Inven_Origen" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="tr_fecha" ColumnName="tr_fecha" />
+                <ScalarProperty Name="tr_Observacion" ColumnName="tr_Observacion" />
+                <ScalarProperty Name="IdBodegaDest" ColumnName="IdBodegaDest" />
+                <ScalarProperty Name="IdSucursalDest" ColumnName="IdSucursalDest" />
+                <ScalarProperty Name="IdTransferencia" ColumnName="IdTransferencia" />
+                <ScalarProperty Name="IdBodegaOrigen" ColumnName="IdBodegaOrigen" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="BodegDest" ColumnName="BodegDest" />
+                <ScalarProperty Name="SucuDEST" ColumnName="SucuDEST" />
+                <ScalarProperty Name="BodegaORIG" ColumnName="BodegaORIG" />
+                <ScalarProperty Name="SucuOrigen" ColumnName="SucuOrigen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

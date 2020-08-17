@@ -35,7 +35,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>318</ApplicationRevision>
+    <ApplicationRevision>326</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -3660,6 +3660,12 @@
     <Compile Include="MobileSCI\frmApp_Generacion_csv.Designer.cs">
       <DependentUpon>frmApp_Generacion_csv.cs</DependentUpon>
     </Compile>
+    <Compile Include="MobileSCI\frmApp_ProductoPorBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileSCI\frmApp_ProductoPorBodega.Designer.cs">
+      <DependentUpon>frmApp_ProductoPorBodega.cs</DependentUpon>
+    </Compile>
     <Compile Include="MobileSCI\frmApp_usuario_cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5650,6 +5656,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MobileSCI\frmApp_Generacion_csv.resx">
       <DependentUpon>frmApp_Generacion_csv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MobileSCI\frmApp_ProductoPorBodega.resx">
+      <DependentUpon>frmApp_ProductoPorBodega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MobileSCI\frmApp_usuario_cons.resx">
       <DependentUpon>frmApp_usuario_cons.cs</DependentUpon>

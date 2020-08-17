@@ -240,6 +240,19 @@ namespace Core.Erp.Business.CuentasxPagar
 
         }
 
+        public cp_XML_Documento_Info GetInfo(int IdEmpresa, decimal IdDocumento)
+        {
+            try
+            {
+                return odata.GetInfo(IdEmpresa, IdDocumento);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         public cp_XML_Documento_Info GetInfo(int IdEmpresa, string CodDocumento, string pe_cedulaRuc, string Establecimiento, string PuntoEmision, string NumeroDocumento)
         {
             try

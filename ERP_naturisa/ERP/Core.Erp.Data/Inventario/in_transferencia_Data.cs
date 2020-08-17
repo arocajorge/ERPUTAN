@@ -1242,11 +1242,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)) * -1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (Math.Abs(item.dt_cantidad))) * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion = item.dt_cantidad * -1,
+                                    dm_cantidad_sinConversion = Math.Abs(item.dt_cantidad) * -1,
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 
@@ -1287,11 +1287,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)) * -1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, Math.Abs(item.dt_cantidad)) * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion = item.dt_cantidad * -1,
+                                    dm_cantidad_sinConversion = Math.Abs(item.dt_cantidad) * -1,
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 

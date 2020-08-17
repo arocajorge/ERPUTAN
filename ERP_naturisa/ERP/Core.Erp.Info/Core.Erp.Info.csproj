@@ -675,6 +675,7 @@
     <Compile Include="MobileSCI\tbl_bodega_Info.cs" />
     <Compile Include="MobileSCI\tbl_movimientos_det_Info.cs" />
     <Compile Include="MobileSCI\tbl_producto_Info.cs" />
+    <Compile Include="MobileSCI\tbl_producto_x_tbl_bodega_Info.cs" />
     <Compile Include="MobileSCI\tbl_subcentro_Info.cs" />
     <Compile Include="MobileSCI\tbl_usuario_Info.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_bodega_Info.cs" />

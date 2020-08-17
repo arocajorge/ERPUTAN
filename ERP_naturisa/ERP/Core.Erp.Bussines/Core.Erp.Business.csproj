@@ -465,6 +465,7 @@
     <Compile Include="MobileSCI\tbl_bodega_Bus.cs" />
     <Compile Include="MobileSCI\tbl_movimientos_det_Bus.cs" />
     <Compile Include="MobileSCI\tbl_producto_Bus.cs" />
+    <Compile Include="MobileSCI\tbl_producto_x_tbl_bodega_Bus.cs" />
     <Compile Include="MobileSCI\tbl_subcentro_Bus.cs" />
     <Compile Include="MobileSCI\tbl_usuario_Bus.cs" />
     <Compile Include="MobileSCI\tbl_usuario_x_bodega_Bus.cs" />

@@ -11,6 +11,8 @@ using Core.Erp.Business.General;
 using Core.Erp.Info.General;
 using Core.Erp.Business.CuentasxPagar;
 using Core.Erp.Info.CuentasxPagar;
+using Core.Erp.Info.Facturacion;
+using Core.Erp.Business.Facturacion;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -26,6 +28,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         cl_parametrosGenerales_Bus param;
         cp_XML_Documento_Bus bus_xml;
         cp_XML_DocumentoDet_Bus bus_xml_det;
+        fa_formaPago_Bus busFormaPago;
         #endregion
 
         #region Delegados
@@ -52,6 +55,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             param = cl_parametrosGenerales_Bus.Instance;
             bus_xml = new cp_XML_Documento_Bus();
             bus_xml_det = new cp_XML_DocumentoDet_Bus();
+            busFormaPago = new fa_formaPago_Bus();
             event_delegate_frmCP_XML_Mantenimiento_FormClosed += frmCP_XML_Mantenimiento_event_delegate_frmCP_XML_Mantenimiento_FormClosed;
         }
 
@@ -119,6 +123,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txtRetAutorizacion.Text = info.ret_NumeroAutorizacion;
                 deRetFechaAutorizacion.DateTime = info.ret_FechaAutorizacion ?? DateTime.Now.Date;
                 deRetFecha.DateTime = info.ret_Fecha ?? DateTime.Now.Date;
+                cmbFormaPago.EditValue = info.FormaPago;
 
                 deRetFecha.DateTime = Convert.ToDateTime(info.FechaEmision).Date;
                 blst = new BindingList<cp_XML_Documento_Retencion_Info>(bus_det.GetList(param.IdEmpresa, info.IdDocumento));
@@ -194,6 +199,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 lst_codigoSRI = bus_codigoSRI.Get_List_codigo_SRI_IvaRet(param.IdEmpresa);
                 cmbCodigoSRI.DataSource = lst_codigoSRI;
+
+                cmbFormaPago.Properties.DataSource = busFormaPago.Get_List_fa_formaPago();
             }
             catch (Exception)
             {
@@ -237,7 +244,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                 {
                     MessageBox.Show("La retención se encuentra autorizada y no puede ser modificada", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
-                } 
+                }
+
+                if (info.ValorIVA > 0 && blst.Where(q => q.re_tipoRet == "IVA").Count() == 0)
+                {
+                    if(MessageBox.Show("No ha ingresado un código de retención de IVA para el documento, desea continuar?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        return;
+                }
+
                 GetInfo();
                 info.IdUsuario = param.IdUsuario;
                 if (bus_xml.ModificarDB(info))

@@ -33,6 +33,12 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.cmbFlujo = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.txtTotalXML = new DevExpress.XtraEditors.TextEdit();
@@ -147,13 +153,14 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbFlujo = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.label25 = new System.Windows.Forms.Label();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbFormaPago = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label26 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalXML.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtValorIVAXML.Properties)).BeginInit();
@@ -202,8 +209,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalIva.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotDescuento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -277,6 +284,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label26);
+            this.panel1.Controls.Add(this.cmbFormaPago);
             this.panel1.Controls.Add(this.label25);
             this.panel1.Controls.Add(this.cmbFlujo);
             this.panel1.Controls.Add(this.panel2);
@@ -318,8 +327,69 @@
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1595, 248);
+            this.panel1.Size = new System.Drawing.Size(1595, 263);
             this.panel1.TabIndex = 2;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(247, 207);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 17);
+            this.label25.TabIndex = 53;
+            this.label25.Text = "Flujo:";
+            // 
+            // cmbFlujo
+            // 
+            this.cmbFlujo.Location = new System.Drawing.Point(370, 204);
+            this.cmbFlujo.Name = "cmbFlujo";
+            this.cmbFlujo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFlujo.Properties.DisplayMember = "Descricion";
+            this.cmbFlujo.Properties.ValueMember = "IdTipoFlujo";
+            this.cmbFlujo.Properties.View = this.searchLookUpEdit1View;
+            this.cmbFlujo.Size = new System.Drawing.Size(668, 22);
+            this.cmbFlujo.TabIndex = 52;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "ID";
+            this.gridColumn6.FieldName = "IdTipoFlujo";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 159;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Flujo";
+            this.gridColumn7.FieldName = "Descricion";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            this.gridColumn7.Width = 1334;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Tipo";
+            this.gridColumn8.FieldName = "Tipo";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 1;
+            this.gridColumn8.Width = 241;
             // 
             // panel2
             // 
@@ -889,7 +959,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 276);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 291);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -912,8 +982,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Size = new System.Drawing.Size(1595, 376);
-            this.splitContainer1.SplitterDistance = 278;
+            this.splitContainer1.Size = new System.Drawing.Size(1595, 361);
+            this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -931,7 +1001,7 @@
             this.CmbPuntoCargo,
             this.cmbSubcentro,
             this.cmb_centroCosoto});
-            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1595, 278);
+            this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1595, 266);
             this.gridControlAproIngEgrxOC.TabIndex = 0;
             this.gridControlAproIngEgrxOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAproIngEgrxOC});
@@ -1488,66 +1558,56 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // cmbFlujo
+            // cmbFormaPago
             // 
-            this.cmbFlujo.Location = new System.Drawing.Point(370, 204);
-            this.cmbFlujo.Name = "cmbFlujo";
-            this.cmbFlujo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbFormaPago.Location = new System.Drawing.Point(370, 234);
+            this.cmbFormaPago.Name = "cmbFormaPago";
+            this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbFlujo.Properties.DisplayMember = "Descricion";
-            this.cmbFlujo.Properties.ValueMember = "IdTipoFlujo";
-            this.cmbFlujo.Properties.View = this.searchLookUpEdit1View;
-            this.cmbFlujo.Size = new System.Drawing.Size(668, 22);
-            this.cmbFlujo.TabIndex = 52;
+            this.cmbFormaPago.Properties.DisplayMember = "nom_FormaPago";
+            this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
+            this.cmbFormaPago.Properties.View = this.gridView6;
+            this.cmbFormaPago.Size = new System.Drawing.Size(668, 22);
+            this.cmbFormaPago.TabIndex = 54;
             // 
-            // searchLookUpEdit1View
+            // gridView6
             // 
-            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn8});
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn9,
+            this.gridColumn11});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
             // 
-            // label25
+            // gridColumn9
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(304, 207);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(42, 17);
-            this.label25.TabIndex = 53;
-            this.label25.Text = "Flujo:";
+            this.gridColumn9.Caption = "ID";
+            this.gridColumn9.FieldName = "IdFormaPago";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 1;
+            this.gridColumn9.Width = 503;
             // 
-            // gridColumn6
+            // gridColumn11
             // 
-            this.gridColumn6.Caption = "ID";
-            this.gridColumn6.FieldName = "IdTipoFlujo";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 159;
+            this.gridColumn11.Caption = "Forma pago";
+            this.gridColumn11.FieldName = "nom_FormaPago";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 0;
+            this.gridColumn11.Width = 1231;
             // 
-            // gridColumn7
+            // label26
             // 
-            this.gridColumn7.Caption = "Flujo";
-            this.gridColumn7.FieldName = "Descricion";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 0;
-            this.gridColumn7.Width = 1334;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Tipo";
-            this.gridColumn8.FieldName = "Tipo";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 1;
-            this.gridColumn8.Width = 241;
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(247, 237);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(108, 17);
+            this.label26.TabIndex = 55;
+            this.label26.Text = "Forma de pago:";
             // 
             // frmCP_Aprobacion_Ing_Bod_x_OC_Mant
             // 
@@ -1565,6 +1625,8 @@
             this.Load += new System.EventHandler(this.frmCP_Aprobacion_Ing_Bod_x_OC_Mant_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalXML.Properties)).EndInit();
@@ -1615,8 +1677,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalIva.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotDescuento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1746,5 +1808,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private System.Windows.Forms.Label label26;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbFormaPago;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

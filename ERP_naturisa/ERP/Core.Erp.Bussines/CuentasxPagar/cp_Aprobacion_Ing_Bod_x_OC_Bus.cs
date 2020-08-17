@@ -463,6 +463,18 @@ namespace Core.Erp.Business.CuentasxPagar
 
               Info_Ogiro.Info_CbteCble_x_OG=info_CbteCble;
               //Info_Ogiro.lst_reembolso=lst_reembolso;
+              if (!string.IsNullOrEmpty(Info.IdFormaPago))
+              {
+                  lst_formasPagoSRI = new List<cp_orden_giro_pagos_sri_Info>();
+                  lst_formasPagoSRI.Add(new cp_orden_giro_pagos_sri_Info
+                  {
+                      IdEmpresa = Info_Ogiro.IdEmpresa,
+                      IdTipoCbte_Ogiro = Info_Ogiro.IdTipoCbte_Ogiro,
+                      codigo_pago_sri = Info.IdFormaPago,
+                      formas_pago_sri = Info.IdFormaPago
+                  });    
+              }
+              
               Info_Ogiro.lst_formasPagoSRI=lst_formasPagoSRI;
               Info_Ogiro.Info_Retencion=InfoRetencion;
 

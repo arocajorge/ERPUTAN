@@ -117,6 +117,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 }
 
                 frmCP_XML_Mantenimiento frm = new frmCP_XML_Mantenimiento();
+                row = bus_xml.GetInfo(param.IdEmpresa, row.IdDocumento);
                 frm.SetInfo(row, Accion);
                 frm.MdiParent = this.MdiParent;
                 frm.event_delegate_frmCP_XML_Mantenimiento_FormClosed += frm_event_delegate_frmCP_XML_Mantenimiento_FormClosed;
