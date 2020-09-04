@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XINV_Rpt027_frm));
             this.ucInv_MenuReportes1 = new Core.Erp.Reportes.Controles.UCInv_MenuReportes();
-            this.printBarManager1 = new DevExpress.XtraPrinting.Preview.PrintBarManager(this.components);
+            this.printBarManager1 = new DevExpress.XtraPrinting.Preview.PrintBarManager();
             this.previewBar1 = new DevExpress.XtraPrinting.Preview.PreviewBar();
             this.printPreviewBarItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewBarItem3 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
@@ -115,9 +114,10 @@
             this.ucInv_MenuReportes1.EnableBotonConsultar = true;
             this.ucInv_MenuReportes1.EnableBotonImprimir = true;
             this.ucInv_MenuReportes1.EnableBotonSalir = true;
-            this.ucInv_MenuReportes1.Location = new System.Drawing.Point(0, 53);
+            this.ucInv_MenuReportes1.Location = new System.Drawing.Point(0, 62);
+            this.ucInv_MenuReportes1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucInv_MenuReportes1.Name = "ucInv_MenuReportes1";
-            this.ucInv_MenuReportes1.Size = new System.Drawing.Size(896, 95);
+            this.ucInv_MenuReportes1.Size = new System.Drawing.Size(1195, 117);
             this.ucInv_MenuReportes1.TabIndex = 0;
             this.ucInv_MenuReportes1.VisiblebeiCheck1 = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucInv_MenuReportes1.VisiblebeiCheck2 = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -737,28 +737,32 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(896, 53);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1195, 62);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 481);
-            this.barDockControlBottom.Size = new System.Drawing.Size(896, 28);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 596);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1195, 30);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 53);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 428);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 62);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 534);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(896, 53);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 428);
+            this.barDockControlRight.Location = new System.Drawing.Point(1195, 62);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 534);
             // 
             // printPreviewBarCheckItem1
             // 
@@ -938,25 +942,28 @@
             this.printControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printControl1.ForeColor = System.Drawing.Color.Empty;
             this.printControl1.IsMetric = true;
-            this.printControl1.Location = new System.Drawing.Point(0, 148);
+            this.printControl1.Location = new System.Drawing.Point(0, 179);
+            this.printControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.printControl1.Name = "printControl1";
-            this.printControl1.Size = new System.Drawing.Size(896, 333);
+            this.printControl1.Size = new System.Drawing.Size(1195, 417);
             this.printControl1.TabIndex = 5;
             this.printControl1.TooltipFont = new System.Drawing.Font("Tahoma", 8.25F);
             // 
             // XINV_Rpt027_frm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 509);
+            this.ClientSize = new System.Drawing.Size(1195, 626);
             this.Controls.Add(this.printControl1);
             this.Controls.Add(this.ucInv_MenuReportes1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "XINV_Rpt027_frm";
             this.Text = "XINV_Rpt027_frm";
+            this.Load += new System.EventHandler(this.XINV_Rpt027_frm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.printBarManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.printPreviewRepositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemProgressBar1)).EndInit();

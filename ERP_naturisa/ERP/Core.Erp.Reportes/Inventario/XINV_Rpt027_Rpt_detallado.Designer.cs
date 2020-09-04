@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -139,8 +138,9 @@
             this.NUM_MOVI = new DevExpress.XtraReports.UI.CalculatedField();
             this.NUM_OC = new DevExpress.XtraReports.UI.CalculatedField();
             this.P_Mostrar_registros_0 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource();
             this.CANTIDADNORMAL = new DevExpress.XtraReports.UI.CalculatedField();
+            this.P_MostrarNegativos = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -1210,6 +1210,11 @@
             this.CANTIDADNORMAL.Expression = "IIF([cant_egr] > 0 ,[cant_egr] *-1,[cant_ing])";
             this.CANTIDADNORMAL.Name = "CANTIDADNORMAL";
             // 
+            // P_MostrarNegativos
+            // 
+            this.P_MostrarNegativos.Name = "P_MostrarNegativos";
+            this.P_MostrarNegativos.Visible = false;
+            // 
             // XINV_Rpt027_Rpt_detallado
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1255,7 +1260,8 @@
             this.P_IdBodega,
             this.P_IdProducto,
             this.P_Mostrar_detallado,
-            this.P_Mostrar_registros_0});
+            this.P_Mostrar_registros_0,
+            this.P_MostrarNegativos});
             this.Version = "12.1";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.XINV_Rpt027_Rpt_detallado_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
@@ -1379,5 +1385,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell43;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell44;
         private DevExpress.XtraReports.UI.CalculatedField CANTIDADNORMAL;
+        public DevExpress.XtraReports.Parameters.Parameter P_MostrarNegativos;
     }
 }

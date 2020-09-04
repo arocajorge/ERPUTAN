@@ -233,11 +233,6 @@ namespace Core.Erp.Winform.Bancos
         {
             try
             {
-                cmb_estado_cat.DisplayMember = "ca_descripcion";
-                cmb_estado_cat.ValueMember = "IdCatalogo";
-                lista_cat = bus_catalogo.Get_List_Catalogo("EST_CB_BA");
-                cmb_estado_cat.DataSource = lista_cat;
-                
 
                 load_data();
               

@@ -90,6 +90,7 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                cmbSucursalOrigen.Properties.ReadOnly = true;
                 btnConsultarIngreso.Visible = true;
                 btnConsultarEgreso.Visible = true;
                 deFecha.EditValue = DateTime.Now.Date;
@@ -131,6 +132,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                colIdProducto.VisibleIndex = 0;
+                colNomProducto.VisibleIndex = -1;
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
@@ -191,6 +194,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                colIdProducto.VisibleIndex = -1;
+                colNomProducto.VisibleIndex = 0;
                 infoTransferencia = busTransferencia.Get_Info_transferencia(param.IdEmpresa, infoTransferencia.IdSucursalOrigen, infoTransferencia.IdBodegaOrigen, infoTransferencia.IdTransferencia);
                 if (infoTransferencia == null)
                     return;

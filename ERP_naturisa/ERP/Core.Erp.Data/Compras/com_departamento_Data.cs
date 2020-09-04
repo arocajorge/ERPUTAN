@@ -45,6 +45,35 @@ namespace Core.Erp.Data.Compras
             }
         }
 
+        public List<com_departamento_Info> GetList(int IdEmpresa, decimal IdSolicitante)
+        {
+            try
+            {
+                List<com_departamento_Info> Lista = new List<com_departamento_Info>();
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var lst = db.com_solicitante_aprobador.Where(q => q.IdEmpresa == IdEmpresa && q.IdSolicitante == IdSolicitante && q.MontoMax > 0 && q.com_departamento.Estado == "A").GroupBy(q=> new {q.IdEmpresa, q.IdDepartamento, q.com_departamento.nom_departamento}).ToList();
+                    foreach (var item in lst)
+                    {
+                        Lista.Add(new com_departamento_Info
+                        {
+                            IdEmpresa = item.Key.IdEmpresa,
+                            IdDepartamento = item.Key.IdDepartamento,
+                            nom_departamento = item.Key.nom_departamento,
+                            Estado = "A"
+                        });
+                    }
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public decimal GetId(int IdEmpresa)
         {

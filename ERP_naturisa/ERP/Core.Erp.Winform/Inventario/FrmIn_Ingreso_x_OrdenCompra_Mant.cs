@@ -401,7 +401,6 @@ namespace Core.Erp.Winform.Inventario
                 cmbCentroCosto_grid.DataSource = list_centroCosto;
                 cmbCentroCostoD.Properties.DataSource = list_centroCosto;
 
-
                 list_subcentro_combo = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmb_sub_centro_costo.DataSource = list_subcentro_combo;
                 cmbSubcentroCostoD.Properties.DataSource = list_subcentro_combo;
@@ -514,10 +513,6 @@ namespace Core.Erp.Winform.Inventario
                 cmbMotivoInv.BackColor = System.Drawing.Color.White;
                 cmbMotivoInv.ForeColor = System.Drawing.Color.Black;
 
-                
-                
-
-                ucIn_Sucursal_Bodega1.cmb_sucursal.Enabled = false;
                 ucIn_Sucursal_Bodega1.cmb_bodega.Enabled = false;
 
                 txtNumIngreso.Enabled = false;
@@ -539,6 +534,7 @@ namespace Core.Erp.Winform.Inventario
                 ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>();
                 gridControlIngreso.DataSource = ListaBind;
                 ucIn_Sucursal_Bodega1.set_Idsucursal(param.IdSucursal);
+                ucIn_Sucursal_Bodega1.cmb_sucursal.Properties.ReadOnly = true;
                 carga_Combos();
 
                 switch (param.IdCliente_Ven_x_Default)

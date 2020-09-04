@@ -375,6 +375,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                ucIn_Sucursal_Bodega1.set_Idsucursal(param.IdSucursal);
+                ucIn_Sucursal_Bodega1.cmb_sucursal.Properties.ReadOnly = true;
                 CargarProducto();
                 bus_centro_costo = new ct_Centro_costo_Bus();
                 list_centro_costo = new List<ct_Centro_costo_Info>();
@@ -551,7 +553,6 @@ namespace Core.Erp.Winform.Inventario
                 
                 txtObservacion.ReadOnly = true;
                 
-                ucIn_Sucursal_Bodega1.cmb_sucursal.Enabled = false;
                 ucIn_Sucursal_Bodega1.cmb_bodega.Enabled = false;
             }
             catch (Exception ex)

@@ -393,9 +393,9 @@ namespace Core.Erp.Winform.Compras
                     btn_Buscar.Focus();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Ha ocurrido un error comuníquese con sistemas, Error:"+ex.Message);
             }
         }
 

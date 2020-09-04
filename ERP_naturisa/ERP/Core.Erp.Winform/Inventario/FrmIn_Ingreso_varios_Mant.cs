@@ -471,7 +471,7 @@ namespace Core.Erp.Winform.Inventario
 
                 //txtObservacion.ReadOnly = true;
              
-                ucIn_Sucursal_Bodega1.cmb_sucursal.Enabled = false;
+                
                 ucIn_Sucursal_Bodega1.cmb_bodega.Enabled = false;              
             }
             catch (Exception ex)
@@ -815,7 +815,8 @@ namespace Core.Erp.Winform.Inventario
             {
                 if (Accion == 0) { Accion = Cl_Enumeradores.eTipo_action.grabar; }
                 gridControlProductos.DataSource = ListBinding_Ing_Egr_Inven_det;
-
+                ucIn_Sucursal_Bodega1.set_Idsucursal(param.IdSucursal);
+                ucIn_Sucursal_Bodega1.cmb_sucursal.Properties.ReadOnly = true;
                 carga_Combos();
                 set_Accion_in_Controls();
              

@@ -62,5 +62,6 @@ namespace Core.Erp.Data
         public string Estado_Conciliacion { get; set; }
         public string IdEstado_Preaviso_ch_cat { get; set; }
         public string IdEstado_cheque_cat { get; set; }
+        public Nullable<decimal> IdConciliacion { get; set; }
     }
 }

@@ -88,6 +88,13 @@
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.bei_bodega = new DevExpress.XtraBars.BarEditItem();
             this.cmb_chk_bodega = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.beiCentro_costo = new DevExpress.XtraBars.BarEditItem();
+            this.cmb_centro_costo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.beiSubcentro_costo = new DevExpress.XtraBars.BarEditItem();
+            this.cmb_subcentro_costo_chk = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.GrupoSucursal = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.GrupoMovimiento = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -95,18 +102,14 @@
             this.GrupoDias = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.GrupoCheck = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.GrupoProveedorProducto = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.GrupoCentroCosto = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.GrupoBotones = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GrupoCentroCosto = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.beiCentro_costo = new DevExpress.XtraBars.BarEditItem();
-            this.cmb_centro_costo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.beiSubcentro_costo = new DevExpress.XtraBars.BarEditItem();
-            this.cmb_subcentro_costo_chk = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.beiCheck3 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemCheckEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal_Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
@@ -136,6 +139,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_centro_costo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subcentro_costo_chk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit5)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -164,9 +169,11 @@
             this.beiCheck2,
             this.bei_bodega,
             this.beiCentro_costo,
-            this.beiSubcentro_costo});
+            this.beiSubcentro_costo,
+            this.beiCheck3});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 56;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ribbonControl1.MaxItemId = 65;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -188,9 +195,11 @@
             this.repositoryItemCheckEdit3,
             this.cmb_chk_bodega,
             this.cmb_centro_costo,
-            this.cmb_subcentro_costo_chk});
+            this.cmb_subcentro_costo_chk,
+            this.repositoryItemCheckEdit4,
+            this.repositoryItemCheckEdit5});
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Hide;
-            this.ribbonControl1.Size = new System.Drawing.Size(1273, 96);
+            this.ribbonControl1.Size = new System.Drawing.Size(1697, 104);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
             // cmbSucursal
@@ -692,6 +701,69 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_chk_bodega.Name = "cmb_chk_bodega";
             // 
+            // beiCentro_costo
+            // 
+            this.beiCentro_costo.Caption = "Centro costo:";
+            this.beiCentro_costo.Edit = this.cmb_centro_costo;
+            this.beiCentro_costo.Id = 49;
+            this.beiCentro_costo.Name = "beiCentro_costo";
+            this.beiCentro_costo.Width = 250;
+            this.beiCentro_costo.EditValueChanged += new System.EventHandler(this.beiCentro_costo_EditValueChanged);
+            // 
+            // cmb_centro_costo
+            // 
+            this.cmb_centro_costo.AutoHeight = false;
+            this.cmb_centro_costo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_centro_costo.DisplayMember = "Centro_costo2";
+            this.cmb_centro_costo.Name = "cmb_centro_costo";
+            this.cmb_centro_costo.ValueMember = "IdCentroCosto";
+            this.cmb_centro_costo.View = this.gridView4;
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn16,
+            this.gridColumn17});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "ID";
+            this.gridColumn16.FieldName = "IdCentroCosto";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 1;
+            this.gridColumn16.Width = 155;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Centro de costo";
+            this.gridColumn17.FieldName = "Centro_costo";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 0;
+            this.gridColumn17.Width = 1025;
+            // 
+            // beiSubcentro_costo
+            // 
+            this.beiSubcentro_costo.Caption = "Subcentro:    ";
+            this.beiSubcentro_costo.Edit = this.cmb_subcentro_costo_chk;
+            this.beiSubcentro_costo.Id = 50;
+            this.beiSubcentro_costo.Name = "beiSubcentro_costo";
+            this.beiSubcentro_costo.Width = 250;
+            // 
+            // cmb_subcentro_costo_chk
+            // 
+            this.cmb_subcentro_costo_chk.AutoHeight = false;
+            this.cmb_subcentro_costo_chk.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_subcentro_costo_chk.Name = "cmb_subcentro_costo_chk";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -741,6 +813,7 @@
             // 
             this.GrupoCheck.ItemLinks.Add(this.beiCheck1);
             this.GrupoCheck.ItemLinks.Add(this.beiCheck2);
+            this.GrupoCheck.ItemLinks.Add(this.beiCheck3);
             this.GrupoCheck.Name = "GrupoCheck";
             this.GrupoCheck.Visible = false;
             // 
@@ -750,6 +823,13 @@
             this.GrupoProveedorProducto.ItemLinks.Add(this.txt_num_transaccion);
             this.GrupoProveedorProducto.Name = "GrupoProveedorProducto";
             this.GrupoProveedorProducto.Visible = false;
+            // 
+            // GrupoCentroCosto
+            // 
+            this.GrupoCentroCosto.ItemLinks.Add(this.beiCentro_costo);
+            this.GrupoCentroCosto.ItemLinks.Add(this.beiSubcentro_costo);
+            this.GrupoCentroCosto.Name = "GrupoCentroCosto";
+            this.GrupoCentroCosto.Visible = false;
             // 
             // GrupoBotones
             // 
@@ -780,83 +860,34 @@
             this.gridColumn13.FieldName = "pr_estado";
             this.gridColumn13.Name = "gridColumn13";
             // 
-            // GrupoCentroCosto
+            // repositoryItemCheckEdit4
             // 
-            this.GrupoCentroCosto.ItemLinks.Add(this.beiCentro_costo);
-            this.GrupoCentroCosto.ItemLinks.Add(this.beiSubcentro_costo);
-            this.GrupoCentroCosto.Name = "GrupoCentroCosto";
-            this.GrupoCentroCosto.Visible = false;
+            this.repositoryItemCheckEdit4.AutoHeight = false;
+            this.repositoryItemCheckEdit4.Name = "repositoryItemCheckEdit4";
             // 
-            // beiCentro_costo
+            // beiCheck3
             // 
-            this.beiCentro_costo.Caption = "Centro costo:";
-            this.beiCentro_costo.Edit = this.cmb_centro_costo;
-            this.beiCentro_costo.Id = 49;
-            this.beiCentro_costo.Name = "beiCentro_costo";
-            this.beiCentro_costo.Width = 250;
-            this.beiCentro_costo.EditValueChanged += new System.EventHandler(this.beiCentro_costo_EditValueChanged);
+            this.beiCheck3.Caption = "Check3";
+            this.beiCheck3.Edit = this.repositoryItemCheckEdit5;
+            this.beiCheck3.Id = 64;
+            this.beiCheck3.Name = "beiCheck3";
+            this.beiCheck3.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
-            // cmb_centro_costo
+            // repositoryItemCheckEdit5
             // 
-            this.cmb_centro_costo.AutoHeight = false;
-            this.cmb_centro_costo.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_centro_costo.DisplayMember = "Centro_costo2";
-            this.cmb_centro_costo.Name = "cmb_centro_costo";
-            this.cmb_centro_costo.ValueMember = "IdCentroCosto";
-            this.cmb_centro_costo.View = this.gridView4;
-            // 
-            // gridView4
-            // 
-            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn16,
-            this.gridColumn17});
-            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView4.OptionsView.ShowAutoFilterRow = true;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
-            // 
-            // beiSubcentro_costo
-            // 
-            this.beiSubcentro_costo.Caption = "Subcentro:    ";
-            this.beiSubcentro_costo.Edit = this.cmb_subcentro_costo_chk;
-            this.beiSubcentro_costo.Id = 50;
-            this.beiSubcentro_costo.Name = "beiSubcentro_costo";
-            this.beiSubcentro_costo.Width = 250;
-            // 
-            // cmb_subcentro_costo_chk
-            // 
-            this.cmb_subcentro_costo_chk.AutoHeight = false;
-            this.cmb_subcentro_costo_chk.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_subcentro_costo_chk.Name = "cmb_subcentro_costo_chk";
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "ID";
-            this.gridColumn16.FieldName = "IdCentroCosto";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 1;
-            this.gridColumn16.Width = 155;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "Centro de costo";
-            this.gridColumn17.FieldName = "Centro_costo";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 0;
-            this.gridColumn17.Width = 1025;
+            this.repositoryItemCheckEdit5.AutoHeight = false;
+            this.repositoryItemCheckEdit5.Name = "repositoryItemCheckEdit5";
+            this.repositoryItemCheckEdit5.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.repositoryItemCheckEdit5.ValueGrayed = false;
             // 
             // UCInv_MenuReportes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UCInv_MenuReportes";
-            this.Size = new System.Drawing.Size(1273, 101);
+            this.Size = new System.Drawing.Size(1697, 124);
             this.Load += new System.EventHandler(this.UCInv_MenuReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal_Grid)).EndInit();
@@ -887,6 +918,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_centro_costo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_subcentro_costo_chk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -971,5 +1004,8 @@
         public DevExpress.XtraBars.BarEditItem beiSubcentro_costo;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit cmb_subcentro_costo_chk;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup GrupoCentroCosto;
+        public DevExpress.XtraBars.BarEditItem beiCheck3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit4;
     }
 }

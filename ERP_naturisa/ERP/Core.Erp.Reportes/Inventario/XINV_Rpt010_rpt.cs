@@ -45,7 +45,8 @@ namespace Core.Erp.Reportes.Inventario
                 lblFecha.Text = param.Fecha_Transac.ToString();
                 bool Mostrar_detallado = Convert.ToBoolean(P_mostrar_agrupado.Value);
                 bool mostrar_valores_en_0 = Convert.ToBoolean(P_mostrar_valores_en_0.Value);
-                List_Info = Bus_Rpt.Get_List(Convert.ToDateTime(P_fecha_ini.Value), Convert.ToDateTime(P_fecha_fin.Value), param.IdEmpresa, Convert.ToInt32(P_IdSucursal.Value), lst_bodega, Convert.ToInt32(P_IdProducto.Value), param.IdUsuario, mostrar_valores_en_0,Mostrar_detallado);
+                bool MostrarNegativos = Convert.ToBoolean(P_MostrarNegativos.Value);
+                List_Info = Bus_Rpt.Get_List(Convert.ToDateTime(P_fecha_ini.Value), Convert.ToDateTime(P_fecha_fin.Value), param.IdEmpresa, Convert.ToInt32(P_IdSucursal.Value), lst_bodega, Convert.ToInt32(P_IdProducto.Value), param.IdUsuario, mostrar_valores_en_0,Mostrar_detallado, MostrarNegativos);
                 this.DataSource = List_Info;
              
             }

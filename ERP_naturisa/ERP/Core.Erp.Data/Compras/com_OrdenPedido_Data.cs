@@ -31,6 +31,9 @@ namespace Core.Erp.Data.Compras
                     if (solicitante == null)
                         return new List<com_OrdenPedido_Info>();
 
+                    var DepartamentosPorUsuario = db.com_solicitante_x_com_departamento.Where(q => q.IdEmpresa == IdEmpresa && q.IdSolicitante == solicitante.IdSolicitante).Count();
+                    solicitante.ConsultaDepartamento = DepartamentosPorUsuario > 0 ? true : false;
+
                     if (!solicitante.ConsultaDepartamento)
                         Lista = db.vwcom_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario && FechaIni <= q.op_Fecha && q.op_Fecha <= FechaFin).Select(q => new com_OrdenPedido_Info
                         {
@@ -595,7 +598,8 @@ namespace Core.Erp.Data.Compras
                             && q.IdSucursalDestino == item.IdSucursalDestino
                             && q.IdTerminoPago == item.IdTerminoPago
                             && q.TiempoEntrega == item.TiempoEntrega
-                            && q.SaltoPaso4 == item.SaltoPaso4).Select(q => new com_CotizacionPedidoDet_Info
+                            && q.SaltoPaso4 == item.SaltoPaso4
+                            && q.IdComprador == item.IdComprador).Select(q => new com_CotizacionPedidoDet_Info
                         {
                             IdEmpresa = IdEmpresa,
                             opd_IdEmpresa = q.IdEmpresa,

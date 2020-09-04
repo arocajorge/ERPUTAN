@@ -44,22 +44,38 @@ namespace Core.Erp.Winform.Inventario
                 if (row == null)
                     return;
 
-                if (colChecked == e.Column)
+                if (e.Column == colA)
                 {
-                    if (row.check)
+                    if (row.A == true)
                     {
                         row.cantidad_enviar = row.dt_cantidad;
-                    }else
+                        row.Saldo = row.dt_cantidad - row.cantidad_enviar;
+                    }
+                    else
+                    {
                         row.cantidad_enviar = 0;
-                    row.Saldo = row.dt_cantidad - row.cantidad_enviar;
+                        row.Saldo = row.dt_cantidad;
+                    }
+                    row.R = false;
                 }
-
+                if (e.Column == colR)
+                {
+                    row.cantidad_enviar = 0;
+                    row.Saldo = row.dt_cantidad;
+                    row.A = false;
+                }
                 if (colCantidadIngresada == e.Column)
                 {
-                    if (row.cantidad_enviar > 0)
-                        row.check = true;
+                    if (Convert.ToDouble(e.Value ?? 0) == 0)
+                    {
+                        row.A = false;
+                        row.R = false;
+                    }
                     else
-                        row.check = false;
+                    {
+                        row.A = true;
+                        row.R = false;
+                    }
                     row.Saldo = row.dt_cantidad - row.cantidad_enviar;
                 }
             }
@@ -81,6 +97,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 cmbSucursalDestino.Properties.DataSource = busSucursal.Get_List_Sucursal(param.IdEmpresa);
                 cmbSucursalDestino.EditValue = param.IdSucursal;
+                cmbSucursalDestino.Properties.ReadOnly = true;
                 cmbUnidadMedida.DataSource = busUnidadMedida.Get_list_UnidadMedida();
                 blstDet = new BindingList<in_transferencia_det_Info>(busDet.GetLisParaAprobacion(param.IdEmpresa,param.IdSucursal));
                 gcDetalle.DataSource = blstDet;
@@ -145,12 +162,12 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                if (blstDet.Where(q=> q.check == true).Count() == 0)
+                if (blstDet.Where(q=> q.A == true || q.R == true).Count() == 0)
                 {
                     MessageBox.Show("Seleccione registros para aceptar la transferecia",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     return false;
                 }
-                var lst = blstDet.Where(q=> q.check == true).GroupBy(q=> new {q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia}).Select(q=> new {
+                var lst = blstDet.Where(q=> q.A == true || q.R == true).GroupBy(q=> new {q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia}).Select(q=> new {
                     IdSucursalOrigen = q.Key.IdSucursalOrigen,
                     IdBodegaOrigen = q.Key.IdBodegaOrigen,
                     IdTransferencia = q.Key.IdTransferencia
@@ -164,7 +181,7 @@ namespace Core.Erp.Winform.Inventario
                 var PrimerTransferencia = lst[0];
                 var lstFinal = blstDet.Where(q => q.IdSucursalOrigen == PrimerTransferencia.IdSucursalOrigen && q.IdBodegaOrigen == PrimerTransferencia.IdBodegaOrigen && q.IdTransferencia == PrimerTransferencia.IdTransferencia).ToList();    
                                 
-                if (lstFinal.Where(Q=> Q.Saldo != 0 && string.IsNullOrEmpty(Q.MotivoParcial)).Count() > 0)
+                if (lstFinal.Where(Q=> Q.Saldo != 0 && Q.A == false && string.IsNullOrEmpty(Q.MotivoParcial)).Count() > 0)
                 {
                     MessageBox.Show("Debe seleccionar un motivo en caso de que no se reciba la transferencia completa",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     return false;
@@ -187,7 +204,7 @@ namespace Core.Erp.Winform.Inventario
                 cmbSucursalDestino.Focus();
                 if (!Validar())
                     return false;
-                var temp = blstDet.Where(q => q.check == true).GroupBy(q => new { q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia }).FirstOrDefault();
+                var temp = blstDet.Where(q => q.A == true || q.R == true).GroupBy(q => new { q.IdEmpresa, q.IdSucursalOrigen, q.IdBodegaOrigen, q.IdTransferencia }).FirstOrDefault();
                 in_transferencia_Info info = new in_transferencia_Info
                 {
                     IdEmpresa = temp.Key.IdEmpresa,
@@ -199,12 +216,25 @@ namespace Core.Erp.Winform.Inventario
                 info = busTransferencia.Get_Info_transferencia(param.IdEmpresa, info.IdSucursalOrigen, info.IdBodegaOrigen, info.IdTransferencia);
                 info.IdUsuario = param.IdUsuario;
                 info.lista_detalle_transferencia = blstDet.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursalOrigen == info.IdSucursalOrigen && q.IdBodegaOrigen == info.IdBodegaOrigen && q.IdTransferencia == info.IdTransferencia).ToList();
-                if (busTransferencia.Aprobar(info))
+                if (info.lista_detalle_transferencia.Where(q => q.A == true).Count() > 0)
                 {
-                    MessageBox.Show("Transferencia aprobada exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-                    return true;
-                }else
-                    MessageBox.Show("Ha ocurrido un error", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (busTransferencia.Aprobar(info))
+                    {
+                        MessageBox.Show("Transferencia aprobada exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return true;
+                    }
+                    else
+                        MessageBox.Show("Ha ocurrido un error", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (busTransferencia.AnularDB(info))
+                    {
+                        MessageBox.Show("Transferencia anulada exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return true;
+                    }
+                }
+                
                 return false;
             }
             catch (Exception)
@@ -222,6 +252,18 @@ namespace Core.Erp.Winform.Inventario
         private void gvDetalle_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
         {
          
+        }
+
+        private void gvDetalle_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (colA == e.Column)
+            {
+                gvDetalle.SetRowCellValue(e.RowHandle, colA, e.Value);
+            }
+            if (colR == e.Column)
+            {
+                gvDetalle.SetRowCellValue(e.RowHandle, colR, e.Value);
+            }
         }
     }
 }

@@ -64,6 +64,7 @@ namespace Core.Erp.Winform.Inventario
         in_UnidadMedida_Bus bus_unidad_medida = new in_UnidadMedida_Bus();
         List<in_UnidadMedida_Info> lst_unidad_medida_para_combo = new List<in_UnidadMedida_Info>();
         in_UnidadMedida_Info info_unidad_medida = new in_UnidadMedida_Info();
+        List<in_Ing_Egr_Inven_det_Info> ListaAnterior = new List<in_Ing_Egr_Inven_det_Info>();
         #endregion
 
         public FrmIn_Egresos_Inv_Multi_Bodega_Mant()
@@ -284,6 +285,8 @@ namespace Core.Erp.Winform.Inventario
                 IdSucursal = ucGe_Sucursal.get_SucursalInfo().IdSucursal;
                 cmbTipoMovi.cargar_TipoMotivo(IdSucursal, 0, "-", "");
 
+                ucGe_Sucursal.cmbsucursal.Properties.ReadOnly = true;
+
                 // carga combo productos grid  
                 Bus_Producto = new in_producto_Bus();
                 listProducto = new List<in_Producto_Info>();
@@ -414,8 +417,6 @@ namespace Core.Erp.Winform.Inventario
                 txtObservacion.BackColor = System.Drawing.Color.White;
                 txtObservacion.ForeColor = System.Drawing.Color.Black;
              
-                ucGe_Sucursal.Enabled = false;
-
                 cmbMotivoInv.Enabled = false;
                 cmbMotivoInv.BackColor = System.Drawing.Color.White;
                 cmbMotivoInv.ForeColor = System.Drawing.Color.Black;
@@ -477,57 +478,6 @@ namespace Core.Erp.Winform.Inventario
                 int focus = gridViewProductos.FocusedRowHandle;
                 gridViewProductos.FocusedRowHandle = focus + 1;
                 list_IngEgrDet = new List<in_Ing_Egr_Inven_det_Info>(ListaBind);
-
-                
-                /*
-                foreach (var item in ListaBind)
-                {
-                    //if (item.IdEstadoAproba == null || item.IdEstadoAproba == Cl_Enumeradores.eEstadoAprobacion_Ing_Egr.PEND.ToString())
-                    //{
-                    sec = sec + 1;
-                    in_Ing_Egr_Inven_det_Info info = new in_Ing_Egr_Inven_det_Info();
-                    info.Secuencia = sec;
-                    info.IdEmpresa = info_IngEgr.IdEmpresa;
-                    info.IdSucursal = info_IngEgr.IdSucursal;
-                    info.IdNumMovi = info_IngEgr.IdNumMovi;
-                    info.IdEstadoAproba = item.IdEstadoAproba;
-                    info.IdBodega = item.IdBodega;
-                    info.IdProducto = item.IdProducto;
-                    info.dm_stock_ante = item.dm_stock_ante;
-                    info.dm_stock_actu = item.dm_stock_actu;
-                    info.dm_observacion = item.dm_observacion;
-                    info.dm_precio = item.dm_precio;
-                    info.dm_peso = item.dm_peso;
-                    info.IdCentroCosto = item.IdCentroCosto;
-                    info.IdCentroCosto_sub_centro_costo = (item.IdCentroCosto_sub_centro_costo == null) ? null : list_subcentro_combo.FirstOrDefault(v => v.IdCentroCosto == item.IdCentroCosto && v.IdRegistro == item.IdCentroCosto_sub_centro_costo).IdCentroCosto_sub_centro_costo;
-                    info.pr_descripcion = item.pr_descripcion;
-                    info.IdPunto_cargo = item.IdPunto_cargo;
-                    info.IdEmpresa_inv = item.IdEmpresa_inv;
-                    info.IdSucursal_inv = item.IdSucursal_inv;
-                    info.IdBodega_inv = item.IdBodega_inv;
-                    info.IdMovi_inven_tipo_inv = item.IdMovi_inven_tipo_inv;
-                    info.IdNumMovi_inv = item.IdNumMovi_inv;
-                    info.secuencia_inv = item.secuencia_inv;
-
-                    info.pr_descripcion = item.pr_descripcion;
-                    info.IdPunto_cargo = item.IdPunto_cargo;
-
-                    info.IdUnidadMedida = item.IdUnidadMedida;
-                    info.IdUnidadMedida_sinConversion = item.IdUnidadMedida;
-                    item.IdUnidadMedida_Consumo = item.IdUnidadMedida;
-
-                    info.dm_cantidad_sinConversion = item.dm_cantidad;
-                    info.mv_costo_sinConversion = item.mv_costo;
-
-                    info.dm_cantidad = item.dm_cantidad;
-                    info.mv_costo = item.mv_costo;
-
-                    var itemBod = list_bodega.FirstOrDefault(q => q.IdBodega == item.IdBodega);
-                    info.nom_bodega = itemBod.bo_Descripcion2;
-
-                    list_IngEgrDet.Add(info);
-                }*/
-
 
                 info_IngEgr.listIng_Egr = list_IngEgrDet;                        
             }
@@ -599,7 +549,7 @@ namespace Core.Erp.Winform.Inventario
                 lista = new List<in_Ing_Egr_Inven_det_Info>();
                 bus_IngEgrDet = new in_Ing_Egr_Inven_det_Bus();
                 lista = bus_IngEgrDet.Get_List_Ing_Egr_Inven_det(info_IngEgr.IdEmpresa, info_IngEgr.IdSucursal, info_IngEgr.IdMovi_inven_tipo, info_IngEgr.IdNumMovi);
-
+                ListaAnterior = lista;
                 foreach (var items in lista)
                 {
                     items.dm_cantidad = items.dm_cantidad < 0 ? items.dm_cantidad * -1 : items.dm_cantidad;
@@ -767,17 +717,40 @@ namespace Core.Erp.Winform.Inventario
                         Cantidad = Q.Sum(q=>q.Cantidad),
                         CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
                     });
+
+                    var lstAnterior = ListaAnterior.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdBodega, q.IdProducto, q.pr_descripcion, q.IdUnidadMedida_sinConversion }).Select(Q => new
+                    {
+                        IdProducto = Q.Key.IdProducto,
+                        IdBodega = Q.Key.IdBodega,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = bus_unidad_medida.GetCantidadConvertida(param.IdEmpresa, Q.Key.IdProducto, Q.Key.IdUnidadMedida_sinConversion, Q.Sum(q => q.dm_cantidad_sinConversion)),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    });
+
+                    lstAnterior = lstAnterior.Where(Q => Q.IdProducto != null).GroupBy(q => new { q.IdBodega, q.IdProducto, q.pr_descripcion }).Select(Q => new
+                    {
+                        IdProducto = Q.Key.IdProducto,
+                        IdBodega = Q.Key.IdBodega,
+                        pr_descripcion = Q.Key.pr_descripcion,
+                        Cantidad = Q.Sum(q => q.Cantidad),
+                        CantidadAnterior = Q.Sum(q => q.CantidadAnterior)
+                    }).ToList();
+
                     string pr_descripcion = string.Empty;
                     foreach (var item in lst)
                     {
+                        double CantidadAnterior = item.CantidadAnterior;
                         pr_descripcion = string.Empty;
+                        if (lstAnterior.Where(q => q.IdProducto == item.IdProducto).Count() > 0)
+                            CantidadAnterior = lstAnterior.Where(q => q.IdProducto == item.IdProducto).Sum(q=> q.CantidadAnterior);
+
                         if (!Bus_Producto.ValidarStock(param.IdEmpresa, ucGe_Sucursal.Get_IdSucursal(), item.IdBodega ?? 0, item.IdProducto, item.Cantidad, item.CantidadAnterior, ref pr_descripcion))
                         {
                             MessageBox.Show("El producto " + pr_descripcion + " no tiene stock suficiente para el egreso.", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             return false;
                         }
                     }
-
+                    
                     #endregion
                 }
 

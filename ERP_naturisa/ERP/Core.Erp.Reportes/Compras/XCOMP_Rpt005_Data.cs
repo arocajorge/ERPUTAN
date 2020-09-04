@@ -22,12 +22,12 @@ namespace Core.Erp.Reportes.Compras
                 List<XCOMP_Rpt005_Info> lstInfo = new List<XCOMP_Rpt005_Info>();
                 using (EntitiesCompra_reporte_Ge listado = new EntitiesCompra_reporte_Ge())
                 {
-
+                    /*
                     var select = from q in lstIdSolicitudCompra
                                  join c in listado.vwCOMP_Rpt005 on new { q.IdEmpresa, q.IdSucursal, q.IdSolicitudCompra, q.Secuencia_SC }
                                  equals new { c.IdEmpresa, c.IdSucursal, c.IdSolicitudCompra, c.Secuencia_SC }
                                  select c;
-
+                    
                     Cbt = empresaData.Get_Info_Empresa(lstIdSolicitudCompra.First().IdEmpresa);
 
                     foreach (var item in select)
@@ -64,7 +64,7 @@ namespace Core.Erp.Reportes.Compras
                         Info.NomEmpresa = Cbt.em_nombre;
                         Info.Logo = Cbt.em_logo_Image;
                         lstInfo.Add(Info);
-                    }
+                    }*/
                 }
 
                 return lstInfo;

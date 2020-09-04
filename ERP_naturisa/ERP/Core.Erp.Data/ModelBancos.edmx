@@ -288,7 +288,8 @@
       [vwba_Cbte_Ban].[CodTipoCbteBan] AS [CodTipoCbteBan], 
       [vwba_Cbte_Ban].[Estado_Conciliacion] AS [Estado_Conciliacion], 
       [vwba_Cbte_Ban].[IdEstado_Preaviso_ch_cat] AS [IdEstado_Preaviso_ch_cat], 
-      [vwba_Cbte_Ban].[IdEstado_cheque_cat] AS [IdEstado_cheque_cat]
+      [vwba_Cbte_Ban].[IdEstado_cheque_cat] AS [IdEstado_cheque_cat], 
+      [vwba_Cbte_Ban].[IdConciliacion] AS [IdConciliacion]
       FROM [dbo].[vwba_Cbte_Ban] AS [vwba_Cbte_Ban]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwba_Cbte_Ban_detallePagos" EntityType="DBERPModelBanco.Store.vwba_Cbte_Ban_detallePagos" store:Type="Views" store:Schema="dbo" store:Name="vwba_Cbte_Ban_detallePagos">
@@ -1849,7 +1850,6 @@
             <PropertyRef Name="Estado" />
             <PropertyRef Name="IdEstado_Cbte_Ban_cat" />
             <PropertyRef Name="CodTipoCbteBan" />
-            <PropertyRef Name="Estado_Conciliacion" />
             <PropertyRef Name="IdEstado_Preaviso_ch_cat" />
           </Key>
           <Property Name="tc_TipoCbte" Type="char" Nullable="false" MaxLength="50" />
@@ -1897,9 +1897,10 @@
           <Property Name="IdTipoDocumento" Type="varchar" MaxLength="25" />
           <Property Name="pe_cedulaRuc" Type="varchar" MaxLength="50" />
           <Property Name="CodTipoCbteBan" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="Estado_Conciliacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Estado_Conciliacion" Type="varchar" MaxLength="20" />
           <Property Name="IdEstado_Preaviso_ch_cat" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="IdEstado_cheque_cat" Type="varchar" MaxLength="50" />
+          <Property Name="IdConciliacion" Type="numeric" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwba_Cbte_Ban_detallePagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -3266,7 +3267,6 @@
             <End Role="ba_Cbte_Ban" EntitySet="ba_Cbte_Ban" />
             <End Role="ba_Cbte_Ban_Datos_Entrega_cheq" EntitySet="ba_Cbte_Ban_Datos_Entrega_cheq" />
           </AssociationSet>
-          <EntitySet Name="vwba_Cbte_Ban" EntityType="DBERPModelBanco.vwba_Cbte_Ban" />
           <EntitySet Name="ba_prestamo" EntityType="DBERPModelBanco.ba_prestamo" />
           <AssociationSet Name="FK_ba_prestamo_ba_Catalogo" Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo">
             <End Role="ba_Catalogo" EntitySet="ba_Catalogo" />
@@ -3321,6 +3321,7 @@
             <End Role="ba_Archivo_Transferencia_Det" EntitySet="ba_Archivo_Transferencia_Det" />
           </AssociationSet>
           <EntitySet Name="vwba_Banco_Movimiento_det_cancelado" EntityType="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado" />
+          <EntitySet Name="vwba_Cbte_Ban" EntityType="DBERPModelBanco.vwba_Cbte_Ban" />
           </EntityContainer>
         <EntityType Name="ba_Archivo_Transferencia_Parametros">
           <Key>
@@ -5037,78 +5038,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vwba_Cbte_Ban">
-          <Key>
-            <PropertyRef Name="tc_TipoCbte" />
-            <PropertyRef Name="NombreProveedor" />
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdCbteCble" />
-            <PropertyRef Name="IdTipocbte" />
-            <PropertyRef Name="Cod_Cbtecble" />
-            <PropertyRef Name="IdPeriodo" />
-            <PropertyRef Name="IdBanco" />
-            <PropertyRef Name="cb_Fecha" />
-            <PropertyRef Name="cb_Observacion" />
-            <PropertyRef Name="cb_secuencia" />
-            <PropertyRef Name="cb_Valor" />
-            <PropertyRef Name="cb_ChequeImpreso" />
-            <PropertyRef Name="IdUsuario" />
-            <PropertyRef Name="Fecha_Transac" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="IdEstado_Cbte_Ban_cat" />
-            <PropertyRef Name="CodTipoCbteBan" />
-            <PropertyRef Name="Estado_Conciliacion" />
-            <PropertyRef Name="IdEstado_Preaviso_ch_cat" />
-          </Key>
-          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="ba_descripcion" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="NombreProveedor" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
-          <Property Type="String" Name="Cod_Cbtecble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
-          <Property Type="Int32" Name="IdBanco" Nullable="false" />
-          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
-          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
-          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="cb_secuencia" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Double" Name="cb_Valor" Nullable="false" />
-          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="cb_ChequeImpreso" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="DateTime" Name="cb_FechaCheque" Precision="0" />
-          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUsuario_Anu" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaAnulacion" Precision="3" />
-          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
-          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
-          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="MotivoAnulacion" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="cb_giradoA" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="cb_ciudadChq" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdCbteCble_Anulacion" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdTipoCbte_Anulacion" />
-          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="IdTipoNota" />
-          <Property Type="String" Name="NomTipoNota" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Por_Anticipo" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="PosFechado" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Decimal" Name="IdPersona_Girado_a" Precision="18" Scale="0" />
-          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdSucursal" />
-          <Property Type="String" Name="IdEstado_Cbte_Ban_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nom_Estado_Cbte_Ban" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdTipoDocumento" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="pe_cedulaRuc" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CodTipoCbteBan" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Estado_Conciliacion" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstado_Preaviso_ch_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstado_cheque_cat" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="ba_prestamo">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -5588,6 +5517,78 @@
           <Property Type="Double" Name="SaldoAnterior" Nullable="false" />
           <Property Type="Double" Name="SaldoActual" Nullable="false" />
           <Property Type="Int32" Name="Secuencia" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwba_Cbte_Ban">
+          <Key>
+            <PropertyRef Name="tc_TipoCbte" />
+            <PropertyRef Name="NombreProveedor" />
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdCbteCble" />
+            <PropertyRef Name="IdTipocbte" />
+            <PropertyRef Name="Cod_Cbtecble" />
+            <PropertyRef Name="IdPeriodo" />
+            <PropertyRef Name="IdBanco" />
+            <PropertyRef Name="cb_Fecha" />
+            <PropertyRef Name="cb_Observacion" />
+            <PropertyRef Name="cb_secuencia" />
+            <PropertyRef Name="cb_Valor" />
+            <PropertyRef Name="cb_ChequeImpreso" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Fecha_Transac" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IdEstado_Cbte_Ban_cat" />
+            <PropertyRef Name="CodTipoCbteBan" />
+            <PropertyRef Name="IdEstado_Preaviso_ch_cat" />
+          </Key>
+          <Property Type="String" Name="tc_TipoCbte" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ba_descripcion" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NombreProveedor" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Decimal" Name="IdCbteCble" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipocbte" Nullable="false" />
+          <Property Type="String" Name="Cod_Cbtecble" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPeriodo" Nullable="false" />
+          <Property Type="Int32" Name="IdBanco" Nullable="false" />
+          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cb_Fecha" Nullable="false" Precision="0" />
+          <Property Type="String" Name="cb_Observacion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="cb_secuencia" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Double" Name="cb_Valor" Nullable="false" />
+          <Property Type="String" Name="cb_Cheque" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ChequeImpreso" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="cb_FechaCheque" Precision="0" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdUsuario_Anu" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaAnulacion" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_Transac" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Fecha_UltMod" Precision="3" />
+          <Property Type="String" Name="IdUsuarioUltMod" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MotivoAnulacion" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ip" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_pc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_giradoA" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cb_ciudadChq" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdCbteCble_Anulacion" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoCbte_Anulacion" />
+          <Property Type="Decimal" Name="IdTipoFlujo" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="IdTipoNota" />
+          <Property Type="String" Name="NomTipoNota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Por_Anticipo" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="PosFechado" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Decimal" Name="IdPersona_Girado_a" Precision="18" Scale="0" />
+          <Property Type="String" Name="ValorEnLetras" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSucursal" />
+          <Property Type="String" Name="IdEstado_Cbte_Ban_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom_Estado_Cbte_Ban" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Beneficiario" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdTipoDocumento" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pe_cedulaRuc" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodTipoCbteBan" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Estado_Conciliacion" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstado_Preaviso_ch_cat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstado_cheque_cat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdConciliacion" Precision="18" Scale="0" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -6650,60 +6651,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwba_Cbte_Ban">
-            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Cbte_Ban">
-              <MappingFragment StoreEntitySet="vwba_Cbte_Ban">
-                <ScalarProperty Name="IdEstado_cheque_cat" ColumnName="IdEstado_cheque_cat" />
-                <ScalarProperty Name="IdEstado_Preaviso_ch_cat" ColumnName="IdEstado_Preaviso_ch_cat" />
-                <ScalarProperty Name="Estado_Conciliacion" ColumnName="Estado_Conciliacion" />
-                <ScalarProperty Name="CodTipoCbteBan" ColumnName="CodTipoCbteBan" />
-                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
-                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
-                <ScalarProperty Name="Beneficiario" ColumnName="Beneficiario" />
-                <ScalarProperty Name="nom_Estado_Cbte_Ban" ColumnName="nom_Estado_Cbte_Ban" />
-                <ScalarProperty Name="IdEstado_Cbte_Ban_cat" ColumnName="IdEstado_Cbte_Ban_cat" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
-                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
-                <ScalarProperty Name="PosFechado" ColumnName="PosFechado" />
-                <ScalarProperty Name="Por_Anticipo" ColumnName="Por_Anticipo" />
-                <ScalarProperty Name="NomTipoNota" ColumnName="NomTipoNota" />
-                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
-                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
-                <ScalarProperty Name="IdTipoCbte_Anulacion" ColumnName="IdTipoCbte_Anulacion" />
-                <ScalarProperty Name="IdCbteCble_Anulacion" ColumnName="IdCbteCble_Anulacion" />
-                <ScalarProperty Name="cb_ciudadChq" ColumnName="cb_ciudadChq" />
-                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
-                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
-                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
-                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
-                <ScalarProperty Name="FechaAnulacion" ColumnName="FechaAnulacion" />
-                <ScalarProperty Name="IdUsuario_Anu" ColumnName="IdUsuario_Anu" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="cb_FechaCheque" ColumnName="cb_FechaCheque" />
-                <ScalarProperty Name="cb_ChequeImpreso" ColumnName="cb_ChequeImpreso" />
-                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
-                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
-                <ScalarProperty Name="cb_secuencia" ColumnName="cb_secuencia" />
-                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
-                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
-                <ScalarProperty Name="Cod_Cbtecble" ColumnName="Cod_Cbtecble" />
-                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
-                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
-                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
-                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ba_prestamo">
             <EntityTypeMapping TypeName="DBERPModelBanco.ba_prestamo">
               <MappingFragment StoreEntitySet="ba_prestamo">
@@ -6983,6 +6930,61 @@
                 <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
                 <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwba_Cbte_Ban">
+            <EntityTypeMapping TypeName="DBERPModelBanco.vwba_Cbte_Ban">
+              <MappingFragment StoreEntitySet="vwba_Cbte_Ban">
+                <ScalarProperty Name="IdConciliacion" ColumnName="IdConciliacion" />
+                <ScalarProperty Name="IdEstado_cheque_cat" ColumnName="IdEstado_cheque_cat" />
+                <ScalarProperty Name="IdEstado_Preaviso_ch_cat" ColumnName="IdEstado_Preaviso_ch_cat" />
+                <ScalarProperty Name="Estado_Conciliacion" ColumnName="Estado_Conciliacion" />
+                <ScalarProperty Name="CodTipoCbteBan" ColumnName="CodTipoCbteBan" />
+                <ScalarProperty Name="pe_cedulaRuc" ColumnName="pe_cedulaRuc" />
+                <ScalarProperty Name="IdTipoDocumento" ColumnName="IdTipoDocumento" />
+                <ScalarProperty Name="Beneficiario" ColumnName="Beneficiario" />
+                <ScalarProperty Name="nom_Estado_Cbte_Ban" ColumnName="nom_Estado_Cbte_Ban" />
+                <ScalarProperty Name="IdEstado_Cbte_Ban_cat" ColumnName="IdEstado_Cbte_Ban_cat" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="ValorEnLetras" ColumnName="ValorEnLetras" />
+                <ScalarProperty Name="IdPersona_Girado_a" ColumnName="IdPersona_Girado_a" />
+                <ScalarProperty Name="PosFechado" ColumnName="PosFechado" />
+                <ScalarProperty Name="Por_Anticipo" ColumnName="Por_Anticipo" />
+                <ScalarProperty Name="NomTipoNota" ColumnName="NomTipoNota" />
+                <ScalarProperty Name="IdTipoNota" ColumnName="IdTipoNota" />
+                <ScalarProperty Name="IdTipoFlujo" ColumnName="IdTipoFlujo" />
+                <ScalarProperty Name="IdTipoCbte_Anulacion" ColumnName="IdTipoCbte_Anulacion" />
+                <ScalarProperty Name="IdCbteCble_Anulacion" ColumnName="IdCbteCble_Anulacion" />
+                <ScalarProperty Name="cb_ciudadChq" ColumnName="cb_ciudadChq" />
+                <ScalarProperty Name="cb_giradoA" ColumnName="cb_giradoA" />
+                <ScalarProperty Name="nom_pc" ColumnName="nom_pc" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="MotivoAnulacion" ColumnName="MotivoAnulacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdUsuarioUltMod" ColumnName="IdUsuarioUltMod" />
+                <ScalarProperty Name="Fecha_UltMod" ColumnName="Fecha_UltMod" />
+                <ScalarProperty Name="Fecha_Transac" ColumnName="Fecha_Transac" />
+                <ScalarProperty Name="FechaAnulacion" ColumnName="FechaAnulacion" />
+                <ScalarProperty Name="IdUsuario_Anu" ColumnName="IdUsuario_Anu" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="cb_FechaCheque" ColumnName="cb_FechaCheque" />
+                <ScalarProperty Name="cb_ChequeImpreso" ColumnName="cb_ChequeImpreso" />
+                <ScalarProperty Name="cb_Cheque" ColumnName="cb_Cheque" />
+                <ScalarProperty Name="cb_Valor" ColumnName="cb_Valor" />
+                <ScalarProperty Name="cb_secuencia" ColumnName="cb_secuencia" />
+                <ScalarProperty Name="cb_Observacion" ColumnName="cb_Observacion" />
+                <ScalarProperty Name="cb_Fecha" ColumnName="cb_Fecha" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+                <ScalarProperty Name="Cod_Cbtecble" ColumnName="Cod_Cbtecble" />
+                <ScalarProperty Name="IdTipocbte" ColumnName="IdTipocbte" />
+                <ScalarProperty Name="IdCbteCble" ColumnName="IdCbteCble" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="ba_descripcion" ColumnName="ba_descripcion" />
+                <ScalarProperty Name="tc_TipoCbte" ColumnName="tc_TipoCbte" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

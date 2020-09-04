@@ -46,6 +46,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Col_Beneficiario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCbteBanDep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UltraGridCbteBanDep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipo_flujo)).BeginInit();
@@ -78,16 +79,18 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2017, 5, 1, 8, 46, 12, 641);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2017, 7, 1, 8, 46, 12, 641);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2020, 8, 26, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2020, 9, 2, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Mantenimiento_x_usuario.Name = "ucGe_Menu_Mantenimiento_x_usuario";
             this.ucGe_Menu_Mantenimiento_x_usuario.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1057, 154);
+            this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1409, 190);
             this.ucGe_Menu_Mantenimiento_x_usuario.TabIndex = 1;
+            this.ucGe_Menu_Mantenimiento_x_usuario.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_bodega = false;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -123,12 +126,14 @@
             // gridControlCbteBanDep
             // 
             this.gridControlCbteBanDep.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlCbteBanDep.Location = new System.Drawing.Point(0, 154);
+            this.gridControlCbteBanDep.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControlCbteBanDep.Location = new System.Drawing.Point(0, 190);
             this.gridControlCbteBanDep.MainView = this.UltraGridCbteBanDep;
+            this.gridControlCbteBanDep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlCbteBanDep.Name = "gridControlCbteBanDep";
             this.gridControlCbteBanDep.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_tipo_flujo});
-            this.gridControlCbteBanDep.Size = new System.Drawing.Size(1057, 255);
+            this.gridControlCbteBanDep.Size = new System.Drawing.Size(1409, 313);
             this.gridControlCbteBanDep.TabIndex = 2;
             this.gridControlCbteBanDep.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.UltraGridCbteBanDep,
@@ -144,7 +149,8 @@
             this.colcb_Observacion,
             this.colcb_Fecha,
             this.col_tipo_flujo,
-            this.Col_Beneficiario});
+            this.Col_Beneficiario,
+            this.gridColumn5});
             this.UltraGridCbteBanDep.GridControl = this.gridControlCbteBanDep;
             this.UltraGridCbteBanDep.Name = "UltraGridCbteBanDep";
             this.UltraGridCbteBanDep.OptionsView.ShowAutoFilterRow = true;
@@ -300,13 +306,22 @@
             this.gridView1.GridControl = this.gridControlCbteBanDep;
             this.gridView1.Name = "gridView1";
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "# Conciliación";
+            this.gridColumn5.FieldName = "IdConciliacion";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 7;
+            // 
             // FrmBA_Credito_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 409);
+            this.ClientSize = new System.Drawing.Size(1409, 503);
             this.Controls.Add(this.gridControlCbteBanDep);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmBA_Credito_Cons";
             this.Text = "Consulta Crédito Bancario";
             this.Load += new System.EventHandler(this.FrmBA_Credito_Cons_Load);
@@ -339,5 +354,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn Col_Beneficiario;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

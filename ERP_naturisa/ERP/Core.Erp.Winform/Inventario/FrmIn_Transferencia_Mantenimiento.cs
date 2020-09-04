@@ -123,9 +123,6 @@ namespace Core.Erp.Winform.Inventario
 
             UCTipoMoviOrigen.event_cmbCatalogo_EditValueChanged += UCTipoMoviOrigen_event_cmbCatalogo_EditValueChanged;
             UCTipoMoviDestino.event_cmbCatalogo_EditValueChanged += UCTipoMoviDestino_event_cmbCatalogo_EditValueChanged;
-
-            
-
         }
 
         void ucGe_Menu_event_btnlimpiar_Click(object sender, EventArgs e)

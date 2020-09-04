@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionAprobacionJC));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txtObservacionAdicional = new DevExpress.XtraEditors.MemoEdit();
             this.btnBuscarHistorico = new DevExpress.XtraEditors.SimpleButton();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblIva = new System.Windows.Forms.Label();
@@ -83,14 +85,13 @@
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_adjunto = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmb_punto_cargo = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.txtObservacionAdicional = new DevExpress.XtraEditors.MemoEdit();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.cmb_adjunto = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacionAdicional.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComprador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolicitante.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSucursal.Properties)).BeginInit();
@@ -104,10 +105,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_punto_cargo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtObservacionAdicional.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,12 +150,27 @@
             this.panel1.Size = new System.Drawing.Size(1431, 324);
             this.panel1.TabIndex = 0;
             // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(40, 254);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(129, 16);
+            this.labelControl10.TabIndex = 31;
+            this.labelControl10.Text = "Observación adicional:";
+            // 
+            // txtObservacionAdicional
+            // 
+            this.txtObservacionAdicional.Location = new System.Drawing.Point(189, 251);
+            this.txtObservacionAdicional.Name = "txtObservacionAdicional";
+            this.txtObservacionAdicional.Size = new System.Drawing.Size(607, 54);
+            this.txtObservacionAdicional.TabIndex = 30;
+            // 
             // btnBuscarHistorico
             // 
             this.btnBuscarHistorico.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarHistorico.Image")));
-            this.btnBuscarHistorico.Location = new System.Drawing.Point(1021, 12);
+            this.btnBuscarHistorico.Location = new System.Drawing.Point(986, 107);
             this.btnBuscarHistorico.Name = "btnBuscarHistorico";
-            this.btnBuscarHistorico.Size = new System.Drawing.Size(137, 41);
+            this.btnBuscarHistorico.Size = new System.Drawing.Size(152, 41);
             this.btnBuscarHistorico.TabIndex = 29;
             this.btnBuscarHistorico.Text = "Buscar todo";
             this.btnBuscarHistorico.Click += new System.EventHandler(this.btnBuscarHistorico_Click);
@@ -163,11 +178,11 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotal.Location = new System.Drawing.Point(1313, 183);
+            this.lblTotal.Location = new System.Drawing.Point(1081, 216);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(32, 32);
+            this.lblTotal.Size = new System.Drawing.Size(19, 20);
             this.lblTotal.TabIndex = 28;
             this.lblTotal.Text = "0";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -175,11 +190,11 @@
             // lblIva
             // 
             this.lblIva.AutoSize = true;
-            this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIva.ForeColor = System.Drawing.Color.Blue;
-            this.lblIva.Location = new System.Drawing.Point(1313, 138);
+            this.lblIva.Location = new System.Drawing.Point(1081, 191);
             this.lblIva.Name = "lblIva";
-            this.lblIva.Size = new System.Drawing.Size(32, 32);
+            this.lblIva.Size = new System.Drawing.Size(19, 20);
             this.lblIva.TabIndex = 27;
             this.lblIva.Text = "0";
             this.lblIva.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -187,11 +202,11 @@
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtotal.ForeColor = System.Drawing.Color.Blue;
-            this.lblSubtotal.Location = new System.Drawing.Point(1313, 93);
+            this.lblSubtotal.Location = new System.Drawing.Point(1081, 163);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(32, 32);
+            this.lblSubtotal.Size = new System.Drawing.Size(19, 20);
             this.lblSubtotal.TabIndex = 26;
             this.lblSubtotal.Text = "0";
             this.lblSubtotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -199,37 +214,37 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1020, 183);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(987, 217);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 32);
+            this.label3.Size = new System.Drawing.Size(57, 20);
             this.label3.TabIndex = 25;
             this.label3.Text = "Total:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1020, 138);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(987, 190);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 32);
+            this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 24;
             this.label2.Text = "I.V.A.:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1020, 93);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(982, 162);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 32);
+            this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 23;
             this.label1.Text = "Subtotal:";
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(838, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(986, 60);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(152, 41);
             this.btnBuscar.TabIndex = 22;
@@ -249,7 +264,7 @@
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
             this.btnSalir.Location = new System.Drawing.Point(838, 201);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(152, 41);
+            this.btnSalir.Size = new System.Drawing.Size(110, 41);
             this.btnSalir.TabIndex = 19;
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -259,7 +274,7 @@
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
             this.btnAnular.Location = new System.Drawing.Point(838, 107);
             this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(152, 41);
+            this.btnAnular.Size = new System.Drawing.Size(110, 41);
             this.btnAnular.TabIndex = 18;
             this.btnAnular.Text = "Anular";
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
@@ -269,7 +284,7 @@
             this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
             this.btnPasar.Location = new System.Drawing.Point(838, 154);
             this.btnPasar.Name = "btnPasar";
-            this.btnPasar.Size = new System.Drawing.Size(152, 41);
+            this.btnPasar.Size = new System.Drawing.Size(110, 41);
             this.btnPasar.TabIndex = 17;
             this.btnPasar.Text = "Pasar";
             this.btnPasar.Click += new System.EventHandler(this.btnPasar_Click);
@@ -279,7 +294,7 @@
             this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
             this.btnAprobar.Location = new System.Drawing.Point(838, 59);
             this.btnAprobar.Name = "btnAprobar";
-            this.btnAprobar.Size = new System.Drawing.Size(152, 41);
+            this.btnAprobar.Size = new System.Drawing.Size(110, 41);
             this.btnAprobar.TabIndex = 16;
             this.btnAprobar.Text = "Aprobar";
             this.btnAprobar.Click += new System.EventHandler(this.btnAprobar_Click);
@@ -668,6 +683,39 @@
             this.gridColumn16.VisibleIndex = 17;
             this.gridColumn16.Width = 92;
             // 
+            // gridColumn17
+            // 
+            this.gridColumn17.ColumnEdit = this.cmb_adjunto;
+            this.gridColumn17.FieldName = "Adjunto";
+            this.gridColumn17.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn17.ImageIndex = 0;
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 4;
+            this.gridColumn17.Width = 43;
+            // 
+            // cmb_adjunto
+            // 
+            this.cmb_adjunto.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmb_adjunto.AutoHeight = false;
+            this.cmb_adjunto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_adjunto.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmb_adjunto.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", false, 1)});
+            this.cmb_adjunto.LargeImages = this.imageList1;
+            this.cmb_adjunto.Name = "cmb_adjunto";
+            this.cmb_adjunto.ReadOnly = true;
+            this.cmb_adjunto.Click += new System.EventHandler(this.cmb_adjunto_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Adjunto_16x16.png");
+            this.imageList1.Images.SetKeyName(1, "Image1.png");
+            // 
             // cmb_punto_cargo
             // 
             this.cmb_punto_cargo.AutoHeight = false;
@@ -685,54 +733,6 @@
             this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(40, 254);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(129, 16);
-            this.labelControl10.TabIndex = 31;
-            this.labelControl10.Text = "Observación adicional:";
-            // 
-            // txtObservacionAdicional
-            // 
-            this.txtObservacionAdicional.Location = new System.Drawing.Point(189, 251);
-            this.txtObservacionAdicional.Name = "txtObservacionAdicional";
-            this.txtObservacionAdicional.Size = new System.Drawing.Size(607, 54);
-            this.txtObservacionAdicional.TabIndex = 30;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Adjunto_16x16.png");
-            this.imageList1.Images.SetKeyName(1, "Image1.png");
-            // 
-            // cmb_adjunto
-            // 
-            this.cmb_adjunto.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
-            this.cmb_adjunto.AutoHeight = false;
-            this.cmb_adjunto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_adjunto.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.cmb_adjunto.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 0),
-            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", false, 1)});
-            this.cmb_adjunto.LargeImages = this.imageList1;
-            this.cmb_adjunto.Name = "cmb_adjunto";
-            this.cmb_adjunto.ReadOnly = true;
-            this.cmb_adjunto.Click += new System.EventHandler(this.cmb_adjunto_Click);
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.ColumnEdit = this.cmb_adjunto;
-            this.gridColumn17.FieldName = "Adjunto";
-            this.gridColumn17.ImageAlignment = System.Drawing.StringAlignment.Center;
-            this.gridColumn17.ImageIndex = 0;
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 4;
-            this.gridColumn17.Width = 43;
-            // 
             // FrmCom_CotizacionAprobacionJC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -745,6 +745,7 @@
             this.Load += new System.EventHandler(this.FrmCom_CotizacionAprobacionJC_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacionAdicional.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtComprador.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolicitante.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSucursal.Properties)).EndInit();
@@ -758,10 +759,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_punto_cargo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtObservacionAdicional.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).EndInit();
             this.ResumeLayout(false);
 
         }

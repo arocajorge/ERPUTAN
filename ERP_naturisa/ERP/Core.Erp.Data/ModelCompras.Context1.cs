@@ -26,7 +26,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -154,6 +153,23 @@ namespace Core.Erp.Data
                 new ObjectParameter("IdOrdenPedido", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPCOM_SeguimientoEntrega_Result>("SPCOM_SeguimientoEntrega", idEmpresaParameter, idUsuarioParameter, idSolicitanteParameter, idCompradorParameter, idProductoParameter, idProveedorParameter, fechaIniParameter, fechaFinParameter, idOrdenPedidoParameter);
+        }
+    
+        public virtual ObjectResult<SPCOM_SeguimientoOrdenCompraContable_Result> SPCOM_SeguimientoOrdenCompraContable(Nullable<int> idEmpresa, Nullable<int> idSucursal, Nullable<decimal> idOrdenCompra)
+        {
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("IdEmpresa", idEmpresa) :
+                new ObjectParameter("IdEmpresa", typeof(int));
+    
+            var idSucursalParameter = idSucursal.HasValue ?
+                new ObjectParameter("IdSucursal", idSucursal) :
+                new ObjectParameter("IdSucursal", typeof(int));
+    
+            var idOrdenCompraParameter = idOrdenCompra.HasValue ?
+                new ObjectParameter("IdOrdenCompra", idOrdenCompra) :
+                new ObjectParameter("IdOrdenCompra", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPCOM_SeguimientoOrdenCompraContable_Result>("SPCOM_SeguimientoOrdenCompraContable", idEmpresaParameter, idSucursalParameter, idOrdenCompraParameter);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Core.Erp.Reportes.Compras
        public string oc_observacion { get; set; }
        public decimal IdComprador { get; set; }
        public string nom_comprador { get; set; }
-       public int IdMotivo { get; set; }
+       public int? IdMotivo { get; set; }
        public string Nom_motivo_oc { get; set; }
        public decimal IdProducto { get; set; }
        public string nom_producto { get; set; }
@@ -36,9 +36,13 @@ namespace Core.Erp.Reportes.Compras
        public string sub_centro_costo { get; set; }
 
 
-       public XCOMP_Rpt004_Info()
-       {
-       }
+
+        #region Campos que no existen en la tabla
+       public int Mes { get; set; }
+       public int Anio { get; set; }
+       public string NombreMes { get; set; }
+       public int Dia { get; set; }
+        #endregion
 
     }
 }

@@ -1302,7 +1302,7 @@ namespace Core.Erp.Data.Inventario
                     //Entity.IdMotivo_oc = info.IdMotivo_oc;
                     Entity.CodMoviInven = info.CodMoviInven;
                     Entity.cm_observacion = info.cm_observacion ?? "";
-                    Entity.cm_fecha = info.cm_fecha;
+                    //Entity.cm_fecha = info.cm_fecha;
                     Entity.IdUsuarioUltModi = info.IdUsuario;
                     Entity.Fecha_UltMod = DateTime.Now;
                     #endregion

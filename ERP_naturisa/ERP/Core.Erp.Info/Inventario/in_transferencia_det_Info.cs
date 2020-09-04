@@ -30,7 +30,8 @@ namespace Core.Erp.Info.Inventario
         public string Bodega_Origen { get; set; }
         public double cantidad_enviar { get; set; }
         public double Saldo { get; set; }
-        public bool check { get; set; }
+        public bool A { get; set; }
+        public bool R { get; set; }
         public double dt_cantidadPreDespacho { get; set; }
 
 

@@ -77,5 +77,7 @@ namespace Core.Erp.Info.Bancos
         }
 
         public string IdTransaccion { get; set; }
+
+        public decimal? IdConciliacion { get; set; }
     }
 }

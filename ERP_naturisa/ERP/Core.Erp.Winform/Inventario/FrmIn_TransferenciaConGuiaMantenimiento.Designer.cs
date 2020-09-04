@@ -1090,8 +1090,8 @@
             this.colChecked.FieldName = "EnviarEnGuia";
             this.colChecked.Name = "colChecked";
             this.colChecked.Visible = true;
-            this.colChecked.VisibleIndex = 9;
-            this.colChecked.Width = 67;
+            this.colChecked.VisibleIndex = 8;
+            this.colChecked.Width = 73;
             // 
             // colIdProducto
             // 
@@ -1101,14 +1101,14 @@
             this.colIdProducto.Name = "colIdProducto";
             this.colIdProducto.Visible = true;
             this.colIdProducto.VisibleIndex = 0;
-            this.colIdProducto.Width = 127;
+            this.colIdProducto.Width = 698;
             // 
             // cmbProducto
             // 
             this.cmbProducto.AutoHeight = false;
             this.cmbProducto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbProducto.DisplayMember = "IdProducto";
+            this.cmbProducto.DisplayMember = "pr_descripcion";
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.ValueMember = "IdProducto";
             this.cmbProducto.View = this.repositoryItemSearchLookUpEdit1View;
@@ -1148,8 +1148,6 @@
             this.colNomProducto.FieldName = "pr_descripcion";
             this.colNomProducto.Name = "colNomProducto";
             this.colNomProducto.OptionsColumn.AllowEdit = false;
-            this.colNomProducto.Visible = true;
-            this.colNomProducto.VisibleIndex = 1;
             this.colNomProducto.Width = 489;
             // 
             // colUnidadMedida
@@ -1158,9 +1156,10 @@
             this.colUnidadMedida.ColumnEdit = this.cmbUnidadMedida;
             this.colUnidadMedida.FieldName = "IdUnidadMedida";
             this.colUnidadMedida.Name = "colUnidadMedida";
+            this.colUnidadMedida.OptionsColumn.AllowEdit = false;
             this.colUnidadMedida.Visible = true;
-            this.colUnidadMedida.VisibleIndex = 2;
-            this.colUnidadMedida.Width = 136;
+            this.colUnidadMedida.VisibleIndex = 1;
+            this.colUnidadMedida.Width = 125;
             // 
             // cmbUnidadMedida
             // 
@@ -1209,8 +1208,8 @@
             this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dt_cantidad", "{0:n2}")});
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 111;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 101;
             // 
             // gridColumn6
             // 
@@ -1218,8 +1217,8 @@
             this.gridColumn6.FieldName = "tr_Observacion";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 8;
-            this.gridColumn6.Width = 314;
+            this.gridColumn6.VisibleIndex = 7;
+            this.gridColumn6.Width = 290;
             // 
             // colCantidadAprobada
             // 
@@ -1230,8 +1229,8 @@
             this.colCantidadAprobada.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dt_cantidadApro", "{0:n2}")});
             this.colCantidadAprobada.Visible = true;
-            this.colCantidadAprobada.VisibleIndex = 5;
-            this.colCantidadAprobada.Width = 101;
+            this.colCantidadAprobada.VisibleIndex = 4;
+            this.colCantidadAprobada.Width = 92;
             // 
             // colDiferencia
             // 
@@ -1242,8 +1241,8 @@
             this.colDiferencia.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dt_cantidadFinal", "{0:n2}")});
             this.colDiferencia.Visible = true;
-            this.colDiferencia.VisibleIndex = 6;
-            this.colDiferencia.Width = 99;
+            this.colDiferencia.VisibleIndex = 5;
+            this.colDiferencia.Width = 90;
             // 
             // colMotivoParcial
             // 
@@ -1252,8 +1251,8 @@
             this.colMotivoParcial.Name = "colMotivoParcial";
             this.colMotivoParcial.OptionsColumn.AllowEdit = false;
             this.colMotivoParcial.Visible = true;
-            this.colMotivoParcial.VisibleIndex = 7;
-            this.colMotivoParcial.Width = 196;
+            this.colMotivoParcial.VisibleIndex = 6;
+            this.colMotivoParcial.Width = 180;
             // 
             // colCantidadPreDespacho
             // 
@@ -1264,8 +1263,8 @@
             this.colCantidadPreDespacho.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dt_cantidadPreDespacho", "{0:n2}")});
             this.colCantidadPreDespacho.Visible = true;
-            this.colCantidadPreDespacho.VisibleIndex = 3;
-            this.colCantidadPreDespacho.Width = 94;
+            this.colCantidadPreDespacho.VisibleIndex = 2;
+            this.colCantidadPreDespacho.Width = 85;
             // 
             // FrmIn_TransferenciaConGuiaMantenimiento
             // 

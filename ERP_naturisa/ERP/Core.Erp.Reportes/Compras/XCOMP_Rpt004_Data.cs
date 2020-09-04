@@ -8,6 +8,7 @@ using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 
 
+
 namespace Core.Erp.Reportes.Compras
 {
    public class XCOMP_Rpt004_Data
@@ -23,48 +24,47 @@ namespace Core.Erp.Reportes.Compras
                FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
                FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
 
-
                using (EntitiesCompra_reporte_Ge ListadoOrdenCompra = new EntitiesCompra_reporte_Ge())
                {
 
 
-                   var select = from h in ListadoOrdenCompra.vwCOMP_Rpt004
-                                where h.IdEmpresa == idempresa
-                                && h.oc_fecha >= FechaIni && h.oc_fecha <= FechaFin
-                                select h;
+                   var select = ListadoOrdenCompra.vwCOMP_Rpt004.Where(h => h.IdEmpresa == idempresa
+                                && h.oc_fecha >= FechaIni && h.oc_fecha <= FechaFin).ToList();
 
                    foreach (var item in select)
                    {
 
-                       XCOMP_Rpt004_Info itemInfo = new XCOMP_Rpt004_Info();
+                       XCOMP_Rpt004_Info itemInfo = new XCOMP_Rpt004_Info{
+                         IdEmpresa= item.IdEmpresa,
+                         IdSucursal= item.IdSucursal,
+                         IdOrdenCompra= item.IdOrdenCompra,
+                         documento= item.documento,
+                         oc_fecha= item.oc_fecha,
+                         oc_observacion= item.oc_observacion,
+                         IdComprador= item.IdComprador,
+                         nom_comprador= item.nom_comprador,
+                         IdProveedor= item.IdProveedor,
+                         nom_proveedor= item.nom_proveedor,
+                         IdMotivo= item.IdMotivo,
+                         Nom_motivo_oc= item.Nom_motivo_oc,
+                         IdProducto= item.IdProducto,
+                         nom_producto= item.nom_producto,
+                         do_Cantidad= item.do_Cantidad,
+                         precio= item.precio,
+                         do_subtotal= item.do_subtotal,
+                         do_iva= item.do_iva,
+                         do_total= item.do_total,
+                         IdPunto_cargo= item.IdPunto_cargo,
+                         nom_punto_cargo= item.nom_punto_cargo,
+                         IdCentroCosto= item.IdCentroCosto,
+                         Centro_costo= item.Centro_costo,
+                         IdCentroCosto_sub_centro_costo= item.IdCentroCosto_sub_centro_costo,
+                         sub_centro_costo= item.sub_centro_costo,
 
-
-                        itemInfo.IdEmpresa= item.IdEmpresa;
-                        itemInfo.IdSucursal= item.IdSucursal;
-                        itemInfo.IdOrdenCompra= item.IdOrdenCompra;
-                        itemInfo.documento= item.documento;
-                        itemInfo.oc_fecha= item.oc_fecha;
-                        itemInfo.oc_observacion= item.oc_observacion;
-                        itemInfo.IdComprador= item.IdComprador;
-                        itemInfo.nom_comprador= item.nom_comprador;
-                        itemInfo.IdProveedor= item.IdProveedor;
-                        itemInfo.nom_proveedor= item.nom_proveedor;
-                        itemInfo.IdMotivo= item.IdMotivo;
-                        itemInfo.Nom_motivo_oc= item.Nom_motivo_oc;
-                        itemInfo.IdProducto= item.IdProducto;
-                        itemInfo.nom_producto= item.nom_producto;
-                        itemInfo.do_Cantidad= item.do_Cantidad;
-                        itemInfo.precio= item.precio;
-                        itemInfo.do_subtotal= item.do_subtotal;
-                        itemInfo.do_iva= item.do_iva;
-                        itemInfo.do_total= item.do_total;
-                        itemInfo.IdPunto_cargo= item.IdPunto_cargo;
-                        itemInfo.nom_punto_cargo= item.nom_punto_cargo;
-                        itemInfo.IdCentroCosto= item.IdCentroCosto;
-                        itemInfo.Centro_costo= item.Centro_costo;
-                        itemInfo.IdCentroCosto_sub_centro_costo= item.IdCentroCosto_sub_centro_costo;
-                        itemInfo.sub_centro_costo= item.sub_centro_costo;
-
+                         Anio = item.oc_fecha.Year,
+                         Mes = item.oc_fecha.Month,
+                         Dia = item.oc_fecha.Day
+                   };
 
                        listadedatos.Add(itemInfo);
 

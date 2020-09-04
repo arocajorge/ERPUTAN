@@ -2631,9 +2631,6 @@
     <Compile Include="vwCOMP_Rpt004.cs">
       <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
     </Compile>
-    <Compile Include="vwCOMP_Rpt005.cs">
-      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
-    </Compile>
     <Compile Include="vwCOMP_Rpt006.cs">
       <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
     </Compile>

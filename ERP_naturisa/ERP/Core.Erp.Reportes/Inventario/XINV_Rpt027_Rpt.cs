@@ -43,7 +43,8 @@ namespace Core.Erp.Reportes.Inventario
                 lblUsuario.Text = param.IdUsuario;
                 lblFecha.Text = param.Fecha_Transac.ToString();
                 bool Mostrar_detallado = Convert.ToBoolean(P_Mostrar_detallado.Value);
-                Lista = bus_Rpt.Get_List(Convert.ToDateTime(P_Fecha_desde.Value), Convert.ToDateTime(P_Fecha_hasta.Value), param.IdEmpresa, Convert.ToInt32(P_IdSucursal.Value), lst_bodega, Convert.ToDecimal(P_IdProducto.Value), param.IdUsuario, Convert.ToBoolean(P_Mostrar_registros_0.Value), Mostrar_detallado);
+                
+                Lista = bus_Rpt.Get_List(Convert.ToDateTime(P_Fecha_desde.Value), Convert.ToDateTime(P_Fecha_hasta.Value), param.IdEmpresa, Convert.ToInt32(P_IdSucursal.Value), lst_bodega, Convert.ToDecimal(P_IdProducto.Value), param.IdUsuario, Convert.ToBoolean(P_Mostrar_registros_0.Value), Mostrar_detallado,false);
                 this.DataSource = Lista;
             }
             catch (Exception ex)

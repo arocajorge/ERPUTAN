@@ -379,63 +379,60 @@ namespace Core.Erp.Data.Bancos
             EntitiesBanco b = new EntitiesBanco();
             try
             {
-                var select_ = from T in b.vwba_Cbte_Ban
-                              where T.IdEmpresa == IdEmpres 
-                              && T.IdTipocbte >= IdTipocbteIni
-                              && T.IdTipocbte <= IdTipocbteFin
-                              && T.cb_Fecha >= F_inicio && T.cb_Fecha <= F_fin
-                              orderby T.IdCbteCble descending
-                              select T;
-                foreach (var item in select_)
+                b.SetCommandTimeOut(3000);
+                var lst = b.vwba_Cbte_Ban.Where(q => q.IdEmpresa == IdEmpres && IdTipocbteIni <= q.IdTipocbte && q.IdTipocbte <= IdTipocbteFin && F_inicio <= q.cb_Fecha && q.cb_Fecha <= F_fin).ToList();
+                
+                foreach (var item in lst)
                 {
-                    ba_Cbte_Ban_Info dat_ = new ba_Cbte_Ban_Info();
-                    dat_.IdEmpresa = item.IdEmpresa;
-                    dat_.IdCbteCble = item.IdCbteCble;
-                    dat_.IdTipocbte = item.IdTipocbte;
-                    dat_.Cod_Cbtecble = item.Cod_Cbtecble;
-                    dat_.IdPeriodo = item.IdPeriodo;
-                    dat_.IdBanco = item.IdBanco;
-                    dat_.cb_Fecha = item.cb_Fecha;
-                    dat_.cb_Observacion = item.cb_Observacion;
-                    dat_.cb_secuencia = item.cb_secuencia;
-                    dat_.cb_Valor = item.cb_Valor;
-                    dat_.cb_Cheque = item.cb_Cheque;
-                    dat_.cb_ChequeImpreso = item.cb_ChequeImpreso;
-                    dat_.cb_FechaCheque = item.cb_FechaCheque;
-                    dat_.FechaAnulacion = item.FechaAnulacion;
-                    dat_.ip = item.ip;
-                    dat_.nom_pc = item.nom_pc;
-                    dat_.cb_giradoA = item.cb_giradoA;
-                    dat_.IdUsuario = item.IdUsuario;
-                    dat_.IdUsuario_Anu = item.IdUsuario_Anu;
-                    dat_.Fecha_Transac = item.Fecha_Transac;
-                    dat_.Fecha_UltMod = item.Fecha_UltMod;
-                    dat_.IdUsuarioUltMod = item.IdUsuarioUltMod;
-                    dat_.Estado = item.Estado;
-                    dat_.MotivoAnulacion = item.MotivoAnulacion;
-                    dat_.cb_ciudadChq = item.cb_ciudadChq;
-                    dat_.Tipo = item.tc_TipoCbte;
-                    dat_.Banco = item.ba_descripcion;
+                    lM.Add(new ba_Cbte_Ban_Info
+                    {
+                        IdEmpresa = item.IdEmpresa,
+                        IdCbteCble = item.IdCbteCble,
+                        IdTipocbte = item.IdTipocbte,
+                        Cod_Cbtecble = item.Cod_Cbtecble,
+                        IdPeriodo = item.IdPeriodo,
+                        IdBanco = item.IdBanco,
+                        cb_Fecha = item.cb_Fecha,
+                        cb_Observacion = item.cb_Observacion,
+                        cb_secuencia = item.cb_secuencia,
+                        cb_Valor = item.cb_Valor,
+                        cb_Cheque = item.cb_Cheque,
+                        cb_ChequeImpreso = item.cb_ChequeImpreso,
+                        cb_FechaCheque = item.cb_FechaCheque,
+                        FechaAnulacion = item.FechaAnulacion,
+                        ip = item.ip,
+                        nom_pc = item.nom_pc,
+                        cb_giradoA = item.cb_giradoA,
+                        IdUsuario = item.IdUsuario,
+                        IdUsuario_Anu = item.IdUsuario_Anu,
+                        Fecha_Transac = item.Fecha_Transac,
+                        Fecha_UltMod = item.Fecha_UltMod,
+                        IdUsuarioUltMod = item.IdUsuarioUltMod,
+                        Estado = item.Estado,
+                        MotivoAnulacion = item.MotivoAnulacion,
+                        cb_ciudadChq = item.cb_ciudadChq,
+                        Tipo = item.tc_TipoCbte,
+                        Banco = item.ba_descripcion,
 
-                    dat_.IdProveedor = item.IdProveedor;
-                    dat_.IdCbteCble_Anulacion = item.IdCbteCble_Anulacion;
-                    dat_.IdTipoCbte_Anulacion = item.IdTipoCbte_Anulacion;
-                    dat_.IdTipoFlujo = item.IdTipoFlujo;
-                    dat_.PosFechado = item.PosFechado;
-                    dat_.IdTipoNota = item.IdTipoNota;
-                    dat_.IdSucursal = (item.IdSucursal == null) ? 0 : Convert.ToInt32(item.IdSucursal);
-                    dat_.IdPersona_Girado_a = item.IdPersona_Girado_a;
-                    dat_.IdEstado_Cbte_Ban_cat = item.IdEstado_Cbte_Ban_cat;
-                    dat_.CodTipoCbteBan = item.CodTipoCbteBan;
-                    dat_.nom_Estado_Cbte_Ban = item.nom_Estado_Cbte_Ban;
-
-                    dat_.Beneficiario = item.Beneficiario;
-                    dat_.IdTipoDocumento = item.IdTipoDocumento;
-                    dat_.pe_cedulaRuc = item.pe_cedulaRuc;
-                    dat_.IdEstado_cheque_cat = (eEstado_Cheque)Enum.Parse(typeof(eEstado_Cheque), string.IsNullOrEmpty(item.IdEstado_cheque_cat) ? eEstado_Cheque.ESTCBEMI.ToString() : item.IdEstado_cheque_cat);
-                    dat_.IdEstado_Preaviso_ch_cat = (eEstado_Preaviso_Cheque)Enum.Parse(typeof(eEstado_Preaviso_Cheque), string.IsNullOrEmpty(item.IdEstado_Preaviso_ch_cat) ? eEstado_Preaviso_Cheque.ES_CH_XPREAVISO_CH.ToString() : item.IdEstado_Preaviso_ch_cat);
-                    dat_.Beneficiario = item.Beneficiario;
-                    lM.Add(dat_);
+                        IdProveedor = item.IdProveedor,
+                        IdCbteCble_Anulacion = item.IdCbteCble_Anulacion,
+                        IdTipoCbte_Anulacion = item.IdTipoCbte_Anulacion,
+                        IdTipoFlujo = item.IdTipoFlujo,
+                        PosFechado = item.PosFechado,
+                        IdTipoNota = item.IdTipoNota,
+                        IdSucursal = (item.IdSucursal == null) ? 0 : Convert.ToInt32(item.IdSucursal),
+                        IdPersona_Girado_a = item.IdPersona_Girado_a,
+                        IdEstado_Cbte_Ban_cat = item.IdEstado_Cbte_Ban_cat,
+                        CodTipoCbteBan = item.CodTipoCbteBan,
+                        nom_Estado_Cbte_Ban = item.nom_Estado_Cbte_Ban,
+                        IdConciliacion = item.IdConciliacion,
+                        Beneficiario = item.Beneficiario,
+                        IdTipoDocumento = item.IdTipoDocumento,
+                        pe_cedulaRuc = item.pe_cedulaRuc,
+                        IdEstado_cheque_cat = (eEstado_Cheque)Enum.Parse(typeof(eEstado_Cheque), string.IsNullOrEmpty(item.IdEstado_cheque_cat) ? eEstado_Cheque.ESTCBEMI.ToString() : item.IdEstado_cheque_cat),
+                        IdEstado_Preaviso_ch_cat = (eEstado_Preaviso_Cheque)Enum.Parse(typeof(eEstado_Preaviso_Cheque), string.IsNullOrEmpty(item.IdEstado_Preaviso_ch_cat) ? eEstado_Preaviso_Cheque.ES_CH_XPREAVISO_CH.ToString() : item.IdEstado_Preaviso_ch_cat),
+                        
+                    });
                 }
                 return (lM);
             }

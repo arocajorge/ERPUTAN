@@ -628,42 +628,49 @@ namespace Core.Erp.Data.Inventario
                 FechaIni = FechaIni.Date;
                 FechaFin = FechaFin.Date;
                 EntitiesInventario OEInventario = new EntitiesInventario();
-                lst = OEInventario.vwin_Transferencias.Where(q => q.IdEmpresa == IdEmpresa
+
+                var lstX = OEInventario.vwin_Transferencias.Where(q => q.IdEmpresa == IdEmpresa
                              && IdSucursalIni <= q.IdSucursalOrigen && q.IdSucursalOrigen <= idSucursalFin
                              && IdBodegaIni <= q.IdBodegaOrigen && q.IdBodegaOrigen <= idBodegaFin
                              && q.tr_fecha >= FechaIni && q.tr_fecha <= FechaFin).OrderBy(
-                             q => q.tr_fecha).Select(q => new in_transferencia_Info
-                             {
-                                 IdEmpresa = q.IdEmpresa,
-                                 IdTransferencia = q.IdTransferencia,
-                                 tr_fecha = q.tr_fecha,
-                                 Estado = q.Estado,
-                                 Bodega_Destino = q.BodegDest,
-                                 Bodega_Origen = q.BodegaORIG,
-                                 Sucursal_Destino = q.SucuDEST,
-                                 Sucursal_Origen = q.SucuOrigen,
-                                 tr_fechaAnulacion = q.tr_fechaAnulacion,
-                                 tr_Observacion = q.tr_Observacion,
-                                 IdBodegaDest = q.IdBodegaDest,
-                                 IdBodegaOrigen = q.IdBodegaOrigen,
-                                 IdSucursalDest = q.IdSucursalDest,
-                                 IdSucursalOrigen = q.IdSucursalOrigen,
-                                 Codigo = q.Codigo,
-                                 IdEmpresa_Ing_Egr_Inven_Destino = q.IdEmpresa_Ing_Egr_Inven_Destino,
-                                 IdEmpresa_Ing_Egr_Inven_Origen = q.IdEmpresa_Ing_Egr_Inven_Origen,
-                                 IdSucursal_Ing_Egr_Inven_Destino = q.IdSucursal_Ing_Egr_Inven_Destino,
-                                 IdSucursal_Ing_Egr_Inven_Origen = q.IdSucursal_Ing_Egr_Inven_Origen,
-                                 IdMovi_inven_tipo_SucuDest = q.IdMovi_inven_tipo_SucuDest,
-                                 IdMovi_inven_tipo_SucuOrig = q.IdMovi_inven_tipo_SucuOrig,
-                                 IdNumMovi_Ing_Egr_Inven_Destino = q.IdNumMovi_Ing_Egr_Inven_Destino,
-                                 IdNumMovi_Ing_Egr_Inven_Origen = q.IdNumMovi_Ing_Egr_Inven_Origen,
-                                 IdEstadoAproba_egr = q.IdEstadoAproba_egr,
-                                 IdEstadoAproba_ing = q.IdEstadoAproba_ing,
-                                 IdUsuario = q.IdUsuario,
-                                 IdGuia = q.IdGuia,
-                                 EstadoRevision = q.EstadoRevision,
-                                 TuvoError = q.TuvoError ?? false
-                             }).ToList();
+                             q => q.tr_fecha).ToList();
+                foreach (var q in lstX)
+                {
+                    lst.Add(new in_transferencia_Info
+                    {
+                        IdEmpresa = q.IdEmpresa,
+                        IdTransferencia = q.IdTransferencia,
+                        tr_fecha = q.tr_fecha,
+                        Estado = q.Estado,
+                        Bodega_Destino = q.BodegDest,
+                        Bodega_Origen = q.BodegaORIG,
+                        Sucursal_Destino = q.SucuDEST,
+                        Sucursal_Origen = q.SucuOrigen,
+                        tr_fechaAnulacion = q.tr_fechaAnulacion,
+                        tr_Observacion = q.tr_Observacion,
+                        IdBodegaDest = q.IdBodegaDest,
+                        IdBodegaOrigen = q.IdBodegaOrigen,
+                        IdSucursalDest = q.IdSucursalDest,
+                        IdSucursalOrigen = q.IdSucursalOrigen,
+                        Codigo = q.Codigo,
+                        IdEmpresa_Ing_Egr_Inven_Destino = q.IdEmpresa_Ing_Egr_Inven_Destino,
+                        IdEmpresa_Ing_Egr_Inven_Origen = q.IdEmpresa_Ing_Egr_Inven_Origen,
+                        IdSucursal_Ing_Egr_Inven_Destino = q.IdSucursal_Ing_Egr_Inven_Destino,
+                        IdSucursal_Ing_Egr_Inven_Origen = q.IdSucursal_Ing_Egr_Inven_Origen,
+                        IdMovi_inven_tipo_SucuDest = q.IdMovi_inven_tipo_SucuDest,
+                        IdMovi_inven_tipo_SucuOrig = q.IdMovi_inven_tipo_SucuOrig,
+                        IdNumMovi_Ing_Egr_Inven_Destino = q.IdNumMovi_Ing_Egr_Inven_Destino,
+                        IdNumMovi_Ing_Egr_Inven_Origen = q.IdNumMovi_Ing_Egr_Inven_Origen,
+                        IdEstadoAproba_egr = q.IdEstadoAproba_egr,
+                        IdEstadoAproba_ing = q.IdEstadoAproba_ing,
+                        IdUsuario = q.IdUsuario,
+                        IdGuia = q.IdGuia,
+                        EstadoRevision = q.EstadoRevision,
+                        TuvoError = q.TuvoError ?? false,
+                        TuvoErrorDespacho = q.TuvoErrorDespacho ?? false
+                    });
+                }
+                
 
 
                 return lst;
@@ -1552,6 +1559,11 @@ namespace Core.Erp.Data.Inventario
                                     dm_observacion = item.tr_Observacion ?? ""
                                 });
 
+                                if (item.dt_cantidad != item.dt_cantidadPreDespacho)
+                                {
+                                    Entity.TuvoErrorDespacho = true;
+                                }
+
                                 var det = db.in_transferencia_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursalOrigen == info.IdSucursalOrigen && q.IdBodegaOrigen == info.IdBodegaOrigen && q.IdTransferencia == info.IdTransferencia && q.dt_secuencia == item.dt_secuencia).FirstOrDefault();
                                 if (det != null)
                                 {
@@ -1641,8 +1653,51 @@ namespace Core.Erp.Data.Inventario
                     if (Entity.EstadoRevision != "A")
                         return true;
 
+                    #region Modifcar egreso de inventario
+                    var EntityInv = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal_Ing_Egr_Inven_Origen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).FirstOrDefault();
+                    if (EntityInv != null)
+                    {
+                        EntityInv.IdUsuarioUltModi = info.IdUsuario;
+                        EntityInv.Fecha_UltMod = DateTime.Now;
+
+                        var lstEgrD = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursalOrigen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).ToList();
+                        foreach (var item in lstEgrD)
+                        {
+                            db.in_Ing_Egr_Inven_det.Remove(item);
+                        }
+
+                        var lstEgr = info.lista_detalle_transferencia.Where(q => q.IdProducto != null && q.cantidad_enviar > 0).ToList();
+                        foreach (var item in lstEgr)
+                        {
+                            db.in_Ing_Egr_Inven_det.Add(new in_Ing_Egr_Inven_det
+                            {
+                                IdEmpresa = info.IdEmpresa,
+                                IdSucursal = info.IdSucursalOrigen,
+                                IdMovi_inven_tipo = info.IdMovi_inven_tipo_SucuOrig ?? 0,
+                                IdNumMovi = info.IdNumMovi_Ing_Egr_Inven_Origen ?? 0,
+                                Secuencia = item.dt_secuencia,
+                                IdBodega = info.IdBodegaOrigen,
+                                IdProducto = item.IdProducto ?? 0,
+
+                                dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.cantidad_enviar)) * -1,
+                                mv_costo = 0,
+                                IdUnidadMedida = item.IdUnidadMedida,
+
+                                dm_cantidad_sinConversion = item.cantidad_enviar * -1,
+                                mv_costo_sinConversion = 0,
+                                IdUnidadMedida_sinConversion = item.IdUnidadMedida,
+
+                                IdEstadoAproba = "PEND",
+                                dm_precio = 0,
+                                dm_observacion = item.tr_Observacion ?? ""
+                            });
+                        }
+                    }
+
+                    #endregion
+
                     #region Ingreso de inventario
-                    info.IdNumMovi_Ing_Egr_Inven_Destino = odataIngEgr.GetId(info.IdEmpresa, info.IdSucursalDest, info.IdMovi_inven_tipo_SucuDest ?? 0);
+                    info.IdNumMovi_Ing_Egr_Inven_Destino = Entity.IdNumMovi_Ing_Egr_Inven_Destino = odataIngEgr.GetId(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0);
                     var MotivoEgr = db.in_Motivo_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.Tipo_Ing_Egr == "ING" && q.Genera_Movi_Inven == "S").FirstOrDefault();
                     if (MotivoEgr != null)
                     {
@@ -1666,7 +1721,7 @@ namespace Core.Erp.Data.Inventario
 
                         foreach (var item in info.lista_detalle_transferencia)
                         {
-                            if (item.IdProducto != null && item.check && item.cantidad_enviar > 0)
+                            if (item.IdProducto != null && item.cantidad_enviar > 0)
                             {
                                 db.in_Ing_Egr_Inven_det.Add(new in_Ing_Egr_Inven_det
                                 {
@@ -1699,34 +1754,26 @@ namespace Core.Erp.Data.Inventario
                                 det.dt_cantidadFinal = Math.Round(det.dt_cantidad - item.cantidad_enviar, 2, MidpointRounding.AwayFromZero);
                                 det.MotivoParcial = item.MotivoParcial;
                             }
-                        }                        
+                        }
 
                         Entity.IdNumMovi_Ing_Egr_Inven_Destino = info.IdNumMovi_Ing_Egr_Inven_Destino;
                         if (info.lista_detalle_transferencia.Where(q => q.cantidad_enviar != q.dt_cantidad).Count() > 0)
-                        {
-                            Entity.EstadoRevision = "E";
                             Entity.TuvoError = true;
-                        }
-                        else
-                            Entity.EstadoRevision = "R";
-
+                        
+                        Entity.EstadoRevision = "R";
                         Entity.IdUsuarioUltMod = info.IdUsuario;
                         Entity.Fecha_UltMod = DateTime.Now;
                         db.SaveChanges();
                     }
 
-                    if (Entity.Estado == "R")
+                    in_movi_inve_Data odataMovInve = new in_movi_inve_Data();
+                    if (odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalOrigen, Entity.IdMovi_inven_tipo_SucuOrig ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
                     {
-                        in_movi_inve_Data odataMovInve = new in_movi_inve_Data();
-                        if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalOrigen, Entity.IdMovi_inven_tipo_SucuOrig ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                        if (odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, "+", info.IdUsuario ?? "", ref mensaje))
                         {
-                            if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
-                            {
 
-                            }
                         }
                     }
-                    
                     #endregion
                 }
 
@@ -1811,9 +1858,9 @@ namespace Core.Erp.Data.Inventario
                     db.SaveChanges();
 
                     in_movi_inve_Data odataMovInve = new in_movi_inve_Data();
-                    if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalOrigen, Entity.IdMovi_inven_tipo_SucuOrig ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                    if (odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalOrigen, Entity.IdMovi_inven_tipo_SucuOrig ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
                     {
-                        if (!odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, "-", info.IdUsuario ?? "", ref mensaje))
+                        if (odataMovInve.AprobarData(Entity.IdEmpresa, Entity.IdSucursalDest, Entity.IdMovi_inven_tipo_SucuDest ?? 0, Entity.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, "+", info.IdUsuario ?? "", ref mensaje))
                         {
 
                         }

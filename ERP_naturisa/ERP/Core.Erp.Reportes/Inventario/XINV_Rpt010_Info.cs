@@ -42,7 +42,7 @@ namespace Core.Erp.Reportes.Inventario
         public string nom_sucursal { get; set; }
         public Nullable<int> IdEmpresa_oc { get; set; }
         public Nullable<int> IdSucursal_oc { get; set; }
-        public Nullable<decimal> IdOrdenCompra { get; set; }
+        public string IdOrdenCompra { get; set; }
         public string num_factura { get; set; }
         public string nom_proveedor { get; set; }
         public string pr_codigo { get; set; }

@@ -8,9 +8,6 @@ using Core.Erp.Data.General;
 using Core.Erp.Info.Compras;
 using Core.Erp.Data.Compras;
 
-
-
-
 namespace Core.Erp.Business.Compras
 {
    public class com_departamento_Bus
@@ -31,7 +28,19 @@ namespace Core.Erp.Business.Compras
             }
            
         }
-        
+
+        public List<com_departamento_Info> GetList(int IdEmpresa, decimal IdSolicitante)
+        {
+            try
+            {
+                return Odata.GetList(IdEmpresa, IdSolicitante);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public Boolean GuardarDB(com_departamento_Info Info)
         {

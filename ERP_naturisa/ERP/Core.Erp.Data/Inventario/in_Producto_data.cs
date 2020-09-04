@@ -2418,6 +2418,7 @@ namespace Core.Erp.Data.Inventario
 
                 using (EntitiesInventario db = new EntitiesInventario())
                 {
+                    db.SetCommandTimeOut(3000);
                     Lista = db.SPINV_ComprasAnteriores(IdEmpresa, IdProducto).Select(q => new in_Producto_ComprasAnteriores
                     {
                         IdEmpresa = q.IdEmpresa,
@@ -2440,10 +2441,14 @@ namespace Core.Erp.Data.Inventario
 
                 return Lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
+                MensajeError = ex.ToString() + " " + ex.Message;
+                return new List<in_Producto_ComprasAnteriores>();
             }
         }
     }

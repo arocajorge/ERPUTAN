@@ -67,5 +67,6 @@ namespace Core.Erp.Info.Inventario
         public decimal? IdGuia { get; set; }
 
         public bool TuvoError { get; set; }
+        public bool TuvoErrorDespacho { get; set; }
     }
 }

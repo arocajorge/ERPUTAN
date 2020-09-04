@@ -85,8 +85,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txt_num_serie = new DevExpress.XtraEditors.TextEdit();
             this.cmbColor = new Core.Erp.Winform.Controles.UCAF_Catalogos();
@@ -347,7 +345,7 @@
             // ucaF_Activo_Categoria_cmb
             // 
             this.ucaF_Activo_Categoria_cmb.Location = new System.Drawing.Point(539, 231);
-            this.ucaF_Activo_Categoria_cmb.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucaF_Activo_Categoria_cmb.Margin = new System.Windows.Forms.Padding(5);
             this.ucaF_Activo_Categoria_cmb.Name = "ucaF_Activo_Categoria_cmb";
             this.ucaF_Activo_Categoria_cmb.Size = new System.Drawing.Size(279, 33);
             this.ucaF_Activo_Categoria_cmb.TabIndex = 82;
@@ -355,7 +353,7 @@
             // ucaF_Activo_fijo_Tipo_cmb
             // 
             this.ucaF_Activo_fijo_Tipo_cmb.Location = new System.Drawing.Point(129, 231);
-            this.ucaF_Activo_fijo_Tipo_cmb.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucaF_Activo_fijo_Tipo_cmb.Margin = new System.Windows.Forms.Padding(5);
             this.ucaF_Activo_fijo_Tipo_cmb.Name = "ucaF_Activo_fijo_Tipo_cmb";
             this.ucaF_Activo_fijo_Tipo_cmb.Size = new System.Drawing.Size(318, 36);
             this.ucaF_Activo_fijo_Tipo_cmb.TabIndex = 81;
@@ -364,7 +362,7 @@
             // ucAf_Encargado
             // 
             this.ucAf_Encargado.Location = new System.Drawing.Point(540, 198);
-            this.ucAf_Encargado.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucAf_Encargado.Margin = new System.Windows.Forms.Padding(5);
             this.ucAf_Encargado.Name = "ucAf_Encargado";
             this.ucAf_Encargado.ReadOnly_cmb_Encargago = false;
             this.ucAf_Encargado.Size = new System.Drawing.Size(288, 34);
@@ -393,7 +391,7 @@
             // cmbProveedor
             // 
             this.cmbProveedor.Location = new System.Drawing.Point(128, 66);
-            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Size = new System.Drawing.Size(348, 32);
             this.cmbProveedor.TabIndex = 77;
@@ -439,7 +437,7 @@
             // ucGe_Sucursal_combo1
             // 
             this.ucGe_Sucursal_combo1.Location = new System.Drawing.Point(133, 206);
-            this.ucGe_Sucursal_combo1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Sucursal_combo1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Sucursal_combo1.Name = "ucGe_Sucursal_combo1";
             this.ucGe_Sucursal_combo1.Size = new System.Drawing.Size(254, 27);
             this.ucGe_Sucursal_combo1.TabIndex = 49;
@@ -590,7 +588,6 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.shapeContainer1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 4);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -908,25 +905,6 @@
             this.label12.Size = new System.Drawing.Size(141, 17);
             this.label12.TabIndex = 1;
             this.label12.Text = "F. Inicio Depreciación:";
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(3, 20);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(902, 300);
-            this.shapeContainer1.TabIndex = 62;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 8;
-            this.lineShape1.X2 = 758;
-            this.lineShape1.Y1 = 151;
-            this.lineShape1.Y2 = 151;
             // 
             // tabPage3
             // 
@@ -1979,7 +1957,7 @@
             // 
             this.cmbSucursalOC.Enabled = false;
             this.cmbSucursalOC.Location = new System.Drawing.Point(136, 114);
-            this.cmbSucursalOC.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbSucursalOC.Margin = new System.Windows.Forms.Padding(5);
             this.cmbSucursalOC.Name = "cmbSucursalOC";
             this.cmbSucursalOC.Size = new System.Drawing.Size(257, 27);
             this.cmbSucursalOC.TabIndex = 51;
@@ -2151,7 +2129,7 @@
             // ucAf_Departamento
             // 
             this.ucAf_Departamento.Location = new System.Drawing.Point(532, 25);
-            this.ucAf_Departamento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucAf_Departamento.Margin = new System.Windows.Forms.Padding(5);
             this.ucAf_Departamento.Name = "ucAf_Departamento";
             this.ucAf_Departamento.Size = new System.Drawing.Size(370, 34);
             this.ucAf_Departamento.TabIndex = 63;
@@ -2304,7 +2282,7 @@
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 694);
-            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
             this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(952, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 5;
@@ -2336,7 +2314,7 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
             this.ucGe_Menu.Name = "ucGe_Menu";
             this.ucGe_Menu.Size = new System.Drawing.Size(952, 36);
             this.ucGe_Menu.TabIndex = 6;
@@ -2674,8 +2652,6 @@
         private DevExpress.XtraEditors.TextEdit txtSerieMotor;
         private System.Windows.Forms.Label label45;
         private Controles.UCAf_Encargado ucAf_Encargado;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStrip toolStrip1;

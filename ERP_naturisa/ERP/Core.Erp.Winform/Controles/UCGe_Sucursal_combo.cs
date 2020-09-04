@@ -44,7 +44,7 @@ namespace Core.Erp.Winform.Controles
                 listSucursal = new List<tb_Sucursal_Info>();
                 listSucursal = SucursalBus.Get_List_Sucursal(param.IdEmpresa);
                 cmbsucursal.Properties.DataSource = listSucursal;
-                if (cmbsucursal.EditValue == null) cmbsucursal.EditValue = listSucursal.First().IdSucursal;
+                if (cmbsucursal.EditValue == null) cmbsucursal.EditValue = param.IdSucursal;
             }
             catch (Exception ex)
             {

@@ -83,7 +83,6 @@ namespace Core.Erp.Data
         public DbSet<vwba_op_ba_Archivo_Transferencia_Det> vwba_op_ba_Archivo_Transferencia_Det { get; set; }
         public DbSet<vwba_Cbte_Ban_tipo_x_ct_CbteCble_tipo> vwba_Cbte_Ban_tipo_x_ct_CbteCble_tipo { get; set; }
         public DbSet<ba_Cbte_Ban_Datos_Entrega_cheq> ba_Cbte_Ban_Datos_Entrega_cheq { get; set; }
-        public DbSet<vwba_Cbte_Ban> vwba_Cbte_Ban { get; set; }
         public DbSet<ba_prestamo> ba_prestamo { get; set; }
         public DbSet<vwBa_ChequexCbteCtble> vwBa_ChequexCbteCtble { get; set; }
         public DbSet<ba_parametros> ba_parametros { get; set; }
@@ -92,6 +91,7 @@ namespace Core.Erp.Data
         public DbSet<vwba_Archivo_Transferencia> vwba_Archivo_Transferencia { get; set; }
         public DbSet<vwba_Archivo_Transferencia_Det> vwba_Archivo_Transferencia_Det { get; set; }
         public DbSet<vwba_Banco_Movimiento_det_cancelado> vwba_Banco_Movimiento_det_cancelado { get; set; }
+        public DbSet<vwba_Cbte_Ban> vwba_Cbte_Ban { get; set; }
     
         public virtual ObjectResult<SPBAN_TransaccionesAConciliar_Result> SPBAN_TransaccionesAConciliar(Nullable<int> idEmpresa, string idCtaCble, Nullable<System.DateTime> fechaCorte, Nullable<decimal> idConciliacion)
         {

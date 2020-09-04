@@ -163,6 +163,7 @@
     <Compile Include="Compras\com_OrdenPedido_Bus.cs" />
     <Compile Include="Compras\com_parametro_Bus.cs" />
     <Compile Include="Compras\com_SeguimientoEntrega_Bus.cs" />
+    <Compile Include="Compras\com_SeguimientoOrdenCompraContable_Bus.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Bus.cs" />
     <Compile Include="Compras\com_solicitante_Bus.cs" />
     <Compile Include="Compras\com_solicitante_x_com_departamento_Bus.cs" />

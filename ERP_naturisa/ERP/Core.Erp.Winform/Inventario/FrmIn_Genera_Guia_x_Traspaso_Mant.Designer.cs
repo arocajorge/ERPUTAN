@@ -62,8 +62,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.cmbMotivoTras = new Core.Erp.Winform.Controles.UCIn_Catalogos_Cmb();
             this.label10 = new System.Windows.Forms.Label();
             this.ucGe_Doc_talo_x_Guia = new Core.Erp.Winform.Controles.UCGe_NumeroDocTrans();
@@ -451,7 +449,6 @@
             this.gbx_Fechas.Controls.Add(this.label6);
             this.gbx_Fechas.Controls.Add(this.label7);
             this.gbx_Fechas.Controls.Add(this.label8);
-            this.gbx_Fechas.Controls.Add(this.shapeContainer1);
             this.gbx_Fechas.Location = new System.Drawing.Point(7, 10);
             this.gbx_Fechas.Margin = new System.Windows.Forms.Padding(4);
             this.gbx_Fechas.Name = "gbx_Fechas";
@@ -552,25 +549,6 @@
             this.label8.Size = new System.Drawing.Size(172, 17);
             this.label8.TabIndex = 7;
             this.label8.Text = "Fecha y Hora de Llegada:";
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(4, 19);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(641, 77);
-            this.shapeContainer1.TabIndex = 14;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 151;
-            this.lineShape1.X2 = 478;
-            this.lineShape1.Y1 = 23;
-            this.lineShape1.Y2 = 23;
             // 
             // cmbMotivoTras
             // 
@@ -1358,8 +1336,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraEditors.TimeEdit timeHoraLlegada;
         private DevExpress.XtraEditors.TimeEdit timeHoraTraslado;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private DevExpress.XtraGrid.Columns.GridColumn colCant_Pedida;
         private DevExpress.XtraGrid.Columns.GridColumn colSaldo;
         private DevExpress.XtraGrid.Columns.GridColumn colSaldo_Aux;

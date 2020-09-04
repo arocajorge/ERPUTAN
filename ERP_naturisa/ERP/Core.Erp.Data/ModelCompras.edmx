@@ -3649,6 +3649,11 @@
           <Parameter Name="FechaFin" Type="date" Mode="In" />
           <Parameter Name="IdOrdenPedido" Type="decimal" Mode="In" />
         </Function>
+        <Function Name="SPCOM_SeguimientoOrdenCompraContable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="IdSucursal" Type="int" Mode="In" />
+          <Parameter Name="IdOrdenCompra" Type="numeric" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -3877,6 +3882,11 @@
             <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
             <Parameter Name="IdOrdenPedido" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SPCOM_SeguimientoOrdenCompraContable" ReturnType="Collection(DBERPModelCompras.SPCOM_SeguimientoOrdenCompraContable_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdSucursal" Mode="In" Type="Int32" />
+            <Parameter Name="IdOrdenCompra" Mode="In" Type="Decimal" />
           </FunctionImport>
           </EntityContainer>
         <EntityType Name="com_catalogo">
@@ -6435,6 +6445,34 @@
           <Property Type="DateTime" Name="FechaRecepcionTransferencia" Nullable="true" />
           <Property Type="String" Name="IdUsuarioGA" Nullable="true" MaxLength="200" />
         </ComplexType>
+        <ComplexType Name="SPCOM_SeguimientoOrdenCompraContable_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CodigoOC" Nullable="true" MaxLength="41" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="do_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="do_precioFinal" Nullable="false" />
+          <Property Type="Double" Name="do_subtotal" Nullable="false" />
+          <Property Type="Double" Name="do_iva" Nullable="false" />
+          <Property Type="Double" Name="Por_Iva" Nullable="false" />
+          <Property Type="Double" Name="do_total" Nullable="false" />
+          <Property Type="String" Name="tm_descripcion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Su_Descripcion" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="IdNumMovi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="cm_fecha" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="dm_cantidad_sinConversion" Nullable="true" />
+          <Property Type="Decimal" Name="IdAprobacion" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombrecompletoAprobacion" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="Fecha_Factura" Nullable="true" Precision="23" />
+          <Property Type="String" Name="num_documento" Nullable="true" MaxLength="58" />
+          <Property Type="String" Name="UsuarioIngresa" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UsuarioAprobacion" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ObservacionAprobacion" Nullable="true" MaxLength="350" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8076,6 +8114,38 @@
                 <ScalarProperty Name="FechaTransferencia" ColumnName="FechaTransferencia" />
                 <ScalarProperty Name="FechaRecepcionTransferencia" ColumnName="FechaRecepcionTransferencia" />
                 <ScalarProperty Name="IdUsuarioGA" ColumnName="IdUsuarioGA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPCOM_SeguimientoOrdenCompraContable" FunctionName="DBERPModelCompras.Store.SPCOM_SeguimientoOrdenCompraContable">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_SeguimientoOrdenCompraContable_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="CodigoOC" ColumnName="CodigoOC" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="do_Cantidad" ColumnName="do_Cantidad" />
+                <ScalarProperty Name="do_precioFinal" ColumnName="do_precioFinal" />
+                <ScalarProperty Name="do_subtotal" ColumnName="do_subtotal" />
+                <ScalarProperty Name="do_iva" ColumnName="do_iva" />
+                <ScalarProperty Name="Por_Iva" ColumnName="Por_Iva" />
+                <ScalarProperty Name="do_total" ColumnName="do_total" />
+                <ScalarProperty Name="tm_descripcion" ColumnName="tm_descripcion" />
+                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
+                <ScalarProperty Name="IdNumMovi" ColumnName="IdNumMovi" />
+                <ScalarProperty Name="cm_fecha" ColumnName="cm_fecha" />
+                <ScalarProperty Name="dm_cantidad_sinConversion" ColumnName="dm_cantidad_sinConversion" />
+                <ScalarProperty Name="IdAprobacion" ColumnName="IdAprobacion" />
+                <ScalarProperty Name="pe_nombrecompletoAprobacion" ColumnName="pe_nombrecompletoAprobacion" />
+                <ScalarProperty Name="Fecha_Factura" ColumnName="Fecha_Factura" />
+                <ScalarProperty Name="num_documento" ColumnName="num_documento" />
+                <ScalarProperty Name="UsuarioIngresa" ColumnName="UsuarioIngresa" />
+                <ScalarProperty Name="UsuarioAprobacion" ColumnName="UsuarioAprobacion" />
+                <ScalarProperty Name="ObservacionAprobacion" ColumnName="ObservacionAprobacion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -38,6 +38,7 @@ namespace Core.Erp.Winform.Compras
         List<in_Producto_Info> Lista_producto;
         com_OrdenPedidoPlantilla_Bus bus_plantilla;
         com_OrdenPedidoPlantillaDet_Bus bus_plantilla_det;
+        com_solicitante_Info solicitante;
         #endregion
 
         #region Delegados
@@ -61,6 +62,7 @@ namespace Core.Erp.Winform.Compras
             bus_plantilla = new com_OrdenPedidoPlantilla_Bus();
             bus_plantilla_det = new com_OrdenPedidoPlantillaDet_Bus();
             event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing += frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing;
+            solicitante = new com_solicitante_Info();
         }
 
         void frmCom_OrdenPedidoMantenimiento_event_delegate_frmCom_OrdenPedidoMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
@@ -73,7 +75,7 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                cmb_Departamento.Properties.DataSource = bus_departamento.Get_List_Departamento(param.IdEmpresa);
+                cmb_Departamento.Properties.DataSource = bus_departamento.GetList(param.IdEmpresa,(solicitante ?? new com_solicitante_Info()).IdSolicitante);
                 var lstSucursal = bus_sucursal.Get_List_Sucursal(param.IdEmpresa);
                 cmb_SucursalDestino.DataSource = lstSucursal;
                 cmb_SucursalOrdigen.DataSource = lstSucursal;
@@ -110,13 +112,13 @@ namespace Core.Erp.Winform.Compras
             {
                 if (Accion != Cl_Enumeradores.eTipo_action.duplicar)
                 {
-                    CargarCombos();
-
-                    var solicitante = bus_solicitante.GetInfo(param.IdEmpresa, param.IdUsuario);
+                    solicitante = bus_solicitante.GetInfo(param.IdEmpresa, param.IdUsuario);
                     if (solicitante == null)
                         MessageBox.Show("No tiene un usuario solicitante configurado para el módulo de compras, comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     else
                     {
+                        CargarCombos();
+
                         if (solicitante.IdDepartamento != null)
                         {
                             cmb_Departamento.Visible = false;

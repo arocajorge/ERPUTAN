@@ -35,7 +35,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>326</ApplicationRevision>
+    <ApplicationRevision>343</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -356,6 +356,12 @@
     </Compile>
     <Compile Include="Compras\FrmCom_SeguimientoEntregaSolicitante.Designer.cs">
       <DependentUpon>FrmCom_SeguimientoEntregaSolicitante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_SeguimientoOrdenCompraContable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_SeguimientoOrdenCompraContable.Designer.cs">
+      <DependentUpon>FrmCom_SeguimientoOrdenCompraContable.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\FrmCom_Solicitante_Cons.cs">
       <SubType>Form</SubType>
@@ -4008,6 +4014,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_SeguimientoEntregaSolicitante.resx">
       <DependentUpon>FrmCom_SeguimientoEntregaSolicitante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_SeguimientoOrdenCompraContable.resx">
+      <DependentUpon>FrmCom_SeguimientoOrdenCompraContable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_Solicitante_Cons.resx">
       <DependentUpon>FrmCom_Solicitante_Cons.cs</DependentUpon>

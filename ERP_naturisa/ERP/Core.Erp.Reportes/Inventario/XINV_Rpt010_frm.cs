@@ -44,6 +44,7 @@ namespace Core.Erp.Reportes.Inventario
                     rpt.P_IdProducto.Value = ucInv_MenuReportes1.Get_info_producto() == null ? 0 : ucInv_MenuReportes1.Get_info_producto().IdProducto;
                     rpt.P_mostrar_valores_en_0.Value = Mostrar_valores_en_0;
                     rpt.P_mostrar_agrupado.Value = Mostrar_detallado;
+                    rpt.P_MostrarNegativos.Value = Convert.ToBoolean(ucInv_MenuReportes1.beiCheck3.EditValue ?? false);
                     rpt.RequestParameters = false;
 
                     ReportPrintTool pt = new ReportPrintTool(rpt);
@@ -64,6 +65,7 @@ namespace Core.Erp.Reportes.Inventario
                     rpt.p_IdProducto.Value = ucInv_MenuReportes1.Get_info_producto() == null ? 0 : ucInv_MenuReportes1.Get_info_producto().IdProducto;
                     rpt.p_mostrar_valores_en_0.Value = Mostrar_valores_en_0;
                     rpt.p_mostrar_agrupado.Value = Mostrar_detallado;
+                    
                     rpt.RequestParameters = false;
 
                     ReportPrintTool pt = new ReportPrintTool(rpt);
@@ -93,6 +95,12 @@ namespace Core.Erp.Reportes.Inventario
                 MessageBox.Show(ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 splashScreenManager1.CloseWaitForm();
             }
+        }
+
+        private void XINV_Rpt010_frm_Load(object sender, EventArgs e)
+        {
+            this.ucInv_MenuReportes1.beiCheck3.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucInv_MenuReportes1.beiCheck3.Caption = "Mostrar negativos";
         }
 
        

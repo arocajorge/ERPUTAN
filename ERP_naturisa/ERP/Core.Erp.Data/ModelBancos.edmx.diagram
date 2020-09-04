@@ -84,7 +84,6 @@
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_ba_Catalogo1" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_Datos_Entrega_cheq_ba_Catalogo" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Cbte_Ban_Datos_Entrega_cheq_ba_Cbte_Ban" />
-        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Cbte_Ban" Width="1.5" PointX="8.1762154680566" PointY="19.551278972789309" />
         <EntityTypeShape EntityType="DBERPModelBanco.ba_prestamo" Width="1.5" PointX="10.480373135991568" PointY="24.634559538510889" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_prestamo_ba_Catalogo1" />
@@ -103,6 +102,7 @@
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Archivo_Transferencia1" />
         <AssociationConnector Association="DBERPModelBanco.FK_ba_Archivo_Transferencia_Det_ba_Catalogo1" />
         <EntityTypeShape EntityType="DBERPModelBanco.vwba_Banco_Movimiento_det_cancelado" Width="1.5" PointX="1.179346193177321" PointY="13.568484953403699" />
+        <EntityTypeShape EntityType="DBERPModelBanco.vwba_Cbte_Ban" Width="1.5" PointX="2.2285728893375829" PointY="0.05452832582151905" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

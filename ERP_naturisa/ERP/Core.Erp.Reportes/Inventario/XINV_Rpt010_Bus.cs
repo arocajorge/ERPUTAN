@@ -10,11 +10,11 @@ namespace Core.Erp.Reportes.Inventario
     {
         XINV_Rpt010_Data oData = new XINV_Rpt010_Data();
 
-        public List<XINV_Rpt010_Info> Get_List(DateTime Fecha_desde, DateTime Fecha_hasta, int IdEmpresa, int IdSucursal, List<int> lst_bodega, decimal IdProducto, string idUsuario, bool No_mostrar_valores_en_0, bool Mostrar_detallado)
+        public List<XINV_Rpt010_Info> Get_List(DateTime Fecha_desde, DateTime Fecha_hasta, int IdEmpresa, int IdSucursal, List<int> lst_bodega, decimal IdProducto, string idUsuario, bool No_mostrar_valores_en_0, bool Mostrar_detallado, bool MostrarNegativos)
         {
             try
             {
-                return oData.Get_List(Fecha_desde, Fecha_hasta, IdEmpresa, IdSucursal, lst_bodega, IdProducto, idUsuario, No_mostrar_valores_en_0, Mostrar_detallado);
+                return oData.Get_List(Fecha_desde, Fecha_hasta, IdEmpresa, IdSucursal, lst_bodega, IdProducto, idUsuario, No_mostrar_valores_en_0, Mostrar_detallado, MostrarNegativos);
             }
             catch (Exception ex)
             {

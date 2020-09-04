@@ -33,8 +33,7 @@ namespace Core.Erp.Reportes.Inventario
 
                     foreach (var item_bodega in lst_bodega)
                     {
-                        var lst = from q in context.spINV_Rpt010(IdEmpresa, IdSucursal_ini, IdSucursal_fin, item_bodega, item_bodega, IdProducto_ini, IdProducto_fin, Fecha_desde, Fecha_hasta, idUsuario, No_mostrar_valores_en_0, Mostrar_detallado)
-                                  select q;
+                        var lst = context.spINV_Rpt010(IdEmpresa, IdSucursal_ini, IdSucursal_fin, item_bodega, item_bodega, IdProducto_ini, IdProducto_fin, Fecha_desde, Fecha_hasta, idUsuario, No_mostrar_valores_en_0, Mostrar_detallado, false).ToList();
                         foreach (var item in lst)
                         {
 

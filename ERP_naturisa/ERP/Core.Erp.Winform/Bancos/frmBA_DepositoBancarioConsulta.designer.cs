@@ -50,6 +50,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.ucGe_Menu_Mantenimiento_x_usuario = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlCbteBanDep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UltraGridCbteBanDep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipo_flujo)).BeginInit();
@@ -85,7 +86,8 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
-            this.col_tipo_flujo});
+            this.col_tipo_flujo,
+            this.gridColumn11});
             this.UltraGridCbteBanDep.GridControl = this.gridControlCbteBanDep;
             this.UltraGridCbteBanDep.Name = "UltraGridCbteBanDep";
             this.UltraGridCbteBanDep.OptionsView.ShowAutoFilterRow = true;
@@ -293,8 +295,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2018, 9, 5, 14, 24, 40, 397);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2018, 11, 5, 14, 24, 40, 397);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2020, 8, 26, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2020, 9, 2, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
@@ -304,6 +306,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Perfil_x_usuario = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(1435, 190);
             this.ucGe_Menu_Mantenimiento_x_usuario.TabIndex = 0;
+            this.ucGe_Menu_Mantenimiento_x_usuario.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_bodega = false;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -344,6 +347,14 @@
             this.statusStrip1.Size = new System.Drawing.Size(1435, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "# Conciliación";
+            this.gridColumn11.FieldName = "IdConciliacion";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 7;
             // 
             // frmBA_DespositoBancarioConsulta
             // 
@@ -392,5 +403,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

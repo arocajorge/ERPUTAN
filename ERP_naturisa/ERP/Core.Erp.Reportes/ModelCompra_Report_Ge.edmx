@@ -79,38 +79,6 @@
       [vwCOMP_Rpt004].[sub_centro_costo] AS [sub_centro_costo]
       FROM [dbo].[vwCOMP_Rpt004] AS [vwCOMP_Rpt004]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwCOMP_Rpt005" EntityType="DBERPModel1.Store.vwCOMP_Rpt005" store:Type="Views" store:Schema="dbo" store:Name="vwCOMP_Rpt005">
-            <DefiningQuery>SELECT 
-      [vwCOMP_Rpt005].[IdEmpresa] AS [IdEmpresa], 
-      [vwCOMP_Rpt005].[IdSucursal] AS [IdSucursal], 
-      [vwCOMP_Rpt005].[IdSolicitudCompra] AS [IdSolicitudCompra], 
-      [vwCOMP_Rpt005].[Secuencia_SC] AS [Secuencia_SC], 
-      [vwCOMP_Rpt005].[IdProducto_SC] AS [IdProducto_SC], 
-      [vwCOMP_Rpt005].[Su_Descripcion] AS [Su_Descripcion], 
-      [vwCOMP_Rpt005].[NomProducto_SC] AS [NomProducto_SC], 
-      [vwCOMP_Rpt005].[Cantidad_aprobada] AS [Cantidad_aprobada], 
-      [vwCOMP_Rpt005].[IdUsuarioAprueba] AS [IdUsuarioAprueba], 
-      [vwCOMP_Rpt005].[FechaHoraAprobacion] AS [FechaHoraAprobacion], 
-      [vwCOMP_Rpt005].[observacion] AS [observacion], 
-      [vwCOMP_Rpt005].[IdUnidadMedida] AS [IdUnidadMedida], 
-      [vwCOMP_Rpt005].[Descripcion] AS [Descripcion], 
-      [vwCOMP_Rpt005].[do_precioCompra] AS [do_precioCompra], 
-      [vwCOMP_Rpt005].[do_porc_des] AS [do_porc_des], 
-      [vwCOMP_Rpt005].[do_subtotal] AS [do_subtotal], 
-      [vwCOMP_Rpt005].[do_iva] AS [do_iva], 
-      [vwCOMP_Rpt005].[do_total] AS [do_total], 
-      [vwCOMP_Rpt005].[do_ManejaIva] AS [do_ManejaIva], 
-      [vwCOMP_Rpt005].[IdPunto_cargo] AS [IdPunto_cargo], 
-      [vwCOMP_Rpt005].[IdDepartamento] AS [IdDepartamento], 
-      [vwCOMP_Rpt005].[de_descripcion] AS [de_descripcion], 
-      [vwCOMP_Rpt005].[IdProveedor] AS [IdProveedor], 
-      [vwCOMP_Rpt005].[pr_nombre] AS [pr_nombre], 
-      [vwCOMP_Rpt005].[IdEstadoAprobacion] AS [IdEstadoAprobacion], 
-      [vwCOMP_Rpt005].[DescrpcionEstado] AS [DescrpcionEstado], 
-      [vwCOMP_Rpt005].[nomSolicitante] AS [nomSolicitante], 
-      [vwCOMP_Rpt005].[IdPersona] AS [IdPersona]
-      FROM [dbo].[vwCOMP_Rpt005] AS [vwCOMP_Rpt005]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="vwCOMP_Rpt006" EntityType="DBERPModel1.Store.vwCOMP_Rpt006" store:Type="Views" store:Schema="dbo" store:Name="vwCOMP_Rpt006">
             <DefiningQuery>SELECT 
       [vwCOMP_Rpt006].[IdEmpresa] AS [IdEmpresa], 
@@ -167,8 +135,8 @@
       FROM [dbo].[vwCOMP_Rpt008] AS [vwCOMP_Rpt008]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwCOMP_Rpt003' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt003' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCOMP_Rpt003">
           <Key>
@@ -243,8 +211,8 @@
           <Property Name="SubTotal_sinConversion" Type="float" />
           <Property Name="CodMoviInven" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwCOMP_Rpt004' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt004' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCOMP_Rpt004">
           <Key>
@@ -258,8 +226,6 @@
             <PropertyRef Name="nom_comprador" />
             <PropertyRef Name="IdProveedor" />
             <PropertyRef Name="IdEstadoAprobacion_cat" />
-            <PropertyRef Name="IdMotivo" />
-            <PropertyRef Name="Nom_motivo_oc" />
             <PropertyRef Name="IdProducto" />
             <PropertyRef Name="nom_producto" />
             <PropertyRef Name="do_Cantidad" />
@@ -275,12 +241,12 @@
           <Property Name="oc_fecha" Type="datetime" Nullable="false" />
           <Property Name="oc_observacion" Type="varchar" Nullable="false" MaxLength="1000" />
           <Property Name="IdComprador" Type="numeric" Nullable="false" />
-          <Property Name="nom_comprador" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="nom_comprador" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="IdProveedor" Type="numeric" Nullable="false" />
           <Property Name="nom_proveedor" Type="varchar" MaxLength="100" />
           <Property Name="IdEstadoAprobacion_cat" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="IdMotivo" Type="int" Nullable="false" />
-          <Property Name="Nom_motivo_oc" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="IdMotivo" Type="int" />
+          <Property Name="Nom_motivo_oc" Type="varchar" MaxLength="250" />
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="nom_producto" Type="nvarchar" Nullable="false" MaxLength="500" />
           <Property Name="do_Cantidad" Type="float" Nullable="false" />
@@ -295,53 +261,8 @@
           <Property Name="IdCentroCosto_sub_centro_costo" Type="varchar" MaxLength="20" />
           <Property Name="sub_centro_costo" Type="varchar" MaxLength="200" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwCOMP_Rpt005' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-        <EntityType Name="vwCOMP_Rpt005">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="IdSolicitudCompra" />
-            <PropertyRef Name="Secuencia_SC" />
-            <PropertyRef Name="Su_Descripcion" />
-            <PropertyRef Name="Cantidad_aprobada" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="DescrpcionEstado" />
-            <PropertyRef Name="nomSolicitante" />
-            <PropertyRef Name="IdPersona" />
-          </Key>
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="IdSucursal" Type="int" Nullable="false" />
-          <Property Name="IdSolicitudCompra" Type="numeric" Nullable="false" />
-          <Property Name="Secuencia_SC" Type="int" Nullable="false" />
-          <Property Name="IdProducto_SC" Type="numeric" />
-          <Property Name="Su_Descripcion" Type="nchar" Nullable="false" MaxLength="60" />
-          <Property Name="NomProducto_SC" Type="varchar" MaxLength="500" />
-          <Property Name="Cantidad_aprobada" Type="float" Nullable="false" />
-          <Property Name="IdUsuarioAprueba" Type="varchar" MaxLength="25" />
-          <Property Name="FechaHoraAprobacion" Type="datetime" />
-          <Property Name="observacion" Type="varchar" MaxLength="200" />
-          <Property Name="IdUnidadMedida" Type="varchar" MaxLength="25" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
-          <Property Name="do_precioCompra" Type="float" />
-          <Property Name="do_porc_des" Type="float" />
-          <Property Name="do_subtotal" Type="float" />
-          <Property Name="do_iva" Type="float" />
-          <Property Name="do_total" Type="float" />
-          <Property Name="do_ManejaIva" Type="bit" />
-          <Property Name="IdPunto_cargo" Type="int" />
-          <Property Name="IdDepartamento" Type="int" />
-          <Property Name="de_descripcion" Type="nchar" MaxLength="50" />
-          <Property Name="IdProveedor" Type="numeric" />
-          <Property Name="pr_nombre" Type="varchar" MaxLength="100" />
-          <Property Name="IdEstadoAprobacion" Type="varchar" Nullable="false" MaxLength="25" />
-          <Property Name="DescrpcionEstado" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="nomSolicitante" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="IdPersona" Type="numeric" Nullable="false" />
-        </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwCOMP_Rpt006' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt006' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCOMP_Rpt006">
           <Key>
@@ -393,8 +314,8 @@
           <Property Name="IdPersona" Type="numeric" Nullable="false" />
           <Property Name="nomSolicitante" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_CAH.dbo.vwCOMP_Rpt008' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwCOMP_Rpt008' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwCOMP_Rpt008">
           <Key>
@@ -443,11 +364,10 @@
             <Parameter Name="i_IdSucursalFin" Mode="In" Type="Int32" />
             <Parameter Name="i_FechaCorte" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <EntitySet Name="vwCOMP_Rpt005" EntityType="DBERPModel1.vwCOMP_Rpt005" />
-          <EntitySet Name="vwCOMP_Rpt004" EntityType="DBERPModel1.vwCOMP_Rpt004" />
           <EntitySet Name="vwCOMP_Rpt006" EntityType="DBERPModel1.vwCOMP_Rpt006" />
           <EntitySet Name="vwCOMP_Rpt003" EntityType="DBERPModel1.vwCOMP_Rpt003" />
           <EntitySet Name="vwCOMP_Rpt008" EntityType="DBERPModel1.vwCOMP_Rpt008" />
+          <EntitySet Name="vwCOMP_Rpt004" EntityType="DBERPModel1.vwCOMP_Rpt004" />
         </EntityContainer>
         <ComplexType Name="spCOMP_Rpt007_Result">
           <Property Type="Int32" Name="IdEmpresa" Nullable="true" />
@@ -476,97 +396,6 @@
           <Property Type="Int32" Name="Alerta" Nullable="true" />
           <Property Type="Double" Name="varianza" Nullable="true" />
         </ComplexType>
-        <EntityType Name="vwCOMP_Rpt005">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="IdSolicitudCompra" />
-            <PropertyRef Name="Secuencia_SC" />
-            <PropertyRef Name="Su_Descripcion" />
-            <PropertyRef Name="Cantidad_aprobada" />
-            <PropertyRef Name="IdEstadoAprobacion" />
-            <PropertyRef Name="DescrpcionEstado" />
-            <PropertyRef Name="nomSolicitante" />
-            <PropertyRef Name="IdPersona" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="Decimal" Name="IdSolicitudCompra" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia_SC" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto_SC" Precision="18" Scale="0" />
-          <Property Type="String" Name="Su_Descripcion" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="NomProducto_SC" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="Cantidad_aprobada" Nullable="false" />
-          <Property Type="String" Name="IdUsuarioAprueba" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="FechaHoraAprobacion" Precision="3" />
-          <Property Type="String" Name="observacion" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdUnidadMedida" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Descripcion" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Double" Name="do_precioCompra" />
-          <Property Type="Double" Name="do_porc_des" />
-          <Property Type="Double" Name="do_subtotal" />
-          <Property Type="Double" Name="do_iva" />
-          <Property Type="Double" Name="do_total" />
-          <Property Type="Boolean" Name="do_ManejaIva" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="Int32" Name="IdDepartamento" />
-          <Property Type="String" Name="de_descripcion" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Type="Decimal" Name="IdProveedor" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_nombre" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstadoAprobacion" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="DescrpcionEstado" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="nomSolicitante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdPersona" Nullable="false" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="vwCOMP_Rpt004">
-          <Key>
-            <PropertyRef Name="IdEmpresa" />
-            <PropertyRef Name="IdSucursal" />
-            <PropertyRef Name="IdOrdenCompra" />
-            <PropertyRef Name="documento" />
-            <PropertyRef Name="oc_fecha" />
-            <PropertyRef Name="oc_observacion" />
-            <PropertyRef Name="IdComprador" />
-            <PropertyRef Name="nom_comprador" />
-            <PropertyRef Name="IdProveedor" />
-            <PropertyRef Name="IdEstadoAprobacion_cat" />
-            <PropertyRef Name="IdMotivo" />
-            <PropertyRef Name="Nom_motivo_oc" />
-            <PropertyRef Name="IdProducto" />
-            <PropertyRef Name="nom_producto" />
-            <PropertyRef Name="do_Cantidad" />
-            <PropertyRef Name="precio" />
-            <PropertyRef Name="do_subtotal" />
-            <PropertyRef Name="do_iva" />
-            <PropertyRef Name="do_total" />
-          </Key>
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
-          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="documento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="oc_fecha" Nullable="false" Precision="3" />
-          <Property Type="String" Name="oc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="nom_comprador" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="nom_proveedor" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdEstadoAprobacion_cat" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="IdMotivo" Nullable="false" />
-          <Property Type="String" Name="Nom_motivo_oc" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="do_Cantidad" Nullable="false" />
-          <Property Type="Double" Name="precio" Nullable="false" />
-          <Property Type="Double" Name="do_subtotal" Nullable="false" />
-          <Property Type="Double" Name="do_iva" Nullable="false" />
-          <Property Type="Double" Name="do_total" Nullable="false" />
-          <Property Type="Int32" Name="IdPunto_cargo" />
-          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="sub_centro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="vwCOMP_Rpt006">
           <Key>
             <PropertyRef Name="IdEmpresa" />
@@ -720,6 +549,53 @@
           <Property Type="Double" Name="ult_costo" Nullable="false" />
           <Property Type="Double" Name="diferencia" Nullable="false" />
         </EntityType>
+        <EntityType Name="vwCOMP_Rpt004">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+            <PropertyRef Name="IdSucursal" />
+            <PropertyRef Name="IdOrdenCompra" />
+            <PropertyRef Name="documento" />
+            <PropertyRef Name="oc_fecha" />
+            <PropertyRef Name="oc_observacion" />
+            <PropertyRef Name="IdComprador" />
+            <PropertyRef Name="nom_comprador" />
+            <PropertyRef Name="IdProveedor" />
+            <PropertyRef Name="IdEstadoAprobacion_cat" />
+            <PropertyRef Name="IdProducto" />
+            <PropertyRef Name="nom_producto" />
+            <PropertyRef Name="do_Cantidad" />
+            <PropertyRef Name="precio" />
+            <PropertyRef Name="do_subtotal" />
+            <PropertyRef Name="do_iva" />
+            <PropertyRef Name="do_total" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="IdSucursal" Nullable="false" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="documento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="oc_fecha" Nullable="false" Precision="3" />
+          <Property Type="String" Name="oc_observacion" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdComprador" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_comprador" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_proveedor" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdEstadoAprobacion_cat" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdMotivo" />
+          <Property Type="String" Name="Nom_motivo_oc" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="nom_producto" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="do_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="precio" Nullable="false" />
+          <Property Type="Double" Name="do_subtotal" Nullable="false" />
+          <Property Type="Double" Name="do_iva" Nullable="false" />
+          <Property Type="Double" Name="do_total" Nullable="false" />
+          <Property Type="Int32" Name="IdPunto_cargo" />
+          <Property Type="String" Name="nom_punto_cargo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Centro_costo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdCentroCosto_sub_centro_costo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sub_centro_costo" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -757,72 +633,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="vwCOMP_Rpt005">
-            <EntityTypeMapping TypeName="DBERPModel1.vwCOMP_Rpt005">
-              <MappingFragment StoreEntitySet="vwCOMP_Rpt005">
-                <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-                <ScalarProperty Name="nomSolicitante" ColumnName="nomSolicitante" />
-                <ScalarProperty Name="DescrpcionEstado" ColumnName="DescrpcionEstado" />
-                <ScalarProperty Name="IdEstadoAprobacion" ColumnName="IdEstadoAprobacion" />
-                <ScalarProperty Name="pr_nombre" ColumnName="pr_nombre" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="de_descripcion" ColumnName="de_descripcion" />
-                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="do_ManejaIva" ColumnName="do_ManejaIva" />
-                <ScalarProperty Name="do_total" ColumnName="do_total" />
-                <ScalarProperty Name="do_iva" ColumnName="do_iva" />
-                <ScalarProperty Name="do_subtotal" ColumnName="do_subtotal" />
-                <ScalarProperty Name="do_porc_des" ColumnName="do_porc_des" />
-                <ScalarProperty Name="do_precioCompra" ColumnName="do_precioCompra" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
-                <ScalarProperty Name="observacion" ColumnName="observacion" />
-                <ScalarProperty Name="FechaHoraAprobacion" ColumnName="FechaHoraAprobacion" />
-                <ScalarProperty Name="IdUsuarioAprueba" ColumnName="IdUsuarioAprueba" />
-                <ScalarProperty Name="Cantidad_aprobada" ColumnName="Cantidad_aprobada" />
-                <ScalarProperty Name="NomProducto_SC" ColumnName="NomProducto_SC" />
-                <ScalarProperty Name="Su_Descripcion" ColumnName="Su_Descripcion" />
-                <ScalarProperty Name="IdProducto_SC" ColumnName="IdProducto_SC" />
-                <ScalarProperty Name="Secuencia_SC" ColumnName="Secuencia_SC" />
-                <ScalarProperty Name="IdSolicitudCompra" ColumnName="IdSolicitudCompra" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwCOMP_Rpt004">
-            <EntityTypeMapping TypeName="DBERPModel1.vwCOMP_Rpt004">
-              <MappingFragment StoreEntitySet="vwCOMP_Rpt004">
-                <ScalarProperty Name="sub_centro_costo" ColumnName="sub_centro_costo" />
-                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
-                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
-                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
-                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
-                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
-                <ScalarProperty Name="do_total" ColumnName="do_total" />
-                <ScalarProperty Name="do_iva" ColumnName="do_iva" />
-                <ScalarProperty Name="do_subtotal" ColumnName="do_subtotal" />
-                <ScalarProperty Name="precio" ColumnName="precio" />
-                <ScalarProperty Name="do_Cantidad" ColumnName="do_Cantidad" />
-                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="Nom_motivo_oc" ColumnName="Nom_motivo_oc" />
-                <ScalarProperty Name="IdMotivo" ColumnName="IdMotivo" />
-                <ScalarProperty Name="IdEstadoAprobacion_cat" ColumnName="IdEstadoAprobacion_cat" />
-                <ScalarProperty Name="nom_proveedor" ColumnName="nom_proveedor" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="nom_comprador" ColumnName="nom_comprador" />
-                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
-                <ScalarProperty Name="oc_observacion" ColumnName="oc_observacion" />
-                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
-                <ScalarProperty Name="documento" ColumnName="documento" />
-                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
-                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwCOMP_Rpt006">
             <EntityTypeMapping TypeName="DBERPModel1.vwCOMP_Rpt006">
               <MappingFragment StoreEntitySet="vwCOMP_Rpt006">
@@ -921,6 +731,38 @@
                 <ScalarProperty Name="pr_codigo" ColumnName="pr_codigo" />
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCOMP_Rpt004">
+            <EntityTypeMapping TypeName="DBERPModel1.vwCOMP_Rpt004">
+              <MappingFragment StoreEntitySet="vwCOMP_Rpt004">
+                <ScalarProperty Name="sub_centro_costo" ColumnName="sub_centro_costo" />
+                <ScalarProperty Name="IdCentroCosto_sub_centro_costo" ColumnName="IdCentroCosto_sub_centro_costo" />
+                <ScalarProperty Name="Centro_costo" ColumnName="Centro_costo" />
+                <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+                <ScalarProperty Name="nom_punto_cargo" ColumnName="nom_punto_cargo" />
+                <ScalarProperty Name="IdPunto_cargo" ColumnName="IdPunto_cargo" />
+                <ScalarProperty Name="do_total" ColumnName="do_total" />
+                <ScalarProperty Name="do_iva" ColumnName="do_iva" />
+                <ScalarProperty Name="do_subtotal" ColumnName="do_subtotal" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="do_Cantidad" ColumnName="do_Cantidad" />
+                <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Nom_motivo_oc" ColumnName="Nom_motivo_oc" />
+                <ScalarProperty Name="IdMotivo" ColumnName="IdMotivo" />
+                <ScalarProperty Name="IdEstadoAprobacion_cat" ColumnName="IdEstadoAprobacion_cat" />
+                <ScalarProperty Name="nom_proveedor" ColumnName="nom_proveedor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="nom_comprador" ColumnName="nom_comprador" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="oc_observacion" ColumnName="oc_observacion" />
+                <ScalarProperty Name="oc_fecha" ColumnName="oc_fecha" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
                 <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
                 <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />

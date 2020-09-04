@@ -13,7 +13,7 @@ namespace Core.Erp.Reportes.Inventario
     {
         string MensajeError = "";
 
-        public List<XINV_Rpt010_Info> Get_List(DateTime Fecha_desde, DateTime Fecha_hasta, int IdEmpresa, int IdSucursal, List<int> lst_bodega, decimal IdProducto, string idUsuario, bool No_mostrar_valores_en_0, bool Mostrar_detallado)
+        public List<XINV_Rpt010_Info> Get_List(DateTime Fecha_desde, DateTime Fecha_hasta, int IdEmpresa, int IdSucursal, List<int> lst_bodega, decimal IdProducto, string idUsuario, bool No_mostrar_valores_en_0, bool Mostrar_detallado, bool MostrarNegativos)
         {
             try
             {
@@ -34,8 +34,11 @@ namespace Core.Erp.Reportes.Inventario
 
                     foreach (var item_bodega in lst_bodega)
                     {
-                        var lst = from q in context.spINV_Rpt010(IdEmpresa, IdSucursal_ini, IdSucursal_fin, item_bodega, item_bodega, IdProducto_ini, IdProducto_fin, Fecha_desde, Fecha_hasta, idUsuario, No_mostrar_valores_en_0, Mostrar_detallado)
-                                  select q;
+                        var lst = context.spINV_Rpt010(IdEmpresa, IdSucursal_ini, IdSucursal_fin, item_bodega, item_bodega, IdProducto_ini, IdProducto_fin, Fecha_desde, Fecha_hasta, idUsuario, No_mostrar_valores_en_0, Mostrar_detallado, MostrarNegativos).ToList();
+
+                        if (MostrarNegativos)
+                            lst = lst.Where(q => Math.Round(q.Saldo_cant ?? 0,2,MidpointRounding.AwayFromZero) < 0).ToList();
+
                         foreach (var item in lst)
                         {
 

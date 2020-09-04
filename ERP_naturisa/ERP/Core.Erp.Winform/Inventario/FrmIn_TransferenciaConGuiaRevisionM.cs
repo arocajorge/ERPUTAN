@@ -543,8 +543,14 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                
+                txtIdTransferencia.Focus();
+                gvDetalle.MoveNext();
                 GetInfo();
+                if (infoTransferencia.lista_detalle_transferencia.Where(q=> q.dt_cantidadPreDespacho < q.dt_cantidad).Count() > 0)
+                {
+                    MessageBox.Show("Existen cantidades de despacho superiores a las transferidas", param.NombreEmpresa, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 infoTransferencia.EstadoRevision = "A";
                 if (busTransferencia.Revisar(infoTransferencia))
                 {

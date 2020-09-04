@@ -31,7 +31,6 @@
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.chk_ConsultaDepartamento = new DevExpress.XtraEditors.CheckEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ComboUsuario = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -72,7 +71,6 @@
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_ConsultaDepartamento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboUsuario.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboDepartamento.Properties)).BeginInit();
@@ -163,7 +161,6 @@
             // 
             // panelMain
             // 
-            this.panelMain.Controls.Add(this.chk_ConsultaDepartamento);
             this.panelMain.Controls.Add(this.label3);
             this.panelMain.Controls.Add(this.label2);
             this.panelMain.Controls.Add(this.ComboUsuario);
@@ -179,14 +176,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(840, 148);
             this.panelMain.TabIndex = 2;
-            // 
-            // chk_ConsultaDepartamento
-            // 
-            this.chk_ConsultaDepartamento.Location = new System.Drawing.Point(272, 29);
-            this.chk_ConsultaDepartamento.Name = "chk_ConsultaDepartamento";
-            this.chk_ConsultaDepartamento.Properties.Caption = "Consulta listado departamentos";
-            this.chk_ConsultaDepartamento.Size = new System.Drawing.Size(364, 21);
-            this.chk_ConsultaDepartamento.TabIndex = 12;
             // 
             // label3
             // 
@@ -204,13 +193,13 @@
             this.label2.Location = new System.Drawing.Point(13, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 17);
+            this.label2.Size = new System.Drawing.Size(174, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Departamento";
+            this.label2.Text = "Departamento por defecto";
             // 
             // ComboUsuario
             // 
-            this.ComboUsuario.Location = new System.Drawing.Point(124, 115);
+            this.ComboUsuario.Location = new System.Drawing.Point(207, 115);
             this.ComboUsuario.Name = "ComboUsuario";
             this.ComboUsuario.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -251,7 +240,7 @@
             // 
             // ComboDepartamento
             // 
-            this.ComboDepartamento.Location = new System.Drawing.Point(124, 87);
+            this.ComboDepartamento.Location = new System.Drawing.Point(207, 87);
             this.ComboDepartamento.Name = "ComboDepartamento";
             this.ComboDepartamento.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -305,7 +294,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(124, 58);
+            this.txtNombre.Location = new System.Drawing.Point(207, 58);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(512, 22);
@@ -317,9 +306,9 @@
             this.lblNombre.Location = new System.Drawing.Point(13, 61);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblNombre.Size = new System.Drawing.Size(62, 17);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre";
+            this.lblNombre.Text = "Nombre ";
             // 
             // txtIdSolicitante
             // 
@@ -500,14 +489,14 @@
             this.xtraTabPage1.Controls.Add(this.gc_detalle);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(834, 339);
-            this.xtraTabPage1.Text = "Aprobadores";
+            this.xtraTabPage1.Text = "Aprobadores por departamento";
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.gc_d);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(834, 339);
-            this.xtraTabPage2.Text = "Departamentos visibles opción 1";
+            this.xtraTabPage2.Text = "Departamentos visibles para consultar";
             // 
             // gc_d
             // 
@@ -599,7 +588,6 @@
             this.Load += new System.EventHandler(this.FrmCom_Solicitante_Mant_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_ConsultaDepartamento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboUsuario.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboDepartamento.Properties)).EndInit();
@@ -654,7 +642,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraEditors.CheckEdit chk_ConsultaDepartamento;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;

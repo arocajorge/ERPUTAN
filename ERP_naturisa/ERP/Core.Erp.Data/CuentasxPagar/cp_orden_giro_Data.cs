@@ -1960,8 +1960,8 @@ namespace Core.Erp.Data.CuentasxPagar
                                     imp.codigo = "2";
                                     imp.codigoPorcentaje = "2";
                                     imp.tarifa = Convert.ToDecimal(item_det.PorIva);
-                                    imp.baseImponible = Convert.ToDecimal(item_det.Subtotal);
-                                    imp.valor = Convert.ToDecimal(item_det.ValorIva);
+                                    imp.baseImponible = Math.Round(Convert.ToDecimal(item_det.Subtotal), 2, MidpointRounding.AwayFromZero);
+                                    imp.valor = Math.Round(Convert.ToDecimal(item_det.ValorIva), 2, MidpointRounding.AwayFromZero);
 
                                 }
                                 if (item_det.PorIva == 0)
@@ -1969,8 +1969,8 @@ namespace Core.Erp.Data.CuentasxPagar
                                     imp.codigo = "2";
                                     imp.codigoPorcentaje = "0";
                                     imp.tarifa = Convert.ToDecimal(item_det.PorIva);
-                                    imp.baseImponible = Convert.ToDecimal(item_det.Subtotal);
-                                    imp.valor = Convert.ToDecimal(item_det.ValorIva);
+                                    imp.baseImponible = Math.Round(Convert.ToDecimal(item_det.Subtotal),2,MidpointRounding.AwayFromZero);
+                                    imp.valor = Math.Round(Convert.ToDecimal(item_det.ValorIva),2,MidpointRounding.AwayFromZero);
 
                                 }
 

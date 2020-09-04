@@ -153,6 +153,7 @@
             this.xrTableCell58 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell59 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell62 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.P_MostrarNegativos = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -1390,6 +1391,11 @@
             this.xrTableCell62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell62.Weight = 2.7479602857739964D;
             // 
+            // P_MostrarNegativos
+            // 
+            this.P_MostrarNegativos.Name = "P_MostrarNegativos";
+            this.P_MostrarNegativos.Visible = false;
+            // 
             // XINV_Rpt010_rpt
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1430,7 +1436,8 @@
             this.P_IdProducto,
             this.P_IdBodega,
             this.P_mostrar_valores_en_0,
-            this.P_mostrar_agrupado});
+            this.P_mostrar_agrupado,
+            this.P_MostrarNegativos});
             this.Version = "12.1";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.XINV_Rpt010_rpt_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
@@ -1560,5 +1567,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell58;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell59;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell62;
+        public DevExpress.XtraReports.Parameters.Parameter P_MostrarNegativos;
     }
 }
