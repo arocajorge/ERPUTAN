@@ -28,6 +28,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         tb_sis_impuesto_Bus bus_impuesto;
         cp_proveedor_codigo_SRI_Bus bus_codigoProveedor;
         List<cp_proveedor_codigo_SRI_Info> ListaCodigoProveedor;
+        List<cp_proveedor_microempresa_Info> ListaMicroEmpresa;
+        cp_proveedor_microempresa_Bus busMicroEmpresa;
         #endregion
 
         public frmCP_DigitalizacionXML()
@@ -39,6 +41,8 @@ namespace Core.Erp.Winform.CuentasxPagar
             bus_impuesto = new tb_sis_impuesto_Bus();
             bus_codigoProveedor = new cp_proveedor_codigo_SRI_Bus();
             ListaCodigoProveedor = new List<cp_proveedor_codigo_SRI_Info>();
+            ListaMicroEmpresa = new List<cp_proveedor_microempresa_Info>();
+            busMicroEmpresa = new cp_proveedor_microempresa_Bus();
         }
 
         private void txtRutaXml_Click(object sender, EventArgs e)
@@ -66,6 +70,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                ListaMicroEmpresa = new List<cp_proveedor_microempresa_Info>();
                 bus_ruta.GuardarDB(new cp_RutaPorEmpresaPorUsuario_Info
                 {
                     IdEmpresa = param.IdEmpresa,
@@ -175,12 +180,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                             d.Total = d.Precio + d.ValorIva;
                             Documento.lstDetalle.Add(d);
                         }
-                        /*
-                        Documento.SubtotalIVA = Documento.lstDetalle.Where(q=> q.PorcentajeIVA > 0).Sum(q=> q.Precio);
-                        Documento.Subtotal0 = Documento.lstDetalle.Where(q=> q.PorcentajeIVA == 0).Sum(q=> q.Precio);
-                        Documento.ValorIVA = Documento.lstDetalle.Sum(q => q.ValorIva);
-                        Documento.Total = Documento.lstDetalle.Sum(q => q.Total);
-                        */
 
                         if (Documento.Total == 0)
                         {
@@ -202,14 +201,42 @@ namespace Core.Erp.Winform.CuentasxPagar
                             Documento.Automatico = true;
 
                         var CodigoProveedor = ListaCodigoProveedor.Where(q => q.IdEmpresa == param.IdEmpresa && q.pe_cedulRuc == Documento.emi_Ruc).ToList();
-                        if (CodigoProveedor != null && Documento.ValorIVA > 0)
+                        if (CodigoProveedor != null && CodigoProveedor.Count > 0 && Documento.ValorIVA > 0)
                         {
                             if (CodigoProveedor.Where(q => q.re_tipo == "IVA").Count() == 0)
                             {
-                                MessageBox.Show("El proveedor " + Documento.emi_RazonSocial + " no tiene parametrizada un código para retención de IVA para el documento " + Documento.CodDocumento, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("El proveedor " + Documento.emi_RazonSocial + " no tiene parametrizada un código para retención de IVA para el documento " + Documento.Comprobante, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
 
+                        #region Validar microempresas
+                        var MicroEmpresa = ListaMicroEmpresa.Where(q => q.Ruc == Documento.emi_Ruc).FirstOrDefault();
+                        if (MicroEmpresa == null)
+                        {
+                            MicroEmpresa = busMicroEmpresa.GetInfo(Documento.emi_Ruc);
+                            if (MicroEmpresa == null)
+                            {
+                                ListaMicroEmpresa.Add(new cp_proveedor_microempresa_Info
+                                {
+                                    Ruc = Documento.emi_Ruc,
+                                    EsMicroEmpresa = false
+                                });
+                            }
+                            else
+                            {
+                                ListaMicroEmpresa.Add(new cp_proveedor_microempresa_Info
+                                {
+                                    Ruc = MicroEmpresa.Ruc,
+                                    EsMicroEmpresa = true,
+                                    Nombre = MicroEmpresa.Nombre
+                                });
+                            }
+                        }
+                        else
+                        {
+                            Documento.EsMicroEmpresa = MicroEmpresa.EsMicroEmpresa;
+                        }
+                        #endregion
 
                         Documento.Imagen = bus_xml.Existe(param.IdEmpresa, Documento.emi_Ruc, Documento.CodDocumento, Documento.Establecimiento, Documento.PuntoEmision, Documento.NumeroDocumento);
                         if(blst.Where(q=> q.Comprobante == Documento.Comprobante && q.emi_Ruc == Documento.emi_Ruc).Count() == 0)
@@ -220,6 +247,10 @@ namespace Core.Erp.Winform.CuentasxPagar
                 }
                 lblContador.Text = blst.Count.ToString();
                 gcDetalle.DataSource = blst;
+                if (blst.Where(q => q.EsMicroEmpresa == true).Count() > 0)
+                {
+                    MessageBox.Show("Existen microempresas en el listado de documentos, revise la parametrización", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {

@@ -467,6 +467,7 @@
     <Compile Include="com_TerminoPago.cs">
       <DependentUpon>ModelCompras.tt</DependentUpon>
     </Compile>
+    <Compile Include="ConexionERP.cs" />
     <Compile Include="Contabilidad\ct_AnioFiscal_Data.cs" />
     <Compile Include="Contabilidad\ct_anio_fiscal_x_cuenta_utilidad_Data.cs" />
     <Compile Include="Contabilidad\ct_Balance_x_Estado_Resultado_x_Usuario_Data.cs" />
@@ -628,6 +629,9 @@
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="cp_proveedor_contactos.cs">
+      <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cp_proveedor_microempresa.cs">
       <DependentUpon>ModelCuentasxPagar.tt</DependentUpon>
     </Compile>
     <Compile Include="cp_reembolso.cs">
@@ -846,6 +850,7 @@
     <Compile Include="CuentasxPagar\cp_proveedor_clase_Data.cs" />
     <Compile Include="CuentasxPagar\cp_proveedor_codigo_SRI_Data.cs" />
     <Compile Include="CuentasxPagar\cp_proveedor_Data.cs" />
+    <Compile Include="CuentasxPagar\cp_proveedor_microempresa_Data.cs" />
     <Compile Include="CuentasxPagar\cp_reembolso_Data.cs" />
     <Compile Include="CuentasxPagar\cp_retencion_Data.cs" />
     <Compile Include="CuentasxPagar\cp_retencion_det_Data.cs" />

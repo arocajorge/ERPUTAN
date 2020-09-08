@@ -30,6 +30,10 @@
         {
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbFormaPago = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.txtContribuyente = new DevExpress.XtraEditors.TextEdit();
             this.txtTotal = new DevExpress.XtraEditors.TextEdit();
@@ -99,11 +103,11 @@
             this.txtRetPuntoEmision = new DevExpress.XtraEditors.TextEdit();
             this.txtRetEstablecimiento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbFormaPago = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblMicroEmpresa = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIVA.Properties)).BeginInit();
@@ -143,8 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRetNumeroDocumento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetPuntoEmision.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetEstablecimiento.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -248,12 +251,53 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1487, 661);
+            this.panel1.Size = new System.Drawing.Size(1487, 626);
             this.panel1.TabIndex = 1;
+            // 
+            // cmbFormaPago
+            // 
+            this.cmbFormaPago.Location = new System.Drawing.Point(242, 298);
+            this.cmbFormaPago.Name = "cmbFormaPago";
+            this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFormaPago.Properties.DisplayMember = "nom_FormaPago";
+            this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
+            this.cmbFormaPago.Properties.View = this.gridView6;
+            this.cmbFormaPago.Size = new System.Drawing.Size(617, 22);
+            this.cmbFormaPago.TabIndex = 55;
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn13,
+            this.gridColumn14});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "ID";
+            this.gridColumn13.FieldName = "IdFormaPago";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 1;
+            this.gridColumn13.Width = 503;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Forma pago";
+            this.gridColumn14.FieldName = "nom_FormaPago";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 0;
+            this.gridColumn14.Width = 1231;
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(242, 23);
+            this.labelControl19.Location = new System.Drawing.Point(252, 32);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(92, 16);
             this.labelControl19.TabIndex = 32;
@@ -261,7 +305,7 @@
             // 
             // txtContribuyente
             // 
-            this.txtContribuyente.Location = new System.Drawing.Point(362, 20);
+            this.txtContribuyente.Location = new System.Drawing.Point(372, 29);
             this.txtContribuyente.Name = "txtContribuyente";
             this.txtContribuyente.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtContribuyente.Properties.Appearance.Options.UseBackColor = true;
@@ -271,7 +315,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(143, 401);
+            this.txtTotal.Location = new System.Drawing.Point(153, 410);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtTotal.Properties.Appearance.Options.UseBackColor = true;
@@ -283,7 +327,7 @@
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(25, 404);
+            this.labelControl14.Location = new System.Drawing.Point(35, 413);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(29, 16);
             this.labelControl14.TabIndex = 29;
@@ -291,7 +335,7 @@
             // 
             // txtIVA
             // 
-            this.txtIVA.Location = new System.Drawing.Point(143, 373);
+            this.txtIVA.Location = new System.Drawing.Point(153, 382);
             this.txtIVA.Name = "txtIVA";
             this.txtIVA.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtIVA.Properties.Appearance.Options.UseBackColor = true;
@@ -303,7 +347,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(25, 376);
+            this.labelControl13.Location = new System.Drawing.Point(35, 385);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(32, 16);
             this.labelControl13.TabIndex = 27;
@@ -311,7 +355,7 @@
             // 
             // txtPorcentaje
             // 
-            this.txtPorcentaje.Location = new System.Drawing.Point(143, 345);
+            this.txtPorcentaje.Location = new System.Drawing.Point(153, 354);
             this.txtPorcentaje.Name = "txtPorcentaje";
             this.txtPorcentaje.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtPorcentaje.Properties.Appearance.Options.UseBackColor = true;
@@ -323,7 +367,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(25, 348);
+            this.labelControl12.Location = new System.Drawing.Point(35, 357);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(61, 16);
             this.labelControl12.TabIndex = 25;
@@ -331,7 +375,7 @@
             // 
             // txtSubtotalIVA
             // 
-            this.txtSubtotalIVA.Location = new System.Drawing.Point(143, 317);
+            this.txtSubtotalIVA.Location = new System.Drawing.Point(153, 326);
             this.txtSubtotalIVA.Name = "txtSubtotalIVA";
             this.txtSubtotalIVA.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtSubtotalIVA.Properties.Appearance.Options.UseBackColor = true;
@@ -343,7 +387,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(25, 320);
+            this.labelControl11.Location = new System.Drawing.Point(35, 329);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(71, 16);
             this.labelControl11.TabIndex = 23;
@@ -351,7 +395,7 @@
             // 
             // txtSubtotal0
             // 
-            this.txtSubtotal0.Location = new System.Drawing.Point(143, 289);
+            this.txtSubtotal0.Location = new System.Drawing.Point(153, 298);
             this.txtSubtotal0.Name = "txtSubtotal0";
             this.txtSubtotal0.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtSubtotal0.Properties.Appearance.Options.UseBackColor = true;
@@ -363,7 +407,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(25, 292);
+            this.labelControl10.Location = new System.Drawing.Point(35, 301);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(74, 16);
             this.labelControl10.TabIndex = 21;
@@ -371,7 +415,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(25, 219);
+            this.labelControl9.Location = new System.Drawing.Point(35, 228);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(52, 16);
             this.labelControl9.TabIndex = 20;
@@ -379,7 +423,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(638, 23);
+            this.labelControl8.Location = new System.Drawing.Point(648, 32);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(34, 16);
             this.labelControl8.TabIndex = 18;
@@ -388,7 +432,7 @@
             // deFecha
             // 
             this.deFecha.EditValue = null;
-            this.deFecha.Location = new System.Drawing.Point(705, 20);
+            this.deFecha.Location = new System.Drawing.Point(715, 29);
             this.deFecha.Name = "deFecha";
             this.deFecha.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.deFecha.Properties.Appearance.Options.UseBackColor = true;
@@ -402,7 +446,7 @@
             // 
             // txtCodDocumento
             // 
-            this.txtCodDocumento.Location = new System.Drawing.Point(143, 48);
+            this.txtCodDocumento.Location = new System.Drawing.Point(153, 57);
             this.txtCodDocumento.Name = "txtCodDocumento";
             this.txtCodDocumento.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtCodDocumento.Properties.Appearance.Options.UseBackColor = true;
@@ -412,7 +456,7 @@
             // 
             // txtNumDocumento
             // 
-            this.txtNumDocumento.Location = new System.Drawing.Point(321, 76);
+            this.txtNumDocumento.Location = new System.Drawing.Point(331, 85);
             this.txtNumDocumento.Name = "txtNumDocumento";
             this.txtNumDocumento.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtNumDocumento.Properties.Appearance.Options.UseBackColor = true;
@@ -422,7 +466,7 @@
             // 
             // txtPuntoEmision
             // 
-            this.txtPuntoEmision.Location = new System.Drawing.Point(232, 76);
+            this.txtPuntoEmision.Location = new System.Drawing.Point(242, 85);
             this.txtPuntoEmision.Name = "txtPuntoEmision";
             this.txtPuntoEmision.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtPuntoEmision.Properties.Appearance.Options.UseBackColor = true;
@@ -432,7 +476,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(25, 191);
+            this.labelControl7.Location = new System.Drawing.Point(35, 200);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(104, 16);
             this.labelControl7.TabIndex = 13;
@@ -440,7 +484,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(25, 163);
+            this.labelControl6.Location = new System.Drawing.Point(35, 172);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(73, 16);
             this.labelControl6.TabIndex = 12;
@@ -448,7 +492,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(25, 135);
+            this.labelControl5.Location = new System.Drawing.Point(35, 144);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(75, 16);
             this.labelControl5.TabIndex = 11;
@@ -456,7 +500,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(25, 107);
+            this.labelControl4.Location = new System.Drawing.Point(35, 116);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(92, 16);
             this.labelControl4.TabIndex = 10;
@@ -464,7 +508,7 @@
             // 
             // txtNombreComercial
             // 
-            this.txtNombreComercial.Location = new System.Drawing.Point(143, 188);
+            this.txtNombreComercial.Location = new System.Drawing.Point(153, 197);
             this.txtNombreComercial.Name = "txtNombreComercial";
             this.txtNombreComercial.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtNombreComercial.Properties.Appearance.Options.UseBackColor = true;
@@ -474,7 +518,7 @@
             // 
             // txtRazonSocial
             // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(143, 160);
+            this.txtRazonSocial.Location = new System.Drawing.Point(153, 169);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtRazonSocial.Properties.Appearance.Options.UseBackColor = true;
@@ -484,7 +528,7 @@
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(143, 132);
+            this.txtIdentificacion.Location = new System.Drawing.Point(153, 141);
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtIdentificacion.Properties.Appearance.Options.UseBackColor = true;
@@ -494,7 +538,7 @@
             // 
             // txtClaveAcceso
             // 
-            this.txtClaveAcceso.Location = new System.Drawing.Point(143, 104);
+            this.txtClaveAcceso.Location = new System.Drawing.Point(153, 113);
             this.txtClaveAcceso.Name = "txtClaveAcceso";
             this.txtClaveAcceso.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtClaveAcceso.Properties.Appearance.Options.UseBackColor = true;
@@ -504,7 +548,7 @@
             // 
             // txtEstablecimiento
             // 
-            this.txtEstablecimiento.Location = new System.Drawing.Point(143, 76);
+            this.txtEstablecimiento.Location = new System.Drawing.Point(153, 85);
             this.txtEstablecimiento.Name = "txtEstablecimiento";
             this.txtEstablecimiento.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtEstablecimiento.Properties.Appearance.Options.UseBackColor = true;
@@ -514,7 +558,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(25, 79);
+            this.labelControl3.Location = new System.Drawing.Point(35, 88);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(77, 16);
             this.labelControl3.TabIndex = 4;
@@ -522,7 +566,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(25, 51);
+            this.labelControl2.Location = new System.Drawing.Point(35, 60);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(25, 16);
             this.labelControl2.TabIndex = 3;
@@ -530,7 +574,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(25, 23);
+            this.labelControl1.Location = new System.Drawing.Point(35, 32);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(12, 16);
             this.labelControl1.TabIndex = 2;
@@ -538,7 +582,7 @@
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(232, 48);
+            this.txtTipo.Location = new System.Drawing.Point(242, 57);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtTipo.Properties.Appearance.Options.UseBackColor = true;
@@ -548,7 +592,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(143, 20);
+            this.txtID.Location = new System.Drawing.Point(153, 29);
             this.txtID.Name = "txtID";
             this.txtID.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtID.Properties.Appearance.Options.UseBackColor = true;
@@ -558,7 +602,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(143, 216);
+            this.txtDireccion.Location = new System.Drawing.Point(153, 225);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtDireccion.Properties.Appearance.Options.UseBackColor = true;
@@ -574,7 +618,7 @@
             this.gcRetencion.Name = "gcRetencion";
             this.gcRetencion.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCodigoSRI});
-            this.gcRetencion.Size = new System.Drawing.Size(1487, 531);
+            this.gcRetencion.Size = new System.Drawing.Size(1487, 478);
             this.gcRetencion.TabIndex = 2;
             this.gcRetencion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvRetencion});
@@ -687,10 +731,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 28);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 63);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1493, 692);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1493, 657);
             this.xtraTabControl1.TabIndex = 31;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -701,14 +745,14 @@
             // 
             this.xtraTabPage1.Controls.Add(this.panel1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1487, 661);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1487, 626);
             this.xtraTabPage1.Text = "Datos documento";
             // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.gcDetalleXML);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1487, 661);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1487, 608);
             this.xtraTabPage3.Text = "Detalle";
             // 
             // gcDetalleXML
@@ -717,7 +761,7 @@
             this.gcDetalleXML.Location = new System.Drawing.Point(0, 0);
             this.gcDetalleXML.MainView = this.gvDetalleXML;
             this.gcDetalleXML.Name = "gcDetalleXML";
-            this.gcDetalleXML.Size = new System.Drawing.Size(1487, 661);
+            this.gcDetalleXML.Size = new System.Drawing.Size(1487, 608);
             this.gcDetalleXML.TabIndex = 0;
             this.gcDetalleXML.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalleXML});
@@ -804,7 +848,7 @@
             this.xtraTabPage2.Controls.Add(this.gcRetencion);
             this.xtraTabPage2.Controls.Add(this.panel2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1487, 661);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1487, 608);
             this.xtraTabPage2.Text = "Datos retención";
             // 
             // panel2
@@ -927,46 +971,24 @@
             this.labelControl15.TabIndex = 16;
             this.labelControl15.Text = "# Retención:";
             // 
-            // cmbFormaPago
+            // panel3
             // 
-            this.cmbFormaPago.Location = new System.Drawing.Point(232, 289);
-            this.cmbFormaPago.Name = "cmbFormaPago";
-            this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbFormaPago.Properties.DisplayMember = "nom_FormaPago";
-            this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
-            this.cmbFormaPago.Properties.View = this.gridView6;
-            this.cmbFormaPago.Size = new System.Drawing.Size(617, 22);
-            this.cmbFormaPago.TabIndex = 55;
+            this.panel3.Controls.Add(this.lblMicroEmpresa);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1493, 35);
+            this.panel3.TabIndex = 32;
             // 
-            // gridView6
+            // lblMicroEmpresa
             // 
-            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn13,
-            this.gridColumn14});
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowAutoFilterRow = true;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "ID";
-            this.gridColumn13.FieldName = "IdFormaPago";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 1;
-            this.gridColumn13.Width = 503;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "Forma pago";
-            this.gridColumn14.FieldName = "nom_FormaPago";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 0;
-            this.gridColumn14.Width = 1231;
+            this.lblMicroEmpresa.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMicroEmpresa.Location = new System.Drawing.Point(350, 2);
+            this.lblMicroEmpresa.Name = "lblMicroEmpresa";
+            this.lblMicroEmpresa.Size = new System.Drawing.Size(412, 33);
+            this.lblMicroEmpresa.TabIndex = 3;
+            this.lblMicroEmpresa.Text = "REGIMEN DE MICROEMPRESA";
+            this.lblMicroEmpresa.Visible = false;
             // 
             // frmCP_XML_Mantenimiento
             // 
@@ -974,6 +996,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1493, 720);
             this.Controls.Add(this.xtraTabControl1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
             this.Name = "frmCP_XML_Mantenimiento";
             this.Text = "frmCP_XML_Mantenimiento";
@@ -981,6 +1004,8 @@
             this.Load += new System.EventHandler(this.frmCP_XML_Mantenimiento_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContribuyente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIVA.Properties)).EndInit();
@@ -1021,8 +1046,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRetNumeroDocumento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetPuntoEmision.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetEstablecimiento.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1104,6 +1129,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private System.Windows.Forms.Panel panel3;
+        private DevExpress.XtraEditors.LabelControl lblMicroEmpresa;
 
     }
 }

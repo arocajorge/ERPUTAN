@@ -121,6 +121,7 @@
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_Info.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_det_Info.cs" />
+    <Compile Include="CuentasxPagar\cp_proveedor_microempresa_Info.cs" />
     <Compile Include="CuentasxPagar\cp_RutaPorEmpresaPorUsuario_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_DocumentoDet_Info.cs" />
     <Compile Include="CuentasxPagar\cp_XML_DocumentoRetAnuladoDet_Info.cs" />

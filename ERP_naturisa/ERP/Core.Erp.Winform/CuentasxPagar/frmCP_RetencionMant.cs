@@ -35,7 +35,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         decimal IdProveedor;
         double sumValorRet = 0;
         FrmGe_MotivoAnulacion frm = new FrmGe_MotivoAnulacion();
-        
+        cp_proveedor_Bus busProveedor = new cp_proveedor_Bus();
         
         #region Declaración de Variables
         //Bus        
@@ -63,7 +63,9 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_retencion_Info infoRetencion = new cp_retencion_Info();
         ct_Cbtecble_Info InfoCbteCble = new ct_Cbtecble_Info();
         cp_retencion_Info Info_Retencion = new cp_retencion_Info();
-                
+
+        cp_proveedor_microempresa_Bus busMicroEmpresa = new cp_proveedor_microempresa_Bus();
+
         //Variables
         double sumBaseIVA = 0;
         double sumBaseRTF = 0;
@@ -448,7 +450,11 @@ namespace Core.Erp.Winform.CuentasxPagar
                
                 frm.ShowDialog();
                 infoSinReten = frm.Info;
-
+                if (infoSinReten == null)
+                {
+                    Inicializar_Controles();
+                    return;
+                }
                 txtNumCbte.Text = Convert.ToString(infoSinReten.IdCbteCble_Ogiro);
                 txtNumDoc.Text = infoSinReten.co_serie + " - " + infoSinReten.co_factura;
                 txtProveedor.Text = infoSinReten.pr_nombre;
@@ -481,7 +487,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                 ucCp_Retencion1.GeneraDiarioRetencion();
 
 
-
+                var proveedor = busProveedor.Get_Info_Proveedor(param.IdEmpresa, infoSinReten.IdProveedor);
+                if (proveedor != null)
+                {
+                    var MicroEmpresa = busMicroEmpresa.GetInfo(proveedor.Persona_Info.pe_cedulaRuc);
+                    lblMicroEmpresa.Visible = MicroEmpresa == null ? false : true;
+                }
+                else
+                    lblMicroEmpresa.Visible = false;
             }
             catch (Exception ex)
             {
@@ -770,7 +783,14 @@ namespace Core.Erp.Winform.CuentasxPagar
                         
                 ucCp_Retencion1.setInfo_DiarioRetencion(infoRetCbteCble.ct_IdEmpresa, infoRetCbteCble.ct_IdTipoCbte, infoRetCbteCble.ct_IdCbteCble);
 
-
+                var proveedor = busProveedor.Get_Info_Proveedor(param.IdEmpresa, infOgiro.IdProveedor);
+                if (proveedor != null)
+                {
+                    var MicroEmpresa = busMicroEmpresa.GetInfo(proveedor.Persona_Info.pe_cedulaRuc);
+                    lblMicroEmpresa.Visible = MicroEmpresa == null ? false : true;
+                }
+                else
+                    lblMicroEmpresa.Visible = false;
             }
             catch (Exception ex)
             {               

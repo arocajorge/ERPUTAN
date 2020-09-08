@@ -154,6 +154,7 @@
             this.tp_retencion = new DevExpress.XtraTab.XtraTabPage();
             this.ucCp_Retencion1 = new Core.Erp.Winform.Controles.UCCp_Retencion();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMicroEmpresa = new DevExpress.XtraEditors.LabelControl();
             this.chk_TieneRetencion = new System.Windows.Forms.CheckBox();
             this.tp_campos_ND = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -239,6 +240,7 @@
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.impordencompraextximpgastosxImportInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpreembolsoInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -326,6 +328,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoDocumento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2View)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageCollection1
@@ -986,11 +989,11 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 246);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 280);
             this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.tp_Datos_generales;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1363, 434);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1363, 400);
             this.xtraTabControl1.TabIndex = 33;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tp_Datos_generales,
@@ -1736,7 +1739,7 @@
             this.tp_retencion.Controls.Add(this.panel1);
             this.tp_retencion.Margin = new System.Windows.Forms.Padding(4);
             this.tp_retencion.Name = "tp_retencion";
-            this.tp_retencion.Size = new System.Drawing.Size(1357, 403);
+            this.tp_retencion.Size = new System.Drawing.Size(1357, 369);
             this.tp_retencion.Text = "Datos retención";
             // 
             // ucCp_Retencion1
@@ -1745,7 +1748,7 @@
             this.ucCp_Retencion1.Location = new System.Drawing.Point(0, 38);
             this.ucCp_Retencion1.Margin = new System.Windows.Forms.Padding(5);
             this.ucCp_Retencion1.Name = "ucCp_Retencion1";
-            this.ucCp_Retencion1.Size = new System.Drawing.Size(1357, 365);
+            this.ucCp_Retencion1.Size = new System.Drawing.Size(1357, 331);
             this.ucCp_Retencion1.TabIndex = 112;
             this.ucCp_Retencion1.Load += new System.EventHandler(this.ucCp_Retencion1_Load);
             // 
@@ -1758,6 +1761,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1357, 38);
             this.panel1.TabIndex = 109;
+            // 
+            // lblMicroEmpresa
+            // 
+            this.lblMicroEmpresa.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMicroEmpresa.Location = new System.Drawing.Point(474, 0);
+            this.lblMicroEmpresa.Name = "lblMicroEmpresa";
+            this.lblMicroEmpresa.Size = new System.Drawing.Size(412, 33);
+            this.lblMicroEmpresa.TabIndex = 26;
+            this.lblMicroEmpresa.Text = "REGIMEN DE MICROEMPRESA";
+            this.lblMicroEmpresa.Visible = false;
             // 
             // chk_TieneRetencion
             // 
@@ -2637,6 +2650,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.xtraTabControl1);
+            this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 36);
@@ -2644,6 +2658,15 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1363, 680);
             this.panel4.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblMicroEmpresa);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 246);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1363, 34);
+            this.panel2.TabIndex = 34;
             // 
             // frmCP_OrdenGiroMantenimiento
             // 
@@ -2755,6 +2778,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoDocumento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2View)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2971,5 +2996,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit2View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
+        private DevExpress.XtraEditors.LabelControl lblMicroEmpresa;
+        private System.Windows.Forms.Panel panel2;
     }
 }

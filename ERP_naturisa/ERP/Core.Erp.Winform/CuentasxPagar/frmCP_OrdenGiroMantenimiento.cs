@@ -48,6 +48,8 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_orden_giro_det_Bus busOgDet = new cp_orden_giro_det_Bus();
         tb_Catalogo_Bus busCatalogoGen = new tb_Catalogo_Bus();
         BindingList<cp_reembolso_Info> blstReembolso = new BindingList<cp_reembolso_Info>();
+        cp_proveedor_microempresa_Bus busMicroEmpresa = new cp_proveedor_microempresa_Bus();
+        
         #region declaracion de variables y delegados
         string IdCtaCble_Proveedor = "";
         string nomProveedor = "";
@@ -326,9 +328,9 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                lblMicroEmpresa.Visible = false;
                 try
                 {
-
                     if (chk_TieneRetencion.Checked == true)
                    {
 
@@ -350,6 +352,9 @@ namespace Core.Erp.Winform.CuentasxPagar
                     }
                     if (ucCp_Proveedor1.get_ProveedorInfo() != null)
                     {
+                        var MicroEmpresa = busMicroEmpresa.GetInfo(ucCp_Proveedor1.get_ProveedorInfo().Persona_Info.pe_cedulaRuc);
+                        lblMicroEmpresa.Visible = MicroEmpresa == null ? false : true;
+
                         frmCP_Alerta_Anticipos_x_NotasCreditos ofrm = new frmCP_Alerta_Anticipos_x_NotasCreditos();
                         ofrm.IdEmpresa = param.IdEmpresa;
                         ofrm.IProveedor = ucCp_Proveedor1.get_ProveedorInfo().IdProveedor;

@@ -185,6 +185,7 @@
         <EntityTypeShape EntityType="ModelCuentasxPagar.vwcp_XML_Documento" Width="1.5" PointX="8.0600140821468145" PointY="19.3734844715211" />
         <EntityTypeShape EntityType="ModelCuentasxPagar.cp_reembolso" Width="1.5" PointX="7.6115911694297527" PointY="18.89761064336524" />
         <AssociationConnector Association="ModelCuentasxPagar.FK_cp_reembolso_cp_orden_giro" />
+        <EntityTypeShape EntityType="ModelCuentasxPagar.cp_proveedor_microempresa" Width="1.5" PointX="0.90197986406366326" PointY="29.237297235632919" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

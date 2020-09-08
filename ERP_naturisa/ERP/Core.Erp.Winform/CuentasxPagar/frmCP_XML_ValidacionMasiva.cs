@@ -159,5 +159,10 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             this.Close();
         }
+
+        private void frmCP_XML_ValidacionMasiva_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

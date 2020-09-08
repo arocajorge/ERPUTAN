@@ -26,6 +26,7 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -151,6 +152,7 @@ namespace Core.Erp.Data
         public DbSet<vwcp_proveedor_ValidarAnticipos> vwcp_proveedor_ValidarAnticipos { get; set; }
         public DbSet<vwcp_XML_Documento> vwcp_XML_Documento { get; set; }
         public DbSet<cp_reembolso> cp_reembolso { get; set; }
+        public DbSet<cp_proveedor_microempresa> cp_proveedor_microempresa { get; set; }
     
         public virtual ObjectResult<string> spCXP_eliminar_factura_vale_conciliacion_caja(Nullable<int> idEmpresa, Nullable<int> idTipoCbte, Nullable<decimal> idCbteCble, string tipoCbte_conci, Nullable<bool> borrar_o_desvincular)
         {

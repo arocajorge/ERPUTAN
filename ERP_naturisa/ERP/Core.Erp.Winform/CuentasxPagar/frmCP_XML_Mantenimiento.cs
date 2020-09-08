@@ -29,6 +29,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         cp_XML_Documento_Bus bus_xml;
         cp_XML_DocumentoDet_Bus bus_xml_det;
         fa_formaPago_Bus busFormaPago;
+        cp_proveedor_microempresa_Bus busMicroEmpresa;
         #endregion
 
         #region Delegados
@@ -56,6 +57,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             bus_xml = new cp_XML_Documento_Bus();
             bus_xml_det = new cp_XML_DocumentoDet_Bus();
             busFormaPago = new fa_formaPago_Bus();
+            busMicroEmpresa = new cp_proveedor_microempresa_Bus();
             event_delegate_frmCP_XML_Mantenimiento_FormClosed += frmCP_XML_Mantenimiento_event_delegate_frmCP_XML_Mantenimiento_FormClosed;
         }
 
@@ -136,6 +138,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                 
 
                 gcDetalleXML.DataSource = bus_xml_det.GetList(param.IdEmpresa, info.IdDocumento);
+                var MicroEmpresa = busMicroEmpresa.GetInfo(info.emi_Ruc);
+                lblMicroEmpresa.Visible = MicroEmpresa == null ? false : true;
             }
             catch (Exception)
             {

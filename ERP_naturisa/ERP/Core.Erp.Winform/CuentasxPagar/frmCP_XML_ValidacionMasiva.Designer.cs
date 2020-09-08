@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblContador = new DevExpress.XtraEditors.LabelControl();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRutaXml = new DevExpress.XtraEditors.ButtonEdit();
@@ -48,7 +49,6 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblContador = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaXml.Properties)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -67,6 +67,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1111, 55);
             this.panel1.TabIndex = 3;
+            // 
+            // lblContador
+            // 
+            this.lblContador.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContador.Location = new System.Drawing.Point(980, 13);
+            this.lblContador.Name = "lblContador";
+            this.lblContador.Size = new System.Drawing.Size(11, 21);
+            this.lblContador.TabIndex = 52;
+            this.lblContador.Text = "0";
             // 
             // btnRefrescar
             // 
@@ -244,15 +253,6 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 7;
             // 
-            // lblContador
-            // 
-            this.lblContador.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContador.Location = new System.Drawing.Point(980, 13);
-            this.lblContador.Name = "lblContador";
-            this.lblContador.Size = new System.Drawing.Size(11, 21);
-            this.lblContador.TabIndex = 52;
-            this.lblContador.Text = "0";
-            // 
             // frmCP_XML_ValidacionMasiva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -263,6 +263,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmCP_XML_ValidacionMasiva";
             this.Text = "Validación de documentos digitalizados";
+            this.Load += new System.EventHandler(this.frmCP_XML_ValidacionMasiva_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRutaXml.Properties)).EndInit();

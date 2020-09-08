@@ -49,6 +49,7 @@
           <EntitySet Name="cp_proveedor_clase" EntityType="ModelCuentasxPagar.Store.cp_proveedor_clase" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cp_proveedor_codigo_SRI" EntityType="ModelCuentasxPagar.Store.cp_proveedor_codigo_SRI" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cp_proveedor_contactos" EntityType="ModelCuentasxPagar.Store.cp_proveedor_contactos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cp_proveedor_microempresa" EntityType="ModelCuentasxPagar.Store.cp_proveedor_microempresa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cp_reembolso" EntityType="ModelCuentasxPagar.Store.cp_reembolso" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cp_retencion" EntityType="ModelCuentasxPagar.Store.cp_retencion" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cp_retencion_det" EntityType="ModelCuentasxPagar.Store.cp_retencion_det" store:Type="Tables" Schema="dbo" />
@@ -3202,6 +3203,13 @@
           <Property Name="IdEmpresa_cont" Type="int" Nullable="false" />
           <Property Name="IdContacto" Type="numeric" Nullable="false" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cp_proveedor_microempresa">
+          <Key>
+            <PropertyRef Name="Ruc" />
+          </Key>
+          <Property Name="Ruc" Type="varchar" Nullable="false" MaxLength="13" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="500" />
         </EntityType>
         <EntityType Name="cp_reembolso">
           <Key>
@@ -7883,6 +7891,7 @@
             <End Role="cp_orden_giro" EntitySet="cp_orden_giro" />
             <End Role="cp_reembolso" EntitySet="cp_reembolso" />
           </AssociationSet>
+          <EntitySet Name="cp_proveedor_microempresa" EntityType="ModelCuentasxPagar.cp_proveedor_microempresa" />
           </EntityContainer>
         <EntityType Name="cp_Aprobacion_Ing_Bod_x_OC">
           <Key>
@@ -13080,6 +13089,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="cp_proveedor_microempresa">
+          <Key>
+            <PropertyRef Name="Ruc" />
+          </Key>
+          <Property Type="String" Name="Ruc" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -16436,6 +16452,14 @@
                 <ScalarProperty Name="IdTipoCbte_Ogiro" ColumnName="IdTipoCbte_Ogiro" />
                 <ScalarProperty Name="IdCbteCble_Ogiro" ColumnName="IdCbteCble_Ogiro" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cp_proveedor_microempresa">
+            <EntityTypeMapping TypeName="ModelCuentasxPagar.cp_proveedor_microempresa">
+              <MappingFragment StoreEntitySet="cp_proveedor_microempresa">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Ruc" ColumnName="Ruc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

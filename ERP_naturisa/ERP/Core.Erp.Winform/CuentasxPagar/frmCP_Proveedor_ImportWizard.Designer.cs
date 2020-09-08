@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCP_Proveedor_ImportWizard));
             this.wizardControl1 = new DevExpress.XtraWizard.WizardControl();
@@ -79,7 +80,7 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.wizardPage5 = new DevExpress.XtraWizard.WizardPage();
-            this.imageList_Iconos = new System.Windows.Forms.ImageList();
+            this.imageList_Iconos = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
             this.wizardPageEstadoGrabacion.SuspendLayout();
@@ -114,6 +115,7 @@
             this.wizardControl1.Controls.Add(this.wizardPage6);
             this.wizardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardControl1.Location = new System.Drawing.Point(0, 0);
+            this.wizardControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardControl1.Name = "wizardControl1";
             this.wizardControl1.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
             this.wizardPageEstadoGrabacion,
@@ -123,7 +125,7 @@
             this.wizardPage3,
             this.wizardPage6,
             this.completionWizardPage1});
-            this.wizardControl1.Size = new System.Drawing.Size(778, 448);
+            this.wizardControl1.Size = new System.Drawing.Size(1037, 551);
             this.wizardControl1.Text = "Asistente de proveedores";
             this.wizardControl1.CancelClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_CancelClick);
             this.wizardControl1.FinishClick += new System.ComponentModel.CancelEventHandler(this.wizardControl1_FinishClick);
@@ -134,16 +136,18 @@
             this.wizardPageEstadoGrabacion.Controls.Add(this.pictureBox3);
             this.wizardPageEstadoGrabacion.IntroductionText = "Este asistente le ayudara a importar correctamente su plan de cuentas en 3 simple" +
     "s pasos.";
+            this.wizardPageEstadoGrabacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardPageEstadoGrabacion.Name = "wizardPageEstadoGrabacion";
-            this.wizardPageEstadoGrabacion.Size = new System.Drawing.Size(561, 292);
+            this.wizardPageEstadoGrabacion.Size = new System.Drawing.Size(820, 402);
             this.wizardPageEstadoGrabacion.Text = "Bienvenido al asistente de importación de proveedores";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(422, 165);
+            this.pictureBox3.Location = new System.Drawing.Point(563, 203);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(136, 134);
+            this.pictureBox3.Size = new System.Drawing.Size(181, 165);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
@@ -158,8 +162,9 @@
             this.wizardPage1.Controls.Add(this.txtSeleccion);
             this.wizardPage1.Controls.Add(this.btnSeleccion);
             this.wizardPage1.DescriptionText = "1.- Seleccione la ruta deseada.";
+            this.wizardPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardPage1.Name = "wizardPage1";
-            this.wizardPage1.Size = new System.Drawing.Size(746, 303);
+            this.wizardPage1.Size = new System.Drawing.Size(1005, 395);
             this.wizardPage1.Text = "Asistente de importación: Seleccion de archivo excel.";
             // 
             // lblLink
@@ -167,9 +172,10 @@
             this.lblLink.AutoSize = true;
             this.lblLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLink.ForeColor = System.Drawing.Color.Blue;
-            this.lblLink.Location = new System.Drawing.Point(33, 213);
+            this.lblLink.Location = new System.Drawing.Point(44, 262);
+            this.lblLink.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLink.Name = "lblLink";
-            this.lblLink.Size = new System.Drawing.Size(164, 13);
+            this.lblLink.Size = new System.Drawing.Size(221, 17);
             this.lblLink.TabIndex = 7;
             this.lblLink.Text = "Plantilla ejemplo - descargue aqui";
             this.lblLink.Click += new System.EventHandler(this.lblLink_Click);
@@ -177,9 +183,10 @@
             // lblMsg1
             // 
             this.lblMsg1.AutoSize = true;
-            this.lblMsg1.Location = new System.Drawing.Point(357, 213);
+            this.lblMsg1.Location = new System.Drawing.Point(476, 262);
+            this.lblMsg1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMsg1.Name = "lblMsg1";
-            this.lblMsg1.Size = new System.Drawing.Size(252, 13);
+            this.lblMsg1.Size = new System.Drawing.Size(336, 17);
             this.lblMsg1.TabIndex = 6;
             this.lblMsg1.Text = "Espere un momento, obteniendo hojas de calculo....";
             this.lblMsg1.Visible = false;
@@ -187,9 +194,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 174);
+            this.pictureBox1.Size = new System.Drawing.Size(264, 214);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -200,33 +208,37 @@
             this.cmbHoja.FormattingEnabled = true;
             this.cmbHoja.Items.AddRange(new object[] {
             "Plantilla"});
-            this.cmbHoja.Location = new System.Drawing.Point(449, 115);
+            this.cmbHoja.Location = new System.Drawing.Point(599, 142);
+            this.cmbHoja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbHoja.Name = "cmbHoja";
-            this.cmbHoja.Size = new System.Drawing.Size(121, 21);
+            this.cmbHoja.Size = new System.Drawing.Size(160, 24);
             this.cmbHoja.TabIndex = 4;
             // 
             // lblHoja
             // 
             this.lblHoja.AutoSize = true;
-            this.lblHoja.Location = new System.Drawing.Point(262, 115);
+            this.lblHoja.Location = new System.Drawing.Point(349, 142);
+            this.lblHoja.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoja.Name = "lblHoja";
-            this.lblHoja.Size = new System.Drawing.Size(150, 13);
+            this.lblHoja.Size = new System.Drawing.Size(198, 17);
             this.lblHoja.TabIndex = 2;
             this.lblHoja.Text = "Nombre de la Hoja de calculo:";
             // 
             // txtSeleccion
             // 
-            this.txtSeleccion.Location = new System.Drawing.Point(449, 78);
+            this.txtSeleccion.Location = new System.Drawing.Point(599, 96);
+            this.txtSeleccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSeleccion.Name = "txtSeleccion";
-            this.txtSeleccion.Size = new System.Drawing.Size(268, 20);
+            this.txtSeleccion.Size = new System.Drawing.Size(356, 22);
             this.txtSeleccion.TabIndex = 1;
             this.txtSeleccion.Text = "C:\\Plantillas\\Plantilla Plan de Proveedor itCorp.xlsx";
             // 
             // btnSeleccion
             // 
-            this.btnSeleccion.Location = new System.Drawing.Point(279, 78);
+            this.btnSeleccion.Location = new System.Drawing.Point(372, 96);
+            this.btnSeleccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSeleccion.Name = "btnSeleccion";
-            this.btnSeleccion.Size = new System.Drawing.Size(133, 23);
+            this.btnSeleccion.Size = new System.Drawing.Size(177, 28);
             this.btnSeleccion.TabIndex = 0;
             this.btnSeleccion.Text = "Seleccione el archivo:";
             this.btnSeleccion.UseVisualStyleBackColor = true;
@@ -237,24 +249,27 @@
             this.completionWizardPage1.Controls.Add(this.label1);
             this.completionWizardPage1.Controls.Add(this.rtbLog);
             this.completionWizardPage1.FinishText = "Ud ha finalizado el asistente de importación";
+            this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.completionWizardPage1.Name = "completionWizardPage1";
-            this.completionWizardPage1.Size = new System.Drawing.Size(561, 315);
+            this.completionWizardPage1.Size = new System.Drawing.Size(820, 402);
             this.completionWizardPage1.Text = "Finalizando el Asistente de importación";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 22);
+            this.label1.Location = new System.Drawing.Point(51, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(129, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Informe de errores:";
             // 
             // rtbLog
             // 
-            this.rtbLog.Location = new System.Drawing.Point(41, 38);
+            this.rtbLog.Location = new System.Drawing.Point(55, 47);
+            this.rtbLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtbLog.Name = "rtbLog";
-            this.rtbLog.Size = new System.Drawing.Size(468, 244);
+            this.rtbLog.Size = new System.Drawing.Size(623, 299);
             this.rtbLog.TabIndex = 0;
             this.rtbLog.Text = "";
             // 
@@ -262,17 +277,20 @@
             // 
             this.wizardPage2.Controls.Add(this.gridControlProveedor);
             this.wizardPage2.DescriptionText = "2.- Previsualizacion del plan de cuentas a importar";
+            this.wizardPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardPage2.Name = "wizardPage2";
-            this.wizardPage2.Size = new System.Drawing.Size(746, 303);
+            this.wizardPage2.Size = new System.Drawing.Size(1005, 395);
             this.wizardPage2.Text = "Asistente de importación: Verificacion de datos";
             // 
             // gridControlProveedor
             // 
             this.gridControlProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlProveedor.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlProveedor.Location = new System.Drawing.Point(0, 0);
             this.gridControlProveedor.MainView = this.UltraGridProveedor;
+            this.gridControlProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlProveedor.Name = "gridControlProveedor";
-            this.gridControlProveedor.Size = new System.Drawing.Size(746, 303);
+            this.gridControlProveedor.Size = new System.Drawing.Size(1005, 395);
             this.gridControlProveedor.TabIndex = 16;
             this.gridControlProveedor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.UltraGridProveedor});
@@ -353,16 +371,18 @@
             this.wizardPage3.Controls.Add(this.pictureBox2);
             this.wizardPage3.Controls.Add(this.rgImportar);
             this.wizardPage3.DescriptionText = "3.- Seleccione la forma de ingresar sus datos.";
+            this.wizardPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardPage3.Name = "wizardPage3";
-            this.wizardPage3.Size = new System.Drawing.Size(746, 303);
+            this.wizardPage3.Size = new System.Drawing.Size(1005, 395);
             this.wizardPage3.Text = "Asistente de importación";
             // 
             // lblmsg3
             // 
             this.lblmsg3.AutoSize = true;
-            this.lblmsg3.Location = new System.Drawing.Point(332, 256);
+            this.lblmsg3.Location = new System.Drawing.Point(443, 315);
+            this.lblmsg3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblmsg3.Name = "lblmsg3";
-            this.lblmsg3.Size = new System.Drawing.Size(208, 13);
+            this.lblmsg3.Size = new System.Drawing.Size(281, 17);
             this.lblmsg3.TabIndex = 2;
             this.lblmsg3.Text = "Espere un momento, Insertando registros...";
             this.lblmsg3.Visible = false;
@@ -370,21 +390,23 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(148, 23);
+            this.pictureBox2.Location = new System.Drawing.Point(197, 28);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(229, 183);
+            this.pictureBox2.Size = new System.Drawing.Size(305, 225);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // rgImportar
             // 
-            this.rgImportar.Location = new System.Drawing.Point(484, 43);
+            this.rgImportar.Location = new System.Drawing.Point(645, 53);
+            this.rgImportar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rgImportar.Name = "rgImportar";
             this.rgImportar.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Sobreescribir todo."),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Añadir y mantener existentes.")});
-            this.rgImportar.Size = new System.Drawing.Size(227, 96);
+            this.rgImportar.Size = new System.Drawing.Size(303, 118);
             this.rgImportar.TabIndex = 0;
             // 
             // wizardPage4
@@ -395,67 +417,76 @@
             this.wizardPage4.Controls.Add(this.ucCon_PlanCtaCmb_CxC_Gastos);
             this.wizardPage4.Controls.Add(this.ucCon_PlanCtaCmb_CxC_Anticipos);
             this.wizardPage4.Controls.Add(this.ucCon_PlanCtaCmb_CxP_Proveedores);
+            this.wizardPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardPage4.Name = "wizardPage4";
-            this.wizardPage4.Size = new System.Drawing.Size(746, 303);
+            this.wizardPage4.Size = new System.Drawing.Size(1005, 395);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(130, 158);
+            this.label4.Location = new System.Drawing.Point(173, 194);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 13);
+            this.label4.Size = new System.Drawing.Size(149, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Cta. por Pagar Gastos";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(130, 117);
+            this.label3.Location = new System.Drawing.Point(173, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.Size = new System.Drawing.Size(161, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Cta. por Pagar Anticipos";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(130, 71);
+            this.label2.Location = new System.Drawing.Point(173, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 13);
+            this.label2.Size = new System.Drawing.Size(185, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Cta. por Pagar Proveedores";
             // 
             // ucCon_PlanCtaCmb_CxC_Gastos
             // 
-            this.ucCon_PlanCtaCmb_CxC_Gastos.Location = new System.Drawing.Point(285, 153);
+            this.ucCon_PlanCtaCmb_CxC_Gastos.Location = new System.Drawing.Point(380, 188);
+            this.ucCon_PlanCtaCmb_CxC_Gastos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucCon_PlanCtaCmb_CxC_Gastos.Name = "ucCon_PlanCtaCmb_CxC_Gastos";
-            this.ucCon_PlanCtaCmb_CxC_Gastos.Size = new System.Drawing.Size(342, 26);
+            this.ucCon_PlanCtaCmb_CxC_Gastos.Size = new System.Drawing.Size(456, 32);
             this.ucCon_PlanCtaCmb_CxC_Gastos.TabIndex = 8;
             // 
             // ucCon_PlanCtaCmb_CxC_Anticipos
             // 
-            this.ucCon_PlanCtaCmb_CxC_Anticipos.Location = new System.Drawing.Point(285, 110);
+            this.ucCon_PlanCtaCmb_CxC_Anticipos.Location = new System.Drawing.Point(380, 135);
+            this.ucCon_PlanCtaCmb_CxC_Anticipos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucCon_PlanCtaCmb_CxC_Anticipos.Name = "ucCon_PlanCtaCmb_CxC_Anticipos";
-            this.ucCon_PlanCtaCmb_CxC_Anticipos.Size = new System.Drawing.Size(342, 26);
+            this.ucCon_PlanCtaCmb_CxC_Anticipos.Size = new System.Drawing.Size(456, 32);
             this.ucCon_PlanCtaCmb_CxC_Anticipos.TabIndex = 7;
             // 
             // ucCon_PlanCtaCmb_CxP_Proveedores
             // 
-            this.ucCon_PlanCtaCmb_CxP_Proveedores.Location = new System.Drawing.Point(285, 65);
+            this.ucCon_PlanCtaCmb_CxP_Proveedores.Location = new System.Drawing.Point(380, 80);
+            this.ucCon_PlanCtaCmb_CxP_Proveedores.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucCon_PlanCtaCmb_CxP_Proveedores.Name = "ucCon_PlanCtaCmb_CxP_Proveedores";
-            this.ucCon_PlanCtaCmb_CxP_Proveedores.Size = new System.Drawing.Size(342, 26);
+            this.ucCon_PlanCtaCmb_CxP_Proveedores.Size = new System.Drawing.Size(456, 32);
             this.ucCon_PlanCtaCmb_CxP_Proveedores.TabIndex = 6;
             // 
             // wizardPage6
             // 
             this.wizardPage6.Controls.Add(this.splitContainer1);
+            this.wizardPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wizardPage6.Name = "wizardPage6";
-            this.wizardPage6.Size = new System.Drawing.Size(746, 303);
+            this.wizardPage6.Size = new System.Drawing.Size(1005, 395);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -469,17 +500,20 @@
             this.splitContainer1.Panel2.Controls.Add(this.lblNumRegistros);
             this.splitContainer1.Panel2.Controls.Add(this.btn_procesar);
             this.splitContainer1.Panel2.Controls.Add(this.progressBar);
-            this.splitContainer1.Size = new System.Drawing.Size(746, 303);
-            this.splitContainer1.SplitterDistance = 230;
+            this.splitContainer1.Size = new System.Drawing.Size(1005, 395);
+            this.splitContainer1.SplitterDistance = 299;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // gridControl_estado_grab_x_proveedor
             // 
             this.gridControl_estado_grab_x_proveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_estado_grab_x_proveedor.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_estado_grab_x_proveedor.Location = new System.Drawing.Point(0, 0);
             this.gridControl_estado_grab_x_proveedor.MainView = this.gridView_proveedores;
+            this.gridControl_estado_grab_x_proveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl_estado_grab_x_proveedor.Name = "gridControl_estado_grab_x_proveedor";
-            this.gridControl_estado_grab_x_proveedor.Size = new System.Drawing.Size(746, 230);
+            this.gridControl_estado_grab_x_proveedor.Size = new System.Drawing.Size(1005, 299);
             this.gridControl_estado_grab_x_proveedor.TabIndex = 0;
             this.gridControl_estado_grab_x_proveedor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_proveedores});
@@ -546,9 +580,10 @@
             this.lblMensaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensaje.ForeColor = System.Drawing.Color.Red;
-            this.lblMensaje.Location = new System.Drawing.Point(19, 41);
+            this.lblMensaje.Location = new System.Drawing.Point(25, 50);
+            this.lblMensaje.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(110, 15);
+            this.lblMensaje.Size = new System.Drawing.Size(141, 19);
             this.lblMensaje.TabIndex = 6;
             this.lblMensaje.Text = "**Error al cargar**";
             this.lblMensaje.Visible = false;
@@ -558,27 +593,30 @@
             // 
             this.lblNumRegistros.AutoSize = true;
             this.lblNumRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumRegistros.Location = new System.Drawing.Point(6, 28);
+            this.lblNumRegistros.Location = new System.Drawing.Point(8, 34);
+            this.lblNumRegistros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumRegistros.Name = "lblNumRegistros";
-            this.lblNumRegistros.Size = new System.Drawing.Size(27, 13);
+            this.lblNumRegistros.Size = new System.Drawing.Size(31, 17);
             this.lblNumRegistros.TabIndex = 5;
             this.lblNumRegistros.Text = "0/0";
             this.lblNumRegistros.Click += new System.EventHandler(this.lblNumRegistros_Click);
             // 
             // btn_procesar
             // 
-            this.btn_procesar.Location = new System.Drawing.Point(609, 11);
+            this.btn_procesar.Location = new System.Drawing.Point(812, 14);
+            this.btn_procesar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_procesar.Name = "btn_procesar";
-            this.btn_procesar.Size = new System.Drawing.Size(118, 24);
+            this.btn_procesar.Size = new System.Drawing.Size(157, 30);
             this.btn_procesar.TabIndex = 4;
             this.btn_procesar.Text = "Procesar";
             this.btn_procesar.Click += new System.EventHandler(this.btn_procesar_Click);
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(192, 12);
+            this.progressBar.Location = new System.Drawing.Point(256, 15);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(399, 23);
+            this.progressBar.Size = new System.Drawing.Size(532, 28);
             this.progressBar.TabIndex = 0;
             // 
             // saveFileDialog1
@@ -600,10 +638,11 @@
             // 
             // frmCP_Proveedor_ImportWizard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 448);
+            this.ClientSize = new System.Drawing.Size(1037, 551);
             this.Controls.Add(this.wizardControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmCP_Proveedor_ImportWizard";
             this.Text = "frmCP_Proveedor_ImportWizard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCP_Proveedor_ImportWizard_FormClosing);

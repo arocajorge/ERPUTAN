@@ -63,7 +63,7 @@
             // cmb_proveedor
             // 
             this.cmb_proveedor.Location = new System.Drawing.Point(4, 1);
-            this.cmb_proveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_proveedor.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_proveedor.Name = "cmb_proveedor";
             this.cmb_proveedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -172,7 +172,7 @@
             this.cmb_Acciones.ImageIndex = 1;
             this.cmb_Acciones.ImageList = this.imageList1;
             this.cmb_Acciones.Location = new System.Drawing.Point(340, 0);
-            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmb_Acciones.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_Acciones.Name = "cmb_Acciones";
             this.cmb_Acciones.ShowArrowButton = false;
             this.cmb_Acciones.Size = new System.Drawing.Size(57, 27);
@@ -232,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmb_Acciones);
             this.Controls.Add(this.cmb_proveedor);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCCp_Proveedor";
             this.Size = new System.Drawing.Size(397, 32);
             this.Load += new System.EventHandler(this.UCCp_Proveedor_Load);
@@ -245,7 +245,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SearchLookUpEdit cmb_proveedor;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraEditors.DropDownButton cmb_Acciones;
         private System.Windows.Forms.ContextMenuStrip MenuAcciones;
@@ -262,5 +261,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colpr_contribuyenteEspecial;
         private DevExpress.XtraGrid.Columns.GridColumn colIdTipoDocumento;
         private DevExpress.XtraGrid.Columns.GridColumn gridSEstado;
+        public DevExpress.XtraEditors.SearchLookUpEdit cmb_proveedor;
     }
 }

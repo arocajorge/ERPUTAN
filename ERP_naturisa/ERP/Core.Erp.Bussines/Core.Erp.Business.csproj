@@ -273,6 +273,7 @@
     <Compile Include="CuentasxPagar\cp_proveedor_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_proveedor_clase_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_proveedor_codigo_SRI_Bus.cs" />
+    <Compile Include="CuentasxPagar\cp_proveedor_microempresa_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_reembolso_Bus.cs" />
     <Compile Include="CuentasxPagar\cp_retencion_Bus.cs" />
     <Compile Include="CuentasxCobrar\cxc_cobro_Bus.cs" />

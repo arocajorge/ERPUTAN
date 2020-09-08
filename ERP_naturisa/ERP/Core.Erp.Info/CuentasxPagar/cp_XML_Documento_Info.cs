@@ -78,5 +78,7 @@ namespace Core.Erp.Info.CuentasxPagar
         #endregion
 
 
+
+        public bool EsMicroEmpresa { get; set; }
     }
 }
