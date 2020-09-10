@@ -24,7 +24,31 @@ namespace Core.Erp.Business.Compras
             }
         }
 
+        public List<com_OrdenPedido_Info> GetListRegularizacion(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+        {
+            try
+            {
+                return odata.GetListRegularizacion(IdEmpresa, FechaIni, FechaFin);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
+        public bool RegularizarDB(com_OrdenPedido_Info info)
+        {
+            try
+            {
+                return odata.RegularizarDB(info);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
 
         public bool GuardarDB(com_OrdenPedido_Info info)
         {

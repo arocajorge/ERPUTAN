@@ -40,5 +40,11 @@ namespace Core.Erp.Info.Compras
 
 
 
+
+        public string CodigoOrdenCompra { get; set; }
+
+        public decimal IdOrdenCompra { get; set; }
+
+        public int IdSucursal_oc { get; set; }
     }
 }

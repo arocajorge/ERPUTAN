@@ -30,12 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSeg_Login_x_Empresas));
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbempresainfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,9 +48,7 @@
             this.ColIdSucursal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcodigo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSu_Descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbempresainfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_empresa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
@@ -60,26 +56,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureEdit1.EditValue = global::Core.Erp.Winform.Properties.Resources.Usuario_acceso;
-            this.pictureEdit1.Location = new System.Drawing.Point(455, 78);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(84, 72);
-            this.pictureEdit1.TabIndex = 1;
-            // 
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnIngresar.Location = new System.Drawing.Point(130, 206);
+            this.btnIngresar.Location = new System.Drawing.Point(100, 181);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(109, 29);
+            this.btnIngresar.Size = new System.Drawing.Size(145, 36);
             this.btnIngresar.TabIndex = 2;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -89,9 +73,10 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancelar.Location = new System.Drawing.Point(303, 206);
+            this.btnCancelar.Location = new System.Drawing.Point(331, 181);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(124, 29);
+            this.btnCancelar.Size = new System.Drawing.Size(165, 36);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -102,36 +87,30 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 78);
+            this.label1.Location = new System.Drawing.Point(28, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
+            this.label1.Size = new System.Drawing.Size(89, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Empresa:";
             // 
-            // pictureEdit2
-            // 
-            this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-            this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit2.Size = new System.Drawing.Size(96, 38);
-            this.pictureEdit2.TabIndex = 6;
-            // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 251);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 242);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(551, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(579, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // pictureEdit3
             // 
             this.pictureEdit3.EditValue = ((object)(resources.GetObject("pictureEdit3.EditValue")));
-            this.pictureEdit3.Location = new System.Drawing.Point(455, 12);
+            this.pictureEdit3.Location = new System.Drawing.Point(235, 13);
+            this.pictureEdit3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureEdit3.Name = "pictureEdit3";
             this.pictureEdit3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit3.Size = new System.Drawing.Size(84, 26);
+            this.pictureEdit3.Size = new System.Drawing.Size(112, 32);
             this.pictureEdit3.TabIndex = 8;
             // 
             // label2
@@ -139,22 +118,24 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 114);
+            this.label2.Location = new System.Drawing.Point(28, 98);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 9;
             this.label2.Text = "Sucursal:";
             // 
             // cmb_empresa
             // 
-            this.cmb_empresa.Location = new System.Drawing.Point(130, 77);
+            this.cmb_empresa.Location = new System.Drawing.Point(32, 59);
+            this.cmb_empresa.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_empresa.Name = "cmb_empresa";
             this.cmb_empresa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_empresa.Properties.DisplayMember = "em_nombre2";
             this.cmb_empresa.Properties.ValueMember = "IdEmpresa";
             this.cmb_empresa.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_empresa.Size = new System.Drawing.Size(297, 20);
+            this.cmb_empresa.Size = new System.Drawing.Size(508, 22);
             this.cmb_empresa.TabIndex = 10;
             this.cmb_empresa.EditValueChanged += new System.EventHandler(this.cmb_empresa_EditValueChanged);
             // 
@@ -208,14 +189,15 @@
             // 
             // cmb_sucursal
             // 
-            this.cmb_sucursal.Location = new System.Drawing.Point(130, 113);
+            this.cmb_sucursal.Location = new System.Drawing.Point(32, 122);
+            this.cmb_sucursal.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_sucursal.Name = "cmb_sucursal";
             this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion2";
             this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
             this.cmb_sucursal.Properties.View = this.searchLookUpEdit2View;
-            this.cmb_sucursal.Size = new System.Drawing.Size(297, 20);
+            this.cmb_sucursal.Size = new System.Drawing.Size(508, 22);
             this.cmb_sucursal.TabIndex = 11;
             // 
             // searchLookUpEdit2View
@@ -258,32 +240,30 @@
             // 
             // FrmSeg_Login_x_Empresas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(551, 273);
+            this.ClientSize = new System.Drawing.Size(579, 264);
             this.Controls.Add(this.cmb_sucursal);
             this.Controls.Add(this.cmb_empresa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureEdit3);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.pictureEdit1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSeg_Login_x_Empresas";
+            this.Opacity = 0.92D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empresas";
             this.Load += new System.EventHandler(this.FrmEmpresas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbempresainfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_empresa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
@@ -296,12 +276,10 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource tbempresainfoBindingSource;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit3;
         private System.Windows.Forms.Label label2;

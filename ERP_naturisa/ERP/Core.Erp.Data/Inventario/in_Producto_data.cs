@@ -8,6 +8,7 @@ using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 using System.Data;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -1890,12 +1891,11 @@ namespace Core.Erp.Data.Inventario
             {
                 List<in_Producto_Info> Lista = new List<in_Producto_Info>();
 
-                using (EntitiesInventario db = new EntitiesInventario())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
+                    connection.Open();
                     string sql = "select IdEmpresa,IdProducto,pr_descripcion,IdUnidadMedida,IdUnidadMedida_Consumo ";
                     sql += "from in_Producto where IdEmpresa = " + IdEmpresa.ToString() + " and Estado = 'A' ";
-                    
-                    
 
                     switch (Modulo)
                     {
@@ -1908,15 +1908,25 @@ namespace Core.Erp.Data.Inventario
                         case Cl_Enumeradores.eModulos.INV:
                             sql += " AND Aparece_modu_Inventario = 1";
                             break;
-                        default:                           
+                        default:
                             break;
                     }
 
-                    var result = db.Database.SqlQuery<in_Producto_Info>(sql).ToList();
-                    Lista = result;
-                    
+                    SqlCommand command = new SqlCommand(sql, connection);
+                     SqlDataReader reader = command.ExecuteReader();
+                     while (reader.Read())
+                     {
+                         Lista.Add(new in_Producto_Info
+                         {
+                             IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                             IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                             pr_descripcion = reader["pr_descripcion"].ToString(),
+                             IdUnidadMedida = reader["IdUnidadMedida"].ToString(),
+                             IdUnidadMedida_Consumo = reader["IdUnidadMedida_Consumo"].ToString()
+                         });
+                     }
                 }
-
+            
                 return Lista;
             }
             catch (Exception)

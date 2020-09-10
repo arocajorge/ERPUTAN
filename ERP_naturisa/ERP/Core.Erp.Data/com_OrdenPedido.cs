@@ -40,6 +40,9 @@ namespace Core.Erp.Data
         public string ObservacionGA { get; set; }
         public Nullable<System.DateTime> FechaAprobacion { get; set; }
         public string IdUsuarioAprobacion { get; set; }
+        public Nullable<decimal> IdOrdenPedidoReg { get; set; }
+        public string IdUsuarioReg { get; set; }
+        public Nullable<System.DateTime> FechaReg { get; set; }
     
         public virtual com_catalogo com_catalogo { get; set; }
         public virtual com_departamento com_departamento { get; set; }

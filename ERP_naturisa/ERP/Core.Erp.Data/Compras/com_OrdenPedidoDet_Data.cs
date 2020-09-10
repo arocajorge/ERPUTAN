@@ -9,6 +9,7 @@ namespace Core.Erp.Data.Compras
 {
     using Core.Erp.Data.Inventario;
     using Core.Erp.Info.General;
+    using System.Data.SqlClient;
     public class com_OrdenPedidoDet_Data
     {
         com_OrdenPedido_Data odata_c = new com_OrdenPedido_Data();
@@ -53,6 +54,74 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public List<com_OrdenPedidoDet_Info> GetListRegularizacion(int IdEmpresa, decimal IdOrdenPedido)
+        {
+            try
+            {
+                List<com_OrdenPedidoDet_Info> Lista = new List<com_OrdenPedidoDet_Info>();
+
+                string query = "select a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, a.IdProducto, a.pr_descripcion, e.IdUnidadMedida, a.IdSucursalOrigen, a.IdSucursalDestino,"
+                        + " a.IdPunto_cargo, a.opd_Detalle, e.do_Cantidad opd_Cantidad, e.do_Cantidad opd_CantidadApro, a.opd_EstadoProceso, CASE WHEN a.opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN a.opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN a.opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN a.opd_EstadoProceso = 'AJC' THEN"
+                        + " 'PRECIO APROBADO' WHEN a.opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN a.opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN a.opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN a.opd_EstadoProceso"
+                        + " = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN a.opd_EstadoProceso = 'I' THEN 'INGRESADO EN BODEGA' END AS EstadoDetalle, d.Descripcion as nom_comprador,"
+                        + " f.codigo +'-'+ cast( e.IdOrdenCompra as varchar) CodigoOrdenCompra, e.IdSucursal as IdSucursal_oc, e.IdOrdenCompra"
+                        + " from com_ordenpedidodet as a inner join"
+                        + " com_CotizacionPedidoDet as b on a.IdEmpresa = b.opd_IdEmpresa and a.IdOrdenPedido = b.opd_IdOrdenPedido and a.Secuencia = b.opd_Secuencia inner join"
+                        + " com_CotizacionPedido as c on b.IdEmpresa = c.IdEmpresa and b.IdCotizacion = c.IdCotizacion inner join"
+                        + " com_comprador as d on c.IdEmpresa = d.IdEmpresa and c.IdComprador = d.IdComprador inner join"
+                        + " com_ordencompra_local_det as e on c.IdEmpresa = e.IdEmpresa and c.IdSucursal = e.IdSucursal and c.oc_IdOrdenCompra = e.IdOrdenCompra and b.Secuencia = e.Secuencia inner join"
+                        + " tb_sucursal as f on e.IdEmpresa = f.IdEmpresa and e.IdSucursal = f.IdSucursal"
+                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and b.EstadoGA = 1 "
+                        + " and not exists"
+                        + " (select x1.IdEmpresa from com_OrdenPedidoDet as x1"
+                        + " where x1.IdEmpresa = a.IdEmpresa and x1.IdOrdenPedidoReg = a.IdOrdenPedidoReg and x1.SecuenciaReg = a.Secuencia)";
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int? IdPuntoCargo = null;
+                        if (!string.IsNullOrEmpty(reader["IdPunto_cargo"].ToString()))
+                            IdPuntoCargo = Convert.ToInt32(reader["IdPunto_cargo"]);
+
+                        Lista.Add(new com_OrdenPedidoDet_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdOrdenPedido = Convert.ToDecimal(reader["IdOrdenPedido"]),
+                            Secuencia = Convert.ToInt32(reader["Secuencia"]),
+                            IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                            pr_descripcion = reader["pr_descripcion"].ToString(),
+                            IdUnidadMedida = reader["IdUnidadMedida"].ToString(),
+                            IdSucursalOrigen = Convert.ToInt32(reader["IdSucursalOrigen"]),
+                            IdSucursalDestino = Convert.ToInt32(reader["IdSucursalDestino"]),
+                            IdPunto_cargo = IdPuntoCargo,
+                            opd_Detalle = (reader["pr_descripcion"] ?? "").ToString(),
+                            opd_Cantidad = Convert.ToDouble(reader["opd_Cantidad"]),
+                            opd_CantidadApro = Convert.ToDouble(reader["opd_CantidadApro"]),
+                            opd_EstadoProceso = (reader["opd_EstadoProceso"] ?? "").ToString(),
+                            EstadoDetalle = (reader["EstadoDetalle"] ?? "").ToString(),
+                            NomComprador = (reader["nom_comprador"] ?? "").ToString(),
+                            CodigoOrdenCompra = reader["CodigoOrdenCompra"].ToString(),
+                            IdSucursal_oc = Convert.ToInt32(reader["IdSucursal_oc"]),
+                            IdOrdenCompra = Convert.ToDecimal(reader["IdOrdenCompra"])
+                        });
+                    }
+                    reader.Close();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

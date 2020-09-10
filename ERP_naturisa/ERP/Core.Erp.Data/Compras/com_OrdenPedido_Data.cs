@@ -3,6 +3,7 @@ using Core.Erp.Info.Compras;
 using Core.Erp.Info.General;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Core.Erp.Data.Compras
     public class com_OrdenPedido_Data
     {
         Funciones Fx = new Funciones();
+        
 
         public List<com_OrdenPedido_Info> GetList(int IdEmpresa, string IdUsuario, DateTime FechaIni, DateTime FechaFin)
         {
@@ -97,6 +99,54 @@ namespace Core.Erp.Data.Compras
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        public List<com_OrdenPedido_Info> GetListRegularizacion(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
+        {
+            try
+            {
+                List<com_OrdenPedido_Info> Lista = new List<com_OrdenPedido_Info>();
+                string CadenaConexion = ConexionERP.GetConnectionString();
+                using (SqlConnection connection = new SqlConnection(CadenaConexion))
+                {
+                    connection.Open();
+                    string query = "select a.IdEmpresa, a.IdOrdenPedido, a.IdCatalogoEstado, b.Nombre, a.op_Fecha, a.op_Observacion, c.nom_solicitante, d.nom_departamento, a.Estado, e.nom_punto_cargo"
+                                + " from com_OrdenPedido as a left join"
+                                + " com_catalogo as b on a.IdCatalogoEstado = b.IdCatalogocompra left join"
+                                + " com_solicitante as c on a.IdEmpresa = c.IdEmpresa and a.IdSolicitante = c.IdSolicitante left join"
+                                + " com_departamento as d on a.IdEmpresa = d.IdEmpresa and a.IdDepartamento = d.IdDepartamento left join"
+                                + " ct_punto_cargo as e on a.IdEmpresa = e.IdEmpresa and a.IdPunto_cargo = e.IdPunto_cargo"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCatalogoEstado = 'EST_OP_CER' and a.op_Fecha > DATEFROMPARTS(2020,1,1)"
+                                + " and a.op_Fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")";
+
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Lista.Add(new com_OrdenPedido_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader[0]),
+                            IdOrdenPedido = Convert.ToDecimal(reader[1]),
+                            IdCatalogoEstado = reader[2].ToString(),
+                            CatalogoEstado = reader[3].ToString(),
+                            op_Fecha = Convert.ToDateTime(reader[4]),
+                            op_Observacion = (reader[5] ?? "").ToString(),
+                            nom_solicitante = reader[6].ToString(),
+                            nom_departamento = reader[7].ToString(),
+                            Estado = Convert.ToBoolean(reader[8]),
+                            nom_punto_cargo = (reader[9] ?? "").ToString(),
+                        });
+                    }
+                    reader.Close();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }
@@ -245,6 +295,79 @@ namespace Core.Erp.Data.Compras
                 catch (Exception)
                 {
 
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return true;
+            }
+        }
+
+        public bool RegularizarDB(com_OrdenPedido_Info info)
+        {
+            try
+            {
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    db.com_OrdenPedido.Add(new com_OrdenPedido
+                    {
+                        IdEmpresa = info.IdEmpresa,
+                        IdOrdenPedido = info.IdOrdenPedido = GetId(info.IdEmpresa),
+                        op_Codigo = info.op_Codigo,
+                        op_Fecha = info.op_Fecha,
+                        op_Observacion = info.op_Observacion,
+                        IdDepartamento = info.IdDepartamento,
+                        IdSolicitante = info.IdSolicitante,
+                        IdCatalogoEstado = "EST_OP_PRO",
+                        Estado = true,
+                        IdUsuarioCreacion = info.IdUsuarioCreacion,
+                        FechaCreacion = DateTime.Now,
+                        EsCompraUrgente = info.EsCompraUrgente,
+                        IdPunto_cargo = info.IdPunto_cargo,
+                        IdOrdenPedidoReg = info.IdOrdenPedidoReg
+                    });
+                    foreach (var item in info.ListaDetalle)
+                    {
+                        db.com_OrdenPedidoDet.Add(new com_OrdenPedidoDet
+                        {
+                            IdEmpresa = info.IdEmpresa,
+                            IdOrdenPedido = info.IdOrdenPedido,
+                            Secuencia = item.Secuencia,
+                            IdSucursalOrigen = item.IdSucursalOrigen,
+                            IdSucursalDestino = item.IdSucursalDestino,
+                            IdProducto = item.IdProducto,
+                            IdPunto_cargo = item.IdPunto_cargo,
+                            IdUnidadMedida = item.IdUnidadMedida,
+                            opd_EstadoProceso = "A",
+                            FechaCantidad = DateTime.Now,
+                            IdUsuarioCantidad = info.IdUsuarioCreacion,
+                            pr_descripcion = item.pr_descripcion,
+                            opd_Detalle = item.opd_Detalle,
+                            opd_Cantidad = item.opd_Cantidad,
+                            opd_CantidadApro = item.opd_Cantidad,
+                            Adjunto = false,
+                            NombreArchivo = null,
+
+                            IdOrdenPedidoReg = info.IdOrdenPedidoReg,
+                            SecuenciaReg = item.Secuencia
+                        });
+                    }
+                    db.SaveChanges();
+
+                    var Entity = db.com_OrdenPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == info.IdOrdenPedidoReg).FirstOrDefault();
+                    if (Entity == null)
+                    {
+                        Entity.FechaReg = DateTime.Now;
+                        Entity.IdUsuarioReg = info.IdUsuarioCreacion;
+                        db.SaveChanges();
+                    }
+
+                    if (SaltarPaso3(info.IdEmpresa, info.IdOrdenPedido, info.IdUsuarioCreacion))
+                    {
+                        ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
+                    }
                 }
 
                 return true;
@@ -670,6 +793,154 @@ namespace Core.Erp.Data.Compras
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public bool SaltarPaso5(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario)
+        {
+            try
+            {
+                decimal IdOrdenPedidoAnt = 0;
+                #region Validación
+                string query = "select b.IdEmpresa, b.IdOrdenPedido"
+                        + " from com_OrdenPedido as a inner join"
+                        + " com_OrdenPedidoDet as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido left join"
+                        + " ("
+                            + " select x1.opd_IdEmpresa, x1.opd_IdOrdenPedido, count(*) Cont"
+                            + " from com_CotizacionPedidoDet x1"
+                            + " where x1.opd_IdEmpresa = " + IdEmpresa.ToString() + " and x1.opd_IdOrdenPedido = " + IdOrdenPedido.ToString() + " AND X1.EstadoJC = 1 AND X1.EstadoGA = 0"
+                            + " group by x1.opd_IdEmpresa, x1.opd_IdOrdenPedido"
+                        + " )as c on b.IdEmpresa = c.opd_IdEmpresa and b.IdOrdenPedido = c.opd_IdOrdenPedido"
+                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and IdOrdenPedidoReg is not null"
+                        + " group by b.IdEmpresa, b.IdOrdenPedido,cont"
+                        + " having cont = count(*)";
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    var returnValue = command.ExecuteScalar();
+                    if (returnValue == null)
+                        return false;
+                }
+                #endregion
+
+                using (EntitiesCompras db = new EntitiesCompras())
+                {
+                    var lst = db.com_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.EstadoJC == "A" && q.EstadoGA == "P").ToList();
+                    var SolPed = db.com_OrdenPedido.Where(q=> q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault(); 
+                    IdOrdenPedidoAnt = SolPed.IdOrdenPedidoReg ?? 0;
+                    foreach (var item in lst)
+                    {
+                        com_CotizacionPedido_Info info;
+
+                        var lstDet = db.com_CotizacionPedidoDet.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdCotizacion == item.IdCotizacion && q.EstadoJC == true && q.EstadoGA == false).ToList();
+                        if (lstDet.Count > 0)
+                        {
+                            #region Cabecera
+                            info = new com_CotizacionPedido_Info
+                            {
+                                IdEmpresa = item.IdEmpresa,
+                                IdSucursal = item.IdSucursal,
+                                IdProveedor = item.IdProveedor,
+                                IdCotizacion = item.IdCotizacion,
+                                IdTerminoPago = item.IdTerminoPago,
+                                cp_Plazo = item.cp_Plazo,
+                                cp_PlazoEntrega = item.cp_PlazoEntrega,
+                                cp_Fecha = item.cp_Fecha,
+                                cp_Observacion = item.cp_Observacion,
+                                IdDepartamento = item.IdDepartamento,
+                                IdComprador = item.IdComprador,
+                                IdUsuario = IdUsuario,
+                                IdOrdenPedido = item.IdOrdenPedido,
+                                ObservacionAprobador = "Aprobado por regularización",
+                                ListaDetalle = new List<com_CotizacionPedidoDet_Info>(),
+                                EstadoGA = "A"
+                            };
+                            #endregion
+
+                            #region Detalle
+                            foreach (var det in lstDet)
+                            {
+                                info.ListaDetalle.Add(new com_CotizacionPedidoDet_Info
+                                {
+                                    IdEmpresa = det.IdEmpresa,
+                                    IdSucursalDestino = det.com_OrdenPedidoDet.IdSucursalDestino,
+                                    Secuencia = det.Secuencia,
+                                    opd_Secuencia = det.opd_Secuencia,
+                                    opd_IdOrdenPedido = det.opd_IdOrdenPedido,
+                                    opd_IdEmpresa = det.IdEmpresa,
+                                    IdProducto = det.IdProducto,
+                                    cd_Cantidad = det.cd_Cantidad,
+                                    cd_precioCompra = det.cd_precioCompra,
+                                    cd_porc_des = det.cd_porc_des,
+                                    cd_descuento = det.cd_descuento,
+                                    cd_precioFinal = det.cd_precioFinal,
+                                    cd_subtotal = det.cd_subtotal,
+                                    cd_iva = det.cd_iva,
+                                    cd_total = det.cd_total,
+                                    IdPunto_cargo = det.IdPunto_cargo,
+                                    IdUnidadMedida = det.IdUnidadMedida,
+                                    Por_Iva = det.Por_Iva,
+                                    IdCod_Impuesto = det.IdCod_Impuesto,
+                                    cd_DetallePorItem = det.cd_DetallePorItem,
+                                    opd_Detalle = det.com_OrdenPedidoDet.opd_Detalle,
+                                    A = true,
+                                    EstadoGA = true
+                                });
+                            }
+                            #endregion
+                            com_CotizacionPedido_Data odataCotizacion = new com_CotizacionPedido_Data();
+                            odataCotizacion.AprobarDB(info, "GA");
+                        }
+                    }
+                }
+
+                AnularOCOrdenPedidoAnterior(IdEmpresa, IdOrdenPedido, IdUsuario, IdOrdenPedidoAnt);
+                
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool AnularOCOrdenPedidoAnterior(int IdEmpresa, decimal IdOrdenPedido, string IdUsuario, decimal IdOrdenPedidoReg)
+        {
+            try
+            {
+                string query = "update com_ordencompra_local set Estado = 'I', oc_observacion = 'Regularizada con SOLPED # " + IdOrdenPedidoReg.ToString() + " ' +oc_observacion, IdUsuarioUltAnu = '" + IdUsuario + "', FechaHoraAnul = GETDATE()"
+                            + " FROM("
+                            + " select E.IdEmpresa, E.IdSucursal, E.IdOrdenCompra"
+                            + " from com_OrdenPedidoDet as a inner join"
+                            + " com_OrdenPedidoDet as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedidoReg = b.IdOrdenPedido and a.SecuenciaReg = b.Secuencia inner join"
+                            + " com_CotizacionPedidoDet as c on c.opd_IdEmpresa = b.IdEmpresa and c.opd_IdOrdenPedido = b.IdOrdenPedido and c.opd_Secuencia = b.Secuencia inner join"
+                            + " com_CotizacionPedido as d on c.IdEmpresa = d.IdEmpresa and c.IdCotizacion = d.IdCotizacion inner join"
+                            + " com_ordencompra_local as e on d.IdEmpresa = e.IdEmpresa and d.oc_IdOrdenCompra = E.IdOrdenCompra"
+                            + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString()
+                            + " GROUP BY E.IdEmpresa, E.IdSucursal, E.IdOrdenCompra"
+                            + " ) A"
+                            + " WHERE com_ordencompra_local.IdEmpresa = A.IdEmpresa"
+                            + " AND com_ordencompra_local.IdSucursal = A.IdSucursal"
+                            + " AND com_ordencompra_local.IdOrdenCompra = A.IdOrdenCompra";
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

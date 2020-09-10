@@ -25,6 +25,19 @@ namespace Core.Erp.Business.Compras
             }
         }
 
+        public List<com_OrdenPedidoDet_Info> GetListRegularizacion(int IdEmpresa, decimal IdOrdenPedido)
+        {
+            try
+            {
+                return odata.GetListRegularizacion(IdEmpresa, IdOrdenPedido);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public List<com_OrdenPedidoDet_Info> GetListPlantilla(int IdEmpresa, decimal IdPlantilla)
         {
             try

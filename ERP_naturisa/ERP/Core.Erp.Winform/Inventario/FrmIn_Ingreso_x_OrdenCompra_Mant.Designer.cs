@@ -70,13 +70,21 @@
             this.colIdUnidadMedida1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcion1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbSubcentroCostoD = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbCentroCostoD = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.cmbProveedor = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1 = new Core.Erp.Winform.Controles.UCInv_GridCbte_Cble_x_Ing_Egr_Inv();
             this.panel5 = new System.Windows.Forms.Panel();
             this.checkTodos = new DevExpress.XtraEditors.CheckEdit();
             this.label2 = new System.Windows.Forms.Label();
@@ -92,16 +100,6 @@
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
-            this.cmbCentroCostoD = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbSubcentroCostoD = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -120,16 +118,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_unidad_medida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroCostoD.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoD.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkTodos.Properties)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroCostoD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -216,7 +213,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 134);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -636,6 +632,105 @@
             this.panel3.Size = new System.Drawing.Size(1408, 42);
             this.panel3.TabIndex = 0;
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(1007, 13);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(58, 16);
+            this.labelControl2.TabIndex = 23;
+            this.labelControl2.Text = "Subcentro";
+            // 
+            // cmbSubcentroCostoD
+            // 
+            this.cmbSubcentroCostoD.Location = new System.Drawing.Point(1087, 10);
+            this.cmbSubcentroCostoD.Name = "cmbSubcentroCostoD";
+            this.cmbSubcentroCostoD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSubcentroCostoD.Properties.DisplayMember = "Centro_costo2";
+            this.cmbSubcentroCostoD.Properties.ValueMember = "IdCentroCosto_sub_centro_costo";
+            this.cmbSubcentroCostoD.Properties.View = this.gridView6;
+            this.cmbSubcentroCostoD.Size = new System.Drawing.Size(240, 22);
+            this.cmbSubcentroCostoD.TabIndex = 22;
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn4,
+            this.gridColumn5});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "ID";
+            this.gridColumn4.FieldName = "IdCentroCosto_sub_centro_costo";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 151;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "SubCentro";
+            this.gridColumn5.FieldName = "Centro_costo";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 0;
+            this.gridColumn5.Width = 613;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(644, 13);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(90, 16);
+            this.labelControl1.TabIndex = 21;
+            this.labelControl1.Text = "Centro de costo";
+            // 
+            // cmbCentroCostoD
+            // 
+            this.cmbCentroCostoD.Location = new System.Drawing.Point(751, 10);
+            this.cmbCentroCostoD.Name = "cmbCentroCostoD";
+            this.cmbCentroCostoD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCentroCostoD.Properties.DisplayMember = "Centro_costo2";
+            this.cmbCentroCostoD.Properties.ValueMember = "IdCentroCosto";
+            this.cmbCentroCostoD.Properties.View = this.searchLookUpEdit1View;
+            this.cmbCentroCostoD.Size = new System.Drawing.Size(240, 22);
+            this.cmbCentroCostoD.TabIndex = 20;
+            this.cmbCentroCostoD.EditValueChanged += new System.EventHandler(this.cmbCentroCostoD_EditValueChanged);
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn2,
+            this.gridColumn3});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "ID";
+            this.gridColumn2.FieldName = "IdCentroCosto";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 155;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Centro costo";
+            this.gridColumn3.FieldName = "Centro_costo";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.Width = 609;
+            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(15, 13);
@@ -685,27 +780,6 @@
             this.gridColumn36.Visible = true;
             this.gridColumn36.VisibleIndex = 1;
             this.gridColumn36.Width = 306;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1347, 374);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Diario Contable";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // ucInv_GridCbte_Cble_x_Ing_Egr_Inv1
-            // 
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.Location = new System.Drawing.Point(4, 4);
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.Margin = new System.Windows.Forms.Padding(5);
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.Name = "ucInv_GridCbte_Cble_x_Ing_Egr_Inv1";
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.Size = new System.Drawing.Size(1339, 366);
-            this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.TabIndex = 0;
             // 
             // panel5
             // 
@@ -863,105 +937,6 @@
             this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1424, 32);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 3;
             // 
-            // cmbCentroCostoD
-            // 
-            this.cmbCentroCostoD.Location = new System.Drawing.Point(751, 10);
-            this.cmbCentroCostoD.Name = "cmbCentroCostoD";
-            this.cmbCentroCostoD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCentroCostoD.Properties.DisplayMember = "Centro_costo2";
-            this.cmbCentroCostoD.Properties.ValueMember = "IdCentroCosto";
-            this.cmbCentroCostoD.Properties.View = this.searchLookUpEdit1View;
-            this.cmbCentroCostoD.Size = new System.Drawing.Size(240, 22);
-            this.cmbCentroCostoD.TabIndex = 20;
-            this.cmbCentroCostoD.EditValueChanged += new System.EventHandler(this.cmbCentroCostoD_EditValueChanged);
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn2,
-            this.gridColumn3});
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(644, 13);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(90, 16);
-            this.labelControl1.TabIndex = 21;
-            this.labelControl1.Text = "Centro de costo";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(1007, 13);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(58, 16);
-            this.labelControl2.TabIndex = 23;
-            this.labelControl2.Text = "Subcentro";
-            // 
-            // cmbSubcentroCostoD
-            // 
-            this.cmbSubcentroCostoD.Location = new System.Drawing.Point(1087, 10);
-            this.cmbSubcentroCostoD.Name = "cmbSubcentroCostoD";
-            this.cmbSubcentroCostoD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSubcentroCostoD.Properties.DisplayMember = "Centro_costo2";
-            this.cmbSubcentroCostoD.Properties.ValueMember = "IdCentroCosto_sub_centro_costo";
-            this.cmbSubcentroCostoD.Properties.View = this.gridView6;
-            this.cmbSubcentroCostoD.Size = new System.Drawing.Size(240, 22);
-            this.cmbSubcentroCostoD.TabIndex = 22;
-            // 
-            // gridView6
-            // 
-            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn4,
-            this.gridColumn5});
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowAutoFilterRow = true;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "ID";
-            this.gridColumn2.FieldName = "IdCentroCosto";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 155;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Centro costo";
-            this.gridColumn3.FieldName = "Centro_costo";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
-            this.gridColumn3.Width = 609;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "ID";
-            this.gridColumn4.FieldName = "IdCentroCosto_sub_centro_costo";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 151;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "SubCentro";
-            this.gridColumn5.FieldName = "Centro_costo";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 0;
-            this.gridColumn5.Width = 613;
-            // 
             // FrmIn_Ingreso_x_OrdenCompra_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -994,18 +969,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroCostoD.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoD.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbProveedor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkTodos.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroCostoD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1026,7 +1000,6 @@
         private System.Windows.Forms.TextBox txtNumIngreso;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraGrid.GridControl gridControlIngreso;
@@ -1057,7 +1030,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIdCentroCosto_sub_centro_costo;
         private DevExpress.XtraEditors.CheckEdit checkTodos;
         private Controles.UCIn_MotivoInvCmb cmbMotivoInv;
-        private Controles.UCInv_GridCbte_Cble_x_Ing_Egr_Inv ucInv_GridCbte_Cble_x_Ing_Egr_Inv1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_sub_centro_costo;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

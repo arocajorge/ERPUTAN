@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 namespace Core.Erp.Data.Compras
 {
     public class com_CotizacionPedido_Data
     {
         tb_sis_impuesto_Data odataImp = new tb_sis_impuesto_Data();
+        
         private decimal GetID(int IdEmpresa)
         {
             try
@@ -139,13 +141,15 @@ namespace Core.Erp.Data.Compras
             {
                 try
                 {
-                    
+                    decimal IdOrdenPedido = 0;
+                    List<CotizacionesParaActualizar> Lista = new List<CotizacionesParaActualizar>();
                     using (EntitiesCompras db = new EntitiesCompras())
                     {
                         var Entity = db.com_CotizacionPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdCotizacion == info.IdCotizacion).FirstOrDefault();
                         if (Entity == null)
                             return false;
 
+                        #region Update estado JC o GA
                         if (Cargo == "JC")
                         {
                             Entity.EstadoJC = info.EstadoJC;
@@ -155,8 +159,9 @@ namespace Core.Erp.Data.Compras
                         }
                         else
                             Entity.EstadoGA = info.EstadoGA;
+                        #endregion
 
-
+                        #region Update de estado de proceso en el detalle de la cotizacion y pedido
                         foreach (var item in info.ListaDetalle)
                         {
                             var det = db.com_CotizacionPedidoDet.Where(q => q.IdEmpresa == item.IdEmpresa && q.IdCotizacion == item.IdCotizacion && q.Secuencia == item.Secuencia).FirstOrDefault();
@@ -176,21 +181,29 @@ namespace Core.Erp.Data.Compras
                                     detped.opd_EstadoProceso = item.A == true ? "C" : "RGA";
                             }
                         }
+                        #endregion
 
-                        var lstPedido = info.ListaDetalle.GroupBy(q => q.opd_IdOrdenPedido).ToList();
-                        foreach (var item in lstPedido)
+                        #region Update cabecera de orden de pedido con la auditoria del aprobador GA
+                        if (Cargo == "GA")
                         {
-                            var Pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == item.Key).FirstOrDefault();
-                            if (Pedido != null)
+                            var lstPedido = info.ListaDetalle.GroupBy(q => q.opd_IdOrdenPedido).ToList();
+                            foreach (var item in lstPedido)
                             {
-                                Pedido.IdUsuarioAprobacion = info.IdUsuario;
-                                Pedido.FechaAprobacion = DateTime.Now;
-                                Pedido.ObservacionGA = info.ObservacionAprobador;
+                                var Pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == item.Key).FirstOrDefault();
+                                if (Pedido != null)
+                                {
+                                    Pedido.IdUsuarioAprobacion = info.IdUsuario;
+                                    Pedido.FechaAprobacion = DateTime.Now;
+                                    Pedido.ObservacionGA = info.ObservacionAprobador;
+                                    IdOrdenPedido = Pedido.IdOrdenPedidoReg ?? 0;
+                                }
                             }
                         }
-
+                        #endregion
+                        
                         if (Cargo == "GA" && info.ListaDetalle.Where(q => q.EstadoGA).Count() > 0)
                         {
+                            #region Cabecera OC
                             com_ordencompra_local_Data odataCom = new com_ordencompra_local_Data();
                             int workDays = info.cp_PlazoEntrega;
                             DateTime tmpDate = DateTime.Now.Date;
@@ -229,8 +242,11 @@ namespace Core.Erp.Data.Compras
                                 co_fecha_aprobacion = DateTime.Now,
                                 IdUsuario_Aprueba = info.IdUsuario
                             });
+                            #endregion
+                            
+                            #region Detalle OC
                             int Secuencia = 1;
-                            var lstGeneracion = info.ListaDetalle.Where(q=> q.A && q.cd_Cantidad > 0).ToList();
+                            var lstGeneracion = info.ListaDetalle.Where(q => q.A && q.cd_Cantidad > 0).ToList();
                             foreach (var item in lstGeneracion)
                             {
                                 var impuesto = odataImp.Get_Info_impuesto(item.IdCod_Impuesto);
@@ -240,12 +256,23 @@ namespace Core.Erp.Data.Compras
                                     item.cd_iva = item.cd_subtotal * (impuesto.porcentaje / 100);
                                     item.cd_total = item.cd_subtotal + item.cd_iva;
                                 }
+
+                                Lista.Add(new CotizacionesParaActualizar
+                                {
+                                    SecuenciaPedido = item.opd_Secuencia,
+
+                                    IdSucursal = info.IdSucursal,
+                                    IdOrdenCompra = info.oc_IdOrdenCompra,
+                                    SecuenciaOC = item.Secuencia,
+                                    CostouniFinal = item.cd_precioFinal
+                                });
+
                                 db.com_ordencompra_local_det.Add(new com_ordencompra_local_det
                                 {
                                     IdEmpresa = info.IdEmpresa,
                                     IdSucursal = info.IdSucursal,
                                     IdOrdenCompra = info.oc_IdOrdenCompra,
-                                    Secuencia = Secuencia++,
+                                    Secuencia = item.Secuencia,
                                     IdProducto = item.IdProducto ?? 0,
                                     do_Cantidad = item.cd_Cantidad,
                                     do_precioCompra = item.cd_precioCompra,
@@ -265,21 +292,31 @@ namespace Core.Erp.Data.Compras
                                     IdUnidadMedida = item.IdUnidadMedida,
                                     Por_Iva = item.Por_Iva,
                                     IdCod_Impuesto = item.IdCod_Impuesto,
-                                    do_observacion = (string.IsNullOrEmpty(item.cd_DetallePorItem) ? "" : item.cd_DetallePorItem+" ") + (string.IsNullOrEmpty(item.opd_Detalle) ? "" : item.opd_Detalle),
+                                    do_observacion = (string.IsNullOrEmpty(item.cd_DetallePorItem) ? "" : item.cd_DetallePorItem + " ") + (string.IsNullOrEmpty(item.opd_Detalle) ? "" : item.opd_Detalle),
                                     IdSucursalDestino = item.IdSucursalDestino
                                 });
                             }
-
+                            #endregion
+                            
                             Entity.oc_IdOrdenCompra = Convert.ToInt32(info.oc_IdOrdenCompra);
-                            db.com_ordencompra_local_correo.Add(new com_ordencompra_local_correo
-                            {
-                                IdEmpresa = info.IdEmpresa,
-                                IdSucursal = info.IdSucursal,
-                                IdOrdenCompra = info.oc_IdOrdenCompra,
-                                Correo = ""
-                            });
                         }
                         db.SaveChanges();
+
+                        if (Cargo == "JC")
+                        {
+                            com_OrdenPedido_Data odataPedido = new com_OrdenPedido_Data();
+                            odataPedido.SaltarPaso5(info.IdEmpresa, info.IdOrdenPedido ?? 0, info.IdUsuario);
+                        }
+                        else
+                        {
+                            if (IdOrdenPedido > 0)
+                            {
+                                foreach (var item in Lista)
+                                {
+                                    ReemplazarCotizacionesIngresadas(info.IdEmpresa, IdOrdenPedido, item.SecuenciaPedido, item.IdSucursal, item.IdOrdenCompra, item.SecuenciaOC, item.CostouniFinal);
+                                }
+                            }
+                        }
                     }
 
                     return true;
@@ -292,6 +329,63 @@ namespace Core.Erp.Data.Compras
             catch (Exception ex)
             {
 
+                throw;
+            }
+        }
+
+        public bool ReemplazarCotizacionesIngresadas(int IdEmpresa, decimal IdOrdenPedido, int Secuencia, int IdSucursal, decimal IdOrdenCompra, int SecuenciaOC, double CostoUniFinal)
+        {
+            try
+            {
+                string query = "update in_Ing_Egr_Inven_det set IdSucursal_oc = " + IdSucursal.ToString() + ", IdOrdenCompra = " + IdOrdenCompra.ToString() + ", Secuencia_oc = " + SecuenciaOC.ToString() + ", mv_costo_sinConversion =" + CostoUniFinal.ToString() + ", mv_costo = (dm_cantidad_sinConversion * " + CostoUniFinal.ToString() + ") / dm_cantidad"
+                            + " FROM("
+                            + " select a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, e.IdSucursal, e.IdMovi_inven_tipo, e.IdNumMovi, e.Secuencia SecuenciaInv"
+                            + " from com_OrdenPedidoDet as a inner join"
+                            + " com_CotizacionPedidoDet as b on a.IdEmpresa = b.opd_IdEmpresa and a.IdOrdenPedido = b.opd_IdOrdenPedido and a.Secuencia = b.opd_Secuencia inner join"
+                            + " com_CotizacionPedido as c on b.IdEmpresa = c.IdEmpresa and b.IdCotizacion = c.IdCotizacion inner join"
+                            + " com_ordencompra_local_det as d on d.IdEmpresa = c.IdEmpresa and d.IdSucursal = c.IdSucursal and c.oc_IdOrdenCompra = d.IdOrdenCompra and d.Secuencia = b.Secuencia left join"
+                            + " in_Ing_Egr_Inven_det as e on d.IdEmpresa = e.IdEmpresa_oc and d.IdOrdenCompra = e.IdOrdenCompra and d.Secuencia = e.Secuencia_oc and d.IdSucursal = e.IdSucursal_oc and d.Secuencia = e.Secuencia_oc"
+                            + " where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.IdOrdenPedido = "+IdOrdenPedido.ToString()+" and a.Secuencia = "+Secuencia.ToString()
+                            + " ) A"
+                            + " WHERE in_Ing_Egr_Inven_det.IdEmpresa = A.IdEmpresa"
+                            + " AND in_Ing_Egr_Inven_det.IdSucursal = A.IdSucursal"
+                            + " AND in_Ing_Egr_Inven_det.IdMovi_inven_tipo = A.IdMovi_inven_tipo"
+                            + " AND in_Ing_Egr_Inven_det.IdNumMovi = A.IdNumMovi"
+                            + " AND in_Ing_Egr_Inven_det.Secuencia = A.SecuenciaInv";
+
+                string queryAprobado = "update in_movi_inve_detalle set mv_costo_sinConversion =" + CostoUniFinal.ToString() + ", mv_costo = (dm_cantidad_sinConversion * " + CostoUniFinal.ToString() + ") / dm_cantidad"
+                            + " FROM("
+                            + " select a.IdEmpresa, a.IdOrdenPedido, a.Secuencia, e.IdSucursal_inv, e.IdBodega_inv, e.IdMovi_inven_tipo_inv, e.IdNumMovi_inv, e.secuencia_inv"
+                            + " from com_OrdenPedidoDet as a inner join"
+                            + " com_CotizacionPedidoDet as b on a.IdEmpresa = b.opd_IdEmpresa and a.IdOrdenPedido = b.opd_IdOrdenPedido and a.Secuencia = b.opd_Secuencia inner join"
+                            + " com_CotizacionPedido as c on b.IdEmpresa = c.IdEmpresa and b.IdCotizacion = c.IdCotizacion inner join"
+                            + " com_ordencompra_local_det as d on d.IdEmpresa = c.IdEmpresa and d.IdSucursal = c.IdSucursal and c.oc_IdOrdenCompra = d.IdOrdenCompra and d.Secuencia = b.Secuencia left join"
+                            + " in_Ing_Egr_Inven_det as e on d.IdEmpresa = e.IdEmpresa_oc and d.IdOrdenCompra = e.IdOrdenCompra and d.Secuencia = e.Secuencia_oc and d.IdSucursal = e.IdSucursal_oc and d.Secuencia = e.Secuencia_oc"
+                            + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and a.Secuencia = " + Secuencia.ToString()
+                            + " ) A"
+                            + " WHERE in_movi_inve_detalle.IdEmpresa = A.IdEmpresa"
+                            + " AND in_movi_inve_detalle.IdSucursal = A.IdSucursal_inv"
+                            + " AND in_movi_inve_detalle.IdBodega = A.IdBodega_inv"
+                            + " AND in_movi_inve_detalle.IdMovi_inven_tipo = A.IdMovi_inven_tipo_inv"
+                            + " AND in_movi_inve_detalle.IdNumMovi = A.IdNumMovi_inv"
+                            + " AND in_movi_inve_detalle.Secuencia = A.secuencia_inv";
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    SqlCommand commandAprobado = new SqlCommand(queryAprobado,connection);
+                    commandAprobado.ExecuteNonQuery();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }
@@ -572,5 +666,16 @@ namespace Core.Erp.Data.Compras
                 throw;
             }
         }
+    }
+
+    public class CotizacionesParaActualizar
+    {
+        public int SecuenciaPedido { get; set; }
+
+        public int IdSucursal { get; set; }
+        public decimal IdOrdenCompra { get; set; }
+        public int SecuenciaOC { get; set; }
+
+        public double CostouniFinal { get; set; }
     }
 }

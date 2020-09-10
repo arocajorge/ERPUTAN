@@ -38,6 +38,8 @@ namespace Core.Erp.Data
         public string IdUsuarioJC { get; set; }
         public Nullable<System.DateTime> FechaJC { get; set; }
         public Nullable<decimal> IdOrdenPedido { get; set; }
+        public string IdUsuarioCotizacion { get; set; }
+        public Nullable<System.DateTime> FechaCotizacion { get; set; }
     
         public virtual com_departamento com_departamento { get; set; }
         public virtual com_TerminoPago com_TerminoPago { get; set; }

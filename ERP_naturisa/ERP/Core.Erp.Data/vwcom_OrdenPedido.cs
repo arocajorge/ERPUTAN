@@ -31,5 +31,6 @@ namespace Core.Erp.Data
         public string nom_punto_cargo { get; set; }
         public Nullable<int> IdPunto_cargo { get; set; }
         public string ObservacionGA { get; set; }
+        public Nullable<decimal> IdOrdenPedidoReg { get; set; }
     }
 }

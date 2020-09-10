@@ -35,7 +35,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>344</ApplicationRevision>
+    <ApplicationRevision>345</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -251,6 +251,12 @@
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.Designer.cs">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoRegularizacionMant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmCom_OrdenPedidoRegularizacionMant.Designer.cs">
+      <DependentUpon>frmCom_OrdenPedidoRegularizacionMant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\FrmCom_ConvenioPreciosConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +352,12 @@
     </Compile>
     <Compile Include="Compras\frmCom_OrdenPedidoMantenimiento.Designer.cs">
       <DependentUpon>frmCom_OrdenPedidoMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_OrdenPedidoRegularizacionCons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_OrdenPedidoRegularizacionCons.Designer.cs">
+      <DependentUpon>FrmCom_OrdenPedidoRegularizacionCons.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\FrmCom_ProductoComprasAnteriores.cs">
       <SubType>Form</SubType>
@@ -3969,6 +3981,9 @@
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmCom_OrdenPedidoRegularizacionMant.resx">
+      <DependentUpon>frmCom_OrdenPedidoRegularizacionMant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_ConvenioPreciosConsulta.resx">
       <DependentUpon>FrmCom_ConvenioPreciosConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -4016,6 +4031,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmCom_OrdenPedidoMantenimiento.resx">
       <DependentUpon>frmCom_OrdenPedidoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_OrdenPedidoRegularizacionCons.resx">
+      <DependentUpon>FrmCom_OrdenPedidoRegularizacionCons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\FrmCom_ProductoComprasAnteriores.resx">
       <DependentUpon>FrmCom_ProductoComprasAnteriores.cs</DependentUpon>

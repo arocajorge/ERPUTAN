@@ -11,8 +11,13 @@ namespace Core.Erp.Data
         
         public static string GetConnectionString()
         {
-            string ip = "192.168.50.8";
+            
+            string ip = "192.168.50.8";            
             string password = "@dmin*2015.12";
+            
+             /*string ip = "localhost";
+            string password = "admin*2016";*/
+             
             string user = "sa";
             string InitialCatalog = "DBERP_NAT_PROD";
 

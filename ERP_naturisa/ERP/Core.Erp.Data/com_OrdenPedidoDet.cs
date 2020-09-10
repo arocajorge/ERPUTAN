@@ -38,6 +38,10 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> FechaCantidad { get; set; }
         public string IdUsuarioCotizacion { get; set; }
         public Nullable<System.DateTime> FechaCotizacion { get; set; }
+        public Nullable<decimal> IdOrdenPedidoReg { get; set; }
+        public Nullable<int> SecuenciaReg { get; set; }
+        public Nullable<System.DateTime> FechaRef { get; set; }
+        public string IdUsuarioReg { get; set; }
     
         public virtual ICollection<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
         public virtual com_OrdenPedido com_OrdenPedido { get; set; }

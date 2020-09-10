@@ -609,7 +609,6 @@ namespace Core.Erp.Winform.Inventario
                 info_IngComp.listIng_Egr = new List<in_Ing_Egr_Inven_det_Info>();
                 ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>();
                 gridControlIngreso.DataSource = ListaBind;
-                ucInv_GridCbte_Cble_x_Ing_Egr_Inv1.CargarDatos_CbteCble(0, 0, 0, 0, 0);
                 ucIn_Sucursal_Bodega1.InicializarBodega();
                 ucIn_Sucursal_Bodega1.InicializarSucursal();
                 Buscar_Orden_Compra_();
