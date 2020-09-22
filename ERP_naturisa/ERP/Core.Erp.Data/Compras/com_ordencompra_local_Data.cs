@@ -5,6 +5,7 @@ using System.Text;
 using Core.Erp.Info.Compras;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Compras
 {
@@ -469,33 +470,55 @@ namespace Core.Erp.Data.Compras
             {
                 FechaIni = FechaIni.Date;
                 FechaFin = FechaFin.Date;
-                List<com_ordencompra_local_consulta> Lista;
-
-                using (EntitiesCompras db = new EntitiesCompras())
+                List<com_ordencompra_local_consulta> Lista = new List<com_ordencompra_local_consulta>();
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    Lista = db.vwcom_ordencompra_local_consulta.Where(q => q.IdEmpresa == IdEmpresa && FechaIni <= q.oc_fecha && q.oc_fecha <= FechaFin).Select(q => new com_ordencompra_local_consulta
+                    connection.Open();
+                    string query = "SELECT c.IdEmpresa, c.IdSucursal, c.IdOrdenCompra, s.codigo + '-' + CAST(c.IdOrdenCompra AS VARCHAR(18)) AS Codigo, s.Su_Descripcion, c.oc_fecha, per.pe_nombreCompleto, ISNULL(d.Total,0) Total, c.IdEstadoAprobacion_cat, "
+                                + " CASE WHEN c.IdEstadoAprobacion_cat = 'APRO' THEN 'Aprobado' WHEN c.IdEstadoAprobacion_cat = 'XAPRO' THEN 'Por Aprobar' ELSE 'Anulado' END AS EstadoAprobacion, c.oc_observacion, com.Descripcion, c.IdEstado_cierre, "
+                                + " CASE WHEN c.IdEstado_cierre = 'ABI' THEN 'Abierta' WHEN c.IdEstado_cierre = 'CERR' THEN 'Cerrada' ELSE 'Pendiente' END AS EstadoCierre, CASE WHEN guia.IdEmpresa_OC IS NOT NULL THEN 'TIENE GUIA' ELSE NULL "
+                                + " END AS en_guia, c.Estado, tp.Descripcion AS TerminoPago, c.oc_plazo, c.Fecha_UltMod, c.IdUsuarioUltMod"
+                                + " FROM     dbo.com_ordencompra_local AS c LEFT OUTER JOIN"
+                                + " dbo.tb_sucursal AS s ON c.IdEmpresa = s.IdEmpresa AND c.IdSucursal = s.IdSucursal LEFT OUTER JOIN"
+                                + " dbo.cp_proveedor AS pro ON c.IdEmpresa = pro.IdEmpresa AND c.IdProveedor = pro.IdProveedor INNER JOIN"
+                                + " dbo.tb_persona AS per ON pro.IdPersona = per.IdPersona LEFT OUTER JOIN"
+                                + " (SELECT IdEmpresa, IdSucursal, IdOrdenCompra, SUM(do_total) AS Total"
+                                + " FROM      dbo.com_ordencompra_local_det AS det"
+                                + " GROUP BY IdEmpresa, IdSucursal, IdOrdenCompra) AS d ON c.IdEmpresa = d.IdEmpresa AND c.IdSucursal = d.IdSucursal AND c.IdOrdenCompra = d.IdOrdenCompra LEFT OUTER JOIN"
+                                + " dbo.com_comprador AS com ON c.IdEmpresa = com.IdEmpresa AND c.IdComprador = com.IdComprador LEFT OUTER JOIN"
+                                + " (SELECT IdEmpresa_OC, IdSucursal_OC, IdOrdenCompra_OC"
+                                + " FROM      dbo.in_Guia_x_traspaso_bodega_det"
+                                + " GROUP BY IdEmpresa_OC, IdSucursal_OC, IdOrdenCompra_OC) AS guia ON c.IdEmpresa = guia.IdEmpresa_OC AND c.IdSucursal = guia.IdSucursal_OC AND c.IdOrdenCompra = guia.IdOrdenCompra_OC LEFT OUTER JOIN"
+                                + " dbo.com_TerminoPago AS tp ON c.IdTerminoPago = tp.IdTerminoPago"
+                                + " WHERE c.IdEmpresa = " + IdEmpresa.ToString() + " and c.oc_fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        IdSucursal = q.IdSucursal,
-                        IdOrdenCompra = q.IdOrdenCompra,
-                        Codigo = q.Codigo,
-                        Su_Descripcion = q.Su_Descripcion,
-                        oc_fecha = q.oc_fecha,
-                        pe_nombreCompleto = q.pe_nombreCompleto,
-                        Total = q.Total,
-                        IdEstadoAprobacion_cat = q.IdEstadoAprobacion_cat,
-                        EstadoAprobacion = q.EstadoAprobacion,
-                        oc_observacion = q.oc_observacion,
-                        Descripcion = q.Descripcion,
-                        IdEstado_cierre = q.IdEstado_cierre,
-                        EstadoCierre = q.EstadoCierre,
-                        en_guia = q.en_guia,
-                        Estado = q.Estado,
-                        TerminoPago = q.TerminoPago,
-                        oc_plazo = q.oc_plazo,
-                        Fecha_UltMod = q.Fecha_UltMod,
-                        IdUsuarioUltMod = q.IdUsuarioUltMod
-                    }).ToList();
+                        Lista.Add(new com_ordencompra_local_consulta
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdOrdenCompra = Convert.ToDecimal(reader["IdOrdenCompra"]),
+                            Codigo = Convert.ToString(reader["Codigo"]),
+                            Su_Descripcion = Convert.ToString(reader["Su_Descripcion"]),
+                            oc_fecha = Convert.ToDateTime(reader["oc_fecha"]),
+                            pe_nombreCompleto = Convert.ToString(reader["pe_nombreCompleto"]),
+                            Total = Convert.ToDouble(reader["Total"]),
+                            IdEstadoAprobacion_cat = Convert.ToString(reader["IdEstadoAprobacion_cat"]),
+                            EstadoAprobacion = Convert.ToString(reader["EstadoAprobacion"]),
+                            oc_observacion = Convert.ToString(reader["oc_observacion"]),
+                            Descripcion = Convert.ToString(reader["Descripcion"]),
+                            IdEstado_cierre = Convert.ToString(reader["IdEstado_cierre"]),
+                            en_guia = Convert.ToString(reader["en_guia"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            TerminoPago = Convert.ToString(reader["TerminoPago"]),
+                            oc_plazo = Convert.ToInt32(reader["oc_plazo"]),
+                            Fecha_UltMod = string.IsNullOrEmpty(reader["Fecha_UltMod"].ToString()) ? null : (DateTime?)(reader["Fecha_UltMod"]),
+                            IdUsuarioUltMod = Convert.ToString(reader["IdUsuarioUltMod"])
+                        });
+                    }
+                    reader.Close();
                 }
 
                 return Lista;

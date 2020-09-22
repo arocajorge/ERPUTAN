@@ -43,6 +43,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_consulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_imagen)).BeginInit();
@@ -56,7 +57,7 @@
             this.gc_consulta.Name = "gc_consulta";
             this.gc_consulta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_imagen});
-            this.gc_consulta.Size = new System.Drawing.Size(1365, 593);
+            this.gc_consulta.Size = new System.Drawing.Size(1464, 649);
             this.gc_consulta.TabIndex = 0;
             this.gc_consulta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_consulta});
@@ -72,7 +73,8 @@
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.gridColumn10});
             this.gv_consulta.GridControl = this.gc_consulta;
             this.gv_consulta.Images = this.imageList1;
             this.gv_consulta.Name = "gv_consulta";
@@ -89,7 +91,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 113;
+            this.gridColumn1.Width = 80;
             // 
             // gridColumn2
             // 
@@ -97,8 +99,8 @@
             this.gridColumn2.FieldName = "Su_Descripcion";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 3;
-            this.gridColumn2.Width = 319;
+            this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 222;
             // 
             // gridColumn3
             // 
@@ -106,8 +108,8 @@
             this.gridColumn3.FieldName = "pe_nombreCompleto";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 4;
-            this.gridColumn3.Width = 540;
+            this.gridColumn3.VisibleIndex = 5;
+            this.gridColumn3.Width = 376;
             // 
             // gridColumn4
             // 
@@ -115,8 +117,8 @@
             this.gridColumn4.FieldName = "Comprador";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
-            this.gridColumn4.Width = 192;
+            this.gridColumn4.VisibleIndex = 6;
+            this.gridColumn4.Width = 133;
             // 
             // gridColumn5
             // 
@@ -124,8 +126,8 @@
             this.gridColumn5.FieldName = "nom_solicitante";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 6;
-            this.gridColumn5.Width = 285;
+            this.gridColumn5.VisibleIndex = 7;
+            this.gridColumn5.Width = 197;
             // 
             // gridColumn6
             // 
@@ -133,8 +135,7 @@
             this.gridColumn6.FieldName = "cp_Fecha";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 108;
+            this.gridColumn6.VisibleIndex = 3;
             // 
             // gridColumn7
             // 
@@ -143,8 +144,8 @@
             this.gridColumn7.ImageIndex = 0;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 8;
-            this.gridColumn7.Width = 72;
+            this.gridColumn7.VisibleIndex = 9;
+            this.gridColumn7.Width = 59;
             // 
             // cmb_imagen
             // 
@@ -173,7 +174,6 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 1;
-            this.gridColumn8.Width = 105;
             // 
             // gridColumn9
             // 
@@ -181,13 +181,23 @@
             this.gridColumn9.FieldName = "EsCompraUrgente";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 7;
+            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.Width = 51;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "# Pedido Reg";
+            this.gridColumn10.FieldName = "IdOrdenPedidoReg";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 2;
+            this.gridColumn10.Width = 81;
             // 
             // FrmCom_CotizacionConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 593);
+            this.ClientSize = new System.Drawing.Size(1464, 649);
             this.Controls.Add(this.gc_consulta);
             this.Name = "FrmCom_CotizacionConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -215,5 +225,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_imagen;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
     }
 }

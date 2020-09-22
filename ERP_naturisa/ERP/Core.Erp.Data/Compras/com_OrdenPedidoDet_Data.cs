@@ -78,7 +78,7 @@ namespace Core.Erp.Data.Compras
                         + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and b.EstadoGA = 1 "
                         + " and not exists"
                         + " (select x1.IdEmpresa from com_OrdenPedidoDet as x1"
-                        + " where x1.IdEmpresa = a.IdEmpresa and x1.IdOrdenPedidoReg = a.IdOrdenPedidoReg and x1.SecuenciaReg = a.Secuencia)";
+                        + " where x1.IdEmpresa = a.IdEmpresa and x1.IdOrdenPedidoReg = a.IdOrdenPedido and x1.SecuenciaReg = a.Secuencia)";
 
                 using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {

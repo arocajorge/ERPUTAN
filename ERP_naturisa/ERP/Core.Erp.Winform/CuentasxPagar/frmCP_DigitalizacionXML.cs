@@ -230,6 +230,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                                     EsMicroEmpresa = true,
                                     Nombre = MicroEmpresa.Nombre
                                 });
+                                Documento.EsMicroEmpresa = true;
                             }
                         }
                         else

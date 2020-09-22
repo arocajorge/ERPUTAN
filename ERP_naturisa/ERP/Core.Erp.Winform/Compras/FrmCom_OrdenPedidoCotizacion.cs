@@ -613,5 +613,48 @@ namespace Core.Erp.Winform.Compras
 
             }
         }
+
+        private void cmbRegularizacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if (row.IdOrdenPedidoReg == null)
+                    return;
+
+                var det = bus_det.GetInfoDetRegularizacion(row.IdEmpresa, row.IdOrdenPedidoReg ?? 0, row.SecuenciaReg ?? 0);
+                if (det != null)
+                {
+                    row.A = true;
+                    row.IdProveedor = det.IdProveedor;
+                    row.cd_precioCompra = det.cd_precioCompra;
+                    row.cd_porc_des = det.cd_porc_des;
+                    row.cd_descuento = det.cd_descuento;
+                    row.cd_precioFinal = det.cd_precioFinal;
+                    row.IdCod_Impuesto = det.IdCod_Impuesto;
+
+                    row.cd_subtotal = row.cd_Cantidad * row.cd_precioFinal;
+
+                    var impuesto = lst_impuesto.Where(q => q.IdCod_Impuesto == det.IdCod_Impuesto).FirstOrDefault();
+                    if (impuesto != null)
+                        row.Por_Iva = impuesto.porcentaje;
+                    else
+                        row.Por_Iva = 0;
+
+                    row.cd_iva = row.cd_subtotal * (row.Por_Iva / 100);
+                    row.cd_total = row.cd_subtotal + row.cd_iva;
+
+                    gc_detalle.RefreshDataSource();
+                    btn_Buscar.Focus();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

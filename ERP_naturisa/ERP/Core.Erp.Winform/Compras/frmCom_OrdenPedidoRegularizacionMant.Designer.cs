@@ -784,8 +784,8 @@
             // 
             // colR
             // 
-            this.colR.Caption = "R";
-            this.colR.FieldName = "R";
+            this.colR.Caption = "A";
+            this.colR.FieldName = "A";
             this.colR.Name = "colR";
             this.colR.Visible = true;
             this.colR.VisibleIndex = 0;

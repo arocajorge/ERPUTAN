@@ -86,7 +86,15 @@ namespace Core.Erp.Winform.Compras
                         btnPasar.Visible = false;
                     }
 
-                    
+                    if (info.IdOrdenPedidoReg != null)
+                    {
+                        lblRegularizacion.Visible = true;
+                        lblRegularizacion.Text = "Regularización del pedido # "+info.IdOrdenPedidoReg.ToString();
+                    }
+                    else
+                    {
+                        lblRegularizacion.Visible = false;
+                    }
                 }
                 else
                     Limpiar();

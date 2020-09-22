@@ -6,6 +6,7 @@ using System.Data;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 
 namespace Core.Erp.Data.Contabilidad
@@ -110,29 +111,37 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 List<ct_Centro_costo_Info> lM = new List<ct_Centro_costo_Info>();
-                EntitiesDBConta OECentroCost = new EntitiesDBConta();
-                var selectCentroCost = from C in OECentroCost.vwct_centro_costo
-                                       where C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "S"
-                                       select C;
 
-                foreach (var item in selectCentroCost)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    ct_Centro_costo_Info Cbt = new ct_Centro_costo_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdCentroCosto = item.IdCentroCosto; //se quito el trim
-                    Cbt.CodCentroCosto = item.CodCentroCosto;
-                    Cbt.Centro_costo2 = "[" + item.IdCentroCosto.Trim() + "] - " + item.Centro_costo.Trim();
-                    Cbt.Centro_costo = item.Centro_costo.Trim();
-                    Cbt.IdCentroCostoPadre = item.IdCentroCostoPadre;
-                    Cbt.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    Cbt.pc_EsMovimiento = item.pc_EsMovimiento;
-                    Cbt.IdNivel = item.IdNivel;
-                    Cbt.IdCtaCble = item.IdCtaCble;
-                    Cbt.Centro_costoPadre = item.Centro_costoPadre;
-                    Cbt.pc_Estado = item.pc_Estado;
-                    Cbt.Sestado = (item.pc_Estado == "A") ? "ACTIVO" : "*ANULADO*"; 
+                    connection.Open();
 
-                    lM.Add(Cbt);
+                    string query = "select a.IdEmpresa, a.IdCentroCosto, a.CodCentroCosto, a.Centro_costo, '['+a.IdCentroCosto+'] '+ a.Centro_costo as Centro_costo2,"
+                                +" a.IdCentroCostoPadre, a.IdCatalogo, a.pc_EsMovimiento, a.IdNivel, a.IdCtaCble, a.pc_Estado, "
+                                +" case when a.pc_Estado = 'A' THEN 'ACTIVO' ELSE '*ANULADO*' END AS Sestado"
+                                +" from ct_centro_costo as a"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.pc_EsMovimiento = 'S' AND a.pc_Estado = 'A'";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new ct_Centro_costo_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCentroCosto = Convert.ToString(reader["IdCentroCosto"]),
+                            CodCentroCosto = Convert.ToString(reader["CodCentroCosto"]),
+                            Centro_costo = Convert.ToString(reader["Centro_costo"]),
+                            Centro_costo2 = Convert.ToString(reader["Centro_costo2"]),
+                            IdCentroCostoPadre = Convert.ToString(reader["IdCentroCostoPadre"]),
+                            IdCatalogo = Convert.ToDecimal(reader["IdCatalogo"]),
+                            pc_EsMovimiento = Convert.ToString(reader["pc_EsMovimiento"]),
+                            IdNivel = Convert.ToInt32(reader["IdNivel"]),
+                            IdCtaCble = Convert.ToString(reader["IdCtaCble"]),
+                            pc_Estado = Convert.ToString(reader["pc_Estado"]),
+                            Sestado = Convert.ToString(reader["Sestado"])
+                        });
+                    }
+                    reader.Close();
                 }
                 return (lM);
             }

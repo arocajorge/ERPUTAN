@@ -168,18 +168,8 @@ namespace Core.Erp.Winform.Compras
         {
             try
             {
-                if (param.IdSolicitante == 0)
-                {
-                    var solicitante = bus_solicitante.GetInfo(param.IdEmpresa, param.IdUsuario);
-                    if (solicitante == null)
-                    {
-                        MessageBox.Show("No tiene un usuario solicitante configurado para el módulo de compras, comuníquese con sistemas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return false;
-                    }
-                    else
-                        param.IdSolicitante = solicitante.IdSolicitante;
-                }
-
+                txt_codigo.Focus();
+                gv_detalle.MoveNext();
                 if (de_Fecha.EditValue == null)
                 {
                     MessageBox.Show("El campo fecha es obligatorio", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -205,6 +195,12 @@ namespace Core.Erp.Winform.Compras
                 if (blst_det.Where(q => q.IdSucursalOrigen == 0).Count() > 0)
                 {
                     MessageBox.Show("No se puede guardar solicitudes sin sucursal destino", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+
+                if (blst_det.Where(q=> q.A == true).Count() == 0)
+                {
+                    MessageBox.Show("Debe seleccionar al menos 1 orden de compra a ser regularizada", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
                 }
 
@@ -259,6 +255,7 @@ namespace Core.Erp.Winform.Compras
             try
             {
                 txt_codigo.Focus();
+                gv_detalle.MoveNext();
                 info_pedido = new com_OrdenPedido_Info
                 {
                     IdEmpresa = param.IdEmpresa,
@@ -271,7 +268,7 @@ namespace Core.Erp.Winform.Compras
                     op_Observacion = txt_Observacion.Text,
                     EsCompraUrgente = chk_EsCompraUrgente.Checked,
                     IdPunto_cargo = cmb_PuntoCargoCab.EditValue == null ? null : (int?)cmb_PuntoCargoCab.EditValue,
-                    ListaDetalle = new List<com_OrdenPedidoDet_Info>(blst_det),
+                    ListaDetalle = new List<com_OrdenPedidoDet_Info>(blst_det.Where(q=> q.A == true).ToList()),
                     IdOrdenPedido = 0
                 };
             }
@@ -384,7 +381,7 @@ namespace Core.Erp.Winform.Compras
                 {
                     foreach (var item in blst_det.Where(q => q.CodigoOrdenCompra == row.CodigoOrdenCompra))
                     {
-                        item.R = Convert.ToBoolean(e.Value);
+                        item.A = Convert.ToBoolean(e.Value);
                     }
                 }
             }

@@ -7,6 +7,7 @@ using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 using System.Data;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 
 namespace Core.Erp.Data.CuentasxPagar
@@ -21,19 +22,28 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 List<cp_proveedor_combo_Info> Lista = new List<cp_proveedor_combo_Info>();
 
-                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    var lst = db.vwcp_proveedor_combo.Where(q => q.IdEmpresa == IdEmpresa).ToList();
-                    foreach (var q in lst)
+                    connection.Open();
+
+                    string query = "select a.IdEmpresa, a.IdProveedor, b.pe_nombreCompleto, b.pe_cedulaRuc"
+                                +" from cp_proveedor as a inner join"
+                                +" tb_persona as b on a.IdPersona = b.IdPersona"
+                                +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.pr_estado = 'A'";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
                         Lista.Add(new cp_proveedor_combo_Info
-                    {
-                        IdEmpresa = q.IdEmpresa,
-                        IdProveedor = q.IdProveedor,
-                        pe_nombreCompleto = q.pe_nombrecompleto,
-                        pe_cedulaRuc = q.pe_cedularuc
-                    });
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdProveedor = Convert.ToDecimal(reader["IdProveedor"]),
+                            pe_nombreCompleto = Convert.ToString(reader["pe_nombreCompleto"]),
+                            pe_cedulaRuc = Convert.ToString(reader["pe_cedulaRuc"])
+                            
+                        });
                     }
+                    reader.Close();
                 }
 
                 return Lista;

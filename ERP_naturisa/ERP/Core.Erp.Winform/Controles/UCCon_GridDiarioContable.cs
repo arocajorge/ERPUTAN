@@ -553,8 +553,11 @@ namespace Core.Erp.Winform.Controles
 
 
                         //BindListaSubCentro = new BindingList<ct_centro_costo_sub_centro_costo_Info>(busSubCen.Get_list_centro_costo_sub_centro_costo(idempresa, Convert.ToString(item.IdCentroCosto)));
-
-                        Lista_SubCentro = busSubCen.Get_list_centro_costo_sub_centro_costo(idempresa, Convert.ToString(item.IdCentroCosto));
+                        if (item.IdCentroCosto != null)
+                        {
+                            Lista_SubCentro = busSubCen.Get_list_centro_costo_sub_centro_costo(idempresa, Convert.ToString(item.IdCentroCosto));    
+                        }
+                        
 
                         if (Lista_SubCentro.Count != 0)
                         {

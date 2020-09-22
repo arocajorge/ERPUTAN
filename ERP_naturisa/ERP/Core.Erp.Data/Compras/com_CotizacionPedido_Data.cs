@@ -421,125 +421,82 @@ namespace Core.Erp.Data.Compras
             {
                 com_CotizacionPedido_Info info = new com_CotizacionPedido_Info();
 
-                using (EntitiesCompras db = new EntitiesCompras())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    if(Cargo == "JC")
-                    info = db.vwcom_CotizacionPedido.Where(q=> q.IdEmpresa == IdEmpresa && q.EstadoJC == "P" && q.Pasado == false).Select(q=> new com_CotizacionPedido_Info{
-                        IdEmpresa = q.IdEmpresa,
-                        IdCotizacion = q.IdCotizacion,
-                        IdSucursal = q.IdSucursal,
-                        IdProveedor = q.IdProveedor,
-                        IdTerminoPago = q.IdTerminoPago,
-                        cp_Fecha = q.cp_Fecha,
-                        cp_Plazo = q.cp_Plazo,
-                        cp_Observacion = q.cp_Observacion,
-                        IdComprador = q.IdComprador,
-                        IdSolicitante = q.IdSolicitante,
-                        IdDepartamento = q.IdDepartamento,
-                        EstadoJC = q.EstadoJC,
-                        EstadoGA = q.EstadoGA,
-
-                        Su_Descripcion = q.Su_Descripcion,
-                        pe_nombreCompleto = q.pe_nombreCompleto,
-                        TerminoPago = q.TerminoPago,
-                        Comprador= q.Comprador,
-                        nom_solicitante = q.nom_solicitante,
-                        nom_departamento = q.nom_departamento,
-                        cp_PlazoEntrega = q.cp_PlazoEntrega,
-                        Pasado = q.Pasado,
-                        cp_ObservacionAdicional = q.cp_ObservacionAdicional
-                    }).OrderBy(q=> q.IdCotizacion).FirstOrDefault();
-                        else
-                        info = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "A" && q.EstadoGA == "P" && q.Pasado == false).Select(q => new com_CotizacionPedido_Info
-                        {
-                            IdEmpresa = q.IdEmpresa,
-                            IdCotizacion = q.IdCotizacion,
-                            IdSucursal = q.IdSucursal,
-                            IdProveedor = q.IdProveedor,
-                            IdTerminoPago = q.IdTerminoPago,
-                            cp_Fecha = q.cp_Fecha,
-                            cp_Plazo = q.cp_Plazo,
-                            cp_Observacion = q.cp_Observacion,
-                            IdComprador = q.IdComprador,
-                            IdSolicitante = q.IdSolicitante,
-                            IdDepartamento = q.IdDepartamento,
-                            EstadoJC = q.EstadoJC,
-                            EstadoGA = q.EstadoGA,
-
-                            Su_Descripcion = q.Su_Descripcion,
-                            pe_nombreCompleto = q.pe_nombreCompleto,
-                            TerminoPago = q.TerminoPago,
-                            Comprador = q.Comprador,
-                            nom_solicitante = q.nom_solicitante,
-                            nom_departamento = q.nom_departamento,
-                            cp_PlazoEntrega = q.cp_PlazoEntrega,
-                            Pasado = q.Pasado,
-                            cp_ObservacionAdicional = q.cp_ObservacionAdicional
-                        }).OrderBy(q => q.IdCotizacion).FirstOrDefault();
-                    if (info == null)
+                    connection.Open();
+                    string query = "SELECT TOP 1 c.IdEmpresa, c.IdCotizacion, c.IdSucursal, c.IdProveedor, c.IdTerminoPago, c.cp_Fecha, c.cp_Plazo, c.cp_Observacion, "
+                                + " c.IdComprador, c.IdSolicitante, c.IdDepartamento, c.EstadoJC, c.EstadoGA, suc.Su_Descripcion, "
+                                + " per.pe_nombreCompleto, tp.Descripcion AS TerminoPago, com.Descripcion AS Comprador, sol.nom_solicitante, dep.nom_departamento, CASE WHEN saltar.IdEmpresa IS NULL THEN CAST(0 AS bit) "
+                                + " ELSE CAST(1 AS bit) END AS Pasado, c.cp_PlazoEntrega, d.opd_IdOrdenPedido, c.cp_ObservacionAdicional, dbo.com_OrdenPedido.EsCompraUrgente, com_OrdenPedido.IdOrdenPedidoReg"
+                                + " FROM     dbo.com_OrdenPedido RIGHT OUTER JOIN"
+                                + " (SELECT IdEmpresa, IdCotizacion, MAX(opd_IdOrdenPedido) AS opd_IdOrdenPedido"
+                                + " FROM      dbo.com_CotizacionPedidoDet"
+                                + " GROUP BY IdEmpresa, IdCotizacion) AS d ON dbo.com_OrdenPedido.IdEmpresa = d.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = d.opd_IdOrdenPedido RIGHT OUTER JOIN"
+                                + " dbo.com_departamento AS dep INNER JOIN"
+                                + " dbo.tb_persona AS per INNER JOIN"
+                                + " dbo.tb_sucursal AS suc INNER JOIN"
+                                + " dbo.com_CotizacionPedido AS c ON suc.IdEmpresa = c.IdEmpresa AND suc.IdSucursal = c.IdSucursal INNER JOIN"
+                                + " dbo.cp_proveedor AS pro ON c.IdEmpresa = pro.IdEmpresa AND c.IdProveedor = pro.IdProveedor ON per.IdPersona = pro.IdPersona INNER JOIN"
+                                + " dbo.com_TerminoPago AS tp ON c.IdTerminoPago = tp.IdTerminoPago INNER JOIN"
+                                + " dbo.com_comprador AS com ON c.IdEmpresa = com.IdEmpresa AND c.IdComprador = com.IdComprador INNER JOIN"
+                                + " dbo.com_solicitante AS sol ON c.IdSolicitante = sol.IdSolicitante AND c.IdEmpresa = sol.IdEmpresa ON dep.IdEmpresa = c.IdEmpresa AND dep.IdDepartamento = c.IdDepartamento LEFT OUTER JOIN"
+                                + " dbo.com_CotizacionPedidoSaltar AS saltar ON c.IdEmpresa = saltar.IdEmpresa AND c.IdCotizacion = saltar.IdCotizacion ON d.IdEmpresa = c.IdEmpresa AND d.IdCotizacion = c.IdCotizacion"
+                                + " WHERE  (c.EstadoJC = 'P') and c.IdEmpresa = " + IdEmpresa.ToString() + " AND NOT EXISTS"
+                                + " ("
+                                + " SELECT f.IdEmpresa FROM com_CotizacionPedidoSaltar AS F"
+                                + " WHERE c.IdEmpresa = f.IdEmpresa and c.IdCotizacion = f.IdCotizacion and f.IdUsuario = '"+IdUsuario+"'"
+                                + " )";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    int EjecutarReader = 0;
+                    var Validation = command.ExecuteScalar();
+                    if (Validation == null)
                     {
-                        var lst = db.com_CotizacionPedidoSaltar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario == IdUsuario).ToList();
-                        foreach (var item in lst)
-                        {
-                            db.com_CotizacionPedidoSaltar.Remove(item);
-                        }
-                        db.SaveChanges();
+                        string queryDelete = "DELETE com_CotizacionPedidoSaltar WHERE IdEmpresa = " + IdEmpresa.ToString() + " and IdUsuario = '" + IdUsuario + "'";
+                        SqlCommand commandDelete = new SqlCommand(queryDelete, connection);
+                        commandDelete.ExecuteNonQuery();
 
-                        if (Cargo == "JC")
-                            info = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "P" && q.Pasado == false).Select(q => new com_CotizacionPedido_Info
-                            {
-                                IdEmpresa = q.IdEmpresa,
-                                IdCotizacion = q.IdCotizacion,
-                                IdSucursal = q.IdSucursal,
-                                IdProveedor = q.IdProveedor,
-                                IdTerminoPago = q.IdTerminoPago,
-                                cp_Fecha = q.cp_Fecha,
-                                cp_Plazo = q.cp_Plazo,
-                                cp_Observacion = q.cp_Observacion,
-                                IdComprador = q.IdComprador,
-                                IdSolicitante = q.IdSolicitante,
-                                IdDepartamento = q.IdDepartamento,
-                                EstadoJC = q.EstadoJC,
-                                EstadoGA = q.EstadoGA,
-
-                                Su_Descripcion = q.Su_Descripcion,
-                                pe_nombreCompleto = q.pe_nombreCompleto,
-                                TerminoPago = q.TerminoPago,
-                                Comprador = q.Comprador,
-                                nom_solicitante = q.nom_solicitante,
-                                nom_departamento = q.nom_departamento,
-                                cp_PlazoEntrega = q.cp_PlazoEntrega,
-                                Pasado = q.Pasado,
-                                cp_ObservacionAdicional = q.cp_ObservacionAdicional
-                            }).OrderBy(q => q.IdCotizacion).FirstOrDefault();
+                        var ValidationAfterDelete = command.ExecuteScalar();
+                        if (ValidationAfterDelete != null)
+                            EjecutarReader = 1;
                         else
-                            info = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "A" && q.EstadoGA == "P" && q.Pasado == false).Select(q => new com_CotizacionPedido_Info
-                            {
-                                IdEmpresa = q.IdEmpresa,
-                                IdCotizacion = q.IdCotizacion,
-                                IdSucursal = q.IdSucursal,
-                                IdProveedor = q.IdProveedor,
-                                IdTerminoPago = q.IdTerminoPago,
-                                cp_Fecha = q.cp_Fecha,
-                                cp_Plazo = q.cp_Plazo,
-                                cp_Observacion = q.cp_Observacion,
-                                IdComprador = q.IdComprador,
-                                IdSolicitante = q.IdSolicitante,
-                                IdDepartamento = q.IdDepartamento,
-                                EstadoJC = q.EstadoJC,
-                                EstadoGA = q.EstadoGA,
-
-                                Su_Descripcion = q.Su_Descripcion,
-                                pe_nombreCompleto = q.pe_nombreCompleto,
-                                TerminoPago = q.TerminoPago,
-                                Comprador = q.Comprador,
-                                nom_solicitante = q.nom_solicitante,
-                                nom_departamento = q.nom_departamento,
-                                cp_PlazoEntrega = q.cp_PlazoEntrega,
-                                Pasado = q.Pasado,
-                                cp_ObservacionAdicional = q.cp_ObservacionAdicional
-                            }).OrderBy(q => q.IdCotizacion).FirstOrDefault();
+                            return null;
                     }
+                    else
+                        EjecutarReader = 1;
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        info = new com_CotizacionPedido_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCotizacion = Convert.ToDecimal(reader["IdCotizacion"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdProveedor = Convert.ToDecimal(reader["IdProveedor"]),
+                            IdTerminoPago = Convert.ToString(reader["IdTerminoPago"]),
+                            cp_Fecha = Convert.ToDateTime(reader["cp_Fecha"]),
+                            cp_Plazo = Convert.ToInt32(reader["cp_Plazo"]),
+                            cp_Observacion = Convert.ToString(reader["cp_Observacion"]),
+                            IdComprador = Convert.ToDecimal(reader["IdComprador"]),
+                            IdSolicitante = Convert.ToDecimal(reader["IdSolicitante"]),
+                            IdDepartamento = Convert.ToDecimal(reader["IdDepartamento"]),
+                            EstadoJC = Convert.ToString(reader["EstadoJC"]),
+                            EstadoGA = Convert.ToString(reader["EstadoGA"]),
+                            Su_Descripcion = Convert.ToString(reader["Su_Descripcion"]),
+                            pe_nombreCompleto = Convert.ToString(reader["pe_nombreCompleto"]),
+                            TerminoPago = Convert.ToString(reader["TerminoPago"]),
+                            Comprador = Convert.ToString(reader["Comprador"]),
+                            nom_solicitante = Convert.ToString(reader["nom_solicitante"]),
+                            nom_departamento = Convert.ToString(reader["nom_departamento"]),
+                            Pasado = Convert.ToBoolean(reader["Pasado"]),
+                            cp_PlazoEntrega = Convert.ToInt32(reader["cp_PlazoEntrega"]),
+                            IdOrdenPedido = Convert.ToDecimal(reader["opd_IdOrdenPedido"]),
+                            cp_ObservacionAdicional = Convert.ToString(reader["cp_ObservacionAdicional"]),
+                            EsCompraUrgente = Convert.ToBoolean(reader["EsCompraUrgente"]),
+                            IdOrdenPedidoReg = string.IsNullOrEmpty(reader["IdOrdenPedidoReg"].ToString()) ? null : (decimal?)reader["IdOrdenPedidoReg"]
+                        };
+                    }
+                    reader.Close();
                 }
 
                 return info;
@@ -557,26 +514,45 @@ namespace Core.Erp.Data.Compras
             {
                 com_CotizacionPedido_Info info = new com_CotizacionPedido_Info();
 
-                using (EntitiesCompras db = new EntitiesCompras())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    info = db.com_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdCotizacion == IdCotizacion).Select(q => new com_CotizacionPedido_Info
+                    connection.Open();
+
+                    string query = "select a.IdEmpresa,a.IdCotizacion, a.IdSucursal, a.IdProveedor, a.IdTerminoPago, a.cp_Fecha, a.cp_Plazo, "
+                                +" a.cp_Observacion, a.IdComprador,a.IdSolicitante, a.IdDepartamento, a.EstadoJC, a.EstadoGA, a.cp_PlazoEntrega, "
+                                +" a.cp_ObservacionAdicional, b.IdOrdenPedidoReg"
+                                +" from com_CotizacionPedido as a inner join "
+                                +" com_OrdenPedido as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido"
+                                +" where a.IdEmpresa  = "+IdEmpresa.ToString()+" and a.IdCotizacion = "+IdCotizacion.ToString();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    var Validate = command.ExecuteScalar();
+                    if (Validate == null)
+                        return null;
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        IdCotizacion = q.IdCotizacion,
-                        IdSucursal = q.IdSucursal,
-                        IdProveedor = q.IdProveedor,
-                        IdTerminoPago = q.IdTerminoPago,
-                        cp_Fecha = q.cp_Fecha,
-                        cp_Plazo = q.cp_Plazo,
-                        cp_Observacion = q.cp_Observacion,
-                        IdComprador = q.IdComprador,
-                        IdSolicitante = q.IdSolicitante,
-                        IdDepartamento = q.IdDepartamento,
-                        EstadoJC = q.EstadoJC,
-                        EstadoGA = q.EstadoGA,
-                        cp_PlazoEntrega = q.cp_PlazoEntrega,
-                        cp_ObservacionAdicional = q.cp_ObservacionAdicional
-                    }).FirstOrDefault();
+                        info = new com_CotizacionPedido_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCotizacion = Convert.ToDecimal(reader["IdCotizacion"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdProveedor = Convert.ToDecimal(reader["IdProveedor"]),
+                            IdTerminoPago = Convert.ToString(reader["IdTerminoPago"]),
+                            cp_Fecha = Convert.ToDateTime(reader["cp_Fecha"]),
+                            cp_Plazo = Convert.ToInt32(reader["cp_Plazo"]),
+                            cp_Observacion = Convert.ToString(reader["cp_Observacion"]),
+                            IdComprador = Convert.ToInt32(reader["IdComprador"]),
+                            IdSolicitante = Convert.ToInt32(reader["IdSolicitante"]),
+                            IdDepartamento = Convert.ToInt32(reader["IdDepartamento"]),
+                            EstadoJC = Convert.ToString(reader["EstadoJC"]),
+                            EstadoGA = Convert.ToString(reader["EstadoGA"]),
+                            cp_PlazoEntrega = Convert.ToInt32(reader["cp_PlazoEntrega"]),
+                            cp_ObservacionAdicional = Convert.ToString(reader["cp_ObservacionAdicional"]),
+                            IdOrdenPedidoReg = string.IsNullOrEmpty(reader["IdOrdenPedidoReg"].ToString()) ? null : (decimal?)reader["IdOrdenPedidoReg"]
+                        };
+                    }
+                    reader.Close();
                 }
 
                 return info;
@@ -592,70 +568,66 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
-                List<com_CotizacionPedido_Info> Lista;
+                List<com_CotizacionPedido_Info> Lista = new List<com_CotizacionPedido_Info>();
 
-                using (EntitiesCompras db = new EntitiesCompras())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    Lista = db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC == "P" && q.EstadoGA == "P").Select(q => new com_CotizacionPedido_Info
+                    connection.Open();
+                    string query = "SELECT c.IdEmpresa, c.IdCotizacion, c.IdSucursal, c.IdProveedor, c.IdTerminoPago, c.cp_Fecha, c.cp_Plazo, c.cp_Observacion, "
+                                + " c.IdComprador, c.IdSolicitante, c.IdDepartamento, c.EstadoJC, c.EstadoGA, suc.Su_Descripcion, "
+                                + " per.pe_nombreCompleto, tp.Descripcion AS TerminoPago, com.Descripcion AS Comprador, sol.nom_solicitante, dep.nom_departamento, CASE WHEN saltar.IdEmpresa IS NULL THEN CAST(0 AS bit) "
+                                + " ELSE CAST(1 AS bit) END AS Pasado, c.cp_PlazoEntrega, d.opd_IdOrdenPedido, c.cp_ObservacionAdicional, dbo.com_OrdenPedido.EsCompraUrgente, com_OrdenPedido.IdOrdenPedidoReg"
+                                + " FROM     dbo.com_OrdenPedido RIGHT OUTER JOIN"
+                                + " (SELECT IdEmpresa, IdCotizacion, MAX(opd_IdOrdenPedido) AS opd_IdOrdenPedido"
+                                + " FROM      dbo.com_CotizacionPedidoDet"
+                                + " GROUP BY IdEmpresa, IdCotizacion) AS d ON dbo.com_OrdenPedido.IdEmpresa = d.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = d.opd_IdOrdenPedido RIGHT OUTER JOIN"
+                                + " dbo.com_departamento AS dep INNER JOIN"
+                                + " dbo.tb_persona AS per INNER JOIN"
+                                + " dbo.tb_sucursal AS suc INNER JOIN"
+                                + " dbo.com_CotizacionPedido AS c ON suc.IdEmpresa = c.IdEmpresa AND suc.IdSucursal = c.IdSucursal INNER JOIN"
+                                + " dbo.cp_proveedor AS pro ON c.IdEmpresa = pro.IdEmpresa AND c.IdProveedor = pro.IdProveedor ON per.IdPersona = pro.IdPersona INNER JOIN"
+                                + " dbo.com_TerminoPago AS tp ON c.IdTerminoPago = tp.IdTerminoPago INNER JOIN"
+                                + " dbo.com_comprador AS com ON c.IdEmpresa = com.IdEmpresa AND c.IdComprador = com.IdComprador INNER JOIN"
+                                + " dbo.com_solicitante AS sol ON c.IdSolicitante = sol.IdSolicitante AND c.IdEmpresa = sol.IdEmpresa ON dep.IdEmpresa = c.IdEmpresa AND dep.IdDepartamento = c.IdDepartamento LEFT OUTER JOIN"
+                                + " dbo.com_CotizacionPedidoSaltar AS saltar ON c.IdEmpresa = saltar.IdEmpresa AND c.IdCotizacion = saltar.IdCotizacion ON d.IdEmpresa = c.IdEmpresa AND d.IdCotizacion = c.IdCotizacion"
+                                + " WHERE  (c.EstadoJC  "+(Cargo == "HIS" ? " <> 'P'" :  "='P'")+") and c.IdEmpresa = " + IdEmpresa.ToString();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        IdCotizacion = q.IdCotizacion,
-                        IdSucursal = q.IdSucursal,
-                        IdProveedor = q.IdProveedor,
-                        IdTerminoPago = q.IdTerminoPago,
-                        cp_Fecha = q.cp_Fecha,
-                        cp_Plazo = q.cp_Plazo,
-                        cp_Observacion = q.cp_Observacion,
-                        IdComprador = q.IdComprador,
-                        IdSolicitante = q.IdSolicitante,
-                        IdDepartamento = q.IdDepartamento,
-                        EstadoJC = q.EstadoJC,
-                        EstadoGA = q.EstadoGA,
-
-                        Su_Descripcion = q.Su_Descripcion,
-                        pe_nombreCompleto = q.pe_nombreCompleto,
-                        TerminoPago = q.TerminoPago,
-                        Comprador = q.Comprador,
-                        nom_solicitante = q.nom_solicitante,
-                        nom_departamento = q.nom_departamento,
-                        cp_PlazoEntrega = q.cp_PlazoEntrega,
-                        Pasado = q.Pasado,
-                        IdOrdenPedido = q.opd_IdOrdenPedido,
-                        Cargo = "JC",
-                        EsCompraUrgente = q.EsCompraUrgente
-                    }).ToList();
-
-                    if (Cargo == "HIS")
-                    {
-                        Lista.AddRange(db.vwcom_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.EstadoJC != "P").Select(q => new com_CotizacionPedido_Info
-                       {
-                           IdEmpresa = q.IdEmpresa,
-                           IdCotizacion = q.IdCotizacion,
-                           IdSucursal = q.IdSucursal,
-                           IdProveedor = q.IdProveedor,
-                           IdTerminoPago = q.IdTerminoPago,
-                           cp_Fecha = q.cp_Fecha,
-                           cp_Plazo = q.cp_Plazo,
-                           cp_Observacion = q.cp_Observacion,
-                           IdComprador = q.IdComprador,
-                           IdSolicitante = q.IdSolicitante,
-                           IdDepartamento = q.IdDepartamento,
-                           EstadoJC = q.EstadoJC,
-                           EstadoGA = q.EstadoGA,
-
-                           Su_Descripcion = q.Su_Descripcion,
-                           pe_nombreCompleto = q.pe_nombreCompleto,
-                           TerminoPago = q.TerminoPago,
-                           Comprador = q.Comprador,
-                           nom_solicitante = q.nom_solicitante,
-                           nom_departamento = q.nom_departamento,
-                           cp_PlazoEntrega = q.cp_PlazoEntrega,
-                           Pasado = q.Pasado,
-                           IdOrdenPedido = q.opd_IdOrdenPedido,
-                           Cargo = "HIS",
-                           EsCompraUrgente = q.EsCompraUrgente
-                       }).ToList());   
+                        Lista.Add(new com_CotizacionPedido_Info
+                        {
+                            Cargo = Cargo,
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCotizacion = Convert.ToDecimal(reader["IdCotizacion"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdProveedor = Convert.ToDecimal(reader["IdProveedor"]),
+                            IdTerminoPago = Convert.ToString(reader["IdTerminoPago"]),
+                            cp_Fecha = Convert.ToDateTime(reader["cp_Fecha"]),
+                            cp_Plazo = Convert.ToInt32(reader["cp_Plazo"]),
+                            cp_Observacion = Convert.ToString(reader["cp_Observacion"]),
+                            IdComprador = Convert.ToDecimal(reader["IdComprador"]),
+                            IdSolicitante = Convert.ToDecimal(reader["IdSolicitante"]),
+                            IdDepartamento = Convert.ToDecimal(reader["IdDepartamento"]),
+                            EstadoJC = Convert.ToString(reader["EstadoJC"]),
+                            EstadoGA = Convert.ToString(reader["EstadoGA"]),
+                            Su_Descripcion = Convert.ToString(reader["Su_Descripcion"]),
+                            pe_nombreCompleto = Convert.ToString(reader["pe_nombreCompleto"]),
+                            TerminoPago = Convert.ToString(reader["TerminoPago"]),
+                            Comprador = Convert.ToString(reader["Comprador"]),
+                            nom_solicitante = Convert.ToString(reader["nom_solicitante"]),
+                            nom_departamento = Convert.ToString(reader["nom_departamento"]),
+                            Pasado = Convert.ToBoolean(reader["Pasado"]),
+                            cp_PlazoEntrega = Convert.ToInt32(reader["cp_PlazoEntrega"]),
+                            IdOrdenPedido = string.IsNullOrEmpty(reader["opd_IdOrdenPedido"].ToString()) ? null : (decimal?)reader["opd_IdOrdenPedido"],
+                            cp_ObservacionAdicional = Convert.ToString(reader["cp_ObservacionAdicional"]),
+                            EsCompraUrgente = string.IsNullOrEmpty(reader["EsCompraUrgente"].ToString()) ? null : (bool?)reader["EsCompraUrgente"],
+                            IdOrdenPedidoReg = string.IsNullOrEmpty(reader["IdOrdenPedidoReg"].ToString()) ? null : (decimal?)reader["IdOrdenPedidoReg"]
+                        });
                     }
+                    reader.Close();
+                
                 }
 
                 return Lista;

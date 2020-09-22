@@ -117,11 +117,14 @@ namespace Core.Erp.Data.Compras
                                 + " com_catalogo as b on a.IdCatalogoEstado = b.IdCatalogocompra left join"
                                 + " com_solicitante as c on a.IdEmpresa = c.IdEmpresa and a.IdSolicitante = c.IdSolicitante left join"
                                 + " com_departamento as d on a.IdEmpresa = d.IdEmpresa and a.IdDepartamento = d.IdDepartamento left join"
-                                + " ct_punto_cargo as e on a.IdEmpresa = e.IdEmpresa and a.IdPunto_cargo = e.IdPunto_cargo"
-                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCatalogoEstado = 'EST_OP_CER' and a.op_Fecha > DATEFROMPARTS(2020,1,1)"
-                                + " and a.op_Fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")";
+                                + " ct_punto_cargo as e on a.IdEmpresa = e.IdEmpresa and a.IdPunto_cargo = e.IdPunto_cargo left join"
+                                + " com_OrdenPedidoDet as f on a.IdEmpresa = f.IdEmpresa and a.IdOrdenPedido = f.IdOrdenPedido left join"
+                                + " com_OrdenPedidoDet as g on f.IdEmpresa = g.IdEmpresa and f.IdOrdenPedido = g.IdOrdenPedidoReg and f.Secuencia = g.SecuenciaReg"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCatalogoEstado = 'EST_OP_CER' and a.op_Fecha > DATEFROMPARTS(2020,09,01) and g.IdOrdenPedido is null"
+                                + " and a.op_Fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")"
+                                + " group by a.IdEmpresa, a.IdOrdenPedido, a.IdCatalogoEstado, b.Nombre, a.op_Fecha, a.op_Observacion, c.nom_solicitante, d.nom_departamento, a.Estado, e.nom_punto_cargo";
 
-                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlCommand command = new SqlCommand(query, connection);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -156,35 +159,83 @@ namespace Core.Erp.Data.Compras
             try
             {
                 List<com_OrdenPedido_Info> Lista = new List<com_OrdenPedido_Info>();
+                List<com_solicitante_aprobador_Info> ListaAprobador = new List<com_solicitante_aprobador_Info>();
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    
+                    string QuerySolicitantes = "select IdEmpresa, IdSolicitante from com_solicitante_aprobador where IdEmpresa = " + IdEmpresa.ToString() + " and idusuario = '" + IdUsuario + "' and MontoMax > 0 GROUP BY IdEmpresa, IdSolicitante";
+                    SqlCommand commandSolicitantes = new SqlCommand(QuerySolicitantes, connection);
+                    SqlDataReader readerSolicitantes = commandSolicitantes.ExecuteReader();
+                    string WhereIn = string.Empty;
+                    while (readerSolicitantes.Read())
+                    {
+                        if (string.IsNullOrEmpty(WhereIn))
+                        {
+                            WhereIn += readerSolicitantes["IdSolicitante"].ToString();
+                        }
+                        else
+                            WhereIn += "," + readerSolicitantes["IdSolicitante"].ToString();
+                    }
+
+                    if (string.IsNullOrEmpty(WhereIn))
+                        return new List<com_OrdenPedido_Info>();
+                    
+
+                    string QueryConsulta = "SELECT dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, "
+                                            + " dbo.com_OrdenPedido.IdDepartamento, dbo.com_OrdenPedido.IdSolicitante, CASE WHEN COUNT(*) - A.Cont = 0 THEN 'PRECIO APROBADO' ELSE '' END AS IdCatalogoEstado, dbo.com_OrdenPedido.Estado, "
+                                            + " dbo.com_OrdenPedido.IdPunto_cargo, dbo.ct_punto_cargo.nom_punto_cargo, dbo.com_departamento.nom_departamento, dbo.com_solicitante.nom_solicitante, ISNULL(A.cd_total, 0) "
+                                            + " AS cd_total"
+                                            + " FROM     dbo.com_OrdenPedidoDet INNER JOIN"
+                                            + " dbo.com_OrdenPedido ON dbo.com_OrdenPedidoDet.IdEmpresa = dbo.com_OrdenPedido.IdEmpresa AND dbo.com_OrdenPedidoDet.IdOrdenPedido = dbo.com_OrdenPedido.IdOrdenPedido INNER JOIN"
+                                            + " dbo.com_solicitante ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_solicitante.IdEmpresa AND dbo.com_OrdenPedido.IdSolicitante = dbo.com_solicitante.IdSolicitante INNER JOIN"
+                                            + " dbo.com_departamento ON dbo.com_OrdenPedido.IdEmpresa = dbo.com_departamento.IdEmpresa AND dbo.com_OrdenPedido.IdDepartamento = dbo.com_departamento.IdDepartamento LEFT OUTER JOIN"
+                                            + " dbo.ct_punto_cargo ON dbo.com_OrdenPedido.IdPunto_cargo = dbo.ct_punto_cargo.IdPunto_cargo AND dbo.com_OrdenPedido.IdEmpresa = dbo.ct_punto_cargo.IdEmpresa LEFT OUTER JOIN"
+                                            + " (SELECT d.IdEmpresa, d.IdOrdenPedido, COUNT(d.IdOrdenPedido) AS Cont, SUM(c.cd_subtotal) AS cd_total"
+                                            + " FROM      dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN"
+                                            + " dbo.com_CotizacionPedidoDet AS c ON c.IdEmpresa = d.IdEmpresa AND c.opd_IdOrdenPedido = d.IdOrdenPedido AND c.opd_Secuencia = d.Secuencia AND c.EstadoJC = 1"
+                                            + " WHERE   (d.opd_EstadoProceso = 'AJC')"
+                                            + " GROUP BY d.IdEmpresa, d.IdOrdenPedido) AS A ON dbo.com_OrdenPedido.IdEmpresa = A.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = A.IdOrdenPedido"
+                                            + " WHERE  (dbo.com_OrdenPedidoDet.opd_EstadoProceso NOT IN ('RA', 'RC', 'RGA', 'C', 'I', 'T')) AND (dbo.com_OrdenPedido.IdCatalogoEstado = 'EST_OP_PRO') "
+                                            + " and com_OrdenPedidoDet.IdEmpresa = " + IdEmpresa.ToString() + " and com_OrdenPedido.IdSolicitante in ("+WhereIn+")"
+                                            + " GROUP BY dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, dbo.com_OrdenPedido.IdDepartamento, "
+                                            + " dbo.com_OrdenPedido.IdSolicitante, dbo.com_OrdenPedido.IdCatalogoEstado, dbo.com_OrdenPedido.IdPunto_cargo, dbo.ct_punto_cargo.nom_punto_cargo, "
+                                            + " dbo.com_departamento.nom_departamento, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.Estado, dbo.com_solicitante.nom_solicitante, A.Cont, A.cd_total"
+                                            + " order by dbo.com_OrdenPedido.IdOrdenPedido";
+                    SqlCommand commandConsulta = new SqlCommand(QueryConsulta, connection);
+                    SqlDataReader readerConsulta = commandConsulta.ExecuteReader();
+
+                    while (readerConsulta.Read())
+                    {
+                        Lista.Add(new com_OrdenPedido_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(readerConsulta["IdEmpresa"]),
+                            IdOrdenPedido = Convert.ToDecimal(readerConsulta["IdOrdenPedido"]),
+                            EsCompraUrgente = Convert.ToBoolean(readerConsulta["EsCompraUrgente"]),
+                            op_Codigo = Convert.ToString(readerConsulta["op_Codigo"]),
+                            op_Fecha = Convert.ToDateTime(readerConsulta["op_Fecha"]),
+                            op_Observacion = Convert.ToString(readerConsulta["op_Observacion"]),
+                            nom_punto_cargo = Convert.ToString(readerConsulta["nom_punto_cargo"]),
+                            nom_departamento = Convert.ToString(readerConsulta["nom_departamento"]),
+                            nom_solicitante = Convert.ToString(readerConsulta["nom_solicitante"]),
+                            cd_total = Convert.ToDouble(readerConsulta["cd_total"]),
+                            IdCatalogoEstado = Convert.ToString(readerConsulta["IdCatalogoEstado"])
+                        });
+                    }
+                }
+                /*
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     db.SetCommandTimeOut(3000);
 
 
                     string sql = "select IdEmpresa,IdOrdenPedido,EsCompraUrgente,op_Codigo,op_Fecha,op_Observacion,IdDepartamento,IdSolicitante,IdCatalogoEstado,Estado,IdPunto_cargo,IdUsuario,nom_punto_cargo,nom_departamento,nom_solicitante,cd_total ";
-                    sql += "from vwcom_ordenpedidoaprobar where idempresa = "+IdEmpresa.ToString()+" and IdUsuario = '"+IdUsuario+"'";
+                    sql += "from vwcom_ordenpedidoaprobar where idempresa = " + IdEmpresa.ToString() + " and IdUsuario = '" + IdUsuario + "'";
                     var result = db.Database.SqlQuery<com_OrdenPedido_Info>(sql).ToList();
                     Lista = result;
-                    /*
-                    var lst = db.vwcom_OrdenPedidoAprobar.Where(q => q.IdEmpresa == IdEmpresa && q.IdUsuario.Equals(IdUsuario)).ToList();
-
-                    Lista.AddRange(lst.Select(q=> new com_OrdenPedido_Info{
-                        IdEmpresa = q.IdEmpresa,
-                        IdOrdenPedido = q.IdOrdenPedido,
-                        op_Codigo = q.op_Codigo,
-                        op_Fecha = q.op_Fecha,
-                        op_Observacion = q.op_Observacion,
-
-                        nom_departamento = q.nom_departamento,
-                        nom_solicitante = q.nom_solicitante,
-                        Estado = q.Estado,
-                        IdCatalogoEstado = q.IdCatalogoEstado,
-                        EsCompraUrgente = q.EsCompraUrgente ?? false,
-                        nom_punto_cargo = q.nom_punto_cargo,
-                        cd_total = q.cd_total
-                    }).ToList());
-                     * */
-                }
+                    
+                }*/
 
                 return Lista;
             }
@@ -270,31 +321,39 @@ namespace Core.Erp.Data.Compras
                     {
                         ValidarProceso(info.IdEmpresa, info.IdOrdenPedido);
                     }
-                }
-                try
-                {
-                    #region Adjuntos
-                    var lst_adjuntos = info.ListaDetalle.Where(q => q.Adjunto == true).ToList();
-                    
-                    if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosPedido))
+
+
+                    try
                     {
-                        string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
-                        Fx.ExecuteCommand(@"" + Comando);
-                        Directory.CreateDirectory(param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString());
-                        foreach (var item in lst_adjuntos)
+                        #region Adjuntos
+                        var lst_adjuntos = info.ListaDetalle.Where(q => q.Adjunto == true).ToList();
+
+                        if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosPedido))
                         {
-                            var ext = Path.GetFileName(item.NombreArchivo);
-                            System.IO.File.Copy(item.NombreArchivo, param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString() + @"\" + ext, true);
+                            string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                            Fx.ExecuteCommand(@"" + Comando);
+                            Directory.CreateDirectory(param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString());
+                            foreach (var item in lst_adjuntos)
+                            {
+                                var ext = Path.GetFileName(item.NombreArchivo);
+                                System.IO.File.Copy(item.NombreArchivo, param.UbicacionArchivosPedido + @"\" + info.IdOrdenPedido.ToString() + @"\" + ext, true);
+                            }
+
+                            Comando = "/c Net Use /DELETE " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                            Fx.ExecuteCommand(@"" + Comando);
                         }
-
-                        Comando = "/c Net Use /DELETE " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
-                        Fx.ExecuteCommand(@"" + Comando);
+                        #endregion
                     }
-                    #endregion
-                }
-                catch (Exception)
-                {
-
+                    catch (Exception)
+                    {
+                        var Entity = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdOrdenPedido == info.IdOrdenPedido).ToList();
+                        foreach (var item in Entity)
+                        {
+                            item.Adjunto = false;
+                            item.NombreArchivo = null;
+                        }
+                        db.SaveChanges();
+                    }
                 }
 
                 return true;
@@ -559,7 +618,7 @@ namespace Core.Erp.Data.Compras
 
                         db.SaveChanges();
                     }
-
+                    /*
                     if ((cont > 0 || contR > 0) && contR != contT)
                     {
                         var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
@@ -568,6 +627,7 @@ namespace Core.Erp.Data.Compras
 
                         db.SaveChanges();
                     }
+                     * */
 
                     if (contP == contT)
                     {
@@ -812,7 +872,7 @@ namespace Core.Erp.Data.Compras
                             + " where x1.opd_IdEmpresa = " + IdEmpresa.ToString() + " and x1.opd_IdOrdenPedido = " + IdOrdenPedido.ToString() + " AND X1.EstadoJC = 1 AND X1.EstadoGA = 0"
                             + " group by x1.opd_IdEmpresa, x1.opd_IdOrdenPedido"
                         + " )as c on b.IdEmpresa = c.opd_IdEmpresa and b.IdOrdenPedido = c.opd_IdOrdenPedido"
-                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and IdOrdenPedidoReg is not null"
+                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and b.IdOrdenPedidoReg is not null"
                         + " group by b.IdEmpresa, b.IdOrdenPedido,cont"
                         + " having cont = count(*)";
                 using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
@@ -913,7 +973,7 @@ namespace Core.Erp.Data.Compras
         {
             try
             {
-                string query = "update com_ordencompra_local set Estado = 'I', oc_observacion = 'Regularizada con SOLPED # " + IdOrdenPedidoReg.ToString() + " ' +oc_observacion, IdUsuarioUltAnu = '" + IdUsuario + "', FechaHoraAnul = GETDATE()"
+                string query = "update com_ordencompra_local set Estado = 'I', oc_observacion = 'Regularizada con SOLPED # " + IdOrdenPedido.ToString() + " ' +oc_observacion, IdUsuarioUltAnu = '" + IdUsuario + "', FechaHoraAnul = GETDATE()"
                             + " FROM("
                             + " select E.IdEmpresa, E.IdSucursal, E.IdOrdenCompra"
                             + " from com_OrdenPedidoDet as a inner join"

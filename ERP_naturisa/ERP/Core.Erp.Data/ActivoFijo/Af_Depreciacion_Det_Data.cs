@@ -5,6 +5,7 @@ using System.Text;
 using Core.Erp.Info.ActivoFijo;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.ActivoFijo
 {
@@ -112,8 +113,55 @@ namespace Core.Erp.Data.ActivoFijo
             {
                 List<vwAf_ActivoFijo_Info> lstInfo = new List<vwAf_ActivoFijo_Info>();
 
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    string query = "SELECT b.IdEmpresa, a.IdDepreciacion, b.IdTipoDepreciacion, d.cod_tipo_depreciacion, b.IdActivoFijo, c.Af_Nombre, b.Valor_Compra, b.Valor_Salvamento, b.Vida_Util, "
+                                +" b.Ciclo, b.Porc_Depreciacion, b.Valor_Depreciacion, b.Valor_Depre_Acum, "
+                                + " b.Valor_Importe, b.Concepto, b.Es_Activo_x_Mejora, c.CodActivoFijo, e.Descripcion as NomCategoria, f.Af_Descripcion, c.IdActijoFijoTipo, c.IdCategoriaAF"
+                                + " FROM     dbo.Af_Depreciacion AS a INNER JOIN"
+                                + " dbo.Af_Depreciacion_Det AS b ON a.IdEmpresa = b.IdEmpresa AND a.IdDepreciacion = b.IdDepreciacion AND a.IdTipoDepreciacion = b.IdTipoDepreciacion INNER JOIN"
+                                + " dbo.Af_Tipo_Depreciacion AS d ON d.IdTipoDepreciacion = a.IdTipoDepreciacion INNER JOIN"
+                                + " dbo.Af_Activo_fijo AS c ON c.IdEmpresa = b.IdEmpresa AND c.IdActivoFijo = b.IdActivoFijo left join"
+                                + " Af_Activo_fijo_Categoria as e on c.IdEmpresa = e.IdEmpresa and c.IdCategoriaAF = e.IdCategoriaAF left join"
+                                + " Af_Activo_fijo_tipo as f on c.IdEmpresa = f.IdEmpresa and c.IdActijoFijoTipo = f.IdActijoFijoTipo"
+                                + " WHERE a.IdEmpresa = "+IdEmpresa.ToString() + " and a.IdDepreciacion ="+IdDepreciacion.ToString();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lstInfo.Add(new vwAf_ActivoFijo_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            Af_Nombre = Convert.ToString(reader["Af_Nombre"]),
+                            IdTipoDepreciacion = Convert.ToInt32(reader["IdTipoDepreciacion"]),
+                            cod_tipo_depreciacion = Convert.ToString(reader["cod_tipo_depreciacion"]),
+                            IdActivoFijo = Convert.ToInt32(reader["IdActivoFijo"]),
+                            Af_costo_compra = Convert.ToInt32(reader["Valor_Compra"]),
+                            Af_ValorSalvamento = Convert.ToInt32(reader["Valor_Salvamento"]),
+                            Af_Vida_Util = Convert.ToInt32(reader["Vida_Util"]),
+                            Ciclo = Convert.ToInt32(reader["Ciclo"]),
+                            Af_porcentaje_deprec = Convert.ToInt32(reader["Porc_Depreciacion"]),
+                            Valor_Depre = Convert.ToInt32(reader["Valor_Depreciacion"]),
+                            Valor_Depreciacion_Acum = Convert.ToInt32(reader["Valor_Depre_Acum"]),
+                            Valor_Importe = Convert.ToInt32(reader["Valor_Importe"]),
+                            Concepto_Depre = Convert.ToString(reader["Concepto"]),
+                            Es_Activo_x_Mejora = Convert.ToBoolean(reader["Es_Activo_x_Mejora"]),
+                            CodActivoFijo = Convert.ToString(reader["CodActivoFijo"]),
+                            IdActijoFijoTipo = Convert.ToInt32(reader["IdActijoFijoTipo"]),
+                            IdCategoriaAF = Convert.ToInt32(reader["IdCategoriaAF"]),
+                            nom_categoria = Convert.ToString(reader["NomCategoria"]),
+                            nom_tipo = Convert.ToString(reader["Af_Descripcion"]),
+                        });
+                    }
+                    reader.Close();
+                }
+                /*
                 using (EntitiesActivoFijo listado = new EntitiesActivoFijo())
                 {
+
+
                     var select = from q in listado.vwAf_Depreciacion_Detalle
                                  where q.IdEmpresa == IdEmpresa
                                  && q.IdDepreciacion == IdDepreciacion && q.IdTipoDepreciacion == IdTipoDepreciacion
@@ -142,7 +190,7 @@ namespace Core.Erp.Data.ActivoFijo
                        
                         lstInfo.Add(Info);
                     }
-                }
+                }*/
                 return lstInfo;
             }
             catch (Exception ex)

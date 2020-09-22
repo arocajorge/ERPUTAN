@@ -119,16 +119,6 @@ namespace Core.Erp.Winform.Compras
                     {
                         CargarCombos();
 
-                        if (solicitante.IdDepartamento != null)
-                        {
-                            cmb_Departamento.Visible = false;
-                            lblDepartamento.Visible = false;
-                        }
-                        else
-                        {
-                            cmb_Departamento.Visible = true;
-                            lblDepartamento.Visible = true;
-                        }
                         cmb_Departamento.EditValue = solicitante.IdDepartamento;
                         param.IdSolicitante = solicitante.IdSolicitante;
                     }

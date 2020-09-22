@@ -7,6 +7,7 @@ using Core.Erp.Data.Contabilidad;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 using Core.Erp.Info.class_sri.LiquidacionCompra;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.CuentasxPagar
 {
@@ -24,236 +25,65 @@ namespace Core.Erp.Data.CuentasxPagar
             {
                 F_inicio = F_inicio.Date;
                 F_fin = F_fin.Date;
-                List<cp_orden_giro_consulta_Info> lM;
-                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                List<cp_orden_giro_consulta_Info> lM = new List<cp_orden_giro_consulta_Info>();
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    db.SetCommandTimeOut(3000);
-                    lM = (from q in db.vwcp_orden_giro_consulta
-                          where q.IdEmpresa == IdEmpresa
-                          && F_inicio <= q.co_fechaOg && q.co_fechaOg <= F_fin
-                          select new cp_orden_giro_consulta_Info
+                    connection.Open();
+
+                    string query = "SELECT dbo.cp_orden_giro.IdEmpresa, dbo.cp_orden_giro.IdTipoCbte_Ogiro, dbo.cp_orden_giro.IdCbteCble_Ogiro, dbo.cp_orden_giro.IdProveedor, dbo.tb_persona.pe_nombreCompleto, dbo.cp_orden_giro.co_fechaOg, "
+                                + " dbo.cp_orden_giro.co_factura, dbo.cp_orden_giro.co_FechaFactura, dbo.cp_orden_giro.co_observacion, dbo.cp_orden_giro.co_total, dbo.cp_orden_giro.IdTipoFlujo, ret.NumRetencion, dbo.cp_orden_giro.co_subtotal_iva, "
+                                + " dbo.cp_orden_giro.co_subtotal_siniva, dbo.cp_orden_giro.co_baseImponible, dbo.cp_orden_giro.co_valoriva, ISNULL(ret.re_valor_retencion, 0) AS re_valor_retencion, ISNULL(canc.MontoAplicado, 0) AS MontoAplicado, "
+                                + " ROUND(dbo.cp_orden_giro.co_total - ISNULL(ret.re_valor_retencion, 0) - ISNULL(canc.MontoAplicado, 0), 2) AS saldo, dbo.cp_proveedor.IdClaseProveedor, dbo.cp_proveedor_clase.descripcion_clas_prove, "
+                                + " dbo.cp_orden_giro.Estado"
+                                + " FROM     dbo.cp_orden_giro INNER JOIN"
+                                + " dbo.cp_proveedor ON dbo.cp_orden_giro.IdEmpresa = dbo.cp_proveedor.IdEmpresa AND dbo.cp_orden_giro.IdProveedor = dbo.cp_proveedor.IdProveedor INNER JOIN"
+                                + " dbo.tb_persona ON dbo.cp_proveedor.IdPersona = dbo.tb_persona.IdPersona INNER JOIN"
+                                + " dbo.cp_proveedor_clase ON dbo.cp_proveedor.IdEmpresa = dbo.cp_proveedor_clase.IdEmpresa AND dbo.cp_proveedor.IdClaseProveedor = dbo.cp_proveedor_clase.IdClaseProveedor LEFT OUTER JOIN"
+                                + " (SELECT cab.IdEmpresa_Ogiro, cab.IdTipoCbte_Ogiro, cab.IdCbteCble_Ogiro, cab.NumRetencion, SUM(det.re_valor_retencion) AS re_valor_retencion"
+                                + " FROM      dbo.cp_retencion AS cab INNER JOIN"
+                                + " dbo.cp_retencion_det AS det ON cab.IdEmpresa = det.IdEmpresa AND cab.IdRetencion = det.IdRetencion"
+                                + " where cab.IdEmpresa = "+IdEmpresa.ToString()
+                                + " GROUP BY cab.IdEmpresa_Ogiro, cab.IdTipoCbte_Ogiro, cab.IdCbteCble_Ogiro, cab.NumRetencion) AS ret ON ret.IdEmpresa_Ogiro = dbo.cp_orden_giro.IdEmpresa AND "
+                                + " ret.IdTipoCbte_Ogiro = dbo.cp_orden_giro.IdTipoCbte_Ogiro AND ret.IdCbteCble_Ogiro = dbo.cp_orden_giro.IdCbteCble_Ogiro LEFT OUTER JOIN"
+                                + " (SELECT IdEmpresa_cxp, IdTipoCbte_cxp, IdCbteCble_cxp, SUM(MontoAplicado) AS MontoAplicado"
+                                + " FROM      dbo.cp_orden_pago_cancelaciones AS f"
+                                + " WHERE F.IdEmpresa = "+IdEmpresa.ToString()
+                                + " GROUP BY IdEmpresa_cxp, IdTipoCbte_cxp, IdCbteCble_cxp) AS canc ON canc.IdEmpresa_cxp = dbo.cp_orden_giro.IdEmpresa AND canc.IdTipoCbte_cxp = dbo.cp_orden_giro.IdTipoCbte_Ogiro AND "
+                                + " canc.IdCbteCble_cxp = dbo.cp_orden_giro.IdCbteCble_Ogiro"
+                                + " WHERE cp_orden_giro.IdEmpresa = " + IdEmpresa.ToString() + "  AND cp_orden_giro.co_fechaOg BETWEEN DATEFROMPARTS(" + F_inicio.Year.ToString() + "," + F_inicio.Month.ToString() + "," + F_inicio.Day.ToString() + ") and DATEFROMPARTS(" + F_fin.Year.ToString() + "," + F_fin.Month.ToString() + "," + F_fin.Day.ToString() + ")";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new cp_orden_giro_consulta_Info
                           {
-                              IdEmpresa = q.IdEmpresa,
-                              IdTipoCbte_Ogiro = q.IdTipoCbte_Ogiro,
-                              IdCbteCble_Ogiro = q.IdCbteCble_Ogiro,
-                              co_factura = q.co_factura,
-                              co_fechaOg = q.co_fechaOg,
-                              co_FechaFactura = q.co_FechaFactura,
-                              co_observacion = q.co_observacion,
-                              co_subtotal_iva = q.co_subtotal_iva,
-                              co_subtotal_siniva = q.co_subtotal_siniva,
-                              co_valoriva = q.co_valoriva,
-                              co_baseImponible = q.co_baseImponible,
-                              Estado = q.Estado,
-                              Total_Retencion = q.re_valor_retencion,
-                              saldo = q.saldo,
-                              co_total = q.co_total,
-                              re_NumRetencion = q.NumRetencion,
-                              IdTipoFlujo = q.IdTipoFlujo,
+                              IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                              IdTipoCbte_Ogiro = Convert.ToInt32(reader["IdTipoCbte_Ogiro"]),
+                              IdCbteCble_Ogiro = Convert.ToDecimal(reader["IdCbteCble_Ogiro"]),
+                              co_factura = Convert.ToString(reader["co_factura"]),
+                              co_fechaOg = Convert.ToDateTime(reader["co_fechaOg"]),
+                              co_FechaFactura = Convert.ToDateTime(reader["co_FechaFactura"]),
+                              co_observacion = Convert.ToString(reader["co_observacion"]),
+                              co_subtotal_iva = Convert.ToDouble(reader["co_subtotal_iva"]),
+                              co_subtotal_siniva = Convert.ToDouble(reader["co_subtotal_siniva"]),
+                              co_valoriva = Convert.ToDouble(reader["co_valoriva"]),
+                              co_baseImponible = Convert.ToDouble(reader["co_baseImponible"]),
+                              Estado = Convert.ToString(reader["Estado"]),
+                              Total_Retencion = Convert.ToDouble(reader["re_valor_retencion"]),
+                              saldo = Convert.ToDouble(reader["saldo"]),
+                              co_total = Convert.ToDouble(reader["co_total"]),
+                              re_NumRetencion = Convert.ToString(reader["NumRetencion"]),
+                              IdTipoFlujo = string.IsNullOrEmpty(reader["IdTipoFlujo"].ToString()) ? null : (decimal?)(reader["IdTipoFlujo"]),
 
-                              pr_nombre = q.pe_nombreCompleto,
-                              descripcion_clas_prove = q.descripcion_clas_prove,
-                              Estado_Cancelacion = q.saldo <= 0 ? "PAGADO" : "PENDIENTE"
-                          }).ToList();
+                              pr_nombre = Convert.ToString(reader["pe_nombreCompleto"]),
+                              descripcion_clas_prove = Convert.ToString(reader["descripcion_clas_prove"]),
+                              Estado_Cancelacion = Convert.ToDouble(reader["saldo"]) <= 0 ? "PAGADO" : "PENDIENTE"
+                          });
+                    }
+                    reader.Close();
                 }
 
-                #region Consulta anterior
-                /*
-                var select_ = (from T in Base.vwcp_orden_giro_x_Pagos_saldo
-                               join P in Base.cp_proveedor on new { T.IdProveedor, T.IdEmpresa } equals new { P.IdProveedor, P.IdEmpresa }
-                               join C in Base.cp_proveedor_clase on new { P.IdEmpresa, P.IdClaseProveedor } equals new { C.IdEmpresa, C.IdClaseProveedor}
-                               where T.IdEmpresa == IdEmpresa
-                               && T.co_fechaOg >= F_inicio && T.co_fechaOg <= F_fin
-                               orderby T.IdCbteCble_Ogiro descending
-                               select new
-                               {
-                                   T.em_nombre,
-                                   T.IdEmpresa,
-                                   T.IdCbteCble_Ogiro,
-                                   T.IdTipoCbte_Ogiro,
-                                   T.IdOrden_giro_Tipo,
-                                   T.IdProveedor,
-                                   T.co_fechaOg,
-                                   T.co_serie,
-                                   T.co_factura,
-                                   T.co_FechaFactura,
-                                   T.co_FechaFactura_vct,
-                                   T.co_plazo,
-                                   T.co_observacion,
-                                   T.co_subtotal_iva,
-                                   T.co_subtotal_siniva,
-                                   T.co_baseImponible,
-                                   T.co_Por_iva,
-                                   T.co_valoriva,
-                                   T.IdCod_ICE,
-                                   T.co_Ice_base,
-                                   T.co_Ice_por,
-                                   T.co_Ice_valor,
-                                   T.co_Serv_por,
-                                   T.co_Serv_valor,
-                                   T.co_OtroValor_a_descontar,
-                                   T.co_OtroValor_a_Sumar,
-                                   T.co_BaseSeguro,
-                                   T.co_total,
-                                   T.co_valorpagar,
-                                   T.co_vaCoa,
-                                   // T.IdAutorizacion,
-                                   T.IdIden_credito,
-                                   T.IdCod_101,
-                                   T.IdTipoServicio,
-                                   T.IdCtaCble_Gasto,
-                                   T.IdUsuario,
-                                   T.Fecha_Transac,
-                                   T.Estado,
-                                   T.IdUsuarioUltMod,
-                                   T.Fecha_UltMod,
-                                   T.IdUsuarioUltAnu,
-                                   T.MotivoAnu,
-                                   T.nom_pc,
-                                   T.ip,
-                                   T.Fecha_UltAnu,
-                                   P.pr_nombre,
-                                   T.IdCtaCble_IVA,
-                                   T.co_retencionManual,
-                                   T.SaldoOG,
-                                   T.IdCbteCble_Anulacion,
-                                   T.IdTipoCbte_Anulacion,
-                                   T.IdCentroCosto,
-                                   T.IdSucursal,
-                                   T.tc_TipoCbte,
-                                   T.IdTipoFlujo,
-                                   T.TipoFlujo,
-                                   T.PagoLocExt,
-                                   T.PaisPago,
-                                   T.ConvenioTributacion,
-                                   T.PagoSujetoRetencion,
-                                   T.co_FechaContabilizacion,
-                                   T.BseImpNoObjDeIva,
-                                   //  T.Id_Num_Autorizacion,
-                                   T.fecha_autorizacion,
-                                   T.Num_Autorizacion,
-                                   T.Num_Autorizacion_Imprenta,
-                                   P.IdCtaCble_CXP,
-                                   T.IdEmpresa_ret,
-                                   T.IdRetencion,
-                                   T.re_serie,
-                                   T.re_NumRetencion,
-                                   T.re_EstaImpresa,
-                                   T.co_propina,
-                                   T.co_IRBPNR,
-                                   T.Estado_Cancelacion,
-                                   T.Total_Retencion,
-                                   T.cp_es_comprobante_electronico,
-                                   C.IdClaseProveedor,
-                                   C.descripcion_clas_prove,
-                                   T.Tipodoc_a_Modificar,
-                                    T.estable_a_Modificar,
-                                    T.ptoEmi_a_Modificar,
-                                    T.num_docu_Modificar,
-                                    T.aut_doc_Modificar,
-                                    T.Tiene_ingresos,
-                                    T.IdTipoMovi,
-                                   T.En_conciliacion 
-                               }
-                              );
-                foreach (var item in select_)
-                {
-                    cp_orden_giro_Info dat = new cp_orden_giro_Info();
-
-                    dat.InfoProveedor.descripcion_clas_prove = item.descripcion_clas_prove;
-                    dat.InfoProveedor.IdClaseProveedor = item.IdClaseProveedor;
-
-                    dat.co_FechaContabilizacion = item.co_FechaContabilizacion;
-                    dat.IdEmpresa = item.IdEmpresa;
-                    dat.IdCbteCble_Ogiro = item.IdCbteCble_Ogiro;
-                    dat.IdTipoCbte_Ogiro = item.IdTipoCbte_Ogiro;
-                    dat.IdOrden_giro_Tipo = item.IdOrden_giro_Tipo;
-                    dat.IdProveedor = item.IdProveedor;
-                    dat.co_fechaOg = item.co_fechaOg;
-                    dat.co_serie = item.co_serie;
-                    dat.co_factura = item.co_factura;
-                    dat.co_FechaFactura = item.co_FechaFactura.Date;
-                    dat.co_FechaFactura_vct = item.co_FechaFactura_vct;
-
-                    dat.co_plazo = item.co_plazo;
-                    dat.co_observacion = item.co_observacion;
-                    dat.co_subtotal_iva = item.co_subtotal_iva;
-                    dat.co_subtotal_siniva = item.co_subtotal_siniva;
-                    dat.co_baseImponible = item.co_baseImponible;
-                    dat.co_Por_iva = item.co_Por_iva;
-                    dat.co_valoriva = item.co_valoriva;
-                    dat.IdCod_ICE = item.IdCod_ICE;
-                    dat.co_Ice_base = item.co_Ice_base;
-                    dat.co_Ice_por = item.co_Ice_por;
-                    dat.co_Ice_valor = item.co_Ice_valor;
-                    dat.co_Serv_por = item.co_Serv_por;
-                    dat.co_Serv_valor = item.co_Serv_valor;
-                    dat.co_OtroValor_a_descontar = item.co_OtroValor_a_descontar;
-                    dat.co_OtroValor_a_Sumar = item.co_OtroValor_a_Sumar;
-                    dat.co_BaseSeguro = item.co_BaseSeguro;
-                    dat.IdTipoMovi = item.IdTipoMovi;
-                    dat.co_total = item.co_total;
-                    dat.saldo = item.SaldoOG;
-                    dat.co_valorpagar = item.co_valorpagar;
-
-                    dat.co_vaCoa = item.co_vaCoa;
-                    dat.IdIden_credito = item.IdIden_credito;
-                    dat.IdCod_101 = item.IdCod_101;
-                    dat.IdTipoServicio = item.IdTipoServicio;
-                    dat.IdCtaCble_Gasto = item.IdCtaCble_Gasto;
-                    dat.IdUsuario = item.IdUsuario;
-                    dat.Fecha_Transac = item.Fecha_Transac;
-                    dat.Estado = item.Estado;
-                    dat.IdUsuarioUltMod = item.IdUsuarioUltMod;
-                    dat.Fecha_UltMod = item.Fecha_UltMod;
-                    dat.IdUsuarioUltAnu = item.IdUsuarioUltAnu;
-                    dat.MotivoAnu = item.MotivoAnu;
-                    dat.nom_pc = item.nom_pc;
-                    dat.ip = item.ip;
-                    dat.InfoProveedor.pr_nombre = item.pr_nombre;
-                    dat.IdCtaCble_IVA = item.IdCtaCble_IVA;
-                    dat.co_retencionManual = item.co_retencionManual;
-                    dat.En_conciliacion = item.En_conciliacion == null ? false : Convert.ToBoolean(item.En_conciliacion);
-                    dat.IdCbteCble_Anulacion = item.IdCbteCble_Anulacion;
-                    dat.IdTipoCbte_Anulacion = item.IdTipoCbte_Anulacion;
-                    dat.nomEmpresa = item.em_nombre;
-                    dat.IdCentroCosto=item.IdCentroCosto;
-                    dat.tc_TipoCbte = item.tc_TipoCbte;
-                    dat.IdSucursal =  item.IdSucursal;
-                    dat.IdTipoFlujo = item.IdTipoFlujo;
-                    dat.TipoFlujo = item.TipoFlujo;
-                    dat.PagoLocExt= item.PagoLocExt;
-                    dat.PaisPago= item.PaisPago;
-                    dat.ConvenioTributacion  = item.ConvenioTributacion;
-                    dat.PagoSujetoRetencion = item.PagoSujetoRetencion;
-                    dat.BseImpNoObjDeIva = item.BseImpNoObjDeIva;
-                    dat.fecha_autorizacion = Convert.ToDateTime(item.fecha_autorizacion);
-                    dat.Num_Autorizacion = item.Num_Autorizacion;
-                    dat.Num_Autorizacion_Imprenta = item.Num_Autorizacion_Imprenta;
-                    dat.IdCtaCble_CXP = item.IdCtaCble_CXP;
-                    dat.IdEmpresa_ret = item.IdEmpresa_ret;
-                    dat.IdRetencion = item.IdRetencion;
-                    dat.re_serie = item.re_serie;
-                    dat.re_NumRetencion = item.re_NumRetencion;
-                    dat.re_EstaImpresa = item.re_EstaImpresa;
-                    dat.co_propina = item.co_propina;
-                    dat.co_IRBPNR = item.co_IRBPNR;                    
-                    dat.Estado_Cancelacion = item.Estado_Cancelacion;
-                    dat.Total_Retencion = item.Total_Retencion;
-                    dat.cp_es_comprobante_electronico = item.cp_es_comprobante_electronico;
-
-                    dat.Tipodoc_a_Modificar = item.Tipodoc_a_Modificar;
-                    dat.estable_a_Modificar = item.estable_a_Modificar;
-                    dat.ptoEmi_a_Modificar = item.ptoEmi_a_Modificar;
-                    dat.num_docu_Modificar = item.num_docu_Modificar;
-                    dat.aut_doc_Modificar = item.aut_doc_Modificar;
-                    dat.Tiene_ingresos = item.Tiene_ingresos;
-
-                    lM.Add(dat);
-                }
-                 * */
-                #endregion
-                
                 return (lM);
             }
             catch (Exception ex)

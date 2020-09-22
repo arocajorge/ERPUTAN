@@ -85,5 +85,11 @@ namespace Core.Erp.Info.Compras
         public DateTime cp_Fecha { get; set; }
 
         public string cp_Observacion { get; set; }
+
+        public bool EsRegularizacion { get; set; }
+
+        public decimal? IdOrdenPedidoReg { get; set; }
+
+        public int? SecuenciaReg { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 
 
@@ -101,19 +102,30 @@ namespace Core.Erp.Data.General
           try
           {
               List<tb_sis_impuesto_Info> lst = new List<tb_sis_impuesto_Info>();
-              using (EntitiesGeneral db = new EntitiesGeneral())
+              using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
               {
-                  lst = db.tb_sis_Impuesto.Where(q => q.IdTipoImpuesto == IdTipoImpuesto).Select(q => new tb_sis_impuesto_Info
+                  connection.Open();
+                  string query = "select a.IdCod_Impuesto, a.nom_impuesto, a.Usado_en_Compras, a.Usado_en_Ventas, a.porcentaje, a.IdCodigo_SRI, a.estado, a.IdTipoImpuesto"
+                                +" from tb_sis_Impuesto as a "
+                                +" where a.IdTipoImpuesto = '"+IdTipoImpuesto+"'";
+
+                  SqlCommand command = new SqlCommand(query,connection);
+                  SqlDataReader reader = command.ExecuteReader();
+                  while (reader.Read())
                   {
-                      IdCod_Impuesto = q.IdCod_Impuesto,
-                      nom_impuesto = q.nom_impuesto,
-                      Usado_en_Compras = q.Usado_en_Compras,
-                      Usado_en_Ventas = q.Usado_en_Ventas,
-                      porcentaje = q.porcentaje,
-                      IdCodigo_SRI = q.IdCodigo_SRI,
-                      estado = q.estado,
-                  IdTipoImpuesto = q.IdTipoImpuesto    
-                  }).ToList();
+                      lst.Add(new tb_sis_impuesto_Info
+                      {
+                          IdCod_Impuesto = Convert.ToString(reader["IdCod_Impuesto"]),
+                          nom_impuesto = Convert.ToString(reader["nom_impuesto"]),
+                          Usado_en_Compras = Convert.ToBoolean(reader["Usado_en_Compras"]),
+                          Usado_en_Ventas = Convert.ToBoolean(reader["Usado_en_Ventas"]),
+                          porcentaje = Convert.ToDouble(reader["porcentaje"]),
+                          IdCodigo_SRI = string.IsNullOrEmpty(reader["IdCodigo_SRI"].ToString()) ? null : (int?)reader["IdCodigo_SRI"],
+                          estado = Convert.ToBoolean(reader["estado"]),
+                          IdTipoImpuesto = Convert.ToString(reader["IdTipoImpuesto"]),
+                      });
+                  }
+                  reader.Close();
               }
 
               return lst;

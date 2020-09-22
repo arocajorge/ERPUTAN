@@ -5,6 +5,7 @@ using System.Text;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -18,22 +19,28 @@ namespace Core.Erp.Data.Inventario
            try
            {
                List<in_UnidadMedida_Info> lM = new List<in_UnidadMedida_Info>();
-               EntitiesInventario OECbtecble_Info = new EntitiesInventario();
-               
-               var selectCbtecble = from C in OECbtecble_Info.in_UnidadMedida
-                                    select C;
-
-               foreach (var item in selectCbtecble)
+               using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                {
-                   in_UnidadMedida_Info prd = new in_UnidadMedida_Info();
-                   prd.IdUnidadMedida = item.IdUnidadMedida;
-                   prd.cod_alterno = item.cod_alterno;
-                   prd.Descripcion = item.Descripcion;
-                   prd.Usado_en_Movimiento = item.Usado_en_Movimiento;
-                   prd.Estado = item.Estado;
-                   prd.Descripcion2 = "[" + item.IdUnidadMedida + "] " + item.Descripcion;
-                   lM.Add(prd);
+                   connection.Open();
+                   string query = "select a.IdUnidadMedida, a.cod_alterno, a.Descripcion, a.Usado_en_Movimiento, a.Estado, '['+a.IdUnidadMedida+'] '+a.Descripcion as Descripcion2"
+                                +" from in_UnidadMedida as a ";
+                   SqlCommand command = new SqlCommand(query, connection);
+                   SqlDataReader reader = command.ExecuteReader();
+                   while (reader.Read())
+                   {
+                       lM.Add(new in_UnidadMedida_Info
+                       {
+                           IdUnidadMedida = Convert.ToString(reader["IdUnidadMedida"]),
+                           cod_alterno = Convert.ToString(reader["cod_alterno"]),
+                           Descripcion = Convert.ToString(reader["Descripcion"]),
+                           Usado_en_Movimiento = Convert.ToString(reader["Usado_en_Movimiento"]),
+                           Estado = Convert.ToString(reader["Estado"]),
+                           Descripcion2 = Convert.ToString(reader["Descripcion2"])
+                       });
+                   }
+                   reader.Close();
                }
+
                return (lM);
 
            }

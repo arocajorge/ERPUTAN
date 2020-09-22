@@ -12,11 +12,11 @@ namespace Core.Erp.Business.Contabilidad
     public class ct_Plancta_Bus
     {
         tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
-
+        ct_Plancta_Data data = new ct_Plancta_Data();
         public List<ct_Plancta_Info> Get_List_Plancta(int IdEmpresa, ref string MensajeError)
         {
             List<ct_Plancta_Info> lm = new List<ct_Plancta_Info>();
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             try
             {
                 lm = data.Get_List_Plancta(IdEmpresa, ref MensajeError);
@@ -33,7 +33,7 @@ namespace Core.Erp.Business.Contabilidad
             try
             {
 
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             return data.ProcesarDataTableCt_Plancta_Info(ds, idempresa, ref MensajeError);
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace Core.Erp.Business.Contabilidad
         public List<ct_Plancta_Info> Get_List_Plancta(int IdEmpresa, string idctaini, string idctafin, ref string MensajeError)
         {
             List<ct_Plancta_Info> lm = new List<ct_Plancta_Info>();
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             try
             {
                 lm = data.Get_List_Plancta(IdEmpresa, idctaini, idctafin, ref MensajeError);
@@ -61,7 +61,7 @@ namespace Core.Erp.Business.Contabilidad
         public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa, ref string MensajeError)
         {
             List<ct_Plancta_Info> lm = new List<ct_Plancta_Info>();
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             try
             {
 
@@ -88,7 +88,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.Get_List_PlanctaUltNivel(IdEmpresa, ref MensajeError);
             }
             catch (Exception ex)
@@ -101,7 +101,7 @@ namespace Core.Erp.Business.Contabilidad
         public List<ct_Plancta_Info> Get_List_Plan_ctaPadre(int IdEmpresa, ref string MensajeError)
         {
             List<ct_Plancta_Info> lm = new List<ct_Plancta_Info>();
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             try
             {
                 lm = data.Get_List_Plan_ctaPadre(IdEmpresa, ref MensajeError);
@@ -115,7 +115,7 @@ namespace Core.Erp.Business.Contabilidad
         }
         public string Get_Id(int IdEmpresa,string IdCuenta_padre, ref string MensajeError)
         {
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             string @W_idEncontrado = "";
             try
             {
@@ -133,7 +133,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.ModificarDB(info, ref MensajeError);
             }
             catch (Exception ex)
@@ -146,7 +146,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.AnularDB(info, ref MensajeError);
             } 
             catch (Exception ex)
@@ -159,7 +159,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.GrabarDB(info,ref MensajeError);
             }
             catch (Exception ex)
@@ -172,7 +172,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.EliminarDB(IdEmpresa, ref MensajeError);
             }
             catch (Exception ex)
@@ -185,7 +185,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.VerificaNivel(idnivel, idempresa, ref MensajeError);
             }
             catch (Exception ex)
@@ -198,7 +198,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.ValidaIdCtaCble(idempresa, IdCuenta, ref MensajeError);
             }
             catch (Exception ex)
@@ -210,7 +210,7 @@ namespace Core.Erp.Business.Contabilidad
         public List<ct_Plancta_Info> Get_List_Plancta(int IdEmpresa, int IdNivel)
         {
             List<ct_Plancta_Info> lm = new  List<ct_Plancta_Info>();
-            ct_Plancta_Data data = new ct_Plancta_Data();
+            
             try
             {
                 lm = data.Get_List_Plancta(IdEmpresa, IdNivel);
@@ -226,7 +226,7 @@ namespace Core.Erp.Business.Contabilidad
         {
             try
             {
-                ct_Plancta_Data data = new ct_Plancta_Data();
+                
                 return data.Get_List_Plancta_para_asiento_cierre(IdEmpresa, Anio);
             }
             catch (Exception ex)
@@ -235,7 +235,18 @@ namespace Core.Erp.Business.Contabilidad
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_info_plancta", ex.Message), ex) { EntityType = typeof(ct_Plancta_Bus) };
             }
         }
-
+        List<ct_Plancta_Info> GetListCuentasConSaldo(int IdEmpresa, DateTime FechaCorte)
+        {
+            try
+            {
+                return data.GetListCuentasConSaldo(IdEmpresa, FechaCorte);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         public List<ct_Plancta_Info> Get_Plancta_x_Grupo(int IdEmpresa, string IdGrupoCble)
         {
             List<ct_Plancta_Info> lm = new List<ct_Plancta_Info>();

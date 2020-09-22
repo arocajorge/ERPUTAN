@@ -406,75 +406,42 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 List<ct_Cbtecble_Info> lM = new List<ct_Cbtecble_Info>();
-                EntitiesDBConta OECbtecble = new EntitiesDBConta();
-
-
+                
                 iFechaIni = Convert.ToDateTime(iFechaIni.ToShortDateString());
                 iFechaFin = Convert.ToDateTime(iFechaFin.ToShortDateString());
-                
 
-                var selectCbtecble = from cbtecble in OECbtecble.ct_cbtecble
-                                     join tipocbte in OECbtecble.ct_cbtecble_tipo
-                                     on new { cbtecble.IdEmpresa, cbtecble.IdTipoCbte } equals new { tipocbte.IdEmpresa, tipocbte.IdTipoCbte}
-                                     where cbtecble.IdEmpresa == IdEmpresa
-                                     && cbtecble.cb_Fecha >= iFechaIni && cbtecble.cb_Fecha <= iFechaFin
-                                     && cbtecble.IdTipoCbte >= IdTipoCbteIni && cbtecble.IdTipoCbte <= IdTipoCbteFin
-                                     && cbtecble.IdCbteCble >= IdCbteCbleIni && cbtecble.IdCbteCble <= IdCbteCbleFin
-                                     select new
-                                     {
-                                         cbtecble.IdEmpresa,
-                                         cbtecble.IdTipoCbte,
-                                         cbtecble.IdCbteCble,
-                                         cbtecble.IdPeriodo,
-                                         cbtecble.CodCbteCble,
-                                         cbtecble.cb_Fecha,
-                                         cbtecble.cb_Valor,
-                                         cbtecble.cb_Observacion,
-                                         cbtecble.cb_Secuencia,
-                                         cbtecble.cb_Estado,
-                                         cbtecble.cb_Anio,
-                                         cbtecble.cb_mes,
-                                         cbtecble.IdUsuario,
-                                         cbtecble.IdUsuarioAnu,
-                                         cbtecble.IdUsuarioUltModi,
-                                         cbtecble.cb_MotivoAnu,
-                                         cbtecble.cb_FechaAnu,
-                                         cbtecble.cb_FechaTransac,
-                                         cbtecble.cb_FechaUltModi,
-                                         cbtecble.cb_Mayorizado,
-                                         cbtecble.cb_para_conciliar,
-                                         cbtecble.IdSucursal,
-                                         tipocbte.tc_TipoCbte
-                                     };
-
-                foreach (var item in selectCbtecble)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    ct_Cbtecble_Info Cbt1 = new ct_Cbtecble_Info();
-                    Cbt1.IdEmpresa = item.IdEmpresa;
-                    Cbt1.IdTipoCbte = item.IdTipoCbte;
-                    Cbt1.IdCbteCble = item.IdCbteCble;
-                    Cbt1.tipoCTCB = item.tc_TipoCbte;
-                    Cbt1.CodCbteCble = item.CodCbteCble;
-                    Cbt1.IdPeriodo = item.IdPeriodo;
-                    Cbt1.cb_Fecha  = Convert.ToDateTime(item.cb_Fecha);
-                    Cbt1.cb_Valor  = item.cb_Valor;
-                    Cbt1.cb_Observacion  = item.cb_Observacion;
-                    Cbt1.Secuencia = Convert.ToDecimal(item.cb_Secuencia);
-                    Cbt1.Estado = item.cb_Estado;
-                    Cbt1.Anio = item.cb_Anio;
-                    Cbt1.Mes = Convert.ToInt32(item.cb_mes);
-                    Cbt1.IdUsuario = item.IdUsuario;
-                    Cbt1.IdUsuarioAnu = item.IdUsuarioAnu;
-                    Cbt1.cb_MotivoAnu = item.cb_MotivoAnu;
-                    Cbt1.IdUsuarioUltModi = item.IdUsuarioUltModi;
-                    Cbt1.cb_FechaAnu = Convert.ToDateTime(item.cb_FechaAnu);
-                    Cbt1.cb_FechaTransac = Convert.ToDateTime(item.cb_FechaTransac);
-                    Cbt1.cb_FechaUltModi = Convert.ToDateTime(item.cb_FechaUltModi);
-                    Cbt1.Mayorizado = item.cb_Mayorizado;
-                    
-                    Cbt1.IdSucursal = item.IdSucursal;
+                    connection.Open();
 
-                    lM.Add(Cbt1);
+                    string query = "select a.IdEmpresa, a.IdTipoCbte, a.IdCbteCble, a.IdPeriodo, a.CodCbteCble, a.cb_Fecha, a.cb_Valor,"
+                                +" a.cb_Observacion, a.cb_Secuencia, a.cb_Anio, a.cb_mes, cb_para_conciliar, cb_Mayorizado, IdSucursal, b.tc_TipoCbte"
+                                +" from ct_cbtecble as a left join"
+                                +" ct_cbtecble_tipo as b on a.IdEmpresa = b.IdEmpresa and a.IdTipoCbte = b.IdTipoCbte"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.cb_Fecha between DATEFROMPARTS(" + iFechaIni.Year.ToString() + "," + iFechaIni.Month.ToString() + "," + iFechaIni.Day.ToString() + ") and DATEFROMPARTS(" + iFechaFin.Year.ToString() + "," + iFechaFin.Month.ToString() + "," + iFechaFin.Day.ToString() + ")";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new ct_Cbtecble_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdTipoCbte = Convert.ToInt32(reader["IdTipoCbte"]),
+                            IdCbteCble = Convert.ToDecimal(reader["IdCbteCble"]),
+                            IdPeriodo = Convert.ToInt32(reader["IdPeriodo"]),
+                            CodCbteCble = Convert.ToString(reader["CodCbteCble"]),
+                            cb_Fecha = Convert.ToDateTime(reader["cb_Fecha"]),
+                            cb_Valor = Convert.ToDouble(reader["cb_Valor"]),
+                            cb_Observacion = Convert.ToString(reader["cb_Observacion"]),
+                            Secuencia = Convert.ToDecimal(reader["cb_Secuencia"]),
+                            Anio = Convert.ToInt32(reader["cb_Anio"]),
+                            Mes = Convert.ToInt32(reader["cb_mes"]),
+                            Mayorizado = Convert.ToString(reader["cb_Mayorizado"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            tipoCTCB = Convert.ToString(reader["tc_TipoCbte"])
+                        });
+                    }
+                    reader.Close();
                 }
                 return (lM);
             }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCom_CotizacionAprobacionJC));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblRegularizacion = new System.Windows.Forms.Label();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtObservacionAdicional = new DevExpress.XtraEditors.MemoEdit();
             this.btnBuscarHistorico = new DevExpress.XtraEditors.SimpleButton();
@@ -112,6 +113,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblRegularizacion);
             this.panel1.Controls.Add(this.labelControl10);
             this.panel1.Controls.Add(this.txtObservacionAdicional);
             this.panel1.Controls.Add(this.btnBuscarHistorico);
@@ -149,6 +151,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1431, 324);
             this.panel1.TabIndex = 0;
+            // 
+            // lblRegularizacion
+            // 
+            this.lblRegularizacion.AutoSize = true;
+            this.lblRegularizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegularizacion.ForeColor = System.Drawing.Color.Red;
+            this.lblRegularizacion.Location = new System.Drawing.Point(843, 23);
+            this.lblRegularizacion.Name = "lblRegularizacion";
+            this.lblRegularizacion.Size = new System.Drawing.Size(304, 29);
+            this.lblRegularizacion.TabIndex = 32;
+            this.lblRegularizacion.Text = "Regularización pedido # ";
+            this.lblRegularizacion.Visible = false;
             // 
             // labelControl10
             // 
@@ -262,7 +276,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
-            this.btnSalir.Location = new System.Drawing.Point(838, 201);
+            this.btnSalir.Location = new System.Drawing.Point(838, 202);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 41);
             this.btnSalir.TabIndex = 19;
@@ -272,7 +286,7 @@
             // btnAnular
             // 
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
-            this.btnAnular.Location = new System.Drawing.Point(838, 107);
+            this.btnAnular.Location = new System.Drawing.Point(838, 155);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(110, 41);
             this.btnAnular.TabIndex = 18;
@@ -282,7 +296,7 @@
             // btnPasar
             // 
             this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
-            this.btnPasar.Location = new System.Drawing.Point(838, 154);
+            this.btnPasar.Location = new System.Drawing.Point(838, 60);
             this.btnPasar.Name = "btnPasar";
             this.btnPasar.Size = new System.Drawing.Size(110, 41);
             this.btnPasar.TabIndex = 17;
@@ -292,7 +306,7 @@
             // btnAprobar
             // 
             this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
-            this.btnAprobar.Location = new System.Drawing.Point(838, 59);
+            this.btnAprobar.Location = new System.Drawing.Point(838, 107);
             this.btnAprobar.Name = "btnAprobar";
             this.btnAprobar.Size = new System.Drawing.Size(110, 41);
             this.btnAprobar.TabIndex = 16;
@@ -828,5 +842,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_adjunto;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private System.Windows.Forms.Label lblRegularizacion;
     }
 }

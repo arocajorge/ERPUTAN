@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.General
 {
@@ -17,29 +18,41 @@ namespace Core.Erp.Data.General
             try
             {
                 List<tb_Sucursal_Info> lM = new List<tb_Sucursal_Info>();
-                using (EntitiesGeneral db = new EntitiesGeneral())
-                {
-                    var lst = db.tb_sucursal.Where(q => q.IdEmpresa == IdEmpresa).ToList();
 
-                    lM = lst.Select(q => new tb_Sucursal_Info
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    IdEmpresa = q.IdEmpresa,
-                    IdSucursal = q.IdSucursal,
-                    Su_CodigoEstablecimiento = q.Su_CodigoEstablecimiento,
-                    Su_Descripcion = q.Su_Descripcion,
-                    Su_Ubicacion = q.Su_Ubicacion,
-                    Su_Ruc = q.Su_Ruc,
-                    Su_JefeSucursal = q.Su_JefeSucursal,
-                    Su_Direccion = q.Su_Direccion,
-                    Es_establecimiento = q.Es_establecimiento,
-                    Su_Telefonos = q.Su_Telefonos,
-                    Estado = q.Estado == "A" ? true : false,
-                    SEstado = q.Estado == "A" ? "ACTIVO" : "*ANULADO*",
-                    codigo = q.codigo,
-                    IdSucursalContabilizacion = q.IdSucursalContabilizacion
-                }).ToList();
+                    connection.Open();
+
+                    string query = "select a.IdEmpresa, a.IdSucursal, a.Su_CodigoEstablecimiento, a.Su_Descripcion, a.Su_Ruc, '['+cast(a.IdSucursal as varchar) + '] '+ rtrim(a.Su_Descripcion) as Su_Descripcion2,"
+                                +" a.Su_JefeSucursal, a.Su_Direccion, a.Es_establecimiento, a.Su_Telefonos, case when a.Estado = 'A' THEN CAST(1 AS bit) ELSE CAST(0 AS BIT) END AS Estado,"
+                                +" case when a.Estado = 'A' THEN 'ACTIVO' ELSE '*ANULADO*' END AS SEstado, a.codigo, a.IdSucursalContabilizacion"
+                                +" from tb_sucursal as a"
+                                +" where a.IdEmpresa = "+IdEmpresa.ToString();
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new tb_Sucursal_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            Su_CodigoEstablecimiento = Convert.ToString(reader["Su_CodigoEstablecimiento"]),
+                            Su_Descripcion2 = Convert.ToString(reader["Su_Descripcion2"]),
+                            Su_Descripcion = Convert.ToString(reader["Su_Descripcion"]),
+                            Su_Ruc = Convert.ToString(reader["Su_Ruc"]),
+                            Su_JefeSucursal = Convert.ToString(reader["Su_JefeSucursal"]),
+                            Su_Direccion = Convert.ToString(reader["Su_Direccion"]),
+                            Es_establecimiento = string.IsNullOrEmpty(reader["Es_establecimiento"].ToString()) ? false : Convert.ToBoolean(reader["Es_establecimiento"]),
+                            Su_Telefonos = Convert.ToString(reader["Su_Telefonos"]),
+                            Estado = Convert.ToBoolean(reader["Estado"]),
+                            SEstado = Convert.ToString(reader["SEstado"]),
+                            codigo = Convert.ToString(reader["codigo"]),
+                            IdSucursalContabilizacion = string.IsNullOrEmpty(reader["IdSucursalContabilizacion"].ToString()) ? null : (int?)(reader["IdSucursalContabilizacion"])
+                        });
+                    }
+                    reader.Close();
                 }
-                lM.ForEach(q => q.Su_Descripcion2 = "[" + q.IdSucursal.ToString() + "] " + q.Su_Descripcion.Trim());
                 return (lM);
             }
           

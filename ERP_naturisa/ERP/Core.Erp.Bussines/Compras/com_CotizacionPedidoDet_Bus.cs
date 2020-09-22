@@ -49,5 +49,18 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public com_CotizacionPedidoDet_Info GetInfoDetRegularizacion(int IdEmpresa, decimal IdOrdenPedidoReg, decimal SecuenciaReg)
+        {
+            try
+            {
+                return odata.GetInfoDetRegularizacion(IdEmpresa, IdOrdenPedidoReg, SecuenciaReg);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

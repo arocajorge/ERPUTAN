@@ -71,6 +71,7 @@ namespace Core.Erp.Winform.Compras
                 }
                 frmCom_OrdenPedidoRegularizacionMant frm = new frmCom_OrdenPedidoRegularizacionMant();
                 frm.SetInfo(row ?? new com_OrdenPedido_Info(),Info.General.Cl_Enumeradores.eTipo_action.consultar);
+                frm.event_delegate_frmCom_OrdenPedidoRegularizacionMant_FormClosing += frm_event_delegate_frmCom_OrdenPedidoRegularizacionMant_FormClosing;
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
@@ -79,6 +80,11 @@ namespace Core.Erp.Winform.Compras
                 
                 throw;
             }
+        }
+
+        void frm_event_delegate_frmCom_OrdenPedidoRegularizacionMant_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Buscar();
         }
         
     }

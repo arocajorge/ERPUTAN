@@ -118,6 +118,7 @@
     <Compile Include="Compras\com_SeguimientoOrdenCompraContable_Info.cs" />
     <Compile Include="Compras\com_solicitante_aprobador_Info.cs" />
     <Compile Include="Compras\com_solicitante_x_com_departamento_Info.cs" />
+    <Compile Include="Contabilidad\ct_Distribucion_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_det_Info.cs" />
     <Compile Include="CuentasxPagar\cp_cuotas_x_doc_Info.cs" />
     <Compile Include="CuentasxPagar\cp_orden_giro_det_Info.cs" />

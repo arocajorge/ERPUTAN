@@ -7,6 +7,7 @@ using Core.Erp.Info.Contabilidad;
 using System.Resources;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Contabilidad
 { 
@@ -374,42 +375,43 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
-                List<ct_plancta> selectPlancta;
-                EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
-                if (Mostrar_Todo_El_Plan_cta == true)
-                {
-                    selectPlancta = OEselectPlancta.ct_plancta.Include("ct_plancta2").Where(C => C.IdEmpresa == IdEmpresa).ToList();
-                }
-                else
-                {
 
-                    selectPlancta = OEselectPlancta.ct_plancta.Include("ct_plancta2").Where(C => C.IdEmpresa == IdEmpresa && C.pc_EsMovimiento == "S").ToList();
-                }
-
-
-                foreach (var item in selectPlancta)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    lM.Add(new ct_Plancta_Info
+                    connection.Open();
+                    string query = "select a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, '{'+a.pc_clave_corta+'} ['+ a.IdCtaCble+'] '+ a.pc_Cuenta as pc_Cuenta2,"
+                                +" a.IdCtaCblePadre, a.IdCatalogo, a.pc_Naturaleza,a.IdNivelCta, a.IdGrupoCble, a.pc_Estado, "
+                                + " a.pc_EsMovimiento, a.pc_es_flujo_efectivo, b.pc_Cuenta as CuentaPadre, A.pc_clave_corta,"
+                                +" a.IdTipoCtaCble,  case when a.pc_Estado = 'A' then 'ACTIVO' ELSE '*ANULADO*' END AS SEstado"
+                                +" from ct_plancta as a left join"
+                                +" ct_plancta as b on a.IdEmpresa = b.IdEmpresa and a.IdCtaCblePadre = b.IdCtaCble"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.pc_EsMovimiento = " + (Mostrar_Todo_El_Plan_cta ? "a.pc_EsMovimiento" : "'S'") + " AND A.pc_Estado = 'A'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-
-                        IdCtaCble = item.IdCtaCble.Trim(),
-                        pc_Cuenta = item.pc_Cuenta.Trim(),
-                        pc_Cuenta2 = (item.pc_clave_corta == null) ? "" : "{" + item.pc_clave_corta + "}" + "[" + item.IdCtaCble.Trim() + "] - " + item.pc_Cuenta.Trim(),
-                        IdEmpresa = item.IdEmpresa,
-                        IdCtaCblePadre = item.IdCtaCblePadre,
-                        IdCatalogo = Convert.ToDecimal(item.IdCatalogo),
-                        pc_Naturaleza = item.pc_Naturaleza,
-                        IdNivelCta = item.IdNivelCta,
-                        IdGrupoCble = item.IdGrupoCble,
-                        pc_Estado = item.pc_Estado,
-                        pc_EsMovimiento = item.pc_EsMovimiento,
-                        pc_es_flujo_efectivo = item.pc_es_flujo_efectivo,
-                        pc_clave_corta = item.pc_clave_corta,
-                        CuentaPadre = string.IsNullOrEmpty(item.IdCtaCblePadre) ? null : item.ct_plancta2.pc_Cuenta,
-                        IdTipoCtaCble = item.IdTipoCtaCble,
-                        SEstado = (item.pc_Estado == "A") ? "ACTIVO" : "*ANULADO*",
-                    });
+                        lM.Add(new ct_Plancta_Info
+                        {
+                            pc_clave_corta = Convert.ToString(reader["pc_clave_corta"]),
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCtaCble = Convert.ToString(reader["IdCtaCble"]),
+                            pc_Cuenta = Convert.ToString(reader["pc_Cuenta"]),
+                            pc_Cuenta2 = Convert.ToString(reader["pc_Cuenta2"]),
+                            IdCtaCblePadre = Convert.ToString(reader["IdCtaCblePadre"]),
+                            pc_Naturaleza = Convert.ToString(reader["pc_Naturaleza"]),
+                            IdNivelCta = Convert.ToInt32(reader["IdNivelCta"]),
+                            IdGrupoCble = Convert.ToString(reader["IdGrupoCble"]),
+                            pc_Estado = Convert.ToString(reader["pc_Estado"]),
+                            pc_EsMovimiento = Convert.ToString(reader["pc_EsMovimiento"]),
+                            pc_es_flujo_efectivo = Convert.ToString(reader["pc_es_flujo_efectivo"]),
+                            CuentaPadre = Convert.ToString(reader["CuentaPadre"]),
+                            IdTipoCtaCble = Convert.ToString(reader["IdTipoCtaCble"]),
+                            SEstado = Convert.ToString(reader["SEstado"])
+                        });
+                    }
+                    reader.Close();
                 }
+
                 return lM;
             }
             catch (Exception ex)
@@ -1007,6 +1009,48 @@ namespace Core.Erp.Data.Contabilidad
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
                 MensajeError = ex.ToString();
                 throw new Exception(ex.ToString());
+            }
+        }
+
+        public List<ct_Plancta_Info> GetListCuentasConSaldo(int IdEmpresa, DateTime FechaCorte)
+        {
+            try
+            {
+                List<ct_Plancta_Info> Lista = new List<ct_Plancta_Info>();
+                FechaCorte = FechaCorte.Date;
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    string query = "select a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, a.IdCtaCblePadre, a.pc_EsMovimiento, isnull(round(sum(b.dc_Valor),2),0) as dc_Valor"
+                                +" from ct_plancta as a left join"
+                                +" ct_cbtecble_det as b on a.IdEmpresa = b.IdEmpresa and a.IdCtaCble = b.IdCtaCble left join"
+                                +" ct_cbtecble as c on b.IdEmpresa = c.IdEmpresa and b.IdTipoCbte = c.IdTipoCbte and b.IdCbteCble = c.IdCbteCble"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and isnull(c.cb_Fecha,DATEFROMPARTS(" + FechaCorte.Year.ToString() + "," + FechaCorte.Month.ToString() + "," + FechaCorte.Day.ToString() + ")) <= DATEFROMPARTS(" + FechaCorte.Year.ToString() + "," + FechaCorte.Month.ToString() + "," + FechaCorte.Day.ToString() + ")"
+                                +" group by a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, a.IdCtaCblePadre, a.pc_EsMovimiento"
+                                +" having (isnull(round(sum(b.dc_Valor),2),0) > case when a.pc_EsMovimiento = 'S' then 0 else -99999999999999999 end)"
+                                +" order by a.IdEmpresa, a.IdCtaCble";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Lista.Add(new ct_Plancta_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCtaCble = Convert.ToString(reader["IdCtaCble"]),
+                            pc_Cuenta = Convert.ToString(reader["pc_Cuenta"]),
+                            IdCtaCblePadre = Convert.ToString(reader["IdCtaCblePadre"]),
+                            pc_EsMovimiento = Convert.ToString(reader["pc_EsMovimiento"]),
+                            Saldo = Convert.ToDouble(reader["dc_Valor"])
+                        });
+                    }
+                }
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
             }
         }
     }
