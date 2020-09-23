@@ -11,6 +11,7 @@ namespace Core.Erp.Business.Contabilidad
     public class ct_Distribucion_Bus
     {
         ct_Distribucion_Data odata = new ct_Distribucion_Data();
+
         public List<ct_Distribucion_Info> GetList(int IdEmpresa, DateTime FechaIni, DateTime FechaFin)
         {
             try

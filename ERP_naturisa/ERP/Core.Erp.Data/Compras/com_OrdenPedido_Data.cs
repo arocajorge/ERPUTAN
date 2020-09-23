@@ -600,42 +600,53 @@ namespace Core.Erp.Data.Compras
                     var contT = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).Count();
                     var contP = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.opd_EstadoProceso == "P").Count();
 
-
-                    if (cont == 0 && contR != contT)
+                    if (contT > 0)
                     {
-                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
-                        if (pedido != null)
-                            pedido.IdCatalogoEstado = "EST_OP_CER";
+                        if (cont > 0)
+                        {
+                            var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                            if (pedido != null)
+                                pedido.IdCatalogoEstado = "EST_OP_PRO";
 
-                        db.SaveChanges();
-                    }
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            if (contR != contT)
+                            {
+                                var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                                if (pedido != null)
+                                    pedido.IdCatalogoEstado = "EST_OP_CER";
 
-                    if (cont == 0 && contR == contT)
-                    {
-                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
-                        if (pedido != null)
-                            pedido.IdCatalogoEstado = "EST_OP_REC";
+                                db.SaveChanges();
+                            }
+                            else
+                                if (contR == contT)
+                                {
+                                    var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                                    if (pedido != null)
+                                        pedido.IdCatalogoEstado = "EST_OP_REC";
 
-                        db.SaveChanges();
-                    }
-                    /*
-                    if ((cont > 0 || contR > 0) && contR != contT)
-                    {
-                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
-                        if (pedido != null)
-                            pedido.IdCatalogoEstado = "EST_OP_PRO";
+                                    db.SaveChanges();
+                                }
+                                else
+                                    if (contP == contT)
+                                    {
+                                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                                        if (pedido != null)
+                                            pedido.IdCatalogoEstado = "EST_OP_ABI";
 
-                        db.SaveChanges();
-                    }
-                     * */
+                                        db.SaveChanges();
+                                    }
+                                    else
+                                    {
+                                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
+                                        if (pedido != null)
+                                            pedido.IdCatalogoEstado = "EST_OP_CER";
 
-                    if (contP == contT)
-                    {
-                        var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
-                        if (pedido != null)
-                            pedido.IdCatalogoEstado = "EST_OP_ABI";
-
-                        db.SaveChanges();
+                                        db.SaveChanges();
+                                    }
+                        }
                     }
                 }
                 return true;
@@ -980,7 +991,7 @@ namespace Core.Erp.Data.Compras
                             + " com_OrdenPedidoDet as b on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedidoReg = b.IdOrdenPedido and a.SecuenciaReg = b.Secuencia inner join"
                             + " com_CotizacionPedidoDet as c on c.opd_IdEmpresa = b.IdEmpresa and c.opd_IdOrdenPedido = b.IdOrdenPedido and c.opd_Secuencia = b.Secuencia inner join"
                             + " com_CotizacionPedido as d on c.IdEmpresa = d.IdEmpresa and c.IdCotizacion = d.IdCotizacion inner join"
-                            + " com_ordencompra_local as e on d.IdEmpresa = e.IdEmpresa and d.oc_IdOrdenCompra = E.IdOrdenCompra"
+                            + " com_ordencompra_local as e on d.IdEmpresa = e.IdEmpresa and d.oc_IdOrdenCompra = E.IdOrdenCompra AND d.IdSucursal = e.IdSucursal"
                             + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString()
                             + " GROUP BY E.IdEmpresa, E.IdSucursal, E.IdOrdenCompra"
                             + " ) A"

@@ -3039,17 +3039,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                         blstDet = new BindingList<cp_orden_giro_det_Info>();
                         gc_detalle.DataSource = blstDet;
 
-                        if (item.ManejaTalonario ?? false)
-                        {
-                            CargarCombosDetalle();
-                            tp_Detalle.PageVisible = true;
-                            gbTalonario.Visible = false;
-                        }
-                        else
-                        {
-                            tp_Detalle.PageVisible = false;
-                            gbTalonario.Visible = true;
-                        }
+                     
                        
                         //txeNumDocum.EditValue = "";
 
@@ -3068,6 +3058,26 @@ namespace Core.Erp.Winform.CuentasxPagar
                             deshabilitarCamposRet();
                             suma();
                         }
+                    }
+                }
+                if (cmbTipoDocu.EditValue == null)
+                {
+                    tp_Detalle.PageVisible = false;
+                    gbTalonario.Visible = true;
+                }
+                else
+                {
+                    var TipoDocum = LstTipDoc.Where(q => q.CodTipoDocumento == cmbTipoDocu.EditValue.ToString()).FirstOrDefault();
+                    if (TipoDocum != null && (TipoDocum.ManejaTalonario ?? false))
+                    {
+                        CargarCombosDetalle();
+                        tp_Detalle.PageVisible = true;
+                        gbTalonario.Visible = false;
+                    }
+                    else
+                    {
+                        tp_Detalle.PageVisible = false;
+                        gbTalonario.Visible = true;
                     }
                 }
             }

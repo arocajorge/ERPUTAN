@@ -64,17 +64,17 @@ namespace Core.Erp.Winform.Contabilidad
 
         private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnNuevo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            LlamarFormulario(Cl_Enumeradores.eTipo_action.grabar);
         }
 
         private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnModificar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            LlamarFormulario(Cl_Enumeradores.eTipo_action.actualizar);
         }
 
         private void ucGe_Menu_Mantenimiento_x_usuario1_event_btnAnular_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            LlamarFormulario(Cl_Enumeradores.eTipo_action.Anular);
         }
 
         private void LlamarFormulario(Cl_Enumeradores.eTipo_action Accion)
@@ -100,6 +100,9 @@ namespace Core.Erp.Winform.Contabilidad
 
                 frmCon_DistribucionMantenimiento frm = new frmCon_DistribucionMantenimiento();
                 frm.MdiParent = this.MdiParent;
+                frm.SetAccion(Accion,row ?? new ct_Distribucion_Info());
+
+                frm.event_delegate_frmCon_DistribucionMantenimiento_FormClosed += frm_event_delegate_frmCon_DistribucionMantenimiento_FormClosed;
                 frm.Show();
             }
             catch (Exception)
@@ -107,6 +110,11 @@ namespace Core.Erp.Winform.Contabilidad
                 
                 throw;
             }
+        }
+
+        void frm_event_delegate_frmCon_DistribucionMantenimiento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Buscar();
         }
     }
 }

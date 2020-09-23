@@ -42,25 +42,29 @@ namespace Core.Erp.Data.Inventario
             {
                 List<in_Producto_Combo> Lista = new List<in_Producto_Combo>();
 
-                using (EntitiesInventario db = new EntitiesInventario())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    var lst = db.in_Producto.Include("in_Familia").Where(q => q.IdEmpresa == IdEmpresa).ToList();
-                    foreach (var q in lst)
+                    connection.Open();
+                    string query = "select a.IdEmpresa, a.IdProducto, a.pr_codigo, a.pr_descripcion, b.fa_Descripcion, a.IdUnidadMedida, a.IdCod_Impuesto_Iva, a.IdUnidadMedida_Consumo from in_producto as a left join in_familia as b on a.IdEmpresa = b.IdEmpresa and a.IdFamilia = b.IdFamilia where a.Estado = 'A' AND a.IdEmpresa = "+IdEmpresa.ToString();
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
                         Lista.Add(new in_Producto_Combo
-                     {
-                         IdEmpresa = q.IdEmpresa,
-                         IdProducto = q.IdProducto,
-                         pr_codigo = q.pr_codigo,
-                         pr_descripcion = q.pr_descripcion,
-                         fa_Descripcion = q.in_Familia == null ? "" : q.in_Familia.fa_Descripcion,
-                         IdUnidadMedida = q.IdUnidadMedida,
-                         IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
-                         IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo
-                     });
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                            pr_codigo = Convert.ToString(reader["pr_codigo"]),
+                            pr_descripcion = Convert.ToString(reader["pr_descripcion"]),
+                            fa_Descripcion = Convert.ToString(reader["fa_Descripcion"]),
+                            IdUnidadMedida = Convert.ToString(reader["IdUnidadMedida"]),
+                            IdCod_Impuesto_Iva = Convert.ToString(reader["IdCod_Impuesto_Iva"]),
+                            IdUnidadMedida_Consumo = Convert.ToString(reader["IdUnidadMedida_Consumo"])
+                        });
                     }
+                    reader.Close();
                 }
-
+                
                 return Lista;
             }
             catch (Exception)

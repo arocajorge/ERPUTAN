@@ -510,6 +510,7 @@ namespace Core.Erp.Data.Compras
                             oc_observacion = Convert.ToString(reader["oc_observacion"]),
                             Descripcion = Convert.ToString(reader["Descripcion"]),
                             IdEstado_cierre = Convert.ToString(reader["IdEstado_cierre"]),
+                            EstadoCierre = Convert.ToString(reader["EstadoCierre"]),
                             en_guia = Convert.ToString(reader["en_guia"]),
                             Estado = Convert.ToString(reader["Estado"]),
                             TerminoPago = Convert.ToString(reader["TerminoPago"]),
