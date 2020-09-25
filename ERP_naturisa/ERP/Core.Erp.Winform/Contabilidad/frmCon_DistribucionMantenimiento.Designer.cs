@@ -37,9 +37,34 @@
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnRefrescarMenu = new DevExpress.XtraEditors.SimpleButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.deFechaCorte = new DevExpress.XtraEditors.DateEdit();
+            this.txtObservacion = new DevExpress.XtraEditors.MemoEdit();
+            this.txtIdDistribucion = new DevExpress.XtraEditors.TextEdit();
+            this.cmbTipoCbte = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListMenu_x_Usuario_x_Empresa)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdDistribucion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoCbte.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucMenu
@@ -98,15 +123,16 @@
             this.ucMenu.Visible_btnImprimirSoporte = false;
             this.ucMenu.Visible_btnModificar = false;
             this.ucMenu.Visible_btnproductos = false;
+            this.ucMenu.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucMenu_event_btnSalir_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.treeListMenu_x_Usuario_x_Empresa);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(383, 729);
+            this.panel1.Size = new System.Drawing.Size(383, 597);
             this.panel1.TabIndex = 1;
             // 
             // treeListMenu_x_Usuario_x_Empresa
@@ -136,7 +162,7 @@
             this.treeListMenu_x_Usuario_x_Empresa.OptionsView.ShowPreview = true;
             this.treeListMenu_x_Usuario_x_Empresa.ParentFieldName = "IdCtaCblePadre";
             this.treeListMenu_x_Usuario_x_Empresa.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
-            this.treeListMenu_x_Usuario_x_Empresa.Size = new System.Drawing.Size(383, 698);
+            this.treeListMenu_x_Usuario_x_Empresa.Size = new System.Drawing.Size(383, 566);
             this.treeListMenu_x_Usuario_x_Empresa.TabIndex = 1;
             // 
             // treeListColumn1
@@ -185,13 +211,174 @@
             this.btnRefrescarMenu.Name = "btnRefrescarMenu";
             this.btnRefrescarMenu.Size = new System.Drawing.Size(35, 26);
             this.btnRefrescarMenu.TabIndex = 4;
+            this.btnRefrescarMenu.Click += new System.EventHandler(this.btnRefrescarMenu_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.labelControl4);
+            this.panel3.Controls.Add(this.labelControl3);
+            this.panel3.Controls.Add(this.labelControl2);
+            this.panel3.Controls.Add(this.labelControl1);
+            this.panel3.Controls.Add(this.deFechaCorte);
+            this.panel3.Controls.Add(this.txtObservacion);
+            this.panel3.Controls.Add(this.txtIdDistribucion);
+            this.panel3.Controls.Add(this.cmbTipoCbte);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 29);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1450, 100);
+            this.panel3.TabIndex = 2;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(12, 17);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(11, 13);
+            this.labelControl3.TabIndex = 13;
+            this.labelControl3.Text = "ID";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(285, 17);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(86, 13);
+            this.labelControl2.TabIndex = 12;
+            this.labelControl2.Text = "Tipo comprobante";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(858, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(61, 13);
+            this.labelControl1.TabIndex = 8;
+            this.labelControl1.Text = "Fecha corte:";
+            // 
+            // deFechaCorte
+            // 
+            this.deFechaCorte.EditValue = null;
+            this.deFechaCorte.Location = new System.Drawing.Point(951, 14);
+            this.deFechaCorte.Name = "deFechaCorte";
+            this.deFechaCorte.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaCorte.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaCorte.Size = new System.Drawing.Size(117, 20);
+            this.deFechaCorte.TabIndex = 7;
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(100, 40);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(968, 54);
+            this.txtObservacion.TabIndex = 9;
+            // 
+            // txtIdDistribucion
+            // 
+            this.txtIdDistribucion.Location = new System.Drawing.Point(100, 14);
+            this.txtIdDistribucion.Name = "txtIdDistribucion";
+            this.txtIdDistribucion.Properties.ReadOnly = true;
+            this.txtIdDistribucion.Size = new System.Drawing.Size(120, 20);
+            this.txtIdDistribucion.TabIndex = 10;
+            // 
+            // cmbTipoCbte
+            // 
+            this.cmbTipoCbte.Location = new System.Drawing.Point(381, 14);
+            this.cmbTipoCbte.Name = "cmbTipoCbte";
+            this.cmbTipoCbte.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTipoCbte.Properties.DisplayMember = "tc_TipoCbte2";
+            this.cmbTipoCbte.Properties.NullText = "";
+            this.cmbTipoCbte.Properties.ValueMember = "IdTipoCbte";
+            this.cmbTipoCbte.Properties.View = this.searchLookUpEdit1View;
+            this.cmbTipoCbte.Size = new System.Drawing.Size(408, 20);
+            this.cmbTipoCbte.TabIndex = 11;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tipo comprobante";
+            this.gridColumn1.FieldName = "tc_TipoCbte";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 1514;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "ID";
+            this.gridColumn2.FieldName = "IdTipoCbte";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 220;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 129);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1450, 629);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1442, 603);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Por distribuir";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1442, 603);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Distribuido";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1442, 603);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "DiarioContable";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(12, 43);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(60, 13);
+            this.labelControl4.TabIndex = 14;
+            this.labelControl4.Text = "Observacion";
             // 
             // frmCon_DistribucionMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1450, 758);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.ucMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCon_DistribucionMantenimiento";
@@ -201,6 +388,16 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeListMenu_x_Usuario_x_Empresa)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdDistribucion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTipoCbte.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -216,5 +413,21 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.SimpleButton btnRefrescarMenu;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private DevExpress.XtraEditors.DateEdit deFechaCorte;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.MemoEdit txtObservacion;
+        private DevExpress.XtraEditors.TextEdit txtIdDistribucion;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbTipoCbte;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

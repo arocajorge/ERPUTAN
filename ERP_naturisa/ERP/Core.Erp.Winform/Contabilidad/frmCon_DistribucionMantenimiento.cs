@@ -21,6 +21,8 @@ namespace Core.Erp.Winform.Contabilidad
         ct_Plancta_Bus busPlancta;
         List<ct_Plancta_Info> ListaPlancta;
         ct_Distribucion_Info info;
+        ct_Cbtecble_tipo_Bus busTipoCbte;
+        cl_parametrosGenerales_Bus param;
         #endregion
 
         #region Delegados
@@ -50,15 +52,31 @@ namespace Core.Erp.Winform.Contabilidad
             busPlancta = new ct_Plancta_Bus();
             ListaPlancta = new List<ct_Plancta_Info>();
             info = new ct_Distribucion_Info();
+            busTipoCbte = new ct_Cbtecble_tipo_Bus();
+            param = cl_parametrosGenerales_Bus.Instance;
             event_delegate_frmCon_DistribucionMantenimiento_FormClosed += frmCon_DistribucionMantenimiento_event_delegate_frmCon_DistribucionMantenimiento_FormClosed;
         }
 
         private void frmCon_DistribucionMantenimiento_Load(object sender, EventArgs e)
         {
+            deFechaCorte.DateTime = DateTime.Now.Date;
             SetAccionInControls();
         }
 
         #region metodos
+        private void CargarCombos()
+        {
+            try
+            {
+                var lstTipoCbte = busTipoCbte.Get_list_Cbtecble_tipo(param.IdEmpresa);
+                cmbTipoCbte.Properties.DataSource = lstTipoCbte;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         public void SetAccion(Cl_Enumeradores.eTipo_action _Accion, ct_Distribucion_Info _info)
         {
             Accion = _Accion;
@@ -67,6 +85,7 @@ namespace Core.Erp.Winform.Contabilidad
 
         private void SetAccionInControls()
         {
+            CargarCombos();
             switch (Accion)
             {
                 case Cl_Enumeradores.eTipo_action.grabar:
@@ -95,6 +114,31 @@ namespace Core.Erp.Winform.Contabilidad
                     break;
             }
         }
+
+        private void SetInfoInControls()
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
         #endregion
+
+        #region Eventos
+        private void ucMenu_event_btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        private void btnRefrescarMenu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

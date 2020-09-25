@@ -617,6 +617,10 @@ namespace Core.Erp.Winform.Inventario
                 {
                     try
                     {
+                        Info_ing_egr_Inven_ = Bus_IngEgr.GetInfo(param.IdEmpresa, Info_ing_egr_Inven_.IdSucursal, Info_ing_egr_Inven_.IdMovi_inven_tipo, Info_ing_egr_Inven_.IdNumMovi);
+                        if (Info_ing_egr_Inven_ == null)
+                            return;
+                        
                         txtNumIngreso.Text = Convert.ToString(Info_ing_egr_Inven_.IdNumMovi);                
                         ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue = Info_ing_egr_Inven_.IdSucursal;
                         ucIn_Sucursal_Bodega1.cmb_bodega.EditValue = Info_ing_egr_Inven_.IdBodega;

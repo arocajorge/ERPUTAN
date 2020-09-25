@@ -83,7 +83,7 @@ namespace Core.Erp.Winform.Controles
 
                 ct_Cbtecble_tipo_Bus BusTipoCbte = new ct_Cbtecble_tipo_Bus();
                 List<ct_Cbtecble_tipo_Info> listTipoCbte = new List<ct_Cbtecble_tipo_Info>();
-                listTipoCbte = BusTipoCbte.Get_list_Cbtecble_tipo(param.IdEmpresa, ref MensajeError);
+                listTipoCbte = BusTipoCbte.Get_list_Cbtecble_tipo(param.IdEmpresa);
                     
                 cmbTipoCbte_grid.DataSource=listTipoCbte;
                 cmbTipoCbteAnu_grid.DataSource = listTipoCbte;

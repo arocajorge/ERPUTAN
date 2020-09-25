@@ -40,8 +40,8 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                cmbSaldoInicial.Properties.DataSource = TIPO.Get_list_Cbtecble_tipo(param.IdEmpresa,ref MensajeError);
-                cmbCierreAnual.Properties.DataSource = TIPO.Get_list_Cbtecble_tipo(param.IdEmpresa,ref MensajeError);
+                cmbSaldoInicial.Properties.DataSource = TIPO.Get_list_Cbtecble_tipo(param.IdEmpresa);
+                cmbCierreAnual.Properties.DataSource = TIPO.Get_list_Cbtecble_tipo(param.IdEmpresa);
             }
             catch (Exception ex)
             {

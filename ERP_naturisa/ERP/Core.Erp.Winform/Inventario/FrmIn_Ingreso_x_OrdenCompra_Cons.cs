@@ -63,7 +63,7 @@ namespace Core.Erp.Winform.Inventario
               
                 List<in_Ing_Egr_Inven_Info> LstIngEge = new List<in_Ing_Egr_Inven_Info>();
                 bus_IngEgr = new in_Ing_Egr_Inven_Bus();
-                LstIngEge = bus_IngEgr.Get_List_Ing_Egr_Inven(param.IdEmpresa, IdSucursalIni,IdSucursalFin,IdBodegaIni,IdBodegaFin,fecha_desde, fecha_hasta,info_param_compras.IdMovi_inven_tipo_OC);                
+                LstIngEge = bus_IngEgr.GetListIngresoOc(param.IdEmpresa, ucGe_Menu_Mantenimiento_x_usuario1.getIdSucursal,ucGe_Menu_Mantenimiento_x_usuario1.getIdBodega,fecha_desde, fecha_hasta);                
                 gridControlConsulta.DataSource = LstIngEge;
             }
             catch (Exception ex)

@@ -79,5 +79,7 @@ namespace Core.Erp.Info.Inventario
         public double? Diferencia { get; set; }
 
         public double? TotalContabilidad { get; set; }
+
+        public string CodigoOC { get; set; }
     }
 }

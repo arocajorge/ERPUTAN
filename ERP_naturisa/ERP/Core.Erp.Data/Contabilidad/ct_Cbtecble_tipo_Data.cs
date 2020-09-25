@@ -7,36 +7,40 @@ using Core.Erp.Info.Contabilidad;
 
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Contabilidad
 {
     public class ct_Cbtecble_tipo_Data
     {
-        public List<ct_Cbtecble_tipo_Info> Get_list_Cbtecble_tipo(int IdEmpresa , ref string MensajeError)
+        public List<ct_Cbtecble_tipo_Info> Get_list_Cbtecble_tipo(int IdEmpresa)
         {
             try
             {
                 List<ct_Cbtecble_tipo_Info> lM = new List<ct_Cbtecble_tipo_Info>();
-                EntitiesDBConta OECbtecble_tipo_Info = new EntitiesDBConta();
-                var selectCbtecble_tipo = from C in OECbtecble_tipo_Info.ct_cbtecble_tipo
-                                          where C.IdEmpresa == IdEmpresa
-                                          select C;
-
-                foreach (var item in selectCbtecble_tipo)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    ct_Cbtecble_tipo_Info Cbt = new ct_Cbtecble_tipo_Info();
-                    Cbt.IdTipoCbte = Convert.ToInt32(item.IdTipoCbte);
-                    Cbt.CodTipoCbte = item.CodTipoCbte.Trim();
-                    Cbt.tc_TipoCbte = item.tc_TipoCbte.Trim();
-                    Cbt.tc_TipoCbte2 = "[" + item.IdTipoCbte + "]" + item.tc_TipoCbte.Trim();
-                    Cbt.tc_Estado = item.tc_Estado;
-                    Cbt.tc_Interno = item.tc_Interno;
-                    Cbt.tc_Nemonico = item.tc_Nemonico;
-                    Cbt.IdTipoCbte_Anul = item.IdTipoCbte_Anul;
-                    Cbt.SEstado = (item.tc_Estado == "A") ? "ACTIVO" : "*ANULADO*";
-                    Cbt.IdEmpresa = item.IdEmpresa;
-
-                    lM.Add(Cbt);
+                    connection.Open();
+                    string query = "SELECT IdEmpresa ,IdTipoCbte, CodTipoCbte, tc_TipoCbte, '[' + cast(IdTipoCbte as varchar) + '] ' + tc_TipoCbte as tc_TipoCbte2, tc_Estado, tc_Interno, tc_Nemonico, IdTipoCbte_Anul, case when tc_Estado = 'A' then 'ACTIVO' ELSE '*ANULADO*' END AS SEstado FROM ct_cbtecble_tipo WHERE IdEmpresa = " + IdEmpresa.ToString();
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new ct_Cbtecble_tipo_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdTipoCbte = Convert.ToInt32(reader["IdTipoCbte"]),
+                            CodTipoCbte = Convert.ToString(reader["CodTipoCbte"]),
+                            tc_TipoCbte = Convert.ToString(reader["tc_TipoCbte"]),
+                            tc_TipoCbte2 = Convert.ToString(reader["tc_TipoCbte2"]),
+                            tc_Estado = Convert.ToString(reader["tc_Estado"]),
+                            tc_Interno = Convert.ToString(reader["tc_Interno"]),
+                            tc_Nemonico = Convert.ToString(reader["tc_Nemonico"]),
+                            IdTipoCbte_Anul = string.IsNullOrEmpty(reader["IdTipoCbte_Anul"].ToString()) ? null : (int?)(reader["IdTipoCbte_Anul"]),
+                            SEstado = Convert.ToString(reader["SEstado"])
+                        });
+                    }
+                    reader.Close();
                 }
 
                 return (lM);
@@ -44,12 +48,12 @@ namespace Core.Erp.Data.Contabilidad
 
             catch (Exception ex)
             {
+                string MensajeError = string.Empty;
                 string arreglo = ToString();
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "",
                                     "", "", "", "", DateTime.Now);
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref MensajeError);
-                MensajeError = ex.ToString();
                 throw new Exception(ex.ToString());
             }
         }

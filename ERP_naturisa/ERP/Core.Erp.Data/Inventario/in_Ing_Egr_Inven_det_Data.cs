@@ -8,6 +8,7 @@ using Core.Erp.Info.Inventario;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -203,9 +204,64 @@ namespace Core.Erp.Data.Inventario
       {
           try
           {
-              EntitiesInventario OEInventario = new EntitiesInventario();
+              
               List<in_Ing_Egr_Inven_det_Info> lM = new List<in_Ing_Egr_Inven_det_Info>();
 
+              using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+              {
+                  connection.Open();
+                  string query = "select a.IdEmpresa, a.IdSucursal, a.IdMovi_inven_tipo, a.IdNumMovi, a.Secuencia,"
+                                + " a.IdProducto, a.IdBodega, a.dm_observacion, a.mv_costo, a.IdCentroCosto, a.IdCentroCosto_sub_centro_costo,"
+                                + " a.IdUnidadMedida, a.IdUnidadMedida_sinConversion, a.mv_costo_sinConversion, a.IdEmpresa_oc, a.IdSucursal_oc, a.IdOrdenCompra, a.Secuencia_oc,"
+                                + " a.IdPunto_cargo_grupo, a.IdPunto_cargo, a.IdMotivo_Inv, a.IdEstadoAproba, a.IdEmpresa_inv, a.IdSucursal_inv, a.IdBodega_inv, a.IdMovi_inven_tipo_inv, a.IdNumMovi_inv, a.Secuencia_oc,"
+                                + " a.dm_cantidad_sinConversion, a.dm_cantidad, b.pr_codigo, a.IdCentroCosto+'-'+a.IdCentroCosto_sub_centro_costo as IdRegistro"
+                                + " from in_Ing_Egr_Inven_det as a inner join"
+                                + " in_Producto as b on a.IdEmpresa = b.IdEmpresa and a.IdProducto = b.IdProducto"
+                                + " where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.IdSucursal = "+IdSucursal.ToString()+" and a.IdMovi_inven_tipo = "+IdMovi_inven_tipo.ToString()+" and a.IdNumMovi = "+IdNumMovi.ToString();
+                  SqlCommand command = new SqlCommand(query,connection);
+                  SqlDataReader reader = command.ExecuteReader();
+                  while (reader.Read())
+                  {
+                      lM.Add(new in_Ing_Egr_Inven_det_Info
+                      {
+                          IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                          IdSucursal = Convert.ToInt32(reader["IdEmpresa"])IdSucursal,
+                          pr_codigo = Convert.ToInt32(reader["IdEmpresa"])cod_producto,
+                          IdBodega = Convert.ToInt32(reader["IdEmpresa"])IdBodega,
+                          IdMovi_inven_tipo = Convert.ToInt32(reader["IdEmpresa"])(int)IdMovi_inven_tipo,
+                          IdNumMovi = Convert.ToInt32(reader["IdEmpresa"])IdNumMovi,
+                          Secuencia = Convert.ToInt32(reader["IdEmpresa"])Secuencia,
+                          IdProducto = Convert.ToInt32(reader["IdEmpresa"])IdProducto,
+                          dm_observacion = Convert.ToInt32(reader["IdEmpresa"])dm_observacion,
+                          mv_costo = Convert.ToInt32(reader["IdEmpresa"])mv_costo,
+                          IdCentroCosto = Convert.ToInt32(reader["IdEmpresa"])IdCentroCosto,
+                          IdCentroCosto_sub_centro_costo = Convert.ToInt32(reader["IdEmpresa"])IdCentroCosto_sub_centro_costo,
+                          IdRegistro = Convert.ToInt32(reader["IdRegistro"]),
+                          IdUnidadMedida = Convert.ToInt32(reader["IdEmpresa"])IdUnidadMedida.Trim(),
+                          IdUnidadMedida_sinConversion = IdUnidadMedida_sinConversion == null ? IdUnidadMedida_sinConversion : IdUnidadMedida_sinConversion.Trim(),
+                          mv_costo_sinConversion = mv_costo_sinConversion == null ? 0 : Convert.ToDouble(mv_costo_sinConversion),
+                          IdEmpresa_oc = IdEmpresa_oc,
+                          IdSucursal_oc = IdSucursal_oc,
+                          IdOrdenCompra = IdOrdenCompra,
+                          Secuencia_oc = Secuencia_oc,
+                          IdPunto_cargo_grupo = IdPunto_cargo_grupo,
+                          IdPunto_cargo = IdPunto_cargo,
+                          IdMotivo_Inv = IdMotivo_Inv,
+                          IdEstadoAproba = IdEstadoAproba,
+                          IdEmpresa_inv = IdEmpresa_inv,
+                          IdSucursal_inv = IdSucursal_inv,
+                          IdBodega_inv = IdBodega_inv,
+                          IdMovi_inven_tipo_inv = IdMovi_inven_tipo_inv,
+                          IdNumMovi_inv = IdNumMovi_inv,
+                          secuencia_inv = secuencia_inv,
+                          dm_cantidad_sinConversion = dm_cantidad_sinConversion,
+                          dm_cantidad = dm_cantidad,
+                          CantidadAnterior = Math.Abs(dm_cantidad),
+                      });
+                  }
+                  reader.Close();
+              }
+              /*
               var select = from q in OEInventario.in_Ing_Egr_Inven_det
                            join p in OEInventario.in_Producto
                            on new { q.IdEmpresa, q.IdProducto } equals new { p.IdEmpresa, p.IdProducto }
@@ -295,7 +351,7 @@ namespace Core.Erp.Data.Inventario
                   info.dm_cantidad = item.dm_cantidad;
                   info.CantidadAnterior = Math.Abs(item.dm_cantidad);
                   lM.Add(info);
-              }          
+              }          */
               return lM;
           }
           catch (Exception ex)

@@ -186,7 +186,7 @@ namespace Core.Erp.Reportes.Controles
                 cmbCaja.DisplayMember = "ca_Descripcion";
                 cmb_Caja.EditValue = 0;
 
-                ListTipo_Cbte = Bus_TipoCbte.Get_list_Cbtecble_tipo(param.IdEmpresa,ref MensajeError);
+                ListTipo_Cbte = Bus_TipoCbte.Get_list_Cbtecble_tipo(param.IdEmpresa);
                 Info_TipoCbte.IdTipoCbte = 0;
                 Info_TipoCbte.tc_TipoCbte = "Todos";
                 ListTipo_Cbte.Add(Info_TipoCbte);

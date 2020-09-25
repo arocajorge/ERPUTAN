@@ -103,11 +103,11 @@ namespace Core.Erp.Business.Contabilidad
 
         }
 
-        public List<ct_Cbtecble_tipo_Info> Get_list_Cbtecble_tipo(int IdEmpresa,ref string MensajeError)
+        public List<ct_Cbtecble_tipo_Info> Get_list_Cbtecble_tipo(int IdEmpresa)
         {
             try 
             {
-                return data.Get_list_Cbtecble_tipo(IdEmpresa,ref MensajeError);
+                return data.Get_list_Cbtecble_tipo(IdEmpresa);
             }
             catch (Exception ex)
             {

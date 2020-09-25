@@ -969,5 +969,31 @@ namespace Core.Erp.Business.Inventario
                throw;
            }
        }
+
+       public List<in_Ing_Egr_Inven_Info> GetListIngresoOc(int IdEmpresa, int IdSucursal, int IdBodega, DateTime FechaIni, DateTime FechaFin)
+       {
+           try
+           {
+               return odata.GetListIngresoOc(IdEmpresa, IdSucursal, IdBodega, FechaIni, FechaFin);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
+
+       public in_Ing_Egr_Inven_Info GetInfo(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+       {
+           try
+           {
+               return odata.GetInfo(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
     }
 }

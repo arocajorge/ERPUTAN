@@ -79,7 +79,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 BindingList_orden_pago_estado_aprob = new BindingList<cp_orden_pago_estado_aprob_Info>(BusestadoApro.Get_List_orden_pago_estado_aprob());
                 BindingList_orden_pago_formapago = new BindingList<cp_orden_pago_formapago_Info>(BusformaPago.Get_List_orden_pago_formapago());
                 BindingList_TipoTransac = new BindingList<cp_trans_a_generar_x_FormaPago_OP_Info>(BusTipoTransac.Get_List_trans_a_generar_x_FormaPago_OP());
-                List_Cbtecble_tipo = BusCbtecble_tipo.Get_list_Cbtecble_tipo(param.IdEmpresa,ref MensajeError);
+                List_Cbtecble_tipo = BusCbtecble_tipo.Get_list_Cbtecble_tipo(param.IdEmpresa);
 
             }
             catch (Exception ex)

@@ -4,6 +4,7 @@ using Core.Erp.Info.Inventario;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -1397,6 +1398,131 @@ namespace Core.Erp.Data.Inventario
                         
                 }
                 return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public List<in_Ing_Egr_Inven_Info> GetListIngresoOc(int IdEmpresa, int IdSucursal, int IdBodega, DateTime FechaIni, DateTime FechaFin)
+        {
+            try
+            {
+                List<in_Ing_Egr_Inven_Info> Lista = new List<in_Ing_Egr_Inven_Info>();
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    string query = "select a.IdEmpresa, a.IdSucursal, a.IdMovi_inven_tipo, a.IdNumMovi, d.Su_Descripcion, e.bo_Descripcion, a.cm_fecha, a.cm_observacion, a.IdMotivo_Inv, f.Desc_mov_inv, "
+                                +" min(b.IdEstadoAproba) IdEstadoAproba, max(g.codigo+'-'+cast(b.IdOrdenCompra as varchar)) as CodigoOC, a.Estado, max(h.num_documento) num_documento, max(l.pe_nombreCompleto) pe_nombreCompleto, max(j.IdEstado_cierre) IdEstado_cierre, a.IdUsuario"
+                                +" from in_Ing_Egr_Inven as a inner join"
+                                +" in_Ing_Egr_Inven_det as b on a.IdEmpresa = b.IdEmpresa and a.IdSucursal = b.IdSucursal and a.IdMovi_inven_tipo = b.IdMovi_inven_tipo and a.IdNumMovi = b.IdNumMovi inner join"
+                                +" com_parametro as c on a.IdEmpresa = c.IdEmpresa and c.IdMovi_inven_tipo_OC = a.IdMovi_inven_tipo left join"
+                                +" tb_sucursal as d on a.IdEmpresa = d.IdEmpresa and a.IdSucursal = d.IdSucursal left join"
+                                +" tb_bodega as e on a.IdEmpresa = e.IdEmpresa and a.IdSucursal = e.IdSucursal and a.IdBodega = e.IdBodega left join"
+                                +" in_Motivo_Inven as f on a.IdEmpresa = f.IdEmpresa and a.IdMotivo_Inv = f.IdMotivo_Inv left join "
+                                +" tb_sucursal as g on b.IdEmpresa_oc = g.IdEmpresa and b.IdSucursal_oc = g.IdSucursal left join"
+                                +" ("
+                                +" select x1.IdEmpresa, x1.Serie+'-'+x1.Serie2+'-'+ x1.num_documento num_documento, x2.IdSucursal_Ing_Egr_Inv, x2.IdMovi_inven_tipo_Ing_Egr_Inv, x2.IdNumMovi_Ing_Egr_Inv, x2.Secuencia_Ing_Egr_Inv "
+                                +" from cp_Aprobacion_Ing_Bod_x_OC AS x1 inner join"
+                                +" cp_Aprobacion_Ing_Bod_x_OC_det as x2 on x1.IdEmpresa = x2.IdEmpresa and x1.IdAprobacion = x2.IdAprobacion"
+                                +" where x1.IdEmpresa = "+IdEmpresa.ToString()+" and x1.IdCbteCble_Ogiro is not null"
+                                +" ) as h on b.IdEmpresa = h.IdEmpresa and b.IdSucursal = h.IdSucursal_Ing_Egr_Inv and b.IdMovi_inven_tipo = h.IdMovi_inven_tipo_Ing_Egr_Inv and b.IdNumMovi = h.IdNumMovi_Ing_Egr_Inv and b.Secuencia = h.Secuencia_Ing_Egr_Inv left join"
+                                +" com_ordencompra_local_det as i on b.IdEmpresa_oc = i.IdEmpresa and b.IdSucursal_oc = i.IdSucursal and b.IdOrdenCompra = i.IdOrdenCompra and b.Secuencia_oc = i.Secuencia left join"
+                                +" com_ordencompra_local as j on i.IdEmpresa = j.IdEmpresa and i.IdSucursal = j.IdSucursal and i.IdOrdenCompra = j.IdOrdenCompra left join"
+                                +" cp_proveedor as k on k.IdEmpresa = j.IdEmpresa and k.IdProveedor = j.IdProveedor left join"
+                                +" tb_persona as l on k.IdPersona = l.IdPersona"
+                                +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.cm_fecha between DATEFROMPARTS("+FechaIni.Year.ToString()+","+FechaIni.Month.ToString()+","+FechaIni.Day.ToString()+") and DATEFROMPARTS("+FechaFin.Year.ToString()+","+FechaFin.Month.ToString()+","+FechaFin.Day.ToString()+") "
+                                + (IdSucursal == 0 ? "" : " AND a.IdSucursal = "+IdSucursal.ToString())
+                                + (IdBodega == 0 ? "" : " AND a.IdBodega = " + IdBodega.ToString())
+                                +" group by a.IdEmpresa, a.IdSucursal, a.IdMovi_inven_tipo, a.IdNumMovi, d.Su_Descripcion, e.bo_Descripcion, a.cm_fecha, a.cm_observacion, a.IdMotivo_Inv, f.Desc_mov_inv, a.Estado, a.IdUsuario"
+                                + " order by a.IdEmpresa, a.IdSucursal, a.IdMovi_inven_tipo, a.IdNumMovi desc";
+
+                    SqlCommand command = new SqlCommand(query,connection);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Lista.Add(new in_Ing_Egr_Inven_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdMovi_inven_tipo = Convert.ToInt32(reader["IdMovi_inven_tipo"]),
+                            IdNumMovi = Convert.ToDecimal(reader["IdNumMovi"]),
+                            nom_sucursal = Convert.ToString(reader["Su_Descripcion"]),
+                            nom_bodega = Convert.ToString(reader["bo_Descripcion"]),
+                            cm_fecha = Convert.ToDateTime(reader["cm_fecha"]),
+                            cm_observacion = Convert.ToString(reader["cm_observacion"]),
+                            IdMotivo_Inv = Convert.ToInt32(reader["IdMotivo_Inv"]),
+                            Desc_mov_inv = Convert.ToString(reader["Desc_mov_inv"]),
+                            IdEstadoAproba = Convert.ToString(reader["IdEstadoAproba"]),
+                            CodigoOC = Convert.ToString(reader["CodigoOC"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            co_factura = Convert.ToString(reader["num_documento"]),
+                            nom_proveedor = Convert.ToString(reader["pe_nombreCompleto"]),
+                            nom_estado_cierre_oc = Convert.ToString(reader["IdEstado_cierre"]),
+                            IdUsuario = Convert.ToString(reader["IdUsuario"])
+                        });
+                    }
+                    reader.Close();
+                }
+
+                return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public in_Ing_Egr_Inven_Info GetInfo(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+        {
+            try
+            {
+                in_Ing_Egr_Inven_Info info = new in_Ing_Egr_Inven_Info();
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    string query = "select IdEmpresa,IdSucursal,IdMovi_inven_tipo,IdNumMovi,IdBodega,signo,CodMoviInven,cm_observacion,cm_fecha,IdUsuario,Estado,IdCentroCosto,IdCentroCosto_sub_centro_costo,IdMotivo_oc,IdMotivo_Inv,IdResponsable "
+                                + " from in_Ing_Egr_Inven"
+                                + " where IdEmpresa = "+IdEmpresa.ToString()+" and IdSucursal = "+IdSucursal.ToString()+" and IdMovi_inven_tipo = "+IdMovi_inven_tipo.ToString()+" and IdNumMovi = "+IdNumMovi.ToString();
+                    SqlCommand command = new SqlCommand(query,connection);
+                    var ValidateValue = command.ExecuteScalar();
+                    if (ValidateValue == null)
+                        return null;
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        info = new in_Ing_Egr_Inven_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdMovi_inven_tipo = Convert.ToInt32(reader["IdMovi_inven_tipo"]),
+                            IdNumMovi = Convert.ToDecimal(reader["IdNumMovi"]),
+                            IdBodega = string.IsNullOrEmpty(reader["IdBodega"].ToString()) ? null : (int?)(reader["IdBodega"]),
+                            signo = Convert.ToString(reader["signo"]),
+                            CodMoviInven = Convert.ToString(reader["CodMoviInven"]),
+                            cm_observacion = Convert.ToString(reader["cm_observacion"]),
+                            cm_fecha = Convert.ToDateTime(reader["cm_fecha"]),
+                            IdUsuario = Convert.ToString(reader["IdUsuario"]),
+                            IdCentroCosto = Convert.ToString(reader["IdCentroCosto"]),
+                            IdCentroCosto_sub_centro_costo = Convert.ToString(reader["IdCentroCosto_sub_centro_costo"]),
+                            IdMotivo_Inv = string.IsNullOrEmpty(reader["IdMotivo_Inv"].ToString()) ? null : (int?)(reader["IdMotivo_Inv"]),
+                            IdMotivo_oc = string.IsNullOrEmpty(reader["IdMotivo_oc"].ToString()) ? null : (int?)(reader["IdMotivo_oc"]),
+                            IdResponsable = string.IsNullOrEmpty(reader["IdResponsable"].ToString()) ? null : (decimal?)(reader["IdResponsable"]),
+                        };
+                    }
+                    reader.Close();
+                }
+
+                return info;
             }
             catch (Exception)
             {
