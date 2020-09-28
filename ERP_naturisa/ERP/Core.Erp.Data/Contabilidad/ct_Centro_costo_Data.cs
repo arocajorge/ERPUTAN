@@ -22,31 +22,37 @@ namespace Core.Erp.Data.Contabilidad
             {
 
                 List<ct_Centro_costo_Info> lM = new List<ct_Centro_costo_Info>();
-                EntitiesDBConta OECentroCost = new EntitiesDBConta();
-                var selectCentroCost = from C in OECentroCost.vwct_centro_costo
-                                          where C.IdEmpresa == IdEmpresa
-                                       select C;
-
-                foreach (var item in selectCentroCost)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    ct_Centro_costo_Info Cbt = new ct_Centro_costo_Info();
-                    Cbt.IdEmpresa = item.IdEmpresa;
-                    Cbt.IdCentroCosto = item.IdCentroCosto.Trim();
-                    Cbt.CodCentroCosto = item.CodCentroCosto.Trim();
-                    Cbt.Centro_costo = item.Centro_costo;
-                    Cbt.Centro_costo2 = "["+ item.IdCentroCosto + "]"+ item.Centro_costo;
-                    Cbt.IdCentroCostoPadre = item.IdCentroCostoPadre;// DEBE TRAER NULL SI NO TIENE PADRE
-                    Cbt.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    Cbt.pc_EsMovimiento = item.pc_EsMovimiento;
-                    Cbt.IdNivel = item.IdNivel;
-                    Cbt.pc_Estado = item.pc_Estado;
-                    Cbt.Centro_costoPadre = item.Centro_costoPadre;
-                    Cbt.IdCtaCble = (item.IdCtaCble!=null)?item.IdCtaCble.Trim():"";
-                    lM.Add(Cbt);
-                }
-                return (lM);
-            }
+                    connection.Open();
 
+                    string query = "select a.IdEmpresa, a.IdCentroCosto, a.CodCentroCosto, a.Centro_costo, '['+a.IdCentroCosto+'] '+ a.Centro_costo Centro_costo2,"
+                                +" a.IdCatalogo, a.pc_EsMovimiento, a.IdNivel, a.pc_Estado, a.IdCtaCble"
+                                +" from ct_centro_costo as a"
+                                +" where a.IdEmpresa = "+IdEmpresa.ToString();
+
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new ct_Centro_costo_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCentroCosto = Convert.ToString(reader["IdCentroCosto"]),
+                            CodCentroCosto = Convert.ToString(reader["CodCentroCosto"]),
+                            Centro_costo = Convert.ToString(reader["Centro_costo"]),
+                            Centro_costo2 = Convert.ToString(reader["Centro_costo2"]),
+                            IdCatalogo = Convert.ToDecimal(reader["IdCatalogo"]),
+                            pc_EsMovimiento = Convert.ToString(reader["pc_EsMovimiento"]),
+                            IdNivel = Convert.ToInt32(reader["IdNivel"]),
+                            pc_Estado = Convert.ToString(reader["pc_Estado"]),
+                            IdCtaCble = Convert.ToString(reader["IdCtaCble"])
+                        });
+                    }
+                    reader.Close();
+                }
+                return lM;
+            }
             catch (Exception ex)
             {
                 MensajeError = ex.Message;

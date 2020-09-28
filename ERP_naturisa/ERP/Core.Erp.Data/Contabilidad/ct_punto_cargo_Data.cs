@@ -6,6 +6,7 @@ using System.Text;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Contabilidad
 {
@@ -15,22 +16,29 @@ namespace Core.Erp.Data.Contabilidad
 
       public List<ct_punto_cargo_Info> Get_list_PuntoCargo(int IdEmpresa)
       {
-          List<ct_punto_cargo_Info> Lst = new List<ct_punto_cargo_Info>();
           try
           {
-              using (EntitiesDBConta db = new EntitiesDBConta())
+              List<ct_punto_cargo_Info> Lst = new List<ct_punto_cargo_Info>();
+              using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
               {
-                  Lst = db.ct_punto_cargo.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new ct_punto_cargo_Info
+                  connection.Open();
+                  string query = "select IdEmpresa, IdPunto_cargo, codPunto_cargo, nom_punto_cargo, IdPunto_cargo_grupo, Estado, '['+cast(IdPunto_cargo as varchar)+'] '+nom_punto_cargo nom_punto_cargo2 from ct_punto_cargo where IdEmpresa = " + IdEmpresa.ToString();
+                  SqlCommand command = new SqlCommand(query, connection);
+                  SqlDataReader reader = command.ExecuteReader();
+                  while (reader.Read())
                   {
-                      IdEmpresa = q.IdEmpresa,
-                      IdPunto_cargo = q.IdPunto_cargo,
-                      codPunto_cargo = q.codPunto_cargo,
-                      nom_punto_cargo = q.nom_punto_cargo,
-                      IdPunto_cargo_grupo = q.IdPunto_cargo_grupo,
-                      Estado = q.Estado
-                  }).ToList();
-
-                  Lst.ForEach(q=> q.nom_punto_cargo2 = "[" + q.IdPunto_cargo + "] " + q.nom_punto_cargo);
+                      Lst.Add(new ct_punto_cargo_Info
+                      {
+                          IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                          IdPunto_cargo = Convert.ToInt32(reader["IdPunto_cargo"]),
+                          codPunto_cargo = Convert.ToString(reader["codPunto_cargo"]),
+                          nom_punto_cargo = Convert.ToString(reader["nom_punto_cargo"]),
+                          IdPunto_cargo_grupo = string.IsNullOrEmpty(reader["IdPunto_cargo_grupo"].ToString()) ? null : (int?)reader["IdPunto_cargo_grupo"],
+                          Estado = Convert.ToString(reader["Estado"]),
+                          nom_punto_cargo2 = Convert.ToString(reader["nom_punto_cargo2"]),
+                      });
+                  }
+                  reader.Close();
               }
               return Lst;
           }

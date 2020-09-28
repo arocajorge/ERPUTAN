@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIn_Ingreso_varios_Mant));
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPlantilla = new System.Windows.Forms.LinkLabel();
             this.cmb_Estado_apro_x_Ing_Egr_Inven1 = new Core.Erp.Winform.Controles.UCInv_Estado_apro_x_Ing_Egr_Inven();
             this.lblNum_Movi_Inven = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,20 +59,13 @@
             this.gridViewProductos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNuevoProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.colSecuencia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdProducto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbProducto_grid = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdProducto_cmbgrid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_codigo_cmbgrid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpr_descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_precio_publico = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_stock = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_pedidos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_ManejaIva = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_costo_promedio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_peso = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldm_cantidad_sin_conversion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldm_cantidad_convertida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmv_costo_sin_conversion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,7 +101,6 @@
             this.colnom_punto_cargo_grupo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv = new Core.Erp.Winform.Controles.UCInv_GridCbte_Cble_x_Ing_Egr_Inv();
-            this.lblPlantilla = new System.Windows.Forms.LinkLabel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -236,6 +230,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales:";
             // 
+            // lblPlantilla
+            // 
+            this.lblPlantilla.AutoSize = true;
+            this.lblPlantilla.Location = new System.Drawing.Point(12, 110);
+            this.lblPlantilla.Name = "lblPlantilla";
+            this.lblPlantilla.Size = new System.Drawing.Size(254, 13);
+            this.lblPlantilla.TabIndex = 22;
+            this.lblPlantilla.TabStop = true;
+            this.lblPlantilla.Text = "Descargar plantilla para funcionalidad copiar y pegar";
+            this.lblPlantilla.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPlantilla_LinkClicked);
+            // 
             // cmb_Estado_apro_x_Ing_Egr_Inven1
             // 
             this.cmb_Estado_apro_x_Ing_Egr_Inven1.Location = new System.Drawing.Point(659, 110);
@@ -336,6 +341,7 @@
             this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(467, 51);
             this.ucIn_Sucursal_Bodega1.TabIndex = 6;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.Normal;
+            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
             // 
             // dtpFecha
             // 
@@ -512,24 +518,20 @@
             this.cmbProducto_grid.AutoHeight = false;
             this.cmbProducto_grid.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbProducto_grid.DisplayMember = "pr_descripcion_2";
             this.cmbProducto_grid.Name = "cmbProducto_grid";
+            this.cmbProducto_grid.ValueMember = "IdProducto";
             this.cmbProducto_grid.View = this.repositoryItemSearchLookUpEdit1View;
             // 
             // repositoryItemSearchLookUpEdit1View
             // 
             this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIdProducto_cmbgrid,
-            this.colpr_codigo_cmbgrid,
-            this.colpr_descripcion,
-            this.colpr_precio_publico,
-            this.colpr_stock,
-            this.colpr_pedidos,
-            this.colpr_ManejaIva,
-            this.colpr_costo_promedio,
-            this.colpr_peso});
+            this.colpr_descripcion});
             this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
             this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
             this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // colIdProducto_cmbgrid
@@ -538,17 +540,8 @@
             this.colIdProducto_cmbgrid.FieldName = "IdProducto";
             this.colIdProducto_cmbgrid.Name = "colIdProducto_cmbgrid";
             this.colIdProducto_cmbgrid.Visible = true;
-            this.colIdProducto_cmbgrid.VisibleIndex = 2;
+            this.colIdProducto_cmbgrid.VisibleIndex = 1;
             this.colIdProducto_cmbgrid.Width = 98;
-            // 
-            // colpr_codigo_cmbgrid
-            // 
-            this.colpr_codigo_cmbgrid.Caption = "Código";
-            this.colpr_codigo_cmbgrid.FieldName = "pr_codigo";
-            this.colpr_codigo_cmbgrid.Name = "colpr_codigo_cmbgrid";
-            this.colpr_codigo_cmbgrid.Visible = true;
-            this.colpr_codigo_cmbgrid.VisibleIndex = 1;
-            this.colpr_codigo_cmbgrid.Width = 102;
             // 
             // colpr_descripcion
             // 
@@ -558,60 +551,6 @@
             this.colpr_descripcion.Visible = true;
             this.colpr_descripcion.VisibleIndex = 0;
             this.colpr_descripcion.Width = 287;
-            // 
-            // colpr_precio_publico
-            // 
-            this.colpr_precio_publico.Caption = "P.V.P.";
-            this.colpr_precio_publico.FieldName = "pr_precio_publico";
-            this.colpr_precio_publico.Name = "colpr_precio_publico";
-            this.colpr_precio_publico.Visible = true;
-            this.colpr_precio_publico.VisibleIndex = 3;
-            this.colpr_precio_publico.Width = 77;
-            // 
-            // colpr_stock
-            // 
-            this.colpr_stock.Caption = "Stock";
-            this.colpr_stock.FieldName = "pr_stock_Bodega";
-            this.colpr_stock.Name = "colpr_stock";
-            this.colpr_stock.Visible = true;
-            this.colpr_stock.VisibleIndex = 4;
-            this.colpr_stock.Width = 101;
-            // 
-            // colpr_pedidos
-            // 
-            this.colpr_pedidos.Caption = "Pedidos";
-            this.colpr_pedidos.FieldName = "pr_pedidos";
-            this.colpr_pedidos.Name = "colpr_pedidos";
-            this.colpr_pedidos.Visible = true;
-            this.colpr_pedidos.VisibleIndex = 5;
-            this.colpr_pedidos.Width = 101;
-            // 
-            // colpr_ManejaIva
-            // 
-            this.colpr_ManejaIva.Caption = "Maneja Iva";
-            this.colpr_ManejaIva.FieldName = "pr_ManejaIva";
-            this.colpr_ManejaIva.Name = "colpr_ManejaIva";
-            this.colpr_ManejaIva.Visible = true;
-            this.colpr_ManejaIva.VisibleIndex = 6;
-            this.colpr_ManejaIva.Width = 101;
-            // 
-            // colpr_costo_promedio
-            // 
-            this.colpr_costo_promedio.Caption = "Costo";
-            this.colpr_costo_promedio.FieldName = "pr_costo_promedio";
-            this.colpr_costo_promedio.Name = "colpr_costo_promedio";
-            this.colpr_costo_promedio.Visible = true;
-            this.colpr_costo_promedio.VisibleIndex = 7;
-            this.colpr_costo_promedio.Width = 101;
-            // 
-            // colpr_peso
-            // 
-            this.colpr_peso.Caption = "Peso";
-            this.colpr_peso.FieldName = "pr_peso";
-            this.colpr_peso.Name = "colpr_peso";
-            this.colpr_peso.Visible = true;
-            this.colpr_peso.VisibleIndex = 8;
-            this.colpr_peso.Width = 101;
             // 
             // coldm_cantidad_sin_conversion
             // 
@@ -941,17 +880,6 @@
             this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv.Size = new System.Drawing.Size(948, 304);
             this.ucInv_GridCbte_Cble_x_Ing_Egr_Inv.TabIndex = 0;
             // 
-            // lblPlantilla
-            // 
-            this.lblPlantilla.AutoSize = true;
-            this.lblPlantilla.Location = new System.Drawing.Point(12, 110);
-            this.lblPlantilla.Name = "lblPlantilla";
-            this.lblPlantilla.Size = new System.Drawing.Size(254, 13);
-            this.lblPlantilla.TabIndex = 22;
-            this.lblPlantilla.TabStop = true;
-            this.lblPlantilla.Text = "Descargar plantilla para funcionalidad copiar y pegar";
-            this.lblPlantilla.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPlantilla_LinkClicked);
-            // 
             // FrmIn_Ingreso_varios_Mant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1023,14 +951,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbProducto_grid;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colIdProducto_cmbgrid;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_codigo_cmbgrid;
         private DevExpress.XtraGrid.Columns.GridColumn colpr_descripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_precio_publico;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_stock;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_pedidos;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_ManejaIva;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_costo_promedio;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_peso;
         private System.Windows.Forms.Label lblAnulado;
         private DevExpress.XtraGrid.Columns.GridColumn colIdCentroCosto_grid;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbCentroCosto_grid;

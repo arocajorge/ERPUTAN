@@ -793,73 +793,35 @@ namespace Core.Erp.Data.Inventario
             try
             {
 
-                int IdBodega_ini = IdBodega;
-                int IdBodega_fin = IdBodega == 0 ? 99999 : IdBodega;
-
                 List<in_Producto_Info> lM = new List<in_Producto_Info>();
-                EntitiesInventario OEInventario = new EntitiesInventario();
-                OEInventario.SetCommandTimeOut(3000);
-                var select_Inventario = OEInventario.vwin_producto_x_tb_bodega.Where(C => C.IdEmpresa == IdEmpresa
-                                        && C.IdSucursal == IdSucursal
-                                        && IdBodega_ini <= C.IdBodega && C.IdBodega <= IdBodega_fin
-                                        && C.Aparece_modu_Inventario == true).ToList();
 
-                foreach (var item in select_Inventario)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    lM.Add(new in_Producto_Info
+                    connection.Open();
+                    string query = "select b.IdEmpresa, b.IdSucursal, b.IdBodega, b.IdProducto, a.pr_codigo, a.pr_descripcion, '['+cast(a.IdProducto as varchar)+'] '+a.pr_descripcion as pr_descripcion2,"
+                                +" a.IdUnidadMedida, a.IdUnidadMedida_Consumo, a.IdCod_Impuesto_Iva"
+                                +" from in_Producto as a inner join"
+                                +" in_producto_x_tb_bodega as b on a.IdEmpresa = b.IdEmpresa and a.IdProducto = b.IdProducto"
+                                +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and b.IdSucursal = "+IdSucursal.ToString()+" and b.IdBodega = "+IdBodega.ToString()+" and a.Aparece_modu_Inventario = 1 and a.Estado = 'A'";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        pr_costo_promedio = item.pr_costo_promedio,
-                        IdEmpresa = item.IdEmpresa,
-                        IdProducto = item.IdProducto,
-                        IdSucursal = item.IdSucursal,
-                        IdBodega = item.IdBodega,
-
-                        pr_codigo = item.pr_codigo.Trim(),
-                        pr_descripcion = item.pr_descripcion,
-                        pr_descripcion_2 = "[" + item.pr_codigo + "] - " + item.pr_descripcion,
-
-                        pr_peso = item.pr_peso,
-                        pr_stock = item.pr_stock,
-                        pr_Pedidos_inv = item.pr_Pedidos_inv,
-                        pr_disponible = item.pr_Disponible,
-                        pr_Disponible = item.pr_Disponible,
-                        pr_Pedidos_fact = item.pr_Pedidos_fact,
-
-                        pr_precio_publico = item.pr_precio_publico,
-                        pr_precio_minimo = item.pr_precio_minimo,
-                        pr_stock_minimo = item.pr_stock_minimo,
-                        pr_ManejaIva = item.pr_ManejaIva.Trim() == "S" ? "S" : item.pr_ManejaIva,
-                        pr_ManejaSeries = item.pr_ManejaSeries.Trim() == "S" ? "S" : item.pr_ManejaSeries,
-                        ManejaKardex = item.ManejaKardex,
-                        IdUnidadMedida = item.IdUnidadMedida,
-                        nom_Linea = item.nom_linea,
-                        nom_Categoria = item.nom_Categoria,
-                        IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo,
-                        nom_UnidadMedida = item.Descripcion_UniMedida,
-                        nom_UnidadMedida_Consumo = item.Descripcion_TipoConsumo,
-
-                        IdCtaCble_Inventario = item.IdCtaCble_Inventario,
-                        IdCtaCble_Costo = item.IdCtaCble_Costo,
-                        IdCtaCble_Vta = item.IdCtaCble_Vta,
-
-
-                        IdCtaCble_Ven0 = item.IdCtaCble_Ven0,
-                        IdCtaCble_VenIva = item.IdCtaCble_VenIva,
-                        IdCtaCble_CosBase0 = item.IdCtaCble_CosBase0,
-                        IdCtaCble_CosBaseIva = item.IdCtaCble_CosBaseIva,
-                        IdCtaCble_Des0 = item.IdCtaCble_Des0,
-                        IdCtaCble_DesIva = item.IdCtaCble_DesIva,
-                        IdCtaCble_Dev0 = item.IdCtaCble_Dev0,
-                        IdCtaCble_DevIva = item.IdCtaCble_DevIva,
-
-                        IdCod_Impuesto_Iva = item.IdCod_Impuesto_Iva,
-                        IdCod_Impuesto_Ice = item.IdCod_Impuesto_Ice,
-
-                        Aparece_modu_Ventas = item.Aparece_modu_Ventas,
-                        Aparece_modu_Compras = item.Aparece_modu_Compras,
-                        Aparece_modu_Inventario = item.Aparece_modu_Inventario,
-                        Aparece_modu_Activo_F = item.Aparece_modu_Activo_F,
-                    });
+                        lM.Add(new in_Producto_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdBodega = Convert.ToInt32(reader["IdBodega"]),
+                            IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                            pr_codigo = Convert.ToString(reader["pr_codigo"]),
+                            pr_descripcion = Convert.ToString(reader["pr_descripcion"]),
+                            pr_descripcion_2 = Convert.ToString(reader["pr_descripcion2"]),
+                            IdUnidadMedida = Convert.ToString(reader["IdUnidadMedida"]),
+                            IdUnidadMedida_Consumo = Convert.ToString(reader["IdUnidadMedida_Consumo"]),
+                            IdCod_Impuesto_Iva = Convert.ToString(reader["IdCod_Impuesto_Iva"])
+                        });
+                    }
+                    reader.Close();
                 }
                 return (lM);
             }

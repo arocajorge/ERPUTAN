@@ -125,7 +125,6 @@
             this.btn_imprimir_lote,
             this.beiCerrar});
             this.ribbonControl_mantenimiento.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl_mantenimiento.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl_mantenimiento.MaxItemId = 69;
             this.ribbonControl_mantenimiento.Name = "ribbonControl_mantenimiento";
             this.ribbonControl_mantenimiento.OptionsCustomizationForm.FormIcon = ((System.Drawing.Icon)(resources.GetObject("resource.FormIcon")));
@@ -137,7 +136,7 @@
             this.ribbonControl_mantenimiento.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl_mantenimiento.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
             this.ribbonControl_mantenimiento.ShowToolbarCustomizeItem = false;
-            this.ribbonControl_mantenimiento.Size = new System.Drawing.Size(1733, 103);
+            this.ribbonControl_mantenimiento.Size = new System.Drawing.Size(1300, 84);
             this.ribbonControl_mantenimiento.Toolbar.ShowCustomizeItem = false;
             this.ribbonControl_mantenimiento.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -439,8 +438,7 @@
             // 
             // cmbsucursal
             // 
-            this.cmbsucursal.Location = new System.Drawing.Point(568, 10);
-            this.cmbsucursal.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbsucursal.Location = new System.Drawing.Point(426, 8);
             this.cmbsucursal.MenuManager = this.ribbonControl_mantenimiento;
             this.cmbsucursal.Name = "cmbsucursal";
             this.cmbsucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -448,7 +446,7 @@
             this.cmbsucursal.Properties.DisplayMember = "Su_Descripcion2";
             this.cmbsucursal.Properties.ValueMember = "IdSucursal";
             this.cmbsucursal.Properties.View = this.searchLookUpEdit1View;
-            this.cmbsucursal.Size = new System.Drawing.Size(283, 22);
+            this.cmbsucursal.Size = new System.Drawing.Size(212, 20);
             this.cmbsucursal.TabIndex = 5;
             this.cmbsucursal.EditValueChanged += new System.EventHandler(this.cmbsucursal_EditValueChanged);
             // 
@@ -481,50 +479,45 @@
             // lblSucursal
             // 
             this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Location = new System.Drawing.Point(499, 14);
-            this.lblSucursal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSucursal.Location = new System.Drawing.Point(374, 11);
             this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(63, 17);
+            this.lblSucursal.Size = new System.Drawing.Size(48, 13);
             this.lblSucursal.TabIndex = 4;
             this.lblSucursal.Text = "Sucursal";
             // 
             // dtpFechaHasta
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(343, 41);
-            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(257, 33);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(136, 22);
+            this.dtpFechaHasta.Size = new System.Drawing.Size(103, 20);
             this.dtpFechaHasta.TabIndex = 3;
             this.dtpFechaHasta.ValueChanged += new System.EventHandler(this.dtpFechaHasta_ValueChanged);
             // 
             // lblFHasta
             // 
             this.lblFHasta.AutoSize = true;
-            this.lblFHasta.Location = new System.Drawing.Point(284, 44);
-            this.lblFHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFHasta.Location = new System.Drawing.Point(213, 36);
             this.lblFHasta.Name = "lblFHasta";
-            this.lblFHasta.Size = new System.Drawing.Size(49, 17);
+            this.lblFHasta.Size = new System.Drawing.Size(38, 13);
             this.lblFHasta.TabIndex = 2;
             this.lblFHasta.Text = "Hasta:";
             // 
             // dtpFechaDesde
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(343, 10);
-            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(257, 8);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(136, 22);
+            this.dtpFechaDesde.Size = new System.Drawing.Size(103, 20);
             this.dtpFechaDesde.TabIndex = 1;
             this.dtpFechaDesde.ValueChanged += new System.EventHandler(this.dtpFechaDesde_ValueChanged);
             // 
             // lblFdesde
             // 
             this.lblFdesde.AutoSize = true;
-            this.lblFdesde.Location = new System.Drawing.Point(284, 14);
-            this.lblFdesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFdesde.Location = new System.Drawing.Point(213, 11);
             this.lblFdesde.Name = "lblFdesde";
-            this.lblFdesde.Size = new System.Drawing.Size(53, 17);
+            this.lblFdesde.Size = new System.Drawing.Size(41, 13);
             this.lblFdesde.TabIndex = 0;
             this.lblFdesde.Text = "Desde:";
             // 
@@ -539,15 +532,13 @@
             this.panel_botones_top.Controls.Add(this.ribbonControl_mantenimiento);
             this.panel_botones_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_botones_top.Location = new System.Drawing.Point(0, 0);
-            this.panel_botones_top.Margin = new System.Windows.Forms.Padding(4);
             this.panel_botones_top.Name = "panel_botones_top";
-            this.panel_botones_top.Size = new System.Drawing.Size(1733, 103);
+            this.panel_botones_top.Size = new System.Drawing.Size(1300, 84);
             this.panel_botones_top.TabIndex = 6;
             // 
             // cmbbodega
             // 
-            this.cmbbodega.Location = new System.Drawing.Point(568, 41);
-            this.cmbbodega.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbbodega.Location = new System.Drawing.Point(426, 33);
             this.cmbbodega.MenuManager = this.ribbonControl_mantenimiento;
             this.cmbbodega.Name = "cmbbodega";
             this.cmbbodega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -555,7 +546,7 @@
             this.cmbbodega.Properties.DisplayMember = "bo_Descripcion2";
             this.cmbbodega.Properties.ValueMember = "IdBodega";
             this.cmbbodega.Properties.View = this.gridView1;
-            this.cmbbodega.Size = new System.Drawing.Size(283, 22);
+            this.cmbbodega.Size = new System.Drawing.Size(212, 20);
             this.cmbbodega.TabIndex = 8;
             this.cmbbodega.EditValueChanged += new System.EventHandler(this.cmbbodega_EditValueChanged);
             // 
@@ -588,19 +579,17 @@
             // lblbodega
             // 
             this.lblbodega.AutoSize = true;
-            this.lblbodega.Location = new System.Drawing.Point(499, 44);
-            this.lblbodega.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblbodega.Location = new System.Drawing.Point(374, 36);
             this.lblbodega.Name = "lblbodega";
-            this.lblbodega.Size = new System.Drawing.Size(61, 17);
+            this.lblbodega.Size = new System.Drawing.Size(47, 13);
             this.lblbodega.TabIndex = 7;
             this.lblbodega.Text = "Bodega:";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(859, 22);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(644, 18);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(123, 34);
+            this.btnBuscar.Size = new System.Drawing.Size(92, 28);
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -619,19 +608,17 @@
             this.panel_pie_fechas.Controls.Add(this.dtpFechaHasta);
             this.panel_pie_fechas.Controls.Add(this.lblSucursal);
             this.panel_pie_fechas.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_pie_fechas.Location = new System.Drawing.Point(0, 101);
-            this.panel_pie_fechas.Margin = new System.Windows.Forms.Padding(4);
+            this.panel_pie_fechas.Location = new System.Drawing.Point(0, 82);
             this.panel_pie_fechas.Name = "panel_pie_fechas";
-            this.panel_pie_fechas.Size = new System.Drawing.Size(1733, 76);
+            this.panel_pie_fechas.Size = new System.Drawing.Size(1300, 62);
             this.panel_pie_fechas.TabIndex = 9;
             // 
             // lblCriterioBusq
             // 
             this.lblCriterioBusq.AutoSize = true;
-            this.lblCriterioBusq.Location = new System.Drawing.Point(7, 10);
-            this.lblCriterioBusq.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCriterioBusq.Location = new System.Drawing.Point(5, 8);
             this.lblCriterioBusq.Name = "lblCriterioBusq";
-            this.lblCriterioBusq.Size = new System.Drawing.Size(77, 17);
+            this.lblCriterioBusq.Size = new System.Drawing.Size(58, 13);
             this.lblCriterioBusq.TabIndex = 5;
             this.lblCriterioBusq.Text = "Buscar por";
             // 
@@ -647,22 +634,20 @@
             "Año pasado",
             "Año actual",
             "Hoy"});
-            this.cmb_CriterioBusqueda.Location = new System.Drawing.Point(11, 30);
-            this.cmb_CriterioBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.cmb_CriterioBusqueda.Location = new System.Drawing.Point(8, 24);
             this.cmb_CriterioBusqueda.Name = "cmb_CriterioBusqueda";
-            this.cmb_CriterioBusqueda.Size = new System.Drawing.Size(245, 24);
+            this.cmb_CriterioBusqueda.Size = new System.Drawing.Size(185, 21);
             this.cmb_CriterioBusqueda.TabIndex = 4;
             this.cmb_CriterioBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmb_CriterioBusqueda_SelectedIndexChanged);
             // 
             // UCGe_Menu_Mantenimiento_x_usuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel_pie_fechas);
             this.Controls.Add(this.panel_botones_top);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCGe_Menu_Mantenimiento_x_usuario";
-            this.Size = new System.Drawing.Size(1733, 177);
+            this.Size = new System.Drawing.Size(1300, 144);
             this.Load += new System.EventHandler(this.UCGe_Menu_Mantenimiento_x_usuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl_mantenimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbsucursal.Properties)).EndInit();
@@ -690,7 +675,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Cancelaciones;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Impresion;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_otras_Trans;
-        private DevExpress.XtraEditors.SearchLookUpEdit cmbsucursal;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private System.Windows.Forms.Label lblSucursal;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
@@ -731,6 +715,7 @@
         public DevExpress.XtraBars.BarButtonItem btnCancelarCuotas;
         private DevExpress.XtraBars.BarButtonItem btn_imprimir_lote;
         private DevExpress.XtraBars.BarButtonItem beiCerrar;
+        public DevExpress.XtraEditors.SearchLookUpEdit cmbsucursal;
 
     }
 }

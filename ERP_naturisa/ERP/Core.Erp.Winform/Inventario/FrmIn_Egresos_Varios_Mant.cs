@@ -423,8 +423,6 @@ namespace Core.Erp.Winform.Inventario
                     listProducto = Bus_Producto.Get_list_Producto_modulo_x_inventario(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue), Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_bodega.EditValue));
                 }
                 cmbProducto_grid.DataSource = listProducto;
-                cmbProducto_grid.DisplayMember = "pr_descripcion";
-                cmbProducto_grid.ValueMember= "IdProducto";
             }
             catch (Exception ex)
             {
@@ -650,7 +648,8 @@ namespace Core.Erp.Winform.Inventario
 
         public void setInfo_(in_Ing_Egr_Inven_Info info_IngEgr_)
         {
-            info_IngEgr = info_IngEgr_;
+            bus_IngEgr = new in_Ing_Egr_Inven_Bus();
+            info_IngEgr = bus_IngEgr.GetInfo(info_IngEgr_.IdEmpresa, info_IngEgr_.IdSucursal, info_IngEgr_.IdMovi_inven_tipo, info_IngEgr_.IdNumMovi);
         }
 
         private void setInfo_in_controls()

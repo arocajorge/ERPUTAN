@@ -52,6 +52,9 @@ namespace Core.Erp.Winform.Inventario
                 int idBodegaFin = 0;
                 int idBodegaIni = 0;
 
+                ucGe_Menu_Mantenimiento_x_usuario.cmbsucursal.EditValue = param.IdSucursal;
+                ucGe_Menu_Mantenimiento_x_usuario.cmbsucursal.Properties.ReadOnly = true;
+
                 idSucursalIni = ucGe_Menu_Mantenimiento_x_usuario.getIdSucursal == 0 ? 1 : ucGe_Menu_Mantenimiento_x_usuario.getIdSucursal;
                 idSucursalFin = ucGe_Menu_Mantenimiento_x_usuario.getIdSucursal == 0 ? 9999 : ucGe_Menu_Mantenimiento_x_usuario.getIdSucursal;
 

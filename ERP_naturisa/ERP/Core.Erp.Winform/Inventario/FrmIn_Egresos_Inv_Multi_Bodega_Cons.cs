@@ -271,6 +271,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                ucGe_Menu.cmbsucursal.Properties.ReadOnly = true;
+                ucGe_Menu.cmbsucursal.EditValue = param.IdSucursal;
                 cargar_grid();
             }
             catch (Exception ex)

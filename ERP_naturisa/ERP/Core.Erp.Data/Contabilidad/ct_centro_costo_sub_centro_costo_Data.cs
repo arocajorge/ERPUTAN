@@ -6,6 +6,7 @@ using System.Text;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Contabilidad
 {
@@ -18,28 +19,36 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 List<ct_centro_costo_sub_centro_costo_Info> lst = new List<ct_centro_costo_sub_centro_costo_Info>();
-                using (EntitiesDBConta conta = new EntitiesDBConta())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    var consulta = conta.vwct_centro_costo_sub_centro_costo.Where(q => q.IdEmpresa == IdEmpresa).ToList();
+                    connection.Open();
 
-                    foreach (var item in consulta)
+                    string query = "select b.IdEmpresa, b.IdCentroCosto, b.IdCentroCosto_sub_centro_costo, b.cod_subcentroCosto, b.Centro_costo, "
+                                +" '['+b.IdCentroCosto_sub_centro_costo+'] '+b.Centro_costo as Centro_costo2, b.pc_Estado, b.IdCtaCble, a.Centro_costo as nom_Centro_costo,"
+                                +" b.IdCentroCosto+'-' + b.IdCentroCosto_sub_centro_costo as IdRegistro"
+                                +" from ct_centro_costo as a inner join"
+                                +" ct_centro_costo_sub_centro_costo as b on a.IdEmpresa = b.IdEmpresa and a.IdCentroCosto = b.IdCentroCosto"
+                                +" where a.IdEmpresa = "+IdEmpresa.ToString();
+
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
                         lst.Add(new ct_centro_costo_sub_centro_costo_Info
-                           {
-                               IdEmpresa = item.IdEmpresa,
-                               IdCentroCosto = item.IdCentroCosto,
-                               IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
-                               cod_subcentroCosto = item.cod_subcentroCosto,
-                               Centro_costo = item.nom_Centro_costo_sub_centro_costo,
-                               Centro_costo2 = "[" + item.IdCentroCosto_sub_centro_costo + "] - " + item.nom_Centro_costo_sub_centro_costo,
-                               pc_Estado = item.pc_Estado,
-                               IdCtaCble = item.IdCtaCble,
-                               nom_Centro_costo = item.nom_Centro_costo,
-                               nom_cuenta = item.pc_Cuenta,
-                               pc_clave_corta = item.pc_clave_corta,
-                               IdRegistro = item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo,
-                           });
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCentroCosto = Convert.ToString(reader["IdCentroCosto"]),
+                            IdCentroCosto_sub_centro_costo = Convert.ToString(reader["IdCentroCosto_sub_centro_costo"]),
+                            cod_subcentroCosto = Convert.ToString(reader["cod_subcentroCosto"]),
+                            Centro_costo = Convert.ToString(reader["Centro_costo"]),
+                            Centro_costo2 = Convert.ToString(reader["Centro_costo2"]),
+                            pc_Estado = Convert.ToString(reader["pc_Estado"]),
+                            IdCtaCble = Convert.ToString(reader["IdCtaCble"]),
+                            nom_Centro_costo = Convert.ToString(reader["nom_Centro_costo"]),
+                            IdRegistro = Convert.ToString(reader["IdRegistro"])
+                        });
                     }
+                    reader.Close();
                 }
                 return lst;
             }

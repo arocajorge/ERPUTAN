@@ -92,17 +92,18 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2019, 9, 17, 13, 5, 12, 807);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2019, 11, 17, 13, 5, 12, 807);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2020, 9, 18, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 9, 25, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1371, 191);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1028, 155);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 0;
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -146,31 +147,28 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 561);
-            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 456);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1371, 32);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1028, 26);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 1;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.gridControlConsulta);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 191);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 155);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1371, 370);
+            this.panel1.Size = new System.Drawing.Size(1028, 301);
             this.panel1.TabIndex = 2;
             // 
             // gridControlConsulta
             // 
             this.gridControlConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlConsulta.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlConsulta.Location = new System.Drawing.Point(0, 0);
             this.gridControlConsulta.MainView = this.gridViewConsulta;
-            this.gridControlConsulta.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlConsulta.Name = "gridControlConsulta";
-            this.gridControlConsulta.Size = new System.Drawing.Size(1371, 370);
+            this.gridControlConsulta.Size = new System.Drawing.Size(1028, 301);
             this.gridControlConsulta.TabIndex = 0;
             this.gridControlConsulta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewConsulta});
@@ -398,8 +396,6 @@
             this.gridColumn1.Caption = "OC";
             this.gridColumn1.FieldName = "IdOrdenCompra";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 9;
             // 
             // gridColumn2
             // 
@@ -407,8 +403,6 @@
             this.gridColumn2.FieldName = "co_factura";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 10;
             // 
             // gridColumn3
             // 
@@ -418,13 +412,12 @@
             // 
             // FrmIn_Ingreso_varios_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 593);
+            this.ClientSize = new System.Drawing.Size(1028, 482);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Ingreso_varios_Cons";
             this.Text = "Consulta Ingresos Varios";
             this.Load += new System.EventHandler(this.FrmIn_Ingreso_varios_Cons_Load);

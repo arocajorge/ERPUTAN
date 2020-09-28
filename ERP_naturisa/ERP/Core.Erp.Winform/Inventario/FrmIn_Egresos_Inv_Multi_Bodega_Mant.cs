@@ -537,6 +537,7 @@ namespace Core.Erp.Winform.Inventario
                 //Info = _Info;
                 if (info_IngEgr == null)
                 { return; }
+                info_IngEgr = bus_IngEgr.GetInfo(info_IngEgr.IdEmpresa, info_IngEgr.IdSucursal, info_IngEgr.IdMovi_inven_tipo, info_IngEgr.IdNumMovi);
                 ucGe_Sucursal.set_SucursalInfo(info_IngEgr.IdSucursal);
                 txtNumIngreso.Text = Convert.ToString(info_IngEgr.IdNumMovi);
                 dtpFecha.Value = info_IngEgr.cm_fecha;

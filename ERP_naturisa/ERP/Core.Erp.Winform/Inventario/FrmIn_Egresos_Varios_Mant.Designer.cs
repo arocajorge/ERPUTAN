@@ -41,12 +41,7 @@
             this.cmbProducto_grid = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdProducto_cmbgrid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_codigo_cmbgrid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpr_descripcion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_stock = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_pedidos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_costo_promedio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpr_stock_Disponible = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldm_cantidad_sin_conversion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldm_cantidad_convertida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colmv_costo_sin_conversion = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -321,19 +316,16 @@
             this.cmbProducto_grid.AutoHeight = false;
             this.cmbProducto_grid.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbProducto_grid.DisplayMember = "pr_descripcion_2";
             this.cmbProducto_grid.Name = "cmbProducto_grid";
+            this.cmbProducto_grid.ValueMember = "IdProducto";
             this.cmbProducto_grid.View = this.repositoryItemSearchLookUpEdit1View;
             // 
             // repositoryItemSearchLookUpEdit1View
             // 
             this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIdProducto_cmbgrid,
-            this.colpr_codigo_cmbgrid,
-            this.colpr_descripcion,
-            this.colpr_stock,
-            this.colpr_pedidos,
-            this.colpr_costo_promedio,
-            this.colpr_stock_Disponible});
+            this.colpr_descripcion});
             this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
             this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -346,17 +338,8 @@
             this.colIdProducto_cmbgrid.FieldName = "IdProducto";
             this.colIdProducto_cmbgrid.Name = "colIdProducto_cmbgrid";
             this.colIdProducto_cmbgrid.Visible = true;
-            this.colIdProducto_cmbgrid.VisibleIndex = 2;
+            this.colIdProducto_cmbgrid.VisibleIndex = 1;
             this.colIdProducto_cmbgrid.Width = 98;
-            // 
-            // colpr_codigo_cmbgrid
-            // 
-            this.colpr_codigo_cmbgrid.Caption = "Código";
-            this.colpr_codigo_cmbgrid.FieldName = "pr_codigo";
-            this.colpr_codigo_cmbgrid.Name = "colpr_codigo_cmbgrid";
-            this.colpr_codigo_cmbgrid.Visible = true;
-            this.colpr_codigo_cmbgrid.VisibleIndex = 1;
-            this.colpr_codigo_cmbgrid.Width = 102;
             // 
             // colpr_descripcion
             // 
@@ -366,41 +349,6 @@
             this.colpr_descripcion.Visible = true;
             this.colpr_descripcion.VisibleIndex = 0;
             this.colpr_descripcion.Width = 287;
-            // 
-            // colpr_stock
-            // 
-            this.colpr_stock.Caption = "Stock";
-            this.colpr_stock.FieldName = "pr_stock";
-            this.colpr_stock.Name = "colpr_stock";
-            this.colpr_stock.Visible = true;
-            this.colpr_stock.VisibleIndex = 3;
-            this.colpr_stock.Width = 101;
-            // 
-            // colpr_pedidos
-            // 
-            this.colpr_pedidos.Caption = "Pedidos";
-            this.colpr_pedidos.FieldName = "pr_Pedidos_inv";
-            this.colpr_pedidos.Name = "colpr_pedidos";
-            this.colpr_pedidos.Visible = true;
-            this.colpr_pedidos.VisibleIndex = 4;
-            this.colpr_pedidos.Width = 101;
-            // 
-            // colpr_costo_promedio
-            // 
-            this.colpr_costo_promedio.Caption = "Costo";
-            this.colpr_costo_promedio.FieldName = "pr_costo_promedio";
-            this.colpr_costo_promedio.Name = "colpr_costo_promedio";
-            this.colpr_costo_promedio.Visible = true;
-            this.colpr_costo_promedio.VisibleIndex = 5;
-            this.colpr_costo_promedio.Width = 101;
-            // 
-            // colpr_stock_Disponible
-            // 
-            this.colpr_stock_Disponible.Caption = "Stock Disponible";
-            this.colpr_stock_Disponible.FieldName = "pr_Disponible";
-            this.colpr_stock_Disponible.Name = "colpr_stock_Disponible";
-            this.colpr_stock_Disponible.Visible = true;
-            this.colpr_stock_Disponible.VisibleIndex = 6;
             // 
             // coldm_cantidad_sin_conversion
             // 
@@ -1118,11 +1066,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbProducto_grid;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn colIdProducto_cmbgrid;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_codigo_cmbgrid;
         private DevExpress.XtraGrid.Columns.GridColumn colpr_descripcion;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_stock;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_pedidos;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_costo_promedio;
         private DevExpress.XtraGrid.Columns.GridColumn coldm_cantidad_sin_conversion;
         private DevExpress.XtraGrid.Columns.GridColumn coldm_cantidad_convertida;
         private DevExpress.XtraGrid.Columns.GridColumn colmv_costo_sin_conversion;
@@ -1166,6 +1110,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private System.Windows.Forms.LinkLabel lblPlantilla;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private DevExpress.XtraGrid.Columns.GridColumn colpr_stock_Disponible;
     }
 }

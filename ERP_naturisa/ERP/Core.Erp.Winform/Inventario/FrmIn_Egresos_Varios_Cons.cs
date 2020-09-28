@@ -48,6 +48,8 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                ucGe_Menu_Mantenimiento_x_usuario.cmbsucursal.Properties.ReadOnly = true;
+                ucGe_Menu_Mantenimiento_x_usuario.cmbsucursal.EditValue = param.IdSucursal;
                 IdSucursalIni = ucGe_Menu_Mantenimiento_x_usuario.getIdSucursal;
                 if (IdSucursalIni == 0)
                 {

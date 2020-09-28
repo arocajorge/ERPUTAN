@@ -7,6 +7,7 @@ using Core.Erp.Data.Inventario;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -627,7 +628,73 @@ namespace Core.Erp.Data.Inventario
                 List<in_transferencia_Info> lst = new List<in_transferencia_Info>();
                 FechaIni = FechaIni.Date;
                 FechaFin = FechaFin.Date;
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    string query = "SELECT        so.Su_Descripcion AS SucuOrigen, bo.bo_Descripcion AS BodegaORIG, sd.Su_Descripcion AS SucuDEST, bd.bo_Descripcion AS BodegDest, t.IdEmpresa, t.IdSucursalOrigen, t.IdBodegaOrigen, t.IdTransferencia, "
+                                +" t.IdSucursalDest, t.IdBodegaDest, t.tr_Observacion, t.tr_fecha, t.Estado, t.IdUsuario, t.IdEmpresa_Ing_Egr_Inven_Origen, t.IdSucursal_Ing_Egr_Inven_Origen, t.IdNumMovi_Ing_Egr_Inven_Origen, "
+                                +" t.IdEmpresa_Ing_Egr_Inven_Destino, t.IdSucursal_Ing_Egr_Inven_Destino, t.IdNumMovi_Ing_Egr_Inven_Destino, t.tr_fechaAnulacion, t.tr_userAnulo, t.Codigo, t.IdMovi_inven_tipo_SucuOrig, t.IdMovi_inven_tipo_SucuDest, "
+                                +" MIN(id.IdEstadoAproba) AS IdEstadoAproba_ing, MIN(ED.IdEstadoAproba) AS IdEstadoAproba_egr, t.IdGuia, t.EstadoRevision, t.IdUsuarioRevision, t.FechaRevision, isnull(t.TuvoError, cast(0 as bit)) TuvoError, isnull(t.TuvoErrorDespacho,cast(0 as bit))TuvoErrorDespacho"
+                                +" FROM            dbo.in_Ing_Egr_Inven_det AS ED INNER JOIN"
+                                +" dbo.in_Ing_Egr_Inven AS e ON ED.IdEmpresa = e.IdEmpresa AND ED.IdSucursal = e.IdSucursal AND ED.IdMovi_inven_tipo = e.IdMovi_inven_tipo AND ED.IdNumMovi = e.IdNumMovi RIGHT OUTER JOIN"
+                                +" dbo.in_Ing_Egr_Inven AS i INNER JOIN"
+                                +" dbo.in_Ing_Egr_Inven_det AS id ON i.IdEmpresa = id.IdEmpresa AND i.IdSucursal = id.IdSucursal AND i.IdMovi_inven_tipo = id.IdMovi_inven_tipo AND i.IdNumMovi = id.IdNumMovi RIGHT OUTER JOIN"
+                                +" dbo.tb_bodega AS bd INNER JOIN"
+                                +" dbo.tb_sucursal AS sd ON bd.IdEmpresa = sd.IdEmpresa AND bd.IdSucursal = sd.IdSucursal INNER JOIN"
+                                +" dbo.in_transferencia AS t INNER JOIN"
+                                +" dbo.tb_bodega AS bo ON t.IdEmpresa = bo.IdEmpresa AND t.IdBodegaOrigen = bo.IdBodega AND t.IdSucursalOrigen = bo.IdSucursal INNER JOIN"
+                                +" dbo.tb_sucursal AS so ON bo.IdEmpresa = so.IdEmpresa AND bo.IdSucursal = so.IdSucursal ON bd.IdEmpresa = t.IdEmpresa AND bd.IdBodega = t.IdBodegaDest AND bd.IdSucursal = t.IdSucursalDest ON "
+                                +" i.IdEmpresa = t.IdEmpresa_Ing_Egr_Inven_Destino AND i.IdSucursal = t.IdSucursal_Ing_Egr_Inven_Destino AND i.IdMovi_inven_tipo = t.IdMovi_inven_tipo_SucuDest AND i.IdNumMovi = t.IdNumMovi_Ing_Egr_Inven_Destino ON"
+                                +" e.IdEmpresa = t.IdEmpresa_Ing_Egr_Inven_Origen AND e.IdSucursal = t.IdSucursal_Ing_Egr_Inven_Origen AND e.IdMovi_inven_tipo = t.IdMovi_inven_tipo_SucuOrig AND "
+                                +" e.IdNumMovi = t.IdNumMovi_Ing_Egr_Inven_Origen"
+                                + " where t.IdEmpresa = " + IdEmpresa.ToString() + " and t.IdSucursalOrigen = "+idSucursalFin.ToString()
+                                + " and t.tr_fecha between DATEFROMPARTS("+FechaIni.Year.ToString()+","+FechaIni.Month.ToString()+","+FechaIni.Day.ToString()+")  AND DATEFROMPARTS("+FechaFin.Year.ToString()+","+FechaFin.Month.ToString()+","+FechaFin.Day.ToString()+")"
+                                +" GROUP BY so.Su_Descripcion, bo.bo_Descripcion, sd.Su_Descripcion, bd.bo_Descripcion, t.IdEmpresa, t.IdSucursalOrigen, t.IdBodegaOrigen, t.IdTransferencia, t.IdSucursalDest, t.IdBodegaDest, t.tr_Observacion, t.tr_fecha, t.Estado, "
+                                +" t.IdUsuario, t.IdEmpresa_Ing_Egr_Inven_Origen, t.IdSucursal_Ing_Egr_Inven_Origen, t.IdNumMovi_Ing_Egr_Inven_Origen, t.IdEmpresa_Ing_Egr_Inven_Destino, t.IdSucursal_Ing_Egr_Inven_Destino, "
+                                +" t.IdNumMovi_Ing_Egr_Inven_Destino, t.tr_fechaAnulacion, t.tr_userAnulo, t.Codigo, t.IdMovi_inven_tipo_SucuOrig, t.IdMovi_inven_tipo_SucuDest, t.IdGuia, t.EstadoRevision, t.IdUsuarioRevision, t.FechaRevision, t.TuvoError, "
+                                +" t.TuvoErrorDespacho";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+	                {
+	                     lst.Add(new in_transferencia_Info{
+                             IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                             IdTransferencia = Convert.ToDecimal(reader["IdTransferencia"]),
+                             tr_fecha = Convert.ToDateTime(reader["tr_fecha"]),
+                             Estado = Convert.ToString(reader["Estado"]),
+                             Bodega_Destino = Convert.ToString(reader["BodegDest"]),
+                             Bodega_Origen = Convert.ToString(reader["BodegaORIG"]),
+                             Sucursal_Destino = Convert.ToString(reader["SucuDEST"]),
+                             Sucursal_Origen = Convert.ToString(reader["SucuOrigen"]),
+                             tr_Observacion = Convert.ToString(reader["tr_Observacion"]),
+                             IdBodegaDest = Convert.ToInt32(reader["IdBodegaDest"]),
+                             IdBodegaOrigen = Convert.ToInt32(reader["IdBodegaOrigen"]),
+                             IdSucursalDest = Convert.ToInt32(reader["IdSucursalDest"]),
+                             IdSucursalOrigen = Convert.ToInt32(reader["IdSucursalOrigen"]),
+                             Codigo = Convert.ToString(reader["Codigo"]),
+                             IdEmpresa_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdEmpresa_Ing_Egr_Inven_Destino"].ToString()) ? null : (int?)(reader["IdEmpresa_Ing_Egr_Inven_Destino"]),
+                             IdEmpresa_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdEmpresa_Ing_Egr_Inven_Origen"].ToString()) ? null : (int?)(reader["IdEmpresa_Ing_Egr_Inven_Origen"]),
+                             IdSucursal_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdSucursal_Ing_Egr_Inven_Destino"].ToString()) ? null : (int?)(reader["IdSucursal_Ing_Egr_Inven_Destino"]),
+                             IdSucursal_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdSucursal_Ing_Egr_Inven_Origen"].ToString()) ? null : (int?)(reader["IdSucursal_Ing_Egr_Inven_Origen"]),
+                             IdMovi_inven_tipo_SucuDest = string.IsNullOrEmpty(reader["IdMovi_inven_tipo_SucuDest"].ToString()) ? null : (int?)(reader["IdMovi_inven_tipo_SucuDest"]),
+                             IdMovi_inven_tipo_SucuOrig = string.IsNullOrEmpty(reader["IdMovi_inven_tipo_SucuOrig"].ToString()) ? null : (int?)(reader["IdMovi_inven_tipo_SucuOrig"]),
+                             IdNumMovi_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdNumMovi_Ing_Egr_Inven_Destino"].ToString()) ? null : (decimal?)(reader["IdNumMovi_Ing_Egr_Inven_Destino"]),
+                             IdNumMovi_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdNumMovi_Ing_Egr_Inven_Origen"].ToString()) ? null : (decimal?)(reader["IdNumMovi_Ing_Egr_Inven_Origen"]),
+                             IdEstadoAproba_egr = Convert.ToString(reader["IdEstadoAproba_egr"]),
+                             IdEstadoAproba_ing = Convert.ToString(reader["IdEstadoAproba_ing"]),
+                             IdUsuario = Convert.ToString(reader["IdUsuario"]),
+                             IdGuia = string.IsNullOrEmpty(reader["IdGuia"].ToString()) ? null : (decimal?) (reader["IdGuia"]),
+                             EstadoRevision = Convert.ToString(reader["EstadoRevision"]),
+                             TuvoError = Convert.ToBoolean(reader["TuvoError"]),
+                             TuvoErrorDespacho = Convert.ToBoolean(reader["TuvoErrorDespacho"])
+                         });
+	                }
+                    reader.Close();
+                }
+                /*
                 EntitiesInventario OEInventario = new EntitiesInventario();
+
 
                 var lstX = OEInventario.vwin_Transferencias.Where(q => q.IdEmpresa == IdEmpresa
                              && IdSucursalIni <= q.IdSucursalOrigen && q.IdSucursalOrigen <= idSucursalFin
@@ -672,7 +739,7 @@ namespace Core.Erp.Data.Inventario
                 }
                 
 
-
+                */
                 return lst;
             }
             catch (Exception ex)

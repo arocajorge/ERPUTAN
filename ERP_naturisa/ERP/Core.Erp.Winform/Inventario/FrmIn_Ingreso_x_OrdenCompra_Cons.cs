@@ -210,7 +210,8 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 info_param_compras = bus_param_compras.Get_Info_parametro(param.IdEmpresa);
-
+                ucGe_Menu_Mantenimiento_x_usuario1.cmbsucursal.Properties.ReadOnly = true;
+                ucGe_Menu_Mantenimiento_x_usuario1.cmbsucursal.EditValue = param.IdSucursal;
                 IdSucursalIni = ucGe_Menu_Mantenimiento_x_usuario1.getIdSucursal;
                 if (IdSucursalIni == 0)
                 {
@@ -323,7 +324,7 @@ namespace Core.Erp.Winform.Inventario
                         return;
                     }
 
-                    if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (info.co_factura != null || info.IdEstadoAproba == "APRO"))
+                    if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (! string.IsNullOrEmpty(info.co_factura) || info.IdEstadoAproba == "APRO"))
                     {
                         Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;
                     }

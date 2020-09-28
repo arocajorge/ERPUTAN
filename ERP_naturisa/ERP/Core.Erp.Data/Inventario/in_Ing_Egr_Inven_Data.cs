@@ -368,57 +368,54 @@ namespace Core.Erp.Data.Inventario
             List<in_Ing_Egr_Inven_Info> Lst = new List<in_Ing_Egr_Inven_Info>();
             try
             {
-                FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
-                FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
-                EntitiesInventario oEnti = new EntitiesInventario();
-                oEnti.SetCommandTimeOut(3000);
-                var Query = oEnti.vwin_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa
-                                    && q.cm_fecha >= FechaIni
-                                    && q.cm_fecha <= FechaFin
-                                    && q.signo_tipo_inv == Tipo_ing_egr
-                                    && q.IdSucursal >= IdSucursalIni
-                                    && q.IdSucursal <= IdSucursalFin
-                                    && IdBodegaIni <= q.IdBodega
-                                    && q.IdBodega <= IdBodegaFin
-                                    && q.IdBodega != null
-                                    ).ToList();
-
-                foreach (var item in Query)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    Lst.Add(new in_Ing_Egr_Inven_Info
+                    connection.Open();
+                    string query = "select a.IdEmpresa, a.IdSucursal, a.IdBodega, a.IdMovi_inven_tipo, a.IdNumMovi, a.CodMoviInven, a.cm_observacion, a.Estado, a.signo, a.IdMotivo_oc, c.bo_Descripcion as nom_bodega, "
+                                + " d.Su_Descripcion as nom_sucursal, e.Desc_mov_inv, f.tm_descripcion as nom_tipo_inv, f.Codigo as cod_tipo_inv, f.cm_tipo_movi as signo_tipo_inv, a.IdMotivo_Inv, max(b.IdEstadoAproba) IdEstadoAproba,"
+                                + " a.IdUsuario, a.cm_fecha"
+                                + " from in_Ing_Egr_Inven as a inner join"
+                                + " in_Ing_Egr_Inven_det as b on a.IdEmpresa = b.IdEmpresa and a.IdSucursal = b.IdSucursal and a.IdMovi_inven_tipo = b.IdMovi_inven_tipo and a.IdNumMovi = b.IdNumMovi left join"
+                                + " tb_bodega as c on a.IdEmpresa = c.IdEmpresa and a.IdSucursal = c.IdSucursal and a.IdBodega = c.IdBodega left join"
+                                + " tb_sucursal as d on a.IdEmpresa = d.IdEmpresa and a.IdSucursal = d.IdSucursal left join"
+                                + " in_Motivo_Inven as e on a.IdEmpresa = e.IdEmpresa and a.IdMotivo_Inv = e.IdMotivo_Inv left join"
+                                + " in_movi_inven_tipo as f on a.IdEmpresa = f.IdEmpresa and a.IdMovi_inven_tipo = f.IdMovi_inven_tipo"
+                                + " where A.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdBodega is not null "
+                                + " and a.cm_fecha between datefromparts(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and datefromparts(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ") "
+                                + " and a.IdSucursal between " + IdSucursalIni.ToString() + " and " + IdSucursalFin.ToString() + " and a.signo = '"+Tipo_ing_egr+"'"
+                                + " and a.IdBodega between " + IdBodegaIni.ToString() + " and " + IdBodegaFin.ToString()
+                                + " group by a.IdEmpresa, a.IdSucursal, a.IdBodega, a.IdMovi_inven_tipo, a.IdNumMovi, a.CodMoviInven, a.cm_observacion, a.Estado, a.signo, a.IdMotivo_oc, c.bo_Descripcion, d.Su_Descripcion, e.Desc_mov_inv, f.tm_descripcion, f.Codigo, f.cm_tipo_movi, a.IdMotivo_Inv, a.IdUsuario, a.cm_fecha";
+                    
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        IdEmpresa = item.IdEmpresa,
-                        IdSucursal = item.IdSucursal,
-                        IdBodega = item.IdBodega,
-                        IdMovi_inven_tipo = item.IdMovi_inven_tipo,
-                        IdNumMovi = item.IdNumMovi,
-                        CodMoviInven = item.CodMoviInven,
-                        cm_observacion = item.cm_observacion,
-                        cm_fecha = item.cm_fecha,
-                        Estado = item.Estado,
-                        IdCentroCosto = item.IdCentroCosto,
-                        IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
-                        signo = item.signo,
-                        IdMotivo_oc = Convert.ToInt32(item.IdMotivo_oc),
-                        nom_bodega = item.nom_bodega,
-                        nom_sucursal = item.nom_sucursal,
-                        Desc_mov_inv = item.Desc_mov_inv,
-                        nom_tipo_inv = item.nom_tipo_inv,
-                        cod_tipo_inv = item.cod_tipo_inv,
-                        signo_tipo_inv = item.signo_tipo_inv,
-                        IdOrdenCompra = item.IdOrdenCompra,
-                        IdMotivo_Inv = item.IdMotivo_Inv,
-                        IdResponsable = item.IdResponsable,
-                        IdEstadoAproba = item.IdEstadoAproba,
-                        nom_EstadoAproba = item.nom_EstadoAproba,
-                        IdEstadoDespacho_cat = item.IdEstadoDespacho_cat,
-                        Fecha_registro = item.Fecha_registro,
-                        co_factura = item.co_factura,
-                        nom_proveedor = item.pr_nombre,
-                        nom_estado_cierre_oc = item.Descripcion,
-                        IdEstadoCierre_oc = item.IdEstado_cierre,
-                        IdUsuario = item.IdUsuario
-                    });
+                        Lst.Add(new in_Ing_Egr_Inven_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdBodega = Convert.ToInt32(reader["IdBodega"]),
+                            IdMovi_inven_tipo = Convert.ToInt32(reader["IdMovi_inven_tipo"]),
+                            IdNumMovi = Convert.ToDecimal(reader["IdNumMovi"]),
+                            CodMoviInven = Convert.ToString(reader["CodMoviInven"]),
+                            cm_observacion = Convert.ToString(reader["cm_observacion"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            signo = Convert.ToString(reader["signo"]),
+                            IdMotivo_oc = string.IsNullOrEmpty(reader["IdMotivo_oc"].ToString()) ? null : (int?)(reader["IdMotivo_oc"]),
+                            nom_bodega = Convert.ToString(reader["nom_bodega"]),
+                            nom_sucursal = Convert.ToString(reader["nom_sucursal"]),
+                            Desc_mov_inv = Convert.ToString(reader["Desc_mov_inv"]),
+                            nom_tipo_inv = Convert.ToString(reader["nom_tipo_inv"]),
+                            cod_tipo_inv = Convert.ToString(reader["cod_tipo_inv"]),
+                            signo_tipo_inv = Convert.ToString(reader["signo_tipo_inv"]),
+                            IdMotivo_Inv = string.IsNullOrEmpty(reader["IdMotivo_Inv"].ToString()) ? null : (int?)reader["IdMotivo_Inv"],
+                            IdEstadoAproba = Convert.ToString(reader["IdEstadoAproba"]),
+                            IdUsuario = Convert.ToString(reader["IdUsuario"]),
+                            cm_fecha = Convert.ToDateTime(reader["cm_fecha"]),
+                            nom_EstadoAproba = Convert.ToString(reader["IdEstadoAproba"])
+                        });
+                    }
+                    reader.Close();
                 }
 
                 return Lst;
@@ -680,69 +677,54 @@ namespace Core.Erp.Data.Inventario
             List<in_Ing_Egr_Inven_Info> Lst = new List<in_Ing_Egr_Inven_Info>();
             try
             {
-                FechaIni = Convert.ToDateTime(FechaIni.ToShortDateString());
-                FechaFin = Convert.ToDateTime(FechaFin.ToShortDateString());
-                EntitiesInventario oEnti = new EntitiesInventario();
-                oEnti.SetCommandTimeOut(3000);
-                string FechaIniS = FechaIni.Date.Day.ToString() + "/" + FechaIni.Date.Month.ToString() + "/" + FechaIni.Date.Year.ToString();
-                string FechaFinS = FechaFin.Date.Day.ToString() + "/" + FechaFin.Date.Month.ToString() + "/" + FechaFin.Date.Year.ToString();
-                string sql = "select IdEmpresa,                   IdSucursal,                   IdBodega,                   IdMovi_inven_tipo,                   IdNumMovi,                   CodMoviInven, ";
-                sql += "cm_observacion,                                    Estado,                   IdCentroCosto,                   IdCentroCosto_sub_centro_costo,                   signo, ";
-                sql += "IdMotivo_oc,                   nom_bodega,                   nom_sucursal,                   Desc_mov_inv,                   nom_tipo_inv,                   cod_tipo_inv, ";
-                sql += "signo_tipo_inv,                   IdOrdenCompra,                   IdMotivo_Inv,                   IdEstadoAproba,                   nom_EstadoAproba,                   IdEstadoDespacho_cat";
-                //sql += " Fecha_registro, 
-                sql += " co_factura,                   IdUsuario, cm_fecha ";
-                sql += " from vwin_Ing_Egr_Inven ";
-                sql += " where Idempresa = " + IdEmpresa.ToString() + " and IdBodega is null ";
-                sql += "and cm_fecha between datefromparts(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and datefromparts(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ") ";
-                sql += "and IdSucursal between " + IdSucursalIni.ToString() + " and " + IdSucursalFin.ToString() + " and signo = '-'";
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    string query = "select a.IdEmpresa, a.IdSucursal, a.IdBodega, a.IdMovi_inven_tipo, a.IdNumMovi, a.CodMoviInven, a.cm_observacion, a.Estado, a.signo, a.IdMotivo_oc, c.bo_Descripcion as nom_bodega, "
+                                +" d.Su_Descripcion as nom_sucursal, e.Desc_mov_inv, f.tm_descripcion as nom_tipo_inv, f.Codigo as cod_tipo_inv, f.cm_tipo_movi as signo_tipo_inv, a.IdMotivo_Inv, max(b.IdEstadoAproba) IdEstadoAproba,"
+                                +" a.IdUsuario, a.cm_fecha"
+                                +" from in_Ing_Egr_Inven as a inner join"
+                                +" in_Ing_Egr_Inven_det as b on a.IdEmpresa = b.IdEmpresa and a.IdSucursal = b.IdSucursal and a.IdMovi_inven_tipo = b.IdMovi_inven_tipo and a.IdNumMovi = b.IdNumMovi left join"
+                                +" tb_bodega as c on a.IdEmpresa = c.IdEmpresa and a.IdSucursal = c.IdSucursal and a.IdBodega = c.IdBodega left join"
+                                +" tb_sucursal as d on a.IdEmpresa = d.IdEmpresa and a.IdSucursal = d.IdSucursal left join"
+                                +" in_Motivo_Inven as e on a.IdEmpresa = e.IdEmpresa and a.IdMotivo_Inv = e.IdMotivo_Inv left join"
+                                +" in_movi_inven_tipo as f on a.IdEmpresa = f.IdEmpresa and a.IdMovi_inven_tipo = f.IdMovi_inven_tipo"
+                                + " where A.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdBodega is null "
+                                +" and a.cm_fecha between datefromparts(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and datefromparts(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ") "
+                                +" and a.IdSucursal between " + IdSucursalIni.ToString() + " and " + IdSucursalFin.ToString() + " and a.signo = '-'"
+                                + " group by a.IdEmpresa, a.IdSucursal, a.IdBodega, a.IdMovi_inven_tipo, a.IdNumMovi, a.CodMoviInven, a.cm_observacion, a.Estado, a.signo, a.IdMotivo_oc, c.bo_Descripcion, d.Su_Descripcion, e.Desc_mov_inv, f.tm_descripcion, f.Codigo, f.cm_tipo_movi, a.IdMotivo_Inv, a.IdUsuario, a.cm_fecha";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Lst.Add(new in_Ing_Egr_Inven_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdBodega = string.IsNullOrEmpty(reader["IdBodega"].ToString()) ? null : (int?)(reader["IdBodega"]),
+                            IdMovi_inven_tipo = Convert.ToInt32(reader["IdMovi_inven_tipo"]),
+                            IdNumMovi = Convert.ToDecimal(reader["IdNumMovi"]),
+                            CodMoviInven = Convert.ToString(reader["CodMoviInven"]),
+                            cm_observacion = Convert.ToString(reader["cm_observacion"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            signo = Convert.ToString(reader["signo"]),
+                            IdMotivo_oc = string.IsNullOrEmpty(reader["IdMotivo_oc"].ToString()) ? null : (int?)(reader["IdMotivo_oc"]),
+                            nom_bodega = Convert.ToString(reader["nom_bodega"]),
+                            nom_sucursal = Convert.ToString(reader["nom_sucursal"]),
+                            Desc_mov_inv = Convert.ToString(reader["Desc_mov_inv"]),
+                            nom_tipo_inv = Convert.ToString(reader["nom_tipo_inv"]),
+                            cod_tipo_inv = Convert.ToString(reader["cod_tipo_inv"]),
+                            signo_tipo_inv = Convert.ToString(reader["signo_tipo_inv"]),
+                            IdMotivo_Inv = string.IsNullOrEmpty(reader["IdMotivo_Inv"].ToString()) ? null : (int?)reader["IdMotivo_Inv"],
+                            IdEstadoAproba = Convert.ToString(reader["IdEstadoAproba"]),
+                            IdUsuario = Convert.ToString(reader["IdUsuario"]),
+                            cm_fecha = Convert.ToDateTime(reader["cm_fecha"]),
+                        });
+                    }
+                    reader.Close();
+                }
 
-                var result = oEnti.Database.SqlQuery<in_Ing_Egr_Inven_Info>(sql).ToList();
-                Lst = result;
                 return Lst;
-                /*
-                 var Query = oEnti.vwin_Ing_Egr_Inven.Where(q => q.IdEmpresa == IdEmpresa
-                         && q.cm_fecha >= FechaIni
-                         && q.cm_fecha <= FechaFin
-                         && q.signo_tipo_inv == Tipo_ing_egr
-                         && q.IdSucursal >= IdSucursalIni
-                         && q.IdSucursal <= IdSucursalFin
-                         && q.IdBodega == null).ToList();
-              
-                 foreach (var item in Query)
-                 {
-                     Lst.Add(new in_Ing_Egr_Inven_Info{
-
-                      IdEmpresa = item.IdEmpresa,
-                      IdSucursal = item.IdSucursal,
-                      IdBodega = item.IdBodega,
-                      IdMovi_inven_tipo = item.IdMovi_inven_tipo,
-                      IdNumMovi = item.IdNumMovi,
-                      CodMoviInven = item.CodMoviInven,
-                      cm_observacion = item.cm_observacion,
-                      cm_fecha = item.cm_fecha,
-                      Estado = item.Estado,
-                      IdCentroCosto = item.IdCentroCosto,
-                      IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
-                      signo = item.signo,
-                      IdMotivo_oc = item.IdMotivo_oc,
-                      nom_bodega = item.nom_bodega,
-                      nom_sucursal = item.nom_sucursal,
-                      Desc_mov_inv = item.Desc_mov_inv,
-                      nom_tipo_inv = item.nom_tipo_inv,
-                      cod_tipo_inv = item.cod_tipo_inv,
-                      signo_tipo_inv = item.signo_tipo_inv,
-                      IdOrdenCompra = item.IdOrdenCompra,
-                      IdMotivo_Inv = item.IdMotivo_Inv,
-                      IdEstadoAproba = item.IdEstadoAproba,
-                      nom_EstadoAproba = item.nom_EstadoAproba,
-                      IdEstadoDespacho_cat = item.IdEstadoDespacho_cat,
-                      Fecha_registro = item.Fecha_registro,
-                      co_factura = item.co_factura,
-                      IdUsuario = item.IdUsuario
-                 });
-                  */
-                // }
 
                 return Lst;
             }
