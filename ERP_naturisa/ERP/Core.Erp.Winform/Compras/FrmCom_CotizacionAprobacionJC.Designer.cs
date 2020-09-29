@@ -276,7 +276,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
-            this.btnSalir.Location = new System.Drawing.Point(838, 202);
+            this.btnSalir.Location = new System.Drawing.Point(848, 202);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(110, 41);
             this.btnSalir.TabIndex = 19;
@@ -286,7 +286,7 @@
             // btnAnular
             // 
             this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
-            this.btnAnular.Location = new System.Drawing.Point(838, 155);
+            this.btnAnular.Location = new System.Drawing.Point(848, 108);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(110, 41);
             this.btnAnular.TabIndex = 18;
@@ -296,7 +296,7 @@
             // btnPasar
             // 
             this.btnPasar.Image = ((System.Drawing.Image)(resources.GetObject("btnPasar.Image")));
-            this.btnPasar.Location = new System.Drawing.Point(838, 60);
+            this.btnPasar.Location = new System.Drawing.Point(848, 155);
             this.btnPasar.Name = "btnPasar";
             this.btnPasar.Size = new System.Drawing.Size(110, 41);
             this.btnPasar.TabIndex = 17;
@@ -306,7 +306,7 @@
             // btnAprobar
             // 
             this.btnAprobar.Image = ((System.Drawing.Image)(resources.GetObject("btnAprobar.Image")));
-            this.btnAprobar.Location = new System.Drawing.Point(838, 107);
+            this.btnAprobar.Location = new System.Drawing.Point(848, 60);
             this.btnAprobar.Name = "btnAprobar";
             this.btnAprobar.Size = new System.Drawing.Size(110, 41);
             this.btnAprobar.TabIndex = 16;

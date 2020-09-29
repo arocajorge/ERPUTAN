@@ -120,7 +120,7 @@ namespace Core.Erp.Data.Compras
                                 + " ct_punto_cargo as e on a.IdEmpresa = e.IdEmpresa and a.IdPunto_cargo = e.IdPunto_cargo left join"
                                 + " com_OrdenPedidoDet as f on a.IdEmpresa = f.IdEmpresa and a.IdOrdenPedido = f.IdOrdenPedido left join"
                                 + " com_OrdenPedidoDet as g on f.IdEmpresa = g.IdEmpresa and f.IdOrdenPedido = g.IdOrdenPedidoReg and f.Secuencia = g.SecuenciaReg"
-                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCatalogoEstado = 'EST_OP_CER' and a.op_Fecha > DATEFROMPARTS(2020,09,01) and g.IdOrdenPedido is null"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCatalogoEstado = 'EST_OP_CER' and a.op_Fecha > DATEFROMPARTS(2020,09,11) and g.IdOrdenPedido is null AND a.op_Fecha >  DATEADD(MONTH,-1,CAST(GETDATE() AS DATE))"
                                 + " and a.op_Fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")"
                                 + " group by a.IdEmpresa, a.IdOrdenPedido, a.IdCatalogoEstado, b.Nombre, a.op_Fecha, a.op_Observacion, c.nom_solicitante, d.nom_departamento, a.Estado, e.nom_punto_cargo";
 

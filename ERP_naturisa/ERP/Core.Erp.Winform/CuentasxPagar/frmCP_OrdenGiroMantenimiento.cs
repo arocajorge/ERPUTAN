@@ -472,7 +472,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 deshabilitarCamposRet();
 
                 CargarImportaciones();
-                gc_detalle.DataSource = blstReembolso;
+                gc_detalle.DataSource = blstDet;
             }
             catch (Exception ex)
             {
@@ -4635,6 +4635,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
+                var row2 = (cp_orden_giro_det_Info)gv_detalle.GetRow(e.RowHandle);
                 cp_orden_giro_det_Info row = (cp_orden_giro_det_Info)gv_detalle.GetRow(e.RowHandle);
                 if (row == null)
                     return;
