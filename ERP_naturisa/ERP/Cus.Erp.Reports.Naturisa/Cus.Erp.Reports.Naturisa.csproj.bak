@@ -1,0 +1,1090 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51EA47EC-00C0-4EB2-8FE1-95520F79B5AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cus.Erp.Reports.Naturisa</RootNamespace>
+    <AssemblyName>Cus.Erp.Reports.Naturisa</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prueba|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Prueba\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Reports.v12.1.Designer, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1.UI, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v12.1.Extensions, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v12.1.UI, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.1.Extensions, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bancos\XBAN_NAT_Rpt001_Bus.cs" />
+    <Compile Include="Bancos\XBAN_NAT_Rpt001_Data.cs" />
+    <Compile Include="Bancos\XBAN_NAT_Rpt001_Info.cs" />
+    <Compile Include="Bancos\XBAN_NAT_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_NAT_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XBAN_NAT_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_frm.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_Info.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_frm.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt003_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_Info.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_frm.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_Info.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt007_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt007_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt007_Info.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt007_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt007_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Info.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt008_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_NATU_Rpt008_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt001_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt001_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt001_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt002_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt002_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt002_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt003_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt003_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt003_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_NATU_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt001_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt001_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt001_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt001_Rpt.designer.cs">
+      <DependentUpon>XCONTA_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt002_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt002_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt002_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_NATU_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt003_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt003_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt003_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_frm.Designer.cs">
+      <DependentUpon>XCONTA_NATU_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_NATU_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_NATU_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCXC_NATU_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_NATU_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XCXC_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt011_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt011_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt011_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt003_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt005_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt005_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt005_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt005_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt005_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt005_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_Resumen_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_resumen_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_resumen_rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt007_resumen_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt007_rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt007_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt008_rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt008_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt009_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt009_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt009_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt009_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt009_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt009_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt010_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt010_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt010_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt010_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt010_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt010_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt012_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt012_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_frm.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt013_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_NATU_Rpt013_Rpt.Designer.cs">
+      <DependentUpon>XCXP_NATU_Rpt013_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_Data.cs" />
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_frm.Designer.cs">
+      <DependentUpon>XFAC_CUS_NAT_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_Info.cs" />
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_rpt.Designer.cs">
+      <DependentUpon>XFAC_CUS_NAT_Rpt002_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt001_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt001_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt001_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt002_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt002_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt002_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt003_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt003_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt003_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt004_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt004_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt004_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt005_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt005_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt005_frm.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt005_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt005_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt005_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt005_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt005_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt006_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt006_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt006_frm.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt006_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt006_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt006_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt006_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBancos_naturisa_rpt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBancos_naturisa_rpt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBancos_naturisa_rpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBancos_naturisa_rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBancos_naturisa_rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBancos_naturisa_rpt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCompras_Natu_Rpt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCompras_Natu_Rpt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCompras_Natu_Rpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCompras_Natu_Rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCompras_Natu_Rpt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelContabilidad_Natu_Rpt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelContabilidad_Natu_Rpt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelContabilidad_Natu_Rpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelContabilidad_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelContabilidad_Natu_Rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelContabilidad_Natu_Rpt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCuentasxCobrar_Natu_rpt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCuentasxCobrar_Natu_rpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCuentasxCobrar_Natu_rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCXP_report_Naturisa.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCXP_report_Naturisa.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCXP_report_Naturisa.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCXP_report_Naturisa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCXP_report_Naturisa.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelFacturacion_Natu_Rpt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFacturacion_Natu_Rpt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelFacturacion_Natu_Rpt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFacturacion_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelFacturacion_Natu_Rpt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFacturacion_Natu_Rpt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInventario_Natu.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelInventario_Natu.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInventario_Natu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInventario_Natu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelInventario_Natu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_NATU_Rpt001_Result.cs">
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_NATU_Rpt003_Result.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_NATU_Rpt004_Result.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_Bus.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_Data.cs" />
+    <Compile Include="Compras\XCOMP_NATU_Rpt001_Info.cs" />
+    <Compile Include="spCXP_NATU_Rpt012_Result.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_NATU_Rpt013_Result.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_NAT_Rpt001.cs">
+      <DependentUpon>ModelBancos_naturisa_rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt001.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt002.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt003.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt004.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt007.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_NATU_Rpt008.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt001.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt002.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt003.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_NATU_Rpt002.cs">
+      <DependentUpon>ModelContabilidad_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_NATU_Rpt003.cs">
+      <DependentUpon>ModelCompras_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt001.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt002.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt003.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt004.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt005.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt006.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt007.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt008.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt009.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt010.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt011.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_NATU_Rpt012.cs">
+      <DependentUpon>ModelCXP_report_Naturisa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_CUS_NAT_Rpt002.cs">
+      <DependentUpon>ModelFacturacion_Natu_Rpt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_NAT_Rpt001.cs">
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_NAT_Rpt002.cs">
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_NAT_Rpt003.cs">
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_NAT_Rpt004.cs">
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_NAT_Rpt005.cs">
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_NAT_Rpt006.cs">
+      <DependentUpon>ModelInventario_Natu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmEspera_Natu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEspera_Natu.Designer.cs">
+      <DependentUpon>frmEspera_Natu.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Bancos\XBAN_NAT_Rpt001_Rpt.resx">
+      <DependentUpon>XBAN_NAT_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt001_frm.resx">
+      <DependentUpon>XCOMP_NATU_Rpt001_frm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt001_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt002_frm.resx">
+      <DependentUpon>XCOMP_NATU_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt002_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt003_frm.resx">
+      <DependentUpon>XCOMP_NATU_Rpt003_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt003_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt004_frm.resx">
+      <DependentUpon>XCOMP_NATU_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt004_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt007_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt007_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_NATU_Rpt008_Rpt.resx">
+      <DependentUpon>XCOMP_NATU_Rpt008_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt001_Rpt.resx">
+      <DependentUpon>XCOMP_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt002_Rpt.resx">
+      <DependentUpon>XCOMP_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt003_Rpt.resx">
+      <DependentUpon>XCOMP_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_NATU_Rpt003_Rpt.resx">
+      <DependentUpon>XCONTA_NATU_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_NATU_Rpt001_Rpt.resx">
+      <DependentUpon>XCONTA_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_NATU_Rpt002_Rpt.resx">
+      <DependentUpon>XCONTA_NATU_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_NATU_Rpt004_frm.resx">
+      <DependentUpon>XCONTA_NATU_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_NATU_Rpt004_Rpt.resx">
+      <DependentUpon>XCONTA_NATU_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_NATU_Rpt001_frm.resx">
+      <DependentUpon>XCXC_NATU_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt011_rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt001_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt001_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt002_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt002_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt003_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt003_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt003_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt004_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt004_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt005_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt005_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt006_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt007_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt007_resumen_rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt007_resumen_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt007_rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt007_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt008_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt008_rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt008_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt009_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt009_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt010_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt010_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt012_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt012_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt012_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt013_frm.resx">
+      <DependentUpon>XCXP_NATU_Rpt013_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_NATU_Rpt013_Rpt.resx">
+      <DependentUpon>XCXP_NATU_Rpt013_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_CUS_NAT_Rpt002_frm.resx">
+      <DependentUpon>XFAC_CUS_NAT_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_CUS_NAT_Rpt002_rpt.resx">
+      <DependentUpon>XFAC_CUS_NAT_Rpt002_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt001_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt002_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt003_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt004_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt005_frm.resx">
+      <DependentUpon>XINV_NAT_Rpt005_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt005_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt005_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt006_frm.resx">
+      <DependentUpon>XINV_NAT_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt006_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt006_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEspera_Natu.resx">
+      <DependentUpon>frmEspera_Natu.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Inventario\App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ModelCompras_Natu_Rpt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCompras_Natu_Rpt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelBancos_naturisa_rpt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBancos_naturisa_rpt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelBancos_naturisa_rpt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBancos_naturisa_rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelBancos_naturisa_rpt.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelBancos_naturisa_rpt.edmx.diagram">
+      <DependentUpon>ModelBancos_naturisa_rpt.edmx</DependentUpon>
+    </None>
+    <None Include="ModelBancos_naturisa_rpt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBancos_naturisa_rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelBancos_naturisa_rpt.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCompras_Natu_Rpt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCompras_Natu_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelCompras_Natu_Rpt.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCompras_Natu_Rpt.edmx.diagram">
+      <DependentUpon>ModelCompras_Natu_Rpt.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCompras_Natu_Rpt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCompras_Natu_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelCompras_Natu_Rpt.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ModelInventario_Natu.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelInventario_Natu.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelCXP_report_Naturisa.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCXP_report_Naturisa.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelCuentasxCobrar_Natu_rpt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCuentasxCobrar_Natu_rpt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelContabilidad_Natu_Rpt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelContabilidad_Natu_Rpt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelContabilidad_Natu_Rpt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelContabilidad_Natu_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelContabilidad_Natu_Rpt.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelContabilidad_Natu_Rpt.edmx.diagram">
+      <DependentUpon>ModelContabilidad_Natu_Rpt.edmx</DependentUpon>
+    </None>
+    <None Include="ModelContabilidad_Natu_Rpt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelContabilidad_Natu_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelContabilidad_Natu_Rpt.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCuentasxCobrar_Natu_rpt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelCuentasxCobrar_Natu_rpt.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCuentasxCobrar_Natu_rpt.edmx.diagram">
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCuentasxCobrar_Natu_rpt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCuentasxCobrar_Natu_rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelCuentasxCobrar_Natu_rpt.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCXP_report_Naturisa.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCXP_report_Naturisa.edmx</DependentUpon>
+      <LastGenOutput>ModelCXP_report_Naturisa.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCXP_report_Naturisa.edmx.diagram">
+      <DependentUpon>ModelCXP_report_Naturisa.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCXP_report_Naturisa.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCXP_report_Naturisa.edmx</DependentUpon>
+      <LastGenOutput>ModelCXP_report_Naturisa.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ModelFacturacion_Natu_Rpt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelFacturacion_Natu_Rpt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelFacturacion_Natu_Rpt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelFacturacion_Natu_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelFacturacion_Natu_Rpt.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelFacturacion_Natu_Rpt.edmx.diagram">
+      <DependentUpon>ModelFacturacion_Natu_Rpt.edmx</DependentUpon>
+    </None>
+    <None Include="ModelFacturacion_Natu_Rpt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelFacturacion_Natu_Rpt.edmx</DependentUpon>
+      <LastGenOutput>ModelFacturacion_Natu_Rpt.cs</LastGenOutput>
+    </None>
+    <None Include="ModelInventario_Natu.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelInventario_Natu.edmx</DependentUpon>
+      <LastGenOutput>ModelInventario_Natu.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelInventario_Natu.edmx.diagram">
+      <DependentUpon>ModelInventario_Natu.edmx</DependentUpon>
+    </None>
+    <None Include="ModelInventario_Natu.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelInventario_Natu.edmx</DependentUpon>
+      <LastGenOutput>ModelInventario_Natu.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Compras.XCOMP_NATU_Rpt003_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Compras.XCOMP_NATU_Rpt008_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Contabilidad.XCONTA_NATU_Rpt001_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Contabilidad.XCONTA_NATU_Rpt002_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt007_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt008_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt012_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.CuentasxPagar.XCXP_NATU_Rpt013_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Inventario.XINV_NAT_Rpt004_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Inventario.XINV_NAT_Rpt005_Info.datasource" />
+    <None Include="Properties\DataSources\Cus.Erp.Reports.Naturisa.Inventario.XINV_NAT_Rpt006_Info.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Erp.Bussines\Core.Erp.Business.csproj">
+      <Project>{205389bd-dcd7-4212-91e6-d70ea1fe1705}</Project>
+      <Name>Core.Erp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Data\Core.Erp.Data.csproj">
+      <Project>{650e5cc9-d792-4413-81cd-083deba29df0}</Project>
+      <Name>Core.Erp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Info\Core.Erp.Info.csproj">
+      <Project>{01efa86c-05af-4bf0-9297-4d7b843d997b}</Project>
+      <Name>Core.Erp.Info</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Reportes\Core.Erp.Reportes.csproj">
+      <Project>{498AED4B-4B34-4A74-A000-0947F39110C6}</Project>
+      <Name>Core.Erp.Reportes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

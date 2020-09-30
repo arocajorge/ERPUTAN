@@ -23,6 +23,7 @@ using Core.Erp.Business.Bancos;
 using Core.Erp.Business.Caja;
 using Core.Erp.Reportes.Contabilidad;
 using Core.Erp.Info.Bancos;
+using DevExpress.XtraReports.UI;
 
 ///Prog: Héctor Ayauca
 ///V 10.13 22022014
@@ -161,8 +162,8 @@ namespace Core.Erp.Winform.CuentasxCobrar
 
                 reporte.set_parametros(InfoCxCxCt.ct_IdEmpresa, InfoCxCxCt.ct_IdTipoCbte, InfoCxCxCt.ct_IdCbteCble);
                 reporte.RequestParameters = true;
-                reporte.ShowPreviewDialog();
-
+                ReportPrintTool pt = new ReportPrintTool(reporte);
+                pt.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

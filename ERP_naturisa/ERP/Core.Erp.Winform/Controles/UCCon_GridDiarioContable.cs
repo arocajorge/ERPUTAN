@@ -19,7 +19,7 @@ using Cus.Erp.Reports.Naturisa.Contabilidad;
 using System.Reflection;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Controles
 {
@@ -1206,7 +1206,8 @@ namespace Core.Erp.Winform.Controles
 
                         reporte.set_parametros(IdEmpresa, IdTipoCbte, IdCbteCble);
                         reporte.RequestParameters = false;
-                        reporte.ShowPreviewDialog();
+                        ReportPrintTool pt = new ReportPrintTool(reporte);
+                        pt.ShowPreviewDialog();
                         break;
                 }
             }

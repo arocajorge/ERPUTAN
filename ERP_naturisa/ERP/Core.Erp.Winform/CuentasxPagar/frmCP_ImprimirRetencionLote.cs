@@ -11,6 +11,7 @@ using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Business.General;
 using Core.Erp.Winform.Controles;
 using Cus.Erp.Reports.Naturisa.CuentasxPagar;
+using DevExpress.XtraReports.UI;
 
 //DEREK MEJIA 17/03/2014
 //Modificado por Pedro Salinas 08/04/2016
@@ -259,8 +260,9 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         reporte.set_parametros(Convert.ToInt32(impresionInfo.IdEmpresa), Convert.ToDecimal(impresionInfo.IdCbteCble_Ogiro), Convert.ToInt32(impresionInfo.IdTipoCbte_Ogiro));
                         reporte.RequestParameters = true;
-                        reporte.ShowPreviewDialog();
-                 
+                    ReportPrintTool pt = new ReportPrintTool(reporte);
+                    pt.ShowPreviewDialog();
+
                 }
             }
             catch (Exception ex)

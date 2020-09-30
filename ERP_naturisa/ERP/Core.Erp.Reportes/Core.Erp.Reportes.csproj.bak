@@ -1,0 +1,3989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{498AED4B-4B34-4A74-A000-0947F39110C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Erp.Reportes</RootNamespace>
+    <AssemblyName>Core.Erp.Reportes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Prueba|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Prueba\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a" />
+    <Reference Include="DevExpress.Charts.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.ExpressApp.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.Win.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Reports.v12.1.Designer, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1.UI, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v12.1.Extensions, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v12.1.UI, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.1.Extensions, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Academico\XACA_Rpt001_Bus.cs" />
+    <Compile Include="Academico\XACA_Rpt001_Data.cs" />
+    <Compile Include="Academico\XACA_Rpt001_Info.cs" />
+    <Compile Include="Academico\XACA_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Academico\XACA_Rpt001_rpt.Designer.cs">
+      <DependentUpon>XACA_Rpt001_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt001_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt001_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt001_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt001_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt001_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt002_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt002_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt002_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt002_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt002_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt002_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt003_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt003_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt003_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt003_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt003_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt003_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt003_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt003_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt004_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt004_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt004_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt004_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt004_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt004_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt005_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt005_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt005_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt005_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt005_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt005_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt005_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt006_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt006_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt006_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt006_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt007_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt007_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt007_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt007_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt007_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt007_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt008_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt008_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt008_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt008_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt008_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt008_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt009_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt009_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt009_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt009_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt009_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt010_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt010_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt010_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt010_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt010_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt010_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt011_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt011_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt011_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt011_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt011_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt011_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt012_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt012_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt012_frm.Designer.cs">
+      <DependentUpon>XACTF_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt012_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt012_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt012_rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt012_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt013_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt013_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt013_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt013_Rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt013_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt014_Bus.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt014_Data.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt014_Info.cs" />
+    <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActivoFijo\XACTF_Rpt014_Rpt.Designer.cs">
+      <DependentUpon>XACTF_Rpt014_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\ChequeComprobante.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_saldos_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_saldos_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_saldos_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_saldos_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt007_saldos_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt007_saldos_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt001_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt001_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt001_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt001_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt001_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt001_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt002_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt002_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt002_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt002_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt002_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt002_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt003_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt003_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt003_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt003_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt003_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt003_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt003_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt003_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt004_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt004_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt004_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt004_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt004_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt004_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt005_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt005_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt005_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt005_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt005_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt005_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt005_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt006_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt006_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt006_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt006_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt007_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt007_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt007_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt007_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt007_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt008_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt008_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt008_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt008_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt008_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt008_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt009_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt009_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt009_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt009_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt009_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt009_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt009_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt009_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt010_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt010_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt010_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt010_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt010_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt010_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt011_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt011_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt011_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt011_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt011_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt011_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt012_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt012_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt012_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt012_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt012_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt012_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt013_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt013_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt013_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt013_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt013_rpt.designer.cs">
+      <DependentUpon>XBAN_Rpt013_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt014_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt014_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt014_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt014_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt014_rpt.designer.cs">
+      <DependentUpon>XBAN_Rpt014_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt015_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt015_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt015_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt015_rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt015_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt016_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt016_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt016_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt016_frm.Designer.cs">
+      <DependentUpon>XBAN_Rpt016_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt016_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt016_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt016_Rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt016_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt017_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt017_Rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt017_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt018_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt018_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt018_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt018_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt018_Rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt018_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt019_Bus.cs" />
+    <Compile Include="Bancos\XBAN_Rpt019_Data.cs" />
+    <Compile Include="Bancos\XBAN_Rpt019_Info.cs" />
+    <Compile Include="Bancos\XBAN_Rpt019_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bancos\XBAN_Rpt019_Rpt.Designer.cs">
+      <DependentUpon>XBAN_Rpt019_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt004_Bus.cs" />
+    <Compile Include="Caja\XCAJ_Rpt004_Data.cs" />
+    <Compile Include="Caja\XCAJ_Rpt004_Info.cs" />
+    <Compile Include="Caja\XCAJ_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XCAJ_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt005_Bus.cs" />
+    <Compile Include="Caja\XCAJ_Rpt005_Data.cs" />
+    <Compile Include="Caja\XCAJ_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt005_frm.Designer.cs">
+      <DependentUpon>XCAJ_Rpt005_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt005_Info.cs" />
+    <Compile Include="Caja\XCAJ_Rpt005_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt005_Rpt.Designer.cs">
+      <DependentUpon>XCAJ_Rpt005_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt006_Bus.cs" />
+    <Compile Include="Caja\XCAJ_Rpt006_Data.cs" />
+    <Compile Include="Caja\XCAJ_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt006_frm.Designer.cs">
+      <DependentUpon>XCAJ_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt006_Info.cs" />
+    <Compile Include="Caja\XCAJ_Rpt006_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt006_Rpt.Designer.cs">
+      <DependentUpon>XCAJ_Rpt006_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt008_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt008_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt008_frm.Designer.cs">
+      <DependentUpon>XCOMP_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt008_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt008_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt008_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt017_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt017_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt017_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt008_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt008_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt008_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt008_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt008_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt009_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt009_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt009_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt009_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt009_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt009_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt009_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt009_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt009_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt010_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt010_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt010_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt010_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt010_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt010_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt010_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt011_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt011_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt011_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt011_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt011_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt011_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt011_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt011_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt011_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt012_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt012_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt012_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt012_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt012_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt012_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt012_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt013_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt013_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt013_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt013_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt013_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt013_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt014_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt014_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt014_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt014_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt014_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt014_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt014_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt014_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt014_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt015_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt015_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt015_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt015_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt015_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt016_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt016_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt016_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt016_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt016_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt016_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt016_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt016_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt016_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt017_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt017_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt017_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt018_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt018_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt018_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt018_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt018_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt018_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt018_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt018_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt018_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt019_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt019_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt019_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt019_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt019_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt019_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt019_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt019_Rpt.designer.cs">
+      <DependentUpon>XCONTA_Rpt019_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt020_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt020_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt020_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt020_frm.designer.cs">
+      <DependentUpon>XCONTA_Rpt020_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt020_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt020_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt020_rpt.designer.cs">
+      <DependentUpon>XCONTA_Rpt020_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt021_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt021_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt021_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt021_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt021_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt021_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt021_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt021_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt021_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt022_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt022_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt022_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt022_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt022_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt022_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt022_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt022_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt022_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt023_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt023_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt023_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCct_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCct_Menu_Reportes.Designer.cs">
+      <DependentUpon>UCct_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCct_Pto_Cargo_Grupo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCct_Pto_Cargo_Grupo.Designer.cs">
+      <DependentUpon>UCct_Pto_Cargo_Grupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCInv_MenuReportes_2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCInv_MenuReportes_2.designer.cs">
+      <DependentUpon>UCInv_MenuReportes_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\Dinardap_Registros_cxc_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_frm.designer.cs">
+      <DependentUpon>XCXC_Rpt015_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt015_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt015_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt012_Rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt012_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt013_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt013_Rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt013_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt014_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt014_Rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt014_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt016_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt016_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt016_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt016_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt016_Rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt016_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt017_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt017_Rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt017_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt029_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt029_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt029_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt030_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt030_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt030_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt031_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt031_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt031_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt031_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt031_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt031_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt032_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt032_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt032_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt032_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt032_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt032_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt033_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt033_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt033_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt033_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt033_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt033_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_frm.designer.cs">
+      <DependentUpon>XCXP_Rpt034_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt034_rpt.designer.cs">
+      <DependentUpon>XCXP_Rpt034_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_frm.designer.cs">
+      <DependentUpon>XCXP_Rpt035_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt035_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt035_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_Resumen_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_Resumen_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt004_Resumen_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_Resumen_x_Subtotal_x_Iva_Info.cs" />
+    <Compile Include="frmGe_Esperar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGe_Esperar.designer.cs">
+      <DependentUpon>frmGe_Esperar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt013_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt013_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt013_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt013_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt013_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt013_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt013_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt013_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt013_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt029_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt029_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt029_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt029_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt029_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt029_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt029_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt029_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt029_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt010_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt027_Rpt_detallado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt027_Rpt_detallado.Designer.cs">
+      <DependentUpon>XINV_Rpt027_Rpt_detallado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt019_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt019_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt019_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt019_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt019_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt019_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt019_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt019_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt019_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt024_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt024_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt024_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt024_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt024_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt024_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt024_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt024_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt024_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt025_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt025_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt025_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt025_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt025_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt025_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt025_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt025_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt025_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt026_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt026_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt026_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt026_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt026_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt026_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt026_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt026_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt026_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt027_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt027_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt027_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt027_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt027_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt027_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt027_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt027_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt027_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt028_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt028_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt028_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt028_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt028_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt028_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt028_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt028_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt028_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt030_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt030_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt030_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt030_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt030_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt030_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCXP_Reportes_General.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCXP_Reportes_General.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCXP_Reportes_General.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCXP_Reportes_General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCXP_Reportes_General.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_CuentasxCobrar_Reportes.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_CuentasxCobrar_Reportes.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Facturacion_Reportes1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt001_Bus.cs" />
+    <Compile Include="Caja\XCAJ_Rpt001_Data.cs" />
+    <Compile Include="Caja\XCAJ_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCAJ_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt001_Info.cs" />
+    <Compile Include="Caja\XCAJ_Rpt002_Bus.cs" />
+    <Compile Include="Caja\XCAJ_Rpt002_Data.cs" />
+    <Compile Include="Caja\XCAJ_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt002_frm.Designer.cs">
+      <DependentUpon>XCAJ_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt002_Info.cs" />
+    <Compile Include="Caja\XCAJ_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCAJ_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt003_Bus.cs" />
+    <Compile Include="Caja\XCAJ_Rpt003_Data.cs" />
+    <Compile Include="Caja\XCAJ_Rpt003_Info.cs" />
+    <Compile Include="Caja\XCAJ_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Caja\XCAJ_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XCAJ_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt004_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt004_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt004_frm.Designer.cs">
+      <DependentUpon>XCOMP_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt004_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt005_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt005_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt005_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt005_rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt005_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt006_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt006_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt006_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt007_Bus.cs" />
+    <Compile Include="Compras\XCOMP_Rpt007_Data.cs" />
+    <Compile Include="Compras\XCOMP_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt007_frm.Designer.cs">
+      <DependentUpon>XCOMP_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt007_Info.cs" />
+    <Compile Include="Compras\XCOMP_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Compras\XCOMP_Rpt007_Rpt.Designer.cs">
+      <DependentUpon>XCOMP_Rpt007_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt001_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt001_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt001_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt001_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt001_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt002_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt002_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt002_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt002_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt003_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt003_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt003_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt003_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt003_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt004_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt004_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt004_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt004_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt004_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt004_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt005_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt005_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt005_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt005_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt005_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt006_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt006_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt006_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt006_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt007_Bus.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt007_Data.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt007_frm.Designer.cs">
+      <DependentUpon>XCONTA_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt007_Info.cs" />
+    <Compile Include="Contabilidad\XCONTA_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\XCONTA_Rpt007_Rpt.Designer.cs">
+      <DependentUpon>XCONTA_Rpt007_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCACTF_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCACTF_Menu_Reportes.Designer.cs">
+      <DependentUpon>UCACTF_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCBa_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCBa_Menu_Reportes.Designer.cs">
+      <DependentUpon>UCBa_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCCaj_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCCaj_Menu_Reportes.Designer.cs">
+      <DependentUpon>UCCaj_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCCp_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCCp_Menu_Reportes.Designer.cs">
+      <DependentUpon>UCCp_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCct_CentroCosto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCct_CentroCosto.Designer.cs">
+      <DependentUpon>UCct_CentroCosto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCct_Pto_Cargo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCct_Pto_Cargo.Designer.cs">
+      <DependentUpon>UCct_Pto_Cargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCCXC_MenuReportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCCXC_MenuReportes.Designer.cs">
+      <DependentUpon>UCCXC_MenuReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCCxp_MenuReportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCCxp_MenuReportes.designer.cs">
+      <DependentUpon>UCCxp_MenuReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCFa_Cliente_Combo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCFa_Cliente_Combo.Designer.cs">
+      <DependentUpon>UCFa_Cliente_Combo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCFa_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCFa_Menu_Reportes.Designer.cs">
+      <DependentUpon>UCFa_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCCom_Menu_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCCom_Menu_Reportes.designer.cs">
+      <DependentUpon>UCCom_Menu_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCGe_Sucursal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCGe_Sucursal.Designer.cs">
+      <DependentUpon>UCGe_Sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCInv_MenuReportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCInv_MenuReportes.Designer.cs">
+      <DependentUpon>UCInv_MenuReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\UCin_Producto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\UCin_Producto.Designer.cs">
+      <DependentUpon>UCin_Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt001_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt001_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt002_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt002_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt002_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt002_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt002_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt003_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt003_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt003_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt003_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt003_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt004_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt004_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt004_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt004_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt004_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt005_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt005_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt005_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt005_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt005_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt007_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt007_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt008_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt008_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt009_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt009_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt009_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt010_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt010_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_Bus.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_Data.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_frm.Designer.cs">
+      <DependentUpon>XCXC_Rpt011_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_Info.cs" />
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxCobrar\XCXC_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XCXC_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\Comprobante Retencion.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt002_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt002_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt002_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt003_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt003_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt003_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt004_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt004_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt004_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt005_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt005_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt005_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt005_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt005_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt005_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt006_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt006_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt006_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt006_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt006_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt006_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt007_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt007_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt007_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt007_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt007_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt008_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt008_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt010_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt010_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt011_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt012_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt012_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt013_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt013_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt013_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt014Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt014_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt014_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt014_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt015_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt015_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt015_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt016_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt016_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt016_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt017_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt017_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt017_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt018_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt018_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt018_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt019_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt019_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt019_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt019_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt019_rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt019_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt020_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt020_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt020_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt021_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt021_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt021_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt021_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt021_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt021_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt022_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt022_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt022_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt022_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt022_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt022_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt023_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt023_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt023_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt023_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt023_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt023_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt024_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt024_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt024_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt024_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt024_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt024_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_frm.Designer.cs">
+      <DependentUpon>XCXP_Rpt025_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt025_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt025_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt026_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt026_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt026_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt026_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt026_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt026_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt027_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt027_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt027_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt027_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt027_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt027_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt028_Bus.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt028_Data.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt028_Info.cs" />
+    <Compile Include="CuentasxPagar\XCXP_Rpt028_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CuentasxPagar\XCXP_Rpt028_Rpt.Designer.cs">
+      <DependentUpon>XCXP_Rpt028_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt001_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt001_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt001_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt001_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt001_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt001_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt001_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt001_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt001_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt002_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt002_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt002_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt002_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt002_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt002_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt002_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt002_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt002_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt003_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt003_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt003_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt003_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt003_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt003_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt003_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt003_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt003_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt004_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt004_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt004_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt004_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt005_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt005_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt005_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt005_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt005_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt005_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt005_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt005_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt006_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt006_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt006_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt006_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt006_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt006_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt007_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt007_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt007_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt007_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt007_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt008_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt008_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt008_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt008_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt008_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt008_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt008_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt009_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt009_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt009_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt009_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt009_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt010_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt010_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt010_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt010_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt010_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt010_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt010_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt010_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt011_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt011_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt011_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt013_Bus.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt013_Data.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt013_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt013_frm.Designer.cs">
+      <DependentUpon>XFAC_Rpt013_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt013_Info.cs" />
+    <Compile Include="Facturacion\XFAC_Rpt013_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Facturacion\XFAC_Rpt013_rpt.Designer.cs">
+      <DependentUpon>XFAC_Rpt013_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt005_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt005_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt005_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt001_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt001_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt001_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt001_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt001_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt001_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt002_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt002_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt002_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt002_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt002_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt002_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt003_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt003_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt003_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt003_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt003_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt003_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt004_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt004_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt004_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt004_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt004_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt004_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt004_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt004_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt004_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt005_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt005_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt005_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt006_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt006_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt006_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt006_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt006_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt006_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt007_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt007_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt007_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt007_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt007_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt007_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt009_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt009_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt009_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt009_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt009_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt009_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt009_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt009_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt009_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt010_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt010_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt010_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt010_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt010_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt010_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt011_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt011_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt011_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt011_rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt011_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt011_rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt012_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt012_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt012_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt012_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt012_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt012_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt015_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt015_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt015_Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt015_Frm.Designer.cs">
+      <DependentUpon>XINV_Rpt015_Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt015_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt015_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt015_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt015_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt016_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt016_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt016_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt016_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt016_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt016_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt016_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt016_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt016_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt017_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt017_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt017_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt017_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt017_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt017_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt018_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt018_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt018_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt018_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt018_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt018_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt018_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt018_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt018_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt021_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt021_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt021_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt021_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt021_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt021_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt021_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt021_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt021_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt022_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt022_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt022_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt022_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt022_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt022_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt023_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt023_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt023_Info.cs" />
+    <Compile Include="Inventario\XINV_Rpt023_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt023_Rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt023_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBancos_Reportes_General.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBancos_Reportes_General.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBancos_Reportes_General.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBancos_Reportes_General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBancos_Reportes_General.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCaja_Rpt_Geneal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCaja_Rpt_Geneal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCaja_Rpt_Geneal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCaja_Rpt_Geneal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCaja_Rpt_Geneal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCaja_Rpt_Geneal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCidersus_Reportes_General.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCidersus_Reportes_General.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCidersus_Reportes_General.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCidersus_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCidersus_Reportes_General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCidersus_Reportes_General.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCompra_Report_Ge.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCompra_Report_Ge.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCompra_Report_Ge.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCompra_Report_Ge.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCompra_Report_Ge.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelContabilidad_ReportesGeneral.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelContabilidad_ReportesGeneral.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelContabilidad_ReportesGeneral.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelContabilidad_ReportesGeneral.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelContabilidad_ReportesGeneral.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Academico_Reportes.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Academico_Reportes.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Academico_Reportes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Academico_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Academico_Reportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Academico_Reportes.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_ActivoFijo_Reportes.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ActivoFijo_Reportes.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_ActivoFijo_Reportes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_ActivoFijo_Reportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_CuentasxCobrar_Reportes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_CuentasxCobrar_Reportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_CuentasxCobrar_Reportes.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Facturacion_Reportes.Context1.cs">
+      <DependentUpon>Model_Facturacion_Reportes.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Model_Facturacion_Reportes.Designer.cs">
+      <DependentUpon>Model_Facturacion_Reportes.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Model_Inventario_General.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Inventario_General.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Inventario_General.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Inventario_General.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Inventario_General.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="spACTF_Rpt012_Result.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spACTF_Rpt014_Result.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spBAN_Rpt007_Result.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spBAN_Rpt007_saldos_Result.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spBAN_Rpt008_Result.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spBAN_Rpt009_Result.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spBAN_Rpt010_Result.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spBAN_Rpt011_Result.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCOMP_Rpt007_Result.cs">
+      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt006_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt007_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt009_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt010_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt016_cuentas_x_anio_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt016_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt018_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCONTA_Rpt023_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCON_Mayorizar_x_fecha_corte_Result.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt007_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt008_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt009_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt010_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt012_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt015_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXC_Rpt017_Result.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_Rpt008_Result.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_Rpt013_Result.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_Rpt014_Result.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_Rpt017_Result.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spCXP_Rpt035_Result.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spFAC_Rpt013_Result.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt009_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt010_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt011_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt018_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt021_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt026_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt027_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spINV_Rpt029_Result.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACA_Rpt001.cs">
+      <DependentUpon>Model_Academico_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt001.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt002.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt003.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt004.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt005.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt006.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt007.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt008.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt009.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt010.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt011.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt012.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt013.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwACTF_Rpt014.cs">
+      <DependentUpon>Model_ActivoFijo_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt001.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt002.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt003.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt004.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt005.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt006.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt010.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt012.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt013.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt014.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt015.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt016.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt018.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBAN_Rpt019.cs">
+      <DependentUpon>ModelBancos_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCAJ_Rpt001.cs">
+      <DependentUpon>ModelCaja_Rpt_Geneal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCAJ_Rpt002.cs">
+      <DependentUpon>ModelCaja_Rpt_Geneal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCAJ_Rpt003.cs">
+      <DependentUpon>ModelCaja_Rpt_Geneal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCAJ_Rpt004.cs">
+      <DependentUpon>ModelCaja_Rpt_Geneal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCAJ_Rpt006.cs">
+      <DependentUpon>ModelCaja_Rpt_Geneal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt003.cs">
+      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt004.cs">
+      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt006.cs">
+      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCOMP_Rpt008.cs">
+      <DependentUpon>ModelCompra_Report_Ge.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt001.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt002.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt003.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt004.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt005.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt008.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt009.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCONTA_Rpt014.cs">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt001.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt002.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt003.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt004.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt005.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt006.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt007.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt011.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt013.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt014.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXC_Rpt016.cs">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt001.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt002.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt003.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt004.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt005.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt006.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt007.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt010.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt011.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt012.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt015.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt016.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt018.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt019.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt021.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt022.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt023.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt024.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt025.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt026.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt027.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt028.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt029.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt030.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt031.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt032.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt033.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCXP_Rpt034.cs">
+      <DependentUpon>ModelCXP_Reportes_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt001.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt002.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt003.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt004.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt004_Detalle.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt005.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt006.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt007.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt008.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt009.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt010.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt011.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt012.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwFAC_Rpt013.cs">
+      <DependentUpon>Model_Facturacion_Reportes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt001.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt002.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt003.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt004.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt005.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt006.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt007.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt010.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt011.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt012.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt013.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt015.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt016.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt017.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt019.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt022.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt023.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt024.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt025.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt028.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwINV_Rpt030.cs">
+      <DependentUpon>Model_Inventario_General.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ModelCompra_Report_Ge.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCompra_Report_Ge.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelCidersus_Reportes_General.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCidersus_Reportes_General.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelBancos_Reportes_General.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBancos_Reportes_General.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ModelBancos_Reportes_General.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBancos_Reportes_General.edmx</DependentUpon>
+      <LastGenOutput>ModelBancos_Reportes_General.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelBancos_Reportes_General.edmx.diagram">
+      <DependentUpon>ModelBancos_Reportes_General.edmx</DependentUpon>
+    </None>
+    <None Include="ModelBancos_Reportes_General.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBancos_Reportes_General.edmx</DependentUpon>
+      <LastGenOutput>ModelBancos_Reportes_General.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ModelCaja_Rpt_Geneal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCaja_Rpt_Geneal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelCaja_Rpt_Geneal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCaja_Rpt_Geneal.edmx</DependentUpon>
+      <LastGenOutput>ModelCaja_Rpt_Geneal.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCaja_Rpt_Geneal.edmx.diagram">
+      <DependentUpon>ModelCaja_Rpt_Geneal.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCaja_Rpt_Geneal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCaja_Rpt_Geneal.edmx</DependentUpon>
+      <LastGenOutput>ModelCaja_Rpt_Geneal.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCidersus_Reportes_General.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCidersus_Reportes_General.edmx</DependentUpon>
+      <LastGenOutput>ModelCidersus_Reportes_General.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCidersus_Reportes_General.edmx.diagram">
+      <DependentUpon>ModelCidersus_Reportes_General.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCidersus_Reportes_General.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCidersus_Reportes_General.edmx</DependentUpon>
+      <LastGenOutput>ModelCidersus_Reportes_General.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCompra_Report_Ge.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCompra_Report_Ge.edmx</DependentUpon>
+      <LastGenOutput>ModelCompra_Report_Ge.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCompra_Report_Ge.edmx.diagram">
+      <DependentUpon>ModelCompra_Report_Ge.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCompra_Report_Ge.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCompra_Report_Ge.edmx</DependentUpon>
+      <LastGenOutput>ModelCompra_Report_Ge.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ModelContabilidad_ReportesGeneral.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelContabilidad_ReportesGeneral.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelContabilidad_ReportesGeneral.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelContabilidad_ReportesGeneral.edmx</DependentUpon>
+      <LastGenOutput>ModelContabilidad_ReportesGeneral.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelContabilidad_ReportesGeneral.edmx.diagram">
+      <DependentUpon>ModelContabilidad_ReportesGeneral.edmx</DependentUpon>
+    </None>
+    <None Include="ModelContabilidad_ReportesGeneral.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelContabilidad_ReportesGeneral.edmx</DependentUpon>
+      <LastGenOutput>ModelContabilidad_ReportesGeneral.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Model_Inventario_General.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_Inventario_General.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelCXP_Reportes_General.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCXP_Reportes_General.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelCXP_Reportes_General.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCXP_Reportes_General.edmx</DependentUpon>
+      <LastGenOutput>ModelCXP_Reportes_General.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ModelCXP_Reportes_General.edmx.diagram">
+      <DependentUpon>ModelCXP_Reportes_General.edmx</DependentUpon>
+    </None>
+    <None Include="ModelCXP_Reportes_General.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCXP_Reportes_General.edmx</DependentUpon>
+      <LastGenOutput>ModelCXP_Reportes_General.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="Model_Facturacion_Reportes.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_Facturacion_Reportes.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model_CuentasxCobrar_Reportes.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_CuentasxCobrar_Reportes.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model_ActivoFijo_Reportes.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_ActivoFijo_Reportes.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model_Academico_Reportes.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_Academico_Reportes.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model_Academico_Reportes.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Academico_Reportes.edmx</DependentUpon>
+      <LastGenOutput>Model_Academico_Reportes.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model_Academico_Reportes.edmx.diagram">
+      <DependentUpon>Model_Academico_Reportes.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Academico_Reportes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Academico_Reportes.edmx</DependentUpon>
+      <LastGenOutput>Model_Academico_Reportes.cs</LastGenOutput>
+    </None>
+    <None Include="Model_ActivoFijo_Reportes.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
+      <LastGenOutput>Model_ActivoFijo_Reportes.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model_ActivoFijo_Reportes.edmx.diagram">
+      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
+    </None>
+    <None Include="Model_ActivoFijo_Reportes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_ActivoFijo_Reportes.edmx</DependentUpon>
+      <LastGenOutput>Model_ActivoFijo_Reportes.cs</LastGenOutput>
+    </None>
+    <None Include="Model_CuentasxCobrar_Reportes.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_CuentasxCobrar_Reportes.edmx</DependentUpon>
+      <LastGenOutput>Model_CuentasxCobrar_Reportes.Context1.cs</LastGenOutput>
+    </None>
+    <None Include="Model_CuentasxCobrar_Reportes.edmx.diagram">
+      <DependentUpon>Model_CuentasxCobrar_Reportes.edmx</DependentUpon>
+    </None>
+    <None Include="Model_CuentasxCobrar_Reportes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_CuentasxCobrar_Reportes.edmx</DependentUpon>
+      <LastGenOutput>Model_CuentasxCobrar_Reportes.cs</LastGenOutput>
+    </None>
+    <None Include="Model_Facturacion_Reportes.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model_Facturacion_Reportes.Context1.cs</LastGenOutput>
+      <DependentUpon>Model_Facturacion_Reportes.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Facturacion_Reportes.edmx.diagram">
+      <DependentUpon>Model_Facturacion_Reportes.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Facturacion_Reportes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model_Facturacion_Reportes1.cs</LastGenOutput>
+      <DependentUpon>Model_Facturacion_Reportes.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Inventario_General.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Inventario_General.edmx</DependentUpon>
+      <LastGenOutput>Model_Inventario_General.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model_Inventario_General.edmx.diagram">
+      <DependentUpon>Model_Inventario_General.edmx</DependentUpon>
+    </None>
+    <None Include="Model_Inventario_General.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Inventario_General.edmx</DependentUpon>
+      <LastGenOutput>Model_Inventario_General.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Bancos.XBAN_Rpt007_saldos_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Bancos.XBAN_Rpt019_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Caja.XCAJ_Rpt004_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Caja.XCAJ_Rpt005_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Caja.XCAJ_Rpt006_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Compras.XCOMP_Rpt008_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt001_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt002_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt011_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt012_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt013_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt014_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt015_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt016_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt017_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt018_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Contabilidad.XCONTA_Rpt022_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.CuentasxPagar.XCXP_Rpt008_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.CuentasxPagar.XCXP_Rpt017_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.CuentasxPagar.XCXP_Rpt035_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Facturacion.XFAC_Rpt004_Resumen_x_Subtotal_x_Iva_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt010_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt011_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt013_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt026_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt027_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt028_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Inventario.XINV_Rpt030_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt022_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt023_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt024_Info.datasource" />
+    <None Include="Properties\DataSources\Core.Erp.Reportes.Roles.XROL_Rpt025_Info.datasource" />
+    <None Include="Properties\DataSources\vwFAC_Rpt004_Detalle.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Academico\XACA_Rpt001_rpt.resx">
+      <DependentUpon>XACA_Rpt001_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt001_rpt.resx">
+      <DependentUpon>XACTF_Rpt001_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt002_frm.resx">
+      <DependentUpon>XACTF_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt002_rpt.resx">
+      <DependentUpon>XACTF_Rpt002_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt003_frm.resx">
+      <DependentUpon>XACTF_Rpt003_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt003_rpt.resx">
+      <DependentUpon>XACTF_Rpt003_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt004_frm.resx">
+      <DependentUpon>XACTF_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt004_rpt.resx">
+      <DependentUpon>XACTF_Rpt004_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt005_frm.resx">
+      <DependentUpon>XACTF_Rpt005_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt005_rpt.resx">
+      <DependentUpon>XACTF_Rpt005_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt006_frm.resx">
+      <DependentUpon>XACTF_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt006_rpt.resx">
+      <DependentUpon>XACTF_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt007_frm.resx">
+      <DependentUpon>XACTF_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt007_rpt.resx">
+      <DependentUpon>XACTF_Rpt007_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt008_frm.resx">
+      <DependentUpon>XACTF_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt008_rpt.resx">
+      <DependentUpon>XACTF_Rpt008_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt009_rpt.resx">
+      <DependentUpon>XACTF_Rpt009_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt010_frm.resx">
+      <DependentUpon>XACTF_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt010_rpt.resx">
+      <DependentUpon>XACTF_Rpt010_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt011_frm.resx">
+      <DependentUpon>XACTF_Rpt011_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt011_rpt.resx">
+      <DependentUpon>XACTF_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt012_frm.resx">
+      <DependentUpon>XACTF_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt012_rpt.resx">
+      <DependentUpon>XACTF_Rpt012_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivoFijo\XACTF_Rpt014_Rpt.resx">
+      <DependentUpon>XACTF_Rpt014_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt007_saldos_rpt.resx">
+      <DependentUpon>XBAN_Rpt007_saldos_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt001_frm.resx">
+      <DependentUpon>XBAN_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt001_rpt.resx">
+      <DependentUpon>XBAN_Rpt001_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt002_frm.resx">
+      <DependentUpon>XBAN_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt002_rpt.resx">
+      <DependentUpon>XBAN_Rpt002_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt003_frm.resx">
+      <DependentUpon>XBAN_Rpt003_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt003_rpt.resx">
+      <DependentUpon>XBAN_Rpt003_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt004_frm.resx">
+      <DependentUpon>XBAN_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt004_rpt.resx">
+      <DependentUpon>XBAN_Rpt004_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt005_frm.resx">
+      <DependentUpon>XBAN_Rpt005_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt005_rpt.resx">
+      <DependentUpon>XBAN_Rpt005_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt006_frm.resx">
+      <DependentUpon>XBAN_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt006_rpt.resx">
+      <DependentUpon>XBAN_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt007_frm.resx">
+      <DependentUpon>XBAN_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt007_rpt.resx">
+      <DependentUpon>XBAN_Rpt007_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt008_frm.resx">
+      <DependentUpon>XBAN_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt008_rpt.resx">
+      <DependentUpon>XBAN_Rpt008_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt009_frm.resx">
+      <DependentUpon>XBAN_Rpt009_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt009_rpt.resx">
+      <DependentUpon>XBAN_Rpt009_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt010_frm.resx">
+      <DependentUpon>XBAN_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt010_rpt.resx">
+      <DependentUpon>XBAN_Rpt010_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt011_rpt.resx">
+      <DependentUpon>XBAN_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt012_rpt.resx">
+      <DependentUpon>XBAN_Rpt012_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt013_rpt.resx">
+      <DependentUpon>XBAN_Rpt013_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt014_rpt.resx">
+      <DependentUpon>XBAN_Rpt014_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt015_rpt.resx">
+      <DependentUpon>XBAN_Rpt015_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt016_frm.resx">
+      <DependentUpon>XBAN_Rpt016_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt016_Rpt.resx">
+      <DependentUpon>XBAN_Rpt016_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt017_Rpt.resx">
+      <DependentUpon>XBAN_Rpt017_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt018_Rpt.resx">
+      <DependentUpon>XBAN_Rpt018_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\XBAN_Rpt019_Rpt.resx">
+      <DependentUpon>XBAN_Rpt019_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt004_Rpt.resx">
+      <DependentUpon>XCAJ_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt005_frm.resx">
+      <DependentUpon>XCAJ_Rpt005_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt005_Rpt.resx">
+      <DependentUpon>XCAJ_Rpt005_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt006_frm.resx">
+      <DependentUpon>XCAJ_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt006_Rpt.resx">
+      <DependentUpon>XCAJ_Rpt006_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt008_frm.resx">
+      <DependentUpon>XCOMP_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt008_Rpt.resx">
+      <DependentUpon>XCOMP_Rpt008_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt017_rpt.resx">
+      <DependentUpon>XCONTA_Rpt017_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt008_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt008_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt009_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt009_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt010_frm.resx">
+      <DependentUpon>XCONTA_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt010_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt010_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt011_frm.resx">
+      <DependentUpon>XCONTA_Rpt011_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt011_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt011_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt012_frm.resx">
+      <DependentUpon>XCONTA_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt012_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt012_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt013_rpt.resx">
+      <DependentUpon>XCONTA_Rpt013_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt014_frm.resx">
+      <DependentUpon>XCONTA_Rpt014_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt014_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt014_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt015_rpt.resx">
+      <DependentUpon>XCONTA_Rpt015_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt016_frm.resx">
+      <DependentUpon>XCONTA_Rpt016_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt016_rpt.resx">
+      <DependentUpon>XCONTA_Rpt016_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt018_frm.resx">
+      <DependentUpon>XCONTA_Rpt018_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt018_rpt.resx">
+      <DependentUpon>XCONTA_Rpt018_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt019_frm.resx">
+      <DependentUpon>XCONTA_Rpt019_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt019_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt019_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt020_frm.resx">
+      <DependentUpon>XCONTA_Rpt020_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt020_rpt.resx">
+      <DependentUpon>XCONTA_Rpt020_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt021_frm.resx">
+      <DependentUpon>XCONTA_Rpt021_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt021_rpt.resx">
+      <DependentUpon>XCONTA_Rpt021_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt022_frm.resx">
+      <DependentUpon>XCONTA_Rpt022_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt022_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt022_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt023_frm.resx">
+      <DependentUpon>XCONTA_Rpt023_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCct_Menu_Reportes.resx">
+      <DependentUpon>UCct_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCct_Pto_Cargo_Grupo.resx">
+      <DependentUpon>UCct_Pto_Cargo_Grupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCInv_MenuReportes_2.resx">
+      <DependentUpon>UCInv_MenuReportes_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt015_frm.resx">
+      <DependentUpon>XCXC_Rpt015_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt015_rpt.resx">
+      <DependentUpon>XCXC_Rpt015_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt012_frm.resx">
+      <DependentUpon>XCXC_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt012_Rpt.resx">
+      <DependentUpon>XCXC_Rpt012_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt013_frm.resx">
+      <DependentUpon>XCXC_Rpt013_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt013_Rpt.resx">
+      <DependentUpon>XCXC_Rpt013_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt014_frm.resx">
+      <DependentUpon>XCXC_Rpt014_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt014_Rpt.resx">
+      <DependentUpon>XCXC_Rpt014_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt016_Rpt.resx">
+      <DependentUpon>XCXC_Rpt016_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt017_frm.resx">
+      <DependentUpon>XCXC_Rpt017_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt017_Rpt.resx">
+      <DependentUpon>XCXC_Rpt017_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt008_Rpt.resx">
+      <DependentUpon>XCXP_Rpt008_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt012_rpt.resx">
+      <DependentUpon>XCXP_Rpt012_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt016_rpt.resx">
+      <DependentUpon>XCXP_Rpt016_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt018_rpt.resx">
+      <DependentUpon>XCXP_Rpt018_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt029_frm.resx">
+      <DependentUpon>XCXP_Rpt029_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt029_Rpt.resx">
+      <DependentUpon>XCXP_Rpt029_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt030_frm.resx">
+      <DependentUpon>XCXP_Rpt030_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt030_Rpt.resx">
+      <DependentUpon>XCXP_Rpt030_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt031_Rpt.resx">
+      <DependentUpon>XCXP_Rpt031_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt032_Rpt.resx">
+      <DependentUpon>XCXP_Rpt032_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt033_Rpt.resx">
+      <DependentUpon>XCXP_Rpt033_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt034_frm.resx">
+      <DependentUpon>XCXP_Rpt034_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt034_rpt.resx">
+      <DependentUpon>XCXP_Rpt034_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt035_frm.resx">
+      <DependentUpon>XCXP_Rpt035_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt035_rpt.resx">
+      <DependentUpon>XCXP_Rpt035_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt004_Resumen_rpt.resx">
+      <DependentUpon>XFAC_Rpt004_Resumen_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGe_Esperar.resx">
+      <DependentUpon>frmGe_Esperar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt013_frm.resx">
+      <DependentUpon>XINV_Rpt013_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt013_Rpt.resx">
+      <DependentUpon>XINV_Rpt013_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt029_frm.resx">
+      <DependentUpon>XINV_Rpt029_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt029_rpt.resx">
+      <DependentUpon>XINV_Rpt029_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt010_frm.resx">
+      <DependentUpon>XINV_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt027_Rpt_detallado.resx">
+      <DependentUpon>XINV_Rpt027_Rpt_detallado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt019_frm.resx">
+      <DependentUpon>XINV_Rpt019_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt019_Rpt.resx">
+      <DependentUpon>XINV_Rpt019_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt024_frm.resx">
+      <DependentUpon>XINV_Rpt024_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt024_Rpt.resx">
+      <DependentUpon>XINV_Rpt024_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt025_frm.resx">
+      <DependentUpon>XINV_Rpt025_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt025_Rpt.resx">
+      <DependentUpon>XINV_Rpt025_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt026_frm.resx">
+      <DependentUpon>XINV_Rpt026_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt026_Rpt.resx">
+      <DependentUpon>XINV_Rpt026_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt027_frm.resx">
+      <DependentUpon>XINV_Rpt027_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt027_Rpt.resx">
+      <DependentUpon>XINV_Rpt027_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt028_frm.resx">
+      <DependentUpon>XINV_Rpt028_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt028_Rpt.resx">
+      <DependentUpon>XINV_Rpt028_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt030_rpt.resx">
+      <DependentUpon>XINV_Rpt030_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Caja\XCAJ_Rpt001_frm.resx">
+      <DependentUpon>XCAJ_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt002_frm.resx">
+      <DependentUpon>XCAJ_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt002_Rpt.resx">
+      <DependentUpon>XCAJ_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\XCAJ_Rpt003_Rpt.resx">
+      <DependentUpon>XCAJ_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt004_frm.resx">
+      <DependentUpon>XCOMP_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt005_rpt.resx">
+      <DependentUpon>XCOMP_Rpt005_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt006_rpt.resx">
+      <DependentUpon>XCOMP_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt007_frm.resx">
+      <DependentUpon>XCOMP_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\XCOMP_Rpt007_Rpt.resx">
+      <DependentUpon>XCOMP_Rpt007_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt001_frm.resx">
+      <DependentUpon>XCONTA_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt001_rpt.resx">
+      <DependentUpon>XCONTA_Rpt001_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt002_frm.resx">
+      <DependentUpon>XCONTA_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt002_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt003_rpt.resx">
+      <DependentUpon>XCONTA_Rpt003_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt004_frm.resx">
+      <DependentUpon>XCONTA_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt004_rpt.resx">
+      <DependentUpon>XCONTA_Rpt004_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt005_frm.resx">
+      <DependentUpon>XCONTA_Rpt005_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt006_frm.resx">
+      <DependentUpon>XCONTA_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt006_rpt.resx">
+      <DependentUpon>XCONTA_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt007_frm.resx">
+      <DependentUpon>XCONTA_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\XCONTA_Rpt007_Rpt.resx">
+      <DependentUpon>XCONTA_Rpt007_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCACTF_Menu_Reportes.resx">
+      <DependentUpon>UCACTF_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCBa_Menu_Reportes.resx">
+      <DependentUpon>UCBa_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCCaj_Menu_Reportes.resx">
+      <DependentUpon>UCCaj_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCCp_Menu_Reportes.resx">
+      <DependentUpon>UCCp_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCct_CentroCosto.resx">
+      <DependentUpon>UCct_CentroCosto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCct_Pto_Cargo.resx">
+      <DependentUpon>UCct_Pto_Cargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCCXC_MenuReportes.resx">
+      <DependentUpon>UCCXC_MenuReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCCxp_MenuReportes.resx">
+      <DependentUpon>UCCxp_MenuReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCFa_Cliente_Combo.resx">
+      <DependentUpon>UCFa_Cliente_Combo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCFa_Menu_Reportes.resx">
+      <DependentUpon>UCFa_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCCom_Menu_Reportes.resx">
+      <DependentUpon>UCCom_Menu_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCGe_Sucursal.resx">
+      <DependentUpon>UCGe_Sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCInv_MenuReportes.resx">
+      <DependentUpon>UCInv_MenuReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\UCin_Producto.resx">
+      <DependentUpon>UCin_Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt001_frm.resx">
+      <DependentUpon>XCXC_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt001_rpt.resx">
+      <DependentUpon>XCXC_Rpt001_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt002_rpt.resx">
+      <DependentUpon>XCXC_Rpt002_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt003_rpt.resx">
+      <DependentUpon>XCXC_Rpt003_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt004_rpt.resx">
+      <DependentUpon>XCXC_Rpt004_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt005_rpt.resx">
+      <DependentUpon>XCXC_Rpt005_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt006_frm.resx">
+      <DependentUpon>XCXC_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt006_rpt.resx">
+      <DependentUpon>XCXC_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt007_frm.resx">
+      <DependentUpon>XCXC_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt007_rpt.resx">
+      <DependentUpon>XCXC_Rpt007_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt008_frm.resx">
+      <DependentUpon>XCXC_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt008_rpt.resx">
+      <DependentUpon>XCXC_Rpt008_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt009_frm.resx">
+      <DependentUpon>XCXC_Rpt009_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt009_rpt.resx">
+      <DependentUpon>XCXC_Rpt009_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt010_frm.resx">
+      <DependentUpon>XCXC_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt010_rpt.resx">
+      <DependentUpon>XCXC_Rpt010_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt011_frm.resx">
+      <DependentUpon>XCXC_Rpt011_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxCobrar\XCXC_Rpt011_rpt.resx">
+      <DependentUpon>XCXC_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt001_frm.resx">
+      <DependentUpon>XCXP_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt001_Rpt.resx">
+      <DependentUpon>XCXP_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt002_Rpt.resx">
+      <DependentUpon>XCXP_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt003_Rpt.resx">
+      <DependentUpon>XCXP_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt004_Rpt.resx">
+      <DependentUpon>XCXP_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt005_Rpt.resx">
+      <DependentUpon>XCXP_Rpt005_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt006_Rpt.resx">
+      <DependentUpon>XCXP_Rpt006_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt007_Rpt.resx">
+      <DependentUpon>XCXP_Rpt007_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt008_frm.resx">
+      <DependentUpon>XCXP_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt010_frm.resx">
+      <DependentUpon>XCXP_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt010_rpt.resx">
+      <DependentUpon>XCXP_Rpt010_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt011_frm.resx">
+      <DependentUpon>XCXP_Rpt011_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt011_rpt.resx">
+      <DependentUpon>XCXP_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt012_frm.resx">
+      <DependentUpon>XCXP_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt013_frm.resx">
+      <DependentUpon>XCXP_Rpt013_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt013_rpt.resx">
+      <DependentUpon>XCXP_Rpt013_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt014_frm.resx">
+      <DependentUpon>XCXP_Rpt014_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt014_rpt.resx">
+      <DependentUpon>XCXP_Rpt014_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt015_frm.resx">
+      <DependentUpon>XCXP_Rpt015_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt015_rpt.resx">
+      <DependentUpon>XCXP_Rpt015_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt016_frm.resx">
+      <DependentUpon>XCXP_Rpt016_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt017_frm.resx">
+      <DependentUpon>XCXP_Rpt017_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt017_rpt.resx">
+      <DependentUpon>XCXP_Rpt017_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt018_frm.resx">
+      <DependentUpon>XCXP_Rpt018_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt019_rpt.resx">
+      <DependentUpon>XCXP_Rpt019_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt020_Rpt.resx">
+      <DependentUpon>XCXP_Rpt020_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt021_Rpt.resx">
+      <DependentUpon>XCXP_Rpt021_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt022_Rpt.resx">
+      <DependentUpon>XCXP_Rpt022_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt023_Rpt.resx">
+      <DependentUpon>XCXP_Rpt023_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt024_Rpt.resx">
+      <DependentUpon>XCXP_Rpt024_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt025_frm.resx">
+      <DependentUpon>XCXP_Rpt025_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt025_Rpt.resx">
+      <DependentUpon>XCXP_Rpt025_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt026_Rpt.resx">
+      <DependentUpon>XCXP_Rpt026_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt027_Rpt.resx">
+      <DependentUpon>XCXP_Rpt027_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuentasxPagar\XCXP_Rpt028_Rpt.resx">
+      <DependentUpon>XCXP_Rpt028_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt001_frm.resx">
+      <DependentUpon>XFAC_Rpt001_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt002_frm.resx">
+      <DependentUpon>XFAC_Rpt002_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt002_rpt.resx">
+      <DependentUpon>XFAC_Rpt002_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt003_frm.resx">
+      <DependentUpon>XFAC_Rpt003_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt003_rpt.resx">
+      <DependentUpon>XFAC_Rpt003_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt004_frm.resx">
+      <DependentUpon>XFAC_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt004_rpt.resx">
+      <DependentUpon>XFAC_Rpt004_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt005_frm.resx">
+      <DependentUpon>XFAC_Rpt005_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt005_rpt.resx">
+      <DependentUpon>XFAC_Rpt005_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt006_frm.resx">
+      <DependentUpon>XFAC_Rpt006_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt006_rpt.resx">
+      <DependentUpon>XFAC_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt007_rpt.resx">
+      <DependentUpon>XFAC_Rpt007_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt008_frm.resx">
+      <DependentUpon>XFAC_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt008_rpt.resx">
+      <DependentUpon>XFAC_Rpt008_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt009_rpt.resx">
+      <DependentUpon>XFAC_Rpt009_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt010_frm.resx">
+      <DependentUpon>XFAC_Rpt010_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt010_rpt.resx">
+      <DependentUpon>XFAC_Rpt010_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt011_rpt.resx">
+      <DependentUpon>XFAC_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt013_frm.resx">
+      <DependentUpon>XFAC_Rpt013_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\XFAC_Rpt013_rpt.resx">
+      <DependentUpon>XFAC_Rpt013_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt001_Rpt.resx">
+      <DependentUpon>XINV_Rpt001_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt002_Rpt.resx">
+      <DependentUpon>XINV_Rpt002_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt003_Rpt.resx">
+      <DependentUpon>XINV_Rpt003_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt004_frm.resx">
+      <DependentUpon>XINV_Rpt004_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt004_Rpt.resx">
+      <DependentUpon>XINV_Rpt004_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt005_rpt.resx">
+      <DependentUpon>XINV_Rpt005_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt006_rpt.resx">
+      <DependentUpon>XINV_Rpt006_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt007_rpt.resx">
+      <DependentUpon>XINV_Rpt007_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt009_frm.resx">
+      <DependentUpon>XINV_Rpt009_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt009_rpt.resx">
+      <DependentUpon>XINV_Rpt009_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt010_rpt.resx">
+      <DependentUpon>XINV_Rpt010_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt011_rpt.resx">
+      <DependentUpon>XINV_Rpt011_rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt012_frm.resx">
+      <DependentUpon>XINV_Rpt012_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt015_Frm.resx">
+      <DependentUpon>XINV_Rpt015_Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt015_Rpt.resx">
+      <DependentUpon>XINV_Rpt015_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt016_frm.resx">
+      <DependentUpon>XINV_Rpt016_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt016_Rpt.resx">
+      <DependentUpon>XINV_Rpt016_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt017_Rpt.resx">
+      <DependentUpon>XINV_Rpt017_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt018_frm.resx">
+      <DependentUpon>XINV_Rpt018_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt018_Rpt.resx">
+      <DependentUpon>XINV_Rpt018_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt021_frm.resx">
+      <DependentUpon>XINV_Rpt021_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt021_Rpt.resx">
+      <DependentUpon>XINV_Rpt021_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt022_Rpt.resx">
+      <DependentUpon>XINV_Rpt022_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt023_Rpt.resx">
+      <DependentUpon>XINV_Rpt023_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Erp.Bussines\Core.Erp.Business.csproj">
+      <Project>{205389bd-dcd7-4212-91e6-d70ea1fe1705}</Project>
+      <Name>Core.Erp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Data\Core.Erp.Data.csproj">
+      <Project>{650e5cc9-d792-4413-81cd-083deba29df0}</Project>
+      <Name>Core.Erp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Erp.Info\Core.Erp.Info.csproj">
+      <Project>{01efa86c-05af-4bf0-9297-4d7b843d997b}</Project>
+      <Name>Core.Erp.Info</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reporte_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprimir5_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprimir5_128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ico_Reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir_64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ayuda_SetCommand_Timeout.txt" />
+    <None Include="Resources\table-colums.png" />
+    <None Include="Resources\1467247524_Application_32x32.png" />
+    <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -916,7 +916,7 @@ namespace Core.Erp.Winform.Inventario
 
                 DevExpress.XtraReports.UI.ReportPrintTool pt = new DevExpress.XtraReports.UI.ReportPrintTool(reporte);
                 pt.AutoShowParametersPanel = false;
-                reporte.ShowPreviewDialog();
+                pt.ShowPreviewDialog();
 
 
                 

@@ -325,7 +325,7 @@ namespace Core.Erp.Winform.Inventario
                     Reporte_.RequestParameters = false;
                     DevExpress.XtraReports.UI.ReportPrintTool pt_ = new DevExpress.XtraReports.UI.ReportPrintTool(Reporte_);
                     pt_.AutoShowParametersPanel = false;
-                    Reporte_.ShowPreviewDialog();
+                    pt_.ShowPreviewDialog();
 
                         break;
                 }   

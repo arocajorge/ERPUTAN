@@ -15,6 +15,7 @@ using Core.Erp.Business.Bancos;
 using DevExpress.XtraGrid;
 using Core.Erp.Reportes.CuentasxPagar;
 using Core.Erp.Info.General;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -93,7 +94,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                 report.DataSource = Lista_temp;
                 else
                     report.DataSource = factura_x_pagar;
-                report.ShowPreview();
+                ReportPrintTool pt = new ReportPrintTool(report);
+                pt.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

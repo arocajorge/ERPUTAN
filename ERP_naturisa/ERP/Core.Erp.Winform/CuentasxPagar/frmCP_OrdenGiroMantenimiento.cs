@@ -14,7 +14,6 @@ using Core.Erp.Winform.Controles;
 using Core.Erp.Winform.Compras;
 using Core.Erp.Winform.General;
 using Core.Erp.Reportes.CuentasxPagar;
-using DevExpress.XtraReports.ServiceModel.DataContracts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -2529,7 +2528,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                // luis yanza comentado porq este reporte no esta echo en formato nuevo
                 //XRpt_cp_OrdenGiro reprtOG = new XRpt_cp_OrdenGiro(param.IdUsuario);
-                ReportParameter reprtOG_Parametro = new ReportParameter();
+                
                 cp_orden_giro_Bus ob = new cp_orden_giro_Bus();
                 List<cp_orden_giro_Info> lOg = new List<cp_orden_giro_Info>();
                 lOg = ob.Get_List_orden_giro (param.IdEmpresa, Info_OrdenGiro.IdCbteCble_Ogiro);

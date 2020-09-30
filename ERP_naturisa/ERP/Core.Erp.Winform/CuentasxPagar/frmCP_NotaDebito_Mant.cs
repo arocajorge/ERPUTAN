@@ -18,6 +18,7 @@ using Core.Erp.Winform.General;
 
 using Core.Erp.Reportes.CuentasxPagar;
 using Cus.Erp.Reports.Naturisa.CuentasxPagar;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -1308,7 +1309,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                         reporte_natu.set_parametros(param.IdEmpresa, Info_notaCredDeb.IdTipoCbte_Nota, Info_notaCredDeb.IdCbteCble_Nota);
                         reporte_natu.RequestParameters = true;
 
-                        reporte_natu.ShowPreviewDialog();
+                        ReportPrintTool pt = new ReportPrintTool(reporte_natu);
+                        pt.ShowPreviewDialog();
 
                         break;
                    
@@ -1316,7 +1318,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                         XCXP_Rpt007_Rpt reporte = new XCXP_Rpt007_Rpt();
                         reporte.set_parametros(Info_notaCredDeb.IdEmpresa, Info_notaCredDeb.IdTipoCbte_Nota, Info_notaCredDeb.IdCbteCble_Nota);
                         reporte.RequestParameters = true;
-                        reporte.ShowPreviewDialog();
+                        ReportPrintTool pt1 = new ReportPrintTool(reporte);
+                        pt1.ShowPreviewDialog();
                         break;
                 }
 

@@ -15,6 +15,7 @@ using Core.Erp.Business.Caja;
 using Core.Erp.Business.Bancos;
 using Core.Erp.Info.Bancos;
 using Core.Erp.Reportes.CuentasxCobrar;
+using DevExpress.XtraReports.UI;
 
 //Derek 24012014
 namespace Core.Erp.Winform.CuentasxCobrar
@@ -100,10 +101,8 @@ namespace Core.Erp.Winform.CuentasxCobrar
                 rptSoporte.RequestParameters = false;
                 lstRpt = busRpt.get_ImpresionAnticipo(param.IdEmpresa, cmbSucursal.get_SucursalInfo().IdSucursal, Convert.ToDecimal(txtIdAnticipo.Text));
                 rptSoporte.lstRpt = lstRpt;
-
-                rptSoporte.CreateDocument();
-                rptSoporte.ShowPreviewDialog();
-
+                ReportPrintTool pt = new ReportPrintTool(rptSoporte);
+                pt.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

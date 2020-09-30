@@ -74,8 +74,8 @@ namespace Core.Erp.Winform.Compras
                     Reporte.RequestParameters = false;
                     DevExpress.XtraReports.UI.ReportPrintTool pt = new DevExpress.XtraReports.UI.ReportPrintTool(Reporte);
                     pt.AutoShowParametersPanel = false;
-
-                    Reporte.ShowPreviewDialog();    
+                    
+                    pt.ShowPreviewDialog();
                 }
                 
             }

@@ -4,7 +4,6 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using Core.Erp.Business.General;
-using DevExpress.XtraRichEdit.API.Word;
 using System.Collections.Generic;
 
 namespace Core.Erp.Reportes.Inventario

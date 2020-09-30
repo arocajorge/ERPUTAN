@@ -22,6 +22,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using Cus.Erp.Reports.Naturisa.CuentasxPagar;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -1744,7 +1745,8 @@ namespace Core.Erp.Winform.CuentasxPagar
                         reporte.set_parametros(IdEmpresa, notaCr_I.IdCbteCble_Nota);
                         reporte.RequestParameters = true;
 
-                        reporte.ShowPreviewDialog();
+                        ReportPrintTool pt = new ReportPrintTool(reporte);
+                        pt.ShowPreviewDialog();
                         break;
                 }
                 

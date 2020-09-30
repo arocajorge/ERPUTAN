@@ -18,6 +18,7 @@ using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Reportes.Contabilidad;
 using Core.Erp.Reportes.CuentasxPagar;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -1705,7 +1706,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
             reporte.set_parametros(param.IdEmpresa, IdTipoCbte, IdCbteCble);
             reporte.RequestParameters = true;
-            reporte.ShowPreviewDialog();
+            ReportPrintTool pt = new ReportPrintTool(reporte);
+            pt.ShowPreviewDialog();
         }
 
         private void ucBa_TipoFlujo_Load(object sender, EventArgs e)

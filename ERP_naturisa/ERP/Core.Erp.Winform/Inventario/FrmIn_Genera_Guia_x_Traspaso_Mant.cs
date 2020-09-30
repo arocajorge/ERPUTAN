@@ -146,7 +146,7 @@ namespace Core.Erp.Winform.Inventario
                 DevExpress.XtraReports.UI.ReportPrintTool pt = new DevExpress.XtraReports.UI.ReportPrintTool(Reporte);
                 pt.AutoShowParametersPanel = false;
 
-                Reporte.ShowPreviewDialog();
+                pt.ShowPreviewDialog();
 
             }
             catch (Exception ex)

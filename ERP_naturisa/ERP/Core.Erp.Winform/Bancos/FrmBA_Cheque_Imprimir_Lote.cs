@@ -14,6 +14,7 @@ using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.General;
 using Core.Erp.Reportes.Bancos;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Bancos
 {
@@ -279,7 +280,10 @@ namespace Core.Erp.Winform.Bancos
                         {
                             rptCheq.DataSource = lCbtBan;
                             if (MessageBox.Show("¿ Desea ver vista Previa ?", "Imprimir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                rptCheq.ShowPreview();
+                            {
+                                ReportPrintTool pt = new ReportPrintTool(rptCheq);
+                                pt.ShowPreviewDialog();
+                            }
                             else
                                 rptCheq.Print();
                         }

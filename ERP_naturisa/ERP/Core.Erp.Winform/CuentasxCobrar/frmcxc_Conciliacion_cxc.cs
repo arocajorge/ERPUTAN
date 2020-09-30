@@ -17,8 +17,7 @@ using Core.Erp.Winform.Controles;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Reportes.CuentasxCobrar;
- 
-
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxCobrar
 {
@@ -133,9 +132,8 @@ namespace Core.Erp.Winform.CuentasxCobrar
                 Reporte.RequestParameters = false;
                 lstRpt = busRpt.get_ImpresionConciliacion(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue), Convert.ToDecimal(txtNumConcilia.Text));
                 Reporte.lstRpt = lstRpt;
-
-                Reporte.CreateDocument();
-                Reporte.ShowPreviewDialog();
+                ReportPrintTool pt = new ReportPrintTool(Reporte);
+                pt.ShowPreviewDialog();
 
             }
             catch (Exception ex)
