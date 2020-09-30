@@ -10,7 +10,6 @@ using Core.Erp.Info.General;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Reportes.ActivoFijo;
 using Core.Erp.Winform.General;
-using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1010,8 +1009,9 @@ namespace Core.Erp.Winform.ActivoFijo
                 Reporte.RequestParameters = false;
                 infoRpt = busRpt.get_CodigoBarra(param.IdEmpresa, Convert.ToInt32(lbl_id_activo.Text));
                 Reporte.infoRpt = infoRpt;
-                ReportPrintTool pt = new ReportPrintTool(Reporte);
-                pt.ShowPreviewDialog();
+
+                Reporte.CreateDocument();
+                Reporte.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

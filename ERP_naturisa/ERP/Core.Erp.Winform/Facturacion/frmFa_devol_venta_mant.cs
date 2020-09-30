@@ -16,7 +16,6 @@ using Core.Erp.Business.Facturacion;
 using Core.Erp.Info.General;
 using Core.Erp.Winform.General;
 using Core.Erp.Reportes.Facturacion;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Facturacion
 {
@@ -148,8 +147,9 @@ namespace Core.Erp.Winform.Facturacion
 
                 lstRpt = busRpt.get_ImpresionDevolucion(param.IdEmpresa, Convert.ToInt32(UCSucursal.cmb_sucursal.EditValue), Convert.ToInt32(UCSucursal.cmb_bodega.EditValue), Convert.ToDecimal(txtidDev.Text));
                 rptSoporte.lstRpt = lstRpt;
-                ReportPrintTool pt = new ReportPrintTool(rptSoporte);
-                pt.ShowPreviewDialog();
+
+                rptSoporte.CreateDocument();
+                rptSoporte.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

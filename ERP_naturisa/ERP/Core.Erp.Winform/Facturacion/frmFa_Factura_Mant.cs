@@ -30,7 +30,7 @@ using Core.Erp.Winform.Contabilidad;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraEditors;
-using DevExpress.XtraReports.UI;
+
 
 namespace Core.Erp.Winform.Facturacion
 {
@@ -1057,8 +1057,9 @@ namespace Core.Erp.Winform.Facturacion
 
                 lstRpt = busRpt.get_ImpresionFactura(InfoFactura.IdEmpresa, InfoFactura.IdSucursal, InfoFactura.IdBodega, InfoFactura.IdCbteVta);
                 rptSoporte.lstRpt = lstRpt;
-                ReportPrintTool pt = new ReportPrintTool(rptSoporte);
-                pt.ShowPreviewDialog();
+
+                rptSoporte.CreateDocument();
+                rptSoporte.ShowPreviewDialog();
 
                 ImprimirDiario();
             }

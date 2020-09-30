@@ -14,7 +14,6 @@ using Core.Erp.Business.Inventario;
 using Core.Erp.Reportes.Inventario;
 using Core.Erp.Business.Compras;
 using Cus.Erp.Reports.Naturisa.Inventario;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -579,8 +578,7 @@ namespace Core.Erp.Winform.Inventario
                 rpt.pIdSucursal.Value = infoTransferencia.IdSucursalOrigen;
                 rpt.pIdBodega.Value = infoTransferencia.IdBodegaOrigen;
                 rpt.pIdTransferencia.Value = infoTransferencia.IdTransferencia;
-                ReportPrintTool pt = new ReportPrintTool(rpt);
-                pt.ShowPreviewDialog();
+                rpt.ShowPreviewDialog();
             }
             catch (Exception)
             {

@@ -350,7 +350,7 @@
             this.xrPivotGrid1.Appearance.FilterSeparator.BackColor = System.Drawing.Color.White;
             this.xrPivotGrid1.Appearance.Lines.BackColor = System.Drawing.Color.White;
             this.xrPivotGrid1.Appearance.TotalCell.Font = new System.Drawing.Font("Verdana", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrPivotGrid1.Fields.AddRange(new DevExpress.XtraReports.UI.PivotGrid.XRPivotGridField[] {
+            this.xrPivotGrid1.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
             this.xrPivotAf_Nombre,
             this.xrPivotDepre,
             this.Periodo,

@@ -19,7 +19,6 @@ using Core.Erp.Business.Facturacion;
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Reportes.Contabilidad;
-using DevExpress.XtraReports.UI;
 //DEREK MEJIA 06022014
 namespace Core.Erp.Winform.Caja
 {
@@ -157,8 +156,7 @@ namespace Core.Erp.Winform.Caja
                 XCONTA_Rpt003_rpt reporte = new XCONTA_Rpt003_rpt();                
                 reporte.set_parametros(Info_CajMovi.IdEmpresa, Info_CajMovi.IdTipocbte, Info_CajMovi.IdCbteCble);
                 reporte.RequestParameters = true;
-                ReportPrintTool pt = new ReportPrintTool(reporte);
-                pt.ShowPreviewDialog();
+                reporte.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

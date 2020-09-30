@@ -20,7 +20,6 @@ using Core.Erp.Info.Bancos;
 using Core.Erp.Business.Bancos;
 using Cus.Erp.Reports.Naturisa.Contabilidad;
 using System.IO;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Contabilidad
 {
@@ -239,8 +238,7 @@ namespace Core.Erp.Winform.Contabilidad
 
                         reporte.set_parametros(IdEmpresa, IdTipoCbte, IdCbteCble);
                         reporte.RequestParameters = false;
-                        ReportPrintTool pt = new ReportPrintTool(reporte);
-                        pt.ShowPreviewDialog();
+                        reporte.ShowPreviewDialog();
                         break;
                 }
 

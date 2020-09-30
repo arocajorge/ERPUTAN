@@ -21,7 +21,6 @@ using System.Xml.Serialization;
 
 
 using Core.Erp.Reportes.CuentasxPagar;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -221,8 +220,8 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                         reportes.set_parametros(Convert.ToInt32(Info_Retencion.IdEmpresa_Ogiro), Convert.ToDecimal(Info_Retencion.IdCbteCble_Ogiro), Convert.ToInt32(Info_Retencion.IdTipoCbte_Ogiro));
                         reportes.RequestParameters = true;
-                        ReportPrintTool pt = new ReportPrintTool(reportes);
-                        pt.ShowPreviewDialog();
+                        reportes.ShowPreviewDialog();
+
 
                     }
                 }

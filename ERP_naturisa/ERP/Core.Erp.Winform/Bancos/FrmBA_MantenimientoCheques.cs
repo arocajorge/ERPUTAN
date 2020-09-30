@@ -14,7 +14,7 @@ using Core.Erp.Info.General;
 using Core.Erp.Business.Bancos;
 using Core.Erp.Business.General;
 using Core.Erp.Reportes.Bancos;
-using DevExpress.XtraReports.UI;
+
 
 namespace Core.Erp.Winform.Bancos
 {
@@ -277,8 +277,7 @@ namespace Core.Erp.Winform.Bancos
                 rpt.Parameters["pNom_Banco"].Value = cmb_cta_ban.Properties.GetDisplayText(cmb_cta_ban.EditValue);
                 rpt.Parameters["pNom_Estado"].Value = cmb_Estado.Properties.GetDisplayText(cmb_Estado.EditValue);
                 rpt.AsignarLista(List_cbte_ban);
-                ReportPrintTool pt = new ReportPrintTool(rpt);
-                pt.ShowPreviewDialog();
+                rpt.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

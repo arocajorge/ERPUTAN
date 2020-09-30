@@ -14,7 +14,6 @@ using Core.Erp.Business.Inventario;
 using Core.Erp.Reportes.Inventario;
 using Core.Erp.Business.Compras;
 using Cus.Erp.Reports.Naturisa.Inventario;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -347,8 +346,8 @@ namespace Core.Erp.Winform.Inventario
                 Reporte.RequestParameters = false;
                 DevExpress.XtraReports.UI.ReportPrintTool pt = new DevExpress.XtraReports.UI.ReportPrintTool(Reporte);
                 pt.AutoShowParametersPanel = false;
-                
-                pt.ShowPreviewDialog();
+
+                Reporte.ShowPreviewDialog();
 
                 if (infoTransferencia.IdGuia != null && infoTransferencia.IdGuia != 0 && MessageBox.Show("Desea imprimir la guia?",param.Nombre_sistema,MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {

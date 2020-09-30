@@ -11,7 +11,6 @@ using Core.Erp.Business.Contabilidad;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Reportes.Contabilidad;
 using Cus.Erp.Reports.Naturisa.Contabilidad;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.ActivoFijo
 {
@@ -97,8 +96,13 @@ namespace Core.Erp.Winform.ActivoFijo
                         rpt_natu.PIdCbteCble.Value = infoDepreCble.ct_IdCbteCble;
                         rpt_natu.PIdCbteCble.Visible = false;
                         rpt_natu.RequestParameters = true;
-                        ReportPrintTool pt = new ReportPrintTool(rpt_natu);
-                        pt.ShowPreviewDialog();
+                        rpt_natu.ShowPreviewDialog();
+                        break;                   
+                    default:
+                        XCONTA_Rpt003_rpt reporte = new XCONTA_Rpt003_rpt();
+                        reporte.set_parametros(infoDepreCble.ct_IdEmpresa, infoDepreCble.ct_IdTipoCbte, infoDepreCble.ct_IdCbteCble);
+                        reporte.RequestParameters = true;
+                        reporte.ShowPreviewDialog();
                         break;
                 }
                 

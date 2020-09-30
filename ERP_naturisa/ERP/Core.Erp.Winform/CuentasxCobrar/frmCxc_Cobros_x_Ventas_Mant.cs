@@ -16,7 +16,7 @@ using Core.Erp.Info.Caja;
 using Core.Erp.Business.Caja;
 using Core.Erp.Winform.Controles;
 using Core.Erp.Reportes.CuentasxCobrar;
-using DevExpress.XtraReports.UI;
+
 
 namespace Core.Erp.Winform.CuentasxCobrar
 {
@@ -100,8 +100,10 @@ namespace Core.Erp.Winform.CuentasxCobrar
 
                 lstRpt = busRpt.get_ImpresionCobro_x_Venta(cartera_I.IdEmpresa, cartera_I.IdSucursal, cartera_I.IdBodega, cartera_I.IdComprobante, cartera_I.vt_tipoDoc);
                 reporte.lstRpt = lstRpt;
-                ReportPrintTool pt = new ReportPrintTool(reporte);
-                pt.ShowPreviewDialog();
+
+                reporte.CreateDocument();
+                reporte.ShowPreviewDialog();
+
             }
             catch (Exception ex)
             {

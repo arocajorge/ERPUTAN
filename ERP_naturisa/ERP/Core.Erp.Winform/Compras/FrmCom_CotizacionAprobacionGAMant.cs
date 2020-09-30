@@ -16,7 +16,6 @@ namespace Core.Erp.Winform.Compras
     using Core.Erp.Info.Compras;
     using Core.Erp.Business.Compras;
     using Core.Erp.Business.Contabilidad;
-    using DevExpress.XtraReports.UI;
 
     public partial class FrmCom_CotizacionAprobacionGAMant : Form
     {
@@ -342,8 +341,7 @@ namespace Core.Erp.Winform.Compras
                 rpt.Empresa = param.NombreEmpresa;
                 rpt.p_IdEmpresa.Value = param.IdEmpresa;
                 rpt.p_IdOrdenPedido.Value = Convert.ToDecimal(txt_IdOrdenPedido.Text);
-                ReportPrintTool pt = new ReportPrintTool(rpt);
-                pt.ShowPreviewDialog();
+                rpt.ShowPreviewDialog();
             }
             catch (Exception)
             {

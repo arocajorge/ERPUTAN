@@ -28,7 +28,7 @@ using Core.Erp.Info.Inventario;
 using Core.Erp.Business.Inventario;
 using Core.Erp.Winform.Contabilidad;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using DevExpress.XtraReports.UI;
+
 
 namespace Core.Erp.Winform.Facturacion
 {
@@ -1423,8 +1423,7 @@ namespace Core.Erp.Winform.Facturacion
                     XCONTA_Rpt003_rpt reporte = new XCONTA_Rpt003_rpt();
                     reporte.set_parametros(Info_NotaCre.IdEmpresa, info_CreDeb_cbtecble.ct_IdTipoCbte, info_CreDeb_cbtecble.ct_IdCbteCble);
                     reporte.RequestParameters = false;
-                    ReportPrintTool pt = new ReportPrintTool(reporte);
-                    pt.ShowPreviewDialog();
+                    reporte.ShowPreviewDialog();
                 }
                 else
                 {

@@ -26,7 +26,6 @@ using Core.Erp.Reportes.Caja;
 using Core.Erp.Winform.Contabilidad;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Core.Erp.Reportes.Contabilidad;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -2567,8 +2566,7 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 XCONTA_Rpt009 Rpt = new XCONTA_Rpt009();
                 Rpt.Set_Parametros(Info_Conciliacion.IdEmpresa, Info_Conciliacion.IdConciliacion_Caja);
-                ReportPrintTool pt = new ReportPrintTool(Rpt);
-                pt.ShowPreviewDialog();
+                Rpt.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

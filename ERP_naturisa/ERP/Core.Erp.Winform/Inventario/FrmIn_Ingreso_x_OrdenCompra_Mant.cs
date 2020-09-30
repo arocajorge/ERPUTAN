@@ -20,7 +20,6 @@ using Core.Erp.Info.Contabilidad;
 using Cus.Erp.Reports.Naturisa.Compras;
 using Cus.Erp.Reports.Naturisa.Inventario;
 using Core.Erp.Winform.Contabilidad;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -327,8 +326,7 @@ namespace Core.Erp.Winform.Inventario
 
                         reporte_personalizado.RequestParameters = false;
 
-                        ReportPrintTool ptp = new ReportPrintTool(reporte_personalizado);
-                        ptp.ShowPreviewDialog();
+                        reporte_personalizado.ShowPreviewDialog();
 
                         break;
                     default:
@@ -342,8 +340,8 @@ namespace Core.Erp.Winform.Inventario
 
                         reporte.set_parametros(IdEmpresa, IdSucursal, IdBodega, IdNumMovi, IdMovi_inven_tipo);
                         reporte.RequestParameters = true;
-                        ReportPrintTool pt = new ReportPrintTool(reporte);
-                        pt.ShowPreviewDialog();
+
+                        reporte.ShowPreviewDialog();
                         break;
                 }                
             }

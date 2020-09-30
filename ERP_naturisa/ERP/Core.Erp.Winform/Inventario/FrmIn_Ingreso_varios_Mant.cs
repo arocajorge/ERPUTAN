@@ -24,7 +24,6 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using Cus.Erp.Reports.Naturisa.Inventario;
 using Cus.Erp.Reports.Naturisa.Compras;
 using System.IO;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -305,8 +304,8 @@ namespace Core.Erp.Winform.Inventario
                         reporte_personalizado.PIdMovi_inven_tipo.Visible = false;
 
                         reporte_personalizado.RequestParameters = false;
-                        ReportPrintTool pt = new ReportPrintTool(reporte_personalizado);
-                        pt.ShowPreviewDialog();
+
+                        reporte_personalizado.ShowPreviewDialog();
 
                         break;
                     default:
@@ -321,8 +320,7 @@ namespace Core.Erp.Winform.Inventario
                         reporte.set_parametros(IdEmpresa, IdSucursal, IdBodega, IdNumMovi, IdMovi_inven_tipo);
                         reporte.RequestParameters = true;
 
-                        ReportPrintTool pt1 = new ReportPrintTool(reporte);
-                        pt1.ShowPreviewDialog();
+                        reporte.ShowPreviewDialog();
                         break;
                 }
             }
@@ -355,7 +353,7 @@ namespace Core.Erp.Winform.Inventario
                     DevExpress.XtraReports.UI.ReportPrintTool pt = new DevExpress.XtraReports.UI.ReportPrintTool(Reporte);
                     pt.AutoShowParametersPanel = false;
 
-                    pt.ShowPreviewDialog();
+                    Reporte.ShowPreviewDialog();
                 }
 
             }

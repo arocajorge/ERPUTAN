@@ -17,7 +17,6 @@ using Core.Erp.Reportes.ActivoFijo;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Business.Contabilidad;
 using Core.Erp.Reportes.Contabilidad;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.ActivoFijo
 {
@@ -86,8 +85,9 @@ namespace Core.Erp.Winform.ActivoFijo
                 Reporte.RequestParameters = false;
                 lstRpt = busRpt.get_BajaMejora_ActivoFijo(param.IdEmpresa, Convert.ToDecimal(txtIdmejora.EditValue), Cl_Enumeradores.eTipoActivoFijo.Baja_Acti.ToString());
                 Reporte.lstRpt = lstRpt;
-                ReportPrintTool pt = new ReportPrintTool(Reporte);
-                pt.ShowPreviewDialog();
+
+                Reporte.CreateDocument();
+                Reporte.ShowPreviewDialog();
 
                 ImprimirDiario();
             }

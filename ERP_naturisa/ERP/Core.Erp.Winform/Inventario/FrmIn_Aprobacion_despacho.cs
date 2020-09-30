@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Business.Inventario;
 using Core.Erp.Reportes.Inventario;
-using DevExpress.XtraReports.UI;
+
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -245,8 +245,7 @@ namespace Core.Erp.Winform.Inventario
                     rpt.IdMovi_inven_tipo.Visible = false;
                     rpt.IdNumMovi.Value = row.num_Trans;
                     rpt.IdNumMovi.Visible = false;
-                    ReportPrintTool pt = new ReportPrintTool(rpt);
-                    pt.ShowPreviewDialog();
+                    rpt.ShowPreviewDialog();
                 }
             }
             catch (Exception ex)

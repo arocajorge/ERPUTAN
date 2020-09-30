@@ -17,7 +17,6 @@ using Core.Erp.Business.Bancos;
 using Core.Erp.Info.Bancos;
 using Core.Erp.Winform.General;
 using Core.Erp.Reportes.Bancos;
-using DevExpress.XtraReports.UI;
 //version 23122013 
 ///
 //katiuska franco
@@ -175,8 +174,7 @@ namespace Core.Erp.Winform.Bancos
                 IdConciliacion = Convert.ToInt32(txt_NConciliacion.Text);
                 reporte.set_parametros(param.IdEmpresa, idBanco, Idconciliacion);
                 reporte.RequestParameters = true;
-                ReportPrintTool pt = new ReportPrintTool(reporte);
-                pt.ShowPreviewDialog();
+                reporte.ShowPreviewDialog();
             }
             catch (Exception ex)
             {

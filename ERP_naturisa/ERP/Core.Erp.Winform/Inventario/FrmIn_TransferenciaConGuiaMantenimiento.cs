@@ -14,7 +14,6 @@ using Core.Erp.Business.Inventario;
 using Core.Erp.Reportes.Inventario;
 using Core.Erp.Business.Compras;
 using Cus.Erp.Reports.Naturisa.Inventario;
-using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -745,8 +744,7 @@ namespace Core.Erp.Winform.Inventario
                     DevExpress.XtraReports.UI.ReportPrintTool ptg = new DevExpress.XtraReports.UI.ReportPrintTool(Rpt);
                     ptg.AutoShowParametersPanel = false;
 
-                    ReportPrintTool pt1 = new ReportPrintTool(Rpt);
-                    pt1.ShowPreviewDialog();
+                    Rpt.ShowPreviewDialog();
 
                     ImprimirRide();
                 }
