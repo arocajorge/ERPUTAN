@@ -612,7 +612,7 @@ namespace Core.Erp.Data.Compras
                         }
                         else
                         {
-                            if (contR != contT)
+                            if (contR != contT && contP == 0)
                             {
                                 var pedido = db.com_OrdenPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault();
                                 if (pedido != null)
