@@ -58,7 +58,7 @@ namespace Core.Erp.Business.Contabilidad
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_PlanCta", ex.Message), ex) { EntityType = typeof(ct_Plancta_Bus) };
             }
         }
-        public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa, ref string MensajeError)
+        public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa)
         {
             List<ct_Plancta_Info> lm = new List<ct_Plancta_Info>();
             
@@ -73,7 +73,7 @@ namespace Core.Erp.Business.Contabilidad
 
                 P_Se_Muestra_Todas_las_ctas_en_combos = (InfoParam_conta.P_Se_Muestra_Todas_las_ctas_en_combos == null) ? false : Convert.ToBoolean(InfoParam_conta.P_Se_Muestra_Todas_las_ctas_en_combos);
 
-                lm = data.Get_List_Plancta_x_ctas_Movimiento(IdEmpresa, ref MensajeError, P_Se_Muestra_Todas_las_ctas_en_combos);
+                lm = data.Get_List_Plancta_x_ctas_Movimiento(IdEmpresa, P_Se_Muestra_Todas_las_ctas_en_combos);
 
 
                 return (lm);
@@ -235,7 +235,7 @@ namespace Core.Erp.Business.Contabilidad
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_info_plancta", ex.Message), ex) { EntityType = typeof(ct_Plancta_Bus) };
             }
         }
-        List<ct_Plancta_Info> GetListCuentasConSaldo(int IdEmpresa, DateTime FechaCorte)
+        public List<ct_Plancta_Info> GetListCuentasConSaldo(int IdEmpresa, DateTime FechaCorte)
         {
             try
             {

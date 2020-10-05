@@ -59,7 +59,7 @@ namespace Core.Erp.Winform.CuentasxCobrar
 
                 //string = "";
 
-                listacta = busPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                listacta = busPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
 
 
                 listacta.ForEach(x => x.pc_Cuenta = "[" + x.IdCtaCble + "] " + x.pc_Cuenta);

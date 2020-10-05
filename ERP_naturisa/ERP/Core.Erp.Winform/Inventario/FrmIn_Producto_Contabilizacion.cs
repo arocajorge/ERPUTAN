@@ -61,7 +61,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 ct_Plancta_Bus BusPlaCta = new ct_Plancta_Bus();
                 List<ct_Plancta_Info> ListPlanCta = new List<ct_Plancta_Info>();
-                ListPlanCta = BusPlaCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                ListPlanCta = BusPlaCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmb_CtaCble_costo.DataSource = ListPlanCta;
                 cmb_CtaCble_DescVta.DataSource = ListPlanCta;
                 cmb_CtaCble_DevVta.DataSource = ListPlanCta;

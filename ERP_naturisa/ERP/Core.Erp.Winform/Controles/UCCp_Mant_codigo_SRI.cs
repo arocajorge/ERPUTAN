@@ -154,7 +154,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                listaPlan = _PlanCta_bus1.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                listaPlan = _PlanCta_bus1.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                
             }
             catch (Exception ex)

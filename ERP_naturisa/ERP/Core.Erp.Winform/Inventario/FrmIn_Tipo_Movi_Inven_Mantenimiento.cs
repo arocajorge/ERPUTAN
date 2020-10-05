@@ -172,7 +172,7 @@ namespace Core.Erp.Winform.Inventario
                 //cmbTipoCbte.Properties.DataSource = tpocbte.Get_list_Cbtecble_tipo(param.IdEmpresa,Cl_Enumeradores.eTipoFiltro.Normal, ref MensajeError);
                 List<ct_Plancta_Info> _PlanCtaInfo = new List<ct_Plancta_Info>();
                 ct_Plancta_Bus _PlanCtaBus = new ct_Plancta_Bus();
-                cmbCtaCble.DataSource = _PlanCtaBus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                cmbCtaCble.DataSource = _PlanCtaBus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cargarGrid();
                 switch (_Accion)
                 {

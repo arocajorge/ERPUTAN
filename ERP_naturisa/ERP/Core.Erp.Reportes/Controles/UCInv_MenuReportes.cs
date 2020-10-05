@@ -405,7 +405,7 @@ namespace Core.Erp.Reportes.Controles
                 ListLinea.Add(InfoLinea);
                 cmb_Linea.DataSource = ListLinea;
 
-                lst_centro_costo = bus_centro_costo.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                lst_centro_costo = bus_centro_costo.Get_list_Centro_Costo(param.IdEmpresa);
                 cmb_centro_costo.DataSource = lst_centro_costo;
 
             }

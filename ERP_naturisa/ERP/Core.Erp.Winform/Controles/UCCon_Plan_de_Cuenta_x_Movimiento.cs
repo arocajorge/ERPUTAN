@@ -44,7 +44,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-               listPlanCuenta= BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+               listPlanCuenta= BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                cmb_cuentas.Properties.DataSource = listPlanCuenta;
 
             }

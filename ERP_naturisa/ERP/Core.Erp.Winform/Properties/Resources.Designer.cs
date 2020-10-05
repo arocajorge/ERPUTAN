@@ -1743,6 +1743,16 @@ namespace Core.Erp.Winform.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Distribuir_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Distribuir_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Doc_128x128 {
             get {
                 object obj = ResourceManager.GetObject("Doc_128x128", resourceCulture);

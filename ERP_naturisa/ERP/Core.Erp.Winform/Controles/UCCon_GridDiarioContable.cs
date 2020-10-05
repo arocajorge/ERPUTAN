@@ -397,7 +397,7 @@ namespace Core.Erp.Winform.Controles
             {
                 
                 ///
-                listaPlan = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                listaPlan = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmb_planCta.DataSource = listaPlan;
 
                 ///Plan de Centro de Costos
@@ -441,7 +441,7 @@ namespace Core.Erp.Winform.Controles
                 ///Cargamos en combos
                 ///Plan de cuentas de movimientos
                 ///
-                listaPlan = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(IdEmpresa, ref MensajeError);
+                listaPlan = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(IdEmpresa);
                 cmb_planCta.DataSource = listaPlan;
 
                 ///Plan de Centro de Costos

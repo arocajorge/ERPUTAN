@@ -93,7 +93,7 @@ namespace Core.Erp.Winform.Controles
             try
             {
                 repositoryItemSearchLookUpEdit_TipoMovi.DataSource = LstMoviTipo;
-                LstCta = Cta_B.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                LstCta = Cta_B.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 repositoryItemSearchLookUpEdit_Cta.DataSource = LstCta;
             }
             catch (Exception ex)

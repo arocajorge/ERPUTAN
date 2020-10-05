@@ -369,7 +369,7 @@ namespace Core.Erp.Data.Contabilidad
             }
         }
 
-        public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa, ref string MensajeError,Boolean Mostrar_Todo_El_Plan_cta=false)
+        public List<ct_Plancta_Info> Get_List_Plancta_x_ctas_Movimiento(int IdEmpresa, Boolean Mostrar_Todo_El_Plan_cta=false)
         {
             
             try
@@ -416,7 +416,7 @@ namespace Core.Erp.Data.Contabilidad
             }
             catch (Exception ex)
             {
-                MensajeError = ex.Message;
+                string MensajeError = ex.Message;
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", MensajeError, "",
                                     "", "", "", "", DateTime.Now);
@@ -1022,13 +1022,13 @@ namespace Core.Erp.Data.Contabilidad
                 {
                     connection.Open();
 
-                    string query = "select a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, a.IdCtaCblePadre, a.pc_EsMovimiento, isnull(round(sum(b.dc_Valor),2),0) as dc_Valor"
+                    string query = "select a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, a.IdCtaCblePadre, a.pc_EsMovimiento, isnull(round(sum(b.dc_Valor),2),0) as dc_Valor, a.IdNivelCta"
                                 +" from ct_plancta as a left join"
                                 +" ct_cbtecble_det as b on a.IdEmpresa = b.IdEmpresa and a.IdCtaCble = b.IdCtaCble left join"
                                 +" ct_cbtecble as c on b.IdEmpresa = c.IdEmpresa and b.IdTipoCbte = c.IdTipoCbte and b.IdCbteCble = c.IdCbteCble"
                                 + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and isnull(c.cb_Fecha,DATEFROMPARTS(" + FechaCorte.Year.ToString() + "," + FechaCorte.Month.ToString() + "," + FechaCorte.Day.ToString() + ")) <= DATEFROMPARTS(" + FechaCorte.Year.ToString() + "," + FechaCorte.Month.ToString() + "," + FechaCorte.Day.ToString() + ")"
-                                +" group by a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, a.IdCtaCblePadre, a.pc_EsMovimiento"
-                                +" having (isnull(round(sum(b.dc_Valor),2),0) > case when a.pc_EsMovimiento = 'S' then 0 else -99999999999999999 end)"
+                                + " group by a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, a.IdCtaCblePadre, a.pc_EsMovimiento, a.IdNivelCta"
+                                //+ " having (isnull(round(sum(b.dc_Valor),2),0) <> case when a.pc_EsMovimiento = 'S' then 0 else -999999999999999999 end)"
                                 +" order by a.IdEmpresa, a.IdCtaCble";
                     SqlCommand command = new SqlCommand(query,connection);
                     SqlDataReader reader = command.ExecuteReader();
@@ -1041,11 +1041,62 @@ namespace Core.Erp.Data.Contabilidad
                             pc_Cuenta = Convert.ToString(reader["pc_Cuenta"]),
                             IdCtaCblePadre = Convert.ToString(reader["IdCtaCblePadre"]),
                             pc_EsMovimiento = Convert.ToString(reader["pc_EsMovimiento"]),
-                            Saldo = Convert.ToDouble(reader["dc_Valor"])
+                            Saldo = Convert.ToDouble(reader["dc_Valor"]),
+                            IdNivelCta = Convert.ToInt32(reader["IdNivelCta"]),
                         });
                     }
                 }
+                Lista = SumarRecursivamente(Lista);
                 return Lista;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public List<ct_Plancta_Info> SumarRecursivamente(List<ct_Plancta_Info> Lista)
+        {
+            try
+            {
+                List<ct_Plancta_Info> ListaRecursiva = new List<ct_Plancta_Info>();
+
+                if (Lista.Count == 0)
+                    return Lista;
+
+                int MaxNivel = Lista.Max(q => q.IdNivelCta);
+                while (MaxNivel > 0)
+                {
+                    ListaRecursiva = Lista.Where(q => q.IdNivelCta == MaxNivel).GroupBy(q => new { q.IdNivelCta, q.IdCtaCblePadre }).Select(q => new ct_Plancta_Info
+                    {
+                        IdNivelCta = q.Key.IdNivelCta,
+                        IdCtaCble = q.Key.IdCtaCblePadre,
+                        Saldo = q.Sum(g => g.Saldo)
+                    }).ToList();
+
+
+                    ListaRecursiva = Lista.GroupJoin(
+                        ListaRecursiva,
+                        foo => foo.IdCtaCble,
+                        bar => bar.IdCtaCble,
+                        (x, y) => new { Foo = x, Bars = y })
+                    .SelectMany(
+                        x => x.Bars.DefaultIfEmpty(),
+                        (x, y) => new ct_Plancta_Info{ 
+                            IdEmpresa = x.Foo.IdEmpresa,
+                            IdCtaCble = x.Foo.IdCtaCble,
+                            pc_Cuenta = x.Foo.pc_Cuenta,
+                            IdCtaCblePadre = x.Foo.IdCtaCblePadre,
+                            pc_EsMovimiento = x.Foo.pc_EsMovimiento,
+                            IdNivelCta = x.Foo.IdNivelCta,
+                            Saldo = (y == null ? x.Foo.Saldo : y.Saldo)
+                        }).ToList();
+                    Lista = ListaRecursiva;
+                    MaxNivel--;
+                }
+
+                return Lista.OrderBy(Q=> Q.IdCtaCble).ToList();
             }
             catch (Exception)
             {

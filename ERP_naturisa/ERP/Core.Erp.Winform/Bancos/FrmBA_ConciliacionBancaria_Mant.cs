@@ -1825,7 +1825,7 @@ namespace Core.Erp.Winform.Bancos
                 this.ultraCmbCtaBanco.Properties.DataSource = ListadoBancos;
                 ListaPeriodo = PeB.Get_List_PeriodoCombo(param.IdEmpresa, ref MensajeError);
                 ultraCmbE_periodo.Properties.DataSource = ListaPeriodo;
-                LstCta = _PlanCtaBus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                LstCta = _PlanCtaBus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
 
             }
             catch (Exception ex)

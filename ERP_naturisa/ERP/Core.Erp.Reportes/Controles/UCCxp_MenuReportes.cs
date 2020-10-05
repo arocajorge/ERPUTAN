@@ -310,7 +310,7 @@ public partial class UCCxp_MenuReportes : UserControl
                 listProveedor.Add(infoProvee);
                 cmbProveedor_Grid.DataSource = listProveedor;
 
-                lstCentro_costo = busCentro_costo.Get_list_Centro_Costo(param.IdEmpresa,ref msg);
+                lstCentro_costo = busCentro_costo.Get_list_Centro_Costo(param.IdEmpresa);
                 lstCentro_costo.Add(infoCentro_costo);
                 cmb_centroCosto.DataSource = lstCentro_costo;
 

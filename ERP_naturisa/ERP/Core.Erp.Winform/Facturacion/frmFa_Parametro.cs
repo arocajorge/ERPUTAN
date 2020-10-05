@@ -65,7 +65,7 @@ namespace Core.Erp.Winform.Facturacion
                 list_caja = Bus_caja.Get_list_caja(param.IdEmpresa, ref  MensajeError);
                 cmbCaja.Properties.DataSource = list_caja;
 
-                ListaPlanAntList = bus_plan.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                ListaPlanAntList = bus_plan.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                
 
             }

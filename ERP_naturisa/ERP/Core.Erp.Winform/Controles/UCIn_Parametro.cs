@@ -99,7 +99,7 @@ namespace Core.Erp.Winform.Controles
             {
                string mensaje = "";
                List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
-               listPlanCta = PlanCus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+               listPlanCta = PlanCus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
 
                this.cmb_ctacble_Inven.Properties.DataSource = listPlanCta;
                this.cmb_ctacble_costo_inven.Properties.DataSource = listPlanCta;
@@ -157,7 +157,7 @@ namespace Core.Erp.Winform.Controles
                 string MensajeError = "";
 
                 List<ct_Centro_costo_Info> lista = new List<ct_Centro_costo_Info>();
-                lista = CentroCbus.Get_list_Centro_Costo(param.IdEmpresa,ref MensajeError);
+                lista = CentroCbus.Get_list_Centro_Costo(param.IdEmpresa);
 
                 cmb_centro_costo_padre_costo_inven.Properties.DataSource = lista;
             }

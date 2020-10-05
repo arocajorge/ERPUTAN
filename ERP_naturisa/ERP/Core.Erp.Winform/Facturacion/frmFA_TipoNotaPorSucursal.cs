@@ -336,7 +336,7 @@ namespace Core.Erp.Winform.Facturacion
                 List_Det = new BindingList<fa_TipoNota_x_Empresa_x_Sucursal_Info>();
                 gridControl.DataSource = List_Det;
                 cmbTipoNota.Properties.DataSource = TipoNota_B.Get_List_TipoNota(param.IdEmpresa);
-                cmbCuentaContable.DataSource = PlnCta_B.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                cmbCuentaContable.DataSource = PlnCta_B.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 LoadGrid();
             }
             catch (Exception ex)

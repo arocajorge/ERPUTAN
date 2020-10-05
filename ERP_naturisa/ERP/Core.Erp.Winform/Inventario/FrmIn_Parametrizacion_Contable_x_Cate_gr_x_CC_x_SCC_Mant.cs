@@ -210,7 +210,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 string MensajeError = string.Empty;
                 ucIn_ProductoCmb1.cargar_productos();
-                cmbCentroCosto.Properties.DataSource = busCentroCosto.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                cmbCentroCosto.Properties.DataSource = busCentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 lstSubCentro = busSubCentrCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 Set_info_in_controls();
             }

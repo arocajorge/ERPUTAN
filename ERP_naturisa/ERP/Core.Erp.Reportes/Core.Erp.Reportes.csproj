@@ -3533,7 +3533,6 @@
     <EmbeddedResource Include="Inventario\XINV_Rpt030_rpt.resx">
       <DependentUpon>XINV_Rpt030_rpt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Caja\XCAJ_Rpt001_frm.resx">
       <DependentUpon>XCAJ_Rpt001_frm.cs</DependentUpon>
     </EmbeddedResource>
@@ -3930,6 +3929,7 @@
     <EmbeddedResource Include="Inventario\XINV_Rpt023_Rpt.resx">
       <DependentUpon>XINV_Rpt023_Rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -150,7 +150,7 @@ namespace Core.Erp.Reportes.Contabilidad
                         }
                     }
                 }
-                return listadedatos;
+                return listadedatos.OrderBy(Q=> Q.IdCtaCble).ToList();
             }
             catch (Exception ex)
             {

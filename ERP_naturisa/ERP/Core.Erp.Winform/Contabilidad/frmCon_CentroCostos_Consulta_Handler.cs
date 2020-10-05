@@ -228,7 +228,7 @@ namespace Core.Erp.Winform.Contabilidad
             try
             {
 
-                _List_centro_costo_Info = _Centro_costo_Bus.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                _List_centro_costo_Info = _Centro_costo_Bus.Get_list_Centro_Costo(param.IdEmpresa);
 
                 this.treeListPlanCta.DataSource = _List_centro_costo_Info;
                 treeListPlanCta.ExpandAll();

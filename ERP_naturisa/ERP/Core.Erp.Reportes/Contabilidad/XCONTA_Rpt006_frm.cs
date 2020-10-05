@@ -49,7 +49,7 @@ namespace Core.Erp.Reportes.Contabilidad
             try
             {
                 
-                lista_planCta = plan_bus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                lista_planCta = plan_bus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 gridControlPlanCta.DataSource = lista_planCta;
 
                 cmb_cuentas_inicio.Properties.DataSource = lista_planCta;

@@ -272,7 +272,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 List<ct_Plancta_Info> listPlanCta = new List<ct_Plancta_Info>();
                 ct_Plancta_Bus BusPlanCta = new ct_Plancta_Bus();
-                listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
 
 
                 cmbEstadoAproba.DataSource = BusestadoApro.Get_List_orden_pago_estado_aprob();

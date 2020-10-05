@@ -101,7 +101,7 @@ namespace Core.Erp.Winform.Controles
                 cmbCiudad_Cheques.EditValue = InfoParam_x_Banco.CiudadDefaultParaCrearCheques;
 
 
-                lmCuenta = busCuenta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                lmCuenta = busCuenta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmbCtaCbte_grid.DataSource = lmCuenta;
                 cmbCtaCbte_grid.DisplayMember = "pc_Cuenta2";
                 cmbCtaCbte_grid.ValueMember = "IdCtaCble";

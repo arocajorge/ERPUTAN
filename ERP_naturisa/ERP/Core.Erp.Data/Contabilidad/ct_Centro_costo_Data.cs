@@ -16,7 +16,7 @@ namespace Core.Erp.Data.Contabilidad
         
         public ct_Centro_costo_Info _CentroCostoInfo = new ct_Centro_costo_Info();
 
-        public List<ct_Centro_costo_Info> Get_list_Centro_Costo(int IdEmpresa,ref string MensajeError)
+        public List<ct_Centro_costo_Info> Get_list_Centro_Costo(int IdEmpresa)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace Core.Erp.Data.Contabilidad
             }
             catch (Exception ex)
             {
-                MensajeError = ex.Message;
+                string MensajeError = ex.Message;
                 tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", MensajeError, "",
                                     "", "", "", "", DateTime.Now);

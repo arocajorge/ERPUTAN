@@ -667,7 +667,7 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 //Centro de costo
-                ListCentro_Costo = BusCentroCosto.Get_list_Centro_Costo(param.IdEmpresa, ref msg);
+                ListCentro_Costo = BusCentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 cmbCentroCosto_grid.DataSource = ListCentro_Costo;
                 cmbCentroCosto_grid.DisplayMember = "Centro_costo2";
                 cmbCentroCosto_grid.ValueMember = "IdCentroCosto";

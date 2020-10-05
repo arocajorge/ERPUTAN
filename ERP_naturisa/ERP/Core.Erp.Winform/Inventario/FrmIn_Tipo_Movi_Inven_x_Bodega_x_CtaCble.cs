@@ -40,7 +40,7 @@ namespace Core.Erp.Winform.Inventario
             {
                 InitializeComponent();
                 ListaBodegas = Bodega_B.Get_List_Bodega(param.IdEmpresa);
-                cmbCuentaContable.DataSource = ctplnCta_B.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                cmbCuentaContable.DataSource = ctplnCta_B.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 List<in_movi_inven_tipo_Info> temp = inMoviInvenTipo_B.Get_List_movi_inven_tipo(param.IdEmpresa);
                 if (temp != null)
                     DataSource = new BindingList<in_movi_inven_tipo_Info>(temp);

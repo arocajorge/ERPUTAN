@@ -96,7 +96,7 @@ namespace Core.Erp.Reportes.Controles
         {
             try
             {
-                ListaCentroCosto = BusCentroCosto.Get_list_Centro_Costo(param.IdEmpresa,ref mensaje);
+                ListaCentroCosto = BusCentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 if (Mostrar_Registro_Todos == true)
                 {
                     ct_Centro_costo_Info InfoTodos = new ct_Centro_costo_Info();

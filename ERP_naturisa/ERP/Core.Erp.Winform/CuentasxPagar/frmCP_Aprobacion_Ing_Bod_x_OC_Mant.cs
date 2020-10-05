@@ -235,7 +235,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cmbTipoDocu.Properties.ValueMember = "CodTipoDocumento";
 
                 listPlanCta = new List<ct_Plancta_Info>();
-                listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmbCtaCtble_Gasto_x_cxp.DataSource = listPlanCta;
 
                 listPuntoCargo = bus_puntoCargo.Get_List_PuntoCargo(param.IdEmpresa);

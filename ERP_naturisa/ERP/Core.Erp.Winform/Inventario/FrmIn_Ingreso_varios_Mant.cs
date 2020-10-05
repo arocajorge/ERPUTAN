@@ -426,7 +426,7 @@ namespace Core.Erp.Winform.Inventario
                 carga_Combos_Productos_y_Tipo_Movi();
                 string MensajeError = "";
                 // carga centro costo         
-                list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                list_centroCosto = Bus_CentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 cmbCentroCosto_grid.DataSource = list_centroCosto;
 
                 list_subcentro_combo = Bus_SubCentroCosto.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);

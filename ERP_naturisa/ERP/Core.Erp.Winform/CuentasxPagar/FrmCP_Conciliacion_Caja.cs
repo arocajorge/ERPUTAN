@@ -375,7 +375,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 Cargar_combos_tipo_movimiento();
 
                 //plan de cta
-                List_PlanCta = Bus_PlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                List_PlanCta = Bus_PlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmb_CtaCble_grid.DataSource = List_PlanCta;
                 cmb_CtaCble_grid.DisplayMember = "pc_Cuenta2";
                 cmb_CtaCble_grid.ValueMember = "IdCtaCble";
@@ -410,7 +410,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 cmb_Proveedor.DisplayMember = "pr_nombre";
                 cmb_Proveedor.ValueMember = "IdProveedor";
 
-                cmb_ctaCble.DataSource = Bus_PlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                cmb_ctaCble.DataSource = Bus_PlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmb_ctaCble.DisplayMember = "pc_Cuenta2";
                 cmb_ctaCble.ValueMember = "IdCtaCble";
 

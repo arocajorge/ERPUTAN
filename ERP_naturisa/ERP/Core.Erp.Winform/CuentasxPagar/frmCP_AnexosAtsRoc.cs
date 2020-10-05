@@ -11,7 +11,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using refere = Microsoft.VisualBasic.Devices;
 using System.Globalization;
@@ -896,6 +896,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
         public   void GeneraFormularios(iva iva, byte[] xls,string descr)
         {
+            /*
             try
             { 
                 refere.ServerComputer Cp = new refere.ServerComputer();
@@ -968,6 +969,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 MessageBox.Show("Error al generar el Formulario 103 " , "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
             }
+             * */
         }
 
         private void btn_formu_Click(object sender, EventArgs e)

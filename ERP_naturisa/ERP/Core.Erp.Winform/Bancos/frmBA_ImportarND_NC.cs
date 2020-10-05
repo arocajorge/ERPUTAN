@@ -27,7 +27,7 @@ namespace Core.Erp.Winform.Bancos
             {
                 InitializeComponent();
                 GetList_NotadasDeb_Cred += frmBA_ImportarND_NC_GetList_NotadasDeb_Cred;
-                cmbPlancta.DataSource = b_PlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                cmbPlancta.DataSource = b_PlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 ListaCombo =Bustiponota.Get_List_tipo_nota(param.IdEmpresa);
                 cmbTipoNota.DataSource = ListaCombo;
                 cmbCentroCosto.DataSource = busCentroCosto.Get_list_Centro_Costo_cuentas_de_movimiento(param.IdEmpresa, ref MensajeError);

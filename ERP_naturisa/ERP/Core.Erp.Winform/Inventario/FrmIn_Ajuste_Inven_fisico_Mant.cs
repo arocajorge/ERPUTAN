@@ -115,7 +115,7 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                list_centro_costo = bus_centro_costo.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError);
+                list_centro_costo = bus_centro_costo.Get_list_Centro_Costo(param.IdEmpresa);
                 cmb_CentroCosto.DataSource = list_centro_costo;
                 
                 ucIn_Catalogos_Cmb1.cargar_Catalogos(1);

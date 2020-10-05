@@ -221,7 +221,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                listPlanCta = BusPlanCta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmbPlanCta.Properties.DataSource = listPlanCta;
             }
             catch (Exception ex)

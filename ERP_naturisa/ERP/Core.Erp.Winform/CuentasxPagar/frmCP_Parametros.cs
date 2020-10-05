@@ -69,7 +69,7 @@ namespace Core.Erp.Winform.CuentasxPagar
         {
             try
             {
-                lmCuenta = busCuenta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                lmCuenta = busCuenta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 lmCuenta.ForEach(c => c.pc_Cuenta = "[" + c.IdCtaCble + "] - " + c.pc_Cuenta);
 
                

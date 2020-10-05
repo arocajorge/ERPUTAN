@@ -16,12 +16,12 @@ namespace Core.Erp.Business.Contabilidad
         tb_sis_Log_Error_Vzen_Bus oLog = new tb_sis_Log_Error_Vzen_Bus();
         ct_Centro_costo_Data data = new ct_Centro_costo_Data();
 
-        public List<ct_Centro_costo_Info> Get_list_Centro_Costo(int IdEmpresa,ref string MensajeError)
+        public List<ct_Centro_costo_Info> Get_list_Centro_Costo(int IdEmpresa)
         {
             List<ct_Centro_costo_Info> lm = new List<ct_Centro_costo_Info>();
             try
             {
-                lm = data.Get_list_Centro_Costo(IdEmpresa, ref MensajeError);
+                lm = data.Get_list_Centro_Costo(IdEmpresa);
                 return (lm);
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace Core.Erp.Business.Contabilidad
                 ct_Centro_costo_nivel_Data Nive_D = new ct_Centro_costo_nivel_Data();
 
                 listaNivel = Nive_D.Get_Info_Centro_Costo_nivel(IdEmpresa);
-                listaCta = data.Get_list_Centro_Costo(IdEmpresa, ref MensajeError);
+                listaCta = data.Get_list_Centro_Costo(IdEmpresa);
 
 
                 //int digitosPadre = (from cta in listaNivel where cta.IdNivel == idCentro_Costo_padre.IdNivel select cta.ni_digitos).ToList().First();

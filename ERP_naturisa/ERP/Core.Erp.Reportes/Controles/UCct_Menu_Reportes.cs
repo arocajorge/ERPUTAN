@@ -176,7 +176,7 @@ namespace Core.Erp.Reportes.Controles
                 lst_Plancta = bus_Plancta.Get_Plancta_x_Grupo(param.IdEmpresa, "");
                 cmb_CtaCble.DataSource = lst_Plancta;
 
-                lst_Centro_costo = bus_Centro_costo.Get_list_Centro_Costo(param.IdEmpresa, ref mensaje);
+                lst_Centro_costo = bus_Centro_costo.Get_list_Centro_Costo(param.IdEmpresa);
                 cmb_Centro_costo.DataSource = lst_Centro_costo;
                 
                 lst_Centro_costo_sub_centro_costo = bus_Centro_costo_sub_centro_costo.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);

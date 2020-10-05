@@ -47,7 +47,7 @@ namespace Core.Erp.Winform.Contabilidad
             try
             {
                 string MensajeError = "";
-                treeList_CentroCosto.DataSource = _CentroCostoBus.Get_list_Centro_Costo(param.IdEmpresa,ref MensajeError);
+                treeList_CentroCosto.DataSource = _CentroCostoBus.Get_list_Centro_Costo(param.IdEmpresa);
                 treeList_CentroCosto.ExpandAll();
             }
             catch (Exception ex)

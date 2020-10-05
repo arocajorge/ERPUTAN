@@ -5948,6 +5948,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ayuda_codigoAscii.txt" />
+    <None Include="Resources\Distribuir_16x16.png" />
     <Content Include="Resources\xml_16x16.png" />
     <None Include="Resources\Salir_16_x_161.png" />
     <None Include="Resources\re_hacer_16x16.png" />

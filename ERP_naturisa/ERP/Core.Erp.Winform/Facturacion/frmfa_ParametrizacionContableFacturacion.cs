@@ -110,7 +110,7 @@ namespace Core.Erp.Winform.Facturacion
 
                 
                 LstSucursales = sucur_b.Get_List_Sucursal(param.IdEmpresa);
-                PlanCuenta = PlnCta_Bus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                PlanCuenta = PlnCta_Bus.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 
                 cmbCategoria.DataSource = cat_B.Get_List_categorias(param.IdEmpresa);
 

@@ -879,7 +879,7 @@ namespace Core.Erp.Winform.ActivoFijo
             {
                 ct_Plancta_Bus _PlanCta_bus1 = new ct_Plancta_Bus();
                 List<ct_Plancta_Info> _ListPlanCta = new List<ct_Plancta_Info>();
-                _ListPlanCta=_PlanCta_bus1.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa, ref MensajeError);
+                _ListPlanCta=_PlanCta_bus1.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmb_PlanCuenta.DataSource = _ListPlanCta;
 
                 Af_Activo_fijo_CtasCbles_Tipo_Bus BusTipoCta_x_AF = new Af_Activo_fijo_CtasCbles_Tipo_Bus();

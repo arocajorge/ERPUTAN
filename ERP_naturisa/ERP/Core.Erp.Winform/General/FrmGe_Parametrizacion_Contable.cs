@@ -177,7 +177,7 @@ namespace Core.Erp.Winform.General
                 repositoryItemSearchLookUpEditCCS.DataSource = repositoryItemSearchLookUpEditCCC.DataSource = ctplactaInfo;
 
 
-                centroCostoInfo = new List<ct_Centro_costo_Info>(centroCostoBus.Get_list_Centro_Costo(param.IdEmpresa, ref MensajeError));
+                centroCostoInfo = new List<ct_Centro_costo_Info>(centroCostoBus.Get_list_Centro_Costo(param.IdEmpresa));
                 repositoryItemSearchLookUpEditCentroCosto.DataSource = repositoryItemGridLookUpEditCentroCostoCategoria.DataSource = centroCostoInfo;
             }
             catch (Exception ex)
