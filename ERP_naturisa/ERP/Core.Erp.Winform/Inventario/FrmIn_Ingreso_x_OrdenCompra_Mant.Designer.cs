@@ -100,6 +100,7 @@
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -156,9 +157,9 @@
             this.ucGe_Menu_Superior_Mant1.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant1.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
-            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1424, 36);
+            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1068, 29);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 1;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAnular = true;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAprobar = false;
@@ -192,10 +193,9 @@
             // 
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 36);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1424, 600);
+            this.panel1.Size = new System.Drawing.Size(1068, 488);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -205,31 +205,28 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1424, 600);
+            this.panel2.Size = new System.Drawing.Size(1068, 488);
             this.panel2.TabIndex = 0;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 134);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 109);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1424, 403);
+            this.tabControl1.Size = new System.Drawing.Size(1068, 328);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1416, 374);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(1060, 302);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalle Ingreso O/C";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -238,19 +235,16 @@
             // 
             this.panel4.Controls.Add(this.gridControlIngreso);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(4, 46);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(3, 37);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1408, 324);
+            this.panel4.Size = new System.Drawing.Size(1054, 262);
             this.panel4.TabIndex = 1;
             // 
             // gridControlIngreso
             // 
             this.gridControlIngreso.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlIngreso.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlIngreso.Location = new System.Drawing.Point(0, 0);
             this.gridControlIngreso.MainView = this.gridViewIngreso;
-            this.gridControlIngreso.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlIngreso.Name = "gridControlIngreso";
             this.gridControlIngreso.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCentroCosto_grid,
@@ -258,7 +252,7 @@
             this.cmb_unidad_medida,
             this.cmb_sub_centro_costo,
             this.cmb_grupo_punto_cargo});
-            this.gridControlIngreso.Size = new System.Drawing.Size(1408, 324);
+            this.gridControlIngreso.Size = new System.Drawing.Size(1054, 262);
             this.gridControlIngreso.TabIndex = 0;
             this.gridControlIngreso.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewIngreso});
@@ -278,7 +272,8 @@
             this.colIdCentroCosto_sub_centro_costo,
             this.gridColumn10,
             this.col_grupo_pto_cargo,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn6});
             this.gridViewIngreso.CustomizationFormBounds = new System.Drawing.Rectangle(853, 395, 210, 172);
             this.gridViewIngreso.GridControl = this.gridControlIngreso;
             this.gridViewIngreso.GroupCount = 1;
@@ -302,15 +297,15 @@
             this.colIdOrdenCompra.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
             this.colIdOrdenCompra.Visible = true;
             this.colIdOrdenCompra.VisibleIndex = 1;
-            this.colIdOrdenCompra.Width = 85;
+            this.colIdOrdenCompra.Width = 91;
             // 
             // colcod_producto
             // 
-            this.colcod_producto.FieldName = "cod_producto";
+            this.colcod_producto.FieldName = "IdProducto";
             this.colcod_producto.Name = "colcod_producto";
             this.colcod_producto.Visible = true;
             this.colcod_producto.VisibleIndex = 2;
-            this.colcod_producto.Width = 97;
+            this.colcod_producto.Width = 85;
             // 
             // colnom_producto
             // 
@@ -320,7 +315,7 @@
             this.colnom_producto.OptionsColumn.AllowEdit = false;
             this.colnom_producto.Visible = true;
             this.colnom_producto.VisibleIndex = 3;
-            this.colnom_producto.Width = 265;
+            this.colnom_producto.Width = 313;
             // 
             // colcantidad_pedida_OC
             // 
@@ -329,8 +324,8 @@
             this.colcantidad_pedida_OC.Name = "colcantidad_pedida_OC";
             this.colcantidad_pedida_OC.OptionsColumn.AllowEdit = false;
             this.colcantidad_pedida_OC.Visible = true;
-            this.colcantidad_pedida_OC.VisibleIndex = 4;
-            this.colcantidad_pedida_OC.Width = 110;
+            this.colcantidad_pedida_OC.VisibleIndex = 5;
+            this.colcantidad_pedida_OC.Width = 136;
             // 
             // coldm_cantidad
             // 
@@ -338,8 +333,8 @@
             this.coldm_cantidad.FieldName = "dm_cantidad";
             this.coldm_cantidad.Name = "coldm_cantidad";
             this.coldm_cantidad.Visible = true;
-            this.coldm_cantidad.VisibleIndex = 5;
-            this.coldm_cantidad.Width = 119;
+            this.coldm_cantidad.VisibleIndex = 6;
+            this.coldm_cantidad.Width = 147;
             // 
             // colSaldo_x_Ing_OC
             // 
@@ -350,8 +345,8 @@
             this.colSaldo_x_Ing_OC.Name = "colSaldo_x_Ing_OC";
             this.colSaldo_x_Ing_OC.OptionsColumn.AllowEdit = false;
             this.colSaldo_x_Ing_OC.Visible = true;
-            this.colSaldo_x_Ing_OC.VisibleIndex = 6;
-            this.colSaldo_x_Ing_OC.Width = 115;
+            this.colSaldo_x_Ing_OC.VisibleIndex = 7;
+            this.colSaldo_x_Ing_OC.Width = 143;
             // 
             // colIdCentroCosto
             // 
@@ -360,8 +355,8 @@
             this.colIdCentroCosto.FieldName = "IdCentroCosto";
             this.colIdCentroCosto.Name = "colIdCentroCosto";
             this.colIdCentroCosto.Visible = true;
-            this.colIdCentroCosto.VisibleIndex = 7;
-            this.colIdCentroCosto.Width = 110;
+            this.colIdCentroCosto.VisibleIndex = 8;
+            this.colIdCentroCosto.Width = 136;
             // 
             // cmbCentroCosto_grid
             // 
@@ -408,8 +403,8 @@
             this.colIdPunto_cargo.FieldName = "IdPunto_cargo";
             this.colIdPunto_cargo.Name = "colIdPunto_cargo";
             this.colIdPunto_cargo.Visible = true;
-            this.colIdPunto_cargo.VisibleIndex = 10;
-            this.colIdPunto_cargo.Width = 90;
+            this.colIdPunto_cargo.VisibleIndex = 11;
+            this.colIdPunto_cargo.Width = 110;
             // 
             // cmbPuntoCargo_grid
             // 
@@ -460,7 +455,6 @@
             this.colChecked.OptionsColumn.AllowEdit = false;
             this.colChecked.Visible = true;
             this.colChecked.VisibleIndex = 0;
-            this.colChecked.Width = 61;
             // 
             // colIdCentroCosto_sub_centro_costo
             // 
@@ -469,8 +463,8 @@
             this.colIdCentroCosto_sub_centro_costo.FieldName = "IdRegistro";
             this.colIdCentroCosto_sub_centro_costo.Name = "colIdCentroCosto_sub_centro_costo";
             this.colIdCentroCosto_sub_centro_costo.Visible = true;
-            this.colIdCentroCosto_sub_centro_costo.VisibleIndex = 8;
-            this.colIdCentroCosto_sub_centro_costo.Width = 96;
+            this.colIdCentroCosto_sub_centro_costo.VisibleIndex = 9;
+            this.colIdCentroCosto_sub_centro_costo.Width = 118;
             // 
             // cmb_sub_centro_costo
             // 
@@ -529,8 +523,8 @@
             this.col_grupo_pto_cargo.FieldName = "IdPunto_cargo_grupo";
             this.col_grupo_pto_cargo.Name = "col_grupo_pto_cargo";
             this.col_grupo_pto_cargo.Visible = true;
-            this.col_grupo_pto_cargo.VisibleIndex = 9;
-            this.col_grupo_pto_cargo.Width = 79;
+            this.col_grupo_pto_cargo.VisibleIndex = 10;
+            this.col_grupo_pto_cargo.Width = 98;
             // 
             // cmb_grupo_punto_cargo
             // 
@@ -576,8 +570,8 @@
             this.gridColumn1.FieldName = "SucursalDestino";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 11;
-            this.gridColumn1.Width = 94;
+            this.gridColumn1.VisibleIndex = 12;
+            this.gridColumn1.Width = 145;
             // 
             // cmb_unidad_medida
             // 
@@ -626,30 +620,31 @@
             this.panel3.Controls.Add(this.labelControl3);
             this.panel3.Controls.Add(this.cmbProveedor);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(4, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1408, 42);
+            this.panel3.Size = new System.Drawing.Size(1054, 34);
             this.panel3.TabIndex = 0;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(1007, 13);
+            this.labelControl2.Location = new System.Drawing.Point(755, 11);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(58, 16);
+            this.labelControl2.Size = new System.Drawing.Size(49, 13);
             this.labelControl2.TabIndex = 23;
             this.labelControl2.Text = "Subcentro";
             // 
             // cmbSubcentroCostoD
             // 
-            this.cmbSubcentroCostoD.Location = new System.Drawing.Point(1087, 10);
+            this.cmbSubcentroCostoD.Location = new System.Drawing.Point(815, 8);
+            this.cmbSubcentroCostoD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbSubcentroCostoD.Name = "cmbSubcentroCostoD";
             this.cmbSubcentroCostoD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSubcentroCostoD.Properties.DisplayMember = "Centro_costo2";
             this.cmbSubcentroCostoD.Properties.ValueMember = "IdCentroCosto_sub_centro_costo";
             this.cmbSubcentroCostoD.Properties.View = this.gridView6;
-            this.cmbSubcentroCostoD.Size = new System.Drawing.Size(240, 22);
+            this.cmbSubcentroCostoD.Size = new System.Drawing.Size(180, 20);
             this.cmbSubcentroCostoD.TabIndex = 22;
             // 
             // gridView6
@@ -683,22 +678,24 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(644, 13);
+            this.labelControl1.Location = new System.Drawing.Point(483, 11);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(90, 16);
+            this.labelControl1.Size = new System.Drawing.Size(77, 13);
             this.labelControl1.TabIndex = 21;
             this.labelControl1.Text = "Centro de costo";
             // 
             // cmbCentroCostoD
             // 
-            this.cmbCentroCostoD.Location = new System.Drawing.Point(751, 10);
+            this.cmbCentroCostoD.Location = new System.Drawing.Point(563, 8);
+            this.cmbCentroCostoD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCentroCostoD.Name = "cmbCentroCostoD";
             this.cmbCentroCostoD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCentroCostoD.Properties.DisplayMember = "Centro_costo2";
             this.cmbCentroCostoD.Properties.ValueMember = "IdCentroCosto";
             this.cmbCentroCostoD.Properties.View = this.searchLookUpEdit1View;
-            this.cmbCentroCostoD.Size = new System.Drawing.Size(240, 22);
+            this.cmbCentroCostoD.Size = new System.Drawing.Size(180, 20);
             this.cmbCentroCostoD.TabIndex = 20;
             this.cmbCentroCostoD.EditValueChanged += new System.EventHandler(this.cmbCentroCostoD_EditValueChanged);
             // 
@@ -733,22 +730,24 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(15, 13);
+            this.labelControl3.Location = new System.Drawing.Point(11, 11);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(58, 16);
+            this.labelControl3.Size = new System.Drawing.Size(50, 13);
             this.labelControl3.TabIndex = 10;
             this.labelControl3.Text = "Proveedor";
             // 
             // cmbProveedor
             // 
-            this.cmbProveedor.Location = new System.Drawing.Point(125, 10);
+            this.cmbProveedor.Location = new System.Drawing.Point(94, 8);
+            this.cmbProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbProveedor.Name = "cmbProveedor";
             this.cmbProveedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbProveedor.Properties.DisplayMember = "pe_nombreCompleto";
             this.cmbProveedor.Properties.ValueMember = "IdProveedor";
             this.cmbProveedor.Properties.View = this.gridView5;
-            this.cmbProveedor.Size = new System.Drawing.Size(477, 22);
+            this.cmbProveedor.Size = new System.Drawing.Size(358, 20);
             this.cmbProveedor.TabIndex = 9;
             this.cmbProveedor.EditValueChanged += new System.EventHandler(this.ucCp_Proveedor_event_cmb_proveedor_EditValueChanged);
             // 
@@ -795,93 +794,86 @@
             this.panel5.Controls.Add(this.label5);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1424, 134);
+            this.panel5.Size = new System.Drawing.Size(1068, 109);
             this.panel5.TabIndex = 1;
             // 
             // checkTodos
             // 
-            this.checkTodos.Location = new System.Drawing.Point(16, 105);
-            this.checkTodos.Margin = new System.Windows.Forms.Padding(4);
+            this.checkTodos.Location = new System.Drawing.Point(12, 85);
             this.checkTodos.Name = "checkTodos";
             this.checkTodos.Properties.Caption = "Seleccionar visibles";
-            this.checkTodos.Size = new System.Drawing.Size(181, 21);
+            this.checkTodos.Size = new System.Drawing.Size(136, 19);
             this.checkTodos.TabIndex = 4;
             this.checkTodos.CheckedChanged += new System.EventHandler(this.checkTodos_CheckedChanged_1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(15, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Nº Ingreso:";
             // 
             // cmbMotivoInv
             // 
-            this.cmbMotivoInv.Location = new System.Drawing.Point(739, 43);
-            this.cmbMotivoInv.Margin = new System.Windows.Forms.Padding(5);
+            this.cmbMotivoInv.Location = new System.Drawing.Point(554, 35);
+            this.cmbMotivoInv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbMotivoInv.Name = "cmbMotivoInv";
-            this.cmbMotivoInv.Size = new System.Drawing.Size(333, 32);
+            this.cmbMotivoInv.Size = new System.Drawing.Size(250, 26);
             this.cmbMotivoInv.TabIndex = 19;
             this.cmbMotivoInv.Tipo_Ing_Egr = ein_Tipo_Ing_Egr.ING;
             this.cmbMotivoInv.event_cmbMotivoInv_EditValueChanged += new Core.Erp.Winform.Controles.UCIn_MotivoInvCmb.delegate_cmbMotivoInv_EditValueChanged(this.cmbMotivoInv_event_cmbMotivoInv_EditValueChanged);
+            this.cmbMotivoInv.Load += new System.EventHandler(this.cmbMotivoInv_Load);
             // 
             // dtpFecha
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(1168, 44);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFecha.Location = new System.Drawing.Point(876, 36);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(117, 22);
+            this.dtpFecha.Size = new System.Drawing.Size(89, 20);
             this.dtpFecha.TabIndex = 9;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(649, 48);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(487, 39);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 17);
+            this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 18;
             this.label10.Text = "Motivo Inv:";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(343, 11);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigo.Location = new System.Drawing.Point(257, 9);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(283, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(213, 20);
             this.txtCodigo.TabIndex = 7;
             this.txtCodigo.Visible = false;
             // 
             // txtNumIngreso
             // 
-            this.txtNumIngreso.Location = new System.Drawing.Point(113, 11);
-            this.txtNumIngreso.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumIngreso.Location = new System.Drawing.Point(85, 9);
             this.txtNumIngreso.Name = "txtNumIngreso";
-            this.txtNumIngreso.Size = new System.Drawing.Size(132, 22);
+            this.txtNumIngreso.Size = new System.Drawing.Size(100, 20);
             this.txtNumIngreso.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1092, 48);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(819, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Fecha:";
             // 
             // ucIn_Sucursal_Bodega1
             // 
-            this.ucIn_Sucursal_Bodega1.Location = new System.Drawing.Point(17, 43);
-            this.ucIn_Sucursal_Bodega1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucIn_Sucursal_Bodega1.Location = new System.Drawing.Point(13, 35);
+            this.ucIn_Sucursal_Bodega1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucIn_Sucursal_Bodega1.Name = "ucIn_Sucursal_Bodega1";
-            this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(623, 63);
+            this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(467, 51);
             this.ucIn_Sucursal_Bodega1.TabIndex = 5;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.Normal;
             this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
@@ -889,10 +881,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(248, 15);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(186, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 17);
+            this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Código/Doc.:";
             this.label5.Visible = false;
@@ -902,28 +893,25 @@
             this.panel6.Controls.Add(this.txtObservacion);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 537);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(0, 437);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1424, 63);
+            this.panel6.Size = new System.Drawing.Size(1068, 51);
             this.panel6.TabIndex = 2;
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(121, 11);
-            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservacion.Location = new System.Drawing.Point(91, 9);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(1135, 43);
+            this.txtObservacion.Size = new System.Drawing.Size(852, 36);
             this.txtObservacion.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(15, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Observación:";
             // 
@@ -931,21 +919,29 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 636);
-            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 517);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1424, 32);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1068, 26);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 3;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Unidad de medida";
+            this.gridColumn6.FieldName = "nom_UnidadMedida";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 137;
             // 
             // FrmIn_Ingreso_x_OrdenCompra_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 668);
+            this.ClientSize = new System.Drawing.Size(1068, 543);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Ingreso_x_OrdenCompra_Mant";
             this.Text = "Ingreso a Inventario por Orden de Compra  v11302014";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmIn_Ingreso_x_OrdenCompra_Mant_FormClosing);
@@ -1058,5 +1054,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

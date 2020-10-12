@@ -4,6 +4,7 @@ using Core.Erp.Info.General;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,54 +26,73 @@ namespace Core.Erp.Data.CuentasxPagar
 
                 List<cp_XML_Documento_Info> Lista = new List<cp_XML_Documento_Info>();
 
-                using (EntitiesCuentasxPagar db = new EntitiesCuentasxPagar())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    var lst = db.vwcp_XML_Documento.Where(q => q.IdEmpresa == IdEmpresa && FechaIni <= q.FechaEmision && q.FechaEmision <= FechaFin).ToList();
-                    foreach (var info in lst)
+                    connection.Open();
+
+                    string query = "SELECT        a.IdEmpresa, a.IdDocumento, a.ret_Establecimiento + '-' + a.ret_PuntoEmision AS serie, a.ret_NumeroDocumento, CASE WHEN datediff(day, a.ret_Fecha, CAST(getdate() AS date)) > 29 THEN CAST(getdate() AS date) "
+                                +" ELSE a.ret_Fecha END AS ret_Fecha, a.emi_RazonSocial AS pe_nombreCompleto, a.emi_RazonSocial, a.emi_Ruc, per.pe_correo, per.pe_direccion, per.pe_telfono_Contacto, pro.IdProveedor, "
+                                +" a.Establecimiento + '-' + a.PuntoEmision AS co_serie, a.NumeroDocumento, a.FechaEmision, a.CodDocumento, CASE WHEN LEN(A.emi_Ruc) = 10 THEN 'CED' WHEN LEN(A.emi_Ruc) "
+                                +" = 13 THEN 'RUC' ELSE 'PAS' END AS IdTipoDocumento, su.IdSucursal, su.Su_Descripcion, su.Su_Direccion, em.RazonSocial, em.NombreComercial, em.ContribuyenteEspecial, em.ObligadoAllevarConta, em.em_ruc, "
+                                +" em.em_direccion, a.Estado, CASE WHEN ISNULL(round(og.saldo, 2), A.Total) = 0 THEN 'CANCELADO' ELSE 'PENDIENTE' END AS EstadoCancelacion, a.Tipo, a.emi_NombreComercial, a.emi_DireccionMatriz, a.ClaveAcceso, "
+                                +" a.Establecimiento, a.PuntoEmision, a.rec_RazonSocial, a.rec_Identificacion, a.Subtotal0, a.SubtotalIVA, a.Porcentaje, a.ValorIVA, a.Total, a.FormaPago, a.Plazo, a.Comprobante, a.emi_ContribuyenteEspecial, "
+                                +" a.ret_CodDocumentoTipo, a.ret_Establecimiento, a.ret_FechaAutorizacion, a.ret_NumeroAutorizacion, a.ret_PuntoEmision, a.IdTipoCbte, a.IdCbteCble, cl.descripcion_clas_prove,"
+                                + " CASE WHEN A.Estado = 1 and a.ret_NumeroDocumento IS NOT NULL AND A.ret_NumeroAutorizacion IS NULL then cast(1 as bit) else cast(0 as bit) END AS EnviaXML"
+                                +" FROM            Digitalizacion.cp_XML_Documento AS a LEFT OUTER JOIN"
+                                +" dbo.tb_persona AS per ON a.emi_Ruc = per.pe_cedulaRuc LEFT OUTER JOIN"
+                                +" dbo.cp_proveedor AS pro ON per.IdPersona = pro.IdPersona AND a.IdEmpresa = pro.IdEmpresa INNER JOIN"
+                                +" dbo.tb_sucursal AS su ON su.IdEmpresa = a.IdEmpresa AND su.IdSucursal = 1 INNER JOIN"
+                                +" dbo.tb_empresa AS em ON em.IdEmpresa = a.IdEmpresa LEFT OUTER JOIN"
+                                +" dbo.vwcp_orden_giro_consulta AS og ON a.IdEmpresa = og.IdEmpresa AND a.IdTipoCbte = og.IdTipoCbte_Ogiro AND a.IdCbteCble = og.IdCbteCble_Ogiro LEFT OUTER JOIN"
+                                +" dbo.cp_proveedor_clase AS cl ON pro.IdEmpresa = cl.IdEmpresa AND pro.IdClaseProveedor = cl.IdClaseProveedor"
+                                +" WHERE        (a.Estado = 1) AND (a.Tipo = 'FACTURA') and a.IdEmpresa = "+IdEmpresa.ToString()
+                                + " and a.FechaEmision between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") AND DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")";
+
+                    SqlCommand Command = new SqlCommand(query,connection);
+                    SqlDataReader reader = Command.ExecuteReader();
+                    while (reader.Read())
                     {
                         Lista.Add(new cp_XML_Documento_Info
-                    {
-                        IdEmpresa = info.IdEmpresa,
-                        IdDocumento = info.IdDocumento,
-                        //XML = info.XML,
-                        Tipo = info.Tipo,
-                        emi_RazonSocial = info.emi_RazonSocial,
-                        emi_NombreComercial = info.emi_NombreComercial,
-                        emi_Ruc = info.emi_Ruc,
-                        emi_DireccionMatriz = info.emi_DireccionMatriz,
-                        ClaveAcceso = info.ClaveAcceso,
-                        CodDocumento = info.CodDocumento,
-                        Establecimiento = info.Establecimiento,
-                        PuntoEmision = info.PuntoEmision,
-                        NumeroDocumento = info.NumeroDocumento,
-                        FechaEmision = info.FechaEmision,
-                        rec_RazonSocial = info.rec_RazonSocial,
-                        rec_Identificacion = info.rec_Identificacion,
-                        Subtotal0 = info.Subtotal0,
-                        SubtotalIVA = info.SubtotalIVA,
-                        Porcentaje = info.Porcentaje,
-                        ValorIVA = info.ValorIVA,
-                        Total = info.Total,
-                        FormaPago = info.FormaPago,
-                        Plazo = info.Plazo,
-                        Comprobante = info.Comprobante,
-                        Estado = info.Estado,
-                        emi_ContribuyenteEspecial = info.emi_ContribuyenteEspecial,
-
-                        ret_CodDocumentoTipo = info.ret_CodDocumentoTipo,
-                        ret_Establecimiento = info.ret_Establecimiento,
-                        ret_Fecha = info.ret_Fecha,
-                        ret_FechaAutorizacion = info.ret_FechaAutorizacion,
-                        ret_NumeroAutorizacion = info.ret_NumeroAutorizacion,
-                        ret_NumeroDocumento = info.ret_NumeroDocumento,
-                        ret_PuntoEmision = info.ret_PuntoEmision,
-                        IdTipoCbte = info.IdTipoCbte,
-                        IdCbteCble = info.IdCbteCble,
-                        EnviaXML = info.Estado && !string.IsNullOrEmpty(info.ret_NumeroDocumento) && string.IsNullOrEmpty(info.ret_NumeroAutorizacion),
-                        EstadoCancelacion = info.EstadoCancelacion,
-                        descripcion_clas_prove = info.descripcion_clas_prove
-                    });
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdDocumento = Convert.ToDecimal(reader["IdDocumento"]),
+                            Tipo = Convert.ToString(reader["Tipo"]),
+                            emi_RazonSocial = Convert.ToString(reader["emi_RazonSocial"]),
+                            emi_NombreComercial = Convert.ToString(reader["emi_NombreComercial"]),
+                            emi_Ruc = Convert.ToString(reader["emi_Ruc"]),
+                            emi_DireccionMatriz = Convert.ToString(reader["emi_DireccionMatriz"]),                            ClaveAcceso = Convert.ToString(reader["ClaveAcceso"]),
+                            CodDocumento = Convert.ToString(reader["CodDocumento"]),
+                            Establecimiento = Convert.ToString(reader["Establecimiento"]),
+                            PuntoEmision = Convert.ToString(reader["PuntoEmision"]),
+                            NumeroDocumento = Convert.ToString(reader["NumeroDocumento"]),
+                            FechaEmision = Convert.ToDateTime(reader["FechaEmision"]),
+                            rec_RazonSocial = Convert.ToString(reader["rec_RazonSocial"]),
+                            rec_Identificacion = Convert.ToString(reader["rec_Identificacion"]),
+                            Subtotal0 = Convert.ToDouble(reader["Subtotal0"]),
+                            SubtotalIVA = Convert.ToDouble(reader["SubtotalIVA"]),
+                            Porcentaje = Convert.ToDouble(reader["Porcentaje"]),
+                            ValorIVA = Convert.ToDouble(reader["ValorIVA"]),
+                            Total = Convert.ToDouble(reader["Total"]),
+                            FormaPago = Convert.ToString(reader["FormaPago"]),
+                            Plazo = Convert.ToInt32(reader["Plazo"]),
+                            Comprobante = Convert.ToString(reader["Comprobante"]),
+                            Estado = Convert.ToBoolean(reader["Estado"]),
+                            emi_ContribuyenteEspecial = Convert.ToString(reader["emi_ContribuyenteEspecial"]),
+                            ret_CodDocumentoTipo = string.IsNullOrEmpty(reader["ret_CodDocumentoTipo"].ToString()) ? null : (string)(reader["ret_CodDocumentoTipo"]),
+                            ret_Establecimiento = string.IsNullOrEmpty(reader["ret_Establecimiento"].ToString()) ? null : (string)(reader["ret_Establecimiento"]),
+                            ret_Fecha = string.IsNullOrEmpty(reader["ret_Fecha"].ToString()) ? null : (DateTime?)(reader["ret_Fecha"]),
+                            ret_FechaAutorizacion = string.IsNullOrEmpty(reader["ret_FechaAutorizacion"].ToString()) ? null : (DateTime?)(reader["ret_FechaAutorizacion"]),
+                            ret_NumeroDocumento = string.IsNullOrEmpty(reader["ret_NumeroDocumento"].ToString()) ? null : (string)(reader["ret_NumeroDocumento"]),
+                            ret_NumeroAutorizacion = string.IsNullOrEmpty(reader["ret_NumeroAutorizacion"].ToString()) ? null : (string)(reader["ret_NumeroAutorizacion"]),
+                            ret_PuntoEmision = string.IsNullOrEmpty(reader["ret_PuntoEmision"].ToString()) ? null : (string)(reader["ret_PuntoEmision"]),
+                            IdTipoCbte = string.IsNullOrEmpty(reader["IdTipoCbte"].ToString()) ? null : (int?)(reader["IdTipoCbte"]),
+                            IdCbteCble = string.IsNullOrEmpty(reader["IdCbteCble"].ToString()) ? null : (decimal?)(reader["IdCbteCble"]),
+                            EstadoCancelacion = string.IsNullOrEmpty(reader["EstadoCancelacion"].ToString()) ? null : (string)(reader["EstadoCancelacion"]),
+                            descripcion_clas_prove = Convert.ToString(reader["descripcion_clas_prove"]),
+                            EnviaXML = Convert.ToBoolean(reader["EnviaXML"])
+                        });
                     }
+                    reader.Close();
                 }
 
                 return Lista;

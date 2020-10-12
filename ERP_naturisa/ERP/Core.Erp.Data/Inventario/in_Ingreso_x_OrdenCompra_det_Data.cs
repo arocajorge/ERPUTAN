@@ -7,6 +7,7 @@ using Core.Erp.Data.General;
 using Core.Erp.Info.General;
 using Core.Erp.Info.Compras;
 using Core.Erp.Data.Compras;
+using System.Data.SqlClient;
 
 
 
@@ -83,58 +84,82 @@ namespace Core.Erp.Data.Inventario
 
               IdProveedorIni = (IdProveedor == 0) ? 1 : IdProveedor;
               IdProveedorFin = (IdProveedor == 0) ? 9999999 : IdProveedor;
-
-
               List<in_Ing_Egr_Inven_det_Info> Lst = new List<in_Ing_Egr_Inven_det_Info>();            
-              EntitiesInventario oEnti = new EntitiesInventario();
-           
-              var Consulta = oEnti.vwin_Ing_Egr_Inven_det_PorIngresar.Where(q=> q.IdEmpresa == IdEmpresa
-                             && q.IdProveedor >= IdProveedorIni
-                             && q.IdProveedor <= IdProveedorFin).ToList();
 
-
-              foreach (var item in Consulta)
+              using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
               {
-                  Lst.Add(new in_Ing_Egr_Inven_det_Info
+                  connection.Open();
+
+                  string query = "SELECT        b.IdEmpresa, b.IdSucursal, b.IdOrdenCompra, b.Secuencia, d.codigo + '-' + CAST(b.IdOrdenCompra AS varchar(20)) AS oc_NumDocumento, d.Su_Descripcion, a.IdProveedor, f.pe_nombreCompleto, a.oc_fecha, a.oc_observacion, "
+                                + " b.IdProducto, g.pr_codigo, g.pr_descripcion, b.do_precioFinal, b.do_Cantidad, ISNULL(c.dm_cantidad, 0) AS CantidadIngresada, b.do_Cantidad - ISNULL(c.dm_cantidad, 0) AS Saldo, b.IdCentroCosto, "
+                                + " b.IdCentroCosto_sub_centro_costo, b.IdPunto_cargo, b.IdPunto_cargo_grupo, b.IdUnidadMedida, a.IdEstado_cierre, 'OC# ' + d.codigo + '-' + CAST(b.IdOrdenCompra AS varchar(20)) + ' Fecha: ' + CONVERT(varchar, a.oc_fecha, "
+                                + " 103) + ' Proveedor: ' + LTRIM(RTRIM(f.pe_nombreCompleto)) AS RefOC, g.IdUnidadMedida_Consumo, h.codigo AS CodSucDestino, h.Su_Descripcion AS SucursalDestino, i.Descripcion as NomUnidadMedida"
+                                + " FROM            dbo.com_ordencompra_local AS a INNER JOIN"
+                                + " dbo.com_ordencompra_local_det AS b ON a.IdEmpresa = b.IdEmpresa AND a.IdSucursal = b.IdSucursal AND a.IdOrdenCompra = b.IdOrdenCompra LEFT OUTER JOIN"
+                                + " (SELECT        IdEmpresa_oc, IdSucursal_oc, IdOrdenCompra, Secuencia_oc, SUM(dm_cantidad_sinConversion) AS dm_cantidad"
+                                + " FROM            dbo.in_Ing_Egr_Inven_det AS d"
+                                + " WHERE        d.IdEmpresa = " + IdEmpresa.ToString() + " and (IdOrdenCompra IS NOT NULL)"
+                                + " GROUP BY IdEmpresa_oc, IdSucursal_oc, IdOrdenCompra, Secuencia_oc) AS c ON b.IdEmpresa = c.IdEmpresa_oc AND b.IdSucursal = c.IdSucursal_oc AND b.IdOrdenCompra = c.IdOrdenCompra AND "
+                                + " b.Secuencia = c.Secuencia_oc LEFT OUTER JOIN"
+                                + " dbo.tb_sucursal AS d ON b.IdEmpresa = d.IdEmpresa AND b.IdSucursal = d.IdSucursal LEFT OUTER JOIN"
+                                + " dbo.cp_proveedor AS e ON a.IdEmpresa = e.IdEmpresa AND a.IdProveedor = e.IdProveedor LEFT OUTER JOIN"
+                                + " dbo.tb_persona AS f ON e.IdPersona = f.IdPersona INNER JOIN"
+                                + " dbo.in_Producto AS g ON b.IdEmpresa = g.IdEmpresa AND b.IdProducto = g.IdProducto LEFT OUTER JOIN"
+                                + " dbo.tb_sucursal AS h ON b.IdEmpresa = h.IdEmpresa AND b.IdSucursalDestino = h.IdSucursal LEFT JOIN"
+                                + " dbo.in_UnidadMedida as i on b.IdUnidadMedida = i.IdUnidadMedida"
+                                + " WHERE        (a.Estado = 'A') AND (a.IdEstado_cierre <> 'CERR') AND (a.IdEstadoAprobacion_cat = 'APRO') AND (ROUND(b.do_Cantidad - ISNULL(c.dm_cantidad, 0), 2) > 0) and b.IdEmpresa = " + IdEmpresa.ToString();
+
+                                if (IdProveedor != 0)
+	                            {
+		                             query+= " and a.IdProveedor = "+IdProveedor.ToString();
+	                            }
+                                
+
+                  SqlCommand command = new SqlCommand(query,connection);
+                  SqlDataReader reader = command.ExecuteReader();
+                  while (reader.Read())
                   {
-                      IdEmpresa = item.IdEmpresa,
-                      IdSucursal = item.IdSucursal,
-                      IdEmpresa_oc = item.IdEmpresa,
-                      IdSucursal_oc = item.IdSucursal,
-                      IdOrdenCompra = item.IdOrdenCompra,
-                      Secuencia_oc = item.Secuencia,
-                      nom_sucu = item.Su_Descripcion,
-                      IdProveedor = item.IdProveedor,
-                      nom_proveedor = item.pe_nombreCompleto,
-                      oc_fecha = item.oc_fecha,
-                      oc_observacion = item.oc_observacion,
-                      cod_producto = item.pr_codigo,
-                      nom_producto = item.pr_descripcion,
-                      IdProducto = item.IdProducto,
-                      dm_cantidad = 0,
-                      oc_NumDocumento = item.oc_NumDocumento,
-                      dm_precio = item.do_precioFinal,
-                      mv_costo = item.do_precioFinal,
+                      Lst.Add(new in_Ing_Egr_Inven_det_Info
+                      {
+                          IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                          IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                          IdEmpresa_oc = Convert.ToInt32(reader["IdEmpresa"]),
+                          IdSucursal_oc = Convert.ToInt32(reader["IdSucursal"]),
+                          IdOrdenCompra = Convert.ToDecimal(reader["IdOrdenCompra"]),
+                          Secuencia_oc = Convert.ToInt32(reader["Secuencia"]),
+                          nom_sucu = Convert.ToString(reader["Su_Descripcion"]),
+                          IdProveedor = Convert.ToDecimal(reader["IdProveedor"]),
+                          nom_proveedor = Convert.ToString(reader["pe_nombreCompleto"]),
+                          oc_fecha = Convert.ToDateTime(reader["oc_fecha"]),
+                          oc_observacion = Convert.ToString(reader["oc_observacion"]),
+                          cod_producto = Convert.ToString(reader["pr_codigo"]),
+                          nom_producto = Convert.ToString(reader["pr_descripcion"]),
+                          IdProducto = Convert.ToInt32(reader["IdProducto"]),
+                          dm_cantidad = 0,
+                          oc_NumDocumento = Convert.ToString(reader["oc_NumDocumento"]),
+                          dm_precio = Convert.ToDouble(reader["do_precioFinal"]),
+                          mv_costo = Convert.ToDouble(reader["do_precioFinal"]),
 
-                      cantidad_pedida_OC = item.do_Cantidad,
-                      Saldo_x_Ing_OC = item.Saldo,
-                      Saldo_x_Ing_OC_AUX = item.Saldo,
-                      dm_stock_ante = 0,
-                      dm_stock_actu = 0,
-                      IdCentroCosto = item.IdCentroCosto,
-                      IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
+                          cantidad_pedida_OC = Convert.ToDouble(reader["do_Cantidad"]),
+                          Saldo_x_Ing_OC = Convert.ToDouble(reader["Saldo"]),
+                          Saldo_x_Ing_OC_AUX = Convert.ToDouble(reader["Saldo"]),
+                          dm_stock_ante = 0,
+                          dm_stock_actu = 0,
+                          IdCentroCosto = string.IsNullOrEmpty(reader["IdCentroCosto"].ToString()) ? null : Convert.ToString(reader["IdCentroCosto"]),
+                          IdCentroCosto_sub_centro_costo = string.IsNullOrEmpty(reader["IdCentroCosto_sub_centro_costo"].ToString()) ? null : Convert.ToString(reader["IdCentroCosto_sub_centro_costo"]),
 
-                      IdPunto_cargo_grupo = item.IdPunto_cargo_grupo,
-                      IdPunto_cargo = item.IdPunto_cargo,
-                      IdUnidadMedida = item.IdUnidadMedida,
-                      cantidad_ingresada = item.CantidadIngresada,
-                      IdEstado_cierre = item.IdEstado_cierre,
-                      Ref_OC = item.RefOC,
-                      IdUnidadMedida_Consumo = item.IdUnidadMedida_Consumo,
-                      Nomsub_centro_costo = item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo,
-                      SucursalDestino = item.SucursalDestino
-                  });
-
+                          IdPunto_cargo_grupo = string.IsNullOrEmpty(reader["IdPunto_cargo_grupo"].ToString()) ? null : (int?)(reader["IdPunto_cargo_grupo"]),
+                          IdPunto_cargo =  string.IsNullOrEmpty(reader["IdPunto_cargo"].ToString()) ? null : (int?)(reader["IdPunto_cargo"]),
+                          IdUnidadMedida = Convert.ToString(reader["IdUnidadMedida"]),
+                          cantidad_ingresada = Convert.ToDouble(reader["CantidadIngresada"]),
+                          IdEstado_cierre = Convert.ToString(reader["IdEstado_cierre"]),
+                          Ref_OC = Convert.ToString(reader["RefOC"]),
+                          IdUnidadMedida_Consumo = Convert.ToString(reader["IdUnidadMedida_Consumo"]),
+                          Nomsub_centro_costo = (string.IsNullOrEmpty(reader["IdCentroCosto"].ToString()) ? null : Convert.ToString(reader["IdCentroCosto"])) + "-" + (string.IsNullOrEmpty(reader["IdCentroCosto_sub_centro_costo"].ToString()) ? null : Convert.ToString(reader["IdCentroCosto_sub_centro_costo"])),
+                          SucursalDestino = Convert.ToString(reader["SucursalDestino"]),
+                          nom_UnidadMedida = reader["NomUnidadMedida"].ToString()
+                      });
+                  }
               }
 
               return Lst;

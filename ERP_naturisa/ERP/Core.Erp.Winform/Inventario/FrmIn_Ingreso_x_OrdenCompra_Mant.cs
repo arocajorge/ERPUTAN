@@ -1200,6 +1200,7 @@ namespace Core.Erp.Winform.Inventario
             try
             {
                 gridViewIngreso.MoveNext();
+                var motivo = cmbMotivoInv.get_MotivoInvInfo();
                 for (int i = 0; i < gridViewIngreso.RowCount; i++)
                 {                    
                     {
@@ -1216,14 +1217,16 @@ namespace Core.Erp.Winform.Inventario
 
                                 if (cmbCentroCostoD.EditValue != null && cmbSubcentroCostoD.EditValue != null)
                                 {
-                                    info_subcentro = list_subcentro_combo.Where(q => q.IdCentroCosto == cmbCentroCostoD.EditValue.ToString() && q.IdCentroCosto_sub_centro_costo == cmbSubcentroCostoD.EditValue.ToString()).FirstOrDefault();
-                                    if (info_subcentro != null)
+                                    if (motivo != null && motivo.es_Inven_o_Consumo == ein_Inventario_O_Consumo.TIC_CONSU)
                                     {
-                                        gridViewIngreso.SetRowCellValue(i, colIdCentroCosto, cmbCentroCostoD.EditValue.ToString());
-                                        gridViewIngreso.SetRowCellValue(i, colIdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdRegistro);
-                                        row.IdCentroCosto_sub_centro_costo = cmbSubcentroCostoD.EditValue.ToString();
+                                        info_subcentro = list_subcentro_combo.Where(q => q.IdCentroCosto == cmbCentroCostoD.EditValue.ToString() && q.IdCentroCosto_sub_centro_costo == cmbSubcentroCostoD.EditValue.ToString()).FirstOrDefault();
+                                        if (info_subcentro != null)
+                                        {
+                                            gridViewIngreso.SetRowCellValue(i, colIdCentroCosto, cmbCentroCostoD.EditValue.ToString());
+                                            gridViewIngreso.SetRowCellValue(i, colIdCentroCosto_sub_centro_costo, info_subcentro == null ? null : info_subcentro.IdRegistro);
+                                            row.IdCentroCosto_sub_centro_costo = cmbSubcentroCostoD.EditValue.ToString();
+                                        }    
                                     }
-
                                 }
                                 
                             }
@@ -1396,7 +1399,6 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-
                 modifica_grilla();
             }
             catch (Exception ex)
@@ -1426,6 +1428,10 @@ namespace Core.Erp.Winform.Inventario
                             {                                
                                 colIdCentroCosto_sub_centro_costo.Visible = false;
                                 colIdCentroCosto.Visible = false;
+
+                                cmbCentroCostoD.EditValue = null;
+                                cmbSubcentroCostoD.EditValue = null;
+                                
                             }
                             else
                             {
@@ -1479,6 +1485,11 @@ namespace Core.Erp.Winform.Inventario
                 
                 throw;
             }
+        }
+
+        private void cmbMotivoInv_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1471,7 +1471,7 @@ namespace Core.Erp.Data.Inventario
                 {
                     connection.Open();
 
-                    string query = "select IdEmpresa,IdSucursal,IdMovi_inven_tipo,IdNumMovi,IdBodega,signo,CodMoviInven,cm_observacion,cm_fecha,IdUsuario,Estado,IdCentroCosto,IdCentroCosto_sub_centro_costo,IdMotivo_oc,IdMotivo_Inv,IdResponsable "
+                    string query = "select IdEmpresa,IdSucursal,IdMovi_inven_tipo,IdNumMovi,IdBodega,signo,CodMoviInven,cm_observacion,cm_fecha,IdUsuario,Estado,IdCentroCosto,IdCentroCosto_sub_centro_costo,IdMotivo_oc,IdMotivo_Inv,IdResponsable, Estado "
                                 + " from in_Ing_Egr_Inven"
                                 + " where IdEmpresa = "+IdEmpresa.ToString()+" and IdSucursal = "+IdSucursal.ToString()+" and IdMovi_inven_tipo = "+IdMovi_inven_tipo.ToString()+" and IdNumMovi = "+IdNumMovi.ToString();
                     SqlCommand command = new SqlCommand(query,connection);
@@ -1499,6 +1499,7 @@ namespace Core.Erp.Data.Inventario
                             IdMotivo_Inv = string.IsNullOrEmpty(reader["IdMotivo_Inv"].ToString()) ? null : (int?)(reader["IdMotivo_Inv"]),
                             IdMotivo_oc = string.IsNullOrEmpty(reader["IdMotivo_oc"].ToString()) ? null : (int?)(reader["IdMotivo_oc"]),
                             IdResponsable = string.IsNullOrEmpty(reader["IdResponsable"].ToString()) ? null : (decimal?)(reader["IdResponsable"]),
+                            Estado  = Convert.ToString(reader["Estado"]),
                         };
                     }
                     reader.Close();

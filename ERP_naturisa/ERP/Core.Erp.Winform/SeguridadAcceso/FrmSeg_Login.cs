@@ -11,6 +11,8 @@ using Core.Erp.Info.SeguridadAcceso;
 using Core.Erp.Business.SeguridadAcceso;
 using Core.Erp.Info.General;
 using Core.Erp.Business.General;
+using System.Deployment.Application;
+using System.Reflection;
 
 
 namespace Core.Erp.Winform.SeguridadAcceso
@@ -130,6 +132,15 @@ namespace Core.Erp.Winform.SeguridadAcceso
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                this.Text = "vZen Publicación #.- " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+            }
+            else
+            {
+                this.Text = "vZen Publicación #.- " + Assembly.GetExecutingAssembly().GetName().Version;
+            }
+            
             txtUsuario.Focus();
         }
 
