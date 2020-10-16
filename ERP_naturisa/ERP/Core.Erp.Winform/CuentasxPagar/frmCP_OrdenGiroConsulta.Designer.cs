@@ -66,6 +66,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1 = new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbTrazabilidad = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlOG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UltraGrid_OrdenGiro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_tipo_flujo)).BeginInit();
@@ -76,21 +78,21 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTrazabilidad)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlOG
             // 
             this.gridControlOG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlOG.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlOG.Location = new System.Drawing.Point(2, 2);
             this.gridControlOG.MainView = this.UltraGrid_OrdenGiro;
-            this.gridControlOG.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlOG.Name = "gridControlOG";
             this.gridControlOG.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_tipo_flujo,
             this.cmb_tiene_ingresos,
-            this.cmb_imprimir});
-            this.gridControlOG.Size = new System.Drawing.Size(1599, 337);
+            this.cmb_imprimir,
+            this.cmbTrazabilidad});
+            this.gridControlOG.Size = new System.Drawing.Size(1198, 273);
             this.gridControlOG.TabIndex = 14;
             this.gridControlOG.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.UltraGrid_OrdenGiro});
@@ -118,7 +120,8 @@
             this.gridColumn5,
             this.col_tiene_ingresos,
             this.gridColumn6,
-            this.gridColumn7});
+            this.gridColumn7,
+            this.gridColumn8});
             this.UltraGrid_OrdenGiro.CustomizationFormBounds = new System.Drawing.Rectangle(519, 397, 216, 178);
             this.UltraGrid_OrdenGiro.GridControl = this.gridControlOG;
             this.UltraGrid_OrdenGiro.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -404,6 +407,7 @@
             this.lst_img.TransparentColor = System.Drawing.Color.Transparent;
             this.lst_img.Images.SetKeyName(0, "1388723697_1710.ico");
             this.lst_img.Images.SetKeyName(1, "imprimir_16x16.png");
+            this.lst_img.Images.SetKeyName(2, "Chain_16x16.png");
             // 
             // gridColumn6
             // 
@@ -463,17 +467,17 @@
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2018, 7, 3, 17, 12, 13, 918);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2018, 9, 3, 17, 12, 13, 918);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_desde = new System.DateTime(2020, 10, 8, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.fecha_hasta = new System.DateTime(2020, 10, 15, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.GridControlConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Location = new System.Drawing.Point(2, 2);
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_Menu_Mantenimiento_x_usuario1.Name = "ucGe_Menu_Mantenimiento_x_usuario1";
             this.ucGe_Menu_Mantenimiento_x_usuario1.Perfil_x_usuario = null;
-            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1599, 181);
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Size = new System.Drawing.Size(1198, 146);
             this.ucGe_Menu_Mantenimiento_x_usuario1.TabIndex = 17;
+            this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_bodega = false;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario1.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -518,27 +522,52 @@
             this.panelControl1.Controls.Add(this.ucGe_Menu_Mantenimiento_x_usuario1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1603, 185);
+            this.panelControl1.Size = new System.Drawing.Size(1202, 150);
             this.panelControl1.TabIndex = 18;
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.gridControlOG);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 185);
+            this.panelControl2.Location = new System.Drawing.Point(0, 150);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1603, 341);
+            this.panelControl2.Size = new System.Drawing.Size(1202, 277);
             this.panelControl2.TabIndex = 19;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.ColumnEdit = this.cmbTrazabilidad;
+            this.gridColumn8.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn8.ImageIndex = 2;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 11;
+            // 
+            // cmbTrazabilidad
+            // 
+            this.cmbTrazabilidad.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbTrazabilidad.AutoHeight = false;
+            this.cmbTrazabilidad.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbTrazabilidad.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbTrazabilidad.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 2)});
+            this.cmbTrazabilidad.Name = "cmbTrazabilidad";
+            this.cmbTrazabilidad.ReadOnly = true;
+            this.cmbTrazabilidad.SmallImages = this.lst_img;
+            this.cmbTrazabilidad.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbTrazabilidad_ButtonClick);
+            this.cmbTrazabilidad.Click += new System.EventHandler(this.cmbTrazabilidad_Click);
             // 
             // frmCP_OrdenGiroConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1603, 526);
+            this.ClientSize = new System.Drawing.Size(1202, 427);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCP_OrdenGiroConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Facturas de Proveedores";
@@ -553,6 +582,7 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTrazabilidad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,6 +625,8 @@
         private Controles.UCGe_Menu_Mantenimiento_x_usuario ucGe_Menu_Mantenimiento_x_usuario1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbTrazabilidad;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

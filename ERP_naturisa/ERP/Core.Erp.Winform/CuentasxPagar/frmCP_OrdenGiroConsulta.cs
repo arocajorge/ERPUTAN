@@ -16,6 +16,7 @@ using Core.Erp.Business.Bancos;
 using Cus.Erp.Reports.Naturisa.CuentasxPagar;
 using DevExpress.XtraReports.UI;
 using Core.Erp.Reportes.CuentasxPagar;
+using Core.Erp.Reportes.Inventario;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -501,6 +502,39 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 if(splashScreenManager1.IsSplashFormVisible)
                     splashScreenManager1.CloseWaitForm();
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cmbTrazabilidad_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
+
+        private void cmbTrazabilidad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cp_orden_giro_consulta_Info row = (cp_orden_giro_consulta_Info)UltraGrid_OrdenGiro.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if (MessageBox.Show("Desea Imprimir el reporte de trazabilidad de factura del proveedor", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    XINV_0008_rpt rpt1 = new XINV_0008_rpt();
+                    rpt1.NomEmpresa = param.NombreEmpresa;
+                    rpt1.p_IdEmpresa.Value = param.IdEmpresa;
+                    rpt1.p_IdTipoCbte.Value = row.IdTipoCbte_Ogiro;
+                    rpt1.p_IdCbteCble.Value = row.IdCbteCble_Ogiro;
+                    ReportPrintTool pt = new ReportPrintTool(rpt1);
+                    pt.AutoShowParametersPanel = false;
+                    rpt1.RequestParameters = false;
+                    pt.ShowPreviewDialog();
+                }  
+            }
+            catch (Exception ex)
+            {
                 Log_Error_bus.Log_Error(ex.ToString());
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
