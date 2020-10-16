@@ -338,7 +338,7 @@ namespace Core.Erp.Reportes.Controles
                 {                    
                     if (item.IdBodega != 0)
                     {
-                        string linea = item.bo_Descripcion + "                                                                                                                                                          " + item.IdBodega.ToString().PadLeft(10, '0');
+                        string linea = "["+item.IdBodega.ToString()+"] "+ item.bo_Descripcion + "                                                                                                                                                          " + item.IdBodega.ToString().PadLeft(10, '0');
                         cmb_chk_bodega.Items.Add(linea);
                     }
                 }
