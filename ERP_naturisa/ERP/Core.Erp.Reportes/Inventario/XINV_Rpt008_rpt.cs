@@ -7,12 +7,12 @@ using System.Collections.Generic;
 
 namespace Core.Erp.Reportes.Inventario
 {
-    public partial class XINV_0008_rpt : DevExpress.XtraReports.UI.XtraReport
+    public partial class XINV_Rpt008_rpt : DevExpress.XtraReports.UI.XtraReport
     {
         XINV_Rpt008_Bus busRpt = new XINV_Rpt008_Bus();
         List<XINV_Rpt008_Info> lstRpt = new List<XINV_Rpt008_Info>();
         public string NomEmpresa { get; set; }
-        public XINV_0008_rpt()
+        public XINV_Rpt008_rpt()
         {
             InitializeComponent();
         }

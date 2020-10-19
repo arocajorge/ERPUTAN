@@ -42,10 +42,6 @@
             this.gridViewReporte = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCodReporte = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colModulo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObservacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colVistaRpt = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colFormulario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCheked = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -105,12 +101,14 @@
             this.ucGe_Menu.Visible_btn_Imprimir_Reten = false;
             this.ucGe_Menu.Visible_btnAceptar = false;
             this.ucGe_Menu.Visible_btnAprobarGuardarSalir = false;
+            this.ucGe_Menu.Visible_btnContabilizar = false;
             this.ucGe_Menu.Visible_btnEstadosOC = false;
             this.ucGe_Menu.Visible_btnGuardar = true;
             this.ucGe_Menu.Visible_btnImpFrm = false;
             this.ucGe_Menu.Visible_btnImpLote = false;
             this.ucGe_Menu.Visible_btnImpRep = false;
             this.ucGe_Menu.Visible_btnImprimirSoporte = false;
+            this.ucGe_Menu.Visible_btnModificar = false;
             this.ucGe_Menu.Visible_btnproductos = false;
             this.ucGe_Menu.event_btnGuardar_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnGuardar_Click(this.ucGe_Menu_event_btnGuardar_Click);
             this.ucGe_Menu.event_btnGuardar_y_Salir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnGuardar_y_Salir_Click(this.ucGe_Menu_event_btnGuardar_y_Salir_Click);
@@ -163,6 +161,7 @@
             this.chkTodo.TabIndex = 2;
             this.chkTodo.Text = "Seleccionar Todo";
             this.chkTodo.UseVisualStyleBackColor = true;
+            this.chkTodo.CheckedChanged += new System.EventHandler(this.chkTodo_CheckedChanged);
             // 
             // cmb_usuario
             // 
@@ -229,19 +228,13 @@
             this.gridViewReporte.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colCodReporte,
             this.colNombre,
-            this.colModulo,
-            this.colObservacion,
-            this.colVistaRpt,
-            this.colFormulario,
             this.colCheked});
             this.gridViewReporte.GridControl = this.gridControlReporte;
-            this.gridViewReporte.GroupCount = 1;
             this.gridViewReporte.Name = "gridViewReporte";
+            this.gridViewReporte.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridViewReporte.OptionsFind.AlwaysVisible = true;
             this.gridViewReporte.OptionsView.ShowAutoFilterRow = true;
             this.gridViewReporte.OptionsView.ShowGroupPanel = false;
-            this.gridViewReporte.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colModulo, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colCodReporte
             // 
@@ -262,46 +255,6 @@
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 2;
             this.colNombre.Width = 384;
-            // 
-            // colModulo
-            // 
-            this.colModulo.Caption = "Modulo";
-            this.colModulo.FieldName = "InfoReporte.Modulo";
-            this.colModulo.Name = "colModulo";
-            this.colModulo.OptionsColumn.AllowEdit = false;
-            this.colModulo.Visible = true;
-            this.colModulo.VisibleIndex = 3;
-            this.colModulo.Width = 146;
-            // 
-            // colObservacion
-            // 
-            this.colObservacion.Caption = "Observacion";
-            this.colObservacion.FieldName = "InfoReporte.Observacion";
-            this.colObservacion.Name = "colObservacion";
-            this.colObservacion.OptionsColumn.AllowEdit = false;
-            this.colObservacion.Visible = true;
-            this.colObservacion.VisibleIndex = 3;
-            this.colObservacion.Width = 67;
-            // 
-            // colVistaRpt
-            // 
-            this.colVistaRpt.Caption = "VistaRpt";
-            this.colVistaRpt.FieldName = "InfoReporte.VistaRpt";
-            this.colVistaRpt.Name = "colVistaRpt";
-            this.colVistaRpt.OptionsColumn.AllowEdit = false;
-            this.colVistaRpt.Visible = true;
-            this.colVistaRpt.VisibleIndex = 4;
-            this.colVistaRpt.Width = 67;
-            // 
-            // colFormulario
-            // 
-            this.colFormulario.Caption = "Formulario";
-            this.colFormulario.FieldName = "InfoReporte.Formulario";
-            this.colFormulario.Name = "colFormulario";
-            this.colFormulario.OptionsColumn.AllowEdit = false;
-            this.colFormulario.Visible = true;
-            this.colFormulario.VisibleIndex = 5;
-            this.colFormulario.Width = 74;
             // 
             // colCheked
             // 
@@ -350,10 +303,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewReporte;
         private DevExpress.XtraGrid.Columns.GridColumn colCodReporte;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
-        private DevExpress.XtraGrid.Columns.GridColumn colModulo;
-        private DevExpress.XtraGrid.Columns.GridColumn colObservacion;
-        private DevExpress.XtraGrid.Columns.GridColumn colVistaRpt;
-        private DevExpress.XtraGrid.Columns.GridColumn colFormulario;
         private DevExpress.XtraGrid.Columns.GridColumn colCheked;
         private System.Windows.Forms.CheckBox chkTodo;
         private DevExpress.XtraGrid.Columns.GridColumn colNombre1;

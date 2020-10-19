@@ -48,7 +48,6 @@
             this.cmbProducto_Grid = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.repositoryItemSearchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbTipoMovInve = new DevExpress.XtraBars.BarEditItem();
             this.CmbTipoMov_Grid = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
@@ -77,9 +76,13 @@
             this.bei_Categoria = new DevExpress.XtraBars.BarEditItem();
             this.cmb_Categoria = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.beiLinea = new DevExpress.XtraBars.BarEditItem();
             this.cmb_Linea = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.GrupoSucu_bod = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.GrupoCategoriaLinea = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,10 +93,6 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSucursal_Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
@@ -301,7 +300,7 @@
             this.cmbProducto_Grid.AutoHeight = false;
             this.cmbProducto_Grid.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbProducto_Grid.DisplayMember = "pr_descripcion";
+            this.cmbProducto_Grid.DisplayMember = "pr_descripcion_2";
             this.cmbProducto_Grid.Name = "cmbProducto_Grid";
             this.cmbProducto_Grid.ValueMember = "IdProducto";
             this.cmbProducto_Grid.View = this.repositoryItemSearchLookUpEdit2View;
@@ -310,11 +309,11 @@
             // 
             this.repositoryItemSearchLookUpEdit2View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn5,
-            this.gridColumn6,
             this.gridColumn7});
             this.repositoryItemSearchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.repositoryItemSearchLookUpEdit2View.Name = "repositoryItemSearchLookUpEdit2View";
             this.repositoryItemSearchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit2View.OptionsView.ShowAutoFilterRow = true;
             this.repositoryItemSearchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn5
@@ -322,14 +321,9 @@
             this.gridColumn5.Caption = "IdProducto";
             this.gridColumn5.FieldName = "IdProducto";
             this.gridColumn5.Name = "gridColumn5";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Código";
-            this.gridColumn6.FieldName = "pr_codigo";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 1;
+            this.gridColumn5.Width = 292;
             // 
             // gridColumn7
             // 
@@ -337,7 +331,8 @@
             this.gridColumn7.FieldName = "pr_descripcion";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 1;
+            this.gridColumn7.VisibleIndex = 0;
+            this.gridColumn7.Width = 1442;
             // 
             // cmbTipoMovInve
             // 
@@ -457,7 +452,7 @@
             this.cmb_centroCosto.AutoHeight = false;
             this.cmb_centroCosto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_centroCosto.DisplayMember = "Centro_costo";
+            this.cmb_centroCosto.DisplayMember = "Centro_costo2";
             this.cmb_centroCosto.Name = "cmb_centroCosto";
             this.cmb_centroCosto.ValueMember = "IdCentroCosto";
             this.cmb_centroCosto.View = this.repositoryItemSearchLookUpEdit4View;
@@ -589,6 +584,24 @@
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "Categoria";
+            this.gridColumn18.FieldName = "ca_Categoria";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 0;
+            this.gridColumn18.Width = 1073;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "ID";
+            this.gridColumn19.FieldName = "IdCategoria";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 1;
+            this.gridColumn19.Width = 107;
+            // 
             // beiLinea
             // 
             this.beiLinea.Caption = "Línea:         ";
@@ -617,6 +630,24 @@
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "ID";
+            this.gridColumn20.FieldName = "IdLinea";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 1;
+            this.gridColumn20.Width = 108;
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Linea";
+            this.gridColumn21.FieldName = "nom_linea";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 0;
+            this.gridColumn21.Width = 1072;
             // 
             // ribbonPage1
             // 
@@ -691,42 +722,6 @@
             this.gridColumn13.FieldName = "pr_estado";
             this.gridColumn13.Name = "gridColumn13";
             // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "Categoria";
-            this.gridColumn18.FieldName = "ca_Categoria";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 0;
-            this.gridColumn18.Width = 1073;
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "ID";
-            this.gridColumn19.FieldName = "IdCategoria";
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 1;
-            this.gridColumn19.Width = 107;
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.Caption = "ID";
-            this.gridColumn20.FieldName = "IdLinea";
-            this.gridColumn20.Name = "gridColumn20";
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 1;
-            this.gridColumn20.Width = 108;
-            // 
-            // gridColumn21
-            // 
-            this.gridColumn21.Caption = "Linea";
-            this.gridColumn21.FieldName = "nom_linea";
-            this.gridColumn21.Name = "gridColumn21";
-            this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 0;
-            this.gridColumn21.Width = 1072;
-            // 
             // UCInv_MenuReportes_2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -777,7 +772,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup GrupoBotones;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbProducto_Grid;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit2View;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit CmbTipoMov_Grid;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit3View;
@@ -786,7 +780,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
@@ -807,7 +800,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         public DevExpress.XtraBars.BarEditItem cmbProveedor;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupCentroCosto;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_centroCosto;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit4View;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_subCentro_costo;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit5View;
@@ -830,5 +822,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        public DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmb_centroCosto;
+        public DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbProducto_Grid;
     }
 }

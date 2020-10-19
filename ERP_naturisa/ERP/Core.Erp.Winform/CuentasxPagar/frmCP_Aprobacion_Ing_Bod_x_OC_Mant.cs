@@ -21,6 +21,8 @@ using Core.Erp.Winform.Inventario;
 
 using Core.Erp.Info.Facturacion;
 using Core.Erp.Business.Facturacion;
+using Core.Erp.Reportes.Inventario;
+using DevExpress.XtraReports.UI;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -569,6 +571,19 @@ namespace Core.Erp.Winform.CuentasxPagar
                                         {
                                             MessageBox.Show("Documento XML contabilizado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                         }
+                                    }
+
+                                    if (MessageBox.Show("Desea imprimir el reporte de trazabilidad de la factura?",param.Nombre_sistema,MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                         XINV_Rpt008_rpt rpt1 = new XINV_Rpt008_rpt();
+                                        rpt1.NomEmpresa = param.NombreEmpresa;
+                                        rpt1.p_IdEmpresa.Value = param.IdEmpresa;
+                                        rpt1.p_IdTipoCbte.Value = Info.IdTipoCbte_Ogiro;
+                                        rpt1.p_IdCbteCble.Value = Info.IdCbteCble_Ogiro;
+                                        ReportPrintTool pt = new ReportPrintTool(rpt1);
+                                        pt.AutoShowParametersPanel = false;
+                                        rpt1.RequestParameters = false;
+                                        pt.ShowPreviewDialog();
                                     }
                                     
                                 }

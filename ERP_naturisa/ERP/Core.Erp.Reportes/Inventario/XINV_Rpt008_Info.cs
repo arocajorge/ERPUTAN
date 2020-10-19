@@ -36,5 +36,7 @@ namespace Core.Erp.Reportes.Inventario
         public double re_valor_retencion { get; set; }
         public double ValorAPagar { get; set; }
         public decimal IdNumMovi_Ing_Egr_Inv { get; set; }
+        public string IdUsuarioApro { get; set; }
+        public decimal? IdOrdenPedido { get; set; }
     }
 }

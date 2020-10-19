@@ -522,7 +522,7 @@ namespace Core.Erp.Winform.CuentasxPagar
 
                 if (MessageBox.Show("Desea Imprimir el reporte de trazabilidad de factura del proveedor", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    XINV_0008_rpt rpt1 = new XINV_0008_rpt();
+                    XINV_Rpt008_rpt rpt1 = new XINV_Rpt008_rpt();
                     rpt1.NomEmpresa = param.NombreEmpresa;
                     rpt1.p_IdEmpresa.Value = param.IdEmpresa;
                     rpt1.p_IdTipoCbte.Value = row.IdTipoCbte_Ogiro;

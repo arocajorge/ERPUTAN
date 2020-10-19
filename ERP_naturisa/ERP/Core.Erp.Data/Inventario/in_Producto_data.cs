@@ -1888,7 +1888,8 @@ namespace Core.Erp.Data.Inventario
                              IdProducto = Convert.ToDecimal(reader["IdProducto"]),
                              pr_descripcion = reader["pr_descripcion"].ToString(),
                              IdUnidadMedida = reader["IdUnidadMedida"].ToString(),
-                             IdUnidadMedida_Consumo = reader["IdUnidadMedida_Consumo"].ToString()
+                             IdUnidadMedida_Consumo = reader["IdUnidadMedida_Consumo"].ToString(),
+                             pr_descripcion_2 = "[" + reader["IdProducto"].ToString()+"] "+reader["pr_descripcion"].ToString()
                          });
                      }
                 }

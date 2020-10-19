@@ -179,58 +179,55 @@ namespace Core.Erp.Data.General
             }
         }
 
-        public List<tb_sis_reporte_Info> Get_List_reporte_x_Modulo(List<tb_modulo_Info> lstModulo)
+        public List<tb_sis_reporte_Info> Get_List_reporte_x_Modulo(List<tb_modulo_Info> lstModulo, string IdUsuario)
         {
             try
             {
                 List<tb_sis_reporte_Info> Lst = new List<tb_sis_reporte_Info>();
-                var list = new List<string>();
-                foreach (var item in lstModulo)
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    list.Add(item.CodModulo);
+                    connection.Open();
+                    string Incluida = "";
+                    foreach (var item in lstModulo)
+                    {
+                        Incluida += string.IsNullOrEmpty(Incluida) ? ("'" + item.CodModulo + "'") : (",'" + item.CodModulo + "'");
+                    }
+                    string query = "select b.CodReporte, b.Nombre, b.NombreCorto, b.Modulo, b.VistaRpt, b.Formulario, b.Orden,"
+                                + " b.Class_NomReporte, b.Observacion, b.nom_Asembly, b.Tipo_Balance, b.Estado, b.se_Muestra_Admin_Reporte, "
+                                +" b.VersionActual, b.SQuery, b.Class_Info, b.Class_Bus, b.Class_Data, b.Store_proce_rpt, b.Disenio_reporte"
+                                +" from seg_usuario_x_tb_sis_reporte as a inner join"
+                                +" tb_sis_reporte as b on a.CodReporte = b.CodReporte"
+                                +" where b.Estado = 'A' AND B.se_Muestra_Admin_Reporte = 1 AND B.Modulo IN ("+Incluida+") AND A.IdUsuario = '"+IdUsuario+"'";
+                    SqlCommand command = new SqlCommand(query,connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Lst.Add(new tb_sis_reporte_Info
+                        {
+                            CodReporte = Convert.ToString(reader["CodReporte"]),
+                            Nombre = Convert.ToString(reader["Nombre"]),
+                            NombreCorto = Convert.ToString(reader["NombreCorto"]),
+                            Modulo = Convert.ToString(reader["Modulo"]),
+                            VistaRpt = Convert.ToString(reader["VistaRpt"]),
+                            Formulario = Convert.ToString(reader["Formulario"]),
+                            Orden = Convert.ToInt32(reader["Orden"]),
+                            Class_NomReporte = Convert.ToString(reader["Class_NomReporte"]),
+                            Observacion = Convert.ToString(reader["Observacion"]),
+                            nom_Asembly = Convert.ToString(reader["nom_Asembly"]),
+                            Tipo_Balance = Convert.ToString(reader["Tipo_Balance"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            se_Muestra_Admin_Reporte = Convert.ToBoolean(Convert.ToString(reader["se_Muestra_Admin_Reporte"])),
+                            VersionActual = Convert.ToInt32(Convert.ToString(reader["VersionActual"])),
+                            SQuery = Convert.ToString(reader["SQuery"]),
+                            Class_Info = Convert.ToString(reader["Class_Info"]),
+                            Class_Bus = Convert.ToString(reader["Class_Bus"]),
+                            Class_Data = Convert.ToString(reader["Class_Data"]),
+                            Store_proce_rpt = Convert.ToString(reader["Store_proce_rpt"])
+                        });
+                    }
                 }
-                EntitiesGeneral oEnti = new EntitiesGeneral();
-                var Query = from q in oEnti.tb_sis_reporte
-                            where q.se_Muestra_Admin_Reporte == true
-                             && q.Estado == "A" &&  (list.Contains(q.Modulo))
-                            select q;
-
-                              
-                foreach (var item in Query)
-                {
-                    tb_sis_reporte_Info Obj = new tb_sis_reporte_Info();
-                    Obj.CodReporte = item.CodReporte;
-                    Obj.Nombre = item.Nombre;
-                    Obj.NombreCorto = item.NombreCorto;
-                    Obj.Modulo = item.Modulo;
-                    Obj.VistaRpt = item.VistaRpt;
-                    Obj.Formulario = item.Formulario;
-                    Obj.Orden = item.Orden;
-                    Obj.Class_NomReporte = item.Class_NomReporte;
-                    Obj.Observacion = item.Observacion;
-                    Obj.imgByt = item.imagen;
-                    Obj.imagen = Funciones.ArrayAImage(item.imagen);
-                    Obj.nom_Asembly = item.nom_Asembly;
-                    Obj.Tipo_Balance = item.Tipo_Balance;
-                    Obj.Estado = item.Estado;
-                    Obj.se_Muestra_Admin_Reporte = Convert.ToBoolean(item.se_Muestra_Admin_Reporte);
-                    Obj.VersionActual = Convert.ToInt32(item.VersionActual);
-                    
-                    Obj.SQuery = item.SQuery;
-
-
-                    Obj.Class_Info = item.Class_Info;
-                    Obj.Class_Bus = item.Class_Bus;
-                    Obj.Class_Data = item.Class_Data;
-
-                    Obj.Store_proce_rpt = item.Store_proce_rpt;
-                    Obj.Disenio_reporte = item.Disenio_reporte;
-
-                    Obj.Se_Muestra_Icono = true;
-
-
-                    Lst.Add(Obj);
-                }
+             
                 return Lst;
             }
             catch (Exception ex)

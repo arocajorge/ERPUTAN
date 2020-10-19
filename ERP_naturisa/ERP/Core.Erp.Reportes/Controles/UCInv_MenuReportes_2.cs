@@ -145,7 +145,11 @@ public partial class UCInv_MenuReportes_2 : UserControl
             set { this.barEditItemCentroCosto.Visibility = value; }
         }
 
-        
+        public DevExpress.XtraBars.BarItemVisibility VisibleCmb_SubCentro
+        {
+            get { return this.barEditItemSubCentroCosto.Visibility; }
+            set { this.barEditItemSubCentroCosto.Visibility = value; }
+        }
 
 
         public Boolean EnableBotonImprimir
@@ -250,7 +254,7 @@ public partial class UCInv_MenuReportes_2 : UserControl
                 infoSubcentro_costo.IdCentroCosto_sub_centro_costo = "Todos";
                 infoSubcentro_costo.Centro_costo = "Todos";
 
-                lstProductoInfo = busProducto.Get_list_Producto(param.IdEmpresa);
+                lstProductoInfo = busProducto.GetListProductoCombo(param.IdEmpresa,Cl_Enumeradores.eModulos.INV);
                 lstProductoInfo.Add(infoProducto);
                 cmbProducto_Grid.DataSource = lstProductoInfo.OrderBy(q => q.IdProducto).ToList();
 

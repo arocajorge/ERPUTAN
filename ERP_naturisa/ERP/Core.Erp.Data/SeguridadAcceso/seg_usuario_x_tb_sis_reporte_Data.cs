@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Core.Erp.Info.SeguridadAcceso;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 
 namespace Core.Erp.Data.SeguridadAcceso
@@ -19,38 +20,52 @@ namespace Core.Erp.Data.SeguridadAcceso
             List<seg_usuario_x_tb_sis_reporte_Info> returnValue = new List<seg_usuario_x_tb_sis_reporte_Info>();
             try
             {
-                EntitiesSeguAcceso OESeguridad = new EntitiesSeguAcceso();
-
-                var selectMenu = from C in OESeguridad.vwseg_usuario_x_tb_sis_reporte
-                                 where C.IdUsuario==IdUsuario
-                                 select C;
-
-                foreach (var item in selectMenu)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    seg_usuario_x_tb_sis_reporte_Info oM = new seg_usuario_x_tb_sis_reporte_Info();
-                    oM.IdUsuario = item.IdUsuario;
-                    oM.CodReporte = item.CodReporte;
-                    oM.InfoReporte.Class_Bus = item.Class_Bus;
-                    oM.InfoReporte.Class_Data = item.Class_Data;
-                    oM.InfoReporte.Class_Info = item.Class_Info;
-                    oM.InfoReporte.Class_NomReporte = item.Class_NomReporte;
-                    oM.InfoReporte.CodReporte = item.CodReporte;
-                    oM.InfoReporte.Estado = item.Estado;
-                    oM.InfoReporte.Formulario = item.Formulario;
-                    oM.InfoReporte.Modulo = item.Modulo;
-                    oM.InfoReporte.nom_Asembly = item.nom_Asembly;
-                    oM.InfoReporte.Nombre = item.Nombre;
-                    oM.InfoReporte.NombreCorto = item.NombreCorto;
-                    oM.InfoReporte.Observacion = item.Observacion;
-                    oM.InfoReporte.Orden = item.Orden;
-                    oM.InfoReporte.se_Muestra_Admin_Reporte = (item.se_Muestra_Admin_Reporte == null) ? false : Convert.ToBoolean(item.se_Muestra_Admin_Reporte);
-                    oM.InfoReporte.Se_Muestra_Icono = true;
-                    oM.InfoReporte.Tipo_Balance = item.Tipo_Balance;
-                    oM.InfoReporte.VersionActual = 0;
-                    oM.InfoReporte.VistaRpt = item.VistaRpt;
-                    oM.InfoReporte.esta_en_base = (item.esta_en_base == null) ? false : Convert.ToBoolean(item.esta_en_base);
+                    connection.Open();
 
-                    returnValue.Add(oM);
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select a.CodReporte, a.Nombre "
+                                        +" from tb_sis_reporte as a inner join"
+                                        +" seg_usuario_x_tb_sis_reporte as b on a.CodReporte = b.CodReporte"
+                                        +" where a.se_Muestra_Admin_Reporte = 1 and a.Estado = 'A' and b.IdUsuario = '"+IdUsuario+"'";
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        returnValue.Add(new seg_usuario_x_tb_sis_reporte_Info
+                        {
+                            CodReporte = Convert.ToString(reader["CodReporte"]),
+                            InfoReporte = new tb_sis_reporte_Info
+                            {
+                                CodReporte = Convert.ToString(reader["CodReporte"]),
+                                Nombre = Convert.ToString(reader["Nombre"]),
+                                esta_en_base = true
+                            }
+                        });
+                    }
+                    command.CommandText = "select a.CodReporte, a.Nombre "
+                                        +" from tb_sis_reporte as a "
+                                        +" where a.se_Muestra_Admin_Reporte = 1 and a.Estado = 'A'"
+                                        +" and NOT EXISTS("
+                                        +" SELECT b.CodReporte FROM seg_usuario_x_tb_sis_reporte as b"
+                                        +" where a.CodReporte = b.CodReporte and b.IdUsuario = '"+IdUsuario+"')";
+                    reader.Close();
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        returnValue.Add(new seg_usuario_x_tb_sis_reporte_Info
+                        {
+                            CodReporte = Convert.ToString(reader["CodReporte"]),
+                            InfoReporte = new tb_sis_reporte_Info
+                            {
+                                CodReporte = Convert.ToString(reader["CodReporte"]),
+                                Nombre = Convert.ToString(reader["Nombre"]),
+                                esta_en_base = false
+                            }
+                        });
+                    }
+                    reader.Close();
                 }
 
                 return (returnValue);

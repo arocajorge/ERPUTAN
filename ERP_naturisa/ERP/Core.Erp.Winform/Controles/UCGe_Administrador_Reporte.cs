@@ -18,7 +18,7 @@ namespace Core.Erp.Winform.Controles
     public partial class UCGe_Administrador_Reporte : UserControl
     {
         tb_sis_Log_Error_Vzen_Bus Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
-
+        cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
         private Assembly Ensamblado;
         string RutaPantalla;
 
@@ -55,7 +55,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                LstRpt = rpt_B.Get_list_sis_reporte(lstModulo);
+                LstRpt = rpt_B.Get_List_reporte_x_Modulo(lstModulo,param.IdUsuario);
 
 
                 (from q in LstRpt select q).ToList().ForEach(tb =>

@@ -133,7 +133,7 @@
             this.colNombre1.Name = "colNombre1";
             this.colNombre1.OptionsColumn.AllowEdit = false;
             this.colNombre1.Visible = true;
-            this.colNombre1.VisibleIndex = 2;
+            this.colNombre1.VisibleIndex = 1;
             this.colNombre1.Width = 320;
             // 
             // colNombreCorto1
@@ -187,7 +187,7 @@
             this.colObservacion1.Name = "colObservacion1";
             this.colObservacion1.OptionsColumn.AllowEdit = false;
             this.colObservacion1.Visible = true;
-            this.colObservacion1.VisibleIndex = 3;
+            this.colObservacion1.VisibleIndex = 2;
             this.colObservacion1.Width = 256;
             // 
             // colImagen
@@ -197,8 +197,6 @@
             this.colImagen.FieldName = "Se_Muestra_Icono";
             this.colImagen.Name = "colImagen";
             this.colImagen.OptionsColumn.AllowEdit = false;
-            this.colImagen.Visible = true;
-            this.colImagen.VisibleIndex = 1;
             this.colImagen.Width = 58;
             // 
             // cmb_imagenes

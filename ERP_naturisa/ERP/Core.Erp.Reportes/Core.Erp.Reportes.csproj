@@ -1022,11 +1022,11 @@
     <Compile Include="frmGe_Esperar.designer.cs">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\XINV_0008_rpt.cs">
+    <Compile Include="Inventario\XINV_Rpt008_rpt.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Inventario\XINV_0008_rpt.Designer.cs">
-      <DependentUpon>XINV_0008_rpt.cs</DependentUpon>
+    <Compile Include="Inventario\XINV_Rpt008_rpt.Designer.cs">
+      <DependentUpon>XINV_Rpt008_rpt.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\XINV_Rpt008_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt008_Data.cs" />
@@ -1046,6 +1046,15 @@
     <Compile Include="Inventario\XINV_Rpt013_Rpt.Designer.cs">
       <DependentUpon>XINV_Rpt013_Rpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\XINV_Rpt014_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt014_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt014_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt014_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt014_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt014_Info.cs" />
     <Compile Include="Inventario\XINV_Rpt029_Bus.cs" />
     <Compile Include="Inventario\XINV_Rpt029_Data.cs" />
     <Compile Include="Inventario\XINV_Rpt029_frm.cs">
@@ -3486,14 +3495,17 @@
     <EmbeddedResource Include="frmGe_Esperar.resx">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\XINV_0008_rpt.resx">
-      <DependentUpon>XINV_0008_rpt.cs</DependentUpon>
+    <EmbeddedResource Include="Inventario\XINV_Rpt008_rpt.resx">
+      <DependentUpon>XINV_Rpt008_rpt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_Rpt013_frm.resx">
       <DependentUpon>XINV_Rpt013_frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_Rpt013_Rpt.resx">
       <DependentUpon>XINV_Rpt013_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt014_frm.resx">
+      <DependentUpon>XINV_Rpt014_frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_Rpt029_frm.resx">
       <DependentUpon>XINV_Rpt029_frm.cs</DependentUpon>

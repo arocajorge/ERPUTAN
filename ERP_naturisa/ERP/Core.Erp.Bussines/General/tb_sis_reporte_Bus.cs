@@ -146,11 +146,11 @@ namespace Core.Erp.Business.General
 
         }
 
-        public List<tb_sis_reporte_Info> Get_list_sis_reporte(List<tb_modulo_Info> lstModulo)
+        public List<tb_sis_reporte_Info> Get_List_reporte_x_Modulo(List<tb_modulo_Info> lstModulo, string IdUsuario)
         {
             try
             {
-                 return data.Get_List_reporte_x_Modulo(lstModulo);
+                 return data.Get_List_reporte_x_Modulo(lstModulo,IdUsuario);
             }
             catch (Exception ex)
             {

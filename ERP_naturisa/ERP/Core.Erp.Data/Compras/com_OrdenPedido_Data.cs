@@ -903,6 +903,8 @@ namespace Core.Erp.Data.Compras
                     var lst = db.com_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.EstadoJC == "A" && q.EstadoGA == "P").ToList();
                     var SolPed = db.com_OrdenPedido.Where(q=> q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido).FirstOrDefault(); 
                     IdOrdenPedidoAnt = SolPed.IdOrdenPedidoReg ?? 0;
+                    SolPed.IdCatalogoEstado = "EST_OP_CER";
+                    db.SaveChanges();
                     foreach (var item in lst)
                     {
                         com_CotizacionPedido_Info info;

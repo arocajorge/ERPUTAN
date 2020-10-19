@@ -19,7 +19,7 @@ namespace Core.Erp.Reportes.Inventario
                 using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
                     connection.Open();
-                    string query = "select e.IdEmpresa, e.IdSucursal, e.IdOrdenCompra, "
+                    string query = "select e.IdEmpresa, e.IdSucursal, e.IdOrdenCompra, p.IdUsuarioAprobacion, p.IdOrdenPedido,"
                                 +" h.codigo+'-'+cast(e.IdOrdenCompra as varchar) as CodigoOC, e.Secuencia, f.pr_descripcion,"
                                 +" i.oc_fecha, j.cm_fecha, b.co_FechaFactura, d.dm_cantidad_sinConversion, K.Descripcion as NomUnidadMedida,"
                                 +" c.Costo_uni, c.Descuento, c.SubTotal, c.valor_Iva, c.Total, g.Su_Descripcion as SucursalIngreso,"
@@ -45,7 +45,9 @@ namespace Core.Erp.Reportes.Inventario
                                 +" cp_retencion_det as b on a.IdEmpresa = b.IdEmpresa and a.IdRetencion = b.IdRetencion"
                                 +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.IdTipoCbte_Ogiro = "+IdTipoCbte.ToString()+" and a.IdCbteCble_Ogiro = "+IdCbteCble.ToString()
                                 +" group by a.IdEmpresa_Ogiro, a.IdTipoCbte_Ogiro, a.IdCbteCble_Ogiro"
-                                +" ) as n on b.IdEmpresa = n.IdEmpresa_Ogiro and b.IdTipoCbte_Ogiro = n.IdTipoCbte_Ogiro and b.IdCbteCble_Ogiro = n.IdCbteCble_Ogiro"
+                                +" ) as n on b.IdEmpresa = n.IdEmpresa_Ogiro and b.IdTipoCbte_Ogiro = n.IdTipoCbte_Ogiro and b.IdCbteCble_Ogiro = n.IdCbteCble_Ogiro left join"
+                                +" com_CotizacionPedido as o on i.IdEmpresa = o.IdEmpresa and i.IdSucursal = o.IdSucursal and i.IdOrdenCompra = o.oc_IdOrdenCompra left join"
+                                +" com_OrdenPedido as p on o.IdEmpresa = p.IdEmpresa and o.IdOrdenPedido = p.IdOrdenPedido"
                                 +" where b.IdEmpresa = "+IdEmpresa.ToString()+" and b.IdTipoCbte_Ogiro = "+IdTipoCbte.ToString()+" and b.IdCbteCble_Ogiro = "+IdCbteCble.ToString();
                     SqlCommand command = new SqlCommand(query,connection);
                     SqlDataReader reader = command.ExecuteReader();
@@ -80,7 +82,9 @@ namespace Core.Erp.Reportes.Inventario
                             co_factura = Convert.ToString(reader["co_factura"]),
                             re_valor_retencion = Convert.ToDouble(reader["re_valor_retencion"]),
                             ValorAPagar = Convert.ToDouble(reader["ValorAPagar"]),
-                            IdNumMovi_Ing_Egr_Inv = Convert.ToDecimal(reader["IdNumMovi_Ing_Egr_Inv"])
+                            IdNumMovi_Ing_Egr_Inv = Convert.ToDecimal(reader["IdNumMovi_Ing_Egr_Inv"]),
+                            IdUsuarioApro = Convert.ToString(reader["IdUsuarioAprobacion"]),
+                            IdOrdenPedido = string.IsNullOrEmpty(reader["IdOrdenPedido"].ToString()) ? null : (decimal?)reader["IdOrdenPedido"]
                         });
                     }
                 }

@@ -458,6 +458,36 @@
     <Compile Include="Facturacion\XFAC_CUS_NAT_Rpt002_rpt.Designer.cs">
       <DependentUpon>XFAC_CUS_NAT_Rpt002_rpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt008_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt008_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt008_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt008_frm.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt008_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt008_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt008_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt008_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt008_Rpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt007_Bus.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt007_Data.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt007_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt007_frm.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt007_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt007_Info.cs" />
+    <Compile Include="Inventario\XINV_NAT_Rpt007_Rpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_NAT_Rpt007_Rpt.Designer.cs">
+      <DependentUpon>XINV_NAT_Rpt007_Rpt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\XINV_NAT_Rpt001_Bus.cs" />
     <Compile Include="Inventario\XINV_NAT_Rpt001_Data.cs" />
     <Compile Include="Inventario\XINV_NAT_Rpt001_Info.cs" />
@@ -887,6 +917,18 @@
     <EmbeddedResource Include="Facturacion\XFAC_CUS_NAT_Rpt002_rpt.resx">
       <DependentUpon>XFAC_CUS_NAT_Rpt002_rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt008_frm.resx">
+      <DependentUpon>XINV_NAT_Rpt008_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt008_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt008_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt007_frm.resx">
+      <DependentUpon>XINV_NAT_Rpt007_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_NAT_Rpt007_Rpt.resx">
+      <DependentUpon>XINV_NAT_Rpt007_Rpt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_NAT_Rpt001_Rpt.resx">
       <DependentUpon>XINV_NAT_Rpt001_Rpt.cs</DependentUpon>
     </EmbeddedResource>
@@ -922,9 +964,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Inventario\App.Config">
-      <SubType>Designer</SubType>
-    </None>
     <EntityDeploy Include="ModelCompras_Natu_Rpt.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelCompras_Natu_Rpt.Designer.cs</LastGenOutput>
