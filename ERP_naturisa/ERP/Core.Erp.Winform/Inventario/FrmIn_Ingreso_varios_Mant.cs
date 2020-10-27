@@ -681,7 +681,7 @@ namespace Core.Erp.Winform.Inventario
                     try
                     {
 
-
+                        Info_ing_egr_Inven_ = new in_Ing_Egr_Inven_Info();
                         Info_ing_egr_Inven_.IdEmpresa = param.IdEmpresa;
                         Info_ing_egr_Inven_.IdNumMovi = Convert.ToDecimal((txtNumIngreso.Text == "") ? "0" : txtNumIngreso.Text);
                         Info_ing_egr_Inven_.IdSucursal = Convert.ToInt32(ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue);

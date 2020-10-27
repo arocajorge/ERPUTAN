@@ -1398,7 +1398,7 @@ namespace Core.Erp.Data.Inventario
                 {
                     connection.Open();
                     string query = "select a.IdEmpresa, a.IdSucursal, a.IdMovi_inven_tipo, a.IdNumMovi, d.Su_Descripcion, e.bo_Descripcion, a.cm_fecha, a.cm_observacion, a.IdMotivo_Inv, f.Desc_mov_inv, "
-                                +" min(b.IdEstadoAproba) IdEstadoAproba, max(g.codigo+'-'+cast(b.IdOrdenCompra as varchar)) as CodigoOC, a.Estado, max(h.num_documento) num_documento, max(l.pe_nombreCompleto) pe_nombreCompleto, max(j.IdEstado_cierre) IdEstado_cierre, a.IdUsuario"
+                                +" min(b.IdEstadoAproba) IdEstadoAproba, max(g.codigo+'-'+cast(b.IdOrdenCompra as varchar)) as CodigoOC, a.Estado, /*max(h.num_documento) num_documento,*/ max(l.pe_nombreCompleto) pe_nombreCompleto, max(j.IdEstado_cierre) IdEstado_cierre, a.IdUsuario"
                                 +" from in_Ing_Egr_Inven as a inner join"
                                 +" in_Ing_Egr_Inven_det as b on a.IdEmpresa = b.IdEmpresa and a.IdSucursal = b.IdSucursal and a.IdMovi_inven_tipo = b.IdMovi_inven_tipo and a.IdNumMovi = b.IdNumMovi inner join"
                                 +" com_parametro as c on a.IdEmpresa = c.IdEmpresa and c.IdMovi_inven_tipo_OC = a.IdMovi_inven_tipo left join"
@@ -1409,8 +1409,10 @@ namespace Core.Erp.Data.Inventario
                                 +" ("
                                 +" select x1.IdEmpresa, x1.Serie+'-'+x1.Serie2+'-'+ x1.num_documento num_documento, x2.IdSucursal_Ing_Egr_Inv, x2.IdMovi_inven_tipo_Ing_Egr_Inv, x2.IdNumMovi_Ing_Egr_Inv, x2.Secuencia_Ing_Egr_Inv "
                                 +" from cp_Aprobacion_Ing_Bod_x_OC AS x1 inner join"
-                                +" cp_Aprobacion_Ing_Bod_x_OC_det as x2 on x1.IdEmpresa = x2.IdEmpresa and x1.IdAprobacion = x2.IdAprobacion"
-                                +" where x1.IdEmpresa = "+IdEmpresa.ToString()+" and x1.IdCbteCble_Ogiro is not null"
+                                +" cp_Aprobacion_Ing_Bod_x_OC_det as x2 on x1.IdEmpresa = x2.IdEmpresa and x1.IdAprobacion = x2.IdAprobacion inner join "
+                                +" in_Ing_Egr_Inven as x3 on x2.IdEmpresa = x3.IdEmpresa and x2.IdSucursal_Ing_Egr_Inv = x3.IdSucursal and x2.IdMovi_inven_tipo_Ing_Egr_Inv = x3.IdMovi_inven_tipo and x2.IdNumMovi_Ing_Egr_Inv = x3.IdNumMovi"
+                                + " where x1.IdEmpresa = " + IdEmpresa.ToString() + " and x1.IdCbteCble_Ogiro is not null and x3.cm_Fecha between DATEFROMPARTS("+FechaIni.Year.ToString()+","+FechaIni.Month.ToString()+","+FechaIni.Day.ToString()+") and DATEFROMPARTS("+FechaFin.Year.ToString()+","+FechaFin.Month.ToString()+","+FechaFin.Day.ToString()+") "
+                                + (IdSucursal == 0 ? "" : " AND x3.IdSucursal = "+IdSucursal.ToString())
                                 +" ) as h on b.IdEmpresa = h.IdEmpresa and b.IdSucursal = h.IdSucursal_Ing_Egr_Inv and b.IdMovi_inven_tipo = h.IdMovi_inven_tipo_Ing_Egr_Inv and b.IdNumMovi = h.IdNumMovi_Ing_Egr_Inv and b.Secuencia = h.Secuencia_Ing_Egr_Inv left join"
                                 +" com_ordencompra_local_det as i on b.IdEmpresa_oc = i.IdEmpresa and b.IdSucursal_oc = i.IdSucursal and b.IdOrdenCompra = i.IdOrdenCompra and b.Secuencia_oc = i.Secuencia left join"
                                 +" com_ordencompra_local as j on i.IdEmpresa = j.IdEmpresa and i.IdSucursal = j.IdSucursal and i.IdOrdenCompra = j.IdOrdenCompra left join"
@@ -1443,7 +1445,7 @@ namespace Core.Erp.Data.Inventario
                             IdEstadoAproba = Convert.ToString(reader["IdEstadoAproba"]),
                             CodigoOC = Convert.ToString(reader["CodigoOC"]),
                             Estado = Convert.ToString(reader["Estado"]),
-                            co_factura = Convert.ToString(reader["num_documento"]),
+                            //co_factura = Convert.ToString(reader["num_documento"]),
                             nom_proveedor = Convert.ToString(reader["pe_nombreCompleto"]),
                             nom_estado_cierre_oc = Convert.ToString(reader["IdEstado_cierre"]),
                             IdUsuario = Convert.ToString(reader["IdUsuario"])
