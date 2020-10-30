@@ -82,6 +82,7 @@ namespace Core.Erp.Data.Inventario
                    Fecha_fin = Fecha_fin.Date;
                    using (EntitiesInventario Context = new EntitiesInventario())
                    {
+                       Context.SetCommandTimeOut(3000);
                        Listdat_ = (from q in Context.spINV_relaciones_no_parametrizadas(IdEmpresa, Fecha_ini, Fecha_fin)
                                    select new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
                                    {
