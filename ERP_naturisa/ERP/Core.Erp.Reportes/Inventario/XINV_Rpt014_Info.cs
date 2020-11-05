@@ -26,5 +26,6 @@ namespace Core.Erp.Reportes.Inventario
         public string tm_descripcion { get; set; }
         public string bo_Descripcion { get; set; }
         public double dm_cantidad { get; set; }
+        public string NomUnidadMedida { get; set; }
     }
 }

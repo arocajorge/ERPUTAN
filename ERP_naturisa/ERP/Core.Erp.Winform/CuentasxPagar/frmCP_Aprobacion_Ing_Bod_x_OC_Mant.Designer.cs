@@ -33,6 +33,11 @@
             this.ucGe_BarraEstadoInferior_Forms1 = new Core.Erp.Winform.Controles.UCGe_BarraEstadoInferior_Forms();
             this.ucGe_Menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cmbFormaPago = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label25 = new System.Windows.Forms.Label();
             this.cmbFlujo = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -153,12 +158,13 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbFormaPago = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label26 = new System.Windows.Forms.Label();
+            this.cmbImpOc = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.cmbImpInv = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.panel2.SuspendLayout();
@@ -209,8 +215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalIva.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotDescuento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImpOc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImpInv)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -329,6 +335,57 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1595, 263);
             this.panel1.TabIndex = 2;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(247, 237);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(108, 17);
+            this.label26.TabIndex = 55;
+            this.label26.Text = "Forma de pago:";
+            // 
+            // cmbFormaPago
+            // 
+            this.cmbFormaPago.Location = new System.Drawing.Point(370, 234);
+            this.cmbFormaPago.Name = "cmbFormaPago";
+            this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFormaPago.Properties.DisplayMember = "nom_FormaPago";
+            this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
+            this.cmbFormaPago.Properties.View = this.gridView6;
+            this.cmbFormaPago.Size = new System.Drawing.Size(668, 22);
+            this.cmbFormaPago.TabIndex = 54;
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn9,
+            this.gridColumn11});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "ID";
+            this.gridColumn9.FieldName = "IdFormaPago";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 1;
+            this.gridColumn9.Width = 503;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Forma pago";
+            this.gridColumn11.FieldName = "nom_FormaPago";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 0;
+            this.gridColumn11.Width = 1231;
             // 
             // label25
             // 
@@ -1000,7 +1057,9 @@
             this.cmb_relacion_centro_cuenta,
             this.CmbPuntoCargo,
             this.cmbSubcentro,
-            this.cmb_centroCosoto});
+            this.cmb_centroCosoto,
+            this.cmbImpOc,
+            this.cmbImpInv});
             this.gridControlAproIngEgrxOC.Size = new System.Drawing.Size(1595, 266);
             this.gridControlAproIngEgrxOC.TabIndex = 0;
             this.gridControlAproIngEgrxOC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1033,7 +1092,9 @@
             this.col_relacion_centro_cuenta,
             this.Col_PuntoCargoFJ,
             this.ColIdSubcentroCosoto,
-            this.Col_CentroCosto});
+            this.Col_CentroCosto,
+            this.gridColumn10,
+            this.gridColumn12});
             this.gridViewAproIngEgrxOC.GridControl = this.gridControlAproIngEgrxOC;
             this.gridViewAproIngEgrxOC.Images = this.imageList1;
             this.gridViewAproIngEgrxOC.Name = "gridViewAproIngEgrxOC";
@@ -1071,8 +1132,8 @@
             this.colIdNumMovi_Ing_Egr_Inv.Name = "colIdNumMovi_Ing_Egr_Inv";
             this.colIdNumMovi_Ing_Egr_Inv.OptionsColumn.AllowEdit = false;
             this.colIdNumMovi_Ing_Egr_Inv.Visible = true;
-            this.colIdNumMovi_Ing_Egr_Inv.VisibleIndex = 2;
-            this.colIdNumMovi_Ing_Egr_Inv.Width = 52;
+            this.colIdNumMovi_Ing_Egr_Inv.VisibleIndex = 3;
+            this.colIdNumMovi_Ing_Egr_Inv.Width = 53;
             // 
             // colFecha_Ing_Bod
             // 
@@ -1081,8 +1142,8 @@
             this.colFecha_Ing_Bod.Name = "colFecha_Ing_Bod";
             this.colFecha_Ing_Bod.OptionsColumn.AllowEdit = false;
             this.colFecha_Ing_Bod.Visible = true;
-            this.colFecha_Ing_Bod.VisibleIndex = 3;
-            this.colFecha_Ing_Bod.Width = 67;
+            this.colFecha_Ing_Bod.VisibleIndex = 5;
+            this.colFecha_Ing_Bod.Width = 69;
             // 
             // colnom_bodega
             // 
@@ -1091,8 +1152,8 @@
             this.colnom_bodega.Name = "colnom_bodega";
             this.colnom_bodega.OptionsColumn.AllowEdit = false;
             this.colnom_bodega.Visible = true;
-            this.colnom_bodega.VisibleIndex = 5;
-            this.colnom_bodega.Width = 70;
+            this.colnom_bodega.VisibleIndex = 7;
+            this.colnom_bodega.Width = 72;
             // 
             // colnom_sucursal
             // 
@@ -1101,8 +1162,8 @@
             this.colnom_sucursal.Name = "colnom_sucursal";
             this.colnom_sucursal.OptionsColumn.AllowEdit = false;
             this.colnom_sucursal.Visible = true;
-            this.colnom_sucursal.VisibleIndex = 4;
-            this.colnom_sucursal.Width = 77;
+            this.colnom_sucursal.VisibleIndex = 6;
+            this.colnom_sucursal.Width = 80;
             // 
             // colvalor_Iva
             // 
@@ -1111,8 +1172,8 @@
             this.colvalor_Iva.Name = "colvalor_Iva";
             this.colvalor_Iva.OptionsColumn.AllowEdit = false;
             this.colvalor_Iva.Visible = true;
-            this.colvalor_Iva.VisibleIndex = 10;
-            this.colvalor_Iva.Width = 51;
+            this.colvalor_Iva.VisibleIndex = 12;
+            this.colvalor_Iva.Width = 53;
             // 
             // colSubtotal
             // 
@@ -1121,8 +1182,8 @@
             this.colSubtotal.Name = "colSubtotal";
             this.colSubtotal.OptionsColumn.AllowEdit = false;
             this.colSubtotal.Visible = true;
-            this.colSubtotal.VisibleIndex = 8;
-            this.colSubtotal.Width = 64;
+            this.colSubtotal.VisibleIndex = 10;
+            this.colSubtotal.Width = 66;
             // 
             // colIdProveedor_grid
             // 
@@ -1142,7 +1203,8 @@
             this.colDescuento.Name = "colDescuento";
             this.colDescuento.OptionsColumn.AllowEdit = false;
             this.colDescuento.Visible = true;
-            this.colDescuento.VisibleIndex = 9;
+            this.colDescuento.VisibleIndex = 11;
+            this.colDescuento.Width = 78;
             // 
             // colTotal
             // 
@@ -1151,8 +1213,8 @@
             this.colTotal.Name = "colTotal";
             this.colTotal.OptionsColumn.AllowEdit = false;
             this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 11;
-            this.colTotal.Width = 64;
+            this.colTotal.VisibleIndex = 13;
+            this.colTotal.Width = 66;
             // 
             // colChecked
             // 
@@ -1178,7 +1240,7 @@
             this.colIdOrdenCompra.Name = "colIdOrdenCompra";
             this.colIdOrdenCompra.Visible = true;
             this.colIdOrdenCompra.VisibleIndex = 1;
-            this.colIdOrdenCompra.Width = 57;
+            this.colIdOrdenCompra.Width = 58;
             // 
             // colIdCtaCtble_Gasto_x_cxp
             // 
@@ -1187,8 +1249,8 @@
             this.colIdCtaCtble_Gasto_x_cxp.FieldName = "IdCtaCble_Gasto";
             this.colIdCtaCtble_Gasto_x_cxp.Name = "colIdCtaCtble_Gasto_x_cxp";
             this.colIdCtaCtble_Gasto_x_cxp.Visible = true;
-            this.colIdCtaCtble_Gasto_x_cxp.VisibleIndex = 12;
-            this.colIdCtaCtble_Gasto_x_cxp.Width = 312;
+            this.colIdCtaCtble_Gasto_x_cxp.VisibleIndex = 14;
+            this.colIdCtaCtble_Gasto_x_cxp.Width = 328;
             // 
             // cmbCtaCtble_Gasto_x_cxp
             // 
@@ -1263,8 +1325,8 @@
             this.colCantidad.FieldName = "Cantidad";
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.Visible = true;
-            this.colCantidad.VisibleIndex = 7;
-            this.colCantidad.Width = 72;
+            this.colCantidad.VisibleIndex = 9;
+            this.colCantidad.Width = 74;
             // 
             // colnom_producto
             // 
@@ -1272,8 +1334,8 @@
             this.colnom_producto.FieldName = "nom_producto";
             this.colnom_producto.Name = "colnom_producto";
             this.colnom_producto.Visible = true;
-            this.colnom_producto.VisibleIndex = 6;
-            this.colnom_producto.Width = 131;
+            this.colnom_producto.VisibleIndex = 8;
+            this.colnom_producto.Width = 137;
             // 
             // col_relacion_centro_cuenta
             // 
@@ -1283,7 +1345,7 @@
             this.col_relacion_centro_cuenta.Name = "col_relacion_centro_cuenta";
             this.col_relacion_centro_cuenta.OptionsColumn.ShowCaption = false;
             this.col_relacion_centro_cuenta.Visible = true;
-            this.col_relacion_centro_cuenta.VisibleIndex = 13;
+            this.col_relacion_centro_cuenta.VisibleIndex = 15;
             this.col_relacion_centro_cuenta.Width = 29;
             // 
             // cmb_relacion_centro_cuenta
@@ -1305,6 +1367,7 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "config_16x16.png");
+            this.imageList1.Images.SetKeyName(1, "iconfinder_printer-print-device-paper-write_3643740.png");
             // 
             // Col_PuntoCargoFJ
             // 
@@ -1313,7 +1376,8 @@
             this.Col_PuntoCargoFJ.FieldName = "IdPunto_cargo";
             this.Col_PuntoCargoFJ.Name = "Col_PuntoCargoFJ";
             this.Col_PuntoCargoFJ.Visible = true;
-            this.Col_PuntoCargoFJ.VisibleIndex = 14;
+            this.Col_PuntoCargoFJ.VisibleIndex = 16;
+            this.Col_PuntoCargoFJ.Width = 78;
             // 
             // CmbPuntoCargo
             // 
@@ -1349,7 +1413,8 @@
             this.ColIdSubcentroCosoto.FieldName = "IdRegistro";
             this.ColIdSubcentroCosoto.Name = "ColIdSubcentroCosoto";
             this.ColIdSubcentroCosoto.Visible = true;
-            this.ColIdSubcentroCosoto.VisibleIndex = 15;
+            this.ColIdSubcentroCosoto.VisibleIndex = 17;
+            this.ColIdSubcentroCosoto.Width = 78;
             // 
             // cmbSubcentro
             // 
@@ -1385,7 +1450,8 @@
             this.Col_CentroCosto.FieldName = "IdCentro_Costo";
             this.Col_CentroCosto.Name = "Col_CentroCosto";
             this.Col_CentroCosto.Visible = true;
-            this.Col_CentroCosto.VisibleIndex = 16;
+            this.Col_CentroCosto.VisibleIndex = 18;
+            this.Col_CentroCosto.Width = 95;
             // 
             // cmb_centroCosoto
             // 
@@ -1558,56 +1624,53 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
-            // cmbFormaPago
+            // cmbImpOc
             // 
-            this.cmbFormaPago.Location = new System.Drawing.Point(370, 234);
-            this.cmbFormaPago.Name = "cmbFormaPago";
-            this.cmbFormaPago.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbImpOc.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImpOc.AutoHeight = false;
+            this.cmbImpOc.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbFormaPago.Properties.DisplayMember = "nom_FormaPago";
-            this.cmbFormaPago.Properties.ValueMember = "IdFormaPago";
-            this.cmbFormaPago.Properties.View = this.gridView6;
-            this.cmbFormaPago.Size = new System.Drawing.Size(668, 22);
-            this.cmbFormaPago.TabIndex = 54;
+            this.cmbImpOc.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImpOc.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 1)});
+            this.cmbImpOc.LargeImages = this.imageList1;
+            this.cmbImpOc.Name = "cmbImpOc";
+            this.cmbImpOc.ReadOnly = true;
+            this.cmbImpOc.Click += new System.EventHandler(this.cmbImpOc_Click);
             // 
-            // gridView6
+            // cmbImpInv
             // 
-            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn9,
-            this.gridColumn11});
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowAutoFilterRow = true;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
+            this.cmbImpInv.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmbImpInv.AutoHeight = false;
+            this.cmbImpInv.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImpInv.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImpInv.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 1)});
+            this.cmbImpInv.LargeImages = this.imageList1;
+            this.cmbImpInv.Name = "cmbImpInv";
+            this.cmbImpInv.ReadOnly = true;
+            this.cmbImpInv.Click += new System.EventHandler(this.cmbImpInv_Click);
             // 
-            // gridColumn9
+            // gridColumn10
             // 
-            this.gridColumn9.Caption = "ID";
-            this.gridColumn9.FieldName = "IdFormaPago";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 1;
-            this.gridColumn9.Width = 503;
+            this.gridColumn10.ColumnEdit = this.cmbImpInv;
+            this.gridColumn10.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn10.ImageIndex = 1;
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 4;
+            this.gridColumn10.Width = 47;
             // 
-            // gridColumn11
+            // gridColumn12
             // 
-            this.gridColumn11.Caption = "Forma pago";
-            this.gridColumn11.FieldName = "nom_FormaPago";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 0;
-            this.gridColumn11.Width = 1231;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(247, 237);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(108, 17);
-            this.label26.TabIndex = 55;
-            this.label26.Text = "Forma de pago:";
+            this.gridColumn12.ColumnEdit = this.cmbImpOc;
+            this.gridColumn12.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn12.ImageIndex = 1;
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 2;
+            this.gridColumn12.Width = 50;
             // 
             // frmCP_Aprobacion_Ing_Bod_x_OC_Mant
             // 
@@ -1625,6 +1688,8 @@
             this.Load += new System.EventHandler(this.frmCP_Aprobacion_Ing_Bod_x_OC_Mant_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFlujo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -1677,8 +1742,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalIva.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotDescuento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSubtotal0.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbFormaPago.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImpOc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImpInv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1813,5 +1878,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImpOc;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImpInv;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
     }
 }

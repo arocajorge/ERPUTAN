@@ -39,6 +39,7 @@
             this.pivotGridField2 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.pivotGridField3 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.pivotGridField4 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotGridField5 = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.PVGrid_orden_compra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,8 +50,9 @@
             this.ucInv_MenuReportes_21.EnableBotonImprimir = true;
             this.ucInv_MenuReportes_21.EnableBotonSalir = true;
             this.ucInv_MenuReportes_21.Location = new System.Drawing.Point(0, 0);
+            this.ucInv_MenuReportes_21.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucInv_MenuReportes_21.Name = "ucInv_MenuReportes_21";
-            this.ucInv_MenuReportes_21.Size = new System.Drawing.Size(1240, 95);
+            this.ucInv_MenuReportes_21.Size = new System.Drawing.Size(1653, 117);
             this.ucInv_MenuReportes_21.TabIndex = 0;
             this.ucInv_MenuReportes_21.VisiblebtnImprimir = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucInv_MenuReportes_21.VisiblebtnSalir = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -84,16 +86,19 @@
             this.pivotGridField1,
             this.pivotGridField2,
             this.pivotGridField3,
-            this.pivotGridField4});
-            this.PVGrid_orden_compra.Location = new System.Drawing.Point(0, 95);
+            this.pivotGridField4,
+            this.pivotGridField5});
+            this.PVGrid_orden_compra.Location = new System.Drawing.Point(0, 117);
+            this.PVGrid_orden_compra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PVGrid_orden_compra.Name = "PVGrid_orden_compra";
-            this.PVGrid_orden_compra.Size = new System.Drawing.Size(1240, 493);
+            this.PVGrid_orden_compra.Size = new System.Drawing.Size(1653, 607);
             this.PVGrid_orden_compra.TabIndex = 1;
+            this.PVGrid_orden_compra.Click += new System.EventHandler(this.PVGrid_orden_compra_Click);
             // 
             // fieldcmfecha
             // 
             this.fieldcmfecha.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
-            this.fieldcmfecha.AreaIndex = 2;
+            this.fieldcmfecha.AreaIndex = 1;
             this.fieldcmfecha.Caption = "Fecha";
             this.fieldcmfecha.CellFormat.FormatString = "d";
             this.fieldcmfecha.CellFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -108,7 +113,7 @@
             // 
             // fieldprdescripcion
             // 
-            this.fieldprdescripcion.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldprdescripcion.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.fieldprdescripcion.AreaIndex = 0;
             this.fieldprdescripcion.Caption = "Producto";
             this.fieldprdescripcion.FieldName = "pr_descripcion";
@@ -127,7 +132,7 @@
             // 
             // fieldNomCentroCosto
             // 
-            this.fieldNomCentroCosto.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldNomCentroCosto.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.fieldNomCentroCosto.AreaIndex = 0;
             this.fieldNomCentroCosto.Caption = "Centro Costo";
             this.fieldNomCentroCosto.FieldName = "NomCentroCosto";
@@ -136,7 +141,7 @@
             // 
             // fieldNomSubcentro1
             // 
-            this.fieldNomSubcentro1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldNomSubcentro1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.fieldNomSubcentro1.AreaIndex = 1;
             this.fieldNomSubcentro1.Caption = "Sub Centro Costo";
             this.fieldNomSubcentro1.FieldName = "NomSubcentro";
@@ -171,13 +176,22 @@
             this.pivotGridField4.FieldName = "IdNumMovi";
             this.pivotGridField4.Name = "pivotGridField4";
             // 
+            // pivotGridField5
+            // 
+            this.pivotGridField5.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.pivotGridField5.AreaIndex = 1;
+            this.pivotGridField5.Caption = "U. Medida";
+            this.pivotGridField5.FieldName = "NomUnidadMedida";
+            this.pivotGridField5.Name = "pivotGridField5";
+            // 
             // XINV_Rpt014_frm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 588);
+            this.ClientSize = new System.Drawing.Size(1653, 724);
             this.Controls.Add(this.PVGrid_orden_compra);
             this.Controls.Add(this.ucInv_MenuReportes_21);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "XINV_Rpt014_frm";
             this.Text = "XINV_Rpt014_frm";
             this.Load += new System.EventHandler(this.XINV_Rpt014_frm_Load);
@@ -199,5 +213,6 @@
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField2;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField3;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField4;
+        private DevExpress.XtraPivotGrid.PivotGridField pivotGridField5;
     }
 }

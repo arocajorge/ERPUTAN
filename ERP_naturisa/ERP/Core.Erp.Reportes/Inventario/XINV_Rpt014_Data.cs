@@ -21,7 +21,7 @@ namespace Core.Erp.Reportes.Inventario
                     connection.Open();
                     string query = "SELECT a.IdEmpresa, a.IdSucursal, a.IdMovi_inven_tipo, a.IdNumMovi, a.Secuencia, a.IdBodega, b.cm_fecha, a.IdProducto, d.pr_descripcion,"
                                 +" a.IdCentroCosto, a.IdCentroCosto_sub_centro_costo, e.Centro_costo as NomCentroCosto, f.Centro_costo as NomSubCentro, c.Su_Descripcion,"
-                                + " h.tm_descripcion, i.bo_Descripcion, abs(a.dm_cantidad) dm_cantidad, a.IdEstadoAproba"
+                                + " h.tm_descripcion, i.bo_Descripcion, abs(a.dm_cantidad) dm_cantidad, a.IdEstadoAproba, j.Descripcion as NomUnidadMedida"
                                 +" FROM in_Ing_Egr_Inven_det as a inner join"
                                 +" in_Ing_Egr_Inven as b on a.IdEmpresa = b.IdEmpresa and a.IdSucursal = b.IdSucursal and a.IdMovi_inven_tipo = b.IdMovi_inven_tipo and a.IdNumMovi = b.IdNumMovi left join"
                                 +" tb_sucursal as c on a.IdEmpresa = c.IdEmpresa and a.IdSucursal = c.IdSucursal left join"
@@ -30,7 +30,8 @@ namespace Core.Erp.Reportes.Inventario
                                 +" ct_centro_costo_sub_centro_costo as f on a.IdEmpresa = f.IdEmpresa and a.IdCentroCosto = f.IdCentroCosto and a.IdCentroCosto_sub_centro_costo = f.IdCentroCosto_sub_centro_costo inner join"
                                 +" in_Motivo_Inven as g on b.IdEmpresa = g.IdEmpresa and b.IdMotivo_Inv = g.IdMotivo_Inv left join"
                                 +" in_movi_inven_tipo as h on a.IdEmpresa = h.IdEmpresa and a.IdMovi_inven_tipo = h.IdMovi_inven_tipo left join"
-                                +" tb_bodega as i on a.IdEmpresa = i.IdEmpresa and a.IdSucursal = i.IdSucursal and a.IdBodega = i.IdBodega"
+                                +" tb_bodega as i on a.IdEmpresa = i.IdEmpresa and a.IdSucursal = i.IdSucursal and a.IdBodega = i.IdBodega left join"
+                                + " in_UnidadMedida as j on d.IdUnidadMedida_consumo = j.IdUnidadMedida"
                                 + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and g.Genera_Movi_Inven = 'S' and b.cm_fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") and DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ") and b.signo = '-' and b.Estado = 'A'";
                     if (IdProducto > 0)
                         query += " and a.IdProducto = "+IdProducto.ToString();
@@ -65,6 +66,7 @@ namespace Core.Erp.Reportes.Inventario
                             tm_descripcion = Convert.ToString(reader["tm_descripcion"]),
                             bo_Descripcion = Convert.ToString(reader["bo_Descripcion"]),
                             dm_cantidad = Convert.ToDouble(reader["dm_cantidad"]),
+                            NomUnidadMedida = Convert.ToString(reader["NomUnidadMedida"])
                         });
                     }
                 }

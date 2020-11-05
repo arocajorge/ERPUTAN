@@ -21,7 +21,8 @@ namespace Core.Erp.Reportes.Inventario
 
         private void XINV_Rpt014_frm_Load(object sender, EventArgs e)
         {
-            
+            ucInv_MenuReportes_21.dtpDesde.EditValue = DateTime.Now.Date.AddDays(-7);
+            ucInv_MenuReportes_21.dtpHasta.EditValue = DateTime.Now.Date;
         }
 
         private void ucInv_MenuReportes_21_event_btnSalir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -52,6 +53,11 @@ namespace Core.Erp.Reportes.Inventario
                 
                 throw;
             }
+        }
+
+        private void PVGrid_orden_compra_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

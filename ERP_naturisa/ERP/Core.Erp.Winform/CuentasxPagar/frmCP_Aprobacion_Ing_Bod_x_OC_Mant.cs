@@ -23,6 +23,8 @@ using Core.Erp.Info.Facturacion;
 using Core.Erp.Business.Facturacion;
 using Core.Erp.Reportes.Inventario;
 using DevExpress.XtraReports.UI;
+using Cus.Erp.Reports.Naturisa.Compras;
+using Cus.Erp.Reports.Naturisa.Inventario;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -1456,6 +1458,49 @@ namespace Core.Erp.Winform.CuentasxPagar
             {
                 
                 throw;
+            }
+        }
+
+        private void cmbImpOc_Click(object sender, EventArgs e)
+        {
+            cp_Aprobacion_Ing_Bod_x_OC_det_Info row = new cp_Aprobacion_Ing_Bod_x_OC_det_Info();
+            row = (cp_Aprobacion_Ing_Bod_x_OC_det_Info)gridViewAproIngEgrxOC.GetRow(RowHandle);
+            if (row != null)
+            {
+                XCOMP_NATU_Rpt007_Rpt Reporte_Natu = new XCOMP_NATU_Rpt007_Rpt();
+                Reporte_Natu.RequestParameters = false;
+                ReportPrintTool pt_Natu = new ReportPrintTool(Reporte_Natu);
+                pt_Natu.AutoShowParametersPanel = false;
+                Reporte_Natu.PIdEmpresa.Value = param.IdEmpresa;
+                Reporte_Natu.PIdSucursal.Value = row.IdSucursal_OC;
+                Reporte_Natu.PIdOrdenCompra.Value = row.IdOrdenCompra;
+                Reporte_Natu.ShowPreviewDialog();
+            }
+        }
+
+        private void cmbImpInv_Click(object sender, EventArgs e)
+        {
+            cp_Aprobacion_Ing_Bod_x_OC_det_Info row = new cp_Aprobacion_Ing_Bod_x_OC_det_Info();
+            row = (cp_Aprobacion_Ing_Bod_x_OC_det_Info)gridViewAproIngEgrxOC.GetRow(RowHandle);
+            if (row != null)
+            {
+                XINV_NAT_Rpt004_Rpt reporte_personalizado = new XINV_NAT_Rpt004_Rpt();
+
+                reporte_personalizado.PIdEmpresa.Value = param.IdEmpresa;
+                reporte_personalizado.PIdSucursal.Value = row.IdSucursal_Ing_Egr_Inv;
+                reporte_personalizado.PIdBodega.Value = row.IdBodega;
+                reporte_personalizado.PIdNumMovi.Value = row.IdNumMovi_Ing_Egr_Inv;
+                reporte_personalizado.PIdMovi_inven_tipo.Value = row.IdMovi_inven_tipo_Ing_Egr_Inv;
+
+                reporte_personalizado.PIdEmpresa.Visible = false;
+                reporte_personalizado.PIdSucursal.Visible = false;
+                reporte_personalizado.PIdBodega.Visible = false;
+                reporte_personalizado.PIdNumMovi.Visible = false;
+                reporte_personalizado.PIdMovi_inven_tipo.Visible = false;
+
+                reporte_personalizado.RequestParameters = false;
+
+                reporte_personalizado.ShowPreviewDialog();
             }
         }
     }

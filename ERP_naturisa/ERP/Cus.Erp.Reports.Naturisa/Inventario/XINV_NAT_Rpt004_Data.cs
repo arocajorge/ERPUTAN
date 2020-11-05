@@ -21,7 +21,6 @@ namespace Cus.Erp.Reports.Naturisa.Inventario
                                  && h.IdSucursal == idsucursal
                                  && h.IdNumMovi == IdNumMovi
                                  && h.IdMovi_inven_tipo == IdMovi_inven_tipo
-                                 && h.IdBodega == IdBodega
                                  select h;
                     foreach (var item in select)
                     {
