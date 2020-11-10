@@ -4572,7 +4572,15 @@ namespace Core.Erp.Winform.CuentasxPagar
                 txE_total.EditValue = XML.Total.ToString();
                 txE_BaseImponible.EditValue = (XML.Subtotal0 + XML.SubtotalIVA).ToString();
                 dteFecAutoriza.EditValue = XML.FechaEmision;
-
+                    foreach (var item in BindingList_pagosSRI)
+                    {
+                        if (item.codigo_pago_sri == XML.FormaPago)
+                        {
+                            item.check = true;
+                        }
+                    }
+                gridControl_formasPagoSRI.DataSource = null;
+                gridControl_formasPagoSRI.DataSource = BindingList_pagosSRI;
                 GeneraDiario();
             }
             catch (Exception)

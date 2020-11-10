@@ -8,6 +8,7 @@ using Core.Erp.Info.Inventario;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -22,28 +23,47 @@ namespace Core.Erp.Data.Inventario
                try
                {
                    List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Listdat_ = new List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>();
-
-                   using (EntitiesInventario OEUser = new EntitiesInventario())
+                   using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                    {
-                       Listdat_ = (from TI in OEUser.vwin_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble
-                                   where TI.IdEmpresa == IdEmpresa
-                                   select new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
-                                   {
-                                       IdEmpresa = TI.IdEmpresa,
-                                       IdCategoria = TI.IdCategoria,
-                                       nom_categoria = TI.nom_categoria,
-                                       IdLinea = TI.IdLinea,
-                                       nom_linea =  TI.nom_linea,
-                                       IdGrupo = TI.IdGrupo,
-                                       nom_grupo =  TI.nom_grupo,
-                                       IdSubgrupo = TI.IdSubgrupo,
-                                       nom_subgrupo =  TI.nom_subgrupo,
-                                       IdCentroCosto = TI.IdCentroCosto,
-                                       nom_centro_costo = TI.nom_centro_costo,
-                                       IdSub_centro_costo = TI.IdSub_centro_costo,
-                                       nom_sub_centro_costo = TI.nom_sub_centro_costo,
-                                       IdCtaCble = TI.IdCtaCble,
-                                   }).ToList();
+                       connection.Open();
+                       SqlCommand command = new SqlCommand();
+                       command.Connection = connection;
+                       command.CommandTimeout = 3000;
+                       command.CommandText = "SELECT        rel.IdEmpresa, rel.IdCategoria, '[' + rel.IdCategoria + '] ' + c.ca_Categoria AS nom_categoria, rel.IdLinea, '[' + CAST(rel.IdLinea AS varchar(10)) + '] ' + l.nom_linea AS nom_linea, rel.IdGrupo, '[' + CAST(rel.IdGrupo AS varchar(10)) "
+                                        +" + '] ' + g.nom_grupo AS nom_grupo, rel.IdSubgrupo, '[' + CAST(rel.IdSubgrupo AS varchar(10)) + '] ' + sg.nom_subgrupo AS nom_subgrupo, rel.IdCentroCosto, '[' + rel.IdCentroCosto + '] ' + cc.Centro_costo AS nom_centro_costo, "
+                                        +" rel.IdSub_centro_costo, '[' + rel.IdSub_centro_costo + '] ' + scc.Centro_costo AS nom_sub_centro_costo, rel.IdCtaCble"
+                                        +" FROM            dbo.ct_centro_costo AS cc INNER JOIN"
+                                        +" dbo.ct_centro_costo_sub_centro_costo AS scc ON cc.IdEmpresa = scc.IdEmpresa AND cc.IdCentroCosto = scc.IdCentroCosto RIGHT OUTER JOIN"
+                                        +" dbo.in_subgrupo AS sg INNER JOIN"
+                                        +" dbo.in_grupo AS g INNER JOIN"
+                                        +" dbo.in_linea AS l ON g.IdEmpresa = l.IdEmpresa AND g.IdCategoria = l.IdCategoria AND g.IdLinea = l.IdLinea INNER JOIN"
+                                        +" dbo.in_categorias AS c ON l.IdEmpresa = c.IdEmpresa AND l.IdCategoria = c.IdCategoria ON sg.IdEmpresa = g.IdEmpresa AND sg.IdCategoria = g.IdCategoria AND sg.IdLinea = g.IdLinea AND "
+                                        +" sg.IdGrupo = g.IdGrupo RIGHT OUTER JOIN"
+                                        +" dbo.in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble AS rel ON sg.IdEmpresa = rel.IdEmpresa AND sg.IdCategoria = rel.IdCategoria AND sg.IdLinea = rel.IdLinea AND sg.IdGrupo = rel.IdGrupo AND "
+                                        +" sg.IdSubgrupo = rel.IdSubgrupo ON scc.IdEmpresa = rel.IdEmpresa AND scc.IdCentroCosto = rel.IdCentroCosto AND scc.IdCentroCosto_sub_centro_costo = rel.IdSub_centro_costo"
+                                        +" WHERE        (rel.IdEmpresa = "+IdEmpresa.ToString()+")";
+                       SqlDataReader reader = command.ExecuteReader();
+                       while (reader.Read())
+                       {
+                           Listdat_.Add(new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
+                           {
+
+                               IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                               IdCategoria = Convert.ToString(reader["IdCategoria"]),
+                               nom_categoria = Convert.ToString(reader["nom_categoria"]),
+                               IdLinea = Convert.ToInt32(reader["IdLinea"]),
+                               nom_linea = Convert.ToString(reader["nom_linea"]),
+                               IdGrupo = Convert.ToInt32(reader["IdGrupo"]),
+                               nom_grupo = Convert.ToString(reader["nom_grupo"]),
+                               IdSubgrupo = Convert.ToInt32(reader["IdSubgrupo"]),
+                               nom_subgrupo = Convert.ToString(reader["nom_subgrupo"]),
+                               nom_centro_costo = Convert.ToString(reader["nom_centro_costo"]),
+                               IdCentroCosto = Convert.ToString(reader["IdCentroCosto"]),
+                               IdSub_centro_costo = Convert.ToString(reader["IdSub_centro_costo"]),
+                               nom_sub_centro_costo = Convert.ToString(reader["nom_sub_centro_costo"]),
+                               IdCtaCble = Convert.ToString(reader["IdCtaCble"])
+                           });
+                       }
                    }
 
                    return Listdat_;
@@ -77,32 +97,35 @@ namespace Core.Erp.Data.Inventario
            {
                try
                {
-                   List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Listdat_;
+                   List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info> Listdat_ = new List<in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info>();
                    Fecha_ini = Fecha_ini.Date;
                    Fecha_fin = Fecha_fin.Date;
                    using (EntitiesInventario Context = new EntitiesInventario())
                    {
-                       Context.SetCommandTimeOut(3000);
-                       Listdat_ = (from q in Context.spINV_relaciones_no_parametrizadas(IdEmpresa, Fecha_ini, Fecha_fin)
-                                   select new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
-                                   {
-                                       IdEmpresa = q.IdEmpresa,
-                                       IdCategoria = q.IdCategoria,
-                                       nom_categoria = q.ca_Categoria,
-                                       IdLinea = q.IdLinea,
-                                       nom_linea =  q.nom_linea,
-                                       IdGrupo = q.IdGrupo,
-                                       nom_grupo =  q.nom_grupo,
-                                       IdSubgrupo = q.IdSubGrupo,
-                                       nom_subgrupo =  q.nom_subgrupo,
+                       Context.SetCommandTimeOut(5000);
+                       var lst = Context.spINV_relaciones_no_parametrizadas(IdEmpresa, Fecha_ini, Fecha_fin).ToList();
+                       foreach (var q in lst)
+                       {
+                           Listdat_.Add(new in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble_Info
+                                                     {
+                                                         IdEmpresa = q.IdEmpresa,
+                                                         IdCategoria = q.IdCategoria,
+                                                         nom_categoria = q.ca_Categoria,
+                                                         IdLinea = q.IdLinea,
+                                                         nom_linea = q.nom_linea,
+                                                         IdGrupo = q.IdGrupo,
+                                                         nom_grupo = q.nom_grupo,
+                                                         IdSubgrupo = q.IdSubGrupo,
+                                                         nom_subgrupo = q.nom_subgrupo,
 
-                                       IdCentroCosto = q.IdCentroCosto,
-                                       nom_centro_costo =  q.Centro_costo,
-                                       IdSub_centro_costo = q.IdCentroCosto_sub_centro_costo,
-                                       nom_sub_centro_costo =  q.NomSubcentro,
+                                                         IdCentroCosto = q.IdCentroCosto,
+                                                         nom_centro_costo = q.Centro_costo,
+                                                         IdSub_centro_costo = q.IdCentroCosto_sub_centro_costo,
+                                                         nom_sub_centro_costo = q.NomSubcentro,
 
-                                       IdCtaCble = null,
-                                   }).ToList();
+                                                         IdCtaCble = null,
+                                                     });
+                       }
                    }
                    return Listdat_;
 

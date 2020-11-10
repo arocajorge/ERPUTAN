@@ -312,7 +312,7 @@ namespace Core.Erp.Winform.Inventario
                         return;
                     }
 
-                    if (Accion == Cl_Enumeradores.eTipo_action.Anular && !string.IsNullOrEmpty(info.co_factura))
+                    if (Accion == Cl_Enumeradores.eTipo_action.Anular && bus_IngEgr.ValidarTieneFactura(param.IdEmpresa,info.IdSucursal,info.IdMovi_inven_tipo,info.IdNumMovi))
                     {
                         MessageBox.Show("No se puede anular el registro porque tiene facturas asociadas", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
@@ -324,7 +324,7 @@ namespace Core.Erp.Winform.Inventario
                         return;
                     }
 
-                    if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (! string.IsNullOrEmpty(info.co_factura) || info.IdEstadoAproba == "APRO"))
+                    if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (bus_IngEgr.ValidarTieneFactura(param.IdEmpresa, info.IdSucursal, info.IdMovi_inven_tipo, info.IdNumMovi) || info.IdEstadoAproba == "APRO"))
                     {
                         Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;
                     }

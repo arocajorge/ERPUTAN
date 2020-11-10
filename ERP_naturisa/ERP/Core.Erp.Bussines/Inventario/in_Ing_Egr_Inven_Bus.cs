@@ -995,5 +995,18 @@ namespace Core.Erp.Business.Inventario
                throw;
            }
        }
+
+       public bool ValidarTieneFactura(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+       {
+           try
+           {
+               return odata.ValidarTieneFactura(IdEmpresa, IdSucursal, IdMovi_inven_tipo, IdNumMovi);
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+       }
     }
 }

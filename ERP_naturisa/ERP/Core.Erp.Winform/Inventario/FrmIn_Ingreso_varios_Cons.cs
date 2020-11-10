@@ -124,13 +124,13 @@ namespace Core.Erp.Winform.Inventario
                     return;
                 }
 
-                if (Accion == Cl_Enumeradores.eTipo_action.Anular && !string.IsNullOrEmpty(Info.co_factura))
+                if (Accion == Cl_Enumeradores.eTipo_action.Anular && bus_IngEgr.ValidarTieneFactura(param.IdEmpresa,Info.IdSucursal,Info.IdMovi_inven_tipo,Info.IdNumMovi))
                 {
                     MessageBox.Show("No se puede anular el registro porque se encuentra contabilizado en el módulo de cuentas por pagar", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;                    
                 }
 
-                if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (Info.co_factura != null || Info.IdEstadoAproba == "APRO"))
+                if (Accion == Cl_Enumeradores.eTipo_action.actualizar && (bus_IngEgr.ValidarTieneFactura(param.IdEmpresa, Info.IdSucursal, Info.IdMovi_inven_tipo, Info.IdNumMovi) || Info.IdEstadoAproba == "APRO"))
                 {
                     Accion = Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado;
                 }

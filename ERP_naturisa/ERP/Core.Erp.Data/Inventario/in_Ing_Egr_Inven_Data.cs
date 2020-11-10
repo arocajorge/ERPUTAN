@@ -1515,5 +1515,31 @@ namespace Core.Erp.Data.Inventario
                 throw;
             }
         }
+
+        public bool ValidarTieneFactura(int IdEmpresa, int IdSucursal, int IdMovi_inven_tipo, decimal IdNumMovi)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select a.idempresa from cp_Aprobacion_ing_bod_X_oc as a inner join"
+                                        +" cp_Aprobacion_ing_bod_X_oc_DeT as b on a.idempresa = b.idempresa and a.idaprobacion = b.idaprobacion"
+                                        +" where b.IdEmpresa_Ing_Egr_Inv = "+IdEmpresa.ToString()+" and IdSucursal_Ing_Egr_Inv = "+IdSucursal.ToString()+" and IdNumMovi_Ing_Egr_Inv = "+IdNumMovi.ToString()+" and IdMovi_inven_tipo_Ing_Egr_Inv = "+IdMovi_inven_tipo.ToString();
+                    var ResultValue = command.ExecuteScalar();
+                    if (ResultValue == null)
+                        return false;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }
