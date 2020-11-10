@@ -50,11 +50,11 @@
             this.ucInv_MenuReportes_21.EnableBotonImprimir = true;
             this.ucInv_MenuReportes_21.EnableBotonSalir = true;
             this.ucInv_MenuReportes_21.Location = new System.Drawing.Point(0, 0);
-            this.ucInv_MenuReportes_21.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucInv_MenuReportes_21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucInv_MenuReportes_21.Name = "ucInv_MenuReportes_21";
-            this.ucInv_MenuReportes_21.Size = new System.Drawing.Size(1653, 117);
+            this.ucInv_MenuReportes_21.Size = new System.Drawing.Size(1240, 95);
             this.ucInv_MenuReportes_21.TabIndex = 0;
-            this.ucInv_MenuReportes_21.VisiblebtnImprimir = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucInv_MenuReportes_21.VisiblebtnImprimir = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucInv_MenuReportes_21.VisiblebtnSalir = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucInv_MenuReportes_21.VisibleCmb_CentroCosto = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucInv_MenuReportes_21.VisibleCmb_SubCentro = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -72,6 +72,7 @@
             this.ucInv_MenuReportes_21.VisibleGrupoMovimiento = false;
             this.ucInv_MenuReportes_21.VisibleGrupoSucursal = true;
             this.ucInv_MenuReportes_21.event_tnConsultar_ItemClick += new Core.Erp.Reportes.Controles.UCInv_MenuReportes_2.delegate_btnConsultar_ItemClick(this.ucInv_MenuReportes_21_event_tnConsultar_ItemClick);
+            this.ucInv_MenuReportes_21.event_btnImprimir_ItemClick += new Core.Erp.Reportes.Controles.UCInv_MenuReportes_2.delegate_btnImprimir_ItemClick(this.ucInv_MenuReportes_21_event_btnImprimir_ItemClick);
             this.ucInv_MenuReportes_21.event_btnSalir_ItemClick += new Core.Erp.Reportes.Controles.UCInv_MenuReportes_2.delegate_btnSalir_ItemClick(this.ucInv_MenuReportes_21_event_btnSalir_ItemClick);
             // 
             // PVGrid_orden_compra
@@ -88,10 +89,9 @@
             this.pivotGridField3,
             this.pivotGridField4,
             this.pivotGridField5});
-            this.PVGrid_orden_compra.Location = new System.Drawing.Point(0, 117);
-            this.PVGrid_orden_compra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PVGrid_orden_compra.Location = new System.Drawing.Point(0, 95);
             this.PVGrid_orden_compra.Name = "PVGrid_orden_compra";
-            this.PVGrid_orden_compra.Size = new System.Drawing.Size(1653, 607);
+            this.PVGrid_orden_compra.Size = new System.Drawing.Size(1240, 493);
             this.PVGrid_orden_compra.TabIndex = 1;
             this.PVGrid_orden_compra.Click += new System.EventHandler(this.PVGrid_orden_compra_Click);
             // 
@@ -179,19 +179,18 @@
             // pivotGridField5
             // 
             this.pivotGridField5.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
-            this.pivotGridField5.AreaIndex = 1;
+            this.pivotGridField5.AreaIndex = 2;
             this.pivotGridField5.Caption = "U. Medida";
             this.pivotGridField5.FieldName = "NomUnidadMedida";
             this.pivotGridField5.Name = "pivotGridField5";
             // 
             // XINV_Rpt014_frm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1653, 724);
+            this.ClientSize = new System.Drawing.Size(1240, 588);
             this.Controls.Add(this.PVGrid_orden_compra);
             this.Controls.Add(this.ucInv_MenuReportes_21);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "XINV_Rpt014_frm";
             this.Text = "XINV_Rpt014_frm";
             this.Load += new System.EventHandler(this.XINV_Rpt014_frm_Load);

@@ -3954,6 +3954,7 @@
     <EmbeddedResource Include="Inventario\XINV_Rpt023_Rpt.resx">
       <DependentUpon>XINV_Rpt023_Rpt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

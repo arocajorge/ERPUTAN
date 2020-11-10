@@ -59,5 +59,10 @@ namespace Core.Erp.Reportes.Inventario
         {
 
         }
+
+        private void ucInv_MenuReportes_21_event_btnImprimir_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.PVGrid_orden_compra.ShowRibbonPrintPreview();
+        }
     }
 }
