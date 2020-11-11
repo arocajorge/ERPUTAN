@@ -1022,6 +1022,15 @@
     <Compile Include="frmGe_Esperar.designer.cs">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\XINV_Rpt020_Bus.cs" />
+    <Compile Include="Inventario\XINV_Rpt020_Data.cs" />
+    <Compile Include="Inventario\XINV_Rpt020_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt020_frm.Designer.cs">
+      <DependentUpon>XINV_Rpt020_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\XINV_Rpt020_Info.cs" />
     <Compile Include="Inventario\XINV_Rpt008_rpt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -3494,6 +3503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGe_Esperar.resx">
       <DependentUpon>frmGe_Esperar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\XINV_Rpt020_frm.resx">
+      <DependentUpon>XINV_Rpt020_frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\XINV_Rpt008_rpt.resx">
       <DependentUpon>XINV_Rpt008_rpt.cs</DependentUpon>
