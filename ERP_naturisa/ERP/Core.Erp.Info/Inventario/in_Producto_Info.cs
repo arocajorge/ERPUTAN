@@ -175,6 +175,8 @@ namespace Core.Erp.Info.Inventario
         
 
         public in_Producto_Info() { }
+
+        public string fa_Descripcion { get; set; }
     }
 
     public class in_Producto_Combo

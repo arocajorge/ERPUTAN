@@ -78,85 +78,63 @@ namespace Core.Erp.Data.Inventario
             try
             {
                 List<in_Producto_Info> lM = new List<in_Producto_Info>();
-                using (EntitiesInventario db = new EntitiesInventario())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    lM = db.vwin_producto.Where(q => q.IdEmpresa == IdEmpresa).Select(q => new in_Producto_Info
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select a.IdEmpresa, a.IdProducto, a.pr_codigo, a.pr_descripcion, a.IdProductoTipo, a.IdCategoria, b.ca_Categoria, a.IdLinea, c.nom_linea, a.IdGrupo, d.nom_grupo, a.Estado,"
+                                        +" a.IdFamilia, e.fa_Descripcion, a.IdUnidadMedida, f.Descripcion as NomUnidadMedidaCompra, a.IdUnidadMedida_Consumo, g.Descripcion as NomUnidadMedidaConsumo,"
+                                        +" a.IdSubGrupo, a.IdMarca, h.tp_descripcion, a.pr_codigo_barra, a.IdCod_Impuesto_Iva, a.IdCod_Impuesto_Ice,"
+                                        +" Aparece_modu_Activo_F, a.Aparece_modu_Compras, a.Aparece_modu_Inventario, a.Aparece_modu_Ventas, a.mobile_cod_produccion,"
+                                        + " '['+cast(a.IdProducto as varchar)+'] '+a.pr_descripcion  pr_descripcion_2, a.IdPresentacion"
+                                        +" from in_producto as a left join"
+                                        +" in_categorias as b on a.idempresa = b.idempresa and a.IdCategoria = b.IdCategoria left join"
+                                        +" in_linea as c on a.IdEmpresa = c.idempresa and a.IdCategoria = c.IdCategoria and a.IdLinea = c.IdLinea left join"
+                                        +" in_grupo as d on a.IdEmpresa = d.IdEmpresa and a.IdCategoria = d.IdCategoria and a.IdLinea = d.IdLinea and a.IdGrupo = d.IdGrupo left join"
+                                        +" in_Familia as e on a.IdEmpresa = e.IdEmpresa and a.IdFamilia = e.IdFamilia left join"
+                                        +" in_UnidadMedida as f on a.IdUnidadMedida = f.IdUnidadMedida left join"
+                                        +" in_UnidadMedida as g on a.IdUnidadMedida_Consumo = g.IdUnidadMedida left join"
+                                        +" in_ProductoTipo as h on a.IdEmpresa = h.IdEmpresa and a.IdProductoTipo = h.IdProductoTipo"
+                                        +" where a.IdEmpresa = "+IdEmpresa.ToString();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        IdEmpresa = q.IdEmpresa,
-                        Estado = q.Estado,
-                        IdPresentacion = q.IdPresentacion,
-                        nom_Categoria = q.ca_Categoria,
-                        nom_Linea = q.nom_linea,
-                        nom_Grupo = q.nom_grupo,
-                        nom_SubGrupo = q.nom_subgrupo,
-                        nom_Marca = q.Descripcion,
-                        nom_Tipo_Producto = q.tp_descripcion,
-                        pr_descripcion_2 = q.pr_descripcion_2,
-                        pr_descripcion = q.pr_descripcion,
-                        PesoEspecifico = q.PesoEspecifico,
-                        AnchoEspecifico = q.AnchoEspecifico,
-                        IdUnidadMedida_Consumo = q.IdUnidadMedida_Consumo,
-
-                        IdMarca = q.IdMarca,
-
-                        IdProducto = q.IdProducto,
-
-                        IdProductoTipo = q.IdProductoTipo,
-
-                        IdUnidadMedida = q.IdUnidadMedida,
-                        IdUsuario = q.IdUsuario,
-                        IdUsuarioUltAnu = q.IdUsuarioUltAnu,
-                        IdUsuarioUltMod = q.IdUsuarioUltMod,
-                        ip = q.ip,
-                        nom_pc = q.nom_pc,
-                        pr_alto = q.pr_alto,
-                        pr_codigo = q.pr_codigo,
-                        pr_codigo_barra = q.pr_codigo_barra,
-                        pr_costo_CIF = q.pr_costo_CIF,
-                        pr_costo_fob = q.pr_costo_fob,
-                        pr_costo_promedio = q.pr_costo_promedio,
-                        pr_DiasAereo = q.pr_DiasAereo,
-                        pr_DiasMaritimo = q.pr_DiasMaritimo,
-                        pr_DiasTerrestre = q.pr_DiasTerrestre,
-
-                        pr_largo = q.pr_largo,
-
-                        pr_ManejaSeries = q.pr_ManejaSeries,
-                        pr_observacion = q.pr_observacion,
-                        pr_partidaArancel = q.pr_partidaArancel,
-                        pr_pedidos = q.pr_pedidos,
-                        pr_peso = q.pr_peso,
-                        pr_porcentajeArancel = q.pr_porcentajeArancel,
-                        pr_precio_mayor = q.pr_precio_mayor,
-                        pr_precio_minimo = q.pr_precio_minimo,
-                        pr_precio_publico = q.pr_precio_publico,
-                        pr_profundidad = q.pr_profundidad,
-                        pr_stock = q.pr_stock,
-
-                        pr_stock_maximo = q.pr_stock_maximo,
-                        pr_stock_minimo = q.pr_stock_minimo,
-
-                        IdCategoria = q.IdCategoria,
-                        IdLinea = q.IdLinea,
-                        IdGrupo = q.IdGrupo,
-                        IdSubGrupo = q.IdSubGrupo,
-                        ManejaKardex = q.ManejaKardex,
-
-                        // IdNaturaleza = q.IdNaturaleza,
-                        pr_ManejaIva = q.pr_ManejaIva,
-
-                        IdMotivo_Vta = q.IdMotivo_Vta ?? 0,
-
-                        IdCod_Impuesto_Iva = q.IdCod_Impuesto_Iva,
-                        IdCod_Impuesto_Ice = q.IdCod_Impuesto_Ice,
-                        Aparece_modu_Ventas = q.Aparece_modu_Ventas,
-                        Aparece_modu_Compras = q.Aparece_modu_Compras,
-                        Aparece_modu_Inventario = q.Aparece_modu_Inventario,
-                        Aparece_modu_Activo_F = q.Aparece_modu_Activo_F,
-                        IdFamilia = q.IdFamilia,
-                        mobile_cod_produccion = q.mobile_cod_produccion
-                    }).ToList();
-                    lM.ForEach(q => q.pr_descripcion_2 = "[" + q.pr_codigo + "]- " + q.pr_descripcion);
+                        lM.Add(new in_Producto_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                            pr_codigo = Convert.ToString(reader["pr_codigo"]),
+                            pr_descripcion = Convert.ToString(reader["pr_descripcion"]),
+                            IdProductoTipo = Convert.ToInt32(reader["IdProductoTipo"]),
+                            IdCategoria = Convert.ToString(reader["IdCategoria"]),
+                            nom_Categoria = Convert.ToString(reader["ca_Categoria"]),
+                            IdLinea = Convert.ToInt32(reader["IdLinea"]),
+                            nom_Linea = Convert.ToString(reader["nom_linea"]),
+                            IdGrupo = Convert.ToInt32(reader["IdGrupo"]),
+                            nom_Grupo = Convert.ToString(reader["nom_grupo"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            IdFamilia = reader["IdFamilia"] == DBNull.Value ? null : (int?)(reader["IdFamilia"]),
+                            fa_Descripcion = Convert.ToString(reader["fa_Descripcion"]),
+                            IdUnidadMedida = Convert.ToString(reader["IdUnidadMedida"]),
+                            nom_UnidadMedida = Convert.ToString(reader["NomUnidadMedidaCompra"]),
+                            IdUnidadMedida_Consumo = Convert.ToString(reader["IdUnidadMedida_Consumo"]),
+                            nom_UnidadMedida_Consumo = Convert.ToString(reader["NomUnidadMedidaConsumo"]),
+                            IdSubGrupo = Convert.ToInt32(reader["IdSubGrupo"]),
+                            IdMarca = reader["IdMarca"] == DBNull.Value ? 0 : (int)(reader["IdMarca"]),
+                            nom_Tipo_Producto = Convert.ToString(reader["tp_descripcion"]),
+                            pr_codigo_barra = Convert.ToString(reader["pr_codigo_barra"]),
+                            IdCod_Impuesto_Iva = Convert.ToString(reader["IdCod_Impuesto_Iva"]),
+                            IdCod_Impuesto_Ice = Convert.ToString(reader["IdCod_Impuesto_Ice"]),
+                            Aparece_modu_Activo_F = reader["Aparece_modu_Activo_F"] == DBNull.Value ? false : Convert.ToBoolean(reader["Aparece_modu_Activo_F"]),
+                            Aparece_modu_Compras = reader["Aparece_modu_Compras"] == DBNull.Value ? false : Convert.ToBoolean(reader["Aparece_modu_Compras"]),
+                            Aparece_modu_Inventario = reader["Aparece_modu_Inventario"] == DBNull.Value ? false : Convert.ToBoolean(reader["Aparece_modu_Inventario"]),
+                            Aparece_modu_Ventas = reader["Aparece_modu_Ventas"] == DBNull.Value ? false : Convert.ToBoolean(reader["Aparece_modu_Ventas"]),
+                            mobile_cod_produccion = Convert.ToString(reader["mobile_cod_produccion"]),
+                            pr_descripcion_2 = Convert.ToString(reader["pr_descripcion_2"]),
+                            IdPresentacion = Convert.ToString(reader["IdPresentacion"])
+                        });
+                    }
                 }
                 return (lM);
             }

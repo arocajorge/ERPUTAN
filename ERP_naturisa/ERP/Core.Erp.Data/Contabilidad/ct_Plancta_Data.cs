@@ -18,65 +18,43 @@ namespace Core.Erp.Data.Contabilidad
         {
             try
             {
-
-                string ClaveCorta = "";
-
                 List<ct_Plancta_Info> lM = new List<ct_Plancta_Info>();
-                EntitiesDBConta OEselectPlancta = new EntitiesDBConta();
-                var selectPlancta = from C in OEselectPlancta.ct_plancta 
-                                    join N in OEselectPlancta.ct_plancta_nivel on new {C.IdEmpresa,C.IdNivelCta} equals new {N.IdEmpresa,N.IdNivelCta}
-                                    where C.IdEmpresa == IdEmpresa
-                                  
-                                    select new {C.IdEmpresa,
-                                                C.IdCtaCble,
-                                                C.pc_Cuenta,
-                                                C.IdCtaCblePadre,
-                                                C.IdCatalogo,
-                                                C.pc_Naturaleza,
-                                                C.IdNivelCta,
-                                                C.IdGrupoCble,
-                                                C.pc_Estado,
-                                                C.pc_EsMovimiento,
-                                                C.pc_es_flujo_efectivo,
-                                                N.nv_NumDigitos
-                                                ,C.pc_clave_corta
-                                                ,C.IdTipoCtaCble,
-                                                C.IdTipo_Gasto
-                                    }; 
-
-                foreach (var item in selectPlancta)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-
-                    ct_Plancta_Info _PlantaCtaInfo = new ct_Plancta_Info();
-                    ct_Plancta_nivel_Info NivelO = new ct_Plancta_nivel_Info();
-
-
-                    ClaveCorta = (item.pc_clave_corta == null || item.pc_clave_corta == "") ? "" : "{" + item.pc_clave_corta + "}";
-
-                    _PlantaCtaInfo.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo.IdCtaCble = item.IdCtaCble.Trim();
-                    _PlantaCtaInfo.pc_Cuenta = item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.pc_Cuenta2 =ClaveCorta +  "[" + item.IdCtaCble.Trim() + "] - "+  item.pc_Cuenta.Trim();
-                    _PlantaCtaInfo.IdCtaCblePadre = (item.IdCtaCblePadre==null)?"":item.IdCtaCblePadre.Trim();
-                    _PlantaCtaInfo.IdCatalogo = Convert.ToDecimal(item.IdCatalogo);
-                    _PlantaCtaInfo.pc_Naturaleza = item.pc_Naturaleza;
-                    _PlantaCtaInfo.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.IdGrupoCble = item.IdGrupoCble.Trim();
-                    _PlantaCtaInfo.pc_Estado = item.pc_Estado;
-                    _PlantaCtaInfo.pc_EsMovimiento = item.pc_EsMovimiento;
-                    _PlantaCtaInfo._Plancta_nivel_Info = NivelO;
-                    _PlantaCtaInfo._Plancta_nivel_Info.IdEmpresa = item.IdEmpresa;
-                    _PlantaCtaInfo._Plancta_nivel_Info.IdNivelCta = item.IdNivelCta;
-                    _PlantaCtaInfo.pc_es_flujo_efectivo = item.pc_es_flujo_efectivo;
-                    _PlantaCtaInfo._Plancta_nivel_Info.nv_NumDigitos = item.nv_NumDigitos;
-
-                    _PlantaCtaInfo.pc_clave_corta = item.pc_clave_corta;
-                    _PlantaCtaInfo.IdTipoCtaCble = item.IdTipoCtaCble;
-                    _PlantaCtaInfo.IdTipo_Gasto = item.IdTipo_Gasto;
-                    
-                    lM.Add(_PlantaCtaInfo);
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select a.IdEmpresa, a.IdCtaCble, a.pc_Cuenta, '{'+a.pc_clave_corta+'} ['+ a.IdCtaCble+'] '+ a.pc_Cuenta as pc_Cuenta2,"
+                                +" a.IdCtaCblePadre, a.IdCatalogo, a.pc_Naturaleza,a.IdNivelCta, a.IdGrupoCble, a.pc_Estado, "
+                                + " a.pc_EsMovimiento, a.pc_es_flujo_efectivo, b.pc_Cuenta as CuentaPadre, A.pc_clave_corta,"
+                                +" a.IdTipoCtaCble,  case when a.pc_Estado = 'A' then 'ACTIVO' ELSE '*ANULADO*' END AS SEstado"
+                                +" from ct_plancta as a left join"
+                                +" ct_plancta as b on a.IdEmpresa = b.IdEmpresa and a.IdCtaCblePadre = b.IdCtaCble"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new ct_Plancta_Info
+                        {
+                            pc_clave_corta = Convert.ToString(reader["pc_clave_corta"]),
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCtaCble = Convert.ToString(reader["IdCtaCble"]),
+                            pc_Cuenta = Convert.ToString(reader["pc_Cuenta"]),
+                            pc_Cuenta2 = Convert.ToString(reader["pc_Cuenta2"]),
+                            IdCtaCblePadre = Convert.ToString(reader["IdCtaCblePadre"]),
+                            pc_Naturaleza = Convert.ToString(reader["pc_Naturaleza"]),
+                            IdNivelCta = Convert.ToInt32(reader["IdNivelCta"]),
+                            IdGrupoCble = Convert.ToString(reader["IdGrupoCble"]),
+                            pc_Estado = Convert.ToString(reader["pc_Estado"]),
+                            pc_EsMovimiento = Convert.ToString(reader["pc_EsMovimiento"]),
+                            pc_es_flujo_efectivo = Convert.ToString(reader["pc_es_flujo_efectivo"]),
+                            CuentaPadre = Convert.ToString(reader["CuentaPadre"]),
+                            IdTipoCtaCble = Convert.ToString(reader["IdTipoCtaCble"]),
+                            SEstado = Convert.ToString(reader["SEstado"])
+                        });
+                    }
+                    reader.Close();
                 }
-
                 return (lM);
             }
 
@@ -697,7 +675,7 @@ namespace Core.Erp.Data.Contabilidad
 
                         contact.IdUsuarioUltMod = info.IdUsuario;
                         contact.Fecha_UltMod = DateTime.Now;
-                        contact.IdTipoCtaCble = info.IdTipoCtaCble;
+                        //contact.IdTipoCtaCble = info.IdTipoCtaCble;
                         contact.IdTipo_Gasto = info.IdTipo_Gasto;
 
                         contact.pc_clave_corta = info.pc_clave_corta;

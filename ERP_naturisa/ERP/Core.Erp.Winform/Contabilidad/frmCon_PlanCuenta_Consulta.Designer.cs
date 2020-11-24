@@ -40,6 +40,7 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPlancta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPlancta)).BeginInit();
@@ -48,6 +49,7 @@
             // ucGe_Menu_Mantenimiento_x_usuario
             // 
             this.ucGe_Menu_Mantenimiento_x_usuario.CargarTodasBodegas = false;
+            this.ucGe_Menu_Mantenimiento_x_usuario.CargarTodasSucursales = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_anular = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_CancelarCuotas = true;
@@ -69,8 +71,8 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_boton_salir = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_btnImpExcel = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2016, 1, 12, 9, 46, 28, 426);
-            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2016, 3, 12, 9, 46, 28, 426);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_desde = new System.DateTime(2020, 11, 16, 0, 0, 0, 0);
+            this.ucGe_Menu_Mantenimiento_x_usuario.fecha_hasta = new System.DateTime(2020, 11, 23, 0, 0, 0, 0);
             this.ucGe_Menu_Mantenimiento_x_usuario.FormConsulta = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.FormMain = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.GridControlConsulta = null;
@@ -79,6 +81,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Perfil_x_usuario = null;
             this.ucGe_Menu_Mantenimiento_x_usuario.Size = new System.Drawing.Size(811, 114);
             this.ucGe_Menu_Mantenimiento_x_usuario.TabIndex = 0;
+            this.ucGe_Menu_Mantenimiento_x_usuario.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_bodega = false;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -97,6 +100,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_modificar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_nuevo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_boton_NuevoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu_Mantenimiento_x_usuario.Visible_btn_imprimir_lote = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_btnImpExcel = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_Descargar_Marca_Base_exter = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_fechas = false;
@@ -107,6 +111,7 @@
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_Grupo_Otras_Trans = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_Grupo_Transacciones = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_Pie_fechas_Boton_buscar = false;
+            this.ucGe_Menu_Mantenimiento_x_usuario.Visible_ribbon_control = true;
             this.ucGe_Menu_Mantenimiento_x_usuario.Visible_sucursal = false;
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -147,11 +152,14 @@
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
-            this.gridColumn7});
+            this.gridColumn7,
+            this.gridColumn8});
             this.gridViewPlancta.GridControl = this.gridControlPlancta;
             this.gridViewPlancta.Name = "gridViewPlancta";
             this.gridViewPlancta.OptionsBehavior.Editable = false;
             this.gridViewPlancta.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewPlancta.OptionsView.ShowGroupPanel = false;
+            this.gridViewPlancta.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewPlancta_RowStyle);
             // 
             // gridColumn1
             // 
@@ -216,6 +224,14 @@
             this.gridColumn7.VisibleIndex = 4;
             this.gridColumn7.Width = 142;
             // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Estado";
+            this.gridColumn8.FieldName = "pc_Estado";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 7;
+            // 
             // frmCon_PlanCuenta_Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +265,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
 
 
     }

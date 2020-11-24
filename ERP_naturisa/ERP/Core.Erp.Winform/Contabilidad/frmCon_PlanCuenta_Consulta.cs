@@ -432,5 +432,26 @@ namespace Core.Erp.Winform.Contabilidad
             }
         }
 
+        private void gridViewPlancta_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            try
+            {
+                ct_Plancta_Info row = (ct_Plancta_Info)gridViewPlancta.GetRow(e.RowHandle);
+                if (row == null)
+                    return;
+
+                if (row.pc_Estado == "I")
+                    e.Appearance.ForeColor = Color.Red;
+
+                if (row.pc_Estado == "A")
+                    e.Appearance.ForeColor = Color.Black;
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
