@@ -97,6 +97,10 @@ namespace Core.Erp.Winform.Controles
                 Nom_asambly = rpt_I.nom_Asembly;
                 NombreFormulario = rpt_I.Formulario;
                 nombre_dll = Nom_asambly + ".dll";
+                if (Nom_asambly == "Core.Erp.Winform")
+                {
+                    nombre_dll = Nom_asambly + ".exe";
+                }
                
                 //cargando la dll
                 Ensamblado = Assembly.LoadFrom(nombre_dll);

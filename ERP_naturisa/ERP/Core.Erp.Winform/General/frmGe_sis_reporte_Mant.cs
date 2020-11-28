@@ -677,7 +677,10 @@ namespace Core.Erp.Winform.General
                 NombreFormulario = txt_frm.Text.Trim();
 
                 nombre_dll = Nom_asambly + ".dll";
-
+                if (Nom_asambly == "Core.Erp.Winform")
+                {
+                    nombre_dll = Nom_asambly + ".exe";
+                }
                 //cargando la dll
                 Ensamblado = Assembly.LoadFrom(nombre_dll);
 

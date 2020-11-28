@@ -636,6 +636,7 @@
     <Compile Include="Inventario\in_OrdenCompraLocal_Info.cs" />
     <Compile Include="Inventario\in_parametro_Info.cs" />
     <Compile Include="Inventario\in_presentacion_Info.cs" />
+    <Compile Include="Inventario\in_ProductoPor_tb_bodega_Info.cs" />
     <Compile Include="Inventario\in_ProductoTipo_Info.cs" />
     <Compile Include="Inventario\in_Producto_Composicion_Info.cs" />
     <Compile Include="Inventario\in_Producto_Info.cs" />
