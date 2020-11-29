@@ -437,6 +437,7 @@
     <Compile Include="Inventario\in_movi_inve_x_in_ordencompra_local_Bus.cs" />
     <Compile Include="Inventario\in_parametro_Bus.cs" />
     <Compile Include="Inventario\in_presentacion_Bus.cs" />
+    <Compile Include="Inventario\in_ProductoPor_tb_bodega_Bus.cs" />
     <Compile Include="Inventario\in_productoTipo_Bus.cs" />
     <Compile Include="Inventario\in_movi_inven_tipo_Bus.cs" />
     <Compile Include="Inventario\in_producto_Bus.cs" />
