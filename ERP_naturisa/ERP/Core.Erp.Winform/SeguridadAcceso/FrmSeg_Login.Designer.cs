@@ -37,8 +37,6 @@
             this.btnIngresar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelar_ = new DevExpress.XtraEditors.SimpleButton();
             this.btn_cambiar_contra = new DevExpress.XtraEditors.SimpleButton();
-            this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -115,15 +113,6 @@
             this.btn_cambiar_contra.Text = "Cambiar Contraseña\r\n";
             this.btn_cambiar_contra.Click += new System.EventHandler(this.btn_cambiar_contra_Click);
             // 
-            // pictureEdit3
-            // 
-            this.pictureEdit3.EditValue = ((object)(resources.GetObject("pictureEdit3.EditValue")));
-            this.pictureEdit3.Location = new System.Drawing.Point(176, 11);
-            this.pictureEdit3.Name = "pictureEdit3";
-            this.pictureEdit3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit3.Size = new System.Drawing.Size(84, 26);
-            this.pictureEdit3.TabIndex = 13;
-            // 
             // FrmSeg_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,7 +120,6 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(431, 237);
-            this.Controls.Add(this.pictureEdit3);
             this.Controls.Add(this.btn_cambiar_contra);
             this.Controls.Add(this.btnCancelar_);
             this.Controls.Add(this.btnIngresar);
@@ -150,7 +138,6 @@
             this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSeg_Login_FormClosing);
             this.Load += new System.EventHandler(this.FrmLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,6 +153,5 @@
         private DevExpress.XtraEditors.SimpleButton btnIngresar;
         private DevExpress.XtraEditors.SimpleButton btnCancelar_;
         private DevExpress.XtraEditors.SimpleButton btn_cambiar_contra;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit3;
     }
 }

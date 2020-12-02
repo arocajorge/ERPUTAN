@@ -485,5 +485,30 @@ namespace Core.Erp.Business.Inventario
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "ObtenerTransferenciasDetalle", ex.Message), ex) { EntityType = typeof(in_transferencia_bus) };
             }
         }
+
+        public in_transferencia_Info GetInfoCambioFecha(int IdEmpresa, int IdSucursalOrigen, int IdBodegaOrigen, decimal IdTransferencia)
+        {
+            try
+            {
+                return oData_Transferencia.GetInfoCambioFecha(IdEmpresa, IdSucursalOrigen, IdBodegaOrigen, IdTransferencia);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
+        public bool ModificarFecha(int IdEmpresa, int IdSucursalOrigen, int IdBodegaOrigen, decimal IdTransferencia, DateTime Fecha)
+        {
+            try
+            {
+                return oData_Transferencia.ModificarFecha(IdEmpresa, IdSucursalOrigen, IdBodegaOrigen, IdTransferencia, Fecha);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

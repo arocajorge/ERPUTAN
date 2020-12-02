@@ -504,7 +504,25 @@ namespace Core.Erp.Winform.Inventario
                         return false;
                     }
                 }
-                
+
+                #region ValidacionProductoPorBodega
+                in_ProductoPor_tb_bodega_Bus busProductoPorBodega = new in_ProductoPor_tb_bodega_Bus();
+                string mensajeValidacion = string.Empty;
+                List<decimal> ListaProducto = blstDetalle.GroupBy(q => q.IdProducto ?? 0).Select(q => q.Key).ToList();
+                string Retorno = busProductoPorBodega.Validar(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), ListaProducto);
+                string Retorno2 =busProductoPorBodega.Validar(param.IdEmpresa, Convert.ToInt32(cmbSucursalDestino.EditValue), Convert.ToInt32(cmbBodegaDestino.EditValue), ListaProducto);
+                Retorno += string.IsNullOrEmpty(Retorno2) ? "" : ("\n" + Retorno2);
+                if (!string.IsNullOrEmpty(Retorno))
+                {
+                    mensajeValidacion += (string.IsNullOrEmpty(mensajeValidacion) ? "" : "\n") + Retorno;
+                }
+
+                if (!string.IsNullOrEmpty(mensajeValidacion))
+                {
+                    MessageBox.Show(mensajeValidacion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                #endregion
 
                 return true;
             }

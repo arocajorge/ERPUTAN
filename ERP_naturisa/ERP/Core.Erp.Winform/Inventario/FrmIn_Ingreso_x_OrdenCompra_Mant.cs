@@ -826,6 +826,23 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
+                #region ValidacionProductoPorBodega
+                in_ProductoPor_tb_bodega_Bus busProductoPorBodega = new in_ProductoPor_tb_bodega_Bus();
+                string mensajeValidacion = string.Empty;
+                List<decimal> ListaProducto = ListaBind.Where(q=> q.Checked == true).GroupBy(q => q.IdProducto).Select(q => q.Key).ToList();
+                string Retorno = busProductoPorBodega.Validar(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.get_IdSucursal()), Convert.ToInt32(ucIn_Sucursal_Bodega1.get_IdBodega()), ListaProducto);
+                if (!string.IsNullOrEmpty(Retorno))
+                {
+                    mensajeValidacion += (string.IsNullOrEmpty(mensajeValidacion) ? "" : "\n") + Retorno;
+                }
+
+                if (!string.IsNullOrEmpty(mensajeValidacion))
+                {
+                    MessageBox.Show(this,mensajeValidacion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                #endregion
+
                 return true;
             }
             catch (Exception ex)

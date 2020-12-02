@@ -13,11 +13,11 @@ namespace Core.Erp.Business.Inventario
     {
         in_ProductoPor_tb_bodega_Data odata = new in_ProductoPor_tb_bodega_Data();
 
-        public List<in_ProductoPor_tb_bodega_Info> GetList(int IdEmpresa, int IdSucursal, int IdBodega)
+        public List<in_ProductoPor_tb_bodega_Info> GetList(int IdEmpresa, int IdSucursal, int IdBodega, bool MostrarNoAsignados)
         {
             try
             {
-                return odata.GetList(IdEmpresa, IdSucursal, IdBodega);
+                return odata.GetList(IdEmpresa, IdSucursal, IdBodega, MostrarNoAsignados);
             }
             catch (Exception)
             {
@@ -30,7 +30,20 @@ namespace Core.Erp.Business.Inventario
         {
             try
             {
-                return GuardarDB(IdEmpresa, IdSucursal, IdBodega, Lista);
+                return odata.GuardarDB(IdEmpresa, IdSucursal, IdBodega, Lista);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public string Validar(int IdEmpresa, int IdSucursal, int IdBodega, List<decimal> Lista)
+        {
+            try
+            {
+                return odata.Validar(IdEmpresa, IdSucursal, IdBodega, Lista);
             }
             catch (Exception)
             {

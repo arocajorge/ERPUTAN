@@ -29,19 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator3 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
+            DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl_Producto = new System.Windows.Forms.TabControl();
             this.tab_descripcion = new System.Windows.Forms.TabPage();
+            this.cmb_familia = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.chkActivo = new DevExpress.XtraEditors.CheckEdit();
             this.ucIn_Presentacion = new Core.Erp.Winform.Controles.UCIn_Presentacion();
             this.label6 = new System.Windows.Forms.Label();
             this.ucFa_Motivo_venta = new Core.Erp.Winform.Controles.UCFa_Motivo_venta();
             this.label48 = new System.Windows.Forms.Label();
             this.cmbUnidadMedida_Consumo = new Core.Erp.Winform.Controles.UCIn_UnidadMedidaCmb();
-            this.ucIn_Linea_Grup_SubGr = new Core.Erp.Winform.Controles.ucIn_Linea_Grup_SubGr();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cmbCodImpt_ICE = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -71,6 +76,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.ucIn_Linea_Grup_SubGr = new Core.Erp.Winform.Controles.ucIn_Linea_Grup_SubGr();
             this.tab_productosxPuntoVta = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.treeList_Bodega_x_Sucursal = new DevExpress.XtraTreeList.TreeList();
@@ -118,16 +124,12 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cmb_familia = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabControl_Producto.SuspendLayout();
             this.tab_descripcion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_familia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActivo.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCodImpt_ICE.Properties)).BeginInit();
@@ -156,16 +158,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_familia.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 776);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 626);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1204, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(903, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -175,19 +174,17 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 736);
+            this.panel1.Size = new System.Drawing.Size(899, 593);
             this.panel1.TabIndex = 5;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.tabControl_Producto);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 119);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Location = new System.Drawing.Point(0, 97);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1200, 617);
+            this.panel5.Size = new System.Drawing.Size(899, 496);
             this.panel5.TabIndex = 47;
             // 
             // tabControl_Producto
@@ -197,10 +194,9 @@
             this.tabControl_Producto.Controls.Add(this.tabPage1);
             this.tabControl_Producto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_Producto.Location = new System.Drawing.Point(0, 0);
-            this.tabControl_Producto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl_Producto.Name = "tabControl_Producto";
             this.tabControl_Producto.SelectedIndex = 0;
-            this.tabControl_Producto.Size = new System.Drawing.Size(1200, 617);
+            this.tabControl_Producto.Size = new System.Drawing.Size(899, 496);
             this.tabControl_Producto.TabIndex = 9;
             // 
             // tab_descripcion
@@ -228,77 +224,124 @@
             this.tab_descripcion.Controls.Add(this.label39);
             this.tab_descripcion.Controls.Add(this.label7);
             this.tab_descripcion.Controls.Add(this.ucIn_Linea_Grup_SubGr);
-            this.tab_descripcion.Location = new System.Drawing.Point(4, 25);
-            this.tab_descripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tab_descripcion.Location = new System.Drawing.Point(4, 22);
             this.tab_descripcion.Name = "tab_descripcion";
-            this.tab_descripcion.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tab_descripcion.Size = new System.Drawing.Size(1192, 588);
+            this.tab_descripcion.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_descripcion.Size = new System.Drawing.Size(891, 470);
             this.tab_descripcion.TabIndex = 6;
             this.tab_descripcion.Text = "Descripcion de Producto";
             this.tab_descripcion.UseVisualStyleBackColor = true;
             // 
+            // cmb_familia
+            // 
+            this.cmb_familia.Location = new System.Drawing.Point(552, 156);
+            this.cmb_familia.Margin = new System.Windows.Forms.Padding(2);
+            this.cmb_familia.Name = "cmb_familia";
+            this.cmb_familia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_familia.Properties.DisplayMember = "fa_Descripcion";
+            this.cmb_familia.Properties.ValueMember = "IdFamilia";
+            this.cmb_familia.Properties.View = this.searchLookUpEdit1View;
+            this.cmb_familia.Size = new System.Drawing.Size(243, 20);
+            this.cmb_familia.TabIndex = 74;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "IdFamilia";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 201;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Familia";
+            this.gridColumn2.FieldName = "fa_Descripcion";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 1349;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Código";
+            this.gridColumn3.FieldName = "fa_Codigo";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 184;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(510, 158);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(32, 13);
+            this.labelControl1.TabIndex = 73;
+            this.labelControl1.Text = "Familia";
+            // 
             // chkActivo
             // 
-            this.chkActivo.Location = new System.Drawing.Point(25, 424);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkActivo.Location = new System.Drawing.Point(19, 344);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Properties.Caption = "Activo";
-            this.chkActivo.Size = new System.Drawing.Size(100, 21);
+            this.chkActivo.Size = new System.Drawing.Size(75, 19);
             this.chkActivo.TabIndex = 55;
             // 
             // ucIn_Presentacion
             // 
-            this.ucIn_Presentacion.Location = new System.Drawing.Point(147, 149);
-            this.ucIn_Presentacion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucIn_Presentacion.Location = new System.Drawing.Point(110, 121);
+            this.ucIn_Presentacion.Margin = new System.Windows.Forms.Padding(4);
             this.ucIn_Presentacion.Name = "ucIn_Presentacion";
-            this.ucIn_Presentacion.Size = new System.Drawing.Size(483, 37);
+            this.ucIn_Presentacion.Size = new System.Drawing.Size(362, 30);
             this.ucIn_Presentacion.TabIndex = 72;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 162);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(18, 132);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 17);
+            this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 71;
             this.label6.Text = "Presentacion:";
             // 
             // ucFa_Motivo_venta
             // 
-            this.ucFa_Motivo_venta.Location = new System.Drawing.Point(141, 278);
-            this.ucFa_Motivo_venta.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucFa_Motivo_venta.Location = new System.Drawing.Point(106, 226);
+            this.ucFa_Motivo_venta.Margin = new System.Windows.Forms.Padding(4);
             this.ucFa_Motivo_venta.Name = "ucFa_Motivo_venta";
-            this.ucFa_Motivo_venta.Size = new System.Drawing.Size(413, 34);
+            this.ucFa_Motivo_venta.Size = new System.Drawing.Size(310, 28);
             this.ucFa_Motivo_venta.TabIndex = 70;
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(31, 285);
-            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label48.Location = new System.Drawing.Point(23, 232);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(82, 17);
+            this.label48.Size = new System.Drawing.Size(64, 13);
             this.label48.TabIndex = 69;
             this.label48.Text = "Motivo Vta.:";
             // 
             // cmbUnidadMedida_Consumo
             // 
-            this.cmbUnidadMedida_Consumo.Location = new System.Drawing.Point(147, 114);
-            this.cmbUnidadMedida_Consumo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbUnidadMedida_Consumo.Location = new System.Drawing.Point(110, 93);
+            this.cmbUnidadMedida_Consumo.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnidadMedida_Consumo.Name = "cmbUnidadMedida_Consumo";
-            this.cmbUnidadMedida_Consumo.Size = new System.Drawing.Size(483, 36);
+            this.cmbUnidadMedida_Consumo.Size = new System.Drawing.Size(362, 29);
             this.cmbUnidadMedida_Consumo.TabIndex = 68;
-            // 
-            // ucIn_Linea_Grup_SubGr
-            // 
-            this.ucIn_Linea_Grup_SubGr.Location = new System.Drawing.Point(721, 28);
-            this.ucIn_Linea_Grup_SubGr.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.ucIn_Linea_Grup_SubGr.Name = "ucIn_Linea_Grup_SubGr";
-            this.ucIn_Linea_Grup_SubGr.Size = new System.Drawing.Size(449, 150);
-            this.ucIn_Linea_Grup_SubGr.SubGrupoInfo = null;
-            this.ucIn_Linea_Grup_SubGr.TabIndex = 67;
-            this.ucIn_Linea_Grup_SubGr.Visible_Todos_cmb_Categoria = false;
             // 
             // groupBox4
             // 
@@ -306,26 +349,23 @@
             this.groupBox4.Controls.Add(this.cmbCodImp_IVA);
             this.groupBox4.Controls.Add(this.labelControl3);
             this.groupBox4.Controls.Add(this.labelControl2);
-            this.groupBox4.Location = new System.Drawing.Point(8, 195);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Location = new System.Drawing.Point(6, 158);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(621, 74);
+            this.groupBox4.Size = new System.Drawing.Size(466, 60);
             this.groupBox4.TabIndex = 66;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Códigos de Impuestos Aplicables";
             // 
             // cmbCodImpt_ICE
             // 
-            this.cmbCodImpt_ICE.Location = new System.Drawing.Point(352, 31);
-            this.cmbCodImpt_ICE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCodImpt_ICE.Location = new System.Drawing.Point(264, 25);
             this.cmbCodImpt_ICE.Name = "cmbCodImpt_ICE";
             this.cmbCodImpt_ICE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCodImpt_ICE.Properties.DisplayMember = "nom_impuesto";
             this.cmbCodImpt_ICE.Properties.ValueMember = "IdCod_Impuesto";
             this.cmbCodImpt_ICE.Properties.View = this.gridView7;
-            this.cmbCodImpt_ICE.Size = new System.Drawing.Size(260, 22);
+            this.cmbCodImpt_ICE.Size = new System.Drawing.Size(195, 20);
             this.cmbCodImpt_ICE.TabIndex = 3;
             // 
             // gridView7
@@ -378,15 +418,14 @@
             // 
             // cmbCodImp_IVA
             // 
-            this.cmbCodImp_IVA.Location = new System.Drawing.Point(48, 31);
-            this.cmbCodImp_IVA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCodImp_IVA.Location = new System.Drawing.Point(36, 25);
             this.cmbCodImp_IVA.Name = "cmbCodImp_IVA";
             this.cmbCodImp_IVA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbCodImp_IVA.Properties.DisplayMember = "nom_impuesto";
             this.cmbCodImp_IVA.Properties.ValueMember = "IdCod_Impuesto";
             this.cmbCodImp_IVA.Properties.View = this.gridView6;
-            this.cmbCodImp_IVA.Size = new System.Drawing.Size(260, 22);
+            this.cmbCodImp_IVA.Size = new System.Drawing.Size(195, 20);
             this.cmbCodImp_IVA.TabIndex = 2;
             // 
             // gridView6
@@ -439,66 +478,60 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(316, 34);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl3.Location = new System.Drawing.Point(237, 28);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(24, 16);
+            this.labelControl3.Size = new System.Drawing.Size(21, 13);
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "ICE:";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 34);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl2.Location = new System.Drawing.Point(9, 28);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(25, 16);
+            this.labelControl2.Size = new System.Drawing.Size(21, 13);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "IVA:";
             // 
             // cmbUnidadMedida
             // 
-            this.cmbUnidadMedida.Location = new System.Drawing.Point(141, 80);
-            this.cmbUnidadMedida.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbUnidadMedida.Location = new System.Drawing.Point(106, 65);
+            this.cmbUnidadMedida.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
-            this.cmbUnidadMedida.Size = new System.Drawing.Size(488, 36);
+            this.cmbUnidadMedida.Size = new System.Drawing.Size(366, 29);
             this.cmbUnidadMedida.TabIndex = 63;
             this.cmbUnidadMedida.event_cmbUnidadMedida_EditValueChanged += new Core.Erp.Winform.Controles.UCIn_UnidadMedidaCmb.delegate_cmbUnidadMedida_EditValueChanged(this.cmbUnidadMedida_event_cmbUnidadMedida_EditValueChanged);
             // 
             // cmbMarca
             // 
-            this.cmbMarca.Location = new System.Drawing.Point(141, 39);
-            this.cmbMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbMarca.Location = new System.Drawing.Point(106, 32);
+            this.cmbMarca.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(559, 32);
+            this.cmbMarca.Size = new System.Drawing.Size(419, 26);
             this.cmbMarca.TabIndex = 62;
             // 
             // btn_imgGrande
             // 
-            this.btn_imgGrande.Location = new System.Drawing.Point(1123, 248);
-            this.btn_imgGrande.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_imgGrande.Location = new System.Drawing.Point(842, 202);
             this.btn_imgGrande.Name = "btn_imgGrande";
-            this.btn_imgGrande.Size = new System.Drawing.Size(47, 27);
+            this.btn_imgGrande.Size = new System.Drawing.Size(35, 22);
             this.btn_imgGrande.TabIndex = 61;
             this.btn_imgGrande.Text = "......";
             this.btn_imgGrande.Click += new System.EventHandler(this.btn_imgGrande_Click_1);
             // 
             // chkManejaKardex
             // 
-            this.chkManejaKardex.Location = new System.Drawing.Point(145, 424);
-            this.chkManejaKardex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkManejaKardex.Location = new System.Drawing.Point(109, 344);
             this.chkManejaKardex.Name = "chkManejaKardex";
             this.chkManejaKardex.Properties.Caption = "Maneja Kardex";
-            this.chkManejaKardex.Size = new System.Drawing.Size(137, 21);
+            this.chkManejaKardex.Size = new System.Drawing.Size(103, 19);
             this.chkManejaKardex.TabIndex = 60;
             // 
             // grImgGrande
             // 
             this.grImgGrande.Controls.Add(this.pibx_imagenPequeña);
-            this.grImgGrande.Location = new System.Drawing.Point(661, 229);
-            this.grImgGrande.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grImgGrande.Location = new System.Drawing.Point(496, 186);
             this.grImgGrande.Name = "grImgGrande";
-            this.grImgGrande.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grImgGrande.Size = new System.Drawing.Size(455, 228);
+            this.grImgGrande.Size = new System.Drawing.Size(341, 185);
             this.grImgGrande.TabIndex = 50;
             this.grImgGrande.TabStop = false;
             this.grImgGrande.Text = "Imagen ";
@@ -506,29 +539,26 @@
             // pibx_imagenPequeña
             // 
             this.pibx_imagenPequeña.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pibx_imagenPequeña.Location = new System.Drawing.Point(4, 19);
-            this.pibx_imagenPequeña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pibx_imagenPequeña.Location = new System.Drawing.Point(3, 16);
             this.pibx_imagenPequeña.Name = "pibx_imagenPequeña";
-            this.pibx_imagenPequeña.Size = new System.Drawing.Size(447, 205);
+            this.pibx_imagenPequeña.Size = new System.Drawing.Size(335, 166);
             this.pibx_imagenPequeña.TabIndex = 0;
             this.pibx_imagenPequeña.TabStop = false;
             // 
             // codigoBarraProducto
             // 
-            this.codigoBarraProducto.Location = new System.Drawing.Point(607, 4);
-            this.codigoBarraProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.codigoBarraProducto.Location = new System.Drawing.Point(455, 3);
             this.codigoBarraProducto.Name = "codigoBarraProducto";
-            this.codigoBarraProducto.Padding = new System.Windows.Forms.Padding(13, 2, 13, 0);
-            this.codigoBarraProducto.Size = new System.Drawing.Size(453, 28);
-            this.codigoBarraProducto.Symbology = code128Generator3;
+            this.codigoBarraProducto.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
+            this.codigoBarraProducto.Size = new System.Drawing.Size(340, 23);
+            this.codigoBarraProducto.Symbology = code128Generator1;
             this.codigoBarraProducto.TabIndex = 38;
             // 
             // txtCodigoBarra
             // 
-            this.txtCodigoBarra.Location = new System.Drawing.Point(147, 7);
-            this.txtCodigoBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoBarra.Location = new System.Drawing.Point(110, 6);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
-            this.txtCodigoBarra.Size = new System.Drawing.Size(453, 22);
+            this.txtCodigoBarra.Size = new System.Drawing.Size(341, 20);
             this.txtCodigoBarra.TabIndex = 27;
             this.txtCodigoBarra.TextChanged += new System.EventHandler(this.txtCodigoBarra_TextChanged);
             this.txtCodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarra_KeyPress);
@@ -536,70 +566,73 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 26;
             this.label3.Text = "Código Barra:";
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(27, 330);
-            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtObservacion.Location = new System.Drawing.Point(20, 268);
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(527, 86);
+            this.txtObservacion.Size = new System.Drawing.Size(396, 71);
             this.txtObservacion.TabIndex = 38;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(25, 310);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Location = new System.Drawing.Point(19, 252);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(42, 17);
+            this.label33.Size = new System.Drawing.Size(33, 13);
             this.label33.TabIndex = 37;
             this.label33.Text = "Nota:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 47);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(12, 38);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 17);
+            this.label19.Size = new System.Drawing.Size(40, 13);
             this.label19.TabIndex = 28;
             this.label19.Text = "Marca:";
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(16, 126);
-            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label39.Location = new System.Drawing.Point(12, 102);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(136, 17);
+            this.label39.Size = new System.Drawing.Size(103, 13);
             this.label39.TabIndex = 26;
             this.label39.Text = "Unidad de Consumo";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 85);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(12, 69);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 17);
+            this.label7.Size = new System.Drawing.Size(94, 13);
             this.label7.TabIndex = 26;
             this.label7.Text = "Unidad de Medida";
+            // 
+            // ucIn_Linea_Grup_SubGr
+            // 
+            this.ucIn_Linea_Grup_SubGr.Location = new System.Drawing.Point(541, 23);
+            this.ucIn_Linea_Grup_SubGr.Margin = new System.Windows.Forms.Padding(4);
+            this.ucIn_Linea_Grup_SubGr.Name = "ucIn_Linea_Grup_SubGr";
+            this.ucIn_Linea_Grup_SubGr.Size = new System.Drawing.Size(337, 122);
+            this.ucIn_Linea_Grup_SubGr.SubGrupoInfo = null;
+            this.ucIn_Linea_Grup_SubGr.TabIndex = 67;
+            this.ucIn_Linea_Grup_SubGr.Visible_Todos_cmb_Categoria = false;
             // 
             // tab_productosxPuntoVta
             // 
             this.tab_productosxPuntoVta.Controls.Add(this.groupBox2);
-            this.tab_productosxPuntoVta.Location = new System.Drawing.Point(4, 25);
-            this.tab_productosxPuntoVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tab_productosxPuntoVta.Location = new System.Drawing.Point(4, 22);
             this.tab_productosxPuntoVta.Name = "tab_productosxPuntoVta";
-            this.tab_productosxPuntoVta.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tab_productosxPuntoVta.Size = new System.Drawing.Size(1192, 588);
+            this.tab_productosxPuntoVta.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_productosxPuntoVta.Size = new System.Drawing.Size(891, 470);
             this.tab_productosxPuntoVta.TabIndex = 9;
             this.tab_productosxPuntoVta.Text = "Sucursal Bodega y Ctas. Contables";
             this.tab_productosxPuntoVta.UseVisualStyleBackColor = true;
@@ -608,11 +641,9 @@
             // 
             this.groupBox2.Controls.Add(this.treeList_Bodega_x_Sucursal);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(4, 4);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1184, 580);
+            this.groupBox2.Size = new System.Drawing.Size(885, 464);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             // 
@@ -627,15 +658,15 @@
             this.treeListColumn6,
             this.treeListColumn7});
             this.treeList_Bodega_x_Sucursal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeList_Bodega_x_Sucursal.Location = new System.Drawing.Point(4, 19);
-            this.treeList_Bodega_x_Sucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.treeList_Bodega_x_Sucursal.Location = new System.Drawing.Point(3, 16);
             this.treeList_Bodega_x_Sucursal.Name = "treeList_Bodega_x_Sucursal";
             this.treeList_Bodega_x_Sucursal.OptionsBehavior.PopulateServiceColumns = true;
             this.treeList_Bodega_x_Sucursal.OptionsPrint.UsePrintStyles = true;
             this.treeList_Bodega_x_Sucursal.OptionsView.ShowIndicator = false;
             this.treeList_Bodega_x_Sucursal.ParentFieldName = "IdPadre";
-            this.treeList_Bodega_x_Sucursal.Size = new System.Drawing.Size(1176, 557);
+            this.treeList_Bodega_x_Sucursal.Size = new System.Drawing.Size(879, 445);
             this.treeList_Bodega_x_Sucursal.TabIndex = 1;
+            this.treeList_Bodega_x_Sucursal.Visible = false;
             this.treeList_Bodega_x_Sucursal.BeforeFocusNode += new DevExpress.XtraTreeList.BeforeFocusNodeEventHandler(this.treeList_Bodega_x_Sucursal_BeforeFocusNode);
             // 
             // treeListColumn1
@@ -691,11 +722,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gridControlComposicion);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1192, 588);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(891, 470);
             this.tabPage1.TabIndex = 10;
             this.tabPage1.Text = "Composición";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -703,14 +733,12 @@
             // gridControlComposicion
             // 
             this.gridControlComposicion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlComposicion.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gridControlComposicion.Location = new System.Drawing.Point(4, 4);
+            this.gridControlComposicion.Location = new System.Drawing.Point(3, 3);
             this.gridControlComposicion.MainView = this.gridViewComposicion;
-            this.gridControlComposicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControlComposicion.Name = "gridControlComposicion";
             this.gridControlComposicion.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbProductoHijo_grid});
-            this.gridControlComposicion.Size = new System.Drawing.Size(1184, 580);
+            this.gridControlComposicion.Size = new System.Drawing.Size(885, 464);
             this.gridControlComposicion.TabIndex = 9;
             this.gridControlComposicion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewComposicion});
@@ -795,9 +823,8 @@
             this.panel4.Controls.Add(this.txtCodigo);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1200, 119);
+            this.panel4.Size = new System.Drawing.Size(899, 97);
             this.panel4.TabIndex = 46;
             // 
             // groupBox5
@@ -806,11 +833,9 @@
             this.groupBox5.Controls.Add(this.chkModulo_Inven);
             this.groupBox5.Controls.Add(this.chkModulo_Compras);
             this.groupBox5.Controls.Add(this.chkModulo_Venta);
-            this.groupBox5.Location = new System.Drawing.Point(947, 16);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Location = new System.Drawing.Point(710, 13);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox5.Size = new System.Drawing.Size(247, 96);
+            this.groupBox5.Size = new System.Drawing.Size(185, 78);
             this.groupBox5.TabIndex = 73;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Modulos donde se muestra";
@@ -818,10 +843,9 @@
             // chkModulo_AF
             // 
             this.chkModulo_AF.AutoSize = true;
-            this.chkModulo_AF.Location = new System.Drawing.Point(133, 58);
-            this.chkModulo_AF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkModulo_AF.Location = new System.Drawing.Point(100, 47);
             this.chkModulo_AF.Name = "chkModulo_AF";
-            this.chkModulo_AF.Size = new System.Drawing.Size(94, 21);
+            this.chkModulo_AF.Size = new System.Drawing.Size(75, 17);
             this.chkModulo_AF.TabIndex = 3;
             this.chkModulo_AF.Text = "Activo Fijo";
             this.chkModulo_AF.UseVisualStyleBackColor = true;
@@ -829,10 +853,9 @@
             // chkModulo_Inven
             // 
             this.chkModulo_Inven.AutoSize = true;
-            this.chkModulo_Inven.Location = new System.Drawing.Point(15, 60);
-            this.chkModulo_Inven.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkModulo_Inven.Location = new System.Drawing.Point(11, 49);
             this.chkModulo_Inven.Name = "chkModulo_Inven";
-            this.chkModulo_Inven.Size = new System.Drawing.Size(92, 21);
+            this.chkModulo_Inven.Size = new System.Drawing.Size(73, 17);
             this.chkModulo_Inven.TabIndex = 2;
             this.chkModulo_Inven.Text = "Inventario";
             this.chkModulo_Inven.UseVisualStyleBackColor = true;
@@ -840,10 +863,9 @@
             // chkModulo_Compras
             // 
             this.chkModulo_Compras.AutoSize = true;
-            this.chkModulo_Compras.Location = new System.Drawing.Point(133, 30);
-            this.chkModulo_Compras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkModulo_Compras.Location = new System.Drawing.Point(100, 24);
             this.chkModulo_Compras.Name = "chkModulo_Compras";
-            this.chkModulo_Compras.Size = new System.Drawing.Size(86, 21);
+            this.chkModulo_Compras.Size = new System.Drawing.Size(67, 17);
             this.chkModulo_Compras.TabIndex = 1;
             this.chkModulo_Compras.Text = "Compras";
             this.chkModulo_Compras.UseVisualStyleBackColor = true;
@@ -851,39 +873,36 @@
             // chkModulo_Venta
             // 
             this.chkModulo_Venta.AutoSize = true;
-            this.chkModulo_Venta.Location = new System.Drawing.Point(16, 28);
-            this.chkModulo_Venta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkModulo_Venta.Location = new System.Drawing.Point(12, 23);
             this.chkModulo_Venta.Name = "chkModulo_Venta";
-            this.chkModulo_Venta.Size = new System.Drawing.Size(74, 21);
+            this.chkModulo_Venta.Size = new System.Drawing.Size(59, 17);
             this.chkModulo_Venta.TabIndex = 0;
             this.chkModulo_Venta.Text = "Ventas";
             this.chkModulo_Venta.UseVisualStyleBackColor = true;
             // 
             // cmb_tipoProducto
             // 
-            this.cmb_tipoProducto.Location = new System.Drawing.Point(723, 4);
-            this.cmb_tipoProducto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_tipoProducto.Location = new System.Drawing.Point(542, 3);
+            this.cmb_tipoProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmb_tipoProducto.Name = "cmb_tipoProducto";
-            this.cmb_tipoProducto.Size = new System.Drawing.Size(216, 32);
+            this.cmb_tipoProducto.Size = new System.Drawing.Size(162, 26);
             this.cmb_tipoProducto.TabIndex = 56;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 98);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(7, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 54;
             this.label1.Text = "Nombre 2:";
             // 
             // txtDescripcion2
             // 
-            this.txtDescripcion2.Location = new System.Drawing.Point(87, 79);
-            this.txtDescripcion2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion2.Location = new System.Drawing.Point(65, 64);
             this.txtDescripcion2.Multiline = true;
             this.txtDescripcion2.Name = "txtDescripcion2";
-            this.txtDescripcion2.Size = new System.Drawing.Size(851, 35);
+            this.txtDescripcion2.Size = new System.Drawing.Size(639, 29);
             this.txtDescripcion2.TabIndex = 29;
             // 
             // lblAnulado
@@ -891,10 +910,9 @@
             this.lblAnulado.AutoSize = true;
             this.lblAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAnulado.ForeColor = System.Drawing.Color.Red;
-            this.lblAnulado.Location = new System.Drawing.Point(423, 11);
-            this.lblAnulado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAnulado.Location = new System.Drawing.Point(317, 9);
             this.lblAnulado.Name = "lblAnulado";
-            this.lblAnulado.Size = new System.Drawing.Size(182, 25);
+            this.lblAnulado.Size = new System.Drawing.Size(146, 20);
             this.lblAnulado.TabIndex = 53;
             this.lblAnulado.Text = "*** ANULADO ***";
             this.lblAnulado.Visible = false;
@@ -902,39 +920,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 16);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(7, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 24;
             this.label2.Text = "Código:";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(87, 41);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Location = new System.Drawing.Point(65, 33);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(851, 34);
+            this.txtNombre.Size = new System.Drawing.Size(639, 28);
             this.txtNombre.TabIndex = 29;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(612, 11);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(459, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 17);
+            this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Tipo Producto:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 48);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(7, 39);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 17);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "Nombre:";
             // 
@@ -944,20 +958,18 @@
             this.lblIdProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblIdProducto.Enabled = false;
             this.lblIdProducto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblIdProducto.Location = new System.Drawing.Point(335, 10);
-            this.lblIdProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdProducto.Location = new System.Drawing.Point(251, 8);
             this.lblIdProducto.Name = "lblIdProducto";
-            this.lblIdProducto.Size = new System.Drawing.Size(79, 24);
+            this.lblIdProducto.Size = new System.Drawing.Size(60, 20);
             this.lblIdProducto.TabIndex = 23;
             this.lblIdProducto.Text = "0";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(87, 7);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigo.Location = new System.Drawing.Point(65, 6);
             this.txtCodigo.MaxLength = 30;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(233, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(176, 20);
             this.txtCodigo.TabIndex = 25;
             // 
             // inproductoxtbbodegaInfoBindingSource
@@ -1011,9 +1023,9 @@
             this.ucGe_Menu.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu.Enabled_btnproductos = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1204, 36);
+            this.ucGe_Menu.Size = new System.Drawing.Size(903, 29);
             this.ucGe_Menu.TabIndex = 6;
             this.ucGe_Menu.Visible_bntAnular = true;
             this.ucGe_Menu.Visible_bntAprobar = false;
@@ -1053,19 +1065,17 @@
             this.panelControl1.Controls.Add(this.panel1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1204, 740);
+            this.panelControl1.Size = new System.Drawing.Size(903, 597);
             this.panelControl1.TabIndex = 7;
             // 
             // xtraScrollableControl1
             // 
             this.xtraScrollableControl1.Controls.Add(this.panelControl1);
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 36);
-            this.xtraScrollableControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 29);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(1204, 740);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(903, 597);
             this.xtraScrollableControl1.TabIndex = 8;
             // 
             // gridColumn12
@@ -1074,74 +1084,14 @@
             this.gridColumn12.FieldName = "pr_estado";
             this.gridColumn12.Name = "gridColumn12";
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(680, 195);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(41, 16);
-            this.labelControl1.TabIndex = 73;
-            this.labelControl1.Text = "Familia";
-            // 
-            // cmb_familia
-            // 
-            this.cmb_familia.Location = new System.Drawing.Point(736, 192);
-            this.cmb_familia.Name = "cmb_familia";
-            this.cmb_familia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_familia.Properties.DisplayMember = "fa_Descripcion";
-            this.cmb_familia.Properties.ValueMember = "IdFamilia";
-            this.cmb_familia.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_familia.Size = new System.Drawing.Size(324, 22);
-            this.cmb_familia.TabIndex = 74;
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3});
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "ID";
-            this.gridColumn1.FieldName = "IdFamilia";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 201;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Familia";
-            this.gridColumn2.FieldName = "fa_Descripcion";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 1349;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Código";
-            this.gridColumn3.FieldName = "fa_Codigo";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 184;
-            // 
             // FrmIn_Producto_Mant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1204, 798);
+            this.ClientSize = new System.Drawing.Size(903, 648);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_Producto_Mant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Productos";
@@ -1153,6 +1103,8 @@
             this.tabControl_Producto.ResumeLayout(false);
             this.tab_descripcion.ResumeLayout(false);
             this.tab_descripcion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_familia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActivo.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -1184,8 +1136,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.xtraScrollableControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_familia.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

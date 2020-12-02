@@ -1044,7 +1044,7 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
-                
+
                 txtObservacion.Focus();
                 if (ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue == null || ucIn_Sucursal_Bodega1.cmb_sucursal.EditValue == "")
                 {
@@ -1064,7 +1064,7 @@ namespace Core.Erp.Winform.Inventario
                     return false;
                 }
 
-                if (ucIn_MotivoInvCmb1.get_MotivoInvInfo()==null)
+                if (ucIn_MotivoInvCmb1.get_MotivoInvInfo() == null)
                 {
                     MessageBox.Show("Seleccione el motivo", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return false;
@@ -1090,7 +1090,7 @@ namespace Core.Erp.Winform.Inventario
 
                 switch (param.IdCliente_Ven_x_Default)
                 {
-                   case Cl_Enumeradores.eCliente_Vzen.CAH:
+                    case Cl_Enumeradores.eCliente_Vzen.CAH:
                         if (ucIn_Responsable1.get_Info_Responsable() == null)
                         {
                             MessageBox.Show("Ingrese un responsable de la transacción", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1106,13 +1106,13 @@ namespace Core.Erp.Winform.Inventario
                         MessageBox.Show("Seleccione la Unidad de Medida para el Producto " + item.pr_descripcion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return false;
                     }
-                    
+
                     if (item.IdCentroCosto == "" || item.IdCentroCosto == null)
                     {
                         MessageBox.Show("Seleccione un centro de costo para el Producto " + item.pr_descripcion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return false;
                     }
-                    
+
                     if (item.IdEstadoAproba == Cl_Enumeradores.eEstadoAprobacion_Ing_Egr.APRO.ToString())
                     {
                         MessageBox.Show("Existen items aprobados en este egreso de bodega y no se puede modificar " + item.pr_descripcion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1121,7 +1121,7 @@ namespace Core.Erp.Winform.Inventario
 
                     switch (param.IdCliente_Ven_x_Default)
                     {
-                       case Cl_Enumeradores.eCliente_Vzen.CAH:
+                        case Cl_Enumeradores.eCliente_Vzen.CAH:
                             if (item.IdMotivo_Inv == null)
                             {
                                 MessageBox.Show("Seleccione un motivo para el Producto " + item.pr_descripcion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1138,7 +1138,7 @@ namespace Core.Erp.Winform.Inventario
                     }
                 }
 
-                
+
                 if (info_parametros != null)
                 {
                     if (info_parametros.Maneja_Stock_Negativo.Trim() == "N")
@@ -1182,14 +1182,29 @@ namespace Core.Erp.Winform.Inventario
                                     return false;
                                 }
                             }
-                            
-                            
                         }
                     }
                 }
 
-                if(!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.INV,Convert.ToDateTime(dtpFecha.Value)))
+                if (!param.Validar_periodo_cerrado_x_modulo(param.IdEmpresa, Cl_Enumeradores.eModulos.INV, Convert.ToDateTime(dtpFecha.Value)))
                     return false;
+
+                #region ValidacionProductoPorBodega
+                in_ProductoPor_tb_bodega_Bus busProductoPorBodega = new in_ProductoPor_tb_bodega_Bus();
+                string mensajeValidacion = string.Empty;
+                List<decimal> ListaProducto = List_Bind_IngEgrDet.GroupBy(q => q.IdProducto).Select(q => q.Key).ToList();
+                string Retorno = busProductoPorBodega.Validar(param.IdEmpresa, Convert.ToInt32(ucIn_Sucursal_Bodega1.get_IdSucursal()), Convert.ToInt32(ucIn_Sucursal_Bodega1.get_IdBodega()), ListaProducto);
+                if (!string.IsNullOrEmpty(Retorno))
+                {
+                    mensajeValidacion += (string.IsNullOrEmpty(mensajeValidacion) ? "" : "\n") + Retorno;
+                }
+
+                if (!string.IsNullOrEmpty(mensajeValidacion))
+                {
+                    MessageBox.Show(mensajeValidacion, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
+                }
+                #endregion
 
                 return true;
             }

@@ -1943,5 +1943,86 @@ namespace Core.Erp.Data.Inventario
                 throw;
             }
         }
+
+        public in_transferencia_Info GetInfoCambioFecha(int IdEmpresa, int IdSucursalOrigen, int IdBodegaOrigen, decimal IdTransferencia)
+        {
+            try
+            {
+                in_transferencia_Info info = new in_transferencia_Info();
+
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select top 1 a.IdEmpresa, a.IdSucursalOrigen, a.IdBodegaOrigen, a.IdTransferencia, "
+                                        +" a.IdSucursal_Ing_Egr_Inven_Origen, a.IdMovi_inven_tipo_SucuOrig, a.IdNumMovi_Ing_Egr_Inven_Origen,"
+                                        +" a.IdSucursal_Ing_Egr_Inven_Destino, a.IdMovi_inven_tipo_SucuDest, a.IdNumMovi_Ing_Egr_Inven_Destino,"
+                                        +" a.tr_Observacion, a.tr_fecha, b.cm_fecha as FechaEgreso, c.cm_fecha as FechaIngreso"
+                                        +" from in_transferencia as a left join"
+                                        +" in_Ing_Egr_Inven as b on a.IdEmpresa_Ing_Egr_Inven_Origen = b.IdEmpresa and a.IdSucursal_Ing_Egr_Inven_Origen = b.IdSucursal and a.IdMovi_inven_tipo_SucuOrig = b.IdMovi_inven_tipo and a.IdNumMovi_Ing_Egr_Inven_Origen = b.IdNumMovi left join"
+                                        +" in_Ing_Egr_Inven as c on a.IdEmpresa_Ing_Egr_Inven_Destino = c.IdEmpresa and a.IdSucursal_Ing_Egr_Inven_Destino = c.IdSucursal and a.IdMovi_inven_tipo_SucuDest = c.IdMovi_inven_tipo and a.IdNumMovi_Ing_Egr_Inven_Destino = c.IdNumMovi"
+                                        +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.IdSucursalOrigen = "+IdSucursalOrigen.ToString()+" and a.IdBodegaOrigen = "+IdBodegaOrigen.ToString()+" and a.IdTransferencia = "+IdTransferencia.ToString()+" and a.Estado = 'A'";
+                    var ResultValue = command.ExecuteScalar();
+                    if (ResultValue == null)
+                        return null;
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        info = new in_transferencia_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursalOrigen = Convert.ToInt32(reader["IdSucursalOrigen"]),
+                            IdBodegaOrigen = Convert.ToInt32(reader["IdBodegaOrigen"]),
+                            IdTransferencia = Convert.ToDecimal(reader["IdTransferencia"]),
+
+                            IdSucursal_Ing_Egr_Inven_Origen = reader["IdSucursal_Ing_Egr_Inven_Origen"] == DBNull.Value ? null : (int?)reader["IdSucursal_Ing_Egr_Inven_Origen"],
+                            IdMovi_inven_tipo_SucuOrig = reader["IdMovi_inven_tipo_SucuOrig"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_SucuOrig"],
+                            IdNumMovi_Ing_Egr_Inven_Origen = reader["IdNumMovi_Ing_Egr_Inven_Origen"] == DBNull.Value ? null : (decimal?)reader["IdNumMovi_Ing_Egr_Inven_Origen"],
+
+                            IdSucursal_Ing_Egr_Inven_Destino = reader["IdSucursal_Ing_Egr_Inven_Destino"] == DBNull.Value ? null : (int?)reader["IdSucursal_Ing_Egr_Inven_Destino"],
+                            IdMovi_inven_tipo_SucuDest = reader["IdMovi_inven_tipo_SucuDest"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_SucuDest"],
+                            IdNumMovi_Ing_Egr_Inven_Destino = reader["IdNumMovi_Ing_Egr_Inven_Destino"] == DBNull.Value ? null : (decimal?)reader["IdNumMovi_Ing_Egr_Inven_Destino"],
+                            
+                            tr_Observacion = Convert.ToString(reader["tr_Observacion"]),
+                            tr_fecha = Convert.ToDateTime(reader["tr_fecha"]),
+                            FechaEgreso = reader["FechaEgreso"] == DBNull.Value ? null : (DateTime?)(reader["FechaEgreso"]),
+                            FechaIngreso = reader["FechaIngreso"] == DBNull.Value ? null : (DateTime?)reader["FechaIngreso"]
+                        };
+                    }
+                    reader.Close();
+                }
+
+                return info;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public bool ModificarFecha(int IdEmpresa, int IdSucursalOrigen, int IdBodegaOrigen, decimal IdTransferencia, DateTime Fecha)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "update in_transferencia set tr_fecha = DATEFROMPARTS(" + Fecha.Year.ToString() + "," + Fecha.Month.ToString() + "," + Fecha.Day.ToString() + ") where IdEmpresa = " + IdEmpresa.ToString() + " and IdSucursalOrigen = " + IdSucursalOrigen.ToString() + " and IdBodegaOrigen = " + IdBodegaOrigen.ToString() + " and IdTransferencia = " + IdTransferencia.ToString();
+                    command.ExecuteNonQuery();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

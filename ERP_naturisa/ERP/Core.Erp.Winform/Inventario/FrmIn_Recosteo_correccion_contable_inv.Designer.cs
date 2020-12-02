@@ -134,6 +134,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cmbTipoMovimientoCambioFecha = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbSucursalCambioFecha = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -145,12 +148,35 @@
             this.toolStrip6 = new System.Windows.Forms.ToolStrip();
             this.btnBuscarCambioFecha = new System.Windows.Forms.ToolStripButton();
             this.btnCambiarFecha = new System.Windows.Forms.ToolStripButton();
+            this.TabPage_CambiarTrans = new DevExpress.XtraTab.XtraTabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.deFechaIngresoTrans = new DevExpress.XtraEditors.DateEdit();
+            this.deFechaEgresoTrans = new DevExpress.XtraEditors.DateEdit();
+            this.cmbBodegaOrigen = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbSucursalOrigen = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.deFechaTrans = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtIdTransferencia = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtObservacion = new DevExpress.XtraEditors.MemoEdit();
+            this.toolStrip7 = new System.Windows.Forms.ToolStrip();
+            this.btnBuscarTransFecha = new System.Windows.Forms.ToolStripButton();
+            this.btnTransCambiarFecha = new System.Windows.Forms.ToolStripButton();
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
-            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -212,6 +238,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties)).BeginInit();
             this.toolStrip6.SuspendLayout();
+            this.TabPage_CambiarTrans.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIngresoTrans.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIngresoTrans.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaEgresoTrans.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaEgresoTrans.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBodegaOrigen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSucursalOrigen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaTrans.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaTrans.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdTransferencia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
+            this.toolStrip7.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,52 +260,49 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 503);
-            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 409);
+            this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1343, 32);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1007, 26);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
             // 
             // ucIn_Sucursal_Bodega_multiple1
             // 
-            this.ucIn_Sucursal_Bodega_multiple1.Location = new System.Drawing.Point(15, 31);
-            this.ucIn_Sucursal_Bodega_multiple1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucIn_Sucursal_Bodega_multiple1.Location = new System.Drawing.Point(11, 25);
+            this.ucIn_Sucursal_Bodega_multiple1.Margin = new System.Windows.Forms.Padding(4);
             this.ucIn_Sucursal_Bodega_multiple1.Name = "ucIn_Sucursal_Bodega_multiple1";
-            this.ucIn_Sucursal_Bodega_multiple1.Size = new System.Drawing.Size(600, 71);
+            this.ucIn_Sucursal_Bodega_multiple1.Size = new System.Drawing.Size(450, 58);
             this.ucIn_Sucursal_Bodega_multiple1.TabIndex = 2;
             this.ucIn_Sucursal_Bodega_multiple1.event_delegate_cmb_sucursal_EditValueChanged += new Core.Erp.Winform.Controles.UCIn_Sucursal_Bodega_multiple.delegate_cmb_sucursal_EditValueChanged(this.ucIn_Sucursal_Bodega_multiple1_event_delegate_cmb_sucursal_EditValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(635, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(476, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 17);
+            this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Fecha inicio recosteo:";
             // 
             // de_Fecha_ini_recosteo
             // 
             this.de_Fecha_ini_recosteo.EditValue = null;
-            this.de_Fecha_ini_recosteo.Location = new System.Drawing.Point(791, 39);
-            this.de_Fecha_ini_recosteo.Margin = new System.Windows.Forms.Padding(4);
+            this.de_Fecha_ini_recosteo.Location = new System.Drawing.Point(593, 32);
             this.de_Fecha_ini_recosteo.Name = "de_Fecha_ini_recosteo";
             this.de_Fecha_ini_recosteo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_Fecha_ini_recosteo.Size = new System.Drawing.Size(167, 22);
+            this.de_Fecha_ini_recosteo.Size = new System.Drawing.Size(125, 20);
             this.de_Fecha_ini_recosteo.TabIndex = 0;
             // 
             // TabControlRecosteo
             // 
             this.TabControlRecosteo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControlRecosteo.Location = new System.Drawing.Point(0, 27);
-            this.TabControlRecosteo.Margin = new System.Windows.Forms.Padding(4);
+            this.TabControlRecosteo.Location = new System.Drawing.Point(0, 25);
             this.TabControlRecosteo.Name = "TabControlRecosteo";
             this.TabControlRecosteo.SelectedTabPage = this.tabPage_recosteo;
-            this.TabControlRecosteo.Size = new System.Drawing.Size(1343, 476);
+            this.TabControlRecosteo.Size = new System.Drawing.Size(1007, 384);
             this.TabControlRecosteo.TabIndex = 3;
             this.TabControlRecosteo.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPage_recosteo,
@@ -272,27 +310,25 @@
             this.tabPage_contabilizar,
             this.TabPage_recosteo_x_producto,
             this.TabPage_Diferencias,
-            this.TabPage_CambiarFecha});
+            this.TabPage_CambiarFecha,
+            this.TabPage_CambiarTrans});
             // 
             // tabPage_recosteo
             // 
             this.tabPage_recosteo.Controls.Add(this.gridControlRecosteo);
             this.tabPage_recosteo.Controls.Add(this.panel3);
             this.tabPage_recosteo.Controls.Add(this.panel5);
-            this.tabPage_recosteo.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_recosteo.Name = "tabPage_recosteo";
-            this.tabPage_recosteo.Size = new System.Drawing.Size(1337, 445);
+            this.tabPage_recosteo.Size = new System.Drawing.Size(1001, 356);
             this.tabPage_recosteo.Text = "Recosteo";
             // 
             // gridControlRecosteo
             // 
             this.gridControlRecosteo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlRecosteo.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlRecosteo.Location = new System.Drawing.Point(0, 106);
+            this.gridControlRecosteo.Location = new System.Drawing.Point(0, 86);
             this.gridControlRecosteo.MainView = this.gridViewRecosteo;
-            this.gridControlRecosteo.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlRecosteo.Name = "gridControlRecosteo";
-            this.gridControlRecosteo.Size = new System.Drawing.Size(1337, 307);
+            this.gridControlRecosteo.Size = new System.Drawing.Size(1001, 244);
             this.gridControlRecosteo.TabIndex = 0;
             this.gridControlRecosteo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewRecosteo});
@@ -379,20 +415,18 @@
             // 
             this.panel3.Controls.Add(this.ProgressBar_recosteo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 413);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(0, 330);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1337, 32);
+            this.panel3.Size = new System.Drawing.Size(1001, 26);
             this.panel3.TabIndex = 1;
             // 
             // ProgressBar_recosteo
             // 
             this.ProgressBar_recosteo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgressBar_recosteo.Location = new System.Drawing.Point(7, 4);
-            this.ProgressBar_recosteo.Margin = new System.Windows.Forms.Padding(4);
+            this.ProgressBar_recosteo.Location = new System.Drawing.Point(5, 3);
             this.ProgressBar_recosteo.Name = "ProgressBar_recosteo";
-            this.ProgressBar_recosteo.Size = new System.Drawing.Size(1321, 23);
+            this.ProgressBar_recosteo.Size = new System.Drawing.Size(989, 19);
             this.ProgressBar_recosteo.TabIndex = 0;
             // 
             // panel5
@@ -403,9 +437,8 @@
             this.panel5.Controls.Add(this.de_Fecha_ini_recosteo);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1337, 106);
+            this.panel5.Size = new System.Drawing.Size(1001, 86);
             this.panel5.TabIndex = 2;
             // 
             // toolStrip1
@@ -414,7 +447,7 @@
             this.btn_recostear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -423,7 +456,7 @@
             this.btn_recostear.Image = global::Core.Erp.Winform.Properties.Resources.check_16x16;
             this.btn_recostear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_recostear.Name = "btn_recostear";
-            this.btn_recostear.Size = new System.Drawing.Size(94, 24);
+            this.btn_recostear.Size = new System.Drawing.Size(78, 22);
             this.btn_recostear.Text = "Recostear";
             this.btn_recostear.Click += new System.EventHandler(this.btn_recostear_Click);
             // 
@@ -432,22 +465,19 @@
             this.tabPage_transferencias.Controls.Add(this.gridControlTransferencias);
             this.tabPage_transferencias.Controls.Add(this.panel2);
             this.tabPage_transferencias.Controls.Add(this.splitContainerControl1);
-            this.tabPage_transferencias.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_transferencias.Name = "tabPage_transferencias";
-            this.tabPage_transferencias.Size = new System.Drawing.Size(1337, 445);
+            this.tabPage_transferencias.Size = new System.Drawing.Size(1001, 356);
             this.tabPage_transferencias.Text = "Corrección de transferencias";
             // 
             // gridControlTransferencias
             // 
             this.gridControlTransferencias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlTransferencias.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlTransferencias.Location = new System.Drawing.Point(0, 31);
+            this.gridControlTransferencias.Location = new System.Drawing.Point(0, 25);
             this.gridControlTransferencias.MainView = this.gridViewTransferencias;
-            this.gridControlTransferencias.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlTransferencias.Name = "gridControlTransferencias";
             this.gridControlTransferencias.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_imagenes_tr});
-            this.gridControlTransferencias.Size = new System.Drawing.Size(1337, 377);
+            this.gridControlTransferencias.Size = new System.Drawing.Size(1001, 301);
             this.gridControlTransferencias.TabIndex = 1;
             this.gridControlTransferencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTransferencias});
@@ -529,33 +559,30 @@
             // 
             this.panel2.Controls.Add(this.ProgressBar_transferencias);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 408);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(0, 326);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1337, 37);
+            this.panel2.Size = new System.Drawing.Size(1001, 30);
             this.panel2.TabIndex = 2;
             // 
             // ProgressBar_transferencias
             // 
             this.ProgressBar_transferencias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProgressBar_transferencias.Location = new System.Drawing.Point(4, 7);
-            this.ProgressBar_transferencias.Margin = new System.Windows.Forms.Padding(4);
+            this.ProgressBar_transferencias.Location = new System.Drawing.Point(3, 6);
             this.ProgressBar_transferencias.Name = "ProgressBar_transferencias";
-            this.ProgressBar_transferencias.Size = new System.Drawing.Size(1323, 22);
+            this.ProgressBar_transferencias.Size = new System.Drawing.Size(990, 18);
             this.ProgressBar_transferencias.TabIndex = 0;
             // 
             // splitContainerControl1
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.panel4);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1337, 31);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1001, 25);
             this.splitContainerControl1.SplitterPosition = 303;
             this.splitContainerControl1.TabIndex = 6;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -566,32 +593,29 @@
             this.panel4.Controls.Add(this.de_fecha_transferencias);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(303, 33);
+            this.panel4.Size = new System.Drawing.Size(303, 27);
             this.panel4.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(8, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 17);
+            this.label2.Size = new System.Drawing.Size(136, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Fecha inicio transferencias:";
             // 
             // de_fecha_transferencias
             // 
             this.de_fecha_transferencias.EditValue = null;
-            this.de_fecha_transferencias.Location = new System.Drawing.Point(200, 4);
-            this.de_fecha_transferencias.Margin = new System.Windows.Forms.Padding(4);
+            this.de_fecha_transferencias.Location = new System.Drawing.Point(150, 3);
             this.de_fecha_transferencias.Name = "de_fecha_transferencias";
             this.de_fecha_transferencias.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_fecha_transferencias.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_fecha_transferencias.Size = new System.Drawing.Size(167, 22);
+            this.de_fecha_transferencias.Size = new System.Drawing.Size(125, 20);
             this.de_fecha_transferencias.TabIndex = 6;
             // 
             // toolStrip2
@@ -601,7 +625,7 @@
             this.btn_corregir_transferencias});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1029, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(693, 25);
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip2";
             this.toolStrip2.Click += new System.EventHandler(this.btn_buscar_transferencias_Click);
@@ -611,7 +635,7 @@
             this.btn_buscar_transferencias.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
             this.btn_buscar_transferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_buscar_transferencias.Name = "btn_buscar_transferencias";
-            this.btn_buscar_transferencias.Size = new System.Drawing.Size(169, 24);
+            this.btn_buscar_transferencias.Size = new System.Drawing.Size(140, 22);
             this.btn_buscar_transferencias.Text = "Buscar_transferencias";
             this.btn_buscar_transferencias.Click += new System.EventHandler(this.btn_buscar_transferencias_Click);
             // 
@@ -620,7 +644,7 @@
             this.btn_corregir_transferencias.Image = global::Core.Erp.Winform.Properties.Resources.re_hacer_16x16;
             this.btn_corregir_transferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_corregir_transferencias.Name = "btn_corregir_transferencias";
-            this.btn_corregir_transferencias.Size = new System.Drawing.Size(178, 24);
+            this.btn_corregir_transferencias.Size = new System.Drawing.Size(146, 22);
             this.btn_corregir_transferencias.Text = "Corregir transferencias";
             this.btn_corregir_transferencias.Click += new System.EventHandler(this.btn_corregir_transferencias_Click);
             // 
@@ -629,20 +653,17 @@
             this.tabPage_contabilizar.Controls.Add(this.gridControlContabilizacion);
             this.tabPage_contabilizar.Controls.Add(this.panel1);
             this.tabPage_contabilizar.Controls.Add(this.toolStrip3);
-            this.tabPage_contabilizar.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage_contabilizar.Name = "tabPage_contabilizar";
-            this.tabPage_contabilizar.Size = new System.Drawing.Size(1337, 445);
+            this.tabPage_contabilizar.Size = new System.Drawing.Size(1001, 356);
             this.tabPage_contabilizar.Text = "Movimientos sin contabilizar";
             // 
             // gridControlContabilizacion
             // 
             this.gridControlContabilizacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlContabilizacion.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gridControlContabilizacion.Location = new System.Drawing.Point(0, 103);
+            this.gridControlContabilizacion.Location = new System.Drawing.Point(0, 87);
             this.gridControlContabilizacion.MainView = this.gridViewContabilizacion;
-            this.gridControlContabilizacion.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlContabilizacion.Name = "gridControlContabilizacion";
-            this.gridControlContabilizacion.Size = new System.Drawing.Size(1337, 342);
+            this.gridControlContabilizacion.Size = new System.Drawing.Size(1001, 269);
             this.gridControlContabilizacion.TabIndex = 1;
             this.gridControlContabilizacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewContabilizacion});
@@ -746,19 +767,17 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.de_fecha_ini_cont);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 27);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1337, 76);
+            this.panel1.Size = new System.Drawing.Size(1001, 62);
             this.panel1.TabIndex = 0;
             // 
             // chk_seleccionar_visibles
             // 
-            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(15, 44);
-            this.chk_seleccionar_visibles.Margin = new System.Windows.Forms.Padding(4);
+            this.chk_seleccionar_visibles.Location = new System.Drawing.Point(11, 36);
             this.chk_seleccionar_visibles.Name = "chk_seleccionar_visibles";
             this.chk_seleccionar_visibles.Properties.Caption = "Seleccionar visibles";
-            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(168, 21);
+            this.chk_seleccionar_visibles.Size = new System.Drawing.Size(126, 19);
             this.chk_seleccionar_visibles.TabIndex = 9;
             this.chk_seleccionar_visibles.CheckedChanged += new System.EventHandler(this.chk_seleccionar_visibles_CheckedChanged);
             // 
@@ -769,19 +788,17 @@
             this.cmb_estado_contabilizacion.Items.AddRange(new object[] {
             "CONTABILIZADO",
             "NO CONTABILIZADO"});
-            this.cmb_estado_contabilizacion.Location = new System.Drawing.Point(15, 11);
-            this.cmb_estado_contabilizacion.Margin = new System.Windows.Forms.Padding(4);
+            this.cmb_estado_contabilizacion.Location = new System.Drawing.Point(11, 9);
             this.cmb_estado_contabilizacion.Name = "cmb_estado_contabilizacion";
-            this.cmb_estado_contabilizacion.Size = new System.Drawing.Size(249, 24);
+            this.cmb_estado_contabilizacion.Size = new System.Drawing.Size(188, 21);
             this.cmb_estado_contabilizacion.TabIndex = 8;
             // 
             // rdb_ingresos
             // 
             this.rdb_ingresos.AutoSize = true;
-            this.rdb_ingresos.Location = new System.Drawing.Point(296, 44);
-            this.rdb_ingresos.Margin = new System.Windows.Forms.Padding(4);
+            this.rdb_ingresos.Location = new System.Drawing.Point(222, 36);
             this.rdb_ingresos.Name = "rdb_ingresos";
-            this.rdb_ingresos.Size = new System.Drawing.Size(83, 21);
+            this.rdb_ingresos.Size = new System.Drawing.Size(65, 17);
             this.rdb_ingresos.TabIndex = 7;
             this.rdb_ingresos.Text = "Ingresos";
             this.rdb_ingresos.UseVisualStyleBackColor = true;
@@ -791,10 +808,9 @@
             // 
             this.rdb_egresos.AutoSize = true;
             this.rdb_egresos.Checked = true;
-            this.rdb_egresos.Location = new System.Drawing.Point(296, 12);
-            this.rdb_egresos.Margin = new System.Windows.Forms.Padding(4);
+            this.rdb_egresos.Location = new System.Drawing.Point(222, 10);
             this.rdb_egresos.Name = "rdb_egresos";
-            this.rdb_egresos.Size = new System.Drawing.Size(81, 21);
+            this.rdb_egresos.Size = new System.Drawing.Size(63, 17);
             this.rdb_egresos.TabIndex = 6;
             this.rdb_egresos.TabStop = true;
             this.rdb_egresos.Text = "Egresos";
@@ -804,47 +820,43 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(397, 47);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(298, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Hasta:";
             // 
             // de_fecha_fin_cont
             // 
             this.de_fecha_fin_cont.EditValue = null;
-            this.de_fecha_fin_cont.Location = new System.Drawing.Point(460, 43);
-            this.de_fecha_fin_cont.Margin = new System.Windows.Forms.Padding(4);
+            this.de_fecha_fin_cont.Location = new System.Drawing.Point(345, 35);
             this.de_fecha_fin_cont.Name = "de_fecha_fin_cont";
             this.de_fecha_fin_cont.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_fecha_fin_cont.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_fecha_fin_cont.Size = new System.Drawing.Size(167, 22);
+            this.de_fecha_fin_cont.Size = new System.Drawing.Size(125, 20);
             this.de_fecha_fin_cont.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(397, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(298, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 17);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Desde:";
             // 
             // de_fecha_ini_cont
             // 
             this.de_fecha_ini_cont.EditValue = null;
-            this.de_fecha_ini_cont.Location = new System.Drawing.Point(460, 11);
-            this.de_fecha_ini_cont.Margin = new System.Windows.Forms.Padding(4);
+            this.de_fecha_ini_cont.Location = new System.Drawing.Point(345, 9);
             this.de_fecha_ini_cont.Name = "de_fecha_ini_cont";
             this.de_fecha_ini_cont.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_fecha_ini_cont.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_fecha_ini_cont.Size = new System.Drawing.Size(167, 22);
+            this.de_fecha_ini_cont.Size = new System.Drawing.Size(125, 20);
             this.de_fecha_ini_cont.TabIndex = 2;
             // 
             // toolStrip3
@@ -854,7 +866,7 @@
             this.btn_contabilizar});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip3.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip3.TabIndex = 2;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -863,7 +875,7 @@
             this.btn_buscar_movimientos_para_cont.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
             this.btn_buscar_movimientos_para_cont.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_buscar_movimientos_para_cont.Name = "btn_buscar_movimientos_para_cont";
-            this.btn_buscar_movimientos_para_cont.Size = new System.Drawing.Size(162, 24);
+            this.btn_buscar_movimientos_para_cont.Size = new System.Drawing.Size(135, 22);
             this.btn_buscar_movimientos_para_cont.Text = "Buscar movimientos";
             this.btn_buscar_movimientos_para_cont.Click += new System.EventHandler(this.btn_buscar_movimientos_btn_buscar_movimientos_para_cont_Click);
             // 
@@ -872,7 +884,7 @@
             this.btn_contabilizar.Image = global::Core.Erp.Winform.Properties.Resources.Dinero_16x16;
             this.btn_contabilizar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_contabilizar.Name = "btn_contabilizar";
-            this.btn_contabilizar.Size = new System.Drawing.Size(109, 24);
+            this.btn_contabilizar.Size = new System.Drawing.Size(90, 22);
             this.btn_contabilizar.Text = "Contabilizar";
             this.btn_contabilizar.Click += new System.EventHandler(this.btn_contabilizar_Click);
             // 
@@ -880,8 +892,9 @@
             // 
             this.TabPage_recosteo_x_producto.Controls.Add(this.panel6);
             this.TabPage_recosteo_x_producto.Controls.Add(this.toolStrip4);
+            this.TabPage_recosteo_x_producto.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_recosteo_x_producto.Name = "TabPage_recosteo_x_producto";
-            this.TabPage_recosteo_x_producto.Size = new System.Drawing.Size(1337, 445);
+            this.TabPage_recosteo_x_producto.Size = new System.Drawing.Size(1001, 356);
             this.TabPage_recosteo_x_producto.Text = "Recosteo por producto";
             // 
             // panel6
@@ -892,32 +905,31 @@
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.de_fecha_x_prod);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 27);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(0, 25);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1337, 118);
+            this.panel6.Size = new System.Drawing.Size(1001, 96);
             this.panel6.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 77);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(9, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 17);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 4;
             this.label6.Text = "Producto";
             // 
             // cmb_producto
             // 
-            this.cmb_producto.Location = new System.Drawing.Point(90, 74);
+            this.cmb_producto.Location = new System.Drawing.Point(68, 60);
+            this.cmb_producto.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_producto.Name = "cmb_producto";
             this.cmb_producto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_producto.Properties.DisplayMember = "pr_descripcion_2";
             this.cmb_producto.Properties.ValueMember = "IdProducto";
             this.cmb_producto.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_producto.Size = new System.Drawing.Size(527, 22);
+            this.cmb_producto.Size = new System.Drawing.Size(395, 20);
             this.cmb_producto.TabIndex = 3;
             // 
             // searchLookUpEdit1View
@@ -961,10 +973,9 @@
             // 
             // ucIn_Sucursal_Bodega1
             // 
-            this.ucIn_Sucursal_Bodega1.Location = new System.Drawing.Point(12, 14);
-            this.ucIn_Sucursal_Bodega1.Margin = new System.Windows.Forms.Padding(4);
+            this.ucIn_Sucursal_Bodega1.Location = new System.Drawing.Point(9, 11);
             this.ucIn_Sucursal_Bodega1.Name = "ucIn_Sucursal_Bodega1";
-            this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(616, 65);
+            this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(462, 53);
             this.ucIn_Sucursal_Bodega1.TabIndex = 2;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.todos;
             this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = false;
@@ -972,24 +983,22 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(641, 23);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(481, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 17);
+            this.label5.Size = new System.Drawing.Size(111, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Fecha inicio recosteo:";
             // 
             // de_fecha_x_prod
             // 
             this.de_fecha_x_prod.EditValue = null;
-            this.de_fecha_x_prod.Location = new System.Drawing.Point(795, 20);
-            this.de_fecha_x_prod.Margin = new System.Windows.Forms.Padding(4);
+            this.de_fecha_x_prod.Location = new System.Drawing.Point(596, 16);
             this.de_fecha_x_prod.Name = "de_fecha_x_prod";
             this.de_fecha_x_prod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_fecha_x_prod.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_fecha_x_prod.Size = new System.Drawing.Size(167, 22);
+            this.de_fecha_x_prod.Size = new System.Drawing.Size(125, 20);
             this.de_fecha_x_prod.TabIndex = 0;
             // 
             // toolStrip4
@@ -998,7 +1007,7 @@
             this.btn_recostear_x_producto});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip4.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip4.TabIndex = 7;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -1007,7 +1016,7 @@
             this.btn_recostear_x_producto.Image = global::Core.Erp.Winform.Properties.Resources.check_16x16;
             this.btn_recostear_x_producto.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_recostear_x_producto.Name = "btn_recostear_x_producto";
-            this.btn_recostear_x_producto.Size = new System.Drawing.Size(94, 24);
+            this.btn_recostear_x_producto.Size = new System.Drawing.Size(78, 22);
             this.btn_recostear_x_producto.Text = "Recostear";
             this.btn_recostear_x_producto.Click += new System.EventHandler(this.btn_recostear_x_producto_Click);
             // 
@@ -1016,19 +1025,18 @@
             this.TabPage_Diferencias.Controls.Add(this.gcDiferencias);
             this.TabPage_Diferencias.Controls.Add(this.panel7);
             this.TabPage_Diferencias.Controls.Add(this.toolStrip5);
+            this.TabPage_Diferencias.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Diferencias.Name = "TabPage_Diferencias";
-            this.TabPage_Diferencias.Size = new System.Drawing.Size(1337, 445);
+            this.TabPage_Diferencias.Size = new System.Drawing.Size(1001, 356);
             this.TabPage_Diferencias.Text = "Diferencias contables";
             // 
             // gcDiferencias
             // 
             this.gcDiferencias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDiferencias.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gcDiferencias.Location = new System.Drawing.Point(0, 138);
+            this.gcDiferencias.Location = new System.Drawing.Point(0, 115);
             this.gcDiferencias.MainView = this.gvDiferencias;
-            this.gcDiferencias.Margin = new System.Windows.Forms.Padding(4);
             this.gcDiferencias.Name = "gcDiferencias";
-            this.gcDiferencias.Size = new System.Drawing.Size(1337, 307);
+            this.gcDiferencias.Size = new System.Drawing.Size(1001, 241);
             this.gcDiferencias.TabIndex = 4;
             this.gcDiferencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDiferencias});
@@ -1158,65 +1166,61 @@
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.deFechaIniD);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 27);
+            this.panel7.Location = new System.Drawing.Point(0, 25);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1337, 111);
+            this.panel7.Size = new System.Drawing.Size(1001, 90);
             this.panel7.TabIndex = 5;
             // 
             // chkSeleccionarVisiblesReversos
             // 
-            this.chkSeleccionarVisiblesReversos.Location = new System.Drawing.Point(92, 85);
-            this.chkSeleccionarVisiblesReversos.Margin = new System.Windows.Forms.Padding(4);
+            this.chkSeleccionarVisiblesReversos.Location = new System.Drawing.Point(69, 69);
             this.chkSeleccionarVisiblesReversos.Name = "chkSeleccionarVisiblesReversos";
             this.chkSeleccionarVisiblesReversos.Properties.Caption = "Seleccionar visibles";
-            this.chkSeleccionarVisiblesReversos.Size = new System.Drawing.Size(168, 21);
+            this.chkSeleccionarVisiblesReversos.Size = new System.Drawing.Size(126, 19);
             this.chkSeleccionarVisiblesReversos.TabIndex = 10;
             this.chkSeleccionarVisiblesReversos.CheckedChanged += new System.EventHandler(this.chkSeleccionarVisiblesReversos_CheckedChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 59);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(23, 48);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 17);
+            this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 9;
             this.label7.Text = "Hasta:";
             // 
             // deFechaFinD
             // 
             this.deFechaFinD.EditValue = null;
-            this.deFechaFinD.Location = new System.Drawing.Point(94, 55);
-            this.deFechaFinD.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaFinD.Location = new System.Drawing.Point(70, 45);
             this.deFechaFinD.Name = "deFechaFinD";
             this.deFechaFinD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaFinD.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaFinD.Size = new System.Drawing.Size(167, 22);
+            this.deFechaFinD.Size = new System.Drawing.Size(125, 20);
             this.deFechaFinD.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 27);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(23, 22);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 17);
+            this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 7;
             this.label8.Text = "Desde:";
             // 
             // deFechaIniD
             // 
             this.deFechaIniD.EditValue = null;
-            this.deFechaIniD.Location = new System.Drawing.Point(94, 23);
-            this.deFechaIniD.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaIniD.Location = new System.Drawing.Point(70, 19);
             this.deFechaIniD.Name = "deFechaIniD";
             this.deFechaIniD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaIniD.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaIniD.Size = new System.Drawing.Size(167, 22);
+            this.deFechaIniD.Size = new System.Drawing.Size(125, 20);
             this.deFechaIniD.TabIndex = 6;
             // 
             // toolStrip5
@@ -1226,7 +1230,7 @@
             this.btnReversarContabilizacion});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip5.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip5.TabIndex = 3;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -1235,7 +1239,7 @@
             this.btnBuscarDiferencias.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
             this.btnBuscarDiferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscarDiferencias.Name = "btnBuscarDiferencias";
-            this.btnBuscarDiferencias.Size = new System.Drawing.Size(162, 24);
+            this.btnBuscarDiferencias.Size = new System.Drawing.Size(135, 22);
             this.btnBuscarDiferencias.Text = "Buscar movimientos";
             this.btnBuscarDiferencias.Click += new System.EventHandler(this.btnBuscarDiferencias_Click);
             // 
@@ -1244,7 +1248,7 @@
             this.btnReversarContabilizacion.Image = global::Core.Erp.Winform.Properties.Resources.Dinero_16x16;
             this.btnReversarContabilizacion.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnReversarContabilizacion.Name = "btnReversarContabilizacion";
-            this.btnReversarContabilizacion.Size = new System.Drawing.Size(190, 24);
+            this.btnReversarContabilizacion.Size = new System.Drawing.Size(154, 22);
             this.btnReversarContabilizacion.Text = "Reversar contabilización";
             this.btnReversarContabilizacion.Click += new System.EventHandler(this.btnReversarContabilizacion_Click);
             // 
@@ -1256,51 +1260,48 @@
             this.TabPage_CambiarFecha.Controls.Add(this.label13);
             this.TabPage_CambiarFecha.Controls.Add(this.panel8);
             this.TabPage_CambiarFecha.Controls.Add(this.toolStrip6);
+            this.TabPage_CambiarFecha.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_CambiarFecha.Name = "TabPage_CambiarFecha";
-            this.TabPage_CambiarFecha.Size = new System.Drawing.Size(1337, 445);
+            this.TabPage_CambiarFecha.Size = new System.Drawing.Size(1001, 356);
             this.TabPage_CambiarFecha.Text = "Cambiar fecha de movimientos";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(38, 169);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(28, 137);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 17);
+            this.label14.Size = new System.Drawing.Size(69, 13);
             this.label14.TabIndex = 16;
             this.label14.Text = "Fecha actual";
             // 
             // deFechaActualCambioFecha
             // 
             this.deFechaActualCambioFecha.EditValue = null;
-            this.deFechaActualCambioFecha.Location = new System.Drawing.Point(201, 166);
-            this.deFechaActualCambioFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaActualCambioFecha.Location = new System.Drawing.Point(151, 135);
             this.deFechaActualCambioFecha.Name = "deFechaActualCambioFecha";
             this.deFechaActualCambioFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaActualCambioFecha.Properties.ReadOnly = true;
             this.deFechaActualCambioFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaActualCambioFecha.Size = new System.Drawing.Size(167, 22);
+            this.deFechaActualCambioFecha.Size = new System.Drawing.Size(125, 20);
             this.deFechaActualCambioFecha.TabIndex = 15;
             // 
             // txtObservacionCambioFecha
             // 
-            this.txtObservacionCambioFecha.Location = new System.Drawing.Point(201, 200);
-            this.txtObservacionCambioFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtObservacionCambioFecha.Location = new System.Drawing.Point(151, 162);
             this.txtObservacionCambioFecha.Multiline = true;
             this.txtObservacionCambioFecha.Name = "txtObservacionCambioFecha";
             this.txtObservacionCambioFecha.ReadOnly = true;
-            this.txtObservacionCambioFecha.Size = new System.Drawing.Size(527, 82);
+            this.txtObservacionCambioFecha.Size = new System.Drawing.Size(396, 67);
             this.txtObservacionCambioFecha.TabIndex = 14;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(38, 203);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(28, 165);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 17);
+            this.label13.Size = new System.Drawing.Size(70, 13);
             this.label13.TabIndex = 13;
             this.label13.Text = "Observación:";
             // 
@@ -1315,49 +1316,48 @@
             this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.deFechaNuevaCambio);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 27);
+            this.panel8.Location = new System.Drawing.Point(0, 25);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1337, 122);
+            this.panel8.Size = new System.Drawing.Size(1001, 99);
             this.panel8.TabIndex = 5;
             // 
             // txtNumMovimiento
             // 
-            this.txtNumMovimiento.Location = new System.Drawing.Point(201, 77);
-            this.txtNumMovimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumMovimiento.Location = new System.Drawing.Point(151, 63);
             this.txtNumMovimiento.Name = "txtNumMovimiento";
-            this.txtNumMovimiento.Size = new System.Drawing.Size(132, 22);
+            this.txtNumMovimiento.Size = new System.Drawing.Size(100, 20);
             this.txtNumMovimiento.TabIndex = 12;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(38, 80);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(28, 65);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 17);
+            this.label12.Size = new System.Drawing.Size(71, 13);
             this.label12.TabIndex = 11;
             this.label12.Text = "# Movimiento";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(38, 51);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(28, 41);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(131, 17);
+            this.label11.Size = new System.Drawing.Size(99, 13);
             this.label11.TabIndex = 10;
             this.label11.Text = "Tipo de movimiento";
             // 
             // cmbTipoMovimientoCambioFecha
             // 
-            this.cmbTipoMovimientoCambioFecha.Location = new System.Drawing.Point(201, 48);
+            this.cmbTipoMovimientoCambioFecha.Location = new System.Drawing.Point(151, 39);
+            this.cmbTipoMovimientoCambioFecha.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTipoMovimientoCambioFecha.Name = "cmbTipoMovimientoCambioFecha";
             this.cmbTipoMovimientoCambioFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbTipoMovimientoCambioFecha.Properties.DisplayMember = "tm_descripcion2";
             this.cmbTipoMovimientoCambioFecha.Properties.ValueMember = "IdMovi_inven_tipo";
             this.cmbTipoMovimientoCambioFecha.Properties.View = this.gridView2;
-            this.cmbTipoMovimientoCambioFecha.Size = new System.Drawing.Size(527, 22);
+            this.cmbTipoMovimientoCambioFecha.Size = new System.Drawing.Size(395, 20);
             this.cmbTipoMovimientoCambioFecha.TabIndex = 9;
             // 
             // gridView2
@@ -1372,26 +1372,53 @@
             this.gridView2.OptionsView.ShowAutoFilterRow = true;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn32
+            // 
+            this.gridColumn32.Caption = "Tipo movimiento";
+            this.gridColumn32.FieldName = "tm_descripcion";
+            this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.Visible = true;
+            this.gridColumn32.VisibleIndex = 0;
+            this.gridColumn32.Width = 828;
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.Caption = "ID";
+            this.gridColumn33.FieldName = "IdMovi_inven_tipo";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 2;
+            this.gridColumn33.Width = 183;
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "Tipo";
+            this.gridColumn34.FieldName = "cm_tipo_movi";
+            this.gridColumn34.Name = "gridColumn34";
+            this.gridColumn34.Visible = true;
+            this.gridColumn34.VisibleIndex = 1;
+            this.gridColumn34.Width = 182;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(38, 23);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(28, 19);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 17);
+            this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 8;
             this.label9.Text = "Sucursal";
             // 
             // cmbSucursalCambioFecha
             // 
-            this.cmbSucursalCambioFecha.Location = new System.Drawing.Point(201, 20);
+            this.cmbSucursalCambioFecha.Location = new System.Drawing.Point(151, 16);
+            this.cmbSucursalCambioFecha.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSucursalCambioFecha.Name = "cmbSucursalCambioFecha";
             this.cmbSucursalCambioFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSucursalCambioFecha.Properties.DisplayMember = "Su_Descripcion2";
             this.cmbSucursalCambioFecha.Properties.ValueMember = "IdSucursal";
             this.cmbSucursalCambioFecha.Properties.View = this.gridView1;
-            this.cmbSucursalCambioFecha.Size = new System.Drawing.Size(527, 22);
+            this.cmbSucursalCambioFecha.Size = new System.Drawing.Size(395, 20);
             this.cmbSucursalCambioFecha.TabIndex = 7;
             // 
             // gridView1
@@ -1436,24 +1463,22 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(407, 80);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(305, 65);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 17);
+            this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 6;
             this.label10.Text = "Nueva fecha:";
             // 
             // deFechaNuevaCambio
             // 
             this.deFechaNuevaCambio.EditValue = null;
-            this.deFechaNuevaCambio.Location = new System.Drawing.Point(561, 77);
-            this.deFechaNuevaCambio.Margin = new System.Windows.Forms.Padding(4);
+            this.deFechaNuevaCambio.Location = new System.Drawing.Point(421, 63);
             this.deFechaNuevaCambio.Name = "deFechaNuevaCambio";
             this.deFechaNuevaCambio.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaNuevaCambio.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaNuevaCambio.Size = new System.Drawing.Size(167, 22);
+            this.deFechaNuevaCambio.Size = new System.Drawing.Size(125, 20);
             this.deFechaNuevaCambio.TabIndex = 5;
             // 
             // toolStrip6
@@ -1463,7 +1488,7 @@
             this.btnCambiarFecha});
             this.toolStrip6.Location = new System.Drawing.Point(0, 0);
             this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(1337, 27);
+            this.toolStrip6.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip6.TabIndex = 4;
             this.toolStrip6.Text = "toolStrip6";
             // 
@@ -1472,7 +1497,7 @@
             this.btnBuscarCambioFecha.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
             this.btnBuscarCambioFecha.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnBuscarCambioFecha.Name = "btnBuscarCambioFecha";
-            this.btnBuscarCambioFecha.Size = new System.Drawing.Size(76, 24);
+            this.btnBuscarCambioFecha.Size = new System.Drawing.Size(65, 22);
             this.btnBuscarCambioFecha.Text = "Buscar ";
             this.btnBuscarCambioFecha.Click += new System.EventHandler(this.btnBuscarCambioFecha_Click);
             // 
@@ -1481,9 +1506,283 @@
             this.btnCambiarFecha.Image = global::Core.Erp.Winform.Properties.Resources.editar1_16x16;
             this.btnCambiarFecha.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCambiarFecha.Name = "btnCambiarFecha";
-            this.btnCambiarFecha.Size = new System.Drawing.Size(125, 24);
+            this.btnCambiarFecha.Size = new System.Drawing.Size(104, 22);
             this.btnCambiarFecha.Text = "Cambiar fecha";
             this.btnCambiarFecha.Click += new System.EventHandler(this.btnCambiarFecha_Click);
+            // 
+            // TabPage_CambiarTrans
+            // 
+            this.TabPage_CambiarTrans.Controls.Add(this.panel9);
+            this.TabPage_CambiarTrans.Controls.Add(this.toolStrip7);
+            this.TabPage_CambiarTrans.Name = "TabPage_CambiarTrans";
+            this.TabPage_CambiarTrans.Size = new System.Drawing.Size(1001, 356);
+            this.TabPage_CambiarTrans.Text = "Cambiar fecha transferencias";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.labelControl7);
+            this.panel9.Controls.Add(this.labelControl6);
+            this.panel9.Controls.Add(this.deFechaIngresoTrans);
+            this.panel9.Controls.Add(this.deFechaEgresoTrans);
+            this.panel9.Controls.Add(this.cmbBodegaOrigen);
+            this.panel9.Controls.Add(this.labelControl5);
+            this.panel9.Controls.Add(this.cmbSucursalOrigen);
+            this.panel9.Controls.Add(this.labelControl4);
+            this.panel9.Controls.Add(this.labelControl3);
+            this.panel9.Controls.Add(this.deFechaTrans);
+            this.panel9.Controls.Add(this.labelControl2);
+            this.panel9.Controls.Add(this.txtIdTransferencia);
+            this.panel9.Controls.Add(this.labelControl1);
+            this.panel9.Controls.Add(this.txtObservacion);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 25);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1001, 331);
+            this.panel9.TabIndex = 6;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(487, 83);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(67, 13);
+            this.labelControl7.TabIndex = 27;
+            this.labelControl7.Text = "Fecha ingreso";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(487, 59);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(65, 13);
+            this.labelControl6.TabIndex = 26;
+            this.labelControl6.Text = "Fecha egreso";
+            // 
+            // deFechaIngresoTrans
+            // 
+            this.deFechaIngresoTrans.EditValue = null;
+            this.deFechaIngresoTrans.Location = new System.Drawing.Point(596, 80);
+            this.deFechaIngresoTrans.Margin = new System.Windows.Forms.Padding(2);
+            this.deFechaIngresoTrans.Name = "deFechaIngresoTrans";
+            this.deFechaIngresoTrans.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaIngresoTrans.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaIngresoTrans.Size = new System.Drawing.Size(97, 20);
+            this.deFechaIngresoTrans.TabIndex = 25;
+            // 
+            // deFechaEgresoTrans
+            // 
+            this.deFechaEgresoTrans.EditValue = null;
+            this.deFechaEgresoTrans.Location = new System.Drawing.Point(596, 56);
+            this.deFechaEgresoTrans.Margin = new System.Windows.Forms.Padding(2);
+            this.deFechaEgresoTrans.Name = "deFechaEgresoTrans";
+            this.deFechaEgresoTrans.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaEgresoTrans.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaEgresoTrans.Size = new System.Drawing.Size(97, 20);
+            this.deFechaEgresoTrans.TabIndex = 24;
+            // 
+            // cmbBodegaOrigen
+            // 
+            this.cmbBodegaOrigen.Location = new System.Drawing.Point(136, 56);
+            this.cmbBodegaOrigen.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbBodegaOrigen.Name = "cmbBodegaOrigen";
+            this.cmbBodegaOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbBodegaOrigen.Properties.DisplayMember = "bo_Descripcion2";
+            this.cmbBodegaOrigen.Properties.ValueMember = "IdBodega";
+            this.cmbBodegaOrigen.Properties.View = this.gridView4;
+            this.cmbBodegaOrigen.Size = new System.Drawing.Size(327, 20);
+            this.cmbBodegaOrigen.TabIndex = 19;
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn37,
+            this.gridColumn38});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "Bodega";
+            this.gridColumn37.FieldName = "bo_Descripcion";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 0;
+            this.gridColumn37.Width = 1520;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "ID";
+            this.gridColumn38.FieldName = "IdBodega";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 1;
+            this.gridColumn38.Width = 214;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(27, 60);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(69, 13);
+            this.labelControl5.TabIndex = 23;
+            this.labelControl5.Text = "Bodega origen";
+            // 
+            // cmbSucursalOrigen
+            // 
+            this.cmbSucursalOrigen.Location = new System.Drawing.Point(136, 32);
+            this.cmbSucursalOrigen.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbSucursalOrigen.Name = "cmbSucursalOrigen";
+            this.cmbSucursalOrigen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSucursalOrigen.Properties.DisplayMember = "Su_Descripcion2";
+            this.cmbSucursalOrigen.Properties.ValueMember = "IdSucursal";
+            this.cmbSucursalOrigen.Properties.View = this.gridView6;
+            this.cmbSucursalOrigen.Size = new System.Drawing.Size(327, 20);
+            this.cmbSucursalOrigen.TabIndex = 17;
+            this.cmbSucursalOrigen.EditValueChanged += new System.EventHandler(this.cmbSucursalOrigen_EditValueChanged);
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn42,
+            this.gridColumn43,
+            this.gridColumn44});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "Sucursal";
+            this.gridColumn42.FieldName = "Su_Descripcion";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.Visible = true;
+            this.gridColumn42.VisibleIndex = 0;
+            this.gridColumn42.Width = 1223;
+            // 
+            // gridColumn43
+            // 
+            this.gridColumn43.Caption = "Código";
+            this.gridColumn43.FieldName = "codigo";
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 1;
+            this.gridColumn43.Width = 255;
+            // 
+            // gridColumn44
+            // 
+            this.gridColumn44.Caption = "ID";
+            this.gridColumn44.FieldName = "IdSucursal";
+            this.gridColumn44.Name = "gridColumn44";
+            this.gridColumn44.Visible = true;
+            this.gridColumn44.VisibleIndex = 2;
+            this.gridColumn44.Width = 256;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(27, 35);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(73, 13);
+            this.labelControl4.TabIndex = 21;
+            this.labelControl4.Text = "Sucursal origen";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(487, 35);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(96, 13);
+            this.labelControl3.TabIndex = 15;
+            this.labelControl3.Text = "Fecha transferencia";
+            // 
+            // deFechaTrans
+            // 
+            this.deFechaTrans.EditValue = null;
+            this.deFechaTrans.Location = new System.Drawing.Point(596, 32);
+            this.deFechaTrans.Margin = new System.Windows.Forms.Padding(2);
+            this.deFechaTrans.Name = "deFechaTrans";
+            this.deFechaTrans.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaTrans.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaTrans.Size = new System.Drawing.Size(97, 20);
+            this.deFechaTrans.TabIndex = 14;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(27, 107);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(60, 13);
+            this.labelControl2.TabIndex = 12;
+            this.labelControl2.Text = "Observación";
+            // 
+            // txtIdTransferencia
+            // 
+            this.txtIdTransferencia.Location = new System.Drawing.Point(136, 80);
+            this.txtIdTransferencia.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdTransferencia.Name = "txtIdTransferencia";
+            this.txtIdTransferencia.Size = new System.Drawing.Size(75, 20);
+            this.txtIdTransferencia.TabIndex = 11;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(27, 83);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(77, 13);
+            this.labelControl1.TabIndex = 10;
+            this.labelControl1.Text = "# Transferencia";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Location = new System.Drawing.Point(136, 104);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Properties.ReadOnly = true;
+            this.txtObservacion.Size = new System.Drawing.Size(557, 68);
+            this.txtObservacion.TabIndex = 13;
+            // 
+            // toolStrip7
+            // 
+            this.toolStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnBuscarTransFecha,
+            this.btnTransCambiarFecha});
+            this.toolStrip7.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip7.Name = "toolStrip7";
+            this.toolStrip7.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip7.TabIndex = 5;
+            this.toolStrip7.Text = "toolStrip7";
+            // 
+            // btnBuscarTransFecha
+            // 
+            this.btnBuscarTransFecha.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarTransFecha.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarTransFecha.Name = "btnBuscarTransFecha";
+            this.btnBuscarTransFecha.Size = new System.Drawing.Size(65, 22);
+            this.btnBuscarTransFecha.Text = "Buscar ";
+            this.btnBuscarTransFecha.Click += new System.EventHandler(this.btnBuscarTransFecha_Click);
+            // 
+            // btnTransCambiarFecha
+            // 
+            this.btnTransCambiarFecha.Image = global::Core.Erp.Winform.Properties.Resources.editar1_16x16;
+            this.btnTransCambiarFecha.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTransCambiarFecha.Name = "btnTransCambiarFecha";
+            this.btnTransCambiarFecha.Size = new System.Drawing.Size(104, 22);
+            this.btnTransCambiarFecha.Text = "Cambiar fecha";
+            this.btnTransCambiarFecha.Click += new System.EventHandler(this.btnTransCambiarFecha_Click);
             // 
             // toolStripCabecera
             // 
@@ -1491,7 +1790,7 @@
             this.btn_salir});
             this.toolStripCabecera.Location = new System.Drawing.Point(0, 0);
             this.toolStripCabecera.Name = "toolStripCabecera";
-            this.toolStripCabecera.Size = new System.Drawing.Size(1343, 27);
+            this.toolStripCabecera.Size = new System.Drawing.Size(1007, 25);
             this.toolStripCabecera.TabIndex = 7;
             this.toolStripCabecera.Text = "toolStrip3";
             // 
@@ -1500,46 +1799,18 @@
             this.btn_salir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
             this.btn_salir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(58, 24);
+            this.btn_salir.Size = new System.Drawing.Size(49, 22);
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // gridColumn32
-            // 
-            this.gridColumn32.Caption = "Tipo movimiento";
-            this.gridColumn32.FieldName = "tm_descripcion";
-            this.gridColumn32.Name = "gridColumn32";
-            this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 0;
-            this.gridColumn32.Width = 828;
-            // 
-            // gridColumn33
-            // 
-            this.gridColumn33.Caption = "ID";
-            this.gridColumn33.FieldName = "IdMovi_inven_tipo";
-            this.gridColumn33.Name = "gridColumn33";
-            this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 2;
-            this.gridColumn33.Width = 183;
-            // 
-            // gridColumn34
-            // 
-            this.gridColumn34.Caption = "Tipo";
-            this.gridColumn34.FieldName = "cm_tipo_movi";
-            this.gridColumn34.Name = "gridColumn34";
-            this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 1;
-            this.gridColumn34.Width = 182;
-            // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1343, 535);
+            this.ClientSize = new System.Drawing.Size(1007, 435);
             this.Controls.Add(this.TabControlRecosteo);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.toolStripCabecera);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Recosteo_correccion_contable_inv";
             this.Text = "Recosteo y corrección contable de inventario";
             this.Load += new System.EventHandler(this.FrmIn_Recosteo_correccion_contable_inv_Load);
@@ -1620,6 +1891,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaNuevaCambio.Properties)).EndInit();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
+            this.TabPage_CambiarTrans.ResumeLayout(false);
+            this.TabPage_CambiarTrans.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIngresoTrans.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIngresoTrans.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaEgresoTrans.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaEgresoTrans.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBodegaOrigen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSucursalOrigen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaTrans.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaTrans.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdTransferencia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).EndInit();
+            this.toolStrip7.ResumeLayout(false);
+            this.toolStrip7.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
             this.ResumeLayout(false);
@@ -1749,6 +2038,32 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
+        private DevExpress.XtraTab.XtraTabPage TabPage_CambiarTrans;
+        private System.Windows.Forms.ToolStrip toolStrip7;
+        private System.Windows.Forms.ToolStripButton btnBuscarTransFecha;
+        private System.Windows.Forms.ToolStripButton btnTransCambiarFecha;
+        private System.Windows.Forms.Panel panel9;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbBodegaOrigen;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbSucursalOrigen;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn44;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.DateEdit deFechaTrans;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit txtIdTransferencia;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.MemoEdit txtObservacion;
+        private DevExpress.XtraEditors.DateEdit deFechaIngresoTrans;
+        private DevExpress.XtraEditors.DateEdit deFechaEgresoTrans;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

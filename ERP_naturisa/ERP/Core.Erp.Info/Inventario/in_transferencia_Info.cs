@@ -68,5 +68,9 @@ namespace Core.Erp.Info.Inventario
 
         public bool TuvoError { get; set; }
         public bool TuvoErrorDespacho { get; set; }
+
+        public DateTime? FechaEgreso { get; set; }
+
+        public DateTime? FechaIngreso { get; set; }
     }
 }

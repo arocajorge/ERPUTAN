@@ -35,7 +35,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>411</ApplicationRevision>
+    <ApplicationRevision>414</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -523,20 +523,6 @@
     <Compile Include="ActivoFijo\frmAF_BajaActivo_Mant.Designer.cs">
       <DependentUpon>frmAF_BajaActivo_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion.Designer.cs">
-      <DependentUpon>frmAF_Cambio_Ubicacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul.Designer.cs">
-      <DependentUpon>frmAF_Cambio_Ubicacion_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul_Handler.cs" />
-    <Compile Include="ActivoFijo\frmAF_Cambio_Ubicacion_Handler.cs" />
     <Compile Include="ActivoFijo\frmAF_Catalogo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -572,18 +558,6 @@
     </Compile>
     <Compile Include="ActivoFijo\frmAF_DepreLineaRecta_Mant.Designer.cs">
       <DependentUpon>frmAF_DepreLineaRecta_Mant.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Consul.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Consul.Designer.cs">
-      <DependentUpon>frmAF_DepreUnidades_Consul.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActivoFijo\frmAF_DepreUnidades_Mant.Designer.cs">
-      <DependentUpon>frmAF_DepreUnidades_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="ActivoFijo\frmAf_Encargado_Mant.cs">
       <SubType>Form</SubType>
@@ -3349,6 +3323,12 @@
     <Compile Include="Controles\UCGe_Mes.Designer.cs">
       <DependentUpon>UCGe_Mes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmIn_AsignacionProductoPorBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_AsignacionProductoPorBodega.Designer.cs">
+      <DependentUpon>FrmIn_AsignacionProductoPorBodega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3409,35 +3389,11 @@
     <Compile Include="Inventario\FrmIn_Catalogo_Tipo_Mant.Designer.cs">
       <DependentUpon>FrmIn_Catalogo_Tipo_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\FrmIn_Consulta_Mov_Inven.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Consulta_Mov_Inven.Designer.cs">
-      <DependentUpon>FrmIn_Consulta_Mov_Inven.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventario\FrmIn_Aprobacion_despacho.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventario\FrmIn_Aprobacion_despacho.Designer.cs">
       <DependentUpon>FrmIn_Aprobacion_despacho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Detalle_Ing_Egr_Bodega_Alerta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Detalle_Ing_Egr_Bodega_Alerta.Designer.cs">
-      <DependentUpon>FrmIn_Detalle_Ing_Egr_Bodega_Alerta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Devolucion_Inven_Cons.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Devolucion_Inven_Cons.Designer.cs">
-      <DependentUpon>FrmIn_Devolucion_Inven_Cons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Devolucion_Inven_Mant.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Devolucion_Inven_Mant.Designer.cs">
-      <DependentUpon>FrmIn_Devolucion_Inven_Mant.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Cons.cs">
       <SubType>Form</SubType>
@@ -3745,12 +3701,6 @@
     <Compile Include="Inventario\FrmIn_Ajuste_Inven_fisico_Mant.Designer.cs">
       <DependentUpon>FrmIn_Ajuste_Inven_fisico_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\FrmIn_Consultar_Stock_Producto_x_Bodega.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Consultar_Stock_Producto_x_Bodega.Designer.cs">
-      <DependentUpon>FrmIn_Consultar_Stock_Producto_x_Bodega.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventario\FrmIn_Categoria_Cons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3763,35 +3713,11 @@
     <Compile Include="Inventario\FrmIn_Categoria_Mant.Designer.cs">
       <DependentUpon>FrmIn_Categoria_Mant.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario\FrmIn_ContabilizarInventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_ContabilizarInventario.Designer.cs">
-      <DependentUpon>FrmIn_ContabilizarInventario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventario\FrmIn_CreacionBodega.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventario\FrmIn_CreacionBodega.Designer.cs">
       <DependentUpon>FrmIn_CreacionBodega.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Disponibilidad_Inventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_Disponibilidad_Inventario.Designer.cs">
-      <DependentUpon>FrmIn_Disponibilidad_Inventario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_EgresoDeSuministro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_EgresoDeSuministro.designer.cs">
-      <DependentUpon>FrmIn_EgresoDeSuministro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_ElementosAContabilizar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario\FrmIn_ElementosAContabilizar.Designer.cs">
-      <DependentUpon>FrmIn_ElementosAContabilizar.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario\FrmIn_Kardex.cs">
       <SubType>Form</SubType>
@@ -4129,12 +4055,6 @@
     <EmbeddedResource Include="ActivoFijo\frmAF_BajaActivo_Mant.resx">
       <DependentUpon>frmAF_BajaActivo_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Cambio_Ubicacion.resx">
-      <DependentUpon>frmAF_Cambio_Ubicacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_Cambio_Ubicacion_Consul.resx">
-      <DependentUpon>frmAF_Cambio_Ubicacion_Consul.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ActivoFijo\frmAF_Catalogo.resx">
       <DependentUpon>frmAF_Catalogo.cs</DependentUpon>
     </EmbeddedResource>
@@ -4152,9 +4072,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ActivoFijo\frmAF_DepreLineaRecta_Mant.resx">
       <DependentUpon>frmAF_DepreLineaRecta_Mant.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActivoFijo\frmAF_DepreUnidades_Consul.resx">
-      <DependentUpon>frmAF_DepreUnidades_Consul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ActivoFijo\frmAf_Encargado_Mant.resx">
       <DependentUpon>frmAf_Encargado_Mant.cs</DependentUpon>
@@ -5539,6 +5456,9 @@
     <EmbeddedResource Include="Controles\UCGe_Mes.resx">
       <DependentUpon>UCGe_Mes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_AsignacionProductoPorBodega.resx">
+      <DependentUpon>FrmIn_AsignacionProductoPorBodega.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.resx">
       <DependentUpon>FrmIn_TransferenciaConGuiaErrorMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
@@ -5569,20 +5489,8 @@
     <EmbeddedResource Include="Inventario\FrmIn_Catalogo_Tipo_Mant.resx">
       <DependentUpon>FrmIn_Catalogo_Tipo_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Consulta_Mov_Inven.resx">
-      <DependentUpon>FrmIn_Consulta_Mov_Inven.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Aprobacion_despacho.resx">
       <DependentUpon>FrmIn_Aprobacion_despacho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Detalle_Ing_Egr_Bodega_Alerta.resx">
-      <DependentUpon>FrmIn_Detalle_Ing_Egr_Bodega_Alerta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Devolucion_Inven_Cons.resx">
-      <DependentUpon>FrmIn_Devolucion_Inven_Cons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Devolucion_Inven_Mant.resx">
-      <DependentUpon>FrmIn_Devolucion_Inven_Mant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Egresos_Inv_Multi_Bodega_Cons.resx">
       <DependentUpon>FrmIn_Egresos_Inv_Multi_Bodega_Cons.cs</DependentUpon>
@@ -5740,23 +5648,8 @@
     <EmbeddedResource Include="Inventario\FrmIn_Categoria_Mant.resx">
       <DependentUpon>FrmIn_Categoria_Mant.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Consultar_Stock_Producto_x_Bodega.resx">
-      <DependentUpon>FrmIn_Consultar_Stock_Producto_x_Bodega.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_ContabilizarInventario.resx">
-      <DependentUpon>FrmIn_ContabilizarInventario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_CreacionBodega.resx">
       <DependentUpon>FrmIn_CreacionBodega.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_Disponibilidad_Inventario.resx">
-      <DependentUpon>FrmIn_Disponibilidad_Inventario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_EgresoDeSuministro.resx">
-      <DependentUpon>FrmIn_EgresoDeSuministro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario\FrmIn_ElementosAContabilizar.resx">
-      <DependentUpon>FrmIn_ElementosAContabilizar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_Kardex.resx">
       <DependentUpon>FrmIn_Kardex.cs</DependentUpon>

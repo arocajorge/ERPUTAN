@@ -12,5 +12,17 @@ namespace Core.Erp.Info.Inventario
         public int IdSucursal { get; set; }
         public int IdBodega { get; set; }
         public decimal IdProducto { get; set; }
+
+        public string pr_descripcion { get; set; }
+
+        public string ca_Categoria { get; set; }
+
+        public string nom_linea { get; set; }
+
+        public string nom_grupo { get; set; }
+
+        public bool Seleccionado { get; set; }
+
+        public string fa_Descripcion { get; set; }
     }
 }

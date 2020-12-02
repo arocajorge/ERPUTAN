@@ -33,7 +33,7 @@ namespace Core.Erp.Winform.Inventario
         in_movi_inve_Info info_movi_inven = new in_movi_inve_Info();
         BindingList<in_movi_inve_Info> lst_movi_inven = new BindingList<in_movi_inve_Info>();
         in_movi_inve_Bus bus_movi_inven = new in_movi_inve_Bus();
-        
+        tb_Bodega_Bus busBodega = new tb_Bodega_Bus();
         
         List<in_movi_inven_tipo_Info> ListaTipoMovi = new List<in_movi_inven_tipo_Info>();
         in_movi_inven_tipo_Bus busTipoMovi = new in_movi_inven_tipo_Bus();
@@ -89,6 +89,7 @@ namespace Core.Erp.Winform.Inventario
                 ListaTipoMovi = busTipoMovi.GetList(param.IdEmpresa);
                 cmbTipoMovimientoCambioFecha.Properties.DataSource = ListaTipoMovi;
                 cmbSucursalCambioFecha.Properties.DataSource = ListaSucursal;
+                cmbSucursalOrigen.Properties.DataSource = ListaSucursal;
             }
             catch (Exception ex)
             {
@@ -642,6 +643,106 @@ namespace Core.Erp.Winform.Inventario
                 MessageBox.Show("Ha ocurrido un error \n"+ex.Message, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
+        }
+
+        private void btnBuscarTransFecha_Click(object sender, EventArgs e)
+        {
+            if (cmbSucursalOrigen.EditValue == null)
+            {
+                MessageBox.Show("Seleccione la sucursal origen", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (cmbBodegaOrigen.EditValue == null)
+            {
+                MessageBox.Show("Seleccione la bodega origen", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtIdTransferencia.Text))
+            {
+                MessageBox.Show("Ingrese el número de la transferencia", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var Transferencia = bus_transferencia.GetInfoCambioFecha(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), Convert.ToDecimal(txtIdTransferencia.Text));
+            if (Transferencia == null)
+            {
+                txtObservacion.Text = string.Empty;
+                deFechaTrans.EditValue = null;
+                deFechaIngresoTrans.EditValue = null;
+                deFechaEgresoTrans.EditValue = null;
+                MessageBox.Show("La transferencia no existe", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                txtObservacion.Text = Transferencia.tr_Observacion;
+                deFechaTrans.EditValue = Transferencia.tr_fecha;
+                deFechaIngresoTrans.EditValue = Transferencia.FechaIngreso;
+                deFechaEgresoTrans.EditValue = Transferencia.FechaEgreso;
+            }
+        }
+
+        private void btnTransCambiarFecha_Click(object sender, EventArgs e)
+        {
+            if (cmbSucursalOrigen.EditValue == null)
+            {
+                MessageBox.Show("Seleccione la sucursal origen", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (cmbBodegaOrigen.EditValue == null)
+            {
+                MessageBox.Show("Seleccione la bodega origen", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtIdTransferencia.Text))
+            {
+                MessageBox.Show("Ingrese el número de la transferencia", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var Transferencia = bus_transferencia.GetInfoCambioFecha(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue), Convert.ToDecimal(txtIdTransferencia.Text));
+            if (Transferencia == null)
+            {
+                txtObservacion.Text = string.Empty;
+                deFechaTrans.EditValue = null;
+                deFechaIngresoTrans.EditValue = null;
+                deFechaEgresoTrans.EditValue = null;
+                MessageBox.Show("La transferencia no existe", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            else
+            {
+                if (bus_transferencia.ModificarFecha(param.IdEmpresa, Transferencia.IdSucursalOrigen, Transferencia.IdBodegaOrigen, Transferencia.IdTransferencia, deFechaTrans.DateTime))
+                {
+                    if (Transferencia.IdNumMovi_Ing_Egr_Inven_Origen != null)
+                    {
+                        if (bus_inger.CambiarFecha(param.IdEmpresa, Transferencia.IdSucursal_Ing_Egr_Inven_Origen ?? 0, Transferencia.IdMovi_inven_tipo_SucuOrig ?? 0, Transferencia.IdNumMovi_Ing_Egr_Inven_Origen ?? 0, deFechaEgresoTrans.DateTime, param.IdUsuario))
+                        {
+                        }
+                    }
+                    if (Transferencia.IdNumMovi_Ing_Egr_Inven_Destino != null)
+                    {
+                        if (bus_inger.CambiarFecha(param.IdEmpresa, Transferencia.IdSucursal_Ing_Egr_Inven_Destino ?? 0, Transferencia.IdMovi_inven_tipo_SucuDest ?? 0, Transferencia.IdNumMovi_Ing_Egr_Inven_Destino ?? 0, deFechaIngresoTrans.DateTime, param.IdUsuario))
+                        {
+                            
+                        }    
+                    }
+                    MessageBox.Show("Cambio de fecha exitoso", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+        }
+
+        private void cmbSucursalOrigen_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cmbSucursalOrigen.EditValue != null)
+            {
+                cmbBodegaOrigen.Properties.DataSource = busBodega.Get_List_Bodega(param.IdEmpresa, Convert.ToInt32(cmbSucursalOrigen.EditValue));   
+            }
+            cmbBodegaOrigen.EditValue = null;
         }
     }
 }

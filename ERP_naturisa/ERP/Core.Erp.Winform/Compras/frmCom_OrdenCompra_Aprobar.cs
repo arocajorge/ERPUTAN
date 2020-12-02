@@ -682,7 +682,7 @@ namespace Core.Erp.Winform.Compras
 
                     if (lista.Count >0)
                     {
-                        
+                        /*
                         FrmIn_Detalle_Ing_Egr_Bodega_Alerta frmConsulta = new FrmIn_Detalle_Ing_Egr_Bodega_Alerta();
                         frmConsulta.Text = "Alertas";
                         frmConsulta.lblMensaje.Text = "La OC#: " + info.IdOrdenCompra + " tiene Ingesos a Bodega";
@@ -692,6 +692,7 @@ namespace Core.Erp.Winform.Compras
                         info.check = false;
                         frmConsulta.ShowDialog();
                         return;
+                         * */
                     }
                     else
                     {

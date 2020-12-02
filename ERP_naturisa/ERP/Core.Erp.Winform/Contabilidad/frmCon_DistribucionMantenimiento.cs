@@ -86,6 +86,7 @@ namespace Core.Erp.Winform.Contabilidad
                 cmbTipoCbte.EditValue = 1;
 
                 lstPlancta = busPlancta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
+                cmbCuenta.DataSource = lstPlancta;
 
                 lstCentroCosto = busCentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 cmbCentroCosto.DataSource = lstCentroCosto;
