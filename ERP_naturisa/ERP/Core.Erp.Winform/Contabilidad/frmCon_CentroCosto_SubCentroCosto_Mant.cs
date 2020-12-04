@@ -62,7 +62,7 @@ namespace Core.Erp.Winform.Contabilidad
         {
             try
             {
-                this.event_frmCon_CentroCosto_SubCentroCosto_Mant_FormClosing(sender, e);
+                event_frmCon_CentroCosto_SubCentroCosto_Mant_FormClosing(sender, e);
             }
             catch (Exception ex)
             {

@@ -24,11 +24,11 @@ namespace Core.Erp.Data.Contabilidad
                     connection.Open();
 
                     string query = "select b.IdEmpresa, b.IdCentroCosto, b.IdCentroCosto_sub_centro_costo, b.cod_subcentroCosto, b.Centro_costo, "
-                                +" '['+b.IdCentroCosto_sub_centro_costo+'] '+b.Centro_costo as Centro_costo2, b.pc_Estado, b.IdCtaCble, a.Centro_costo as nom_Centro_costo,"
-                                +" b.IdCentroCosto+'-' + b.IdCentroCosto_sub_centro_costo as IdRegistro"
-                                +" from ct_centro_costo as a inner join"
-                                +" ct_centro_costo_sub_centro_costo as b on a.IdEmpresa = b.IdEmpresa and a.IdCentroCosto = b.IdCentroCosto"
-                                +" where a.IdEmpresa = "+IdEmpresa.ToString();
+                                + " '['+b.IdCentroCosto_sub_centro_costo+'] '+b.Centro_costo as Centro_costo2, b.pc_Estado, b.IdCtaCble, a.Centro_costo as nom_Centro_costo,"
+                                + " b.IdCentroCosto+'-' + b.IdCentroCosto_sub_centro_costo as IdRegistro"
+                                + " from ct_centro_costo as a inner join"
+                                + " ct_centro_costo_sub_centro_costo as b on a.IdEmpresa = b.IdEmpresa and a.IdCentroCosto = b.IdCentroCosto"
+                                + " where a.IdEmpresa = " + IdEmpresa.ToString() + " AND A.pc_Estado = 'A'";
 
                     SqlCommand command = new SqlCommand(query,connection);
                     SqlDataReader reader = command.ExecuteReader();
@@ -86,9 +86,6 @@ namespace Core.Erp.Data.Contabilidad
                         info.pc_Estado = item.pc_Estado;
                         info.IdCtaCble = item.IdCtaCble;
                         info.IdRegistro=item.IdCentroCosto + "-" + item.IdCentroCosto_sub_centro_costo;
-
-                    
-
                         lst.Add(info);
                     }
                 }

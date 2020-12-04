@@ -278,7 +278,7 @@ namespace Core.Erp.Winform.Contabilidad
 
         public void frmCon_CentroCosto_SubCentroCosto_Mant_event_frmCon_CentroCosto_SubCentroCosto_Mant_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            
         }
 
         public void SetSubCentroCosto()

@@ -256,6 +256,7 @@ namespace Core.Erp.Winform.Contabilidad
                     frmMant_cc.Info_centro_costo = _Centro_costo_Info;
                     frmMant_cc.setAccion(Accion);
                 }
+                
                 frmMant_cc.MdiParent = frmParent;
                 frmMant_cc.Show();
 
