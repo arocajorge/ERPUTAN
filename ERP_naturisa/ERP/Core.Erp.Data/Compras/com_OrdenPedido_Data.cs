@@ -181,7 +181,7 @@ namespace Core.Erp.Data.Compras
 
                     if (string.IsNullOrEmpty(WhereIn))
                         return new List<com_OrdenPedido_Info>();
-                    
+                    readerSolicitantes.Close();
 
                     string QueryConsulta = "SELECT dbo.com_OrdenPedido.IdEmpresa, dbo.com_OrdenPedido.IdOrdenPedido, dbo.com_OrdenPedido.EsCompraUrgente, dbo.com_OrdenPedido.op_Codigo, dbo.com_OrdenPedido.op_Fecha, dbo.com_OrdenPedido.op_Observacion, "
                                             + " dbo.com_OrdenPedido.IdDepartamento, dbo.com_OrdenPedido.IdSolicitante, CASE WHEN COUNT(*) - A.Cont = 0 THEN 'PRECIO APROBADO' ELSE '' END AS IdCatalogoEstado, dbo.com_OrdenPedido.Estado, "
@@ -763,7 +763,7 @@ namespace Core.Erp.Data.Compras
                         if (proveedor == null)
                             return false;
                         var Pedido = Lista.Where(q => q.IdOrdenPedido == item.IdOrdenPedido).FirstOrDefault();
-                        string Observacion = (Pedido != null ? Pedido.op_Observacion : string.Empty);
+                        string Observacion = "Pedido #" + IdOrdenPedido.ToString() + " " + (Pedido != null ? Pedido.op_Observacion : string.Empty);
                         com_CotizacionPedido_Info cab = new com_CotizacionPedido_Info
                         {
                             IdEmpresa = IdEmpresa,
