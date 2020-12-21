@@ -62,7 +62,7 @@ namespace Core.Erp.Info.Contabilidad
         public string IdCentroCosto_sub_centro_costo { get; set; }
         public int? IdPunto_cargo { get; set; }
         public int? IdPunto_cargo_grupo { get; set; }
-
+        public bool Seleccionado { get; set; }
         public ct_Plancta_Info() { }
     }
 }

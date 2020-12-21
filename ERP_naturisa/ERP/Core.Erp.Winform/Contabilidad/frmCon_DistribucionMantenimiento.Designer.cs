@@ -28,16 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCon_DistribucionMantenimiento));
             this.ucMenu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.treeListMenu_x_Usuario_x_Empresa = new DevExpress.XtraTreeList.TreeList();
-            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.Tiene_FormularioAsociado = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.gcDetalleCuenta = new DevExpress.XtraGrid.GridControl();
+            this.gvDetalleCuenta = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CuentaColPlancta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbPlanctaCuenta = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CuentaColCC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbCentroCostoCuenta = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CuentaColSC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbSubCentroCuenta = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.CuentaColSaldo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDistribuir = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCargarCuentas = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -71,8 +86,34 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gcDiario = new DevExpress.XtraGrid.GridControl();
+            this.gvDiario = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbCuentaDiario = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbCentroCostoDiario = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbSubcentroDiario = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chkConsiderarCC = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeListMenu_x_Usuario_x_Empresa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDetalleCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDetalleCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentroCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties.VistaTimeProperties)).BeginInit();
@@ -90,6 +131,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCosto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentro)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDiario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDiario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCuentaDiario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoDiario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroDiario)).BeginInit();
             this.SuspendLayout();
             // 
             // ucMenu
@@ -152,77 +201,231 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.treeListMenu_x_Usuario_x_Empresa);
+            this.panel1.Controls.Add(this.gcDetalle);
+            this.panel1.Controls.Add(this.gcDetalleCuenta);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 597);
+            this.panel1.Size = new System.Drawing.Size(1436, 597);
             this.panel1.TabIndex = 1;
             // 
-            // treeListMenu_x_Usuario_x_Empresa
+            // gcDetalleCuenta
             // 
-            this.treeListMenu_x_Usuario_x_Empresa.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.treeListColumn1,
-            this.treeListColumn2,
-            this.Tiene_FormularioAsociado,
-            this.treeListColumn4});
-            this.treeListMenu_x_Usuario_x_Empresa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeListMenu_x_Usuario_x_Empresa.ImageIndexFieldName = "icono";
-            this.treeListMenu_x_Usuario_x_Empresa.KeyFieldName = "IdCtaCble";
-            this.treeListMenu_x_Usuario_x_Empresa.Location = new System.Drawing.Point(0, 31);
-            this.treeListMenu_x_Usuario_x_Empresa.Name = "treeListMenu_x_Usuario_x_Empresa";
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsBehavior.AllowRecursiveNodeChecking = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsBehavior.EnableFiltering = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsPrint.PrintAllNodes = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsPrint.PrintFilledTreeIndent = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsPrint.UsePrintStyles = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsSelection.UseIndicatorForSelection = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsView.ShowAutoFilterRow = true;
-            this.treeListMenu_x_Usuario_x_Empresa.OptionsView.ShowCheckBoxes = true;
-            this.treeListMenu_x_Usuario_x_Empresa.ParentFieldName = "IdCtaCblePadre";
-            this.treeListMenu_x_Usuario_x_Empresa.Size = new System.Drawing.Size(800, 566);
-            this.treeListMenu_x_Usuario_x_Empresa.TabIndex = 1;
+            this.gcDetalleCuenta.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gcDetalleCuenta.Location = new System.Drawing.Point(0, 31);
+            this.gcDetalleCuenta.MainView = this.gvDetalleCuenta;
+            this.gcDetalleCuenta.Name = "gcDetalleCuenta";
+            this.gcDetalleCuenta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbPlanctaCuenta,
+            this.cmbCentroCostoCuenta,
+            this.cmbSubCentroCuenta,
+            this.cmbImagen});
+            this.gcDetalleCuenta.Size = new System.Drawing.Size(696, 566);
+            this.gcDetalleCuenta.TabIndex = 5;
+            this.gcDetalleCuenta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDetalleCuenta});
             // 
-            // treeListColumn1
+            // gvDetalleCuenta
             // 
-            this.treeListColumn1.Caption = "Descripcion";
-            this.treeListColumn1.FieldName = "pc_Cuenta";
-            this.treeListColumn1.MinWidth = 32;
-            this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.Visible = true;
-            this.treeListColumn1.VisibleIndex = 0;
-            this.treeListColumn1.Width = 350;
+            this.gvDetalleCuenta.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.CuentaColPlancta,
+            this.CuentaColCC,
+            this.CuentaColSC,
+            this.CuentaColSaldo,
+            this.gridColumn24});
+            this.gvDetalleCuenta.GridControl = this.gcDetalleCuenta;
+            this.gvDetalleCuenta.Images = this.imageList1;
+            this.gvDetalleCuenta.Name = "gvDetalleCuenta";
+            this.gvDetalleCuenta.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDetalleCuenta.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDetalleCuenta.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvDetalleCuenta.OptionsView.ShowFooter = true;
+            this.gvDetalleCuenta.OptionsView.ShowGroupPanel = false;
+            this.gvDetalleCuenta.ShownEditor += new System.EventHandler(this.gvDetalleCuenta_ShownEditor);
+            this.gvDetalleCuenta.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDetalleCuenta_CellValueChanged);
+            this.gvDetalleCuenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvDetalleCuenta_KeyDown);
             // 
-            // treeListColumn2
+            // CuentaColPlancta
             // 
-            this.treeListColumn2.Caption = "id";
-            this.treeListColumn2.FieldName = "IdCtaCble";
-            this.treeListColumn2.Name = "treeListColumn2";
+            this.CuentaColPlancta.Caption = "Cuenta";
+            this.CuentaColPlancta.ColumnEdit = this.cmbPlanctaCuenta;
+            this.CuentaColPlancta.FieldName = "IdCtaCble";
+            this.CuentaColPlancta.Name = "CuentaColPlancta";
+            this.CuentaColPlancta.Visible = true;
+            this.CuentaColPlancta.VisibleIndex = 0;
+            this.CuentaColPlancta.Width = 447;
             // 
-            // Tiene_FormularioAsociado
+            // cmbPlanctaCuenta
             // 
-            this.Tiene_FormularioAsociado.Caption = "treeListColumn3";
-            this.Tiene_FormularioAsociado.FieldName = "Tiene_FormularioAsociado";
-            this.Tiene_FormularioAsociado.Name = "Tiene_FormularioAsociado";
+            this.cmbPlanctaCuenta.AutoHeight = false;
+            this.cmbPlanctaCuenta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbPlanctaCuenta.DisplayMember = "pc_Cuenta2";
+            this.cmbPlanctaCuenta.Name = "cmbPlanctaCuenta";
+            this.cmbPlanctaCuenta.ValueMember = "IdCtaCble";
+            this.cmbPlanctaCuenta.View = this.gridView6;
             // 
-            // treeListColumn4
+            // gridView6
             // 
-            this.treeListColumn4.FieldName = "Saldo";
-            this.treeListColumn4.Format.FormatString = "n2";
-            this.treeListColumn4.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.treeListColumn4.Name = "treeListColumn4";
-            this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 1;
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn25,
+            this.gridColumn26,
+            this.gridColumn27});
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowAutoFilterRow = true;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn25
+            // 
+            this.gridColumn25.Caption = "ID";
+            this.gridColumn25.FieldName = "IdCtaCble";
+            this.gridColumn25.Name = "gridColumn25";
+            this.gridColumn25.Visible = true;
+            this.gridColumn25.VisibleIndex = 0;
+            this.gridColumn25.Width = 339;
+            // 
+            // gridColumn26
+            // 
+            this.gridColumn26.Caption = "Cuenta";
+            this.gridColumn26.FieldName = "pc_Cuenta";
+            this.gridColumn26.Name = "gridColumn26";
+            this.gridColumn26.Visible = true;
+            this.gridColumn26.VisibleIndex = 2;
+            this.gridColumn26.Width = 1107;
+            // 
+            // gridColumn27
+            // 
+            this.gridColumn27.Caption = "Codigo";
+            this.gridColumn27.FieldName = "pc_clave_corta";
+            this.gridColumn27.Name = "gridColumn27";
+            this.gridColumn27.Visible = true;
+            this.gridColumn27.VisibleIndex = 1;
+            this.gridColumn27.Width = 288;
+            // 
+            // CuentaColCC
+            // 
+            this.CuentaColCC.Caption = "Centro de costo";
+            this.CuentaColCC.ColumnEdit = this.cmbCentroCostoCuenta;
+            this.CuentaColCC.FieldName = "IdCentroCosto";
+            this.CuentaColCC.Name = "CuentaColCC";
+            this.CuentaColCC.Visible = true;
+            this.CuentaColCC.VisibleIndex = 1;
+            this.CuentaColCC.Width = 332;
+            // 
+            // cmbCentroCostoCuenta
+            // 
+            this.cmbCentroCostoCuenta.AutoHeight = false;
+            this.cmbCentroCostoCuenta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCentroCostoCuenta.DisplayMember = "Centro_costo2";
+            this.cmbCentroCostoCuenta.Name = "cmbCentroCostoCuenta";
+            this.cmbCentroCostoCuenta.ValueMember = "IdCentroCosto";
+            this.cmbCentroCostoCuenta.View = this.gridView5;
+            // 
+            // gridView5
+            // 
+            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn29,
+            this.gridColumn30});
+            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView5.OptionsView.ShowAutoFilterRow = true;
+            this.gridView5.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn29
+            // 
+            this.gridColumn29.Caption = "ID";
+            this.gridColumn29.FieldName = "IdCentroCosto";
+            this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.Visible = true;
+            this.gridColumn29.VisibleIndex = 1;
+            this.gridColumn29.Width = 149;
+            // 
+            // gridColumn30
+            // 
+            this.gridColumn30.Caption = "Centro de costo";
+            this.gridColumn30.FieldName = "Centro_costo";
+            this.gridColumn30.Name = "gridColumn30";
+            this.gridColumn30.Visible = true;
+            this.gridColumn30.VisibleIndex = 0;
+            this.gridColumn30.Width = 454;
+            // 
+            // CuentaColSC
+            // 
+            this.CuentaColSC.Caption = "SubCentro";
+            this.CuentaColSC.ColumnEdit = this.cmbSubCentroCuenta;
+            this.CuentaColSC.FieldName = "IdRegistro";
+            this.CuentaColSC.Name = "CuentaColSC";
+            this.CuentaColSC.Visible = true;
+            this.CuentaColSC.VisibleIndex = 2;
+            this.CuentaColSC.Width = 303;
+            // 
+            // cmbSubCentroCuenta
+            // 
+            this.cmbSubCentroCuenta.AutoHeight = false;
+            this.cmbSubCentroCuenta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSubCentroCuenta.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdCentroCosto_sub_centro_costo", 50, "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Centro_costo", 200, "Subcentro ")});
+            this.cmbSubCentroCuenta.DisplayMember = "Centro_costo2";
+            this.cmbSubCentroCuenta.Name = "cmbSubCentroCuenta";
+            this.cmbSubCentroCuenta.ValueMember = "IdRegistro";
+            // 
+            // CuentaColSaldo
+            // 
+            this.CuentaColSaldo.Caption = "Saldo";
+            this.CuentaColSaldo.DisplayFormat.FormatString = "n2";
+            this.CuentaColSaldo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.CuentaColSaldo.FieldName = "Saldo";
+            this.CuentaColSaldo.Name = "CuentaColSaldo";
+            this.CuentaColSaldo.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F2", "{0:n2}")});
+            this.CuentaColSaldo.Visible = true;
+            this.CuentaColSaldo.VisibleIndex = 3;
+            this.CuentaColSaldo.Width = 216;
+            // 
+            // gridColumn24
+            // 
+            this.gridColumn24.ColumnEdit = this.cmbImagen;
+            this.gridColumn24.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn24.ImageIndex = 0;
+            this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.Visible = true;
+            this.gridColumn24.VisibleIndex = 4;
+            // 
+            // cmbImagen
+            // 
+            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            this.cmbImagen.AutoHeight = false;
+            this.cmbImagen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbImagen.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmbImagen.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", null, 0)});
+            this.cmbImagen.LargeImages = this.imageList1;
+            this.cmbImagen.Name = "cmbImagen";
+            this.cmbImagen.ReadOnly = true;
+            this.cmbImagen.Click += new System.EventHandler(this.cmbImagen_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Buscar_16x16.png");
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chkConsiderarCC);
             this.panel2.Controls.Add(this.btnDistribuir);
-            this.panel2.Controls.Add(this.btnCargarCuentas);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 31);
+            this.panel2.Size = new System.Drawing.Size(1436, 31);
             this.panel2.TabIndex = 4;
             // 
             // btnDistribuir
@@ -230,24 +433,13 @@
             this.btnDistribuir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDistribuir.Image = global::Core.Erp.Winform.Properties.Resources.Distribuir_16x16;
             this.btnDistribuir.ImageIndex = 8;
-            this.btnDistribuir.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnDistribuir.Location = new System.Drawing.Point(761, 3);
+            this.btnDistribuir.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnDistribuir.Location = new System.Drawing.Point(1342, 3);
             this.btnDistribuir.Name = "btnDistribuir";
-            this.btnDistribuir.Size = new System.Drawing.Size(35, 26);
+            this.btnDistribuir.Size = new System.Drawing.Size(90, 26);
             this.btnDistribuir.TabIndex = 5;
+            this.btnDistribuir.Text = "Distribuir";
             this.btnDistribuir.Click += new System.EventHandler(this.btnDistribuir_Click);
-            // 
-            // btnCargarCuentas
-            // 
-            this.btnCargarCuentas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCargarCuentas.Image = global::Core.Erp.Winform.Properties.Resources.re_hacer_16x16;
-            this.btnCargarCuentas.ImageIndex = 8;
-            this.btnCargarCuentas.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnCargarCuentas.Location = new System.Drawing.Point(720, 3);
-            this.btnCargarCuentas.Name = "btnCargarCuentas";
-            this.btnCargarCuentas.Size = new System.Drawing.Size(35, 26);
-            this.btnCargarCuentas.TabIndex = 4;
-            this.btnCargarCuentas.Click += new System.EventHandler(this.btnCargarCuentas_Click);
             // 
             // panel3
             // 
@@ -380,7 +572,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.gcDetalle);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -393,14 +584,14 @@
             // gcDetalle
             // 
             this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.Location = new System.Drawing.Point(803, 3);
+            this.gcDetalle.Location = new System.Drawing.Point(696, 31);
             this.gcDetalle.MainView = this.gvDetalle;
             this.gcDetalle.Name = "gcDetalle";
             this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCuenta,
             this.cmbCentroCosto,
             this.cmbSubCentro});
-            this.gcDetalle.Size = new System.Drawing.Size(636, 597);
+            this.gcDetalle.Size = new System.Drawing.Size(740, 566);
             this.gcDetalle.TabIndex = 2;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalle});
@@ -418,8 +609,11 @@
             this.gvDetalle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvDetalle.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvDetalle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvDetalle.OptionsView.ShowFooter = true;
             this.gvDetalle.OptionsView.ShowGroupPanel = false;
             this.gvDetalle.ShownEditor += new System.EventHandler(this.gvDetalle_ShownEditor);
+            this.gvDetalle.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDetalle_CellValueChanged);
+            this.gvDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvDetalle_KeyDown);
             // 
             // gridColumn3
             // 
@@ -556,6 +750,8 @@
             this.gridColumn6.Caption = "F1";
             this.gridColumn6.FieldName = "F1";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F1", "{0:n2}")});
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 216;
@@ -565,6 +761,8 @@
             this.gridColumn7.Caption = "F2";
             this.gridColumn7.FieldName = "F2";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F2", "{0:n2}")});
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 4;
             this.gridColumn7.Width = 216;
@@ -581,12 +779,218 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.gcDiario);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1442, 603);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "DiarioContable";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // gcDiario
+            // 
+            this.gcDiario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDiario.Location = new System.Drawing.Point(0, 0);
+            this.gcDiario.MainView = this.gvDiario;
+            this.gcDiario.Name = "gcDiario";
+            this.gcDiario.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbCuentaDiario,
+            this.cmbCentroCostoDiario,
+            this.cmbSubcentroDiario});
+            this.gcDiario.Size = new System.Drawing.Size(1442, 603);
+            this.gcDiario.TabIndex = 3;
+            this.gcDiario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDiario});
+            // 
+            // gvDiario
+            // 
+            this.gvDiario.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn8,
+            this.gridColumn17,
+            this.gridColumn20,
+            this.gridColumn21,
+            this.gridColumn22,
+            this.gridColumn23});
+            this.gvDiario.GridControl = this.gcDiario;
+            this.gvDiario.Name = "gvDiario";
+            this.gvDiario.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDiario.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDiario.OptionsBehavior.ReadOnly = true;
+            this.gvDiario.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvDiario.OptionsView.ShowFooter = true;
+            this.gvDiario.OptionsView.ShowGroupPanel = false;
+            this.gvDiario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvDiario_KeyDown);
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Cuenta";
+            this.gridColumn8.ColumnEdit = this.cmbCuentaDiario;
+            this.gridColumn8.FieldName = "IdCtaCble";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 0;
+            this.gridColumn8.Width = 466;
+            // 
+            // cmbCuentaDiario
+            // 
+            this.cmbCuentaDiario.AutoHeight = false;
+            this.cmbCuentaDiario.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCuentaDiario.DisplayMember = "pc_Cuenta2";
+            this.cmbCuentaDiario.Name = "cmbCuentaDiario";
+            this.cmbCuentaDiario.ValueMember = "IdCtaCble";
+            this.cmbCuentaDiario.View = this.gridView4;
+            // 
+            // gridView4
+            // 
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn14,
+            this.gridColumn15,
+            this.gridColumn16});
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowAutoFilterRow = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "ID";
+            this.gridColumn14.FieldName = "IdCtaCble";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.VisibleIndex = 0;
+            this.gridColumn14.Width = 339;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Cuenta";
+            this.gridColumn15.FieldName = "pc_Cuenta";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 2;
+            this.gridColumn15.Width = 1107;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Codigo";
+            this.gridColumn16.FieldName = "pc_clave_corta";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 1;
+            this.gridColumn16.Width = 288;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Centro de costo";
+            this.gridColumn17.ColumnEdit = this.cmbCentroCostoDiario;
+            this.gridColumn17.FieldName = "IdCentroCosto";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 1;
+            this.gridColumn17.Width = 232;
+            // 
+            // cmbCentroCostoDiario
+            // 
+            this.cmbCentroCostoDiario.AutoHeight = false;
+            this.cmbCentroCostoDiario.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCentroCostoDiario.DisplayMember = "Centro_costo2";
+            this.cmbCentroCostoDiario.Name = "cmbCentroCostoDiario";
+            this.cmbCentroCostoDiario.ValueMember = "IdCentroCosto";
+            this.cmbCentroCostoDiario.View = this.gridView3;
+            // 
+            // gridView3
+            // 
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn18,
+            this.gridColumn19});
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowAutoFilterRow = true;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "ID";
+            this.gridColumn18.FieldName = "IdCentroCosto";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 1;
+            this.gridColumn18.Width = 149;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "Centro de costo";
+            this.gridColumn19.FieldName = "Centro_costo";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 0;
+            this.gridColumn19.Width = 454;
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "SubCentro";
+            this.gridColumn20.ColumnEdit = this.cmbSubcentroDiario;
+            this.gridColumn20.FieldName = "IdRegistro";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 2;
+            this.gridColumn20.Width = 231;
+            // 
+            // cmbSubcentroDiario
+            // 
+            this.cmbSubcentroDiario.AutoHeight = false;
+            this.cmbSubcentroDiario.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSubcentroDiario.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdCentroCosto_sub_centro_costo", 50, "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Centro_costo", 200, "Subcentro ")});
+            this.cmbSubcentroDiario.DisplayMember = "Centro_costo2";
+            this.cmbSubcentroDiario.Name = "cmbSubcentroDiario";
+            this.cmbSubcentroDiario.ValueMember = "IdRegistro";
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "Debe";
+            this.gridColumn21.FieldName = "dc_Valor_D";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dc_Valor_D", "{0:n2}")});
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 3;
+            this.gridColumn21.Width = 175;
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.Caption = "Haber";
+            this.gridColumn22.FieldName = "dc_Valor_H";
+            this.gridColumn22.Name = "gridColumn22";
+            this.gridColumn22.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "dc_Valor_H", "{0:n2}")});
+            this.gridColumn22.Visible = true;
+            this.gridColumn22.VisibleIndex = 4;
+            this.gridColumn22.Width = 176;
+            // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "Detalle";
+            this.gridColumn23.FieldName = "dc_Observacion";
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 5;
+            this.gridColumn23.Width = 454;
+            // 
+            // chkConsiderarCC
+            // 
+            this.chkConsiderarCC.AutoSize = true;
+            this.chkConsiderarCC.Location = new System.Drawing.Point(8, 8);
+            this.chkConsiderarCC.Name = "chkConsiderarCC";
+            this.chkConsiderarCC.Size = new System.Drawing.Size(205, 17);
+            this.chkConsiderarCC.TabIndex = 6;
+            this.chkConsiderarCC.Text = "Mostrar saldo considerando CC y SCC";
+            this.chkConsiderarCC.UseVisualStyleBackColor = true;
             // 
             // frmCon_DistribucionMantenimiento
             // 
@@ -602,8 +1006,16 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCon_DistribucionMantenimiento_FormClosed);
             this.Load += new System.EventHandler(this.frmCon_DistribucionMantenimiento_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.treeListMenu_x_Usuario_x_Empresa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDetalleCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDetalleCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentroCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties.VistaTimeProperties)).EndInit();
@@ -621,6 +1033,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCosto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentro)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcDiario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDiario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCuentaDiario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoDiario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroDiario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -629,12 +1049,7 @@
 
         private Controles.UCGe_Menu_Superior_Mant ucMenu;
         private System.Windows.Forms.Panel panel1;
-        public DevExpress.XtraTreeList.TreeList treeListMenu_x_Usuario_x_Empresa;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn Tiene_FormularioAsociado;
         private System.Windows.Forms.Panel panel2;
-        private DevExpress.XtraEditors.SimpleButton btnCargarCuentas;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -651,7 +1066,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
         private DevExpress.XtraEditors.SimpleButton btnDistribuir;
         private DevExpress.XtraGrid.GridControl gcDetalle;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDetalle;
@@ -670,5 +1084,43 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cmbSubCentro;
+        private DevExpress.XtraGrid.GridControl gcDiario;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDiario;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbCuentaDiario;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbCentroCostoDiario;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cmbSubcentroDiario;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraGrid.GridControl gcDetalleCuenta;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDetalleCuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn CuentaColPlancta;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbPlanctaCuenta;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
+        private DevExpress.XtraGrid.Columns.GridColumn CuentaColCC;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbCentroCostoCuenta;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn30;
+        private DevExpress.XtraGrid.Columns.GridColumn CuentaColSC;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cmbSubCentroCuenta;
+        private DevExpress.XtraGrid.Columns.GridColumn CuentaColSaldo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
+        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
+        private System.Windows.Forms.CheckBox chkConsiderarCC;
     }
 }

@@ -1034,6 +1034,34 @@ namespace Core.Erp.Data.Contabilidad
             }
         }
 
+        public double GetSaldoFechaCorte(int IdEmpresa, string IdCtaCble, DateTime FechaCorte, string IdCentroCosto, string IdCentroCosto_sub_centro_costo, bool ConsiderarCentroCosto)
+        {
+            double Saldo = 0;
+            using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "select ROUND(sum(a.dc_Valor),2) Saldo"
+                                    + " from ct_cbtecble_det as a inner join"
+                                    + " ct_cbtecble as b on a.idempresa = b.idempresa and a.IdTipoCbte = b.IdTipoCbte and a.IdCbteCble = b.IdCbteCble"
+                                    + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCtaCble = '" + IdCtaCble + "' and b.cb_Fecha <= DATEFROMPARTS(" + FechaCorte.Year.ToString() + "," + FechaCorte.Month.ToString() + "," + FechaCorte.Day.ToString() + ")";
+
+                if (ConsiderarCentroCosto)
+                {
+                    if(!string.IsNullOrEmpty(IdCentroCosto_sub_centro_costo))
+                        command.CommandText += " and a.IdCentroCosto = '"+IdCentroCosto+"' and a.IdCentroCosto_sub_centro_costo = '"+IdCentroCosto_sub_centro_costo+"'";
+                    else
+                        command.CommandText += " and a.IdCentroCosto is null and a.IdCentroCosto_sub_centro_costo is null";
+                }
+
+                var ValidateValue = command.ExecuteScalar();
+                if (ValidateValue != null)
+                    Saldo = Convert.ToDouble(ValidateValue);
+            }
+            return Saldo;
+        }
+
         public List<ct_Plancta_Info> SumarRecursivamente(List<ct_Plancta_Info> Lista)
         {
             try

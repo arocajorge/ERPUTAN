@@ -17,5 +17,9 @@ namespace Core.Erp.Info.Contabilidad
         public double F1 { get; set; }
         public double F2 { get; set; }
         public double Valor { get; set; }
+
+        #region Campos que no existen en la base
+        public double F3 { get; set; }
+        #endregion
     }
 }

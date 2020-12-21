@@ -30,7 +30,9 @@ namespace Core.Erp.Winform.Contabilidad
         List<ct_centro_costo_sub_centro_costo_Info> lstSubCentro;
         List<ct_Centro_costo_Info> lstCentroCosto;
         BindingList<ct_DistribucionDet_Info> blstDet;
-        
+        BindingList<ct_Cbtecble_det_Info> blstDiario;
+        ct_Plancta_Info rowPlancta;
+        BindingList<ct_Plancta_Info> blstPlanctaSaldo;
         #endregion
 
         #region Delegados
@@ -67,12 +69,16 @@ namespace Core.Erp.Winform.Contabilidad
             lstSubCentro = new List<ct_centro_costo_sub_centro_costo_Info>();
             lstCentroCosto = new List<ct_Centro_costo_Info>();
             blstDet = new BindingList<ct_DistribucionDet_Info>();
+            blstDiario = new BindingList<ct_Cbtecble_det_Info>();
+            rowPlancta = new ct_Plancta_Info();
+            blstPlanctaSaldo = new BindingList<ct_Plancta_Info>();
             event_delegate_frmCon_DistribucionMantenimiento_FormClosed += frmCon_DistribucionMantenimiento_event_delegate_frmCon_DistribucionMantenimiento_FormClosed;
         }
 
         private void frmCon_DistribucionMantenimiento_Load(object sender, EventArgs e)
         {
             deFechaCorte.DateTime = DateTime.Now.Date;
+            gcDetalleCuenta.DataSource = blstPlanctaSaldo;
             SetAccionInControls();
         }
 
@@ -87,34 +93,25 @@ namespace Core.Erp.Winform.Contabilidad
 
                 lstPlancta = busPlancta.Get_List_Plancta_x_ctas_Movimiento(param.IdEmpresa);
                 cmbCuenta.DataSource = lstPlancta;
+                cmbPlanctaCuenta.DataSource = lstPlancta;
+                cmbCuentaDiario.DataSource = lstPlancta;
 
                 lstCentroCosto = busCentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 cmbCentroCosto.DataSource = lstCentroCosto;
+                cmbCentroCostoCuenta.DataSource = lstCentroCosto;
+                cmbCentroCostoDiario.DataSource = lstCentroCosto;
 
                 lstSubCentro = busSubcentro.Get_list_centro_costo_sub_centro_costo(param.IdEmpresa);
                 cmbSubCentro.DataSource = lstSubCentro;
+                cmbSubCentroCuenta.DataSource = lstSubCentro;
+                cmbSubcentroDiario.DataSource = lstSubCentro;
             }
             catch (Exception)
             {
 
             }
         }
-
-        private void CargarCuentas()
-        {
-            try
-            {
-                var lst = busPlancta.GetListCuentasConSaldo(param.IdEmpresa, deFechaCorte.DateTime.Date);
-                treeListMenu_x_Usuario_x_Empresa.DataSource = null;
-                treeListMenu_x_Usuario_x_Empresa.DataSource = lst;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
-
+        
         public void SetAccion(Cl_Enumeradores.eTipo_action _Accion, ct_Distribucion_Info _info)
         {
             Accion = _Accion;
@@ -174,15 +171,71 @@ namespace Core.Erp.Winform.Contabilidad
             this.Close();
         }
         #endregion
-
-        private void btnCargarCuentas_Click(object sender, EventArgs e)
+        
+        private void EstablecerCheckeo(DevExpress.XtraTreeList.Nodes.TreeListNodes Nodes)
         {
-            CargarCuentas();
+            foreach (DevExpress.XtraTreeList.Nodes.TreeListNode nodo in Nodes)
+            {
+                if (nodo.CheckState == CheckState.Unchecked)
+                {
+                    nodo.SetValue("Seleccionado", false);
+                }
+                else
+                {
+                    nodo.SetValue("Seleccionado", true);
+                }
+                if (nodo.Nodes.Count > 0)
+                    EstablecerCheckeo(nodo.Nodes);
+            }
         }
 
         private void btnDistribuir_Click(object sender, EventArgs e)
         {
+            try
+            {
+                txtIdDistribucion.Focus();
 
+                if (blstDet.Count == 0)
+                {
+                    MessageBox.Show("Debe seleccionar un metodo de distribución");
+                    return;
+                }
+                
+                var ValorTotalDistribucion = blstDet.Sum(q => q.F3);
+                foreach (var Cta in blstPlanctaSaldo)
+                {
+                    blstDiario.Add(new ct_Cbtecble_det_Info
+                    {
+                        IdCtaCble = Cta.IdCtaCble,
+                        //IdCentroCosto = Cta.IdCentroCosto,
+                        //IdCentroCosto_sub_centro_costo = Dis.IdCentroCosto_sub_centro_costo,
+                        dc_Valor = Math.Round(Cta.Saldo * -1,2,MidpointRounding.AwayFromZero),
+                        dc_Valor_D = Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero) : 0,
+                        dc_Valor_H = Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero)) : 0,
+                    });
+
+                    foreach (var Dis in blstDet)
+                    {
+                        blstDiario.Add(new ct_Cbtecble_det_Info
+                        {
+                            IdCtaCble = Dis.IdCtaCble,
+                            IdCentroCosto = Dis.IdCentroCosto,
+                            IdCentroCosto_sub_centro_costo = Dis.IdCentroCosto_sub_centro_costo,
+                            dc_Valor = Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3,2,MidpointRounding.AwayFromZero),
+                            dc_Valor_D = Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3,2,MidpointRounding.AwayFromZero) : 0,
+                            dc_Valor_H = Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)) : 0,
+                        });
+                    }    
+                }
+                gcDiario.DataSource = null;
+                gcDiario.DataSource = blstDiario;
+                            
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         private void gvDetalle_ShownEditor(object sender, EventArgs e)
@@ -196,6 +249,84 @@ namespace Core.Erp.Winform.Contabilidad
                     edit.Properties.DataSource = lstSubCentro.Where(q => q.IdCentroCosto == IdCentroCosto).ToList();
                 else
                     edit.Properties.DataSource = null;
+            }
+        }
+        
+        private void gvDetalle_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            ct_DistribucionDet_Info row = (ct_DistribucionDet_Info)gvDetalle.GetRow(e.RowHandle);
+            if (row != null)
+            {
+                row.F3 = row.F1 * row.F2;
+            }
+        }
+
+        private void gvDetalleCuenta_ShownEditor(object sender, EventArgs e)
+        {
+            ColumnView view = (ColumnView)sender;
+            if (view.FocusedColumn.FieldName == "IdRegistro" && view.ActiveEditor is LookUpEdit)
+            {
+                LookUpEdit edit = (LookUpEdit)view.ActiveEditor;
+                string IdCentroCosto = (string)view.GetFocusedRowCellValue("IdCentroCosto");
+                if (!string.IsNullOrEmpty(IdCentroCosto))
+                    edit.Properties.DataSource = lstSubCentro.Where(q => q.IdCentroCosto == IdCentroCosto).ToList();
+                else
+                    edit.Properties.DataSource = null;
+            }
+        }
+
+        private void gvDetalleCuenta_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            ct_Plancta_Info row = (ct_Plancta_Info)gvDetalleCuenta.GetRow(e.RowHandle);
+            if (row == null)
+                return;
+
+            if (e.Column == CuentaColPlancta)
+                row.Saldo = busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaCorte.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked);
+            
+            gvDetalleCuenta.UpdateCurrentRow();
+        }
+
+        private void cmbImagen_Click(object sender, EventArgs e)
+        {
+            ct_Plancta_Info row = (ct_Plancta_Info)gvDetalleCuenta.GetFocusedRow();
+            if (row == null)
+                return;
+
+            row.Saldo = busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaCorte.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked);
+            gvDetalleCuenta.UpdateCurrentRow();
+        }
+
+        private void gvDetalleCuenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("¿Está seguro que desea eliminar este registro ?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gvDetalleCuenta.DeleteSelectedRows();
+                }
+            }
+        }
+
+        private void gvDetalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("¿Está seguro que desea eliminar este registro ?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gvDetalle.DeleteSelectedRows();
+                }
+            }
+        }
+
+        private void gvDiario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("¿Está seguro que desea eliminar este registro ?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gvDiario.DeleteSelectedRows();
+                }
             }
         }
     }
