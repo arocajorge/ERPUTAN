@@ -177,6 +177,7 @@
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
+            this.btnEliminarTransferencia = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -1516,7 +1517,7 @@
             this.TabPage_CambiarTrans.Controls.Add(this.toolStrip7);
             this.TabPage_CambiarTrans.Name = "TabPage_CambiarTrans";
             this.TabPage_CambiarTrans.Size = new System.Drawing.Size(1001, 356);
-            this.TabPage_CambiarTrans.Text = "Cambiar fecha transferencias";
+            this.TabPage_CambiarTrans.Text = "Modificar Elliminar transferencias";
             // 
             // panel9
             // 
@@ -1759,7 +1760,8 @@
             // 
             this.toolStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnBuscarTransFecha,
-            this.btnTransCambiarFecha});
+            this.btnTransCambiarFecha,
+            this.btnEliminarTransferencia});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
             this.toolStrip7.Size = new System.Drawing.Size(1001, 25);
@@ -1802,6 +1804,16 @@
             this.btn_salir.Size = new System.Drawing.Size(49, 22);
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
+            // btnEliminarTransferencia
+            // 
+            this.btnEliminarTransferencia.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnEliminarTransferencia.Image = global::Core.Erp.Winform.Properties.Resources.anular_32x32;
+            this.btnEliminarTransferencia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminarTransferencia.Name = "btnEliminarTransferencia";
+            this.btnEliminarTransferencia.Size = new System.Drawing.Size(70, 22);
+            this.btnEliminarTransferencia.Text = "Eliminar";
+            this.btnEliminarTransferencia.Click += new System.EventHandler(this.btnEliminarTransferencia_Click);
             // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
@@ -2064,6 +2076,7 @@
         private DevExpress.XtraEditors.DateEdit deFechaEgresoTrans;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private System.Windows.Forms.ToolStripButton btnEliminarTransferencia;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

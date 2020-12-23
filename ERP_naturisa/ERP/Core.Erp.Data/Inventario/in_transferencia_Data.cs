@@ -36,7 +36,7 @@ namespace Core.Erp.Data.Inventario
                     EntitiesInventario oEInventario = new EntitiesInventario();
 
                     var Select = from q in oEInventario.in_transferencia
-                                 where q.IdEmpresa == idEmpresa && q.IdSucursalOrigen == idSucursal && q.IdBodegaOrigen == idBodega                                 
+                                 where q.IdEmpresa == idEmpresa && q.IdSucursalOrigen == idSucursal && q.IdBodegaOrigen == idBodega
                                  select q;
                     if (Select.ToList().Count == 0)
                     {
@@ -64,7 +64,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-        
+
         public bool GuardarDB(in_transferencia_Info info, ref decimal _idTransferencia)
         {
             try
@@ -123,7 +123,7 @@ namespace Core.Erp.Data.Inventario
                         #region DetalleTransferencia_x_guia
                         foreach (var item in info.lista_detalle_transferencia)
                         {
-                            if (item.Info_Guia_x_traspaso_bodega_det.IdEmpresa!=0)
+                            if (item.Info_Guia_x_traspaso_bodega_det.IdEmpresa != 0)
                             {
                                 in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Info info_det_trans_x_guia = new in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Info();
                                 info_det_trans_x_guia.IdEmpresa_trans = info.IdEmpresa;
@@ -137,7 +137,7 @@ namespace Core.Erp.Data.Inventario
                                 info_det_trans_x_guia.Secuencia_guia = item.Info_Guia_x_traspaso_bodega_det.secuencia;
                                 odata_trans_x_guia.GuardarDB(info_det_trans_x_guia);
                             }
-                            
+
                         }
                         #endregion
                     }
@@ -178,9 +178,9 @@ namespace Core.Erp.Data.Inventario
 
                 EntitiesInventario Oentities = new EntitiesInventario();
                 var select = from q in Oentities.in_transferencia_det
-                             where q.IdEmpresa == idEmpresa 
+                             where q.IdEmpresa == idEmpresa
                              && q.IdTransferencia == Info.IdTransferencia
-                             && q.IdBodegaOrigen == Info.IdBodegaOrigen 
+                             && q.IdBodegaOrigen == Info.IdBodegaOrigen
                              && q.IdSucursalOrigen == Info.IdSucursalOrigen
                              select q;
 
@@ -192,9 +192,9 @@ namespace Core.Erp.Data.Inventario
                     info.IdSucursalOrigen = item.IdSucursalOrigen;
                     info.IdBodegaOrigen = item.IdBodegaOrigen;
                     info.IdTransferencia = item.IdTransferencia;
-                    
+
                     info.tr_Observacion = item.tr_Observacion;
-                    
+
                     lst.Add(info); ;
                 }
 
@@ -210,7 +210,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-        
+
         public in_transferencia_Info Get_Info_transferencia(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdTransferencia)
         {
             try
@@ -222,28 +222,28 @@ namespace Core.Erp.Data.Inventario
 
                 Info = new in_transferencia_Info
                 {
-                     IdEmpresa = Entity.IdEmpresa,
-                     IdSucursalOrigen = Entity.IdSucursalOrigen,
-                     IdBodegaOrigen = Entity.IdBodegaOrigen,
-                     IdTransferencia = Entity.IdTransferencia,
-                     IdSucursalDest = Entity.IdSucursalDest,
-                     IdBodegaDest = Entity.IdBodegaDest,
-                     tr_Observacion = Entity.tr_Observacion,
-                     tr_fecha = Entity.tr_fecha,
-                     Estado = Entity.Estado,
-                     IdEmpresa_Ing_Egr_Inven_Origen = Entity.IdEmpresa_Ing_Egr_Inven_Origen,
-                     IdSucursal_Ing_Egr_Inven_Origen = Entity.IdSucursal_Ing_Egr_Inven_Origen,
-                     IdMovi_inven_tipo_SucuOrig = Entity.IdMovi_inven_tipo_SucuOrig,
-                     IdNumMovi_Ing_Egr_Inven_Origen = Entity.IdNumMovi_Ing_Egr_Inven_Origen,
+                    IdEmpresa = Entity.IdEmpresa,
+                    IdSucursalOrigen = Entity.IdSucursalOrigen,
+                    IdBodegaOrigen = Entity.IdBodegaOrigen,
+                    IdTransferencia = Entity.IdTransferencia,
+                    IdSucursalDest = Entity.IdSucursalDest,
+                    IdBodegaDest = Entity.IdBodegaDest,
+                    tr_Observacion = Entity.tr_Observacion,
+                    tr_fecha = Entity.tr_fecha,
+                    Estado = Entity.Estado,
+                    IdEmpresa_Ing_Egr_Inven_Origen = Entity.IdEmpresa_Ing_Egr_Inven_Origen,
+                    IdSucursal_Ing_Egr_Inven_Origen = Entity.IdSucursal_Ing_Egr_Inven_Origen,
+                    IdMovi_inven_tipo_SucuOrig = Entity.IdMovi_inven_tipo_SucuOrig,
+                    IdNumMovi_Ing_Egr_Inven_Origen = Entity.IdNumMovi_Ing_Egr_Inven_Origen,
 
-                     IdEmpresa_Ing_Egr_Inven_Destino = Entity.IdEmpresa_Ing_Egr_Inven_Destino,
-                     IdMovi_inven_tipo_SucuDest = Entity.IdMovi_inven_tipo_SucuDest,
-                     IdSucursal_Ing_Egr_Inven_Destino = Entity.IdSucursal_Ing_Egr_Inven_Destino,
-                     IdNumMovi_Ing_Egr_Inven_Destino = Entity.IdNumMovi_Ing_Egr_Inven_Destino,
+                    IdEmpresa_Ing_Egr_Inven_Destino = Entity.IdEmpresa_Ing_Egr_Inven_Destino,
+                    IdMovi_inven_tipo_SucuDest = Entity.IdMovi_inven_tipo_SucuDest,
+                    IdSucursal_Ing_Egr_Inven_Destino = Entity.IdSucursal_Ing_Egr_Inven_Destino,
+                    IdNumMovi_Ing_Egr_Inven_Destino = Entity.IdNumMovi_Ing_Egr_Inven_Destino,
 
-                     Codigo = Entity.Codigo,
-                     IdGuia = Entity.IdGuia,
-                     EstadoRevision = Entity.EstadoRevision
+                    Codigo = Entity.Codigo,
+                    IdGuia = Entity.IdGuia,
+                    EstadoRevision = Entity.EstadoRevision
                 };
 
                 return Info;
@@ -270,7 +270,7 @@ namespace Core.Erp.Data.Inventario
 
 
                 var select = from q in OEntInventario.in_transferencia_det
-                             where q.IdEmpresa == idEmpresa 
+                             where q.IdEmpresa == idEmpresa
                              && q.IdSucursalOrigen == IdSucursal
                              && q.IdBodegaOrigen == IdBodega
                              && q.IdTransferencia == IdTransferencia
@@ -313,67 +313,67 @@ namespace Core.Erp.Data.Inventario
             try
             {
                 try
-                {                
-                using (EntitiesInventario Contex = new EntitiesInventario())
                 {
-                    var contac = Contex.in_transferencia.FirstOrDefault(Obj => Obj.IdTransferencia == info.IdTransferencia && Obj.IdSucursalOrigen == info.IdSucursalOrigen && Obj.IdBodegaOrigen == info.IdBodegaOrigen && Obj.IdEmpresa == info.IdEmpresa);
-                    if (contac != null)
+                    using (EntitiesInventario Contex = new EntitiesInventario())
                     {
-                        contac.tr_Observacion = info.tr_Observacion;
-                        contac.Codigo = info.Codigo;
-                        contac.IdBodegaDest = info.IdBodegaDest;
-                        contac.IdSucursalDest = info.IdSucursalDest;
-                        contac.tr_fecha = info.tr_fecha;
-
-                        Contex.SaveChanges();
-
-                        #region DetalleTransferencia
-                        //GRABAR EL DETALLE DE LA TRANSFERENCIA
-                        int c = 1;
-                        odata_trans_x_guia.EliminarDB(info);
-                        EliminarDetalle(info);
-                        foreach (var item in info.lista_detalle_transferencia)
+                        var contac = Contex.in_transferencia.FirstOrDefault(Obj => Obj.IdTransferencia == info.IdTransferencia && Obj.IdSucursalOrigen == info.IdSucursalOrigen && Obj.IdBodegaOrigen == info.IdBodegaOrigen && Obj.IdEmpresa == info.IdEmpresa);
+                        if (contac != null)
                         {
-                            var addressDeta = new in_transferencia_det();
-                            addressDeta.IdEmpresa = info.IdEmpresa;
-                            addressDeta.IdSucursalOrigen = info.IdSucursalOrigen;
-                            addressDeta.IdTransferencia = info.IdTransferencia;
-                            addressDeta.IdBodegaOrigen = info.IdBodegaOrigen;
-                            addressDeta.IdProducto = item.IdProducto;
-                            addressDeta.dt_cantidad = item.dt_cantidad;
-                            addressDeta.IdUnidadMedida = item.IdUnidadMedida;
-                            addressDeta.tr_Observacion = item.tr_Observacion;
-                            addressDeta.IdCentroCosto = item.IdCentroCosto;
-                            addressDeta.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
-                            addressDeta.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
-                            addressDeta.IdPunto_cargo = item.IdPunto_cargo;
-                            addressDeta.dt_secuencia = item.dt_secuencia = c;
-                            c++;
-                            Contex.in_transferencia_det.Add(addressDeta);
+                            contac.tr_Observacion = info.tr_Observacion;
+                            contac.Codigo = info.Codigo;
+                            contac.IdBodegaDest = info.IdBodegaDest;
+                            contac.IdSucursalDest = info.IdSucursalDest;
+                            contac.tr_fecha = info.tr_fecha;
+
                             Contex.SaveChanges();
-                        }
-                        foreach (var item in info.lista_detalle_transferencia)
-                        {
-                            if (item.Info_Guia_x_traspaso_bodega_det.IdEmpresa != 0)
+
+                            #region DetalleTransferencia
+                            //GRABAR EL DETALLE DE LA TRANSFERENCIA
+                            int c = 1;
+                            odata_trans_x_guia.EliminarDB(info);
+                            EliminarDetalle(info);
+                            foreach (var item in info.lista_detalle_transferencia)
                             {
-                                in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Info info_det_trans_x_guia = new in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Info();
-                                info_det_trans_x_guia.IdEmpresa_trans = info.IdEmpresa;
-                                info_det_trans_x_guia.IdSucursalOrigen_trans = info.IdSucursalOrigen;
-                                info_det_trans_x_guia.IdBodegaOrigen_trans = info.IdBodegaOrigen;
-                                info_det_trans_x_guia.IdTransferencia_trans = info.IdTransferencia;
-                                info_det_trans_x_guia.Secuencia_trans = item.dt_secuencia;
-
-                                info_det_trans_x_guia.IdEmpresa_guia = item.Info_Guia_x_traspaso_bodega_det.IdEmpresa;
-                                info_det_trans_x_guia.IdGuia_guia = item.Info_Guia_x_traspaso_bodega_det.IdGuia;
-                                info_det_trans_x_guia.Secuencia_guia = item.Info_Guia_x_traspaso_bodega_det.secuencia;
-                                odata_trans_x_guia.GuardarDB(info_det_trans_x_guia);
+                                var addressDeta = new in_transferencia_det();
+                                addressDeta.IdEmpresa = info.IdEmpresa;
+                                addressDeta.IdSucursalOrigen = info.IdSucursalOrigen;
+                                addressDeta.IdTransferencia = info.IdTransferencia;
+                                addressDeta.IdBodegaOrigen = info.IdBodegaOrigen;
+                                addressDeta.IdProducto = item.IdProducto;
+                                addressDeta.dt_cantidad = item.dt_cantidad;
+                                addressDeta.IdUnidadMedida = item.IdUnidadMedida;
+                                addressDeta.tr_Observacion = item.tr_Observacion;
+                                addressDeta.IdCentroCosto = item.IdCentroCosto;
+                                addressDeta.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
+                                addressDeta.IdPunto_cargo_grupo = item.IdPunto_cargo_grupo;
+                                addressDeta.IdPunto_cargo = item.IdPunto_cargo;
+                                addressDeta.dt_secuencia = item.dt_secuencia = c;
+                                c++;
+                                Contex.in_transferencia_det.Add(addressDeta);
+                                Contex.SaveChanges();
                             }
-                        }
-                        #endregion
-                    }
-                }
+                            foreach (var item in info.lista_detalle_transferencia)
+                            {
+                                if (item.Info_Guia_x_traspaso_bodega_det.IdEmpresa != 0)
+                                {
+                                    in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Info info_det_trans_x_guia = new in_transferencia_det_x_in_Guia_x_traspaso_bodega_det_Info();
+                                    info_det_trans_x_guia.IdEmpresa_trans = info.IdEmpresa;
+                                    info_det_trans_x_guia.IdSucursalOrigen_trans = info.IdSucursalOrigen;
+                                    info_det_trans_x_guia.IdBodegaOrigen_trans = info.IdBodegaOrigen;
+                                    info_det_trans_x_guia.IdTransferencia_trans = info.IdTransferencia;
+                                    info_det_trans_x_guia.Secuencia_trans = item.dt_secuencia;
 
-                return true;
+                                    info_det_trans_x_guia.IdEmpresa_guia = item.Info_Guia_x_traspaso_bodega_det.IdEmpresa;
+                                    info_det_trans_x_guia.IdGuia_guia = item.Info_Guia_x_traspaso_bodega_det.IdGuia;
+                                    info_det_trans_x_guia.Secuencia_guia = item.Info_Guia_x_traspaso_bodega_det.secuencia;
+                                    odata_trans_x_guia.GuardarDB(info_det_trans_x_guia);
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+
+                    return true;
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -401,7 +401,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-        
+
         public Boolean Actualizardetalle(List<in_transferencia_det_Info> listDetalle, in_transferencia_Info info)
         {
             try
@@ -415,12 +415,12 @@ namespace Core.Erp.Data.Inventario
                         var addressDeta = new in_transferencia_det();
 
                         addressDeta.IdEmpresa = item.IdEmpresa;
-                        
+
                         addressDeta.IdSucursalOrigen = info.IdSucursalOrigen;
                         addressDeta.IdTransferencia = info.IdTransferencia;
                         addressDeta.IdBodegaOrigen = info.IdBodegaOrigen;
                         addressDeta.IdProducto = item.IdProducto;
-                        
+
                         addressDeta.dt_cantidad = item.dt_cantidad;
                         addressDeta.IdCentroCosto = item.IdCentroCosto;
                         addressDeta.IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo;
@@ -446,14 +446,14 @@ namespace Core.Erp.Data.Inventario
             }
 
         }
-        
+
         public void EliminarDetalle(in_transferencia_Info info)
         {
             try
             {
                 using (EntitiesInventario Contex = new EntitiesInventario())
                 {
-                    string comando = "DELETE in_transferencia_det WHERE IdEmpresa = "+info.IdEmpresa+" and IdSucursalOrigen = "+info.IdSucursalOrigen+" and IdBodegaOrigen = "+info.IdBodegaOrigen+" and IdTransferencia = "+info.IdTransferencia;
+                    string comando = "DELETE in_transferencia_det WHERE IdEmpresa = " + info.IdEmpresa + " and IdSucursalOrigen = " + info.IdSucursalOrigen + " and IdBodegaOrigen = " + info.IdBodegaOrigen + " and IdTransferencia = " + info.IdTransferencia;
                     Contex.Database.ExecuteSqlCommand(comando);
                 }
             }
@@ -464,7 +464,7 @@ namespace Core.Erp.Data.Inventario
                 tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(ex.ToString(), "", arreglo, "", "", "", "", "", DateTime.Now);
                 oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
                 mensaje = ex.ToString() + " " + ex.Message;
-                throw new Exception(mensaje);                    
+                throw new Exception(mensaje);
             }
         }
 
@@ -516,7 +516,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-        
+
         public Boolean Anular(in_transferencia_Info info)
         {
             try
@@ -557,7 +557,7 @@ namespace Core.Erp.Data.Inventario
                     EntitiesInventario oEInventario = new EntitiesInventario();
 
                     var select = from q in oEInventario.in_movi_inve
-                                 where q.IdEmpresa == idEmpresa 
+                                 where q.IdEmpresa == idEmpresa
                                  && q.IdBodega == Idbodega
                                  && q.IdSucursal == idSucursal
                                  && q.IdMovi_inven_tipo == idtipomovi
@@ -569,9 +569,9 @@ namespace Core.Erp.Data.Inventario
                     }
 
                     var max = (from q in oEInventario.in_movi_inve
-                               where q.IdEmpresa == idEmpresa 
+                               where q.IdEmpresa == idEmpresa
                                && q.IdBodega == Idbodega
-                               && q.IdSucursal == idSucursal 
+                               && q.IdSucursal == idSucursal
                                && q.IdMovi_inven_tipo == idtipomovi
                                select q).Max();
                     id = Convert.ToDecimal(max.ToString()) + 1;
@@ -588,7 +588,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-        
+
         public bool Modificar_IdMovi_Inven_x_Transf(in_transferencia_Info info_transferencia, int IdEmpresa_Ing_Egr_Inven_Origen, int IdSucursal_Ing_Egr_Inven_Origen, decimal IdNumMovi_Ing_Egr_Inven_Origen
             , int IdEmpresa_Ing_Egr_Inven_Destino, int IdSucursal_Ing_Egr_Inven_Destino, decimal IdNumMovi_Ing_Egr_Inven_Destino)
         {
@@ -621,7 +621,7 @@ namespace Core.Erp.Data.Inventario
             }
         }
 
-        public List<in_transferencia_Info> Get_List_transferencia(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, int IdSucursalIni,int idSucursalFin, int IdBodegaIni, int idBodegaFin)
+        public List<in_transferencia_Info> Get_List_transferencia(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, int IdSucursalIni, int idSucursalFin, int IdBodegaIni, int idBodegaFin)
         {
             try
             {
@@ -633,63 +633,64 @@ namespace Core.Erp.Data.Inventario
                 {
                     connection.Open();
                     string query = "SELECT        so.Su_Descripcion AS SucuOrigen, bo.bo_Descripcion AS BodegaORIG, sd.Su_Descripcion AS SucuDEST, bd.bo_Descripcion AS BodegDest, t.IdEmpresa, t.IdSucursalOrigen, t.IdBodegaOrigen, t.IdTransferencia, "
-                                +" t.IdSucursalDest, t.IdBodegaDest, t.tr_Observacion, t.tr_fecha, t.Estado, t.IdUsuario, t.IdEmpresa_Ing_Egr_Inven_Origen, t.IdSucursal_Ing_Egr_Inven_Origen, t.IdNumMovi_Ing_Egr_Inven_Origen, "
-                                +" t.IdEmpresa_Ing_Egr_Inven_Destino, t.IdSucursal_Ing_Egr_Inven_Destino, t.IdNumMovi_Ing_Egr_Inven_Destino, t.tr_fechaAnulacion, t.tr_userAnulo, t.Codigo, t.IdMovi_inven_tipo_SucuOrig, t.IdMovi_inven_tipo_SucuDest, "
-                                +" MIN(id.IdEstadoAproba) AS IdEstadoAproba_ing, MIN(ED.IdEstadoAproba) AS IdEstadoAproba_egr, t.IdGuia, t.EstadoRevision, t.IdUsuarioRevision, t.FechaRevision, isnull(t.TuvoError, cast(0 as bit)) TuvoError, isnull(t.TuvoErrorDespacho,cast(0 as bit))TuvoErrorDespacho"
-                                +" FROM            dbo.in_Ing_Egr_Inven_det AS ED INNER JOIN"
-                                +" dbo.in_Ing_Egr_Inven AS e ON ED.IdEmpresa = e.IdEmpresa AND ED.IdSucursal = e.IdSucursal AND ED.IdMovi_inven_tipo = e.IdMovi_inven_tipo AND ED.IdNumMovi = e.IdNumMovi RIGHT OUTER JOIN"
-                                +" dbo.in_Ing_Egr_Inven AS i INNER JOIN"
-                                +" dbo.in_Ing_Egr_Inven_det AS id ON i.IdEmpresa = id.IdEmpresa AND i.IdSucursal = id.IdSucursal AND i.IdMovi_inven_tipo = id.IdMovi_inven_tipo AND i.IdNumMovi = id.IdNumMovi RIGHT OUTER JOIN"
-                                +" dbo.tb_bodega AS bd INNER JOIN"
-                                +" dbo.tb_sucursal AS sd ON bd.IdEmpresa = sd.IdEmpresa AND bd.IdSucursal = sd.IdSucursal INNER JOIN"
-                                +" dbo.in_transferencia AS t INNER JOIN"
-                                +" dbo.tb_bodega AS bo ON t.IdEmpresa = bo.IdEmpresa AND t.IdBodegaOrigen = bo.IdBodega AND t.IdSucursalOrigen = bo.IdSucursal INNER JOIN"
-                                +" dbo.tb_sucursal AS so ON bo.IdEmpresa = so.IdEmpresa AND bo.IdSucursal = so.IdSucursal ON bd.IdEmpresa = t.IdEmpresa AND bd.IdBodega = t.IdBodegaDest AND bd.IdSucursal = t.IdSucursalDest ON "
-                                +" i.IdEmpresa = t.IdEmpresa_Ing_Egr_Inven_Destino AND i.IdSucursal = t.IdSucursal_Ing_Egr_Inven_Destino AND i.IdMovi_inven_tipo = t.IdMovi_inven_tipo_SucuDest AND i.IdNumMovi = t.IdNumMovi_Ing_Egr_Inven_Destino ON"
-                                +" e.IdEmpresa = t.IdEmpresa_Ing_Egr_Inven_Origen AND e.IdSucursal = t.IdSucursal_Ing_Egr_Inven_Origen AND e.IdMovi_inven_tipo = t.IdMovi_inven_tipo_SucuOrig AND "
-                                +" e.IdNumMovi = t.IdNumMovi_Ing_Egr_Inven_Origen"
-                                + " where t.IdEmpresa = " + IdEmpresa.ToString() + " and t.IdSucursalOrigen = "+idSucursalFin.ToString()
-                                + " and t.tr_fecha between DATEFROMPARTS("+FechaIni.Year.ToString()+","+FechaIni.Month.ToString()+","+FechaIni.Day.ToString()+")  AND DATEFROMPARTS("+FechaFin.Year.ToString()+","+FechaFin.Month.ToString()+","+FechaFin.Day.ToString()+")"
-                                +" GROUP BY so.Su_Descripcion, bo.bo_Descripcion, sd.Su_Descripcion, bd.bo_Descripcion, t.IdEmpresa, t.IdSucursalOrigen, t.IdBodegaOrigen, t.IdTransferencia, t.IdSucursalDest, t.IdBodegaDest, t.tr_Observacion, t.tr_fecha, t.Estado, "
-                                +" t.IdUsuario, t.IdEmpresa_Ing_Egr_Inven_Origen, t.IdSucursal_Ing_Egr_Inven_Origen, t.IdNumMovi_Ing_Egr_Inven_Origen, t.IdEmpresa_Ing_Egr_Inven_Destino, t.IdSucursal_Ing_Egr_Inven_Destino, "
-                                +" t.IdNumMovi_Ing_Egr_Inven_Destino, t.tr_fechaAnulacion, t.tr_userAnulo, t.Codigo, t.IdMovi_inven_tipo_SucuOrig, t.IdMovi_inven_tipo_SucuDest, t.IdGuia, t.EstadoRevision, t.IdUsuarioRevision, t.FechaRevision, t.TuvoError, "
-                                +" t.TuvoErrorDespacho";
-                    SqlCommand command = new SqlCommand(query,connection);
+                                + " t.IdSucursalDest, t.IdBodegaDest, t.tr_Observacion, t.tr_fecha, t.Estado, t.IdUsuario, t.IdEmpresa_Ing_Egr_Inven_Origen, t.IdSucursal_Ing_Egr_Inven_Origen, t.IdNumMovi_Ing_Egr_Inven_Origen, "
+                                + " t.IdEmpresa_Ing_Egr_Inven_Destino, t.IdSucursal_Ing_Egr_Inven_Destino, t.IdNumMovi_Ing_Egr_Inven_Destino, t.tr_fechaAnulacion, t.tr_userAnulo, t.Codigo, t.IdMovi_inven_tipo_SucuOrig, t.IdMovi_inven_tipo_SucuDest, "
+                                + " MIN(id.IdEstadoAproba) AS IdEstadoAproba_ing, MIN(ED.IdEstadoAproba) AS IdEstadoAproba_egr, t.IdGuia, t.EstadoRevision, t.IdUsuarioRevision, t.FechaRevision, isnull(t.TuvoError, cast(0 as bit)) TuvoError, isnull(t.TuvoErrorDespacho,cast(0 as bit))TuvoErrorDespacho"
+                                + " FROM            dbo.in_Ing_Egr_Inven_det AS ED INNER JOIN"
+                                + " dbo.in_Ing_Egr_Inven AS e ON ED.IdEmpresa = e.IdEmpresa AND ED.IdSucursal = e.IdSucursal AND ED.IdMovi_inven_tipo = e.IdMovi_inven_tipo AND ED.IdNumMovi = e.IdNumMovi RIGHT OUTER JOIN"
+                                + " dbo.in_Ing_Egr_Inven AS i INNER JOIN"
+                                + " dbo.in_Ing_Egr_Inven_det AS id ON i.IdEmpresa = id.IdEmpresa AND i.IdSucursal = id.IdSucursal AND i.IdMovi_inven_tipo = id.IdMovi_inven_tipo AND i.IdNumMovi = id.IdNumMovi RIGHT OUTER JOIN"
+                                + " dbo.tb_bodega AS bd INNER JOIN"
+                                + " dbo.tb_sucursal AS sd ON bd.IdEmpresa = sd.IdEmpresa AND bd.IdSucursal = sd.IdSucursal INNER JOIN"
+                                + " dbo.in_transferencia AS t INNER JOIN"
+                                + " dbo.tb_bodega AS bo ON t.IdEmpresa = bo.IdEmpresa AND t.IdBodegaOrigen = bo.IdBodega AND t.IdSucursalOrigen = bo.IdSucursal INNER JOIN"
+                                + " dbo.tb_sucursal AS so ON bo.IdEmpresa = so.IdEmpresa AND bo.IdSucursal = so.IdSucursal ON bd.IdEmpresa = t.IdEmpresa AND bd.IdBodega = t.IdBodegaDest AND bd.IdSucursal = t.IdSucursalDest ON "
+                                + " i.IdEmpresa = t.IdEmpresa_Ing_Egr_Inven_Destino AND i.IdSucursal = t.IdSucursal_Ing_Egr_Inven_Destino AND i.IdMovi_inven_tipo = t.IdMovi_inven_tipo_SucuDest AND i.IdNumMovi = t.IdNumMovi_Ing_Egr_Inven_Destino ON"
+                                + " e.IdEmpresa = t.IdEmpresa_Ing_Egr_Inven_Origen AND e.IdSucursal = t.IdSucursal_Ing_Egr_Inven_Origen AND e.IdMovi_inven_tipo = t.IdMovi_inven_tipo_SucuOrig AND "
+                                + " e.IdNumMovi = t.IdNumMovi_Ing_Egr_Inven_Origen"
+                                + " where t.IdEmpresa = " + IdEmpresa.ToString() + " and t.IdSucursalOrigen = " + idSucursalFin.ToString()
+                                + " and t.tr_fecha between DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ")  AND DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")"
+                                + " GROUP BY so.Su_Descripcion, bo.bo_Descripcion, sd.Su_Descripcion, bd.bo_Descripcion, t.IdEmpresa, t.IdSucursalOrigen, t.IdBodegaOrigen, t.IdTransferencia, t.IdSucursalDest, t.IdBodegaDest, t.tr_Observacion, t.tr_fecha, t.Estado, "
+                                + " t.IdUsuario, t.IdEmpresa_Ing_Egr_Inven_Origen, t.IdSucursal_Ing_Egr_Inven_Origen, t.IdNumMovi_Ing_Egr_Inven_Origen, t.IdEmpresa_Ing_Egr_Inven_Destino, t.IdSucursal_Ing_Egr_Inven_Destino, "
+                                + " t.IdNumMovi_Ing_Egr_Inven_Destino, t.tr_fechaAnulacion, t.tr_userAnulo, t.Codigo, t.IdMovi_inven_tipo_SucuOrig, t.IdMovi_inven_tipo_SucuDest, t.IdGuia, t.EstadoRevision, t.IdUsuarioRevision, t.FechaRevision, t.TuvoError, "
+                                + " t.TuvoErrorDespacho";
+                    SqlCommand command = new SqlCommand(query, connection);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
-	                {
-	                     lst.Add(new in_transferencia_Info{
-                             IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
-                             IdTransferencia = Convert.ToDecimal(reader["IdTransferencia"]),
-                             tr_fecha = Convert.ToDateTime(reader["tr_fecha"]),
-                             Estado = Convert.ToString(reader["Estado"]),
-                             Bodega_Destino = Convert.ToString(reader["BodegDest"]),
-                             Bodega_Origen = Convert.ToString(reader["BodegaORIG"]),
-                             Sucursal_Destino = Convert.ToString(reader["SucuDEST"]),
-                             Sucursal_Origen = Convert.ToString(reader["SucuOrigen"]),
-                             tr_Observacion = Convert.ToString(reader["tr_Observacion"]),
-                             IdBodegaDest = Convert.ToInt32(reader["IdBodegaDest"]),
-                             IdBodegaOrigen = Convert.ToInt32(reader["IdBodegaOrigen"]),
-                             IdSucursalDest = Convert.ToInt32(reader["IdSucursalDest"]),
-                             IdSucursalOrigen = Convert.ToInt32(reader["IdSucursalOrigen"]),
-                             Codigo = Convert.ToString(reader["Codigo"]),
-                             IdEmpresa_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdEmpresa_Ing_Egr_Inven_Destino"].ToString()) ? null : (int?)(reader["IdEmpresa_Ing_Egr_Inven_Destino"]),
-                             IdEmpresa_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdEmpresa_Ing_Egr_Inven_Origen"].ToString()) ? null : (int?)(reader["IdEmpresa_Ing_Egr_Inven_Origen"]),
-                             IdSucursal_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdSucursal_Ing_Egr_Inven_Destino"].ToString()) ? null : (int?)(reader["IdSucursal_Ing_Egr_Inven_Destino"]),
-                             IdSucursal_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdSucursal_Ing_Egr_Inven_Origen"].ToString()) ? null : (int?)(reader["IdSucursal_Ing_Egr_Inven_Origen"]),
-                             IdMovi_inven_tipo_SucuDest = string.IsNullOrEmpty(reader["IdMovi_inven_tipo_SucuDest"].ToString()) ? null : (int?)(reader["IdMovi_inven_tipo_SucuDest"]),
-                             IdMovi_inven_tipo_SucuOrig = string.IsNullOrEmpty(reader["IdMovi_inven_tipo_SucuOrig"].ToString()) ? null : (int?)(reader["IdMovi_inven_tipo_SucuOrig"]),
-                             IdNumMovi_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdNumMovi_Ing_Egr_Inven_Destino"].ToString()) ? null : (decimal?)(reader["IdNumMovi_Ing_Egr_Inven_Destino"]),
-                             IdNumMovi_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdNumMovi_Ing_Egr_Inven_Origen"].ToString()) ? null : (decimal?)(reader["IdNumMovi_Ing_Egr_Inven_Origen"]),
-                             IdEstadoAproba_egr = Convert.ToString(reader["IdEstadoAproba_egr"]),
-                             IdEstadoAproba_ing = Convert.ToString(reader["IdEstadoAproba_ing"]),
-                             IdUsuario = Convert.ToString(reader["IdUsuario"]),
-                             IdGuia = string.IsNullOrEmpty(reader["IdGuia"].ToString()) ? null : (decimal?) (reader["IdGuia"]),
-                             EstadoRevision = Convert.ToString(reader["EstadoRevision"]),
-                             TuvoError = Convert.ToBoolean(reader["TuvoError"]),
-                             TuvoErrorDespacho = Convert.ToBoolean(reader["TuvoErrorDespacho"])
-                         });
-	                }
+                    {
+                        lst.Add(new in_transferencia_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdTransferencia = Convert.ToDecimal(reader["IdTransferencia"]),
+                            tr_fecha = Convert.ToDateTime(reader["tr_fecha"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            Bodega_Destino = Convert.ToString(reader["BodegDest"]),
+                            Bodega_Origen = Convert.ToString(reader["BodegaORIG"]),
+                            Sucursal_Destino = Convert.ToString(reader["SucuDEST"]),
+                            Sucursal_Origen = Convert.ToString(reader["SucuOrigen"]),
+                            tr_Observacion = Convert.ToString(reader["tr_Observacion"]),
+                            IdBodegaDest = Convert.ToInt32(reader["IdBodegaDest"]),
+                            IdBodegaOrigen = Convert.ToInt32(reader["IdBodegaOrigen"]),
+                            IdSucursalDest = Convert.ToInt32(reader["IdSucursalDest"]),
+                            IdSucursalOrigen = Convert.ToInt32(reader["IdSucursalOrigen"]),
+                            Codigo = Convert.ToString(reader["Codigo"]),
+                            IdEmpresa_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdEmpresa_Ing_Egr_Inven_Destino"].ToString()) ? null : (int?)(reader["IdEmpresa_Ing_Egr_Inven_Destino"]),
+                            IdEmpresa_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdEmpresa_Ing_Egr_Inven_Origen"].ToString()) ? null : (int?)(reader["IdEmpresa_Ing_Egr_Inven_Origen"]),
+                            IdSucursal_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdSucursal_Ing_Egr_Inven_Destino"].ToString()) ? null : (int?)(reader["IdSucursal_Ing_Egr_Inven_Destino"]),
+                            IdSucursal_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdSucursal_Ing_Egr_Inven_Origen"].ToString()) ? null : (int?)(reader["IdSucursal_Ing_Egr_Inven_Origen"]),
+                            IdMovi_inven_tipo_SucuDest = string.IsNullOrEmpty(reader["IdMovi_inven_tipo_SucuDest"].ToString()) ? null : (int?)(reader["IdMovi_inven_tipo_SucuDest"]),
+                            IdMovi_inven_tipo_SucuOrig = string.IsNullOrEmpty(reader["IdMovi_inven_tipo_SucuOrig"].ToString()) ? null : (int?)(reader["IdMovi_inven_tipo_SucuOrig"]),
+                            IdNumMovi_Ing_Egr_Inven_Destino = string.IsNullOrEmpty(reader["IdNumMovi_Ing_Egr_Inven_Destino"].ToString()) ? null : (decimal?)(reader["IdNumMovi_Ing_Egr_Inven_Destino"]),
+                            IdNumMovi_Ing_Egr_Inven_Origen = string.IsNullOrEmpty(reader["IdNumMovi_Ing_Egr_Inven_Origen"].ToString()) ? null : (decimal?)(reader["IdNumMovi_Ing_Egr_Inven_Origen"]),
+                            IdEstadoAproba_egr = Convert.ToString(reader["IdEstadoAproba_egr"]),
+                            IdEstadoAproba_ing = Convert.ToString(reader["IdEstadoAproba_ing"]),
+                            IdUsuario = Convert.ToString(reader["IdUsuario"]),
+                            IdGuia = string.IsNullOrEmpty(reader["IdGuia"].ToString()) ? null : (decimal?)(reader["IdGuia"]),
+                            EstadoRevision = Convert.ToString(reader["EstadoRevision"]),
+                            TuvoError = Convert.ToBoolean(reader["TuvoError"]),
+                            TuvoErrorDespacho = Convert.ToBoolean(reader["TuvoErrorDespacho"])
+                        });
+                    }
                     reader.Close();
                 }
                 /*
@@ -863,8 +864,8 @@ namespace Core.Erp.Data.Inventario
                 mensaje = ex.ToString() + " " + ex.Message;
                 throw new Exception(mensaje);
             }
-        }       
-        
+        }
+
         public List<in_transferencia_Info> Get_List_transferencia(int IdEmpresa, DateTime FechaIni, DateTime FechaFin, int IdSucursal)
         {
             try
@@ -873,7 +874,7 @@ namespace Core.Erp.Data.Inventario
 
                 EntitiesInventario OEInventario = new EntitiesInventario();
                 var select = from q in OEInventario.vwin_Transferencias
-                             where q.IdEmpresa == IdEmpresa 
+                             where q.IdEmpresa == IdEmpresa
                              && q.IdSucursalOrigen == IdSucursal
                              && q.tr_fecha >= FechaIni && q.tr_fecha <= FechaFin
                              orderby q.IdEmpresa, q.tr_fecha
@@ -914,7 +915,7 @@ namespace Core.Erp.Data.Inventario
                 throw new Exception(mensaje);
             }
         }
-        
+
         public List<in_transferencia_det_Info> Get_List_transferencia_det_sin_Guia(in_transferencia_Info Info, int idEmpresa)
         {
             try
@@ -944,8 +945,8 @@ namespace Core.Erp.Data.Inventario
                     info.pr_descripcion = item.pr_descripcion;
                     info.IdBodegaOrigen = item.IdBodegaOrigen;
                     info.IdSucursalOrigen = item.IdSucursalOrigen;
-                 
-                    lst.Add(info); 
+
+                    lst.Add(info);
                 }
 
                 return lst;
@@ -972,7 +973,7 @@ namespace Core.Erp.Data.Inventario
                     var lst = from q in Context.vwin_transferencia_x_in_movi_inve_agrupada_para_recosteo
                               where q.IdEmpresa == IdEmpresa
                               && q.tr_fecha >= Fecha_ini
-                              group q by new { q.IdEmpresa, q.IdSucursalOrigen, q.cod_sucursal, q.nom_sucursal , q.IdBodegaOrigen, q.cod_bodega, q.nom_bodega, q.tr_fecha }
+                              group q by new { q.IdEmpresa, q.IdSucursalOrigen, q.cod_sucursal, q.nom_sucursal, q.IdBodegaOrigen, q.cod_bodega, q.nom_bodega, q.tr_fecha }
                                   into Lista_agrupada
                                   orderby Lista_agrupada.Key.IdEmpresa, Lista_agrupada.Key.tr_fecha, Lista_agrupada.Key.IdSucursalOrigen, Lista_agrupada.Key.IdBodegaOrigen
                                   select new
@@ -993,7 +994,7 @@ namespace Core.Erp.Data.Inventario
 
                         info.IdEmpresa = item.IdEmpresa;
                         info.IdSucursalOrigen = item.IdSucursalOrigen;
-                        info.Sucursal_Origen = "["+item.cod_sucursal+"] "+item.nom_sucursal;
+                        info.Sucursal_Origen = "[" + item.cod_sucursal + "] " + item.nom_sucursal;
                         info.IdBodegaOrigen = item.IdBodegaOrigen;
                         info.Bodega_Origen = "[" + item.cod_bodega + "] " + item.nom_bodega;
                         info.tr_fecha = item.tr_fecha;
@@ -1113,11 +1114,11 @@ namespace Core.Erp.Data.Inventario
                                     IdBodega = info.IdBodegaOrigen,
                                     IdProducto = item.IdProducto ?? 0,
 
-                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa,item.IdProducto ?? 0,item.IdUnidadMedida,(item.dt_cantidad))*-1,
+                                    dm_cantidad = odataUnidadMedida.GetCantidadConvertida(info.IdEmpresa, item.IdProducto ?? 0, item.IdUnidadMedida, (item.dt_cantidad)) * -1,
                                     mv_costo = 0,
                                     IdUnidadMedida = item.IdUnidadMedida,
 
-                                    dm_cantidad_sinConversion =  (item.dt_cantidad * -1),
+                                    dm_cantidad_sinConversion = (item.dt_cantidad * -1),
                                     mv_costo_sinConversion = 0,
                                     IdUnidadMedida_sinConversion = item.IdUnidadMedida,
 
@@ -1339,7 +1340,8 @@ namespace Core.Erp.Data.Inventario
                         #region Modifcar egreso de inventario
                         var EntityInv = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal_Ing_Egr_Inven_Origen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).FirstOrDefault();
                         if (EntityInv != null)
-                        {   EntityInv.IdUsuarioUltModi = info.IdUsuario;
+                        {
+                            EntityInv.IdUsuarioUltModi = info.IdUsuario;
                             EntityInv.Fecha_UltMod = DateTime.Now;
 
                             var lstEgrD = db.in_Ing_Egr_Inven_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursalOrigen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).ToList();
@@ -1452,59 +1454,59 @@ namespace Core.Erp.Data.Inventario
                     }
                     else
                         if (info.InfoGuia != null && info.InfoGuia.IdGuia != 0)
-                    {
-                        #region Modificar Guia
-                        var EntityGuia = db.in_Guia_x_traspaso_bodega.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == info.IdGuia).FirstOrDefault();
-                        if (EntityGuia != null)
                         {
-                            var lstDetGuia = db.in_Guia_x_traspaso_bodega_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == (info.IdGuia ?? 0)).ToList();
-                            foreach (var item in lstDetGuia)
+                            #region Modificar Guia
+                            var EntityGuia = db.in_Guia_x_traspaso_bodega.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == info.IdGuia).FirstOrDefault();
+                            if (EntityGuia != null)
                             {
-                                db.in_Guia_x_traspaso_bodega_det.Remove(item);
-                            }
-                            var lstGuiaOC = info.lista_detalle_transferencia.Where(q => q.EnviarEnGuia == true && q.IdOrdenCompra != null).ToList();
-                            foreach (var item in lstGuiaOC)
-                            {
-                                db.in_Guia_x_traspaso_bodega_det.Add(new in_Guia_x_traspaso_bodega_det
+                                var lstDetGuia = db.in_Guia_x_traspaso_bodega_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == (info.IdGuia ?? 0)).ToList();
+                                foreach (var item in lstDetGuia)
                                 {
-                                    IdEmpresa = info.IdEmpresa,
-                                    IdGuia = info.IdGuia ?? 0,
-                                    secuencia = item.dt_secuencia,
-                                    IdEmpresa_OC = info.IdEmpresa,
-                                    IdSucursal_OC = item.IdSucursal_oc,
-                                    IdOrdenCompra_OC = item.IdOrdenCompra,
-                                    Secuencia_OC = item.Secuencia_oc,
-                                    observacion = item.tr_Observacion ?? "",
-                                    Cantidad_enviar = item.dt_cantidad,
-                                    Referencia = item.IdOrdenCompra.ToString()
-                                });
-                            }
-                            var lstDetGuiaSinOc = db.in_Guia_x_traspaso_bodega_det_sin_oc.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == (info.IdGuia ?? 0)).ToList();
-                            foreach (var item in lstDetGuiaSinOc)
-                            {
-                                db.in_Guia_x_traspaso_bodega_det_sin_oc.Remove(item);
-                            }
-                            lstGuiaOC = info.lista_detalle_transferencia.Where(q => q.EnviarEnGuia == true && q.IdOrdenCompra == null).ToList();
-                            foreach (var item in lstGuiaOC)
-                            {
-                                db.in_Guia_x_traspaso_bodega_det_sin_oc.Add(new in_Guia_x_traspaso_bodega_det_sin_oc
+                                    db.in_Guia_x_traspaso_bodega_det.Remove(item);
+                                }
+                                var lstGuiaOC = info.lista_detalle_transferencia.Where(q => q.EnviarEnGuia == true && q.IdOrdenCompra != null).ToList();
+                                foreach (var item in lstGuiaOC)
                                 {
-                                    IdEmpresa = info.IdEmpresa,
-                                    IdGuia = info.IdGuia ?? 0,
-                                    secuencia = item.dt_secuencia,
-                                    Num_Fact = "",
-                                    IdProveedor = null,
-                                    Cantidad_enviar = item.dt_cantidad,
-                                    nom_proveedor = "Transferencia # " + info.IdTransferencia,
+                                    db.in_Guia_x_traspaso_bodega_det.Add(new in_Guia_x_traspaso_bodega_det
+                                    {
+                                        IdEmpresa = info.IdEmpresa,
+                                        IdGuia = info.IdGuia ?? 0,
+                                        secuencia = item.dt_secuencia,
+                                        IdEmpresa_OC = info.IdEmpresa,
+                                        IdSucursal_OC = item.IdSucursal_oc,
+                                        IdOrdenCompra_OC = item.IdOrdenCompra,
+                                        Secuencia_OC = item.Secuencia_oc,
+                                        observacion = item.tr_Observacion ?? "",
+                                        Cantidad_enviar = item.dt_cantidad,
+                                        Referencia = item.IdOrdenCompra.ToString()
+                                    });
+                                }
+                                var lstDetGuiaSinOc = db.in_Guia_x_traspaso_bodega_det_sin_oc.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdGuia == (info.IdGuia ?? 0)).ToList();
+                                foreach (var item in lstDetGuiaSinOc)
+                                {
+                                    db.in_Guia_x_traspaso_bodega_det_sin_oc.Remove(item);
+                                }
+                                lstGuiaOC = info.lista_detalle_transferencia.Where(q => q.EnviarEnGuia == true && q.IdOrdenCompra == null).ToList();
+                                foreach (var item in lstGuiaOC)
+                                {
+                                    db.in_Guia_x_traspaso_bodega_det_sin_oc.Add(new in_Guia_x_traspaso_bodega_det_sin_oc
+                                    {
+                                        IdEmpresa = info.IdEmpresa,
+                                        IdGuia = info.IdGuia ?? 0,
+                                        secuencia = item.dt_secuencia,
+                                        Num_Fact = "",
+                                        IdProveedor = null,
+                                        Cantidad_enviar = item.dt_cantidad,
+                                        nom_proveedor = "Transferencia # " + info.IdTransferencia,
 
-                                    IdProducto = item.IdProducto,
-                                    nom_producto = item.pr_descripcion,
-                                    observacion = item.tr_Observacion ?? "",
-                                });
+                                        IdProducto = item.IdProducto,
+                                        nom_producto = item.pr_descripcion,
+                                        observacion = item.tr_Observacion ?? "",
+                                    });
+                                }
                             }
+                            #endregion
                         }
-                        #endregion                        
-                    }
 
                     db.SaveChanges();
                 }
@@ -1585,7 +1587,7 @@ namespace Core.Erp.Data.Inventario
                         Entity.EstadoRevision = info.EstadoRevision;
                         Entity.FechaRevision = DateTime.Now;
                         Entity.IdUsuarioRevision = info.IdUsuario;
-                        
+
 
                         #region Modifcar egreso de inventario
                         var EntityInv = db.in_Ing_Egr_Inven.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursal == info.IdSucursal_Ing_Egr_Inven_Origen && q.IdMovi_inven_tipo == info.IdMovi_inven_tipo_SucuOrig && q.IdNumMovi == info.IdNumMovi_Ing_Egr_Inven_Origen).FirstOrDefault();
@@ -1626,7 +1628,7 @@ namespace Core.Erp.Data.Inventario
                                         IdEstadoAproba = "PEND",
                                         dm_precio = 0,
                                         dm_observacion = item.tr_Observacion ?? ""
-                                    }); 
+                                    });
                                 }
 
                                 if (item.dt_cantidad != item.dt_cantidadPreDespacho)
@@ -1705,7 +1707,7 @@ namespace Core.Erp.Data.Inventario
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -1829,7 +1831,7 @@ namespace Core.Erp.Data.Inventario
                         Entity.IdNumMovi_Ing_Egr_Inven_Destino = info.IdNumMovi_Ing_Egr_Inven_Destino;
                         if (info.lista_detalle_transferencia.Where(q => q.cantidad_enviar != q.dt_cantidad).Count() > 0)
                             Entity.TuvoError = true;
-                        
+
                         Entity.EstadoRevision = "R";
                         Entity.IdUsuarioUltMod = info.IdUsuario;
                         Entity.Fecha_UltMod = DateTime.Now;
@@ -1851,7 +1853,7 @@ namespace Core.Erp.Data.Inventario
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -1867,11 +1869,11 @@ namespace Core.Erp.Data.Inventario
                         return false;
 
                     #region Transferencia
-                   
+
                     Entity.IdUsuarioUltMod = info.IdUsuario;
                     Entity.Fecha_UltMod = DateTime.Now;
                     Entity.EstadoRevision = "R";
-                    
+
                     foreach (var item in info.lista_detalle_transferencia)
                     {
                         var det = db.in_transferencia_det.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdSucursalOrigen == info.IdSucursalOrigen && q.IdBodegaOrigen == info.IdBodegaOrigen && q.IdTransferencia == info.IdTransferencia && q.dt_secuencia == item.dt_secuencia).FirstOrDefault();
@@ -1956,13 +1958,13 @@ namespace Core.Erp.Data.Inventario
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
                     command.CommandText = "select top 1 a.IdEmpresa, a.IdSucursalOrigen, a.IdBodegaOrigen, a.IdTransferencia, "
-                                        +" a.IdSucursal_Ing_Egr_Inven_Origen, a.IdMovi_inven_tipo_SucuOrig, a.IdNumMovi_Ing_Egr_Inven_Origen,"
-                                        +" a.IdSucursal_Ing_Egr_Inven_Destino, a.IdMovi_inven_tipo_SucuDest, a.IdNumMovi_Ing_Egr_Inven_Destino,"
-                                        +" a.tr_Observacion, a.tr_fecha, b.cm_fecha as FechaEgreso, c.cm_fecha as FechaIngreso"
-                                        +" from in_transferencia as a left join"
-                                        +" in_Ing_Egr_Inven as b on a.IdEmpresa_Ing_Egr_Inven_Origen = b.IdEmpresa and a.IdSucursal_Ing_Egr_Inven_Origen = b.IdSucursal and a.IdMovi_inven_tipo_SucuOrig = b.IdMovi_inven_tipo and a.IdNumMovi_Ing_Egr_Inven_Origen = b.IdNumMovi left join"
-                                        +" in_Ing_Egr_Inven as c on a.IdEmpresa_Ing_Egr_Inven_Destino = c.IdEmpresa and a.IdSucursal_Ing_Egr_Inven_Destino = c.IdSucursal and a.IdMovi_inven_tipo_SucuDest = c.IdMovi_inven_tipo and a.IdNumMovi_Ing_Egr_Inven_Destino = c.IdNumMovi"
-                                        +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.IdSucursalOrigen = "+IdSucursalOrigen.ToString()+" and a.IdBodegaOrigen = "+IdBodegaOrigen.ToString()+" and a.IdTransferencia = "+IdTransferencia.ToString()+" and a.Estado = 'A'";
+                                        + " a.IdSucursal_Ing_Egr_Inven_Origen, a.IdMovi_inven_tipo_SucuOrig, a.IdNumMovi_Ing_Egr_Inven_Origen,"
+                                        + " a.IdSucursal_Ing_Egr_Inven_Destino, a.IdMovi_inven_tipo_SucuDest, a.IdNumMovi_Ing_Egr_Inven_Destino,"
+                                        + " a.tr_Observacion, a.tr_fecha, b.cm_fecha as FechaEgreso, c.cm_fecha as FechaIngreso"
+                                        + " from in_transferencia as a left join"
+                                        + " in_Ing_Egr_Inven as b on a.IdEmpresa_Ing_Egr_Inven_Origen = b.IdEmpresa and a.IdSucursal_Ing_Egr_Inven_Origen = b.IdSucursal and a.IdMovi_inven_tipo_SucuOrig = b.IdMovi_inven_tipo and a.IdNumMovi_Ing_Egr_Inven_Origen = b.IdNumMovi left join"
+                                        + " in_Ing_Egr_Inven as c on a.IdEmpresa_Ing_Egr_Inven_Destino = c.IdEmpresa and a.IdSucursal_Ing_Egr_Inven_Destino = c.IdSucursal and a.IdMovi_inven_tipo_SucuDest = c.IdMovi_inven_tipo and a.IdNumMovi_Ing_Egr_Inven_Destino = c.IdNumMovi"
+                                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdSucursalOrigen = " + IdSucursalOrigen.ToString() + " and a.IdBodegaOrigen = " + IdBodegaOrigen.ToString() + " and a.IdTransferencia = " + IdTransferencia.ToString() + " and a.Estado = 'A'";
                     var ResultValue = command.ExecuteScalar();
                     if (ResultValue == null)
                         return null;
@@ -1984,7 +1986,7 @@ namespace Core.Erp.Data.Inventario
                             IdSucursal_Ing_Egr_Inven_Destino = reader["IdSucursal_Ing_Egr_Inven_Destino"] == DBNull.Value ? null : (int?)reader["IdSucursal_Ing_Egr_Inven_Destino"],
                             IdMovi_inven_tipo_SucuDest = reader["IdMovi_inven_tipo_SucuDest"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_SucuDest"],
                             IdNumMovi_Ing_Egr_Inven_Destino = reader["IdNumMovi_Ing_Egr_Inven_Destino"] == DBNull.Value ? null : (decimal?)reader["IdNumMovi_Ing_Egr_Inven_Destino"],
-                            
+
                             tr_Observacion = Convert.ToString(reader["tr_Observacion"]),
                             tr_fecha = Convert.ToDateTime(reader["tr_fecha"]),
                             FechaEgreso = reader["FechaEgreso"] == DBNull.Value ? null : (DateTime?)(reader["FechaEgreso"]),
@@ -1998,7 +2000,7 @@ namespace Core.Erp.Data.Inventario
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -2020,8 +2022,42 @@ namespace Core.Erp.Data.Inventario
             }
             catch (Exception)
             {
-                
+
                 throw;
+            }
+        }
+
+        public bool Eliminar(int IdEmpresa, int IdSucursalOrigen, int IdBodegaOrigen, decimal IdTransferencia)
+        {
+            using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "DECLARE @IdEmpresa int = " + IdEmpresa.ToString() + ","
+                + " @IdSucursalOrigen int = " + IdSucursalOrigen.ToString() + ","
+                + " @IdBodegaOrigen int = " + IdBodegaOrigen.ToString() + ","
+                + " @IdTransferencia numeric = " + IdTransferencia.ToString()
+
+                + " DECLARE @IdSucursalEgr int,"
+                + " @IdMovi_inven_tipoEgr int,"
+                + " @IdNumMoviEgr numeric,"
+                + " @IdSucursalIng int,"
+                + " @IdMovi_inven_tipoIng int,"
+                + " @IdNumMoviIng numeric"
+
+                + " select @IdSucursalEgr = IdSucursal_Ing_Egr_Inven_Origen, @IdMovi_inven_tipoEgr = IdMovi_inven_tipo_SucuOrig, @IdNumMoviEgr = IdNumMovi_Ing_Egr_Inven_Origen,"
+                + " @IdSucursalIng = IdSucursal_Ing_Egr_Inven_Destino, @IdMovi_inven_tipoIng = IdMovi_inven_tipo_SucuDest, @IdNumMoviIng = IdNumMovi_Ing_Egr_Inven_Destino"
+                + " from in_transferencia where IdEmpresa = @IdEmpresa and IdSucursalOrigen = @IdSucursalOrigen and IdBodegaOrigen = @IdBodegaOrigen and IdTransferencia = @IdTransferencia"
+
+                + " select @IdEmpresa, @IdSucursalOrigen, @IdBodegaOrigen, @IdTransferencia, @IdSucursalEgr, @IdMovi_inven_tipoEgr, @IdNumMoviEgr, @IdSucursalIng, @IdMovi_inven_tipoIng, @IdNumMoviIng "
+                + " delete in_transferencia_det where IdEmpresa = @IdEmpresa and IdSucursalOrigen = @IdSucursalOrigen and IdBodegaOrigen = @IdBodegaOrigen and IdTransferencia = @IdTransferencia"
+                + " delete in_transferencia where IdEmpresa = @IdEmpresa and IdSucursalOrigen = @IdSucursalOrigen and IdBodegaOrigen = @IdBodegaOrigen and IdTransferencia = @IdTransferencia"
+
+                + " EXEC [dbo].[spSys_in_Eliminar_movimiento_inventario] @IdEmpresa,@IdSucursalEgr,@IdMovi_inven_tipoEgr,@IdNumMoviEgr,1"
+                + " EXEC [dbo].[spSys_in_Eliminar_movimiento_inventario] @IdEmpresa,@IdSucursalIng,@IdMovi_inven_tipoIng,@IdNumMoviIng,1";
+                command.ExecuteNonQuery();
+                return true;
             }
         }
     }

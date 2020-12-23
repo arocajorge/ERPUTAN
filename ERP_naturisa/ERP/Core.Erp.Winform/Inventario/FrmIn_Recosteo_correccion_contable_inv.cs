@@ -744,5 +744,35 @@ namespace Core.Erp.Winform.Inventario
             }
             cmbBodegaOrigen.EditValue = null;
         }
+
+        private void btnEliminarTransferencia_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea eliminar la transferencia?",param.Nombre_sistema,MessageBoxButtons.YesNo,MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+            
+            if (cmbSucursalOrigen.EditValue == null)
+            {
+                MessageBox.Show("Seleccione la sucursal origen", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (cmbBodegaOrigen.EditValue == null)
+            {
+                MessageBox.Show("Seleccione la bodega origen", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtIdTransferencia.Text))
+            {
+                MessageBox.Show("Ingrese el número de la transferencia", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (bus_transferencia.Eliminar(param.IdEmpresa,Convert.ToInt32(cmbSucursalOrigen.EditValue), Convert.ToInt32(cmbBodegaOrigen.EditValue),Convert.ToDecimal(txtIdTransferencia.Text)))
+            {
+                MessageBox.Show("Transferencia eliminada exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+            }else
+                MessageBox.Show("No se pudo eliminar la transferencia", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

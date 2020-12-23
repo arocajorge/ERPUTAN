@@ -97,6 +97,11 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public bool Eliminar(int IdEmpresa, int IdSucursalOrigen, int IdBodegaOrigen, decimal IdTransferencia)
+        {
+            return oData_Transferencia.Eliminar(IdEmpresa, IdSucursalOrigen, IdBodegaOrigen, IdTransferencia);
+        }
+
         public bool GuardarDB(in_transferencia_Info info, ref decimal _idTransferencia)
         {
             try
