@@ -262,9 +262,9 @@ namespace Core.Erp.Business.Contabilidad
                 throw new Core.Erp.Info.Log_Exception.DalException(string.Format("", "Get_Plancta_x_Grupo", ex.Message), ex) { EntityType = typeof(ct_Plancta_Bus) };
             }
         }
-        public double GetSaldoFechaCorte(int IdEmpresa, string IdCtaCble, DateTime FechaCorte, string IdCentroCosto, string IdCentroCosto_sub_centro_costo, bool ConsiderarCentroCosto)
+        public double GetSaldoFechaCorte(int IdEmpresa, string IdCtaCble, DateTime FechaIni, DateTime FechaFin, string IdCentroCosto, string IdCentroCosto_sub_centro_costo, bool ConsiderarCentroCosto)
         {
-            return data.GetSaldoFechaCorte(IdEmpresa, IdCtaCble, FechaCorte,IdCentroCosto,IdCentroCosto_sub_centro_costo,ConsiderarCentroCosto);
+            return data.GetSaldoFechaCorte(IdEmpresa, IdCtaCble, FechaIni, FechaFin,IdCentroCosto,IdCentroCosto_sub_centro_costo,ConsiderarCentroCosto);
         }
         public ct_Plancta_Bus()
         {

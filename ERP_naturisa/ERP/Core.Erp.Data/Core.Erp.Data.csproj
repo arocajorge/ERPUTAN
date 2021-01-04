@@ -485,7 +485,8 @@
     <Compile Include="Contabilidad\ct_Cbtecble_tipo_Data.cs" />
     <Compile Include="Contabilidad\ct_Centro_costo_nivel_Data.cs" />
     <Compile Include="Contabilidad\ct_centro_costo_sub_centro_costo_Data.cs" />
-    <Compile Include="Contabilidad\ct_DistribucionDet_Data.cs" />
+    <Compile Include="Contabilidad\ct_DistribucionDetDistribuido_Data.cs" />
+    <Compile Include="Contabilidad\ct_DistribucionDetPorDistribuir_Data.cs" />
     <Compile Include="Contabilidad\ct_Distribucion_Data.cs" />
     <Compile Include="Contabilidad\ct_Grupocble_Data.cs" />
     <Compile Include="Contabilidad\ct_GrupoEmpresarial_Data.cs" />

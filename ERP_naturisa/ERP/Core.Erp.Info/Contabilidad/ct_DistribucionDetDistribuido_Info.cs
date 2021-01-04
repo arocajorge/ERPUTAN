@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Erp.Info.Contabilidad
 {
-    public class ct_DistribucionDet_Info
+    public class ct_DistribucionDetDistribuido_Info
     {
         public int IdEmpresa { get; set; }
         public decimal IdDistribucion { get; set; }
@@ -14,12 +14,13 @@ namespace Core.Erp.Info.Contabilidad
         public string IdCentroCosto_sub_centro_costo { get; set; }
         public string IdRegistro { get; set; }
         public string IdCtaCble { get; set; }
-        public double F1 { get; set; }
-        public double F2 { get; set; }
-        public double Valor { get; set; }
+        public decimal F1 { get; set; }
+        public decimal F2 { get; set; }
+        public int Secuencia { get; set; }
+        public string Observacion { get; set; }
 
         #region Campos que no existen en la base
-        public double F3 { get; set; }
-        #endregion
+        public decimal F3 { get; set; }
+        #endregion        
     }
 }

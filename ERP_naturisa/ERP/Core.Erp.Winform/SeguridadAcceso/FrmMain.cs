@@ -15,6 +15,8 @@ using Core.Erp.Info.SeguridadAcceso;
 using Core.Erp.Business.SeguridadAcceso;
 using Core.Erp.Info.General;
 using Core.Erp.Business.General;
+using System.Deployment.Application;
+using System.Reflection;
 
 
 
@@ -306,7 +308,16 @@ namespace Core.Erp.Winform.SeguridadAcceso
 
                     CargarMenu(ref mensajeError);
                     ucSeg_Menu_x_Usuario_x_Empresa1.treeListMenu_x_Usuario_x_Empresa.Focus();
-                    barStaticItem_param.Caption = "Usuario: " + param.IdUsuario + "   Empresa:[" + param.IdEmpresa + "] - " + param.NombreEmpresa;
+                    string CaptionFooter = string.Empty;
+                    if (ApplicationDeployment.IsNetworkDeployed)
+                    {
+                        CaptionFooter = " Publicación #.- " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+                    }
+                    else
+                    {
+                        CaptionFooter = " Publicación #.- " + Assembly.GetExecutingAssembly().GetName().Version;
+                    }
+                    barStaticItem_param.Caption = CaptionFooter + " Usuario: " + param.IdUsuario + "   Empresa:[" + param.IdEmpresa + "] - " + param.NombreEmpresa;
 
                     if (param.InfoEmpresa.em_logo != null)
                     {

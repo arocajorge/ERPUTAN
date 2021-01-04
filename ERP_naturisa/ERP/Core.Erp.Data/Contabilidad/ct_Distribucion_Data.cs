@@ -141,8 +141,23 @@ namespace Core.Erp.Data.Contabilidad
                     connection.Open();
 
                     info.IdDistribucion = GetID(info.IdEmpresa);
-                    string query = "Insert into ct_Distribucion ([IdEmpresa],[IdDistribucion],[Fecha],[Observacion],[Estado],[IdTipoCbte],[IdCbteCble],[IdUsuarioCreacion],[FechaCreacion])"
-                                + " values  ("+info.IdEmpresa.ToString()+","+info.IdDistribucion.ToString()+",DATEFROMPARTS("+info.Fecha.Year.ToString()+","+info.Fecha.Month.ToString()+","+info.Fecha.Day.ToString()+"),'"+info.Observacion+"',true,"+info.IdTipoCbte.ToString()+","+info.IdCbteCble.ToString()+",'"+info.IdUsuario+"',GETDATE())";
+                    string query = "Insert into ct_Distribucion ([IdEmpresa],[IdDistribucion],[Fecha],[Observacion],[Estado],[IdTipoCbte],[IdCbteCble],[IdUsuarioCreacion],[FechaCreacion], [IdCtaCble])"
+                        + " values  ("+info.IdEmpresa.ToString()+","+info.IdDistribucion.ToString()+",DATEFROMPARTS("+info.Fecha.Year.ToString()+","+info.Fecha.Month.ToString()+","+info.Fecha.Day.ToString()+"),'"+info.Observacion+"',true,"+info.IdTipoCbte.ToString()+","+info.IdCbteCble.ToString()+",'"+info.IdUsuario+"',GETDATE(),"+(string.IsNullOrEmpty(info.IdCtaCble) ? "NULL" : "'"+info.IdCtaCble+"'")+");";
+                    int Secuencia = 1;
+                    foreach (var item in info.ListaDistribuido)
+                    {
+                        query += "INSERT INTO [dbo].[ct_DistribucionDetDistribuido]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto_sub_centro_costo],[IdCentroCosto],[F1],[F2], [Observacion])"
+                            + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdDistribucion.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.F1.ToString() + "," + item.F2.ToString() + ","+item.Observacion+");";
+                        Secuencia++;
+                    }
+                    Secuencia = 1;
+                    foreach (var item in info.ListaPorDistribuir)
+                    {
+                        query += "INSERT INTO [dbo].[ct_DistribucionDetPorDistribuir]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto_sub_centro_costo],[IdCentroCosto],[Valor])"
+                            + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdDistribucion.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.Valor.ToString() + ");";
+                        Secuencia++;
+                    }
+                    
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }

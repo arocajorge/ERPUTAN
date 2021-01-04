@@ -23,16 +23,17 @@ namespace Core.Erp.Winform.Contabilidad
         ct_Plancta_Bus busPlancta;
         List<ct_Plancta_Info> lstPlancta;
         ct_Distribucion_Info info;
+        ct_Distribucion_Bus bus;
         ct_Cbtecble_tipo_Bus busTipoCbte;
         cl_parametrosGenerales_Bus param;
         ct_Centro_costo_Bus busCentroCosto;
         ct_centro_costo_sub_centro_costo_Bus busSubcentro;
         List<ct_centro_costo_sub_centro_costo_Info> lstSubCentro;
         List<ct_Centro_costo_Info> lstCentroCosto;
-        BindingList<ct_DistribucionDet_Info> blstDet;
+        BindingList<ct_DistribucionDetDistribuido_Info> blstDet;
         BindingList<ct_Cbtecble_det_Info> blstDiario;
         ct_Plancta_Info rowPlancta;
-        BindingList<ct_Plancta_Info> blstPlanctaSaldo;
+        BindingList<ct_DistribucionDetPorDistribuir_Info> blstPlanctaSaldo;
         #endregion
 
         #region Delegados
@@ -68,16 +69,17 @@ namespace Core.Erp.Winform.Contabilidad
             busSubcentro = new ct_centro_costo_sub_centro_costo_Bus();
             lstSubCentro = new List<ct_centro_costo_sub_centro_costo_Info>();
             lstCentroCosto = new List<ct_Centro_costo_Info>();
-            blstDet = new BindingList<ct_DistribucionDet_Info>();
+            blstDet = new BindingList<ct_DistribucionDetDistribuido_Info>();
             blstDiario = new BindingList<ct_Cbtecble_det_Info>();
             rowPlancta = new ct_Plancta_Info();
-            blstPlanctaSaldo = new BindingList<ct_Plancta_Info>();
+            blstPlanctaSaldo = new BindingList<ct_DistribucionDetPorDistribuir_Info>();
+            bus = new ct_Distribucion_Bus();
             event_delegate_frmCon_DistribucionMantenimiento_FormClosed += frmCon_DistribucionMantenimiento_event_delegate_frmCon_DistribucionMantenimiento_FormClosed;
         }
 
         private void frmCon_DistribucionMantenimiento_Load(object sender, EventArgs e)
         {
-            deFechaCorte.DateTime = DateTime.Now.Date;
+            deFechaFin.DateTime = DateTime.Now.Date;
             gcDetalleCuenta.DataSource = blstPlanctaSaldo;
             SetAccionInControls();
         }
@@ -95,6 +97,7 @@ namespace Core.Erp.Winform.Contabilidad
                 cmbCuenta.DataSource = lstPlancta;
                 cmbPlanctaCuenta.DataSource = lstPlancta;
                 cmbCuentaDiario.DataSource = lstPlancta;
+                cmbPlanctaCabecera.Properties.DataSource = lstPlancta;
 
                 lstCentroCosto = busCentroCosto.Get_list_Centro_Costo(param.IdEmpresa);
                 cmbCentroCosto.DataSource = lstCentroCosto;
@@ -194,7 +197,8 @@ namespace Core.Erp.Winform.Contabilidad
             try
             {
                 txtIdDistribucion.Focus();
-
+                blstDiario = new BindingList<ct_Cbtecble_det_Info>();
+                gcDiario.DataSource = blstDiario;
                 if (blstDet.Count == 0)
                 {
                     MessageBox.Show("Debe seleccionar un metodo de distribución");
@@ -207,11 +211,12 @@ namespace Core.Erp.Winform.Contabilidad
                     blstDiario.Add(new ct_Cbtecble_det_Info
                     {
                         IdCtaCble = Cta.IdCtaCble,
-                        //IdCentroCosto = Cta.IdCentroCosto,
-                        //IdCentroCosto_sub_centro_costo = Dis.IdCentroCosto_sub_centro_costo,
-                        dc_Valor = Math.Round(Cta.Saldo * -1,2,MidpointRounding.AwayFromZero),
-                        dc_Valor_D = Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero) : 0,
-                        dc_Valor_H = Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(Cta.Saldo * -1, 2, MidpointRounding.AwayFromZero)) : 0,
+                        IdCentroCosto = Cta.IdCentroCosto,
+                        IdCentroCosto_sub_centro_costo = Cta.IdCentroCosto_sub_centro_costo,
+                        IdRegistro = string.IsNullOrEmpty(Cta.IdCentroCosto) ? null : (Cta.IdCentroCosto + "-" + Cta.IdCentroCosto_sub_centro_costo),
+                        dc_Valor = Convert.ToDouble(Math.Round(Cta.Valor * -1,2,MidpointRounding.AwayFromZero)),
+                        dc_Valor_D = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) : 0),
+                        dc_Valor_H = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero)) : 0),
                     });
 
                     foreach (var Dis in blstDet)
@@ -221,15 +226,16 @@ namespace Core.Erp.Winform.Contabilidad
                             IdCtaCble = Dis.IdCtaCble,
                             IdCentroCosto = Dis.IdCentroCosto,
                             IdCentroCosto_sub_centro_costo = Dis.IdCentroCosto_sub_centro_costo,
-                            dc_Valor = Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3,2,MidpointRounding.AwayFromZero),
-                            dc_Valor_D = Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3,2,MidpointRounding.AwayFromZero) : 0,
-                            dc_Valor_H = Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round((Cta.Saldo / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)) : 0,
+                            IdRegistro = string.IsNullOrEmpty(Dis.IdCentroCosto) ? null : (Dis.IdCentroCosto + "-" + Dis.IdCentroCosto_sub_centro_costo),
+                            dc_Valor = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)),
+                            dc_Valor_D = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) : 0),
+                            dc_Valor_H = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)) : 0),
                         });
                     }    
                 }
                 gcDiario.DataSource = null;
                 gcDiario.DataSource = blstDiario;
-                            
+                tabControl1.SelectedTab = tpDiario;    
             }
             catch (Exception)
             {
@@ -254,9 +260,24 @@ namespace Core.Erp.Winform.Contabilidad
         
         private void gvDetalle_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
-            ct_DistribucionDet_Info row = (ct_DistribucionDet_Info)gvDetalle.GetRow(e.RowHandle);
+            ct_DistribucionDetDistribuido_Info row = (ct_DistribucionDetDistribuido_Info)gvDetalle.GetRow(e.RowHandle);
             if (row != null)
             {
+                if (e.Column == colCuentaDis)
+                {
+                    row.F1 = 1;
+                    row.F2 = 1;
+                }                
+
+                if (e.Column == colSCDet)
+                {
+                    string[] Array = row.IdRegistro.Split('-');
+                    if (Array.Count() == 2)
+                        row.IdCentroCosto_sub_centro_costo = Array[1];
+                    else
+                        row.IdCentroCosto_sub_centro_costo = null;    
+                }
+
                 row.F3 = row.F1 * row.F2;
             }
         }
@@ -277,23 +298,31 @@ namespace Core.Erp.Winform.Contabilidad
 
         private void gvDetalleCuenta_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
-            ct_Plancta_Info row = (ct_Plancta_Info)gvDetalleCuenta.GetRow(e.RowHandle);
+            ct_DistribucionDetPorDistribuir_Info row = (ct_DistribucionDetPorDistribuir_Info)gvDetalleCuenta.GetRow(e.RowHandle);
             if (row == null)
                 return;
 
             if (e.Column == CuentaColPlancta)
-                row.Saldo = busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaCorte.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked);
+                row.Valor = Convert.ToDecimal(busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaIni.DateTime.Date,deFechaFin.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked));
             
+            if(e.Column == CuentaColSC)
+            {
+                string[] Array = row.IdRegistro.Split('-');
+                if (Array.Count() == 2)
+                    row.IdCentroCosto_sub_centro_costo = Array[1];
+                else
+                    row.IdCentroCosto_sub_centro_costo = null;
+            }
             gvDetalleCuenta.UpdateCurrentRow();
         }
 
         private void cmbImagen_Click(object sender, EventArgs e)
         {
-            ct_Plancta_Info row = (ct_Plancta_Info)gvDetalleCuenta.GetFocusedRow();
+            ct_DistribucionDetPorDistribuir_Info row = (ct_DistribucionDetPorDistribuir_Info)gvDetalleCuenta.GetFocusedRow();
             if (row == null)
                 return;
 
-            row.Saldo = busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaCorte.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked);
+            row.Valor = Convert.ToDecimal(busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaFin.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked));
             gvDetalleCuenta.UpdateCurrentRow();
         }
 
@@ -328,6 +357,73 @@ namespace Core.Erp.Winform.Contabilidad
                     gvDiario.DeleteSelectedRows();
                 }
             }
+        }
+
+        private void ucMenu_event_btnGuardar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ucMenu_event_btnGuardar_y_Salir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ucMenu_event_btnAnular_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool AccionGuardar()
+        {
+            switch (Accion)
+            {
+                case Cl_Enumeradores.eTipo_action.grabar:
+                    return Guardar();
+                case Cl_Enumeradores.eTipo_action.actualizar:
+                    break;
+                case Cl_Enumeradores.eTipo_action.Anular:
+                    break;
+                case Cl_Enumeradores.eTipo_action.consultar:
+                    break;
+                case Cl_Enumeradores.eTipo_action.duplicar:
+                    break;
+                case Cl_Enumeradores.eTipo_action.actualizar_proceso_cerrado:
+                    break;
+                default:
+                    break;
+            }
+
+            return false;
+        }
+
+        private void GetInfo()
+        {
+            txtIdDistribucion.Focus();
+
+            info = new ct_Distribucion_Info
+            {
+                IdEmpresa = param.IdEmpresa,
+                IdDistribucion = string.IsNullOrEmpty(txtIdDistribucion.Text) ? 0 : Convert.ToDecimal(txtIdDistribucion.Text),
+                Fecha = deFechaFin.DateTime,
+                Observacion = txtObservacion.Text,
+                IdUsuario = param.IdUsuario,
+                ListaDistribuido = new List<ct_DistribucionDetDistribuido_Info>(blstDet),
+                ListaPorDistribuir = new List<ct_DistribucionDetPorDistribuir_Info>(blstPlanctaSaldo),
+                ListaDiario = new List<ct_Cbtecble_det_Info>(blstDiario)
+            };
+        }
+
+        private bool Guardar()
+        {
+            GetInfo();
+            if (bus.GuardarDB(info))
+            {
+                MessageBox.Show("Registro guardado exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                return true;
+            }
+
+            return true;
         }
     }
 }

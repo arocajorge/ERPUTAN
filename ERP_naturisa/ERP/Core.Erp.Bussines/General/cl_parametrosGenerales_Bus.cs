@@ -159,7 +159,7 @@ namespace Core.Erp.Business.General
                 listaMensaje = BusMensaje.Get_List_sis_Mensajes_sys();
                 listParametros = BusParametros.Get_List_parametro();
 
-                Nombre_sistema = Get_Mensaje_sys(enum_Mensajes_sys.Nombre_sistema);
+                Nombre_sistema = "SAN (Sistema Administrativo Naturisa)";
                 string sIdIva = "";
 
                  sIdIva = Convert.ToString(Get_Parametro_Info(tb_parametro_enum.P_IVA).Valor);

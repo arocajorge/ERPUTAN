@@ -47,14 +47,14 @@ namespace Core.Erp.Winform.SeguridadAcceso
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (ListInfoEmpresa.Count()>0)
+            if (ListInfoEmpresa.Count() > 0)
             {
                 tb_Empresa_Info my_info = (tb_Empresa_Info)ListInfoEmpresa.FirstOrDefault(v => v.IdEmpresa == Convert.ToInt32(cmb_empresa.EditValue));
-                param.InfoEmpresa=my_info;
-                param.IdEmpresa=my_info.IdEmpresa;
+                param.InfoEmpresa = my_info;
+                param.IdEmpresa = my_info.IdEmpresa;
                 param.NombreEmpresa = my_info.em_nombre;
-                
-                
+
+
 
                 InfoSucursal = (tb_Sucursal_Info)ListInfoSucursal.FirstOrDefault(v => v.IdSucursal == Convert.ToInt32(cmb_sucursal.EditValue));
                 param.IdSucursal = InfoSucursal.IdSucursal;

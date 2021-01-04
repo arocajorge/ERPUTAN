@@ -883,7 +883,7 @@ namespace Core.Erp.Data.Compras
                             + " where x1.opd_IdEmpresa = " + IdEmpresa.ToString() + " and x1.opd_IdOrdenPedido = " + IdOrdenPedido.ToString() + " AND X1.EstadoJC = 1 AND X1.EstadoGA = 0"
                             + " group by x1.opd_IdEmpresa, x1.opd_IdOrdenPedido"
                         + " )as c on b.IdEmpresa = c.opd_IdEmpresa and b.IdOrdenPedido = c.opd_IdOrdenPedido"
-                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and b.IdOrdenPedidoReg is not null"
+                        + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdOrdenPedido = " + IdOrdenPedido.ToString() + " and b.IdOrdenPedidoReg is not null AND B.opd_EstadoProceso NOT IN ('RC')"
                         + " group by b.IdEmpresa, b.IdOrdenPedido,cont"
                         + " having cont = count(*)";
                 using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))

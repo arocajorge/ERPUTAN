@@ -182,7 +182,8 @@
     <Compile Include="Contabilidad\ct_Centro_costo_Bus.cs" />
     <Compile Include="Contabilidad\ct_Centro_costo_nivel_Bus.cs" />
     <Compile Include="Contabilidad\ct_centro_costo_sub_centro_costo_Bus.cs" />
-    <Compile Include="Contabilidad\ct_DistribucionDet_Bus.cs" />
+    <Compile Include="Contabilidad\ct_DistribucionDetDistribuido_Bus.cs" />
+    <Compile Include="Contabilidad\ct_DistribucionDetPorDistribuir_Bus.cs" />
     <Compile Include="Contabilidad\ct_Distribucion_Bus.cs" />
     <Compile Include="Contabilidad\ct_Grupocble_Bus.cs" />
     <Compile Include="Contabilidad\ct_GrupoEmpresarial_Bus.cs" />

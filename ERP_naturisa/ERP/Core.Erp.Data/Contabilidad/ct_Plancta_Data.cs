@@ -1034,7 +1034,7 @@ namespace Core.Erp.Data.Contabilidad
             }
         }
 
-        public double GetSaldoFechaCorte(int IdEmpresa, string IdCtaCble, DateTime FechaCorte, string IdCentroCosto, string IdCentroCosto_sub_centro_costo, bool ConsiderarCentroCosto)
+        public double GetSaldoFechaCorte(int IdEmpresa, string IdCtaCble, DateTime FechaIni, DateTime FechaFin, string IdCentroCosto, string IdCentroCosto_sub_centro_costo, bool ConsiderarCentroCosto)
         {
             double Saldo = 0;
             using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
@@ -1045,7 +1045,7 @@ namespace Core.Erp.Data.Contabilidad
                 command.CommandText = "select ROUND(sum(a.dc_Valor),2) Saldo"
                                     + " from ct_cbtecble_det as a inner join"
                                     + " ct_cbtecble as b on a.idempresa = b.idempresa and a.IdTipoCbte = b.IdTipoCbte and a.IdCbteCble = b.IdCbteCble"
-                                    + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCtaCble = '" + IdCtaCble + "' and b.cb_Fecha <= DATEFROMPARTS(" + FechaCorte.Year.ToString() + "," + FechaCorte.Month.ToString() + "," + FechaCorte.Day.ToString() + ")";
+                                    + " where a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdCtaCble = '" + IdCtaCble + "' and b.cb_Fecha BETWEEN DATEFROMPARTS(" + FechaIni.Year.ToString() + "," + FechaIni.Month.ToString() + "," + FechaIni.Day.ToString() + ") AND DATEFROMPARTS(" + FechaFin.Year.ToString() + "," + FechaFin.Month.ToString() + "," + FechaFin.Day.ToString() + ")";
 
                 if (ConsiderarCentroCosto)
                 {
@@ -1056,7 +1056,7 @@ namespace Core.Erp.Data.Contabilidad
                 }
 
                 var ValidateValue = command.ExecuteScalar();
-                if (ValidateValue != null)
+                if (ValidateValue != DBNull.Value)
                     Saldo = Convert.ToDouble(ValidateValue);
             }
             return Saldo;

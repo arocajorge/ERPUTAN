@@ -132,15 +132,17 @@ namespace Core.Erp.Winform.SeguridadAcceso
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            this.Text = param.Nombre_sistema;
+            /*
             if (ApplicationDeployment.IsNetworkDeployed)
             {
-                this.Text = "vZen Publicación #.- " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+                this.Text = " Publicación #.- " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
             }
             else
             {
-                this.Text = "vZen Publicación #.- " + Assembly.GetExecutingAssembly().GetName().Version;
+                this.Text = " Publicación #.- " + Assembly.GetExecutingAssembly().GetName().Version;
             }
-            
+            */
             txtUsuario.Focus();
         }
 

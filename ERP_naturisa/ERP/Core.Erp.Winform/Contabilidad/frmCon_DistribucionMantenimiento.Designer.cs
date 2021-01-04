@@ -32,6 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCon_DistribucionMantenimiento));
             this.ucMenu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gcDetalle = new DevExpress.XtraGrid.GridControl();
+            this.gvDetalle = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCuentaDis = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbCuenta = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbCentroCosto = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSCDet = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbSubCentro = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colF1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colF2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDetalleCuenta = new DevExpress.XtraGrid.GridControl();
             this.gvDetalleCuenta = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.CuentaColPlancta = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,13 +69,14 @@
             this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkConsiderarCC = new System.Windows.Forms.CheckBox();
             this.btnDistribuir = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.deFechaCorte = new DevExpress.XtraEditors.DateEdit();
+            this.deFechaFin = new DevExpress.XtraEditors.DateEdit();
             this.txtObservacion = new DevExpress.XtraEditors.MemoEdit();
             this.txtIdDistribucion = new DevExpress.XtraEditors.TextEdit();
             this.cmbTipoCbte = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -66,26 +84,8 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.gcDetalle = new DevExpress.XtraGrid.GridControl();
-            this.gvDetalle = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbCuenta = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbCentroCosto = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbSubCentro = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tpDistribucion = new System.Windows.Forms.TabPage();
+            this.tpDiario = new System.Windows.Forms.TabPage();
             this.gcDiario = new DevExpress.XtraGrid.GridControl();
             this.gvDiario = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -104,8 +104,22 @@
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.chkConsiderarCC = new System.Windows.Forms.CheckBox();
+            this.cmbPlanctaCabecera = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.deFechaIni = new DevExpress.XtraEditors.DateEdit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCosto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalleCuenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalleCuenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCuenta)).BeginInit();
@@ -116,22 +130,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdDistribucion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoCbte.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCuenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCosto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentro)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tpDistribucion.SuspendLayout();
+            this.tpDiario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCuentaDiario)).BeginInit();
@@ -139,6 +146,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroDiario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCabecera.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucMenu
@@ -197,6 +208,9 @@
             this.ucMenu.Visible_btnImprimirSoporte = false;
             this.ucMenu.Visible_btnModificar = false;
             this.ucMenu.Visible_btnproductos = false;
+            this.ucMenu.event_btnGuardar_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnGuardar_Click(this.ucMenu_event_btnGuardar_Click);
+            this.ucMenu.event_btnGuardar_y_Salir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnGuardar_y_Salir_Click(this.ucMenu_event_btnGuardar_y_Salir_Click);
+            this.ucMenu.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.ucMenu_event_btnAnular_Click);
             this.ucMenu.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucMenu_event_btnSalir_Click);
             // 
             // panel1
@@ -210,10 +224,196 @@
             this.panel1.Size = new System.Drawing.Size(1436, 597);
             this.panel1.TabIndex = 1;
             // 
+            // gcDetalle
+            // 
+            this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDetalle.Location = new System.Drawing.Point(696, 55);
+            this.gcDetalle.MainView = this.gvDetalle;
+            this.gcDetalle.Name = "gcDetalle";
+            this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmbCuenta,
+            this.cmbCentroCosto,
+            this.cmbSubCentro});
+            this.gcDetalle.Size = new System.Drawing.Size(740, 542);
+            this.gcDetalle.TabIndex = 2;
+            this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDetalle});
+            // 
+            // gvDetalle
+            // 
+            this.gvDetalle.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCuentaDis,
+            this.gridColumn4,
+            this.colSCDet,
+            this.colF1,
+            this.colF2});
+            this.gvDetalle.GridControl = this.gcDetalle;
+            this.gvDetalle.Name = "gvDetalle";
+            this.gvDetalle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDetalle.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvDetalle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvDetalle.OptionsView.ShowFooter = true;
+            this.gvDetalle.OptionsView.ShowGroupPanel = false;
+            this.gvDetalle.ShownEditor += new System.EventHandler(this.gvDetalle_ShownEditor);
+            this.gvDetalle.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDetalle_CellValueChanged);
+            this.gvDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvDetalle_KeyDown);
+            // 
+            // colCuentaDis
+            // 
+            this.colCuentaDis.Caption = "Cuenta";
+            this.colCuentaDis.ColumnEdit = this.cmbCuenta;
+            this.colCuentaDis.FieldName = "IdCtaCble";
+            this.colCuentaDis.Name = "colCuentaDis";
+            this.colCuentaDis.Visible = true;
+            this.colCuentaDis.VisibleIndex = 0;
+            this.colCuentaDis.Width = 447;
+            // 
+            // cmbCuenta
+            // 
+            this.cmbCuenta.AutoHeight = false;
+            this.cmbCuenta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCuenta.DisplayMember = "pc_Cuenta2";
+            this.cmbCuenta.Name = "cmbCuenta";
+            this.cmbCuenta.ValueMember = "IdCtaCble";
+            this.cmbCuenta.View = this.repositoryItemSearchLookUpEdit1View;
+            // 
+            // repositoryItemSearchLookUpEdit1View
+            // 
+            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11});
+            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
+            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
+            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "ID";
+            this.gridColumn9.FieldName = "IdCtaCble";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 0;
+            this.gridColumn9.Width = 339;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Cuenta";
+            this.gridColumn10.FieldName = "pc_Cuenta";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 2;
+            this.gridColumn10.Width = 1107;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Codigo";
+            this.gridColumn11.FieldName = "pc_clave_corta";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 1;
+            this.gridColumn11.Width = 288;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Centro de costo";
+            this.gridColumn4.ColumnEdit = this.cmbCentroCosto;
+            this.gridColumn4.FieldName = "IdCentroCosto";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 332;
+            // 
+            // cmbCentroCosto
+            // 
+            this.cmbCentroCosto.AutoHeight = false;
+            this.cmbCentroCosto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbCentroCosto.DisplayMember = "Centro_costo2";
+            this.cmbCentroCosto.Name = "cmbCentroCosto";
+            this.cmbCentroCosto.ValueMember = "IdCentroCosto";
+            this.cmbCentroCosto.View = this.gridView1;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn12,
+            this.gridColumn13});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "ID";
+            this.gridColumn12.FieldName = "IdCentroCosto";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 1;
+            this.gridColumn12.Width = 149;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Centro de costo";
+            this.gridColumn13.FieldName = "Centro_costo";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 0;
+            this.gridColumn13.Width = 454;
+            // 
+            // colSCDet
+            // 
+            this.colSCDet.Caption = "SubCentro";
+            this.colSCDet.ColumnEdit = this.cmbSubCentro;
+            this.colSCDet.FieldName = "IdRegistro";
+            this.colSCDet.Name = "colSCDet";
+            this.colSCDet.Visible = true;
+            this.colSCDet.VisibleIndex = 2;
+            this.colSCDet.Width = 303;
+            // 
+            // cmbSubCentro
+            // 
+            this.cmbSubCentro.AutoHeight = false;
+            this.cmbSubCentro.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSubCentro.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdCentroCosto_sub_centro_costo", 50, "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Centro_costo", 200, "Subcentro ")});
+            this.cmbSubCentro.DisplayMember = "Centro_costo2";
+            this.cmbSubCentro.Name = "cmbSubCentro";
+            this.cmbSubCentro.ValueMember = "IdRegistro";
+            // 
+            // colF1
+            // 
+            this.colF1.Caption = "F1";
+            this.colF1.FieldName = "F1";
+            this.colF1.Name = "colF1";
+            this.colF1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F1", "{0:n2}")});
+            this.colF1.Visible = true;
+            this.colF1.VisibleIndex = 3;
+            this.colF1.Width = 216;
+            // 
+            // colF2
+            // 
+            this.colF2.Caption = "F2";
+            this.colF2.FieldName = "F2";
+            this.colF2.Name = "colF2";
+            this.colF2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F2", "{0:n2}")});
+            this.colF2.Visible = true;
+            this.colF2.VisibleIndex = 4;
+            this.colF2.Width = 216;
+            // 
             // gcDetalleCuenta
             // 
             this.gcDetalleCuenta.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gcDetalleCuenta.Location = new System.Drawing.Point(0, 31);
+            this.gcDetalleCuenta.Location = new System.Drawing.Point(0, 55);
             this.gcDetalleCuenta.MainView = this.gvDetalleCuenta;
             this.gcDetalleCuenta.Name = "gcDetalleCuenta";
             this.gcDetalleCuenta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -221,7 +421,7 @@
             this.cmbCentroCostoCuenta,
             this.cmbSubCentroCuenta,
             this.cmbImagen});
-            this.gcDetalleCuenta.Size = new System.Drawing.Size(696, 566);
+            this.gcDetalleCuenta.Size = new System.Drawing.Size(696, 542);
             this.gcDetalleCuenta.TabIndex = 5;
             this.gcDetalleCuenta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalleCuenta});
@@ -381,10 +581,10 @@
             this.CuentaColSaldo.Caption = "Saldo";
             this.CuentaColSaldo.DisplayFormat.FormatString = "n2";
             this.CuentaColSaldo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.CuentaColSaldo.FieldName = "Saldo";
+            this.CuentaColSaldo.FieldName = "Valor";
             this.CuentaColSaldo.Name = "CuentaColSaldo";
             this.CuentaColSaldo.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F2", "{0:n2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Valor", "{0:n2}")});
             this.CuentaColSaldo.Visible = true;
             this.CuentaColSaldo.VisibleIndex = 3;
             this.CuentaColSaldo.Width = 216;
@@ -400,7 +600,7 @@
             // 
             // cmbImagen
             // 
-            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+            this.cmbImagen.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
             this.cmbImagen.AutoHeight = false;
             this.cmbImagen.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -420,13 +620,25 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.labelControl5);
+            this.panel2.Controls.Add(this.cmbPlanctaCabecera);
             this.panel2.Controls.Add(this.chkConsiderarCC);
             this.panel2.Controls.Add(this.btnDistribuir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1436, 31);
+            this.panel2.Size = new System.Drawing.Size(1436, 55);
             this.panel2.TabIndex = 4;
+            // 
+            // chkConsiderarCC
+            // 
+            this.chkConsiderarCC.AutoSize = true;
+            this.chkConsiderarCC.Location = new System.Drawing.Point(8, 35);
+            this.chkConsiderarCC.Name = "chkConsiderarCC";
+            this.chkConsiderarCC.Size = new System.Drawing.Size(205, 17);
+            this.chkConsiderarCC.TabIndex = 6;
+            this.chkConsiderarCC.Text = "Mostrar saldo considerando CC y SCC";
+            this.chkConsiderarCC.UseVisualStyleBackColor = true;
             // 
             // btnDistribuir
             // 
@@ -436,18 +648,20 @@
             this.btnDistribuir.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btnDistribuir.Location = new System.Drawing.Point(1342, 3);
             this.btnDistribuir.Name = "btnDistribuir";
-            this.btnDistribuir.Size = new System.Drawing.Size(90, 26);
+            this.btnDistribuir.Size = new System.Drawing.Size(90, 46);
             this.btnDistribuir.TabIndex = 5;
             this.btnDistribuir.Text = "Distribuir";
             this.btnDistribuir.Click += new System.EventHandler(this.btnDistribuir_Click);
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.labelControl6);
+            this.panel3.Controls.Add(this.deFechaIni);
             this.panel3.Controls.Add(this.labelControl4);
             this.panel3.Controls.Add(this.labelControl3);
             this.panel3.Controls.Add(this.labelControl2);
             this.panel3.Controls.Add(this.labelControl1);
-            this.panel3.Controls.Add(this.deFechaCorte);
+            this.panel3.Controls.Add(this.deFechaFin);
             this.panel3.Controls.Add(this.txtObservacion);
             this.panel3.Controls.Add(this.txtIdDistribucion);
             this.panel3.Controls.Add(this.cmbTipoCbte);
@@ -483,29 +697,29 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(858, 17);
+            this.labelControl1.Location = new System.Drawing.Point(810, 43);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(61, 13);
+            this.labelControl1.Size = new System.Drawing.Size(59, 13);
             this.labelControl1.TabIndex = 8;
-            this.labelControl1.Text = "Fecha corte:";
+            this.labelControl1.Text = "Fecha hasta";
             // 
-            // deFechaCorte
+            // deFechaFin
             // 
-            this.deFechaCorte.EditValue = null;
-            this.deFechaCorte.Location = new System.Drawing.Point(951, 14);
-            this.deFechaCorte.Name = "deFechaCorte";
-            this.deFechaCorte.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deFechaFin.EditValue = null;
+            this.deFechaFin.Location = new System.Drawing.Point(903, 40);
+            this.deFechaFin.Name = "deFechaFin";
+            this.deFechaFin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaCorte.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deFechaFin.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaCorte.Size = new System.Drawing.Size(117, 20);
-            this.deFechaCorte.TabIndex = 7;
+            this.deFechaFin.Size = new System.Drawing.Size(117, 20);
+            this.deFechaFin.TabIndex = 7;
             // 
             // txtObservacion
             // 
             this.txtObservacion.Location = new System.Drawing.Point(100, 40);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(968, 54);
+            this.txtObservacion.Size = new System.Drawing.Size(689, 54);
             this.txtObservacion.TabIndex = 9;
             // 
             // txtIdDistribucion
@@ -560,9 +774,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tpDistribucion);
+            this.tabControl1.Controls.Add(this.tpDiario);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 129);
             this.tabControl1.Name = "tabControl1";
@@ -570,222 +783,26 @@
             this.tabControl1.Size = new System.Drawing.Size(1450, 629);
             this.tabControl1.TabIndex = 3;
             // 
-            // tabPage1
+            // tpDistribucion
             // 
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1442, 603);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Por distribuir";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpDistribucion.Controls.Add(this.panel1);
+            this.tpDistribucion.Location = new System.Drawing.Point(4, 22);
+            this.tpDistribucion.Name = "tpDistribucion";
+            this.tpDistribucion.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDistribucion.Size = new System.Drawing.Size(1442, 603);
+            this.tpDistribucion.TabIndex = 0;
+            this.tpDistribucion.Text = "Distribución";
+            this.tpDistribucion.UseVisualStyleBackColor = true;
             // 
-            // gcDetalle
+            // tpDiario
             // 
-            this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.Location = new System.Drawing.Point(696, 31);
-            this.gcDetalle.MainView = this.gvDetalle;
-            this.gcDetalle.Name = "gcDetalle";
-            this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cmbCuenta,
-            this.cmbCentroCosto,
-            this.cmbSubCentro});
-            this.gcDetalle.Size = new System.Drawing.Size(740, 566);
-            this.gcDetalle.TabIndex = 2;
-            this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvDetalle});
-            // 
-            // gvDetalle
-            // 
-            this.gvDetalle.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7});
-            this.gvDetalle.GridControl = this.gcDetalle;
-            this.gvDetalle.Name = "gvDetalle";
-            this.gvDetalle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gvDetalle.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gvDetalle.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gvDetalle.OptionsView.ShowFooter = true;
-            this.gvDetalle.OptionsView.ShowGroupPanel = false;
-            this.gvDetalle.ShownEditor += new System.EventHandler(this.gvDetalle_ShownEditor);
-            this.gvDetalle.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDetalle_CellValueChanged);
-            this.gvDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvDetalle_KeyDown);
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Cuenta";
-            this.gridColumn3.ColumnEdit = this.cmbCuenta;
-            this.gridColumn3.FieldName = "IdCtaCble";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 0;
-            this.gridColumn3.Width = 447;
-            // 
-            // cmbCuenta
-            // 
-            this.cmbCuenta.AutoHeight = false;
-            this.cmbCuenta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCuenta.DisplayMember = "pc_Cuenta2";
-            this.cmbCuenta.Name = "cmbCuenta";
-            this.cmbCuenta.ValueMember = "IdCtaCble";
-            this.cmbCuenta.View = this.repositoryItemSearchLookUpEdit1View;
-            // 
-            // repositoryItemSearchLookUpEdit1View
-            // 
-            this.repositoryItemSearchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn9,
-            this.gridColumn10,
-            this.gridColumn11});
-            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
-            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowAutoFilterRow = true;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "ID";
-            this.gridColumn9.FieldName = "IdCtaCble";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 0;
-            this.gridColumn9.Width = 339;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Cuenta";
-            this.gridColumn10.FieldName = "pc_Cuenta";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 2;
-            this.gridColumn10.Width = 1107;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "Codigo";
-            this.gridColumn11.FieldName = "pc_clave_corta";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 1;
-            this.gridColumn11.Width = 288;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Centro de costo";
-            this.gridColumn4.ColumnEdit = this.cmbCentroCosto;
-            this.gridColumn4.FieldName = "IdCentroCosto";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 332;
-            // 
-            // cmbCentroCosto
-            // 
-            this.cmbCentroCosto.AutoHeight = false;
-            this.cmbCentroCosto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbCentroCosto.DisplayMember = "Centro_costo2";
-            this.cmbCentroCosto.Name = "cmbCentroCosto";
-            this.cmbCentroCosto.ValueMember = "IdCentroCosto";
-            this.cmbCentroCosto.View = this.gridView1;
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn12,
-            this.gridColumn13});
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowAutoFilterRow = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "ID";
-            this.gridColumn12.FieldName = "IdCentroCosto";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 1;
-            this.gridColumn12.Width = 149;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "Centro de costo";
-            this.gridColumn13.FieldName = "Centro_costo";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 0;
-            this.gridColumn13.Width = 454;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "SubCentro";
-            this.gridColumn5.ColumnEdit = this.cmbSubCentro;
-            this.gridColumn5.FieldName = "IdRegistro";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 303;
-            // 
-            // cmbSubCentro
-            // 
-            this.cmbSubCentro.AutoHeight = false;
-            this.cmbSubCentro.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSubCentro.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdCentroCosto_sub_centro_costo", 50, "ID"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Centro_costo", 200, "Subcentro ")});
-            this.cmbSubCentro.DisplayMember = "Centro_costo2";
-            this.cmbSubCentro.Name = "cmbSubCentro";
-            this.cmbSubCentro.ValueMember = "IdRegistro";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "F1";
-            this.gridColumn6.FieldName = "F1";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F1", "{0:n2}")});
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 3;
-            this.gridColumn6.Width = 216;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "F2";
-            this.gridColumn7.FieldName = "F2";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F2", "{0:n2}")});
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 4;
-            this.gridColumn7.Width = 216;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1442, 603);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Distribuido";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.gcDiario);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1442, 603);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "DiarioContable";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpDiario.Controls.Add(this.gcDiario);
+            this.tpDiario.Location = new System.Drawing.Point(4, 22);
+            this.tpDiario.Name = "tpDiario";
+            this.tpDiario.Size = new System.Drawing.Size(1442, 603);
+            this.tpDiario.TabIndex = 2;
+            this.tpDiario.Text = "DiarioContable";
+            this.tpDiario.UseVisualStyleBackColor = true;
             // 
             // gcDiario
             // 
@@ -815,7 +832,6 @@
             this.gvDiario.Name = "gvDiario";
             this.gvDiario.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvDiario.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gvDiario.OptionsBehavior.ReadOnly = true;
             this.gvDiario.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvDiario.OptionsView.ShowFooter = true;
             this.gvDiario.OptionsView.ShowGroupPanel = false;
@@ -982,15 +998,85 @@
             this.gridColumn23.VisibleIndex = 5;
             this.gridColumn23.Width = 454;
             // 
-            // chkConsiderarCC
+            // cmbPlanctaCabecera
             // 
-            this.chkConsiderarCC.AutoSize = true;
-            this.chkConsiderarCC.Location = new System.Drawing.Point(8, 8);
-            this.chkConsiderarCC.Name = "chkConsiderarCC";
-            this.chkConsiderarCC.Size = new System.Drawing.Size(205, 17);
-            this.chkConsiderarCC.TabIndex = 6;
-            this.chkConsiderarCC.Text = "Mostrar saldo considerando CC y SCC";
-            this.chkConsiderarCC.UseVisualStyleBackColor = true;
+            this.cmbPlanctaCabecera.Location = new System.Drawing.Point(117, 9);
+            this.cmbPlanctaCabecera.Name = "cmbPlanctaCabecera";
+            this.cmbPlanctaCabecera.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbPlanctaCabecera.Properties.DisplayMember = "pc_Cuenta2";
+            this.cmbPlanctaCabecera.Properties.NullText = "";
+            this.cmbPlanctaCabecera.Properties.ValueMember = "IdCtaCble";
+            this.cmbPlanctaCabecera.Properties.View = this.gridView2;
+            this.cmbPlanctaCabecera.Size = new System.Drawing.Size(579, 20);
+            this.cmbPlanctaCabecera.TabIndex = 12;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn5,
+            this.gridColumn6});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowAutoFilterRow = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Cuenta contable";
+            this.gridColumn3.FieldName = "pc_Cuenta";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 1281;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "ID";
+            this.gridColumn5.FieldName = "IdCtaCble";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 0;
+            this.gridColumn5.Width = 258;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(8, 12);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(87, 13);
+            this.labelControl5.TabIndex = 15;
+            this.labelControl5.Text = "Cuenta transitoria";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Clave";
+            this.gridColumn6.FieldName = "pc_clave_corta";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 1;
+            this.gridColumn6.Width = 195;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(810, 17);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(61, 13);
+            this.labelControl6.TabIndex = 16;
+            this.labelControl6.Text = "Fecha desde";
+            // 
+            // deFechaIni
+            // 
+            this.deFechaIni.EditValue = null;
+            this.deFechaIni.Location = new System.Drawing.Point(903, 14);
+            this.deFechaIni.Name = "deFechaIni";
+            this.deFechaIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaIni.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaIni.Size = new System.Drawing.Size(117, 20);
+            this.deFechaIni.TabIndex = 15;
             // 
             // frmCon_DistribucionMantenimiento
             // 
@@ -1006,6 +1092,13 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCon_DistribucionMantenimiento_FormClosed);
             this.Load += new System.EventHandler(this.frmCon_DistribucionMantenimiento_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCosto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalleCuenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalleCuenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCuenta)).EndInit();
@@ -1018,22 +1111,15 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCorte.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdDistribucion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbTipoCbte.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCuenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCosto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentro)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.tpDistribucion.ResumeLayout(false);
+            this.tpDiario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCuentaDiario)).EndInit();
@@ -1041,6 +1127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroDiario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCabecera.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1052,10 +1142,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private DevExpress.XtraEditors.DateEdit deFechaCorte;
+        private System.Windows.Forms.TabPage tpDistribucion;
+        private System.Windows.Forms.TabPage tpDiario;
+        private DevExpress.XtraEditors.DateEdit deFechaFin;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.MemoEdit txtObservacion;
         private DevExpress.XtraEditors.TextEdit txtIdDistribucion;
@@ -1069,11 +1158,11 @@
         private DevExpress.XtraEditors.SimpleButton btnDistribuir;
         private DevExpress.XtraGrid.GridControl gcDetalle;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDetalle;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn colCuentaDis;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn colSCDet;
+        private DevExpress.XtraGrid.Columns.GridColumn colF1;
+        private DevExpress.XtraGrid.Columns.GridColumn colF2;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit cmbCuenta;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
@@ -1122,5 +1211,13 @@
         private System.Windows.Forms.ImageList imageList1;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbImagen;
         private System.Windows.Forms.CheckBox chkConsiderarCC;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SearchLookUpEdit cmbPlanctaCabecera;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.DateEdit deFechaIni;
     }
 }
