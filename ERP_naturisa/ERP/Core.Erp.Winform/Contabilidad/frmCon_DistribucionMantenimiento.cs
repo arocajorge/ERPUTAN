@@ -322,7 +322,7 @@ namespace Core.Erp.Winform.Contabilidad
             if (row == null)
                 return;
 
-            row.Valor = Convert.ToDecimal(busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble, deFechaFin.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked));
+            row.Valor = Convert.ToDecimal(busPlancta.GetSaldoFechaCorte(param.IdEmpresa, row.IdCtaCble,deFechaIni.DateTime.Date, deFechaFin.DateTime.Date, row.IdCentroCosto, row.IdCentroCosto_sub_centro_costo, chkConsiderarCC.Checked));
             gvDetalleCuenta.UpdateCurrentRow();
         }
 

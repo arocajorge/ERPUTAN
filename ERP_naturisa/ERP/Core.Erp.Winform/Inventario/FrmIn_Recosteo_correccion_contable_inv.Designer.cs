@@ -174,10 +174,14 @@
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
             this.btnBuscarTransFecha = new System.Windows.Forms.ToolStripButton();
             this.btnTransCambiarFecha = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminarTransferencia = new System.Windows.Forms.ToolStripButton();
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
-            this.btnEliminarTransferencia = new System.Windows.Forms.ToolStripButton();
+            this.gcHistorico = new DevExpress.XtraGrid.GridControl();
+            this.gvHistorico = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -255,6 +259,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
             this.toolStrip7.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcHistorico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvHistorico)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -891,6 +897,7 @@
             // 
             // TabPage_recosteo_x_producto
             // 
+            this.TabPage_recosteo_x_producto.Controls.Add(this.gcHistorico);
             this.TabPage_recosteo_x_producto.Controls.Add(this.panel6);
             this.TabPage_recosteo_x_producto.Controls.Add(this.toolStrip4);
             this.TabPage_recosteo_x_producto.Margin = new System.Windows.Forms.Padding(2);
@@ -979,7 +986,7 @@
             this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(462, 53);
             this.ucIn_Sucursal_Bodega1.TabIndex = 2;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.todos;
-            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = false;
+            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
             // 
             // label5
             // 
@@ -1786,6 +1793,16 @@
             this.btnTransCambiarFecha.Text = "Cambiar fecha";
             this.btnTransCambiarFecha.Click += new System.EventHandler(this.btnTransCambiarFecha_Click);
             // 
+            // btnEliminarTransferencia
+            // 
+            this.btnEliminarTransferencia.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnEliminarTransferencia.Image = global::Core.Erp.Winform.Properties.Resources.anular_32x32;
+            this.btnEliminarTransferencia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminarTransferencia.Name = "btnEliminarTransferencia";
+            this.btnEliminarTransferencia.Size = new System.Drawing.Size(70, 22);
+            this.btnEliminarTransferencia.Text = "Eliminar";
+            this.btnEliminarTransferencia.Click += new System.EventHandler(this.btnEliminarTransferencia_Click);
+            // 
             // toolStripCabecera
             // 
             this.toolStripCabecera.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1805,15 +1822,51 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btnEliminarTransferencia
+            // gcHistorico
             // 
-            this.btnEliminarTransferencia.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnEliminarTransferencia.Image = global::Core.Erp.Winform.Properties.Resources.anular_32x32;
-            this.btnEliminarTransferencia.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminarTransferencia.Name = "btnEliminarTransferencia";
-            this.btnEliminarTransferencia.Size = new System.Drawing.Size(70, 22);
-            this.btnEliminarTransferencia.Text = "Eliminar";
-            this.btnEliminarTransferencia.Click += new System.EventHandler(this.btnEliminarTransferencia_Click);
+            this.gcHistorico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcHistorico.Location = new System.Drawing.Point(0, 121);
+            this.gcHistorico.MainView = this.gvHistorico;
+            this.gcHistorico.Name = "gcHistorico";
+            this.gcHistorico.Size = new System.Drawing.Size(1001, 235);
+            this.gcHistorico.TabIndex = 9;
+            this.gcHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvHistorico});
+            // 
+            // gvHistorico
+            // 
+            this.gvHistorico.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn35,
+            this.gridColumn36});
+            this.gvHistorico.GridControl = this.gcHistorico;
+            this.gvHistorico.Images = this.lst_imagenes_trans;
+            this.gvHistorico.Name = "gvHistorico";
+            this.gvHistorico.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvHistorico.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvHistorico.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gvHistorico.OptionsView.ShowGroupPanel = false;
+            this.gvHistorico.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvHistorico_CellValueChanged);
+            this.gvHistorico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvHistorico_KeyDown);
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "Fecha";
+            this.gridColumn35.DisplayFormat.FormatString = "d";
+            this.gridColumn35.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn35.FieldName = "fecha";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 0;
+            this.gridColumn35.Width = 761;
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "Costo";
+            this.gridColumn36.FieldName = "costo";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 1;
+            this.gridColumn36.Width = 222;
             // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
@@ -1923,6 +1976,8 @@
             this.toolStrip7.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcHistorico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvHistorico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2077,6 +2132,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.ToolStripButton btnEliminarTransferencia;
+        private DevExpress.XtraGrid.GridControl gcHistorico;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvHistorico;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

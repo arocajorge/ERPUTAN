@@ -48,6 +48,7 @@ namespace Core.Erp.Winform.Inventario
         in_producto_Bus bus_producto = new in_producto_Bus();
         int RowHandle_cont = 0;
         BindingList<in_Ing_Egr_Inven_Info> blstDiferencias = new BindingList<in_Ing_Egr_Inven_Info>();
+        
         #endregion
 
         public FrmIn_Recosteo_correccion_contable_inv()
@@ -773,6 +774,26 @@ namespace Core.Erp.Winform.Inventario
                 MessageBox.Show("Transferencia eliminada exitósamente",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             }else
                 MessageBox.Show("No se pudo eliminar la transferencia", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void gvHistorico_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("¿Está seguro que desea eliminar este registro ?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gvHistorico.DeleteSelectedRows();
+                }
+            }
+        }
+
+        private void gvHistorico_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            in_producto_x_tb_bodega_Costo_Historico_Info row = (in_producto_x_tb_bodega_Costo_Historico_Info)gvHistorico.GetRow(e.RowHandle);
+            if (row == null)
+                return;
+
+            
         }
     }
 }
