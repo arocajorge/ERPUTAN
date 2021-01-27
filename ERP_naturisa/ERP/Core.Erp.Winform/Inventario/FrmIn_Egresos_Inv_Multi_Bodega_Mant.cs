@@ -134,6 +134,10 @@ namespace Core.Erp.Winform.Inventario
                         ucGe_Menu.Enabled_bntLimpiar = false;
                         setInfo();
                         break;
+                    case Cl_Enumeradores.eTipo_action.duplicar:
+                        setInfo();
+                        Accion = Cl_Enumeradores.eTipo_action.grabar;
+                        break;
                     case Cl_Enumeradores.eTipo_action.grabar:
                         break;
                     case Cl_Enumeradores.eTipo_action.consultar:
@@ -284,8 +288,11 @@ namespace Core.Erp.Winform.Inventario
                 int IdSucursal = 0;
                 IdSucursal = ucGe_Sucursal.get_SucursalInfo().IdSucursal;
                 cmbTipoMovi.cargar_TipoMotivo(IdSucursal, 0, "-", "");
-
-                ucGe_Sucursal.cmbsucursal.Properties.ReadOnly = true;
+                if (Accion != Cl_Enumeradores.eTipo_action.duplicar)
+                {
+                    ucGe_Sucursal.cmbsucursal.Properties.ReadOnly = true;    
+                }
+                
 
                 // carga combo productos grid  
                 Bus_Producto = new in_producto_Bus();
@@ -352,6 +359,14 @@ namespace Core.Erp.Winform.Inventario
                 switch (Accion)
                 {
                     case Cl_Enumeradores.eTipo_action.grabar:
+                        ucGe_Menu.Enabled_bntAnular = false;
+
+                        this.txtNumIngreso.Enabled = false;
+                        this.txtNumIngreso.BackColor = System.Drawing.Color.White;
+                        this.txtNumIngreso.ForeColor = System.Drawing.Color.Black;
+
+                        break;
+                    case Cl_Enumeradores.eTipo_action.duplicar:
                         ucGe_Menu.Enabled_bntAnular = false;
 
                         this.txtNumIngreso.Enabled = false;
@@ -558,6 +573,14 @@ namespace Core.Erp.Winform.Inventario
                 }
 
                 ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>(lista);
+                if (Accion == Cl_Enumeradores.eTipo_action.duplicar)
+                {
+                    txtNumIngreso.Text = "0";
+                    txtCodigo.Text = string.Empty;
+                    dtpFecha.Value = DateTime.Now.Date;
+                    lista.ForEach(q => q.IdEstadoAproba = "PEND");
+                    ListaBind = new BindingList<in_Ing_Egr_Inven_det_Info>(lista);
+                }
                 gridControlProductos.DataSource = ListaBind;            
             }
             catch (Exception ex)

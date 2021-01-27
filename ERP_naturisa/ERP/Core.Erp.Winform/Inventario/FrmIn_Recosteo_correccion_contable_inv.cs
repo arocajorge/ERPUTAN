@@ -24,7 +24,7 @@ namespace Core.Erp.Winform.Inventario
 
         BindingList<in_transferencia_Info> blst_transferencia = new BindingList<in_transferencia_Info>();
         in_transferencia_bus bus_transferencia = new in_transferencia_bus();
-
+        string mens = string.Empty;
         List<tb_Bodega_Info> lst_bodega = new List<tb_Bodega_Info>();
         tb_Sucursal_Info info_sucursal = new tb_Sucursal_Info();
         in_producto_x_tb_bodega_Costo_Historico_Bus bus_costo_historico = new in_producto_x_tb_bodega_Costo_Historico_Bus();
@@ -48,7 +48,7 @@ namespace Core.Erp.Winform.Inventario
         in_producto_Bus bus_producto = new in_producto_Bus();
         int RowHandle_cont = 0;
         BindingList<in_Ing_Egr_Inven_Info> blstDiferencias = new BindingList<in_Ing_Egr_Inven_Info>();
-        
+        BindingList<in_producto_x_tb_bodega_Costo_Historico_Info> blsDetHistorico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>();
         #endregion
 
         public FrmIn_Recosteo_correccion_contable_inv()
@@ -63,6 +63,8 @@ namespace Core.Erp.Winform.Inventario
                 Cargar_combos();
                 cmb_estado_contabilizacion.SelectedItem = "NO CONTABILIZADO";
                 ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
+                blsDetHistorico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>();
+                gcHistorico.DataSource = blsDetHistorico;
             }
             catch (Exception ex)
             {
@@ -793,7 +795,55 @@ namespace Core.Erp.Winform.Inventario
             if (row == null)
                 return;
 
-            
+            if (e.Column == colCostoPromedio)
+            {
+                if (row.Secuencia == 0)
+                {
+                    string mens = string.Empty;
+                    if (row.fecha != DateTime.MinValue && row.costo > 0)
+                    {
+                        row.IdEmpresa = param.IdEmpresa;
+                        row.IdSucursal = ucIn_Sucursal_Bodega1.get_IdSucursal();
+                        row.IdBodega = ucIn_Sucursal_Bodega1.get_IdBodega();
+                        row.IdProducto = Convert.ToDecimal(cmb_producto.EditValue);
+                        row.IdFecha = Convert.ToInt32(row.fecha.ToString("yyyyMMdd"));
+                        row.fecha = row.fecha;
+                        row.Stock_a_la_fecha = 0;
+                        row.Observacion = param.IdUsuario + " " + DateTime.Now.ToString("dd/MM/yyyy");
+
+                        bus_costo_historico.GuardarDB(row, ref mens);
+                    }
+                }
+                else
+                {
+                    bus_costo_historico.ModificarDB(row);
+                }
+                gcHistorico.RefreshDataSource();    
+            }            
+        }
+
+        private void btnBuscarHistorico_Click(object sender, EventArgs e)
+        {
+            if (ucIn_Sucursal_Bodega1.get_IdSucursal() == 0)
+            {
+                MessageBox.Show("Seleccione la sucursal", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (ucIn_Sucursal_Bodega1.get_IdBodega() == 0)
+            {
+                MessageBox.Show("Seleccione la bodega", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (cmb_producto.EditValue == null)
+            {
+                MessageBox.Show("Seleccione el producto", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            blsDetHistorico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>(bus_costo_historico.GetList(param.IdEmpresa, ucIn_Sucursal_Bodega1.get_IdSucursal(), ucIn_Sucursal_Bodega1.get_IdBodega(), Convert.ToDecimal(cmb_producto.EditValue)));
+            gcHistorico.DataSource = blsDetHistorico;
         }
     }
 }

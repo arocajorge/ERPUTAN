@@ -90,6 +90,10 @@
             this.btn_buscar_movimientos_para_cont = new System.Windows.Forms.ToolStripButton();
             this.btn_contabilizar = new System.Windows.Forms.ToolStripButton();
             this.TabPage_recosteo_x_producto = new DevExpress.XtraTab.XtraTabPage();
+            this.gcHistorico = new DevExpress.XtraGrid.GridControl();
+            this.gvHistorico = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCostoPromedio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.cmb_producto = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -101,6 +105,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.de_fecha_x_prod = new DevExpress.XtraEditors.DateEdit();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.btnBuscarHistorico = new System.Windows.Forms.ToolStripButton();
             this.btn_recostear_x_producto = new System.Windows.Forms.ToolStripButton();
             this.TabPage_Diferencias = new DevExpress.XtraTab.XtraTabPage();
             this.gcDiferencias = new DevExpress.XtraGrid.GridControl();
@@ -178,10 +183,6 @@
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
-            this.gcHistorico = new DevExpress.XtraGrid.GridControl();
-            this.gvHistorico = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -216,6 +217,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_fecha_ini_cont.Properties)).BeginInit();
             this.toolStrip3.SuspendLayout();
             this.TabPage_recosteo_x_producto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcHistorico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvHistorico)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_producto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
@@ -259,8 +262,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
             this.toolStrip7.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcHistorico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvHistorico)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_BarraEstadoInferior_Forms1
@@ -905,6 +906,52 @@
             this.TabPage_recosteo_x_producto.Size = new System.Drawing.Size(1001, 356);
             this.TabPage_recosteo_x_producto.Text = "Recosteo por producto";
             // 
+            // gcHistorico
+            // 
+            this.gcHistorico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcHistorico.Location = new System.Drawing.Point(0, 121);
+            this.gcHistorico.MainView = this.gvHistorico;
+            this.gcHistorico.Name = "gcHistorico";
+            this.gcHistorico.Size = new System.Drawing.Size(1001, 235);
+            this.gcHistorico.TabIndex = 9;
+            this.gcHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvHistorico});
+            // 
+            // gvHistorico
+            // 
+            this.gvHistorico.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn35,
+            this.colCostoPromedio});
+            this.gvHistorico.GridControl = this.gcHistorico;
+            this.gvHistorico.Images = this.lst_imagenes_trans;
+            this.gvHistorico.Name = "gvHistorico";
+            this.gvHistorico.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvHistorico.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvHistorico.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gvHistorico.OptionsView.ShowGroupPanel = false;
+            this.gvHistorico.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvHistorico_CellValueChanged);
+            this.gvHistorico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvHistorico_KeyDown);
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "Fecha";
+            this.gridColumn35.DisplayFormat.FormatString = "d";
+            this.gridColumn35.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn35.FieldName = "fecha";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 0;
+            this.gridColumn35.Width = 761;
+            // 
+            // colCostoPromedio
+            // 
+            this.colCostoPromedio.Caption = "Costo";
+            this.colCostoPromedio.FieldName = "costo";
+            this.colCostoPromedio.Name = "colCostoPromedio";
+            this.colCostoPromedio.Visible = true;
+            this.colCostoPromedio.VisibleIndex = 1;
+            this.colCostoPromedio.Width = 222;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label6);
@@ -1012,12 +1059,22 @@
             // toolStrip4
             // 
             this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnBuscarHistorico,
             this.btn_recostear_x_producto});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
             this.toolStrip4.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip4.TabIndex = 7;
             this.toolStrip4.Text = "toolStrip4";
+            // 
+            // btnBuscarHistorico
+            // 
+            this.btnBuscarHistorico.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarHistorico.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarHistorico.Name = "btnBuscarHistorico";
+            this.btnBuscarHistorico.Size = new System.Drawing.Size(62, 22);
+            this.btnBuscarHistorico.Text = "Buscar";
+            this.btnBuscarHistorico.Click += new System.EventHandler(this.btnBuscarHistorico_Click);
             // 
             // btn_recostear_x_producto
             // 
@@ -1822,52 +1879,6 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // gcHistorico
-            // 
-            this.gcHistorico.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcHistorico.Location = new System.Drawing.Point(0, 121);
-            this.gcHistorico.MainView = this.gvHistorico;
-            this.gcHistorico.Name = "gcHistorico";
-            this.gcHistorico.Size = new System.Drawing.Size(1001, 235);
-            this.gcHistorico.TabIndex = 9;
-            this.gcHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvHistorico});
-            // 
-            // gvHistorico
-            // 
-            this.gvHistorico.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn35,
-            this.gridColumn36});
-            this.gvHistorico.GridControl = this.gcHistorico;
-            this.gvHistorico.Images = this.lst_imagenes_trans;
-            this.gvHistorico.Name = "gvHistorico";
-            this.gvHistorico.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gvHistorico.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gvHistorico.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-            this.gvHistorico.OptionsView.ShowGroupPanel = false;
-            this.gvHistorico.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvHistorico_CellValueChanged);
-            this.gvHistorico.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvHistorico_KeyDown);
-            // 
-            // gridColumn35
-            // 
-            this.gridColumn35.Caption = "Fecha";
-            this.gridColumn35.DisplayFormat.FormatString = "d";
-            this.gridColumn35.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn35.FieldName = "fecha";
-            this.gridColumn35.Name = "gridColumn35";
-            this.gridColumn35.Visible = true;
-            this.gridColumn35.VisibleIndex = 0;
-            this.gridColumn35.Width = 761;
-            // 
-            // gridColumn36
-            // 
-            this.gridColumn36.Caption = "Costo";
-            this.gridColumn36.FieldName = "costo";
-            this.gridColumn36.Name = "gridColumn36";
-            this.gridColumn36.Visible = true;
-            this.gridColumn36.VisibleIndex = 1;
-            this.gridColumn36.Width = 222;
-            // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1921,6 +1932,8 @@
             this.toolStrip3.PerformLayout();
             this.TabPage_recosteo_x_producto.ResumeLayout(false);
             this.TabPage_recosteo_x_producto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcHistorico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvHistorico)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_producto.Properties)).EndInit();
@@ -1976,8 +1989,6 @@
             this.toolStrip7.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcHistorico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvHistorico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2135,7 +2146,8 @@
         private DevExpress.XtraGrid.GridControl gcHistorico;
         private DevExpress.XtraGrid.Views.Grid.GridView gvHistorico;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraGrid.Columns.GridColumn colCostoPromedio;
+        private System.Windows.Forms.ToolStripButton btnBuscarHistorico;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

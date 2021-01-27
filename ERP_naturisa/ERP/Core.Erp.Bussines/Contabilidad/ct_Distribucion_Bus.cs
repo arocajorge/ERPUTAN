@@ -50,5 +50,31 @@ namespace Core.Erp.Business.Contabilidad
                 throw;
             }
         }
+
+        public bool ModificarDB(ct_Distribucion_Info info)
+        {
+            try
+            {
+                return odata.ModificarDB(info);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool AnularDB(ct_Distribucion_Info info)
+        {
+            try
+            {
+                return odata.AnularDB(info);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

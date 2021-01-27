@@ -69,9 +69,19 @@
             this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbPlanctaCabecera = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkConsiderarCC = new System.Windows.Forms.CheckBox();
             this.btnDistribuir = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.deFecha = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.deFechaIni = new DevExpress.XtraEditors.DateEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -104,14 +114,6 @@
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbPlanctaCabecera = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.deFechaIni = new DevExpress.XtraEditors.DateEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
@@ -129,7 +131,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubCentroCuenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCabecera.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
@@ -146,10 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroDiario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCabecera.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ucMenu
@@ -630,6 +634,66 @@
             this.panel2.Size = new System.Drawing.Size(1436, 55);
             this.panel2.TabIndex = 4;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(8, 12);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(87, 13);
+            this.labelControl5.TabIndex = 15;
+            this.labelControl5.Text = "Cuenta transitoria";
+            // 
+            // cmbPlanctaCabecera
+            // 
+            this.cmbPlanctaCabecera.Location = new System.Drawing.Point(117, 9);
+            this.cmbPlanctaCabecera.Name = "cmbPlanctaCabecera";
+            this.cmbPlanctaCabecera.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbPlanctaCabecera.Properties.DisplayMember = "pc_Cuenta2";
+            this.cmbPlanctaCabecera.Properties.NullText = "";
+            this.cmbPlanctaCabecera.Properties.ValueMember = "IdCtaCble";
+            this.cmbPlanctaCabecera.Properties.View = this.gridView2;
+            this.cmbPlanctaCabecera.Size = new System.Drawing.Size(579, 20);
+            this.cmbPlanctaCabecera.TabIndex = 12;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn3,
+            this.gridColumn5,
+            this.gridColumn6});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowAutoFilterRow = true;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Cuenta contable";
+            this.gridColumn3.FieldName = "pc_Cuenta";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 1281;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "ID";
+            this.gridColumn5.FieldName = "IdCtaCble";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 0;
+            this.gridColumn5.Width = 258;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Clave";
+            this.gridColumn6.FieldName = "pc_clave_corta";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 1;
+            this.gridColumn6.Width = 195;
+            // 
             // chkConsiderarCC
             // 
             this.chkConsiderarCC.AutoSize = true;
@@ -655,6 +719,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.labelControl7);
+            this.panel3.Controls.Add(this.deFecha);
             this.panel3.Controls.Add(this.labelControl6);
             this.panel3.Controls.Add(this.deFechaIni);
             this.panel3.Controls.Add(this.labelControl4);
@@ -670,6 +736,47 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1450, 100);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(805, 26);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(58, 13);
+            this.labelControl7.TabIndex = 18;
+            this.labelControl7.Text = "Fecha diario";
+            // 
+            // deFecha
+            // 
+            this.deFecha.EditValue = null;
+            this.deFecha.Location = new System.Drawing.Point(898, 23);
+            this.deFecha.Name = "deFecha";
+            this.deFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFecha.Size = new System.Drawing.Size(117, 20);
+            this.deFecha.TabIndex = 17;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(805, 52);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(61, 13);
+            this.labelControl6.TabIndex = 16;
+            this.labelControl6.Text = "Fecha desde";
+            // 
+            // deFechaIni
+            // 
+            this.deFechaIni.EditValue = null;
+            this.deFechaIni.Location = new System.Drawing.Point(898, 49);
+            this.deFechaIni.Name = "deFechaIni";
+            this.deFechaIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaIni.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaIni.Size = new System.Drawing.Size(117, 20);
+            this.deFechaIni.TabIndex = 15;
             // 
             // labelControl4
             // 
@@ -697,7 +804,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(810, 43);
+            this.labelControl1.Location = new System.Drawing.Point(805, 78);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(59, 13);
             this.labelControl1.TabIndex = 8;
@@ -706,7 +813,7 @@
             // deFechaFin
             // 
             this.deFechaFin.EditValue = null;
-            this.deFechaFin.Location = new System.Drawing.Point(903, 40);
+            this.deFechaFin.Location = new System.Drawing.Point(898, 75);
             this.deFechaFin.Name = "deFechaFin";
             this.deFechaFin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -998,86 +1105,6 @@
             this.gridColumn23.VisibleIndex = 5;
             this.gridColumn23.Width = 454;
             // 
-            // cmbPlanctaCabecera
-            // 
-            this.cmbPlanctaCabecera.Location = new System.Drawing.Point(117, 9);
-            this.cmbPlanctaCabecera.Name = "cmbPlanctaCabecera";
-            this.cmbPlanctaCabecera.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbPlanctaCabecera.Properties.DisplayMember = "pc_Cuenta2";
-            this.cmbPlanctaCabecera.Properties.NullText = "";
-            this.cmbPlanctaCabecera.Properties.ValueMember = "IdCtaCble";
-            this.cmbPlanctaCabecera.Properties.View = this.gridView2;
-            this.cmbPlanctaCabecera.Size = new System.Drawing.Size(579, 20);
-            this.cmbPlanctaCabecera.TabIndex = 12;
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn3,
-            this.gridColumn5,
-            this.gridColumn6});
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowAutoFilterRow = true;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Cuenta contable";
-            this.gridColumn3.FieldName = "pc_Cuenta";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 1281;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "ID";
-            this.gridColumn5.FieldName = "IdCtaCble";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 0;
-            this.gridColumn5.Width = 258;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(8, 12);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(87, 13);
-            this.labelControl5.TabIndex = 15;
-            this.labelControl5.Text = "Cuenta transitoria";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Clave";
-            this.gridColumn6.FieldName = "pc_clave_corta";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 1;
-            this.gridColumn6.Width = 195;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(810, 17);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(61, 13);
-            this.labelControl6.TabIndex = 16;
-            this.labelControl6.Text = "Fecha desde";
-            // 
-            // deFechaIni
-            // 
-            this.deFechaIni.EditValue = null;
-            this.deFechaIni.Location = new System.Drawing.Point(903, 14);
-            this.deFechaIni.Name = "deFechaIni";
-            this.deFechaIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaIni.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaIni.Size = new System.Drawing.Size(117, 20);
-            this.deFechaIni.TabIndex = 15;
-            // 
             // frmCon_DistribucionMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1109,8 +1136,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCabecera.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFecha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaFin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).EndInit();
@@ -1127,10 +1160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbCentroCostoDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSubcentroDiario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbPlanctaCabecera.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaIni.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1219,5 +1248,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.DateEdit deFechaIni;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.DateEdit deFecha;
     }
 }

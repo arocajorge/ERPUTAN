@@ -35,7 +35,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>425</ApplicationRevision>
+    <ApplicationRevision>430</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -90,7 +90,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Office-building.ico</ApplicationIcon>
+    <ApplicationIcon>Icono.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <PlatformTarget>x86</PlatformTarget>
@@ -3329,6 +3329,18 @@
     <Compile Include="Inventario\FrmIn_AsignacionProductoPorBodega.Designer.cs">
       <DependentUpon>FrmIn_AsignacionProductoPorBodega.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmIn_ProvisionIngresoOCCons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_ProvisionIngresoOCCons.Designer.cs">
+      <DependentUpon>FrmIn_ProvisionIngresoOCCons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_ProvisionIngresoOCMant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmIn_ProvisionIngresoOCMant.Designer.cs">
+      <DependentUpon>FrmIn_ProvisionIngresoOCMant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5459,6 +5471,12 @@
     <EmbeddedResource Include="Inventario\FrmIn_AsignacionProductoPorBodega.resx">
       <DependentUpon>FrmIn_AsignacionProductoPorBodega.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_ProvisionIngresoOCCons.resx">
+      <DependentUpon>FrmIn_ProvisionIngresoOCCons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmIn_ProvisionIngresoOCMant.resx">
+      <DependentUpon>FrmIn_ProvisionIngresoOCMant.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmIn_TransferenciaConGuiaErrorMantenimiento.resx">
       <DependentUpon>FrmIn_TransferenciaConGuiaErrorMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
@@ -5842,6 +5860,7 @@
   <ItemGroup>
     <Content Include="Ayuda_codigoAscii.txt" />
     <None Include="Resources\Distribuir_16x16.png" />
+    <Content Include="Icono.ico" />
     <Content Include="Resources\xml_16x16.png" />
     <None Include="Resources\Salir_16_x_161.png" />
     <None Include="Resources\re_hacer_16x16.png" />

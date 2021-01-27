@@ -53,10 +53,10 @@
             // 
             this.ucGe_BarraEstado.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstado.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstado.Location = new System.Drawing.Point(0, 545);
-            this.ucGe_BarraEstado.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_BarraEstado.Location = new System.Drawing.Point(0, 443);
+            this.ucGe_BarraEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_BarraEstado.Name = "ucGe_BarraEstado";
-            this.ucGe_BarraEstado.Size = new System.Drawing.Size(1260, 32);
+            this.ucGe_BarraEstado.Size = new System.Drawing.Size(945, 26);
             this.ucGe_BarraEstado.TabIndex = 0;
             // 
             // ucGe_Menu
@@ -84,17 +84,18 @@
             this.ucGe_Menu.Enable_boton_salir = true;
             this.ucGe_Menu.Enable_btnImpExcel = true;
             this.ucGe_Menu.Enable_Descargar_Marca_Base_exter = true;
-            this.ucGe_Menu.fecha_desde = new System.DateTime(2019, 9, 17, 13, 5, 28, 175);
-            this.ucGe_Menu.fecha_hasta = new System.DateTime(2019, 11, 17, 13, 5, 28, 175);
+            this.ucGe_Menu.fecha_desde = new System.DateTime(2021, 1, 11, 0, 0, 0, 0);
+            this.ucGe_Menu.fecha_hasta = new System.DateTime(2021, 1, 18, 0, 0, 0, 0);
             this.ucGe_Menu.FormConsulta = null;
             this.ucGe_Menu.FormMain = null;
             this.ucGe_Menu.GridControlConsulta = null;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ucGe_Menu.Name = "ucGe_Menu";
             this.ucGe_Menu.Perfil_x_usuario = null;
-            this.ucGe_Menu.Size = new System.Drawing.Size(1260, 191);
+            this.ucGe_Menu.Size = new System.Drawing.Size(945, 155);
             this.ucGe_Menu.TabIndex = 1;
+            this.ucGe_Menu.Visible_beiCerrar = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_bodega = true;
             this.ucGe_Menu.Visible_boton_anular = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu.Visible_boton_CancelarCuotas = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -103,7 +104,7 @@
             this.ucGe_Menu.Visible_boton_DiseñoCheque = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_boton_DiseñoChequeComprobante = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_boton_DiseNoReport = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.ucGe_Menu.Visible_boton_Duplicar = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.ucGe_Menu.Visible_boton_Duplicar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu.Visible_boton_GenerarPeriodos = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_boton_GenerarXml = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucGe_Menu.Visible_boton_Habilitar_Reg = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -126,26 +127,24 @@
             this.ucGe_Menu.Visible_Pie_fechas_Boton_buscar = true;
             this.ucGe_Menu.Visible_ribbon_control = true;
             this.ucGe_Menu.Visible_sucursal = false;
+            this.ucGe_Menu.event_btnDuplicar_ItemClick += new Core.Erp.Winform.Controles.UCGe_Menu_Mantenimiento_x_usuario.delegate_btnDuplicar_ItemClick(this.ucGe_Menu_event_btnDuplicar_ItemClick);
             // 
             // panelMain
             // 
             this.panelMain.Controls.Add(this.gridControlMovi_Inv_Egre);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 191);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMain.Location = new System.Drawing.Point(0, 155);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1260, 354);
+            this.panelMain.Size = new System.Drawing.Size(945, 288);
             this.panelMain.TabIndex = 2;
             // 
             // gridControlMovi_Inv_Egre
             // 
             this.gridControlMovi_Inv_Egre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlMovi_Inv_Egre.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlMovi_Inv_Egre.Location = new System.Drawing.Point(0, 0);
             this.gridControlMovi_Inv_Egre.MainView = this.gridViewMovi_Inv_Egre;
-            this.gridControlMovi_Inv_Egre.Margin = new System.Windows.Forms.Padding(4);
             this.gridControlMovi_Inv_Egre.Name = "gridControlMovi_Inv_Egre";
-            this.gridControlMovi_Inv_Egre.Size = new System.Drawing.Size(1260, 354);
+            this.gridControlMovi_Inv_Egre.Size = new System.Drawing.Size(945, 288);
             this.gridControlMovi_Inv_Egre.TabIndex = 0;
             this.gridControlMovi_Inv_Egre.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMovi_Inv_Egre});
@@ -265,13 +264,12 @@
             // 
             // FrmIn_Egresos_Inv_Multi_Bodega_Cons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 577);
+            this.ClientSize = new System.Drawing.Size(945, 469);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.ucGe_BarraEstado);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIn_Egresos_Inv_Multi_Bodega_Cons";
             this.Text = "Egresos de Inventario Multibodega";
             this.Load += new System.EventHandler(this.FrmIn_Egresos_Inv_Multi_Bodega_Cons_Load);

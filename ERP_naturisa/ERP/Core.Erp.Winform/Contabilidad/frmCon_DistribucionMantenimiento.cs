@@ -21,6 +21,7 @@ namespace Core.Erp.Winform.Contabilidad
         #region Variables
         Cl_Enumeradores.eTipo_action Accion;
         ct_Plancta_Bus busPlancta;
+        ct_Cbtecble_det_Bus busCbteCbleDet;
         List<ct_Plancta_Info> lstPlancta;
         ct_Distribucion_Info info;
         ct_Distribucion_Bus bus;
@@ -34,6 +35,9 @@ namespace Core.Erp.Winform.Contabilidad
         BindingList<ct_Cbtecble_det_Info> blstDiario;
         ct_Plancta_Info rowPlancta;
         BindingList<ct_DistribucionDetPorDistribuir_Info> blstPlanctaSaldo;
+        ct_DistribucionDetDistribuido_Bus busDistribuido;
+        ct_DistribucionDetPorDistribuir_Bus busPorDistribuir;
+        string MensajeError = string.Empty;
         #endregion
 
         #region Delegados
@@ -74,11 +78,16 @@ namespace Core.Erp.Winform.Contabilidad
             rowPlancta = new ct_Plancta_Info();
             blstPlanctaSaldo = new BindingList<ct_DistribucionDetPorDistribuir_Info>();
             bus = new ct_Distribucion_Bus();
+            busDistribuido = new ct_DistribucionDetDistribuido_Bus();
+            busPorDistribuir = new ct_DistribucionDetPorDistribuir_Bus();
+            busCbteCbleDet = new ct_Cbtecble_det_Bus();
             event_delegate_frmCon_DistribucionMantenimiento_FormClosed += frmCon_DistribucionMantenimiento_event_delegate_frmCon_DistribucionMantenimiento_FormClosed;
         }
 
         private void frmCon_DistribucionMantenimiento_Load(object sender, EventArgs e)
         {
+            deFecha.DateTime = DateTime.Now.Date;
+            deFechaIni.DateTime = DateTime.Now.Date;
             deFechaFin.DateTime = DateTime.Now.Date;
             gcDetalleCuenta.DataSource = blstPlanctaSaldo;
             SetAccionInControls();
@@ -138,18 +147,21 @@ namespace Core.Erp.Winform.Contabilidad
                     ucMenu.btnGuardar_y_Salir.Visible = true;
                     ucMenu.btnAnular.Visible = false;
                     ucMenu.btnlimpiar.Visible = true;
+                    SetInfoInControls();
                     break;
                 case Cl_Enumeradores.eTipo_action.Anular:
                     ucMenu.btnGuardar.Visible = false;
                     ucMenu.btnGuardar_y_Salir.Visible = false;
                     ucMenu.btnAnular.Visible = true;
                     ucMenu.btnlimpiar.Visible = false;
+                    SetInfoInControls();
                     break;
                 case Cl_Enumeradores.eTipo_action.consultar:
                     ucMenu.btnGuardar.Visible = false;
                     ucMenu.btnGuardar_y_Salir.Visible = false;
                     ucMenu.btnAnular.Visible = false;
                     ucMenu.btnlimpiar.Visible = false;
+                    SetInfoInControls();
                     break;
             }
         }
@@ -158,7 +170,19 @@ namespace Core.Erp.Winform.Contabilidad
         {
             try
             {
-
+                txtIdDistribucion.Text = info.IdDistribucion.ToString();
+                cmbTipoCbte.EditValue = info.IdTipoCbte;
+                txtObservacion.Text = info.Observacion;
+                deFecha.DateTime = info.Fecha;
+                deFechaIni.DateTime = info.FechaDesde;
+                deFechaFin.DateTime = info.FechaHasta;
+                cmbPlanctaCabecera.EditValue = info.IdCtaCble;
+                blstDet = new BindingList<ct_DistribucionDetDistribuido_Info>(busDistribuido.GetList(info.IdEmpresa,info.IdDistribucion));
+                gcDetalle.DataSource = blstDet;
+                blstDiario = new BindingList<ct_Cbtecble_det_Info>(busCbteCbleDet.Get_list_Cbtecble_det(info.IdEmpresa,info.IdTipoCbte,info.IdCbteCble,ref MensajeError));
+                gcDiario.DataSource = blstDiario;
+                blstPlanctaSaldo = new BindingList<ct_DistribucionDetPorDistribuir_Info>(busPorDistribuir.GetList(info.IdEmpresa,info.IdDistribucion));
+                gcDetalleCuenta.DataSource = blstPlanctaSaldo;
             }
             catch (Exception)
             {
@@ -210,7 +234,7 @@ namespace Core.Erp.Winform.Contabilidad
                 {
                     blstDiario.Add(new ct_Cbtecble_det_Info
                     {
-                        IdCtaCble = Cta.IdCtaCble,
+                        IdCtaCble = cmbPlanctaCabecera.EditValue == null ? Cta.IdCtaCble : cmbPlanctaCabecera.EditValue.ToString(),
                         IdCentroCosto = Cta.IdCentroCosto,
                         IdCentroCosto_sub_centro_costo = Cta.IdCentroCosto_sub_centro_costo,
                         IdRegistro = string.IsNullOrEmpty(Cta.IdCentroCosto) ? null : (Cta.IdCentroCosto + "-" + Cta.IdCentroCosto_sub_centro_costo),
@@ -361,12 +385,18 @@ namespace Core.Erp.Winform.Contabilidad
 
         private void ucMenu_event_btnGuardar_Click(object sender, EventArgs e)
         {
-            
+            if (AccionGuardar())
+            {
+                //this.lim
+            }   
         }
 
         private void ucMenu_event_btnGuardar_y_Salir_Click(object sender, EventArgs e)
         {
-
+            if (AccionGuardar())
+            {
+                this.Close();
+            }
         }
 
         private void ucMenu_event_btnAnular_Click(object sender, EventArgs e)
@@ -381,8 +411,10 @@ namespace Core.Erp.Winform.Contabilidad
                 case Cl_Enumeradores.eTipo_action.grabar:
                     return Guardar();
                 case Cl_Enumeradores.eTipo_action.actualizar:
+                    return Modificar();
                     break;
                 case Cl_Enumeradores.eTipo_action.Anular:
+                    return AnularDB();
                     break;
                 case Cl_Enumeradores.eTipo_action.consultar:
                     break;
@@ -400,18 +432,38 @@ namespace Core.Erp.Winform.Contabilidad
         private void GetInfo()
         {
             txtIdDistribucion.Focus();
-
-            info = new ct_Distribucion_Info
+            if (Accion == Cl_Enumeradores.eTipo_action.grabar)
             {
-                IdEmpresa = param.IdEmpresa,
-                IdDistribucion = string.IsNullOrEmpty(txtIdDistribucion.Text) ? 0 : Convert.ToDecimal(txtIdDistribucion.Text),
-                Fecha = deFechaFin.DateTime,
-                Observacion = txtObservacion.Text,
-                IdUsuario = param.IdUsuario,
-                ListaDistribuido = new List<ct_DistribucionDetDistribuido_Info>(blstDet),
-                ListaPorDistribuir = new List<ct_DistribucionDetPorDistribuir_Info>(blstPlanctaSaldo),
-                ListaDiario = new List<ct_Cbtecble_det_Info>(blstDiario)
-            };
+                info = new ct_Distribucion_Info
+                {
+                    IdEmpresa = param.IdEmpresa,
+                    IdDistribucion = string.IsNullOrEmpty(txtIdDistribucion.Text) ? 0 : Convert.ToDecimal(txtIdDistribucion.Text),
+                    IdTipoCbte = Convert.ToInt32(cmbTipoCbte.EditValue),
+                    Fecha = deFecha.DateTime,
+                    FechaDesde = deFechaIni.DateTime,
+                    FechaHasta = deFechaFin.DateTime,
+                    Observacion = txtObservacion.Text,
+                    IdCtaCble = cmbPlanctaCabecera.EditValue == null ? null : cmbPlanctaCabecera.EditValue.ToString(),
+                    IdUsuario = param.IdUsuario,
+                    ListaDistribuido = new List<ct_DistribucionDetDistribuido_Info>(blstDet),
+                    ListaPorDistribuir = new List<ct_DistribucionDetPorDistribuir_Info>(blstPlanctaSaldo),
+                    ListaDiario = new List<ct_Cbtecble_det_Info>(blstDiario)
+                };
+            }
+            else
+            {
+                info.Fecha = deFecha.DateTime;
+                info.FechaDesde = deFechaIni.DateTime;
+                info.FechaHasta = deFechaFin.DateTime;
+                info.Observacion = txtObservacion.Text;
+                info.IdTipoCbte = Convert.ToInt32(cmbTipoCbte.EditValue);
+                info.IdCtaCble = cmbPlanctaCabecera.EditValue == null ? null : cmbPlanctaCabecera.EditValue.ToString();
+                info.IdUsuario = param.IdUsuario;
+                info.ListaDistribuido = new List<ct_DistribucionDetDistribuido_Info>(blstDet);
+                info.ListaPorDistribuir = new List<ct_DistribucionDetPorDistribuir_Info>(blstPlanctaSaldo);
+                info.ListaDiario = new List<ct_Cbtecble_det_Info>(blstDiario);
+            }
+            
         }
 
         private bool Guardar()
@@ -424,6 +476,33 @@ namespace Core.Erp.Winform.Contabilidad
             }
 
             return true;
+        }
+
+        private bool Modificar()
+        {
+            GetInfo();
+            if (bus.ModificarDB(info))
+            {
+                MessageBox.Show("Registro modificado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return true;
+            }
+            return true;
+        }
+
+        private bool AnularDB()
+        {
+            GetInfo();
+            if (bus.AnularDB(info))
+            {
+                MessageBox.Show("Registro modificado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return true;
+            }
+            return true;
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

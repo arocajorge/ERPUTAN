@@ -11,6 +11,8 @@ namespace Core.Erp.Info.Contabilidad
         public int IdEmpresa { get; set; }
         public decimal IdDistribucion { get; set; }
         public DateTime Fecha { get; set; }
+        public DateTime FechaHasta { get; set; }
+        public DateTime FechaDesde { get; set; }
         public string Observacion { get; set; }
         public bool Estado { get; set; }
         public int IdTipoCbte { get; set; }
@@ -21,5 +23,7 @@ namespace Core.Erp.Info.Contabilidad
         public List<ct_Cbtecble_det_Info> ListaDiario { get; set; }
         public List<ct_DistribucionDetDistribuido_Info> ListaDistribuido { get; set; }
         public List<ct_DistribucionDetPorDistribuir_Info> ListaPorDistribuir{ get; set; }
+
+        
     }
 }

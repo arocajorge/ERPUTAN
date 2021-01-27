@@ -447,6 +447,8 @@
     <Compile Include="Inventario\in_producto_x_cp_proveedor_Bus.cs" />
     <Compile Include="Inventario\in_producto_x_tb_bodega_Bus.cs" />
     <Compile Include="Inventario\in_producto_x_tb_bodega_Costo_Historico_Bus.cs" />
+    <Compile Include="Inventario\in_ProvisionIngresosPorOCDet_Bus.cs" />
+    <Compile Include="Inventario\in_ProvisionIngresosPorOC_Bus.cs" />
     <Compile Include="Inventario\in_RecepcionMaterialesCab_Bus.cs" />
     <Compile Include="Inventario\in_RecepcionMaterialesDet_Bus.cs" />
     <Compile Include="Inventario\in_responsable_Bus.cs" />

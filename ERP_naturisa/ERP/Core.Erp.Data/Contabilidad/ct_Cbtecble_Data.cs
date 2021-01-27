@@ -462,24 +462,20 @@ namespace Core.Erp.Data.Contabilidad
             try
             {
                 decimal IdcbteCble = 0;
-                EntitiesDBConta OECbtecble = new EntitiesDBConta();
-
-                OECbtecble.SetCommandTimeOut(5000);
-
-                var selecte = OECbtecble.ct_cbtecble.Where(q => q.IdEmpresa == idempresa && q.IdTipoCbte == idTipoCbte).Count();
-                             
-
-                if (selecte==0)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    IdcbteCble = 1;
-                }
-                else
-                {
-                    OECbtecble = new EntitiesDBConta();
-                    var selectCbtecble = OECbtecble.ct_cbtecble.Where(CbtCble => CbtCble.IdEmpresa == idempresa
-                                          && CbtCble.IdTipoCbte == idTipoCbte).Max(q => q.IdCbteCble);
-
-                    IdcbteCble = Convert.ToDecimal(selectCbtecble.ToString()) + 1;
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select IdEmpresa, IdTipoCbte, max(IdCbteCble) IdCbteCble "
+                                        +" from ct_cbtecble"
+                                        +" where IdEmpresa = "+idempresa.ToString()+" and IdTipoCbte = "+idTipoCbte.ToString()
+                                        +" group by IdEmpresa, IdTipoCbte ";
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        IdcbteCble = (reader["IdCbteCble"] == DBNull.Value ? 1 : (Convert.ToDecimal(reader["IdCbteCble"]) + 1));
+                    }
                 }
                 return IdcbteCble;
             }

@@ -19,7 +19,7 @@ namespace Core.Erp.Data.Contabilidad
                 connection.Open();
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = "IdEmpresa,IdDistribucion,Secuencia,IdCtaCble,IdCentroCosto_sub_centro_costo,IdCentroCosto,Valor, IdCentroCosto +'-'+ IdCentroCosto_sub_centro_costo IdRegistro"
+                command.CommandText = "SELECT IdEmpresa,IdDistribucion,Secuencia,IdCtaCble,IdCentroCosto_sub_centro_costo,IdCentroCosto,Valor, IdCentroCosto +'-'+ IdCentroCosto_sub_centro_costo IdRegistro"
                                     + " from [dbo].[ct_DistribucionDetPorDistribuir]"
                                     + " where IdEmpresa = " + IdEmpresa.ToString() + " and IdDistribucion = " + IdDistribucion.ToString();
                 SqlDataReader reader = command.ExecuteReader();

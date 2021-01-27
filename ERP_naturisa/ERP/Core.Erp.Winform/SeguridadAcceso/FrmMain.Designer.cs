@@ -96,7 +96,6 @@
             this.barStaticItem1});
             this.ribbonMenuTop.ItemsVertAlign = DevExpress.Utils.VertAlignment.Top;
             this.ribbonMenuTop.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMenuTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonMenuTop.MaxItemId = 20;
             this.ribbonMenuTop.Name = "ribbonMenuTop";
             this.ribbonMenuTop.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -104,7 +103,7 @@
             this.ribbonMenuTop.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_reportes,
             this.repositoryItemImageEditLogo});
-            this.ribbonMenuTop.Size = new System.Drawing.Size(1324, 155);
+            this.ribbonMenuTop.Size = new System.Drawing.Size(1135, 144);
             this.ribbonMenuTop.StatusBar = this.ribbonStatusBar;
             this.ribbonMenuTop.Click += new System.EventHandler(this.ribbon_Click);
             // 
@@ -685,11 +684,10 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.barStaticItem_param);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 701);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 564);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonMenuTop;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1324, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1135, 31);
             // 
             // dockManagerPaneles
             // 
@@ -718,20 +716,18 @@
             this.dockPanelMenu.Controls.Add(this.dockPanel1_Container);
             this.dockPanelMenu.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelMenu.ID = new System.Guid("159fd171-eb52-4f90-acdf-2e9d2d41179c");
-            this.dockPanelMenu.Location = new System.Drawing.Point(0, 155);
-            this.dockPanelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dockPanelMenu.Location = new System.Drawing.Point(0, 144);
             this.dockPanelMenu.Name = "dockPanelMenu";
             this.dockPanelMenu.OriginalSize = new System.Drawing.Size(258, 200);
-            this.dockPanelMenu.Size = new System.Drawing.Size(258, 546);
+            this.dockPanelMenu.Size = new System.Drawing.Size(258, 420);
             this.dockPanelMenu.Text = "Menu";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.panel1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
-            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(250, 518);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(250, 393);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // panel1
@@ -739,32 +735,31 @@
             this.panel1.Controls.Add(this.ucSeg_Menu_x_Usuario_x_Empresa1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 518);
+            this.panel1.Size = new System.Drawing.Size(250, 393);
             this.panel1.TabIndex = 1;
             // 
             // ucSeg_Menu_x_Usuario_x_Empresa1
             // 
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Location = new System.Drawing.Point(0, 0);
-            this.ucSeg_Menu_x_Usuario_x_Empresa1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Name = "ucSeg_Menu_x_Usuario_x_Empresa1";
-            this.ucSeg_Menu_x_Usuario_x_Empresa1.Size = new System.Drawing.Size(250, 518);
+            this.ucSeg_Menu_x_Usuario_x_Empresa1.Size = new System.Drawing.Size(250, 393);
             this.ucSeg_Menu_x_Usuario_x_Empresa1.TabIndex = 0;
             this.ucSeg_Menu_x_Usuario_x_Empresa1.Load += new System.EventHandler(this.ucSeg_Menu_x_Usuario_x_Empresa1_Load);
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Appearance.Options.UseBackColor = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1324, 732);
+            this.ClientSize = new System.Drawing.Size(1135, 595);
             this.Controls.Add(this.dockPanelMenu);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonMenuTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
             this.Ribbon = this.ribbonMenuTop;
             this.StatusBar = this.ribbonStatusBar;

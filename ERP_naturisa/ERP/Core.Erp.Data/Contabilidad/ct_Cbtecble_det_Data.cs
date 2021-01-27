@@ -80,6 +80,8 @@ namespace Core.Erp.Data.Contabilidad
                      secuencia = item.secuencia,
                      IdCentroCosto = item.IdCentroCosto,
                      dc_Valor = item.dc_Valor,
+                     dc_Valor_D = item.dc_Valor > 0 ? item.dc_Valor : 0,
+                     dc_Valor_H = item.dc_Valor < 0 ? Math.Abs(item.dc_Valor) : 0,
                      dc_Observacion = item.dc_Observacion,
                      NomCtaCble =item.ct_plancta.pc_Cuenta ,
                      NomCentroCosto= string.IsNullOrEmpty(item.IdCentroCosto) ? null : item.ct_centro_costo.Centro_costo,

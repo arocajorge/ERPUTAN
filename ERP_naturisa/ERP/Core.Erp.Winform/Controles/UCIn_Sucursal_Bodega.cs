@@ -58,7 +58,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                return _SucursalInfo.IdSucursal;
+                return _SucursalInfo == null ? 0 : _SucursalInfo.IdSucursal;
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace Core.Erp.Winform.Controles
         {
             try
             {
-                return _BodegaInfo.IdBodega;
+                return _BodegaInfo == null ? 0 : _BodegaInfo.IdBodega;
             }
             catch (Exception ex)
             {

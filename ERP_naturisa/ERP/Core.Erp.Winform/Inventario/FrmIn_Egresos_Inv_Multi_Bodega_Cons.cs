@@ -304,5 +304,35 @@ namespace Core.Erp.Winform.Inventario
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ucGe_Menu_event_btnDuplicar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                Info = new in_Ing_Egr_Inven_Info();
+                Info = (in_Ing_Egr_Inven_Info)gridViewMovi_Inv_Egre.GetFocusedRow();
+
+                if (Info != null)
+                {
+                    frm = new FrmIn_Egresos_Inv_Multi_Bodega_Mant();
+                    frm.Text = frm.Text + "***NUEVO REGISTRO***";
+                    frm.set_Accion(Cl_Enumeradores.eTipo_action.duplicar);
+                    frm.info_IngEgr = Info;
+                    frm.Show();
+                    frm.MdiParent = this.MdiParent;
+                    frm.event_FrmIn_Egresos_Inv_Multi_Bodega_Mant_FormClosing += frm_event_FrmIn_Egresos_Inv_Multi_Bodega_Mant_FormClosing;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un registro a duplicar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log_Error_bus = new tb_sis_Log_Error_Vzen_Bus();
+                Log_Error_bus.Log_Error(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

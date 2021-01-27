@@ -19,7 +19,8 @@ namespace Core.Erp.Data.Contabilidad
                 connection.Open();
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = "select IdEmpresa,IdDistribucion,Secuencia,IdCtaCble,IdCentroCosto_sub_centro_costo,IdCentroCosto,F1,F2,IdCentroCosto +'-'+ IdCentroCosto_sub_centro_costo IdRegistro "                                    +" from [dbo].[ct_DistribucionDetDistribuido]"
+                command.CommandText = "select IdEmpresa,IdDistribucion,Secuencia,IdCtaCble,IdCentroCosto_sub_centro_costo,IdCentroCosto,F1,F2, F1 * F2 AS F3,IdCentroCosto +'-'+ IdCentroCosto_sub_centro_costo IdRegistro, Observacion "
+                                    +" from [dbo].[ct_DistribucionDetDistribuido]"
                                     +" where IdEmpresa = "+IdEmpresa.ToString()+" and IdDistribucion = "+IdDistribucion.ToString();
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -34,7 +35,9 @@ namespace Core.Erp.Data.Contabilidad
                         IdCentroCosto = reader["IdCentroCosto"] == DBNull.Value ? null : Convert.ToString(reader["IdCentroCosto"]),
                         F1 = Convert.ToDecimal(reader["F1"]),
                         F2 = Convert.ToDecimal(reader["F2"]),
-                        IdRegistro = reader["IdRegistro"] == DBNull.Value ? null : Convert.ToString(reader["IdRegistro"])
+                        F3 = Convert.ToDecimal(reader["F3"]),
+                        IdRegistro = reader["IdRegistro"] == DBNull.Value ? null : Convert.ToString(reader["IdRegistro"]),
+                        Observacion = reader["Observacion"].ToString()
                     });
                 }
                 reader.Close();

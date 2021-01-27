@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Vzen ERP V 1.0")]
-[assembly: AssemblyDescription("Sistema Financiero Contable  Vzen ERP")]
+[assembly: AssemblyTitle("SAN ERP")]
+[assembly: AssemblyDescription("Sistema administrativo Naturisa")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ITCorp")]
-[assembly: AssemblyProduct("Vzen ERP")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Naturisa S.A.")]
+[assembly: AssemblyProduct("SAN ERP")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

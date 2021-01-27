@@ -26,6 +26,11 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public bool ModificarDB(in_producto_x_tb_bodega_Costo_Historico_Info info)
+        {
+            return dataProd.ModificarDB(info);
+        }
+
         public in_producto_x_tb_bodega_Costo_Historico_Info get_UltimoCosto_x_Producto_Bodega(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto, DateTime Fecha)
         {
             try
@@ -57,6 +62,10 @@ namespace Core.Erp.Business.Inventario
             }
         }
 
+        public List<in_producto_x_tb_bodega_Costo_Historico_Info> GetList(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto)
+        {
+            return dataProd.GetList(IdEmpresa, IdSucursal, IdBodega, IdProducto);
+        }
 
         public bool Proceso_recosteo_y_correccion_contable_inv(int IdEmpresa, int IdSucursal, int IdBodega, DateTime Fecha_ini, DateTime Fecha_fin, int Decimales)
         {

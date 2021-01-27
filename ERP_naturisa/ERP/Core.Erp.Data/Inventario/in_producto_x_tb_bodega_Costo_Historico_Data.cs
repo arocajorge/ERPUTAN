@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -56,6 +57,20 @@ namespace Core.Erp.Data.Inventario
                 msjError = mensaje;
                 throw new Exception(ex.ToString());
             }
+        }
+
+        public bool ModificarDB(in_producto_x_tb_bodega_Costo_Historico_Info info)
+        {
+            using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "update in_producto_x_tb_bodega_Costo_Historico set costo = "+info.costo.ToString()+" where IdEmpresa = "+info.IdEmpresa.ToString()+" and IdSucursal = "+info.IdSucursal.ToString()+" and IdBodega = "+info.IdBodega.ToString()+" and IdProducto = "+info.IdProducto.ToString()+" and IdFecha = "+info.IdFecha.ToString()+" and Secuencia = "+info.Secuencia;
+                command.ExecuteNonQuery();
+            }
+            return true;
         }
 
         public int GetSecuencia(in_producto_x_tb_bodega_Costo_Historico_Info Info)
@@ -303,6 +318,40 @@ namespace Core.Erp.Data.Inventario
                 mensaje = ex.ToString() + " " + ex.Message;
                 throw new Exception(ex.ToString());
             }
+        }
+
+        public List<in_producto_x_tb_bodega_Costo_Historico_Info> GetList(int IdEmpresa, int IdSucursal, int IdBodega, decimal IdProducto)
+        {
+            List<in_producto_x_tb_bodega_Costo_Historico_Info> Lista = new List<in_producto_x_tb_bodega_Costo_Historico_Info>();
+
+            using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "select IdEmpresa,IdSucursal,IdBodega,IdProducto,IdFecha,Secuencia,fecha,costo,Stock_a_la_fecha,Observacion,fecha_trans from in_producto_x_tb_bodega_Costo_Historico where IdEmpresa = " + IdEmpresa.ToString() + " and IdSucursal = " + IdSucursal.ToString() + " and IdBodega = " + IdBodega.ToString() + " and IdProducto = " + IdProducto.ToString();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Lista.Add(new in_producto_x_tb_bodega_Costo_Historico_Info
+                    {
+                        IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                        IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                        IdBodega = Convert.ToInt32(reader["IdBodega"]),
+                        IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                        IdFecha = Convert.ToInt32(reader["IdFecha"]),
+                        Secuencia = Convert.ToInt32(reader["Secuencia"]),
+                        fecha = Convert.ToDateTime(reader["fecha"]),
+                        costo = Convert.ToDouble(reader["costo"]),
+                        Stock_a_la_fecha = Convert.ToDouble(reader["Stock_a_la_fecha"]),
+                        Observacion = Convert.ToString(reader["Observacion"]),
+                        fecha_trans = reader["fecha_trans"] == DBNull.Value ? null : (DateTime?)(reader["fecha_trans"])
+                    });
+                }
+                reader.Close();
+            }
+
+            return Lista;
         }
     }
 }

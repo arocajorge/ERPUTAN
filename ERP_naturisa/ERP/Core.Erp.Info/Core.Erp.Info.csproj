@@ -645,6 +645,8 @@
     <Compile Include="Inventario\in_producto_x_cp_proveedor_Info.cs" />
     <Compile Include="Inventario\in_producto_x_tb_bodega_Costo_Historico_Info.cs" />
     <Compile Include="Inventario\in_producto_x_tb_bodega_Info.cs" />
+    <Compile Include="Inventario\in_ProvisionIngresosPorOCDet_Info.cs" />
+    <Compile Include="Inventario\in_ProvisionIngresosPorOC_Info.cs" />
     <Compile Include="Inventario\in_RecepcionMaterialesCab_Info.cs" />
     <Compile Include="Inventario\in_RecepcionMaterialesDet_Info.cs" />
     <Compile Include="Inventario\in_responsable_Info.cs" />
