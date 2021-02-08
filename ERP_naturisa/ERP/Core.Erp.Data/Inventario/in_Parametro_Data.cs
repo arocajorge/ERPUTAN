@@ -5,6 +5,7 @@ using System.Text;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Info.General;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.Inventario
 {
@@ -15,122 +16,39 @@ namespace Core.Erp.Data.Inventario
         {
             try
             {
-                using (EntitiesInventario context = new EntitiesInventario())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    EntitiesInventario param_Info = new EntitiesInventario();
-                    var selectBaParam = (from C in param_Info.in_parametro
-                                         where C.IdEmpresa == IdEmpresa
-                                         select C).Count();
-                    if (selectBaParam == 0)
-                    {
-                        var addressG = new in_parametro();
-                        addressG.IdEmpresa = IdEmpresa;
-                        addressG.IdCentroCosto_Padre_a_cargar = (info.IdCentroCosto_Padre_a_cargar == "") ? null : info.IdCentroCosto_Padre_a_cargar;
-                        addressG.LabelCentroCosto = info.LabelCentroCosto;
-                        addressG.IdMovi_inven_tipo_egresoBodegaOrigen = info.IdMovi_inven_tipo_egresoBodegaOrigen;
-                        addressG.IdMovi_inven_tipo_ingresoBodegaDestino = info.IdMovi_inven_tipo_ingresoBodegaDestino;
-                        addressG.Maneja_Stock_Negativo = info.Maneja_Stock_Negativo;
-                        addressG.Usuario_Escoge_Motivo = info.Usuario_Escoge_Motivo;
-                        addressG.IdMovi_inven_tipo_egresoAjuste = info.IdMovi_inven_tipo_egresoAjuste;
-                        addressG.IdMovi_inven_tipo_ingresoAjuste = info.IdMovi_inven_tipo_ingresoAjuste;
-                        addressG.Mostrar_CentroCosto_en_transacciones = info.Mostrar_CentroCosto_en_transacciones;
-                        addressG.Rango_Busqueda_Transacciones = info.Rango_Busqueda_Transacciones;
-                        addressG.ApruebaAjusteFisicoAuto = info.ApruebaAjusteFisicoAuto;
-
-
-                        addressG.IdCtaCble_Inven = (info.IdCtaCble_Inven == "") ? null : info.IdCtaCble_Inven;
-                        addressG.IdCtaCble_CostoInven = (info.IdCtaCble_CostoInven == "") ? null : info.IdCtaCble_CostoInven;
-                        addressG.IdCentro_Costo_Costo = (info.IdCentro_Costo_Costo == "") ? null : info.IdCentro_Costo_Costo;
-                        addressG.IdCentro_Costo_Inventario = (info.IdCentro_Costo_Inventario == "") ? null : info.IdCentro_Costo_Inventario;
-
-                        addressG.IdSucursal_Suministro = info.IdSucursalSuministro;
-                         
-                        if(info.IdTipoCbte_CostoInven != 0) 
-                        addressG.IdTipoCbte_CostoInven = info.IdTipoCbte_CostoInven;
-                        if (info.IdTipoCbte_CostoInven_Reverso != 0) 
-                        addressG.IdTipoCbte_CostoInven_Reverso = info.IdTipoCbte_CostoInven_Reverso;
-                        if (info.IdMovi_Inven_tipo_x_anu_Ing != 0) 
-                        addressG.IdMovi_Inven_tipo_x_anu_Ing = (info.IdMovi_Inven_tipo_x_anu_Ing);
-                        if (info.IdMovi_Inven_tipo_x_anu_Egr != 0) 
-                        addressG.IdMovi_Inven_tipo_x_anu_Egr = (info.IdMovi_Inven_tipo_x_anu_Egr);
-
-                        if (info.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa != 0)
-                            addressG.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa = (info.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa);
-                        if (info.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa != 0)
-                            addressG.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa = (info.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa);
-
-                        addressG.IdEstadoAproba_x_Ing = info.IdEstadoAproba_x_Ing;
-                        addressG.IdEstadoAproba_x_Egr = info.IdEstadoAproba_x_Egr;
-
-                        addressG.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg = info.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg;
-                        addressG.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing = info.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing;
-                        addressG.P_Grabar_Items_x_Cada_Movi_Inven = info.P_Grabar_Items_x_Cada_Movi_Inven;
-                        addressG.P_Fecha_para_contabilizacion_ingr_egr = info.P_Fecha_para_contabilizacion_ingr_egr;
-                        addressG.P_se_valida_parametrizacion_x_producto = (info.P_se_valida_parametrizacion_x_producto == null) ? false : Convert.ToBoolean(info.P_se_valida_parametrizacion_x_producto);
-
-                        addressG.P_IdCtaCble_transitoria_transf_inven = (info.P_IdCtaCble_transitoria_transf_inven == null) ? null : Convert.ToString(info.P_IdCtaCble_transitoria_transf_inven);
-                        addressG.IdMovi_inven_tipo_mobile_ing = info.IdMovi_inven_tipo_mobile_ing;
-                        addressG.IdMovi_inven_tipo_mobile_egr = info.IdMovi_inven_tipo_mobile_egr;
-                        addressG.P_ValidarDiasHaciaAtras = info.P_ValidarDiasHaciaAtras;
-                        context.in_parametro.Add(addressG);
-                        context.SaveChanges();
-                    }
-                    else
-                    {
-                        var contact = context.in_parametro.First(para => para.IdEmpresa == IdEmpresa);
-                        contact.IdEmpresa = IdEmpresa;
-                        contact.IdCentroCosto_Padre_a_cargar = info.IdCentroCosto_Padre_a_cargar;
-                        contact.LabelCentroCosto = info.LabelCentroCosto;
-                        contact.IdMovi_inven_tipo_egresoBodegaOrigen = info.IdMovi_inven_tipo_egresoBodegaOrigen;
-                        contact.IdMovi_inven_tipo_ingresoBodegaDestino = info.IdMovi_inven_tipo_ingresoBodegaDestino;
-                        contact.Maneja_Stock_Negativo = info.Maneja_Stock_Negativo;
-                        contact.IdSucursal_Suministro = info.IdSucursalSuministro;
-                        contact.Usuario_Escoge_Motivo = info.Usuario_Escoge_Motivo;
-                        contact.IdMovi_inven_tipo_egresoAjuste = info.IdMovi_inven_tipo_egresoAjuste;
-                        contact.IdMovi_inven_tipo_ingresoAjuste = info.IdMovi_inven_tipo_ingresoAjuste;
-                        contact.Mostrar_CentroCosto_en_transacciones = info.Mostrar_CentroCosto_en_transacciones;
-                        contact.Rango_Busqueda_Transacciones = info.Rango_Busqueda_Transacciones;
-                        contact.ApruebaAjusteFisicoAuto = info.ApruebaAjusteFisicoAuto;
-                        contact.IdSucursal_Suministro = info.IdSucursalSuministro;
-                        contact.IdBodegaSuministro = info.IdBodegaSuministro;
-
-                        contact.IdCentro_Costo_Costo = (info.IdCentro_Costo_Costo == "") ? null : info.IdCentro_Costo_Costo;
-                        contact.IdCentro_Costo_Inventario = (info.IdCentro_Costo_Inventario == "") ? null : info.IdCentro_Costo_Inventario;
-
-                        contact.IdCtaCble_Inven = info.IdCtaCble_Inven;
-                        contact.IdCtaCble_CostoInven = info.IdCtaCble_CostoInven;
-                        contact.IdEstadoAproba_x_Ing = info.IdEstadoAproba_x_Ing;
-                        contact.IdEstadoAproba_x_Egr = info.IdEstadoAproba_x_Egr;
-
-                        if (info.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa != 0)
-                            contact.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa = (info.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa);
-                        if (info.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa != 0)
-                            contact.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa = (info.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa);
-
-                        if (info.IdTipoCbte_CostoInven != 0)
-                            contact.IdTipoCbte_CostoInven = info.IdTipoCbte_CostoInven;
-                        if (info.IdTipoCbte_CostoInven_Reverso != 0)
-                            contact.IdTipoCbte_CostoInven_Reverso = info.IdTipoCbte_CostoInven_Reverso;
-                        if (info.IdMovi_Inven_tipo_x_anu_Ing != 0)
-                            contact.IdMovi_Inven_tipo_x_anu_Ing = (info.IdMovi_Inven_tipo_x_anu_Ing);
-                        if (info.IdMovi_Inven_tipo_x_anu_Egr != 0)
-                            contact.IdMovi_Inven_tipo_x_anu_Egr = (info.IdMovi_Inven_tipo_x_anu_Egr);
-                        contact.P_Grabar_Items_x_Cada_Movi_Inven = info.P_Grabar_Items_x_Cada_Movi_Inven;
-                        contact.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg = info.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg;
-                        contact.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing = info.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing;
-                        contact.P_Fecha_para_contabilizacion_ingr_egr = info.P_Fecha_para_contabilizacion_ingr_egr;
-                        contact.P_se_valida_parametrizacion_x_producto = (info.P_se_valida_parametrizacion_x_producto == null) ? false : Convert.ToBoolean(info.P_se_valida_parametrizacion_x_producto);
-
-                        contact.IdMovi_inven_tipo_mobile_ing = info.IdMovi_inven_tipo_mobile_ing;
-                        contact.IdMovi_inven_tipo_mobile_egr = info.IdMovi_inven_tipo_mobile_egr;
-                        contact.P_ValidarDiasHaciaAtras = info.P_ValidarDiasHaciaAtras;
-                        contact.P_IdCtaCble_transitoria_transf_inven = (info.P_IdCtaCble_transitoria_transf_inven == null) ? null : Convert.ToString(info.P_IdCtaCble_transitoria_transf_inven);
-
-
-                        context.SaveChanges();
-                    }
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE [dbo].[in_parametro]"
+                        + " SET [IdMovi_inven_tipo_egresoBodegaOrigen] = " + (info.IdMovi_inven_tipo_egresoBodegaOrigen == null ? "NULL" : info.IdMovi_inven_tipo_egresoBodegaOrigen.ToString())
+                                        + " ,[IdMovi_inven_tipo_ingresoBodegaDestino] = " + (info.IdMovi_inven_tipo_ingresoBodegaDestino == null ? "NULL" : info.IdMovi_inven_tipo_ingresoBodegaDestino.ToString())
+                                        + " ,[Maneja_Stock_Negativo] " + (info.Maneja_Stock_Negativo == null ? "NULL" : ("'" + info.Maneja_Stock_Negativo.ToString() + "'"))
+                                        + " ,[IdMovi_inven_tipo_egresoAjuste] = " + (info.IdMovi_inven_tipo_egresoAjuste == null ? "NULL" : info.IdMovi_inven_tipo_egresoAjuste.ToString())
+                                        + " ,[IdMovi_inven_tipo_ingresoAjuste] = " + (info.IdMovi_inven_tipo_ingresoAjuste == null ? "NULL" : info.IdMovi_inven_tipo_ingresoAjuste.ToString())
+                                        + " ,[IdTipoCbte_CostoInven] = " + (info.IdTipoCbte_CostoInven == null ? "NULL" : info.IdTipoCbte_CostoInven.ToString())
+                                        + " ,[IdMovi_Inven_tipo_x_anu_Ing] = " + (info.IdMovi_Inven_tipo_x_anu_Ing == null ? "NULL" : info.IdMovi_Inven_tipo_x_anu_Ing.ToString())
+                                        + " ,[IdMovi_Inven_tipo_x_anu_Egr] = " + (info.IdMovi_Inven_tipo_x_anu_Egr == null ? "NULL" : info.IdMovi_Inven_tipo_x_anu_Egr.ToString())
+                                        + " ,[IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa] = " + (info.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa == null ? "NULL" : info.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa.ToString())
+                                        + " ,[IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa] = " + (info.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa == null ? "NULL" : info.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa.ToString())
+                                        + " ,[ApruebaAjusteFisicoAuto] = " + (info.ApruebaAjusteFisicoAuto == null ? "NULL" : ("'" + info.ApruebaAjusteFisicoAuto.ToString() + "'"))
+                                        + " ,[IdEstadoAproba_x_Ing] = " + (info.IdEstadoAproba_x_Ing == null ? "NULL" : ("'" + info.IdEstadoAproba_x_Ing.ToString() + "'"))
+                                        + " ,[IdEstadoAproba_x_Egr] = " + (info.IdEstadoAproba_x_Egr == null ? "NULL" : ("'" + info.IdEstadoAproba_x_Egr.ToString() + "'"))
+                                        + " ,[IdMovi_Inven_tipo_x_Dev_Inv_x_Ing] = " + (info.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing == null ? "NULL" : info.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing.ToString())
+                                        + " ,[IdMovi_Inven_tipo_x_Dev_Inv_x_Erg] = " + (info.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg == null ? "NULL" : info.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg.ToString())
+                                        + " ,[P_Grabar_Items_x_Cada_Movi_Inven] = " + (info.P_Grabar_Items_x_Cada_Movi_Inven == null ? "NULL" : ((bool)info.P_Grabar_Items_x_Cada_Movi_Inven ? "1" : "0"))
+                                        + " ,[P_Fecha_para_contabilizacion_ingr_egr] = " + (info.P_Fecha_para_contabilizacion_ingr_egr == null ? "NULL" : info.P_Fecha_para_contabilizacion_ingr_egr.ToString())
+                                        + " ,[P_se_valida_parametrizacion_x_producto] = " + (info.P_se_valida_parametrizacion_x_producto == null ? "NULL" : info.P_se_valida_parametrizacion_x_producto.ToString())
+                                        + " ,[P_IdCtaCble_transitoria_transf_inven] = " + (info.P_IdCtaCble_transitoria_transf_inven == null ? "NULL" : ("'" + info.P_IdCtaCble_transitoria_transf_inven.ToString() + "'"))
+                                        + " ,[IdMovi_inven_tipo_mobile_ing] = " + (info.IdMovi_inven_tipo_mobile_ing == null ? "NULL" : info.IdMovi_inven_tipo_mobile_ing.ToString())
+                                        + " ,[IdMovi_inven_tipo_mobile_egr] = " + (info.IdMovi_inven_tipo_mobile_egr == null ? "NULL" : info.IdMovi_inven_tipo_mobile_egr.ToString())
+                                        + " ,[P_ValidarDiasHaciaAtras] = " + (info.P_ValidarDiasHaciaAtras == null ? "NULL" : info.P_ValidarDiasHaciaAtras.ToString())
+                                        + " ,[IdCtaCble_Provision] = " + (info.IdCtaCble_Provision == null ? "NULL" : ("'"+info.IdCtaCble_Provision.ToString()+"'"))
+                                        +" WHERE IdEmpresa = "+IdEmpresa.ToString();
+                    command.ExecuteNonQuery();
+                    return true;
                 }
-                return true;
             }
             catch (Exception ex)
             {
@@ -147,57 +65,64 @@ namespace Core.Erp.Data.Inventario
         {
             try
             {
-                in_Parametro_Info Cbt=null;
-                EntitiesInventario param_Info = new EntitiesInventario();
-                var selectBaParam = from C in param_Info.in_parametro
-                                    where C.IdEmpresa == IdEmpresa
-                                    select C;
-                foreach (var item in selectBaParam)
+                in_Parametro_Info Cbt = null;
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    Cbt = new in_Parametro_Info();            
-                    Cbt.IdCentroCosto_Padre_a_cargar = item.IdCentroCosto_Padre_a_cargar;
-                    Cbt.LabelCentroCosto = item.LabelCentroCosto;
-                    Cbt.IdMovi_inven_tipo_egresoBodegaOrigen =Convert.ToInt32( item.IdMovi_inven_tipo_egresoBodegaOrigen);
-                    Cbt.IdMovi_inven_tipo_ingresoBodegaDestino = Convert.ToInt32(item.IdMovi_inven_tipo_ingresoBodegaDestino);
-                    Cbt.Maneja_Stock_Negativo = item.Maneja_Stock_Negativo;
-                    Cbt.Usuario_Escoge_Motivo = item.Usuario_Escoge_Motivo;
-                    Cbt.IdMovi_inven_tipo_egresoAjuste = Convert.ToInt32(item.IdMovi_inven_tipo_egresoAjuste);
-                    Cbt.IdMovi_inven_tipo_ingresoAjuste = Convert.ToInt32(item.IdMovi_inven_tipo_ingresoAjuste);
-                    Cbt.Mostrar_CentroCosto_en_transacciones = item.Mostrar_CentroCosto_en_transacciones;
-                    Cbt.Rango_Busqueda_Transacciones = Convert.ToInt32(item.Rango_Busqueda_Transacciones);
-                    Cbt.ApruebaAjusteFisicoAuto = item.ApruebaAjusteFisicoAuto;
-                    Cbt.IdEmpresa = IdEmpresa;
-                    Cbt.IdCtaCble_Inven = item.IdCtaCble_Inven;
-                    Cbt.IdCtaCble_CostoInven = item.IdCtaCble_CostoInven;
-                    Cbt.IdCentro_Costo_Costo = item.IdCentro_Costo_Costo;
-                    Cbt.IdCentro_Costo_Inventario = item.IdCentro_Costo_Inventario;
-                    Cbt.IdTipoCbte_CostoInven = item.IdTipoCbte_CostoInven;
-                    Cbt.IdTipoCbte_CostoInven_Reverso = item.IdTipoCbte_CostoInven_Reverso;
-                    Cbt.IdMovi_Inven_tipo_x_anu_Egr = item.IdMovi_Inven_tipo_x_anu_Egr;
-                    Cbt.IdMovi_Inven_tipo_x_anu_Ing = item.IdMovi_Inven_tipo_x_anu_Ing;
-                    Cbt.IdSucursalSuministro = Convert.ToInt32(item.IdSucursal_Suministro);
-                    Cbt.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa = item.IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa;
-                    Cbt.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa = item.IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa;
-                    Cbt.IdSucursalSuministro = Convert.ToInt32(item.IdSucursal_Suministro);
-                    Cbt.IdBodegaSuministro = Convert.ToInt32(item.IdBodegaSuministro);
-                    Cbt.IdTipoCbte_CostoInven = item.IdTipoCbte_CostoInven;
-                    Cbt.IdTipoCbte_CostoInven_Reverso = item.IdTipoCbte_CostoInven_Reverso;
-                    Cbt.IdMovi_Inven_tipo_x_anu_Ing = (item.IdMovi_Inven_tipo_x_anu_Ing);
-                    Cbt.IdMovi_Inven_tipo_x_anu_Egr = (item.IdMovi_Inven_tipo_x_anu_Egr);
-                    Cbt.IdEstadoAproba_x_Ing = item.IdEstadoAproba_x_Ing;
-                    Cbt.IdEstadoAproba_x_Egr = item.IdEstadoAproba_x_Egr;
-                    Cbt.P_Grabar_Items_x_Cada_Movi_Inven = item.P_Grabar_Items_x_Cada_Movi_Inven;
-                    Cbt.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg = item.IdMovi_Inven_tipo_x_Dev_Inv_x_Erg;
-                    Cbt.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing = item.IdMovi_Inven_tipo_x_Dev_Inv_x_Ing;
-                    Cbt.P_Fecha_para_contabilizacion_ingr_egr = item.P_Fecha_para_contabilizacion_ingr_egr;
-                    Cbt.P_se_valida_parametrizacion_x_producto = item.P_se_valida_parametrizacion_x_producto;
-                    Cbt.P_IdCtaCble_transitoria_transf_inven = item.P_IdCtaCble_transitoria_transf_inven;
-                    Cbt.IdMovi_inven_tipo_mobile_ing = item.IdMovi_inven_tipo_mobile_ing;
-                    Cbt.IdMovi_inven_tipo_mobile_egr = item.IdMovi_inven_tipo_mobile_egr;
-                    Cbt.P_ValidarDiasHaciaAtras = item.P_ValidarDiasHaciaAtras;
-
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "SELECT [IdEmpresa],[IdCentroCosto_Padre_a_cargar],[LabelCentroCosto],[IdMovi_inven_tipo_egresoBodegaOrigen],[IdMovi_inven_tipo_ingresoBodegaDestino],[Maneja_Stock_Negativo],[Usuario_Escoge_Motivo],[IdMovi_inven_tipo_egresoAjuste]"
+                                        +" ,[IdMovi_inven_tipo_ingresoAjuste],[Mostrar_CentroCosto_en_transacciones],[Rango_Busqueda_Transacciones],[pa_EstadoInicial_Pedido],[IdCtaCble_Inven],[IdCtaCble_CostoInven],[IdTipoCbte_CostoInven],[IdBodegaSuministro],[IdCentro_Costo_Inventario]"
+                                        +" ,[IdCentro_Costo_Costo],[IdTipoCbte_CostoInven_Reverso],[IdMovi_Inven_tipo_x_anu_Ing],[IdMovi_Inven_tipo_x_anu_Egr],[IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa],[IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa],[ApruebaAjusteFisicoAuto],[IdSucursal_Suministro]"
+                                        +" ,[IdEstadoAproba_x_Ing],[IdEstadoAproba_x_Egr],[IdMovi_Inven_tipo_x_Dev_Inv_x_Ing],[IdMovi_Inven_tipo_x_Dev_Inv_x_Erg],[P_Grabar_Items_x_Cada_Movi_Inven],[P_Fecha_para_contabilizacion_ingr_egr],[P_se_valida_parametrizacion_x_producto]"
+                                        +" ,[P_Al_Conta_CtaInven_Buscar_en],[P_Al_Conta_CtaCosto_Buscar_en],[P_IdCtaCble_transitoria_transf_inven],[IdMovi_inven_tipo_mobile_ing],[IdMovi_inven_tipo_mobile_egr],[P_ValidarDiasHaciaAtras],[IdCtaCble_Provision]"
+                                        +" FROM [dbo].[in_parametro]"
+                                        +" where IdEmpresa = "+IdEmpresa.ToString();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Cbt = new in_Parametro_Info
+                        {
+                            IdCentroCosto_Padre_a_cargar = reader["IdCentroCosto_Padre_a_cargar"] == DBNull.Value ? null : reader["IdCentroCosto_Padre_a_cargar"].ToString(),
+                            LabelCentroCosto = reader["LabelCentroCosto"] == DBNull.Value ? null : reader["LabelCentroCosto"].ToString(),
+                            IdMovi_inven_tipo_egresoBodegaOrigen = reader["IdMovi_inven_tipo_egresoBodegaOrigen"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_egresoBodegaOrigen"],
+                            IdMovi_inven_tipo_ingresoBodegaDestino = reader["IdMovi_inven_tipo_ingresoBodegaDestino"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_ingresoBodegaDestino"],
+                            Maneja_Stock_Negativo = reader["Maneja_Stock_Negativo"] == DBNull.Value ? null : reader["Maneja_Stock_Negativo"].ToString(),
+                            Usuario_Escoge_Motivo = reader["Usuario_Escoge_Motivo"] == DBNull.Value ? null : reader["Usuario_Escoge_Motivo"].ToString(),
+                            IdMovi_inven_tipo_egresoAjuste = reader["IdMovi_inven_tipo_egresoAjuste"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_egresoAjuste"],
+                            IdMovi_inven_tipo_ingresoAjuste = reader["IdMovi_inven_tipo_ingresoAjuste"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_ingresoAjuste"],
+                            Mostrar_CentroCosto_en_transacciones = reader["Mostrar_CentroCosto_en_transacciones"] == DBNull.Value ? null : reader["Mostrar_CentroCosto_en_transacciones"].ToString(),
+                            Rango_Busqueda_Transacciones = (int)reader["Rango_Busqueda_Transacciones"],
+                            ApruebaAjusteFisicoAuto = reader["ApruebaAjusteFisicoAuto"] == DBNull.Value ? null : reader["ApruebaAjusteFisicoAuto"].ToString(),
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdCtaCble_Inven = reader["IdCtaCble_Inven"] == DBNull.Value ? null : reader["IdCtaCble_Inven"].ToString(),
+                            IdCtaCble_CostoInven = reader["IdCtaCble_CostoInven"] == DBNull.Value ? null : reader["IdCtaCble_CostoInven"].ToString(),
+                            IdCentro_Costo_Costo = reader["IdCentro_Costo_Costo"] == DBNull.Value ? null : reader["IdCentro_Costo_Costo"].ToString(),
+                            IdCentro_Costo_Inventario = reader["IdCentro_Costo_Inventario"] == DBNull.Value ? null : reader["IdCentro_Costo_Inventario"].ToString(),
+                            IdTipoCbte_CostoInven = reader["IdTipoCbte_CostoInven"] == DBNull.Value ? null : (int?)reader["IdTipoCbte_CostoInven"],
+                            IdTipoCbte_CostoInven_Reverso = reader["IdTipoCbte_CostoInven_Reverso"] == DBNull.Value ? null : (int?)reader["IdTipoCbte_CostoInven_Reverso"],
+                            IdMovi_Inven_tipo_x_anu_Egr = reader["IdMovi_Inven_tipo_x_anu_Egr"] == DBNull.Value ? null : (int?)reader["IdMovi_Inven_tipo_x_anu_Egr"],
+                            IdMovi_Inven_tipo_x_anu_Ing = reader["IdMovi_Inven_tipo_x_anu_Ing"] == DBNull.Value ? null : (int?)reader["IdMovi_Inven_tipo_x_anu_Ing"],
+                            IdSucursalSuministro = Convert.ToInt32(reader["IdSucursal_Suministro"]),
+                            IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa = reader["IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa"] == DBNull.Value ? null : (int?)reader["IdMovi_Inven_tipo_Egr_Ajust_fis_x_defa"],
+                            IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa = reader["IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa"] == DBNull.Value ? null : (int?)reader["IdMovi_Inven_tipo_Ing_Ajust_fis_x_defa"],
+                            IdBodegaSuministro = Convert.ToInt32(reader["IdBodegaSuministro"]),
+                            IdEstadoAproba_x_Ing = reader["IdEstadoAproba_x_Ing"] == DBNull.Value ? null : reader["IdEstadoAproba_x_Ing"].ToString(),
+                            IdEstadoAproba_x_Egr = reader["IdEstadoAproba_x_Egr"] == DBNull.Value ? null : reader["IdEstadoAproba_x_Egr"].ToString(),
+                            P_Grabar_Items_x_Cada_Movi_Inven = reader["P_Grabar_Items_x_Cada_Movi_Inven"] == DBNull.Value ? null : (bool?)reader["P_Grabar_Items_x_Cada_Movi_Inven"],
+                            IdMovi_Inven_tipo_x_Dev_Inv_x_Erg = reader["IdMovi_Inven_tipo_x_Dev_Inv_x_Erg"] == DBNull.Value ? null : (int?)reader["IdMovi_Inven_tipo_x_Dev_Inv_x_Erg"],
+                            IdMovi_Inven_tipo_x_Dev_Inv_x_Ing = reader["IdMovi_Inven_tipo_x_Dev_Inv_x_Ing"] == DBNull.Value ? null : (int?)reader["IdMovi_Inven_tipo_x_Dev_Inv_x_Ing"],
+                            P_Fecha_para_contabilizacion_ingr_egr = reader["P_Fecha_para_contabilizacion_ingr_egr"] == DBNull.Value ? null : reader["P_Fecha_para_contabilizacion_ingr_egr"].ToString(),
+                            P_se_valida_parametrizacion_x_producto = reader["P_se_valida_parametrizacion_x_producto"] == DBNull.Value ? null : (bool?)reader["P_se_valida_parametrizacion_x_producto"],
+                            P_IdCtaCble_transitoria_transf_inven = reader["P_IdCtaCble_transitoria_transf_inven"] == DBNull.Value ? null : reader["P_IdCtaCble_transitoria_transf_inven"].ToString(),
+                            IdMovi_inven_tipo_mobile_ing = reader["IdMovi_inven_tipo_mobile_ing"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_mobile_ing"],
+                            IdMovi_inven_tipo_mobile_egr = reader["IdMovi_inven_tipo_mobile_egr"] == DBNull.Value ? null : (int?)reader["IdMovi_inven_tipo_mobile_egr"],
+                            P_ValidarDiasHaciaAtras = reader["P_ValidarDiasHaciaAtras"] == DBNull.Value ? null : (int?)reader["P_ValidarDiasHaciaAtras"],
+                            IdCtaCble_Provision = reader["IdCtaCble_Provision"] == DBNull.Value ? null : reader["IdCtaCble_Provision"].ToString()
+                        };
+                    }
+                    return Cbt;
                 }
-                return (Cbt);
             }
             catch (Exception ex)
             {

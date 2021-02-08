@@ -602,6 +602,7 @@
     <Compile Include="Inventario\in_egreso_d_Suministro_Info.cs" />
     <Compile Include="Inventario\in_Egreso_varios_det_Info.cs" />
     <Compile Include="Inventario\in_Egreso_varios_Info.cs" />
+    <Compile Include="Inventario\in_FacturasMalProvisionadas_Info.cs" />
     <Compile Include="Inventario\in_Familia_Info.cs" />
     <Compile Include="Inventario\in_grupo_info.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_det_Info.cs" />

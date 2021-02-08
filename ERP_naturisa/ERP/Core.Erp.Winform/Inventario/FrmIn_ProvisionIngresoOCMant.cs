@@ -45,6 +45,8 @@ namespace Core.Erp.Winform.Inventario
 
         ct_Plancta_Bus busPlancta;
         cl_parametrosGenerales_Bus param;
+        ct_Cbtecble_det_Bus busDetConta;
+        string MensajeError = string.Empty;
         #endregion
 
         public FrmIn_ProvisionIngresoOCMant()
@@ -60,6 +62,7 @@ namespace Core.Erp.Winform.Inventario
             busCentroCosto = new ct_Centro_costo_Bus();
             busSubcentro = new ct_centro_costo_sub_centro_costo_Bus();
             blstDetCuenta = new BindingList<ct_Cbtecble_det_Info>();
+            busDetConta = new ct_Cbtecble_det_Bus();
             event_delegateFrmIn_ProvisionIngresoOCMant_FormClosed += FrmIn_ProvisionIngresoOCMant_event_delegateFrmIn_ProvisionIngresoOCMant_FormClosed;
         }
 
@@ -167,14 +170,17 @@ namespace Core.Erp.Winform.Inventario
                     deFechaIni.DateTime = info.FechaIni;
                     deFechaFin.DateTime = info.FechaFin;
                     blstDet = new BindingList<in_ProvisionIngresosPorOCDet_Info>(busDet.GetList(info.IdEmpresa,info.IdProvision));
+                    blstDetCuenta = new BindingList<ct_Cbtecble_det_Info>(busDetConta.Get_list_Cbtecble_det(info.IdEmpresa,info.IdTipoCbte,info.IdCbteCble,ref MensajeError));
                     gcDet.DataSource = blstDet;
+                    gcDiario.DataSource = blstDetCuenta;
                 }
             }            
         }
 
         private void GetInfo()
         {
-            info = new in_ProvisionIngresosPorOC_Info();
+            info = info ?? new in_ProvisionIngresosPorOC_Info();
+            info.IdEmpresa = param.IdEmpresa;
             info.IdProvision = string.IsNullOrEmpty(txtIdProvision.Text) ? 0 : Convert.ToDecimal(txtIdProvision.Text);
             info.IdCtaCble = cmbPlanctaCabecera.EditValue.ToString();
             info.IdTipoCbte = Convert.ToInt32(cmbTipoCbte.EditValue);
@@ -182,7 +188,8 @@ namespace Core.Erp.Winform.Inventario
             info.Fecha = deFecha.DateTime;
             info.FechaIni = deFechaIni.DateTime;
             info.FechaFin = deFechaFin.DateTime;
-            info.ListaDetalle = new List<in_ProvisionIngresosPorOCDet_Info>(blstDet);           
+            info.ListaDetalle = new List<in_ProvisionIngresosPorOCDet_Info>(blstDet);
+            info.ListaDiario = new List<ct_Cbtecble_det_Info>(blstDetCuenta);
         }
 
         private bool Validar()
@@ -232,13 +239,13 @@ namespace Core.Erp.Winform.Inventario
                 case Cl_Enumeradores.eTipo_action.grabar:
                     if (!Validar())
                         return false;
-                    break;
+                    return Guardar();
                 case Cl_Enumeradores.eTipo_action.actualizar:
                     if (!Validar())
                         return false;
-                    break;
+                    return Modificar();
                 case Cl_Enumeradores.eTipo_action.Anular:
-                    break;
+                    return Anular();
             }
 
             return true;
@@ -263,13 +270,31 @@ namespace Core.Erp.Winform.Inventario
         private bool Modificar()
         {
             GetInfo();
-            return true;
+            if (bus.ModificarDB(info))
+            {
+                MessageBox.Show("Registro modificado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el registro", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
         }
 
         private bool Anular()
         {
             GetInfo();
-            return true;
+            if (bus.AnularDB(info))
+            {
+                MessageBox.Show("Registro anulado exitósamente", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo anular el registro", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -295,24 +320,30 @@ namespace Core.Erp.Winform.Inventario
                 MessageBox.Show("Existen bodegas sin cuenta contable de inventario y no se puede generar el diario contable", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            ArmarDiario();            
+        }
 
+        private void ArmarDiario()
+        {
             var lstAgrupada = (from a in blstDet
                                group a by a.IdCtaCtble_Inve into g
-                               select new ct_Cbtecble_det_Info{
+                               select new ct_Cbtecble_det_Info
+                               {
                                    IdCtaCble = g.Key,
-                                   dc_Valor = g.Sum(q=> q.Costo),
-                                   dc_Valor_D = g.Sum(q=> q.Costo)
+                                   dc_Valor = g.Sum(q => q.Costo),
+                                   dc_Valor_D = g.Sum(q => q.Costo)
                                }).ToList();
-            
-            
+
+
             lstAgrupada.ForEach(q => { q.dc_Valor = Math.Round(q.dc_Valor, 2, MidpointRounding.AwayFromZero); q.dc_Valor_D = Math.Round(q.dc_Valor_D, 2, MidpointRounding.AwayFromZero); });
             lstAgrupada.Add(new ct_Cbtecble_det_Info
             {
                 IdCtaCble = cmbPlanctaCabecera.EditValue.ToString(),
-                dc_Valor = Math.Round(lstAgrupada.Sum(q => q.dc_Valor) * -1,2,MidpointRounding.AwayFromZero),
-                dc_Valor_H = Math.Round(lstAgrupada.Sum(q => q.dc_Valor),2,MidpointRounding.AwayFromZero)
+                dc_Valor = Math.Round(lstAgrupada.Sum(q => q.dc_Valor) * -1, 2, MidpointRounding.AwayFromZero),
+                dc_Valor_H = Math.Round(lstAgrupada.Sum(q => q.dc_Valor), 2, MidpointRounding.AwayFromZero)
             });
             blstDetCuenta = new BindingList<ct_Cbtecble_det_Info>(lstAgrupada);
+            gcDiario.DataSource = blstDetCuenta;
         }
 
         private void menu_event_btnSalir_Click(object sender, EventArgs e)
@@ -347,6 +378,23 @@ namespace Core.Erp.Winform.Inventario
         private void menu_event_btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnExportarExcel_Click(object sender, EventArgs e)
+        {
+            gcDet.ShowPrintPreview();
+        }
+
+        private void gvDet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (MessageBox.Show("¿Está seguro que desea eliminar este registro ?", param.Nombre_sistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    gvDet.DeleteSelectedRows();
+                    ArmarDiario();
+                }
+            }
         }
     }
 }

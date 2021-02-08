@@ -6,6 +6,7 @@ using System.Text;
 using Core.Erp.Info.CuentasxPagar;
 using Core.Erp.Data.General;
 using Core.Erp.Info.General;
+using System.Data.SqlClient;
 
 
 namespace Core.Erp.Data.CuentasxPagar
@@ -124,79 +125,87 @@ namespace Core.Erp.Data.CuentasxPagar
            try
            {
                List<cp_Aprobacion_Ing_Bod_x_OC_det_Info> Lst = new List<cp_Aprobacion_Ing_Bod_x_OC_det_Info>();
-               EntitiesCuentasxPagar oEnti = new EntitiesCuentasxPagar();
 
-               oEnti.SetCommandTimeOut(5000);
-
-               var Query = oEnti.vwcp_Aprobacion_Ing_Bod_x_OC_det_PorAprobar.Where(q => q.IdEmpresa == IdEmpresa
-                           && q.IdProveedor == IdProveedor).ToList();
-
-               foreach (var item in Query)
+               using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                {
-                   Lst.Add(new cp_Aprobacion_Ing_Bod_x_OC_det_Info
+                   connection.Open();
+                   SqlCommand command = new SqlCommand();
+                   command.Connection = connection;
+                   command.CommandText = "SELECT        d.IdEmpresa, d.IdSucursal, d.IdMovi_inven_tipo, d.IdNumMovi, d.Secuencia, d.IdBodega, d.IdProducto, p.pr_descripcion, d.dm_cantidad_sinConversion, d.mv_costo_sinConversion, doc.do_porc_des, c.cm_fecha, p.IdCategoria, "
+                                        +" p.IdLinea, p.IdGrupo, p.IdSubGrupo, s.Su_Descripcion, b.bo_Descripcion, doc.IdSucursal AS IdSucursal_oc, doc.IdOrdenCompra, doc.Secuencia AS Secuencia_oc, d.IdCentroCosto, d.IdCentroCosto_sub_centro_costo, "
+                                        +" d.IdPunto_cargo, d.IdPunto_cargo_grupo, doc.Por_Iva, d.IdUnidadMedida_sinConversion, coc.IdProveedor, coc.oc_plazo, per.pe_nombreCompleto, mot.es_Inven_o_Consumo, "
+                                        +" CASE WHEN mot.es_Inven_o_Consumo = 'TIC_CONSU' THEN cc.IdCtaCble ELSE b.IdCtaCtble_Inve END AS IdCtaCble_Gasto, d.dm_cantidad_sinConversion * d.mv_costo_sinConversion AS Subtotal, "
+                                        +" (d.dm_cantidad_sinConversion * d.mv_costo_sinConversion) * (doc.Por_Iva / 100) AS ValorIVA, d.dm_cantidad_sinConversion * d.mv_costo_sinConversion + (d.dm_cantidad_sinConversion * d.mv_costo_sinConversion) "
+                                        + " * (doc.Por_Iva / 100) AS Total, provic.IdCtaCble as IdCtaCble_Provision, case when doc.Por_Iva > 0 then d.dm_cantidad_sinConversion * d.mv_costo_sinConversion else 0 end as subtotal0 "
+                                        + " case when doc.Por_Iva = 0 then d.dm_cantidad_sinConversion * d.mv_costo_sinConversion else 0 end as subtotaliva"
+                                        +" FROM            dbo.in_Ing_Egr_Inven_det AS d INNER JOIN"
+                                        +" dbo.in_Producto AS p ON d.IdEmpresa = p.IdEmpresa AND d.IdProducto = p.IdProducto INNER JOIN"
+                                        +" dbo.com_ordencompra_local_det AS doc ON doc.IdEmpresa = d.IdEmpresa_oc AND doc.IdSucursal = d.IdSucursal_oc AND doc.IdOrdenCompra = d.IdOrdenCompra AND doc.Secuencia = d.Secuencia_oc INNER JOIN"
+                                        +" dbo.in_Ing_Egr_Inven AS c ON c.IdEmpresa = d.IdEmpresa AND c.IdSucursal = d.IdSucursal AND c.IdMovi_inven_tipo = d.IdMovi_inven_tipo AND c.IdNumMovi = d.IdNumMovi INNER JOIN"
+                                        +" dbo.tb_bodega AS b ON b.IdEmpresa = d.IdEmpresa AND b.IdSucursal = d.IdSucursal AND b.IdBodega = d.IdBodega INNER JOIN"
+                                        +" dbo.tb_sucursal AS s ON s.IdEmpresa = b.IdEmpresa AND s.IdSucursal = b.IdSucursal INNER JOIN"
+                                        +" dbo.com_ordencompra_local AS coc ON coc.IdEmpresa = doc.IdEmpresa AND coc.IdSucursal = doc.IdSucursal AND coc.IdOrdenCompra = doc.IdOrdenCompra INNER JOIN"
+                                        +" dbo.cp_proveedor AS pro ON pro.IdEmpresa = coc.IdEmpresa AND pro.IdProveedor = coc.IdProveedor INNER JOIN"
+                                        +" dbo.tb_persona AS per ON pro.IdPersona = per.IdPersona INNER JOIN"
+                                        +" dbo.in_Motivo_Inven AS mot ON mot.IdEmpresa = c.IdEmpresa AND mot.IdMotivo_Inv = c.IdMotivo_Inv LEFT OUTER JOIN"
+                                        +" dbo.in_subgrupo_x_CentroCosto_x_SubCentroCosto_x_CtaCble AS cc ON cc.IdEmpresa = p.IdEmpresa AND cc.IdCategoria = p.IdCategoria AND cc.IdLinea = p.IdLinea AND cc.IdGrupo = p.IdGrupo AND "
+                                        +" cc.IdSubgrupo = p.IdSubGrupo AND d.IdCentroCosto = cc.IdCentroCosto AND d.IdCentroCosto_sub_centro_costo = cc.IdSub_centro_costo LEFT OUTER JOIN"
+                                        +" dbo.cp_Aprobacion_Ing_Bod_x_OC_det AS apro ON apro.IdEmpresa_Ing_Egr_Inv = d.IdEmpresa AND apro.IdSucursal_Ing_Egr_Inv = d.IdSucursal AND apro.IdMovi_inven_tipo_Ing_Egr_Inv = d.IdMovi_inven_tipo AND "
+                                        +" apro.IdNumMovi_Ing_Egr_Inv = d.IdNumMovi AND apro.Secuencia_Ing_Egr_Inv = d.Secuencia left join"
+                                        +" in_ProvisionIngresosPorOCDet as provi on provi.IdEmpresa = d.IdEmpresa and provi.IdSucursal = d.IdSucursal and provi.IdMovi_inven_tipo = d.IdMovi_inven_tipo and provi.IdNumMovi = d.IdNumMovi and provi.Secuencia = d.Secuencia left join"
+                                        +" in_ProvisionIngresosPorOC as provic on provic.IdEmpresa = provi.IdEmpresa and provic.IdProvision = provi.IdProvision "
+                                        +" WHERE        d.IdEmpresa = "+IdEmpresa.ToString()+" and coc.IdProveedor = "+IdProveedor.ToString()+" and (apro.IdAprobacion IS NULL)";
+                   SqlDataReader reader = command.ExecuteReader();
+                   while (reader.Read())
                    {
-
-                       IdEmpresa_Ing_Egr_Inv = item.IdEmpresa,
-                       IdSucursal_Ing_Egr_Inv = item.IdSucursal,
-                       IdMovi_inven_tipo_Ing_Egr_Inv = item.IdMovi_inven_tipo,
-                       IdNumMovi_Ing_Egr_Inv = item.IdNumMovi,
-                       Secuencia_Ing_Egr_Inv = item.Secuencia,
-                       IdBodega = item.IdBodega,
-                       Fecha_Ing_Bod = item.cm_fecha,
-                       IdProducto = item.IdProducto,
-                       nom_producto = item.pr_descripcion,
-                       Cantidad = item.dm_cantidad_sinConversion,
-                       Costo_uni = item.mv_costo_sinConversion ?? 0,
-                       //Campos para contabilizacion de Naturisa
-                       IdCategoria = item.IdCategoria,
-                       IdLinea = item.IdLinea,
-                       IdGrupo = item.IdGrupo,
-                       IdSubGrupo = item.IdSubGrupo,
-                       nom_bodega = item.bo_Descripcion,
-                       nom_sucursal = item.Su_Descripcion,
-                       do_porc_des = item.do_porc_des,
-                       //Campos para el diario de gastos
-                       IdCentro_Costo = item.IdCentroCosto,
-                       IdCentroCosto_sub_centro_costo = item.IdCentroCosto_sub_centro_costo,
-                       IdPunto_cargo_grupo = item.IdPunto_cargo_grupo,
-                       IdPunto_cargo = item.IdPunto_cargo,
-                       Secuencia_OC = item.Secuencia_oc,
-                       IdSucursal_OC = item.IdSucursal_oc,
-                       IdOrdenCompra = item.IdOrdenCompra,
-                       PorIva = item.Por_Iva,
-                       IdUnidadMedida = item.IdUnidadMedida_sinConversion,
-                       //  nom_medida = item.nom_medida,
-                       IdProveedor = item.IdProveedor,
-                       nom_proveedor = item.pe_nombreCompleto,
-                       Dias = item.oc_plazo,
-                       IdCtaCble_Gasto = item.IdCtaCble_Gasto,
-                       IdRegistro = item.IdCentroCosto+"-"+item.IdCentroCosto_sub_centro_costo,
-                       SubTotal = item.Subtotal ?? 0,
-                       valor_Iva = item.ValorIVA ?? 0,
-                       Total = item.Total ?? 0,
-                       subtotal0 = (item.ValorIVA == 0 ? item.Subtotal : 0) ?? 0,
-                        subtotaliva = (item.ValorIVA > 0 ? item.Subtotal : 0) ?? 0
-                       /**
-                       Obj.IdCtaCtble_Gasto_x_cxp_x_Produc = item.IdCtaCtble_Gasto_x_cxp_x_Produc;
-                       Obj.IdCtaCble_Inven_x_Produc = item.IdCtaCble_Inven_x_Produc;
-                       Obj.IdCtaCtble_Inve_x_Bodega = item.IdCtaCtble_Inve_x_Bodega;
-                       Obj.IdCtaCble_Inven_x_Motivo = item.IdCtaCble_Inven_x_Motivo;
-                       Obj.IdCtaCble_Costo_x_Motivo = item.IdCtaCble_Costo_x_Motivo;
-                       ein_Inventario_O_Consumo Tipo_Inve_o_Consu;
-
-                       try
+                       Lst.Add(new cp_Aprobacion_Ing_Bod_x_OC_det_Info
                        {
-                           Tipo_Inve_o_Consu = (ein_Inventario_O_Consumo)Enum.Parse(typeof(ein_Inventario_O_Consumo), item.es_Inven_o_Consumo);
-                       }
-                       catch (Exception ex)
-                       {
-                           Tipo_Inve_o_Consu = ein_Inventario_O_Consumo.TIC_INVEN;
-                       }
+                           IdEmpresa_Ing_Egr_Inv = Convert.ToInt32(reader["IdEmpresa"]),
+                           IdSucursal_Ing_Egr_Inv = Convert.ToInt32(reader["IdSucursal"]),
+                           IdMovi_inven_tipo_Ing_Egr_Inv = Convert.ToInt32(reader["IdMovi_inven_tipo"]),
+                           IdNumMovi_Ing_Egr_Inv = Convert.ToDecimal(reader["IdNumMovi"]),
+                           Secuencia_Ing_Egr_Inv = Convert.ToInt32(reader["Secuencia"]),
+                           IdBodega = Convert.ToInt32(reader["IdBodega"]),
+                           Fecha_Ing_Bod = Convert.ToDateTime(reader["cm_fecha"]),
+                           IdProducto = Convert.ToDecimal(reader["IdProducto"]),
+                           nom_producto = Convert.ToString(reader["pr_descripcion"]),
+                           Cantidad = Convert.ToDouble(reader["dm_cantidad_sinConversion"]),
+                           Costo_uni = reader["mv_costo_sinConversion"] == DBNull.Value ? 0 : Convert.ToDouble(reader["mv_costo_sinConversion"]),
+                           //Campos para contabilizacion de Naturisa
+                           IdCategoria = reader["IdCategoria"].ToString(),
+                           IdLinea = Convert.ToInt32(reader["IdLinea"]),
+                           IdGrupo = Convert.ToInt32(reader["IdGrupo"]),
+                           IdSubGrupo = Convert.ToInt32(reader["IdSubGrupo"]),
+                           nom_bodega = reader["bo_Descripcion"].ToString(),
+                           nom_sucursal = reader["Su_Descripcion"].ToString(),
+                           do_porc_des = Convert.ToDouble(reader["do_porc_des"]),
+                           //Campos para el diario de gastos
+                           IdCentro_Costo = reader["IdCentroCosto"] == DBNull.Value ? null : reader["IdCentroCosto"].ToString(),
+                           IdCentroCosto_sub_centro_costo = reader["IdCentroCosto_sub_centro_costo"] == DBNull.Value ? null : reader["IdCentroCosto_sub_centro_costo"].ToString(),
+                           IdPunto_cargo_grupo = reader["IdPunto_cargo_grupo"] == DBNull.Value ? null : (int?)reader["IdPunto_cargo_grupo"],
+                           IdPunto_cargo = reader["IdPunto_cargo"] == DBNull.Value ? null : (int?)reader["IdPunto_cargo"],
+                           Secuencia_OC = Convert.ToInt32(reader["item.Secuencia_oc"]),
+                           IdSucursal_OC = Convert.ToInt32(reader["item.IdSucursal_oc"]),
+                           IdOrdenCompra = Convert.ToDecimal(reader["item.IdOrdenCompra"]),
+                           PorIva = Convert.ToDouble(reader["item.Por_Iva"]),
+                           IdUnidadMedida = reader["IdUnidadMedida_sinConversion"] == DBNull.Value ? null : reader["IdUnidadMedida_sinConversion"].ToString(),
+                           //  nom_medida = item.nom_medida,
+                           IdProveedor = Convert.ToDecimal(reader["item.IdProveedor"]),
+                           nom_proveedor = reader["pe_nombreCompleto"].ToString(),
+                           Dias =  Convert.ToInt32(reader["oc_plazo"]),
+                           IdCtaCble_Gasto = reader["IdCtaCble_Gasto"] == DBNull.Value ? null : reader["IdCtaCble_Gasto"].ToString(),
+                           IdRegistro = (reader["IdCentroCosto"] == DBNull.Value ? null : (reader["IdCentroCosto"].ToString() + "-" + reader["IdCentroCosto_sub_centro_costo"].ToString())),
 
-                       Obj.S_es_Inven_o_Consumo = item.es_Inven_o_Consumo;
-                       Obj.es_Inven_o_Consumo = Tipo_Inve_o_Consu;
-                          */
-                   });
+                           SubTotal = reader["Subtotal"] == DBNull.Value ? 0 : Convert.ToDouble(reader["Subtotal"]),
+                           valor_Iva = reader["ValorIVA"] == DBNull.Value ? 0 : Convert.ToDouble(reader["ValorIVA"]),
+                           Total = reader["Total"] == DBNull.Value ? 0 : Convert.ToDouble(reader["Total"]),
+                           subtotal0 = reader["subtotal0"] == DBNull.Value ? 0 : Convert.ToDouble(reader["subtotal0"]),
+                           subtotaliva = reader["subtotaliva"] == DBNull.Value ? 0 : Convert.ToDouble(reader["subtotaliva"]),
+                           IdCtaCble_Provision = reader["IdCtaCble_Provision"] == DBNull.Value ? null : reader["IdCtaCble_Provision"].ToString(),
+                           S_es_Inven_o_Consumo = reader["es_Inven_o_Consumo"].ToString()
+                       });
+                   }
+                   reader.Close();
                }
 
                return Lst;

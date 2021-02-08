@@ -180,9 +180,35 @@
             this.btnBuscarTransFecha = new System.Windows.Forms.ToolStripButton();
             this.btnTransCambiarFecha = new System.Windows.Forms.ToolStripButton();
             this.btnEliminarTransferencia = new System.Windows.Forms.ToolStripButton();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.gcfmp = new DevExpress.XtraGrid.GridControl();
+            this.gvfmp = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.deFechaFinFact = new DevExpress.XtraEditors.DateEdit();
+            this.label16 = new System.Windows.Forms.Label();
+            this.deFechaIniFact = new DevExpress.XtraEditors.DateEdit();
+            this.toolStrip8 = new System.Windows.Forms.ToolStrip();
+            this.btnBuscarFacturas = new System.Windows.Forms.ToolStripButton();
+            this.btnModificarDiario = new System.Windows.Forms.ToolStripButton();
+            this.btnImprimirfmp = new System.Windows.Forms.ToolStripButton();
             this.toolStripCabecera = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
+            this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_ini_recosteo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TabControlRecosteo)).BeginInit();
@@ -261,6 +287,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtIdTransferencia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).BeginInit();
             this.toolStrip7.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcfmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvfmp)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinFact.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinFact.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniFact.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniFact.Properties)).BeginInit();
+            this.toolStrip8.SuspendLayout();
             this.toolStripCabecera.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -268,10 +303,10 @@
             // 
             this.ucGe_BarraEstadoInferior_Forms1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ucGe_BarraEstadoInferior_Forms1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 409);
+            this.ucGe_BarraEstadoInferior_Forms1.Location = new System.Drawing.Point(0, 585);
             this.ucGe_BarraEstadoInferior_Forms1.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_BarraEstadoInferior_Forms1.Name = "ucGe_BarraEstadoInferior_Forms1";
-            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1007, 26);
+            this.ucGe_BarraEstadoInferior_Forms1.Size = new System.Drawing.Size(1292, 26);
             this.ucGe_BarraEstadoInferior_Forms1.TabIndex = 0;
             // 
             // ucIn_Sucursal_Bodega_multiple1
@@ -310,7 +345,7 @@
             this.TabControlRecosteo.Location = new System.Drawing.Point(0, 25);
             this.TabControlRecosteo.Name = "TabControlRecosteo";
             this.TabControlRecosteo.SelectedTabPage = this.tabPage_recosteo;
-            this.TabControlRecosteo.Size = new System.Drawing.Size(1007, 384);
+            this.TabControlRecosteo.Size = new System.Drawing.Size(1292, 560);
             this.TabControlRecosteo.TabIndex = 3;
             this.TabControlRecosteo.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPage_recosteo,
@@ -319,7 +354,8 @@
             this.TabPage_recosteo_x_producto,
             this.TabPage_Diferencias,
             this.TabPage_CambiarFecha,
-            this.TabPage_CambiarTrans});
+            this.TabPage_CambiarTrans,
+            this.xtraTabPage1});
             // 
             // tabPage_recosteo
             // 
@@ -327,7 +363,7 @@
             this.tabPage_recosteo.Controls.Add(this.panel3);
             this.tabPage_recosteo.Controls.Add(this.panel5);
             this.tabPage_recosteo.Name = "tabPage_recosteo";
-            this.tabPage_recosteo.Size = new System.Drawing.Size(1001, 356);
+            this.tabPage_recosteo.Size = new System.Drawing.Size(1286, 532);
             this.tabPage_recosteo.Text = "Recosteo";
             // 
             // gridControlRecosteo
@@ -336,7 +372,7 @@
             this.gridControlRecosteo.Location = new System.Drawing.Point(0, 86);
             this.gridControlRecosteo.MainView = this.gridViewRecosteo;
             this.gridControlRecosteo.Name = "gridControlRecosteo";
-            this.gridControlRecosteo.Size = new System.Drawing.Size(1001, 244);
+            this.gridControlRecosteo.Size = new System.Drawing.Size(1286, 420);
             this.gridControlRecosteo.TabIndex = 0;
             this.gridControlRecosteo.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewRecosteo});
@@ -423,9 +459,9 @@
             // 
             this.panel3.Controls.Add(this.ProgressBar_recosteo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 330);
+            this.panel3.Location = new System.Drawing.Point(0, 506);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1001, 26);
+            this.panel3.Size = new System.Drawing.Size(1286, 26);
             this.panel3.TabIndex = 1;
             // 
             // ProgressBar_recosteo
@@ -434,7 +470,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProgressBar_recosteo.Location = new System.Drawing.Point(5, 3);
             this.ProgressBar_recosteo.Name = "ProgressBar_recosteo";
-            this.ProgressBar_recosteo.Size = new System.Drawing.Size(989, 19);
+            this.ProgressBar_recosteo.Size = new System.Drawing.Size(1274, 19);
             this.ProgressBar_recosteo.TabIndex = 0;
             // 
             // panel5
@@ -446,7 +482,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1001, 86);
+            this.panel5.Size = new System.Drawing.Size(1286, 86);
             this.panel5.TabIndex = 2;
             // 
             // toolStrip1
@@ -455,7 +491,7 @@
             this.btn_recostear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1286, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -474,7 +510,7 @@
             this.tabPage_transferencias.Controls.Add(this.panel2);
             this.tabPage_transferencias.Controls.Add(this.splitContainerControl1);
             this.tabPage_transferencias.Name = "tabPage_transferencias";
-            this.tabPage_transferencias.Size = new System.Drawing.Size(1001, 356);
+            this.tabPage_transferencias.Size = new System.Drawing.Size(1286, 532);
             this.tabPage_transferencias.Text = "Corrección de transferencias";
             // 
             // gridControlTransferencias
@@ -485,7 +521,7 @@
             this.gridControlTransferencias.Name = "gridControlTransferencias";
             this.gridControlTransferencias.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_imagenes_tr});
-            this.gridControlTransferencias.Size = new System.Drawing.Size(1001, 301);
+            this.gridControlTransferencias.Size = new System.Drawing.Size(1286, 477);
             this.gridControlTransferencias.TabIndex = 1;
             this.gridControlTransferencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTransferencias});
@@ -567,9 +603,9 @@
             // 
             this.panel2.Controls.Add(this.ProgressBar_transferencias);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 326);
+            this.panel2.Location = new System.Drawing.Point(0, 502);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1001, 30);
+            this.panel2.Size = new System.Drawing.Size(1286, 30);
             this.panel2.TabIndex = 2;
             // 
             // ProgressBar_transferencias
@@ -578,7 +614,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProgressBar_transferencias.Location = new System.Drawing.Point(3, 6);
             this.ProgressBar_transferencias.Name = "ProgressBar_transferencias";
-            this.ProgressBar_transferencias.Size = new System.Drawing.Size(990, 18);
+            this.ProgressBar_transferencias.Size = new System.Drawing.Size(1275, 18);
             this.ProgressBar_transferencias.TabIndex = 0;
             // 
             // splitContainerControl1
@@ -590,7 +626,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.toolStrip2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1001, 25);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1286, 25);
             this.splitContainerControl1.SplitterPosition = 303;
             this.splitContainerControl1.TabIndex = 6;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -633,7 +669,7 @@
             this.btn_corregir_transferencias});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(693, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(978, 25);
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip2";
             this.toolStrip2.Click += new System.EventHandler(this.btn_buscar_transferencias_Click);
@@ -662,7 +698,7 @@
             this.tabPage_contabilizar.Controls.Add(this.panel1);
             this.tabPage_contabilizar.Controls.Add(this.toolStrip3);
             this.tabPage_contabilizar.Name = "tabPage_contabilizar";
-            this.tabPage_contabilizar.Size = new System.Drawing.Size(1001, 356);
+            this.tabPage_contabilizar.Size = new System.Drawing.Size(1286, 532);
             this.tabPage_contabilizar.Text = "Movimientos sin contabilizar";
             // 
             // gridControlContabilizacion
@@ -671,7 +707,7 @@
             this.gridControlContabilizacion.Location = new System.Drawing.Point(0, 87);
             this.gridControlContabilizacion.MainView = this.gridViewContabilizacion;
             this.gridControlContabilizacion.Name = "gridControlContabilizacion";
-            this.gridControlContabilizacion.Size = new System.Drawing.Size(1001, 269);
+            this.gridControlContabilizacion.Size = new System.Drawing.Size(1286, 445);
             this.gridControlContabilizacion.TabIndex = 1;
             this.gridControlContabilizacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewContabilizacion});
@@ -777,7 +813,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 62);
+            this.panel1.Size = new System.Drawing.Size(1286, 62);
             this.panel1.TabIndex = 0;
             // 
             // chk_seleccionar_visibles
@@ -874,7 +910,7 @@
             this.btn_contabilizar});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(1286, 25);
             this.toolStrip3.TabIndex = 2;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -903,7 +939,7 @@
             this.TabPage_recosteo_x_producto.Controls.Add(this.toolStrip4);
             this.TabPage_recosteo_x_producto.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_recosteo_x_producto.Name = "TabPage_recosteo_x_producto";
-            this.TabPage_recosteo_x_producto.Size = new System.Drawing.Size(1001, 356);
+            this.TabPage_recosteo_x_producto.Size = new System.Drawing.Size(1286, 532);
             this.TabPage_recosteo_x_producto.Text = "Recosteo por producto";
             // 
             // gcHistorico
@@ -912,7 +948,7 @@
             this.gcHistorico.Location = new System.Drawing.Point(0, 121);
             this.gcHistorico.MainView = this.gvHistorico;
             this.gcHistorico.Name = "gcHistorico";
-            this.gcHistorico.Size = new System.Drawing.Size(1001, 235);
+            this.gcHistorico.Size = new System.Drawing.Size(1286, 411);
             this.gcHistorico.TabIndex = 9;
             this.gcHistorico.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvHistorico});
@@ -962,7 +998,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 25);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1001, 96);
+            this.panel6.Size = new System.Drawing.Size(1286, 96);
             this.panel6.TabIndex = 8;
             // 
             // label6
@@ -1033,7 +1069,7 @@
             this.ucIn_Sucursal_Bodega1.Size = new System.Drawing.Size(462, 53);
             this.ucIn_Sucursal_Bodega1.TabIndex = 2;
             this.ucIn_Sucursal_Bodega1.TipoCarga = Core.Erp.Info.General.Cl_Enumeradores.eTipoFiltro.todos;
-            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
+            this.ucIn_Sucursal_Bodega1.Visible_cmb_bodega = false;
             // 
             // label5
             // 
@@ -1063,7 +1099,7 @@
             this.btn_recostear_x_producto});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(1286, 25);
             this.toolStrip4.TabIndex = 7;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -1092,7 +1128,7 @@
             this.TabPage_Diferencias.Controls.Add(this.toolStrip5);
             this.TabPage_Diferencias.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_Diferencias.Name = "TabPage_Diferencias";
-            this.TabPage_Diferencias.Size = new System.Drawing.Size(1001, 356);
+            this.TabPage_Diferencias.Size = new System.Drawing.Size(1286, 532);
             this.TabPage_Diferencias.Text = "Diferencias contables";
             // 
             // gcDiferencias
@@ -1101,7 +1137,7 @@
             this.gcDiferencias.Location = new System.Drawing.Point(0, 115);
             this.gcDiferencias.MainView = this.gvDiferencias;
             this.gcDiferencias.Name = "gcDiferencias";
-            this.gcDiferencias.Size = new System.Drawing.Size(1001, 241);
+            this.gcDiferencias.Size = new System.Drawing.Size(1286, 417);
             this.gcDiferencias.TabIndex = 4;
             this.gcDiferencias.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDiferencias});
@@ -1234,7 +1270,7 @@
             this.panel7.Location = new System.Drawing.Point(0, 25);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1001, 90);
+            this.panel7.Size = new System.Drawing.Size(1286, 90);
             this.panel7.TabIndex = 5;
             // 
             // chkSeleccionarVisiblesReversos
@@ -1295,7 +1331,7 @@
             this.btnReversarContabilizacion});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(1286, 25);
             this.toolStrip5.TabIndex = 3;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -1327,7 +1363,7 @@
             this.TabPage_CambiarFecha.Controls.Add(this.toolStrip6);
             this.TabPage_CambiarFecha.Margin = new System.Windows.Forms.Padding(2);
             this.TabPage_CambiarFecha.Name = "TabPage_CambiarFecha";
-            this.TabPage_CambiarFecha.Size = new System.Drawing.Size(1001, 356);
+            this.TabPage_CambiarFecha.Size = new System.Drawing.Size(1286, 532);
             this.TabPage_CambiarFecha.Text = "Cambiar fecha de movimientos";
             // 
             // label14
@@ -1384,7 +1420,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 25);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1001, 99);
+            this.panel8.Size = new System.Drawing.Size(1286, 99);
             this.panel8.TabIndex = 5;
             // 
             // txtNumMovimiento
@@ -1553,7 +1589,7 @@
             this.btnCambiarFecha});
             this.toolStrip6.Location = new System.Drawing.Point(0, 0);
             this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip6.Size = new System.Drawing.Size(1286, 25);
             this.toolStrip6.TabIndex = 4;
             this.toolStrip6.Text = "toolStrip6";
             // 
@@ -1580,7 +1616,7 @@
             this.TabPage_CambiarTrans.Controls.Add(this.panel9);
             this.TabPage_CambiarTrans.Controls.Add(this.toolStrip7);
             this.TabPage_CambiarTrans.Name = "TabPage_CambiarTrans";
-            this.TabPage_CambiarTrans.Size = new System.Drawing.Size(1001, 356);
+            this.TabPage_CambiarTrans.Size = new System.Drawing.Size(1286, 532);
             this.TabPage_CambiarTrans.Text = "Modificar Elliminar transferencias";
             // 
             // panel9
@@ -1603,7 +1639,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 25);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1001, 331);
+            this.panel9.Size = new System.Drawing.Size(1286, 507);
             this.panel9.TabIndex = 6;
             // 
             // labelControl7
@@ -1828,7 +1864,7 @@
             this.btnEliminarTransferencia});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(1001, 25);
+            this.toolStrip7.Size = new System.Drawing.Size(1286, 25);
             this.toolStrip7.TabIndex = 5;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -1860,13 +1896,292 @@
             this.btnEliminarTransferencia.Text = "Eliminar";
             this.btnEliminarTransferencia.Click += new System.EventHandler(this.btnEliminarTransferencia_Click);
             // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.gcfmp);
+            this.xtraTabPage1.Controls.Add(this.panel10);
+            this.xtraTabPage1.Controls.Add(this.toolStrip8);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(1286, 532);
+            this.xtraTabPage1.Text = "Facturas a provisionar";
+            // 
+            // gcfmp
+            // 
+            this.gcfmp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcfmp.Location = new System.Drawing.Point(0, 115);
+            this.gcfmp.MainView = this.gvfmp;
+            this.gcfmp.Name = "gcfmp";
+            this.gcfmp.Size = new System.Drawing.Size(1286, 417);
+            this.gcfmp.TabIndex = 8;
+            this.gcfmp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvfmp});
+            // 
+            // gvfmp
+            // 
+            this.gvfmp.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn36,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn45,
+            this.gridColumn46,
+            this.gridColumn47,
+            this.gridColumn48,
+            this.gridColumn49,
+            this.gridColumn50,
+            this.gridColumn51,
+            this.gridColumn52,
+            this.gridColumn53,
+            this.gridColumn54});
+            this.gvfmp.GridControl = this.gcfmp;
+            this.gvfmp.GroupCount = 1;
+            this.gvfmp.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", this.gridColumn51, "{0:n2}")});
+            this.gvfmp.Images = this.lst_imagenes_trans;
+            this.gvfmp.Name = "gvfmp";
+            this.gvfmp.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gvfmp.OptionsView.ShowAutoFilterRow = true;
+            this.gvfmp.OptionsView.ShowFooter = true;
+            this.gvfmp.OptionsView.ShowGroupPanel = false;
+            this.gvfmp.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn54, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "# Cbte";
+            this.gridColumn36.FieldName = "IdCbteCble_Ogiro";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 0;
+            this.gridColumn36.Width = 74;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "Fecha factura";
+            this.gridColumn39.DisplayFormat.FormatString = "d";
+            this.gridColumn39.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn39.FieldName = "Fecha_Factura";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 2;
+            this.gridColumn39.Width = 74;
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.Caption = "Fecha inv.";
+            this.gridColumn40.DisplayFormat.FormatString = "d";
+            this.gridColumn40.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn40.FieldName = "cm_fecha";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 3;
+            this.gridColumn40.Width = 74;
+            // 
+            // gridColumn41
+            // 
+            this.gridColumn41.Caption = "Observación";
+            this.gridColumn41.FieldName = "Observacion";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.Visible = true;
+            this.gridColumn41.VisibleIndex = 5;
+            this.gridColumn41.Width = 190;
+            // 
+            // gridColumn45
+            // 
+            this.gridColumn45.Caption = "# Documento";
+            this.gridColumn45.FieldName = "num_documento";
+            this.gridColumn45.Name = "gridColumn45";
+            this.gridColumn45.Visible = true;
+            this.gridColumn45.VisibleIndex = 1;
+            this.gridColumn45.Width = 100;
+            // 
+            // gridColumn46
+            // 
+            this.gridColumn46.Caption = "Producto";
+            this.gridColumn46.FieldName = "pr_descripcion";
+            this.gridColumn46.Name = "gridColumn46";
+            this.gridColumn46.Visible = true;
+            this.gridColumn46.VisibleIndex = 6;
+            this.gridColumn46.Width = 191;
+            // 
+            // gridColumn47
+            // 
+            this.gridColumn47.Caption = "Cantidad";
+            this.gridColumn47.DisplayFormat.FormatString = "n2";
+            this.gridColumn47.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn47.FieldName = "Cantidad";
+            this.gridColumn47.Name = "gridColumn47";
+            this.gridColumn47.Visible = true;
+            this.gridColumn47.VisibleIndex = 7;
+            this.gridColumn47.Width = 58;
+            // 
+            // gridColumn48
+            // 
+            this.gridColumn48.Caption = "Costo U.";
+            this.gridColumn48.DisplayFormat.FormatString = "n2";
+            this.gridColumn48.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn48.FieldName = "Costo_uni";
+            this.gridColumn48.Name = "gridColumn48";
+            this.gridColumn48.Visible = true;
+            this.gridColumn48.VisibleIndex = 8;
+            this.gridColumn48.Width = 58;
+            // 
+            // gridColumn49
+            // 
+            this.gridColumn49.Caption = "SubTotal";
+            this.gridColumn49.DisplayFormat.FormatString = "n2";
+            this.gridColumn49.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn49.FieldName = "SubTotal";
+            this.gridColumn49.Name = "gridColumn49";
+            this.gridColumn49.Visible = true;
+            this.gridColumn49.VisibleIndex = 9;
+            this.gridColumn49.Width = 58;
+            // 
+            // gridColumn50
+            // 
+            this.gridColumn50.Caption = "I.V.A.";
+            this.gridColumn50.DisplayFormat.FormatString = "n2";
+            this.gridColumn50.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn50.FieldName = "valor_Iva";
+            this.gridColumn50.Name = "gridColumn50";
+            this.gridColumn50.Visible = true;
+            this.gridColumn50.VisibleIndex = 10;
+            this.gridColumn50.Width = 58;
+            // 
+            // gridColumn51
+            // 
+            this.gridColumn51.Caption = "Total";
+            this.gridColumn51.DisplayFormat.FormatString = "n2";
+            this.gridColumn51.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn51.FieldName = "Total";
+            this.gridColumn51.Name = "gridColumn51";
+            this.gridColumn51.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")});
+            this.gridColumn51.Visible = true;
+            this.gridColumn51.VisibleIndex = 11;
+            this.gridColumn51.Width = 58;
+            // 
+            // gridColumn52
+            // 
+            this.gridColumn52.Caption = "Proveedor";
+            this.gridColumn52.FieldName = "pe_nombreCompleto";
+            this.gridColumn52.Name = "gridColumn52";
+            this.gridColumn52.Visible = true;
+            this.gridColumn52.VisibleIndex = 4;
+            this.gridColumn52.Width = 187;
+            // 
+            // gridColumn53
+            // 
+            this.gridColumn53.Caption = "V. Total Contabilidad";
+            this.gridColumn53.DisplayFormat.FormatString = "n2";
+            this.gridColumn53.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn53.FieldName = "dc_Valor";
+            this.gridColumn53.Name = "gridColumn53";
+            this.gridColumn53.Visible = true;
+            this.gridColumn53.VisibleIndex = 12;
+            this.gridColumn53.Width = 88;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label15);
+            this.panel10.Controls.Add(this.deFechaFinFact);
+            this.panel10.Controls.Add(this.label16);
+            this.panel10.Controls.Add(this.deFechaIniFact);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 25);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1286, 90);
+            this.panel10.TabIndex = 6;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(23, 48);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Hasta:";
+            // 
+            // deFechaFinFact
+            // 
+            this.deFechaFinFact.EditValue = null;
+            this.deFechaFinFact.Location = new System.Drawing.Point(70, 45);
+            this.deFechaFinFact.Name = "deFechaFinFact";
+            this.deFechaFinFact.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaFinFact.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaFinFact.Size = new System.Drawing.Size(125, 20);
+            this.deFechaFinFact.TabIndex = 8;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(23, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 13);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "Desde:";
+            // 
+            // deFechaIniFact
+            // 
+            this.deFechaIniFact.EditValue = null;
+            this.deFechaIniFact.Location = new System.Drawing.Point(70, 19);
+            this.deFechaIniFact.Name = "deFechaIniFact";
+            this.deFechaIniFact.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaIniFact.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deFechaIniFact.Size = new System.Drawing.Size(125, 20);
+            this.deFechaIniFact.TabIndex = 6;
+            // 
+            // toolStrip8
+            // 
+            this.toolStrip8.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnBuscarFacturas,
+            this.btnModificarDiario,
+            this.btnImprimirfmp});
+            this.toolStrip8.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip8.Name = "toolStrip8";
+            this.toolStrip8.Size = new System.Drawing.Size(1286, 25);
+            this.toolStrip8.TabIndex = 7;
+            this.toolStrip8.Text = "toolStrip8";
+            // 
+            // btnBuscarFacturas
+            // 
+            this.btnBuscarFacturas.Image = global::Core.Erp.Winform.Properties.Resources.Buscar_16x16;
+            this.btnBuscarFacturas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBuscarFacturas.Name = "btnBuscarFacturas";
+            this.btnBuscarFacturas.Size = new System.Drawing.Size(65, 22);
+            this.btnBuscarFacturas.Text = "Buscar ";
+            this.btnBuscarFacturas.Click += new System.EventHandler(this.btnBuscarFacturas_Click);
+            // 
+            // btnModificarDiario
+            // 
+            this.btnModificarDiario.Image = global::Core.Erp.Winform.Properties.Resources.editar1_16x16;
+            this.btnModificarDiario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnModificarDiario.Name = "btnModificarDiario";
+            this.btnModificarDiario.Size = new System.Drawing.Size(111, 22);
+            this.btnModificarDiario.Text = "Modificar diario";
+            this.btnModificarDiario.Click += new System.EventHandler(this.btnModificarDiario_Click);
+            // 
+            // btnImprimirfmp
+            // 
+            this.btnImprimirfmp.Image = global::Core.Erp.Winform.Properties.Resources.imprimir_32x32;
+            this.btnImprimirfmp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImprimirfmp.Name = "btnImprimirfmp";
+            this.btnImprimirfmp.Size = new System.Drawing.Size(73, 22);
+            this.btnImprimirfmp.Text = "Imprimir";
+            this.btnImprimirfmp.Click += new System.EventHandler(this.btnImprimirfmp_Click);
+            // 
             // toolStripCabecera
             // 
             this.toolStripCabecera.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_salir});
             this.toolStripCabecera.Location = new System.Drawing.Point(0, 0);
             this.toolStripCabecera.Name = "toolStripCabecera";
-            this.toolStripCabecera.Size = new System.Drawing.Size(1007, 25);
+            this.toolStripCabecera.Size = new System.Drawing.Size(1292, 25);
             this.toolStripCabecera.TabIndex = 7;
             this.toolStripCabecera.Text = "toolStrip3";
             // 
@@ -1879,11 +2194,19 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
+            // gridColumn54
+            // 
+            this.gridColumn54.Caption = "Documento";
+            this.gridColumn54.FieldName = "Agrupar";
+            this.gridColumn54.Name = "gridColumn54";
+            this.gridColumn54.Visible = true;
+            this.gridColumn54.VisibleIndex = 13;
+            // 
             // FrmIn_Recosteo_correccion_contable_inv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1007, 435);
+            this.ClientSize = new System.Drawing.Size(1292, 611);
             this.Controls.Add(this.TabControlRecosteo);
             this.Controls.Add(this.ucGe_BarraEstadoInferior_Forms1);
             this.Controls.Add(this.toolStripCabecera);
@@ -1987,6 +2310,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtObservacion.Properties)).EndInit();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcfmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvfmp)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinFact.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaFinFact.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniFact.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaIniFact.Properties)).EndInit();
+            this.toolStrip8.ResumeLayout(false);
+            this.toolStrip8.PerformLayout();
             this.toolStripCabecera.ResumeLayout(false);
             this.toolStripCabecera.PerformLayout();
             this.ResumeLayout(false);
@@ -2148,6 +2483,32 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
         private DevExpress.XtraGrid.Columns.GridColumn colCostoPromedio;
         private System.Windows.Forms.ToolStripButton btnBuscarHistorico;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label15;
+        private DevExpress.XtraEditors.DateEdit deFechaFinFact;
+        private System.Windows.Forms.Label label16;
+        private DevExpress.XtraEditors.DateEdit deFechaIniFact;
+        private System.Windows.Forms.ToolStrip toolStrip8;
+        private System.Windows.Forms.ToolStripButton btnBuscarFacturas;
+        private System.Windows.Forms.ToolStripButton btnModificarDiario;
+        private DevExpress.XtraGrid.GridControl gcfmp;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvfmp;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn45;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn47;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn48;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn49;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn52;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
+        private System.Windows.Forms.ToolStripButton btnImprimirfmp;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn54;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

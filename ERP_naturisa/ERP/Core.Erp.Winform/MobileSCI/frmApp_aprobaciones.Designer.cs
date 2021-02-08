@@ -85,6 +85,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_salir = new System.Windows.Forms.ToolStripButton();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Core.Erp.Winform.frmGe_Esperar), true, true);
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.de_Fecha_fin.Properties.VistaTimeProperties)).BeginInit();
@@ -124,18 +126,16 @@
             this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Controls.Add(this.cmb_sucursal);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 27);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl1.Location = new System.Drawing.Point(0, 25);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(855, 94);
+            this.panelControl1.Size = new System.Drawing.Size(1018, 76);
             this.panelControl1.TabIndex = 1;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(609, 22);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(522, 18);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(87, 53);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 43);
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -143,68 +143,63 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(384, 55);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(329, 45);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(37, 16);
+            this.labelControl2.Size = new System.Drawing.Size(32, 13);
             this.labelControl2.TabIndex = 8;
             this.labelControl2.Text = "Hasta:";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(384, 25);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl1.Location = new System.Drawing.Point(329, 20);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(40, 16);
+            this.labelControl1.Size = new System.Drawing.Size(34, 13);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Desde:";
             // 
             // de_Fecha_fin
             // 
             this.de_Fecha_fin.EditValue = null;
-            this.de_Fecha_fin.Location = new System.Drawing.Point(446, 52);
-            this.de_Fecha_fin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.de_Fecha_fin.Location = new System.Drawing.Point(382, 42);
             this.de_Fecha_fin.Name = "de_Fecha_fin";
             this.de_Fecha_fin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_Fecha_fin.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_Fecha_fin.Size = new System.Drawing.Size(136, 22);
+            this.de_Fecha_fin.Size = new System.Drawing.Size(117, 20);
             this.de_Fecha_fin.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 57);
+            this.label2.Location = new System.Drawing.Point(21, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 17);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Bodega";
             // 
             // de_Fecha_ini
             // 
             this.de_Fecha_ini.EditValue = null;
-            this.de_Fecha_ini.Location = new System.Drawing.Point(446, 21);
-            this.de_Fecha_ini.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.de_Fecha_ini.Location = new System.Drawing.Point(382, 17);
             this.de_Fecha_ini.Name = "de_Fecha_ini";
             this.de_Fecha_ini.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_Fecha_ini.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_Fecha_ini.Size = new System.Drawing.Size(136, 22);
+            this.de_Fecha_ini.Size = new System.Drawing.Size(117, 20);
             this.de_Fecha_ini.TabIndex = 6;
             // 
             // cmb_bodega
             // 
-            this.cmb_bodega.Location = new System.Drawing.Point(87, 53);
-            this.cmb_bodega.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmb_bodega.Location = new System.Drawing.Point(75, 43);
             this.cmb_bodega.Name = "cmb_bodega";
             this.cmb_bodega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_bodega.Properties.DisplayMember = "bo_Descripcion";
             this.cmb_bodega.Properties.ValueMember = "IdBodega";
             this.cmb_bodega.Properties.View = this.gridView1;
-            this.cmb_bodega.Size = new System.Drawing.Size(264, 22);
+            this.cmb_bodega.Size = new System.Drawing.Size(226, 20);
             this.cmb_bodega.TabIndex = 5;
             // 
             // gridView1
@@ -239,23 +234,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 25);
+            this.label1.Location = new System.Drawing.Point(21, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Sucursal";
             // 
             // cmb_sucursal
             // 
-            this.cmb_sucursal.Location = new System.Drawing.Point(87, 21);
-            this.cmb_sucursal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmb_sucursal.Location = new System.Drawing.Point(75, 17);
             this.cmb_sucursal.Name = "cmb_sucursal";
             this.cmb_sucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_sucursal.Properties.DisplayMember = "Su_Descripcion";
             this.cmb_sucursal.Properties.ValueMember = "IdSucursal";
             this.cmb_sucursal.Properties.View = this.searchLookUpEdit1View;
-            this.cmb_sucursal.Size = new System.Drawing.Size(264, 22);
+            this.cmb_sucursal.Size = new System.Drawing.Size(226, 20);
             this.cmb_sucursal.TabIndex = 3;
             this.cmb_sucursal.EditValueChanged += new System.EventHandler(this.cmb_sucursal_EditValueChanged);
             // 
@@ -291,11 +285,10 @@
             // xtraTabControl1
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 121);
-            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 101);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage_Correccion;
-            this.xtraTabControl1.Size = new System.Drawing.Size(855, 558);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1018, 541);
             this.xtraTabControl1.TabIndex = 2;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_Correccion,
@@ -306,20 +299,17 @@
             this.xtraTabPage_Correccion.Controls.Add(this.gc_correccion);
             this.xtraTabPage_Correccion.Controls.Add(this.panelControl3);
             this.xtraTabPage_Correccion.Controls.Add(this.toolStrip3);
-            this.xtraTabPage_Correccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage_Correccion.Name = "xtraTabPage_Correccion";
-            this.xtraTabPage_Correccion.Size = new System.Drawing.Size(849, 527);
+            this.xtraTabPage_Correccion.Size = new System.Drawing.Size(1012, 513);
             this.xtraTabPage_Correccion.Text = "Corrección";
             // 
             // gc_correccion
             // 
             this.gc_correccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_correccion.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gc_correccion.Location = new System.Drawing.Point(0, 59);
+            this.gc_correccion.Location = new System.Drawing.Point(0, 51);
             this.gc_correccion.MainView = this.gv_correccion;
-            this.gc_correccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_correccion.Name = "gc_correccion";
-            this.gc_correccion.Size = new System.Drawing.Size(849, 468);
+            this.gc_correccion.Size = new System.Drawing.Size(1012, 462);
             this.gc_correccion.TabIndex = 16;
             this.gc_correccion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_correccion});
@@ -469,19 +459,17 @@
             this.panelControl3.Controls.Add(this.chk_reprobar_correccion);
             this.panelControl3.Controls.Add(this.chk_aprobar_correccion);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(0, 27);
-            this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl3.Location = new System.Drawing.Point(0, 25);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(849, 32);
+            this.panelControl3.Size = new System.Drawing.Size(1012, 26);
             this.panelControl3.TabIndex = 19;
             // 
             // chk_reprobar_correccion
             // 
             this.chk_reprobar_correccion.AutoSize = true;
-            this.chk_reprobar_correccion.Location = new System.Drawing.Point(139, 7);
-            this.chk_reprobar_correccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chk_reprobar_correccion.Location = new System.Drawing.Point(119, 6);
             this.chk_reprobar_correccion.Name = "chk_reprobar_correccion";
-            this.chk_reprobar_correccion.Size = new System.Drawing.Size(132, 21);
+            this.chk_reprobar_correccion.Size = new System.Drawing.Size(108, 17);
             this.chk_reprobar_correccion.TabIndex = 1;
             this.chk_reprobar_correccion.Text = "Reprobar visibles";
             this.chk_reprobar_correccion.UseVisualStyleBackColor = true;
@@ -490,10 +478,9 @@
             // chk_aprobar_correccion
             // 
             this.chk_aprobar_correccion.AutoSize = true;
-            this.chk_aprobar_correccion.Location = new System.Drawing.Point(13, 7);
-            this.chk_aprobar_correccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chk_aprobar_correccion.Location = new System.Drawing.Point(11, 6);
             this.chk_aprobar_correccion.Name = "chk_aprobar_correccion";
-            this.chk_aprobar_correccion.Size = new System.Drawing.Size(124, 21);
+            this.chk_aprobar_correccion.Size = new System.Drawing.Size(102, 17);
             this.chk_aprobar_correccion.TabIndex = 0;
             this.chk_aprobar_correccion.Text = "Aprobar visibles";
             this.chk_aprobar_correccion.UseVisualStyleBackColor = true;
@@ -505,7 +492,7 @@
             this.btn_correccion});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(849, 27);
+            this.toolStrip3.Size = new System.Drawing.Size(1012, 25);
             this.toolStrip3.TabIndex = 20;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -514,7 +501,7 @@
             this.btn_correccion.Image = global::Core.Erp.Winform.Properties.Resources.guardar_32x32;
             this.btn_correccion.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_correccion.Name = "btn_correccion";
-            this.btn_correccion.Size = new System.Drawing.Size(82, 24);
+            this.btn_correccion.Size = new System.Drawing.Size(69, 22);
             this.btn_correccion.Text = "Guardar";
             this.btn_correccion.Click += new System.EventHandler(this.btn_correccion_Click);
             // 
@@ -523,20 +510,17 @@
             this.xtraTabPage_Aprobacion.Controls.Add(this.gc_aprobacion);
             this.xtraTabPage_Aprobacion.Controls.Add(this.panelControl2);
             this.xtraTabPage_Aprobacion.Controls.Add(this.toolStrip2);
-            this.xtraTabPage_Aprobacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage_Aprobacion.Name = "xtraTabPage_Aprobacion";
-            this.xtraTabPage_Aprobacion.Size = new System.Drawing.Size(849, 527);
+            this.xtraTabPage_Aprobacion.Size = new System.Drawing.Size(1012, 513);
             this.xtraTabPage_Aprobacion.Text = "Aprobación";
             // 
             // gc_aprobacion
             // 
             this.gc_aprobacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_aprobacion.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gc_aprobacion.Location = new System.Drawing.Point(0, 59);
+            this.gc_aprobacion.Location = new System.Drawing.Point(0, 51);
             this.gc_aprobacion.MainView = this.gv_aprobacion;
-            this.gc_aprobacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_aprobacion.Name = "gc_aprobacion";
-            this.gc_aprobacion.Size = new System.Drawing.Size(849, 468);
+            this.gc_aprobacion.Size = new System.Drawing.Size(1012, 462);
             this.gc_aprobacion.TabIndex = 17;
             this.gc_aprobacion.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_aprobacion});
@@ -553,7 +537,9 @@
             this.gridColumn21,
             this.gridColumn22,
             this.gridColumn23,
-            this.gridColumn24});
+            this.gridColumn24,
+            this.gridColumn6,
+            this.gridColumn15});
             this.gv_aprobacion.GridControl = this.gc_aprobacion;
             this.gv_aprobacion.Name = "gv_aprobacion";
             this.gv_aprobacion.OptionsView.ShowAutoFilterRow = true;
@@ -671,19 +657,17 @@
             this.panelControl2.Controls.Add(this.chk_reprobar_apro);
             this.panelControl2.Controls.Add(this.chk_aprobar_apro);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 27);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl2.Location = new System.Drawing.Point(0, 25);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(849, 32);
+            this.panelControl2.Size = new System.Drawing.Size(1012, 26);
             this.panelControl2.TabIndex = 18;
             // 
             // chk_reprobar_apro
             // 
             this.chk_reprobar_apro.AutoSize = true;
-            this.chk_reprobar_apro.Location = new System.Drawing.Point(139, 7);
-            this.chk_reprobar_apro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chk_reprobar_apro.Location = new System.Drawing.Point(119, 6);
             this.chk_reprobar_apro.Name = "chk_reprobar_apro";
-            this.chk_reprobar_apro.Size = new System.Drawing.Size(132, 21);
+            this.chk_reprobar_apro.Size = new System.Drawing.Size(108, 17);
             this.chk_reprobar_apro.TabIndex = 3;
             this.chk_reprobar_apro.Text = "Reprobar visibles";
             this.chk_reprobar_apro.UseVisualStyleBackColor = true;
@@ -692,10 +676,9 @@
             // chk_aprobar_apro
             // 
             this.chk_aprobar_apro.AutoSize = true;
-            this.chk_aprobar_apro.Location = new System.Drawing.Point(13, 7);
-            this.chk_aprobar_apro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chk_aprobar_apro.Location = new System.Drawing.Point(11, 6);
             this.chk_aprobar_apro.Name = "chk_aprobar_apro";
-            this.chk_aprobar_apro.Size = new System.Drawing.Size(124, 21);
+            this.chk_aprobar_apro.Size = new System.Drawing.Size(102, 17);
             this.chk_aprobar_apro.TabIndex = 2;
             this.chk_aprobar_apro.Text = "Aprobar visibles";
             this.chk_aprobar_apro.UseVisualStyleBackColor = true;
@@ -707,7 +690,7 @@
             this.btn_aprobacion});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(849, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(1012, 25);
             this.toolStrip2.TabIndex = 19;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -716,7 +699,7 @@
             this.btn_aprobacion.Image = global::Core.Erp.Winform.Properties.Resources.guardar_32x32;
             this.btn_aprobacion.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_aprobacion.Name = "btn_aprobacion";
-            this.btn_aprobacion.Size = new System.Drawing.Size(82, 24);
+            this.btn_aprobacion.Size = new System.Drawing.Size(69, 22);
             this.btn_aprobacion.Text = "Guardar";
             this.btn_aprobacion.Click += new System.EventHandler(this.btn_aprobacion_Click);
             // 
@@ -726,7 +709,7 @@
             this.btn_salir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(855, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1018, 25);
             this.toolStrip1.TabIndex = 11;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -735,19 +718,34 @@
             this.btn_salir.Image = global::Core.Erp.Winform.Properties.Resources.Salir_16_x_16;
             this.btn_salir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(58, 24);
+            this.btn_salir.Size = new System.Drawing.Size(49, 22);
             this.btn_salir.Text = "Salir";
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Centro";
+            this.gridColumn6.FieldName = "nom_centro";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 10;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Subcentro";
+            this.gridColumn15.FieldName = "nom_subcentro";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 11;
+            // 
             // frmApp_aprobaciones
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 679);
+            this.ClientSize = new System.Drawing.Size(1018, 642);
             this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmApp_aprobaciones";
             this.Text = "Aprobación app";
             this.Load += new System.EventHandler(this.frmApp_aprobaciones_Load);
@@ -848,5 +846,7 @@
         private System.Windows.Forms.ToolStripButton btn_correccion;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
     }
 }

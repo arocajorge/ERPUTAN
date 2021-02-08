@@ -50,5 +50,33 @@ namespace Core.Erp.Business.Inventario
                 throw;
             }
         }
+
+        public bool ModificarDB(in_ProvisionIngresosPorOC_Info info)
+        {
+            try
+            {
+                return odata.ModificarDB(info);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+        }
+
+        public bool AnularDB(in_ProvisionIngresosPorOC_Info info)
+        {
+            try
+            {
+                return odata.AnularDB(info);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
     }
 }

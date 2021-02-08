@@ -82,5 +82,7 @@ namespace Core.Erp.Info.CuentasxPagar
         public string S_es_Inven_o_Consumo { get; set; }
                        
        public cp_Aprobacion_Ing_Bod_x_OC_det_Info(){}
+
+       public string IdCtaCble_Provision { get; set; }
     }
 }

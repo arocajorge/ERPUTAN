@@ -412,6 +412,7 @@
     <Compile Include="Inventario\in_devolucion_inven_Bus.cs" />
     <Compile Include="Inventario\in_devolucion_inven_det_Bus.cs" />
     <Compile Include="Inventario\in_egreso_d_Suministro_Bus.cs" />
+    <Compile Include="Inventario\in_FacturasMalProvisionadas_Bus.cs" />
     <Compile Include="Inventario\in_Familia_Bus.cs" />
     <Compile Include="Inventario\in_grupo_Bus.cs" />
     <Compile Include="Inventario\in_Guia_x_traspaso_bodega_Bus.cs" />

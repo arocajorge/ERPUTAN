@@ -68,5 +68,6 @@ namespace Core.Erp.Info.Inventario
 
 
         public int? P_ValidarDiasHaciaAtras { get; set; }
+        public string IdCtaCble_Provision { get; set; }
     }
 }

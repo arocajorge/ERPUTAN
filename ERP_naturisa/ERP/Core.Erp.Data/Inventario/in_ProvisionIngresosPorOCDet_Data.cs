@@ -31,7 +31,7 @@ namespace Core.Erp.Data.Inventario
                                         + " in_Producto as h on a.idempresa = h.idempresa and a.IdProducto = h.IdProducto left join"
                                         + " ct_plancta as i on d.idempresa = i.idempresa and d.IdCtaCtble_Inve = i.IdCtaCble join"
                                         + " in_ProvisionIngresosPorOCDet as j on a.IdEmpresa = j.IdEmpresa and a.IdSucursal = j.IdSucursal and a.IdMovi_inven_tipo = j.IdMovi_inven_tipo and a.IdNumMovi = j.IdNumMovi and a.Secuencia = j.Secuencia_inv"
-                                        + " WHERE IdEmpresa = " + IdEmpresa.ToString() + " and IdProvision = " + IdProvision.ToString();
+                                        + " WHERE a.IdEmpresa = " + IdEmpresa.ToString() + " and j.IdProvision = " + IdProvision.ToString();
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -91,7 +91,8 @@ namespace Core.Erp.Data.Inventario
                                         + " cp_Aprobacion_Ing_Bod_x_OC as g on f.IdEmpresa = g.IdEmpresa and f.IdAprobacion = g.IdAprobacion and g.Fecha_Factura <= @FechaFin LEFT join"
                                         + " in_Producto as h on a.idempresa = h.idempresa and a.IdProducto = h.IdProducto left join"
                                         + " ct_plancta as i on d.idempresa = i.idempresa and d.IdCtaCtble_Inve = i.IdCtaCble"
-                                        + " where b.IdEmpresa = @IdEmpresa and b.cm_fecha between @FechaIni and @FechaFin and f.Secuencia is null and b.Estado = 'A' AND A.IdOrdenCompra IS NOT NULL";
+                                        + " join in_motivo_inven as j on b.IdEmpresa = j.IdEmpresa and b.IdMotivo_inv = j.IdMotivo_inv"
+                                        + " where b.IdEmpresa = @IdEmpresa and b.cm_fecha between @FechaIni and @FechaFin and f.Secuencia is null and b.Estado = 'A' AND A.IdOrdenCompra IS NOT NULL and j.Genera_Movi_Inven = 'S'";
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {

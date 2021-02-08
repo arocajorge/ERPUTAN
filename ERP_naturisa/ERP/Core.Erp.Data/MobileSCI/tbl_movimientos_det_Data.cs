@@ -1,6 +1,7 @@
 ﻿using Core.Erp.Info.MobileSCI;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace Core.Erp.Data.MobileSCI
@@ -11,52 +12,70 @@ namespace Core.Erp.Data.MobileSCI
         {
             try
             {
-                List<tbl_movimientos_det_Info> Lista;
+                List<tbl_movimientos_det_Info> Lista = new List<tbl_movimientos_det_Info>();
                 int IdSucursal_ini = IdSucursal;
                 int IdSucursal_fin = IdSucursal == 0 ? 9999 : IdSucursal;
                 int IdBodega_ini = IdBodega;
                 int IdBodega_fin = IdBodega == 0 ? 9999 : IdBodega;
                 Fecha_ini = Fecha_ini.Date;
                 Fecha_fin = Fecha_fin.Date;
-                using (Entities_mobileSCI Context = new Entities_mobileSCI())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    Lista = (from q in Context.vw_movimientos_det
-                             where q.IdEmpresa == IdEmpresa
-                             && IdSucursal_ini <= q.IdSucursal && q.IdSucursal <= IdSucursal_fin
-                             && IdBodega_ini <= q.IdBodega && q.IdBodega <= IdBodega_fin
-                             && Fecha_ini <= q.Fecha && q.Fecha <= Fecha_fin
-                             && q.Estado != "I"
-                             select new tbl_movimientos_det_Info
-                             {
-                                 IdSincronizacion = q.IdSincronizacion,
-                                 IdSecuencia = q.IdSecuencia,
-                                 IdUsuarioSCI = q.IdUsuarioSCI,
-                                 IdEmpresa = q.IdEmpresa,
-                                 IdSucursal = q.IdSucursal,
-                                 IdBodega = q.IdBodega,
-                                 IdProducto = q.IdProducto,
-                                 IdUnidadMedida = q.IdUnidadMedida,
-                                 IdCentroCosto = q.IdCentroCosto,
-                                 IdCentroCosto_sub_centro_costo = q.IdCentroCosto_sub_centro_costo,
-                                 Fecha = q.Fecha,
-                                 cantidad = q.cantidad,
-                                 IdEmpresa_oc = q.IdEmpresa_oc,
-                                 IdSucursal_oc = q.IdSucursal_oc,
-                                 IdOrdenCompra = q.IdOrdenCompra,
-                                 secuencia_oc = q.secuencia_oc,
-                                 pr_descripcion = q.pr_descripcion,
-                                 nom_unidad_medida = q.nom_unidad_medida,
-                                 Aprobado = q.Aprobado,
-                                 Estado = q.Estado,
-                                 Su_Descripcion = q.Su_Descripcion,
-                                 bo_Descripcion = q.bo_Descripcion,
-                                 nom_centro = q.nom_centro,
-                                 nom_subcentro = q.nom_subcentro,
-                                 Fecha_sincronizacion = q.Fecha_sincronizacion,
-                                 do_precioFinal = q.do_precioFinal
-                             }).ToList();
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "SELECT        a.IdSincronizacion, a.IdSecuencia, d.IdUsuarioSCI, a.IdEmpresa, a.IdSucursal, a.IdBodega, a.IdProducto, a.IdUnidadMedida, a.IdCentroCosto, a.IdCentroCosto_sub_centro_costo, a.Fecha, a.cantidad, a.IdEmpresa_oc, "
+                                        + " a.IdSucursal_oc, a.IdOrdenCompra, a.secuencia_oc, c.pr_descripcion, f.Descripcion AS nom_unidad_medida, a.Aprobado, a.Estado, e.Su_Descripcion, g.bo_Descripcion, h.Centro_costo AS nom_centro, "
+                                        + " i.Centro_costo AS nom_subcentro, d.Fecha AS Fecha_sincronizacion, ISNULL(b.do_precioFinal, 0) AS do_precioFinal"
+                                        + " FROM            dbo.ct_centro_costo_sub_centro_costo AS i RIGHT OUTER JOIN"
+                                        + " dbo.com_ordencompra_local_det AS b RIGHT OUTER JOIN"
+                                        + " mobileSCI.tbl_movimientos AS d INNER JOIN"
+                                        + " mobileSCI.tbl_movimientos_det AS a ON d.IdSincronizacion = a.IdSincronizacion INNER JOIN"
+                                        + " dbo.in_Producto AS c ON a.IdProducto = c.IdProducto AND a.IdEmpresa = c.IdEmpresa INNER JOIN"
+                                        + " dbo.in_UnidadMedida AS f ON a.IdUnidadMedida = f.IdUnidadMedida INNER JOIN"
+                                        + " dbo.tb_sucursal AS e ON a.IdEmpresa = e.IdEmpresa AND a.IdSucursal = e.IdSucursal INNER JOIN"
+                                        + " dbo.tb_bodega AS g ON a.IdEmpresa = g.IdEmpresa AND a.IdSucursal = g.IdSucursal AND a.IdBodega = g.IdBodega ON b.IdEmpresa = a.IdEmpresa_oc AND b.IdSucursal = a.IdSucursal_oc AND "
+                                        + " b.IdOrdenCompra = a.IdOrdenCompra AND b.Secuencia = a.secuencia_oc ON i.IdEmpresa = a.IdEmpresa AND i.IdCentroCosto = a.IdCentroCosto AND "
+                                        + " i.IdCentroCosto_sub_centro_costo = a.IdCentroCosto_sub_centro_costo LEFT OUTER JOIN"
+                                        + " dbo.ct_centro_costo AS h ON a.IdEmpresa = h.IdEmpresa AND a.IdCentroCosto = h.IdCentroCosto"
+                                        + " WHERE a.Estado <> 'I' AND (a.Aprobado = 0) and a.IdEmpresa = " + IdEmpresa.ToString() + " and a.IdSucursal between " + IdSucursal_ini.ToString() + " and " + IdSucursal_fin.ToString()
+                                        + " AND a.IdBodega between " + IdBodega_ini.ToString() + " and " + IdBodega_fin.ToString()
+                                        + " AND d.Fecha between datefromparts(" + Fecha_ini.Year.ToString() + "," + Fecha_ini.Month.ToString() + "," + Fecha_ini.Day.ToString() + ") and datefromparts(" + Fecha_fin.Year.ToString() + "," + Fecha_fin.Month.ToString() + "," + Fecha_fin.Day.ToString() + ")";
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Lista.Add(new tbl_movimientos_det_Info
+                        {
+                            IdSincronizacion = Convert.ToDecimal(reader["IdSincronizacion"]),
+                            IdSecuencia = Convert.ToInt32(reader["IdSecuencia"]),
+                            IdUsuarioSCI = Convert.ToString(reader["IdUsuarioSCI"]),
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdBodega = Convert.ToInt32(reader["IdBodega"]),
+                            IdProducto = Convert.ToInt32(reader["IdProducto"]),
+                            IdUnidadMedida = Convert.ToString(reader["IdUnidadMedida"]),
+                            IdCentroCosto = reader["IdCentroCosto"] == DBNull.Value ? null : Convert.ToString(reader["IdCentroCosto"]),
+                            IdCentroCosto_sub_centro_costo = reader["IdCentroCosto_sub_centro_costo"] == DBNull.Value ? null : Convert.ToString(reader["IdCentroCosto_sub_centro_costo"]),
+                            Fecha = Convert.ToDateTime(reader["Fecha"]),
+                            cantidad = Convert.ToDouble(reader["cantidad"]),
+                            IdEmpresa_oc = reader["IdEmpresa_oc"] == DBNull.Value ? null : (int?)(reader["IdEmpresa_oc"]),
+                            IdSucursal_oc = reader["IdSucursal_oc"] == DBNull.Value ? null : (int?)(reader["IdSucursal_oc"]),
+                            IdOrdenCompra = reader["IdOrdenCompra"] == DBNull.Value ? null : (decimal?)(reader["IdOrdenCompra"]),
+                            secuencia_oc = reader["secuencia_oc"] == DBNull.Value ? null : (int?)(reader["secuencia_oc"]),
+                            pr_descripcion = Convert.ToString(reader["pr_descripcion"]),
+                            nom_unidad_medida = Convert.ToString(reader["nom_unidad_medida"]),
+                            Aprobado = Convert.ToBoolean(reader["Aprobado"]),
+                            Estado = Convert.ToString(reader["Estado"]),
+                            Su_Descripcion = Convert.ToString(reader["Su_Descripcion"]),
+                            bo_Descripcion = Convert.ToString(reader["bo_Descripcion"]),
+                            nom_centro = Convert.ToString(reader["nom_centro"]),
+                            nom_subcentro = Convert.ToString(reader["nom_subcentro"]),
+                            Fecha_sincronizacion = Convert.ToDateTime(reader["Fecha_sincronizacion"]),
+                            do_precioFinal = Convert.ToDouble(reader["do_precioFinal"])
+                        });
+                    }
+                    reader.Close();
                 }
-
                 return Lista;
             }
             catch (Exception)

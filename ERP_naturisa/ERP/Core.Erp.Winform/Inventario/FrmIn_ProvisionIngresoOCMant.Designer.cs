@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIn_ProvisionIngresoOCMant));
             this.menu = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExportarExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnBuscar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cmbPlanctaCabecera = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -174,6 +176,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnExportarExcel);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.labelControl5);
             this.panel1.Controls.Add(this.cmbPlanctaCabecera);
@@ -194,6 +197,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1229, 130);
             this.panel1.TabIndex = 1;
+            // 
+            // btnExportarExcel
+            // 
+            this.btnExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarExcel.Image")));
+            this.btnExportarExcel.ImageIndex = 8;
+            this.btnExportarExcel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnExportarExcel.Location = new System.Drawing.Point(1026, 89);
+            this.btnExportarExcel.Name = "btnExportarExcel";
+            this.btnExportarExcel.Size = new System.Drawing.Size(117, 28);
+            this.btnExportarExcel.TabIndex = 33;
+            this.btnExportarExcel.Text = "Exportar";
+            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
             // 
             // btnBuscar
             // 
@@ -455,6 +470,7 @@
             this.gvDet.OptionsView.ShowAutoFilterRow = true;
             this.gvDet.OptionsView.ShowFooter = true;
             this.gvDet.OptionsView.ShowGroupPanel = false;
+            this.gvDet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvDet_KeyDown);
             // 
             // gridColumn1
             // 
@@ -822,5 +838,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraEditors.SimpleButton btnExportarExcel;
     }
 }

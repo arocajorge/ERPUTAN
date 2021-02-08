@@ -11,8 +11,9 @@ using System.Windows.Forms;
 using Core.Erp.Info.Inventario;
 using Core.Erp.Business.Inventario;
 using Core.Erp.Info.General;
-
+using Core.Erp.Business.Contabilidad;
 using System.Threading;
+using Core.Erp.Winform.Contabilidad;
 
 namespace Core.Erp.Winform.Inventario
 {
@@ -34,7 +35,7 @@ namespace Core.Erp.Winform.Inventario
         BindingList<in_movi_inve_Info> lst_movi_inven = new BindingList<in_movi_inve_Info>();
         in_movi_inve_Bus bus_movi_inven = new in_movi_inve_Bus();
         tb_Bodega_Bus busBodega = new tb_Bodega_Bus();
-        
+        ct_Cbtecble_Bus busConta = new ct_Cbtecble_Bus();
         List<in_movi_inven_tipo_Info> ListaTipoMovi = new List<in_movi_inven_tipo_Info>();
         in_movi_inven_tipo_Bus busTipoMovi = new in_movi_inven_tipo_Bus();
 
@@ -49,6 +50,8 @@ namespace Core.Erp.Winform.Inventario
         int RowHandle_cont = 0;
         BindingList<in_Ing_Egr_Inven_Info> blstDiferencias = new BindingList<in_Ing_Egr_Inven_Info>();
         BindingList<in_producto_x_tb_bodega_Costo_Historico_Info> blsDetHistorico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>();
+        in_FacturasMalProvisionadas_Bus busfmp = new in_FacturasMalProvisionadas_Bus();
+        BindingList<in_FacturasMalProvisionadas_Info> blstFmp = new BindingList<in_FacturasMalProvisionadas_Info>();
         #endregion
 
         public FrmIn_Recosteo_correccion_contable_inv()
@@ -60,11 +63,15 @@ namespace Core.Erp.Winform.Inventario
         {
             try
             {
+                deFechaIniFact.DateTime = DateTime.Now.Date;
+                deFechaFinFact.DateTime = DateTime.Now.Date;
                 Cargar_combos();
                 cmb_estado_contabilizacion.SelectedItem = "NO CONTABILIZADO";
                 ucIn_Sucursal_Bodega1.Visible_cmb_bodega = true;
                 blsDetHistorico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>();
                 gcHistorico.DataSource = blsDetHistorico;
+                
+
             }
             catch (Exception ex)
             {
@@ -844,6 +851,39 @@ namespace Core.Erp.Winform.Inventario
 
             blsDetHistorico = new BindingList<in_producto_x_tb_bodega_Costo_Historico_Info>(bus_costo_historico.GetList(param.IdEmpresa, ucIn_Sucursal_Bodega1.get_IdSucursal(), ucIn_Sucursal_Bodega1.get_IdBodega(), Convert.ToDecimal(cmb_producto.EditValue)));
             gcHistorico.DataSource = blsDetHistorico;
+        }
+
+        private void btnBuscarFacturas_Click(object sender, EventArgs e)
+        {
+            blstFmp = new BindingList<in_FacturasMalProvisionadas_Info>(busfmp.GetList(param.IdEmpresa, deFechaIniFact.DateTime, deFechaFinFact.DateTime));
+            gcfmp.DataSource = blstFmp;
+        }
+
+        private void btnModificarDiario_Click(object sender, EventArgs e)
+        {
+            in_FacturasMalProvisionadas_Info row = (in_FacturasMalProvisionadas_Info)gvfmp.GetFocusedRow();
+            if (row == null)
+            {
+                MessageBox.Show("Seleccione un registro",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                return;
+            }
+            
+            frmCon_CbteCble_Mant FrmMant = new frmCon_CbteCble_Mant();
+            FrmMant.event_frmCon_CbteCble_Mant_FormClosing += FrmMant_event_frmCon_CbteCble_Mant_FormClosing;
+            FrmMant.MdiParent = this.MdiParent;
+            FrmMant.setAccion(Cl_Enumeradores.eTipo_action.actualizar);
+            FrmMant.set_Info(busConta.Get_Info_CbteCble(param.IdEmpresa,row.IdTipoCbte_Ogiro,row.IdCbteCble_Ogiro,ref mens));
+            FrmMant.Show();
+        }
+
+        void FrmMant_event_frmCon_CbteCble_Mant_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            btnBuscarFacturas_Click(null, null);
+        }
+
+        private void btnImprimirfmp_Click(object sender, EventArgs e)
+        {
+            gcfmp.ShowPrintPreview();
         }
     }
 }

@@ -184,5 +184,108 @@ namespace Core.Erp.Data.Inventario
                 throw;
             }
         }
+
+        public bool ModificarDB(in_ProvisionIngresosPorOC_Info info)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    #region Diario
+                    command.CommandText = "UPDATE [dbo].[ct_cbtecble]"
+                                        + " SET [IdPeriodo] = "+info.Fecha.ToString("yyyyMM")
+                                        + " ,[cb_Fecha] = datefromparts("+info.Fecha.Year.ToString()+","+info.Fecha.Month.ToString()+","+info.Fecha.Day.ToString()+")"
+                                        + " ,[cb_Valor] = "+info.ListaDiario.Sum(q=> q.dc_Valor_D).ToString()
+                                        + " ,[cb_Observacion] = '"+info.Observacion+"'"
+                                        + " ,[cb_Anio] = "+info.Fecha.Year.ToString()
+                                        + " ,[cb_mes] = "+info.Fecha.Month.ToString()
+                                        + " ,[IdUsuarioUltModi] = '"+info.IdUsuario+"'"
+                                        + " ,[cb_FechaUltModi] = GETDATE()"
+                                        + " WHERE IdEmpresa = "+info.IdEmpresa.ToString()+" AND IdTipoCbte = "+info.IdTipoCbte.ToString()+" AND IdCbteCble = "+info.IdCbteCble.ToString()+";";
+
+                    command.CommandText += "DELETE [dbo].[ct_cbtecble_det] WHERE IdEmpresa = " + info.IdEmpresa.ToString() + " AND IdTipoCbte = " + info.IdTipoCbte.ToString() + " AND IdCbteCble = " + info.IdCbteCble.ToString() + ";";
+                    int Secuencia = 1;
+                    command.CommandText = string.Empty;
+                    foreach (var item in info.ListaDiario)
+                    {
+                        command.CommandText += "INSERT INTO [dbo].[ct_cbtecble_det]"
+                                            + " ([IdEmpresa],[IdTipoCbte],[IdCbteCble],[secuencia],[IdCtaCble],[IdCentroCosto],[IdCentroCosto_sub_centro_costo],[dc_Valor],[dc_Observacion],[dc_Numconciliacion],[dc_EstaConciliado],[IdPunto_cargo],[IdPunto_cargo_grupo],[dc_para_conciliar])"
+                                            + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdTipoCbte.ToString() + "," + info.IdCbteCble.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.dc_Valor.ToString() + ",'" + item.dc_Observacion + "',NULL,NULL," + (item.IdPunto_cargo == null ? "NULL" : item.IdPunto_cargo.ToString()) + "," + (item.IdPunto_cargo_grupo == null ? "NULL" : item.IdPunto_cargo_grupo.ToString()) + ",NULL);";
+                        Secuencia++;
+                    }
+                    #endregion
+
+                    #region Provision
+
+                    command.CommandText += "UPDATE [dbo].[in_ProvisionIngresosPorOC]"
+                                        +" SET [IdCtaCble] = '"+info.IdCtaCble+"'"
+                                        +" [Fecha] = DATEFROMPARTS("+info.Fecha.Year.ToString()+","+info.Fecha.Month.ToString()+","+info.Fecha.Day.ToString()+")"
+                                        +" ,[Observacion] = '"+info.Observacion+"'"
+                                        +" ,[FechaIni] = DATEFROMPARTS("+info.FechaIni.Year.ToString()+","+info.FechaIni.Month.ToString()+","+info.FechaIni.Day.ToString()+")"
+                                        + " ,[FechaFin] = DATEFROMPARTS(" + info.FechaFin.Year.ToString() + "," + info.FechaFin.Month.ToString() + "," + info.FechaFin.Day.ToString() + ")"
+                                        +" ,[IdUsuarioMod] = '"+info.IdUsuario+"'"
+                                        +" ,[FechaModificacion] = GETDATE()"
+                                        +" WHERE IdEmpresa = "+info.IdEmpresa.ToString()+" and idprovision = "+info.IdProvision.ToString()+";";
+                    
+                    Secuencia = 1;
+                    command.CommandText = string.Empty;
+                    command.CommandText += "DELETE [dbo].[in_ProvisionIngresosPorOCDet] WHERE IdEmpresa = " + info.IdEmpresa.ToString() + " and idprovision = " + info.IdProvision.ToString() + ";";
+                    foreach (var item in info.ListaDetalle)
+                    {
+                        command.CommandText += "INSERT INTO [dbo].[in_ProvisionIngresosPorOCDet]([IdEmpresa],[IdProvision],[Secuencia],[IdSucursal],[IdMovi_inven_tipo],[IdNumMovi],[Secuencia_inv],[Costo])"
+                                            + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdProvision.ToString() + "," + (Secuencia++).ToString() + "," + item.IdSucursal.ToString() + "," + item.IdMovi_inven_tipo.ToString() + "," + item.IdNumMovi.ToString() + "," + item.Secuencia_inv.ToString() + "," + item.Costo.ToString() + ");";
+                    }
+                    command.ExecuteNonQuery();
+                    #endregion
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool AnularDB(in_ProvisionIngresosPorOC_Info info)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE [dbo].[in_ProvisionIngresosPorOC]"
+                                        + " SET  Estado = 0"
+                                        + " ,[IdUsuarioAnulacion] = '" + info.IdUsuario + "'"
+                                        + " ,[FechaAnulacion] = GETDATE()"
+                                        + " WHERE IdEmpresa = " + info.IdEmpresa.ToString() + " and idprovision = " + info.IdProvision.ToString() + ";";
+
+                    decimal IdCbteCble_rev = 0;
+                    odatact.ReversoCbteCble(info.IdEmpresa,
+                        info.IdCbteCble,
+                        info.IdTipoCbte,
+                        1,
+                        ref IdCbteCble_rev,
+                        ref MensajeError,
+                        info.IdUsuario,
+                        info.IdUsuario
+                    );
+
+                    command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

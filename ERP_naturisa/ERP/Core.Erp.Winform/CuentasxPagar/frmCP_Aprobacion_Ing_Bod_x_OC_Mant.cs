@@ -25,6 +25,7 @@ using Core.Erp.Reportes.Inventario;
 using DevExpress.XtraReports.UI;
 using Cus.Erp.Reports.Naturisa.Compras;
 using Cus.Erp.Reports.Naturisa.Inventario;
+using Core.Erp.Business.Inventario;
 
 namespace Core.Erp.Winform.CuentasxPagar
 {
@@ -342,7 +343,7 @@ namespace Core.Erp.Winform.CuentasxPagar
                 Info = new cp_Aprobacion_Ing_Bod_x_OC_Info();
                 Info.IdEmpresa = param.IdEmpresa;
                 Info.IdAprobacion = Convert.ToDecimal((txtIdAprobacion.EditValue == "") ? 0 : Convert.ToDecimal(txtIdAprobacion.EditValue));
-                Info.Fecha_Factura = Convert.ToDateTime(dtpFecFactura.EditValue);
+                Info.Fecha_Factura = Convert.ToDateTime(dtpFecFactura.EditValue).Date;
                 Info.Fecha_aprobacion = Convert.ToDateTime(dtpFecAproba.EditValue);
                 Info.co_FechaContabilizacion = Convert.ToDateTime(Convert.ToDateTime(dtp_fecha_contabilizacion.EditValue).ToShortDateString());
                 Info.Fecha_vcto = Convert.ToDateTime(dtpFecVtc.EditValue);
@@ -382,6 +383,28 @@ namespace Core.Erp.Winform.CuentasxPagar
 
               
                 Info.listDetalle = lstBind.Where(v => v.Checked == true).ToList();
+
+                in_Parametro_Bus busParamin = new in_Parametro_Bus();
+                var ParamIn = busParamin.Get_Info_Parametro(param.IdEmpresa);
+                bool AlgoCambio = false;
+                foreach (var item in Info.listDetalle)
+                {
+                    if (!string.IsNullOrEmpty(item.IdCtaCble_Provision))
+                    {
+                        item.IdCtaCble_Gasto = item.IdCtaCble_Provision;
+                        AlgoCambio = true;
+                    }
+                    else
+                        if (item.S_es_Inven_o_Consumo == "TIC_INVEN" && !string.IsNullOrEmpty(ParamIn.IdCtaCble_Provision) && Convert.ToInt32(Info.Fecha_Factura.ToString("yyyyMM")) > Convert.ToInt32(item.Fecha_Ing_Bod.ToString("yyyyMM")))
+                        {
+                            item.IdCtaCble_Gasto = string.IsNullOrEmpty(ParamIn.IdCtaCble_Provision) ? item.IdCtaCble_Gasto : ParamIn.IdCtaCble_Provision;
+                            AlgoCambio = true;
+                        }
+                }
+                if (AlgoCambio)
+                {
+                    MessageBox.Show("Existen ingresos que son de meses anteriores por lo que la factura se contabilizará utilizando la cuenta de provisión en lugar de la cuenta de inventario");
+                }
 
                 switch (param.IdCliente_Ven_x_Default)
                 {
@@ -897,42 +920,6 @@ namespace Core.Erp.Winform.CuentasxPagar
                     MessageBox.Show("No existen Datos de Consulta para el Proveedor: " + ucCp_Proveedor1.get_ProveedorInfo().IdProveedor + "");
                     return;
                 }
-                /*
-                foreach (var item in list_Aprob)
-                {
-                    //calculos
-
-                    if (item.IdOrdenCompra == 98)
-                    {
-                    }
-                    if (item.do_porc_des != 0)
-                    {
-                        item.do_porc_des = item.do_porc_des;
-                        item.SubTotal = (item.Cantidad * item.Costo_uni);// -((item.do_porc_des * (item.Cantidad * item.Costo_uni)) / 100);// -item.Descuento;
-                    }
-                    else
-                    {
-                        item.SubTotal = (item.Cantidad * item.Costo_uni);
-
-                    }
-
-                    if (item.PorIva > 0)
-                    {
-                        item.PorIva = item.PorIva;
-                        item.valor_Iva = item.SubTotal * (item.PorIva / 100);
-                        item.subtotaliva = item.SubTotal;
-                    }
-                    else
-                    {
-                        item.PorIva = item.PorIva;
-                        item.valor_Iva = 0;
-                        item.subtotal0 = item.SubTotal;
-                    }
-
-                   
-                    item.Total = item.SubTotal + item.valor_Iva;
-                }
-                */
                 lstBind = new BindingList<cp_Aprobacion_Ing_Bod_x_OC_det_Info>(list_Aprob);
               
                 gridControlAproIngEgrxOC.DataSource = lstBind;
