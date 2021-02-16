@@ -136,8 +136,8 @@ namespace Core.Erp.Data.CuentasxPagar
                                         +" d.IdPunto_cargo, d.IdPunto_cargo_grupo, doc.Por_Iva, d.IdUnidadMedida_sinConversion, coc.IdProveedor, coc.oc_plazo, per.pe_nombreCompleto, mot.es_Inven_o_Consumo, "
                                         +" CASE WHEN mot.es_Inven_o_Consumo = 'TIC_CONSU' THEN cc.IdCtaCble ELSE b.IdCtaCtble_Inve END AS IdCtaCble_Gasto, d.dm_cantidad_sinConversion * d.mv_costo_sinConversion AS Subtotal, "
                                         +" (d.dm_cantidad_sinConversion * d.mv_costo_sinConversion) * (doc.Por_Iva / 100) AS ValorIVA, d.dm_cantidad_sinConversion * d.mv_costo_sinConversion + (d.dm_cantidad_sinConversion * d.mv_costo_sinConversion) "
-                                        + " * (doc.Por_Iva / 100) AS Total, provic.IdCtaCble as IdCtaCble_Provision, case when doc.Por_Iva > 0 then d.dm_cantidad_sinConversion * d.mv_costo_sinConversion else 0 end as subtotal0 "
-                                        + " case when doc.Por_Iva = 0 then d.dm_cantidad_sinConversion * d.mv_costo_sinConversion else 0 end as subtotaliva"
+                                        + " * (doc.Por_Iva / 100) AS Total, provic.IdCtaCble as IdCtaCble_Provision, case when doc.Por_Iva > 0 then d.dm_cantidad_sinConversion * d.mv_costo_sinConversion else 0 end as subtotaliva, "
+                                        + " case when doc.Por_Iva = 0 then d.dm_cantidad_sinConversion * d.mv_costo_sinConversion else 0 end as subtotal0"
                                         +" FROM            dbo.in_Ing_Egr_Inven_det AS d INNER JOIN"
                                         +" dbo.in_Producto AS p ON d.IdEmpresa = p.IdEmpresa AND d.IdProducto = p.IdProducto INNER JOIN"
                                         +" dbo.com_ordencompra_local_det AS doc ON doc.IdEmpresa = d.IdEmpresa_oc AND doc.IdSucursal = d.IdSucursal_oc AND doc.IdOrdenCompra = d.IdOrdenCompra AND doc.Secuencia = d.Secuencia_oc INNER JOIN"
@@ -184,13 +184,13 @@ namespace Core.Erp.Data.CuentasxPagar
                            IdCentroCosto_sub_centro_costo = reader["IdCentroCosto_sub_centro_costo"] == DBNull.Value ? null : reader["IdCentroCosto_sub_centro_costo"].ToString(),
                            IdPunto_cargo_grupo = reader["IdPunto_cargo_grupo"] == DBNull.Value ? null : (int?)reader["IdPunto_cargo_grupo"],
                            IdPunto_cargo = reader["IdPunto_cargo"] == DBNull.Value ? null : (int?)reader["IdPunto_cargo"],
-                           Secuencia_OC = Convert.ToInt32(reader["item.Secuencia_oc"]),
-                           IdSucursal_OC = Convert.ToInt32(reader["item.IdSucursal_oc"]),
-                           IdOrdenCompra = Convert.ToDecimal(reader["item.IdOrdenCompra"]),
-                           PorIva = Convert.ToDouble(reader["item.Por_Iva"]),
+                           Secuencia_OC = Convert.ToInt32(reader["Secuencia_oc"]),
+                           IdSucursal_OC = Convert.ToInt32(reader["IdSucursal_oc"]),
+                           IdOrdenCompra = Convert.ToDecimal(reader["IdOrdenCompra"]),
+                           PorIva = Convert.ToDouble(reader["Por_Iva"]),
                            IdUnidadMedida = reader["IdUnidadMedida_sinConversion"] == DBNull.Value ? null : reader["IdUnidadMedida_sinConversion"].ToString(),
                            //  nom_medida = item.nom_medida,
-                           IdProveedor = Convert.ToDecimal(reader["item.IdProveedor"]),
+                           IdProveedor = Convert.ToDecimal(reader["IdProveedor"]),
                            nom_proveedor = reader["pe_nombreCompleto"].ToString(),
                            Dias =  Convert.ToInt32(reader["oc_plazo"]),
                            IdCtaCble_Gasto = reader["IdCtaCble_Gasto"] == DBNull.Value ? null : reader["IdCtaCble_Gasto"].ToString(),
