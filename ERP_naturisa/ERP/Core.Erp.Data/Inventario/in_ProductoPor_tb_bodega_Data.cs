@@ -190,5 +190,55 @@ namespace Core.Erp.Data.Inventario
                 throw;
             }
         }
+
+        public string ValidarExisteEnMultiplesBodegas(int IdEmpresa, int IdSucursal, int IdBodega, bool EsBodegaSecundaria, decimal IdProducto)
+        {
+            try
+            {
+                Dictionary<string, string> ListMensaje = new Dictionary<string, string>();
+                string Mensaje = string.Empty;
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "declare @IdEmpresa int = "+IdEmpresa.ToString()+","
+                                        +" @IdSucursal int = "+IdSucursal.ToString()+","
+                                        +" @IdProducto numeric(18,0) = "+IdProducto.ToString()+","
+                                        +" @EsBodegaSecundaria bit = "+(EsBodegaSecundaria ? "1" : "0")+","
+                                        +" @IdBodega int = "+IdBodega.ToString()
+                                        +" select a.IdEmpresa, a.IdSucursal, a.IdBodega, a.IdProducto, b.bo_Descripcion, c.pr_descripcion,"
+                                        +" 'El producto ['+cast(@IdProducto as varchar)+'] '+rtrim(ltrim(pr_descripcion))+' no puede estar registrado en multiples bodegas de la misma sucursal' as MensajeGeneral"
+                                        +" from in_ProductoPor_tb_bodega as a with (nolock)"
+                                        +" join tb_bodega as b with (nolock) on a.idempresa = b.idempresa and a.IdSucursal = b.IdSucursal and a.IdBodega = b.IdBodega"
+                                        +" join in_Producto as c with (nolock) on a.IdEmpresa = c.IdEmpresa and a.IdProducto = c.IdProducto"
+                                        +" where a.IdEmpresa = @IdEmpresa "
+                                        +" and a.IdSucursal = @IdSucursal "
+                                        +" and a.IdProducto = @IdProducto"
+                                        +" and isnull(b.EsBodegaSecundaria,0) = @EsBodegaSecundaria"
+                                        +" and a.IdBodega <> @IdBodega";
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ListMensaje.Add(reader["bo_Descripcion"].ToString(), reader["MensajeGeneral"].ToString());
+                    }
+                    reader.Close();
+                    if (ListMensaje.Count == 0)
+                        return string.Empty;
+
+                    Mensaje = ListMensaje.First().Value;
+                    foreach (var item in ListMensaje)
+                    {
+                        Mensaje += "\n"+item.Key;
+                    }
+                }
+                return Mensaje;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

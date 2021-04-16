@@ -51,5 +51,18 @@ namespace Core.Erp.Business.Inventario
                 throw;
             }
         }
+
+        public string ValidarExisteEnMultiplesBodegas(int IdEmpresa, int IdSucursal, int IdBodega, bool EsBodegaSecundaria, decimal IdProducto)
+        {
+            try
+            {
+                return odata.ValidarExisteEnMultiplesBodegas(IdEmpresa, IdSucursal, IdBodega, EsBodegaSecundaria, IdProducto);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

@@ -22,6 +22,9 @@ namespace Core.Erp.Winform.Inventario
         tb_Sucursal_Bus busSucursal = new tb_Sucursal_Bus();
         tb_Bodega_Bus busBodega = new tb_Bodega_Bus();
         cl_parametrosGenerales_Bus param = cl_parametrosGenerales_Bus.Instance;
+        List<tb_Bodega_Info> ListBodegas = new List<tb_Bodega_Info>();
+        tb_Bodega_Info infoBodega = new tb_Bodega_Info();
+        string mensaje = string.Empty;
         #endregion
 
         #region Constructor
@@ -38,9 +41,15 @@ namespace Core.Erp.Winform.Inventario
         }
         private void CargarDetalle()
         {
-            int IdSucursal = Convert.ToInt32(cmbSucursal.EditValue);
-            int IdBodega = Convert.ToInt32(cmbBodega.EditValue);
-            blstProductoPorBodega = new BindingList<in_ProductoPor_tb_bodega_Info>(busProductoPorBodega.GetList(param.IdEmpresa,IdSucursal,IdBodega,true));
+            blstProductoPorBodega = new BindingList<in_ProductoPor_tb_bodega_Info>();
+            infoBodega = null;
+            if (cmbBodega.EditValue != null)
+            {
+                int IdSucursal = Convert.ToInt32(cmbSucursal.EditValue);
+                int IdBodega = Convert.ToInt32(cmbBodega.EditValue);
+                infoBodega = ListBodegas.Where(q => q.IdBodega == IdBodega).FirstOrDefault();
+                blstProductoPorBodega = new BindingList<in_ProductoPor_tb_bodega_Info>(busProductoPorBodega.GetList(param.IdEmpresa, IdSucursal, IdBodega, true));    
+            }
             gcNoAsignado.DataSource = blstProductoPorBodega;
         }
         private bool Guardar()
@@ -91,7 +100,8 @@ namespace Core.Erp.Winform.Inventario
             }
             int IdSucursal = Convert.ToInt32(cmbSucursal.EditValue);
             cmbBodega.EditValue = null;
-            cmbBodega.Properties.DataSource = busBodega.Get_List_Bodega(param.IdEmpresa, IdSucursal);
+            ListBodegas = busBodega.Get_List_Bodega(param.IdEmpresa, IdSucursal);
+            cmbBodega.Properties.DataSource = ListBodegas;
         }
 
         private void ucGe_Menu_Superior_Mant1_event_btnSalir_Click(object sender, EventArgs e)
@@ -118,9 +128,20 @@ namespace Core.Erp.Winform.Inventario
 
         private void chkSeleccionarTodo_CheckedChanged(object sender, EventArgs e)
         {
+            
             for (int i = 0; i < gvNoAsignado.RowCount; i++)
             {
-                gvNoAsignado.SetRowCellValue(i, colSeleccionadoNA, chkSeleccionarTodo.Checked);
+                if (chkSeleccionarTodo.Checked)
+                {
+                    var row = (in_ProductoPor_tb_bodega_Info)gvNoAsignado.GetRow(i);
+                    mensaje = busProductoPorBodega.ValidarExisteEnMultiplesBodegas(param.IdEmpresa, Convert.ToInt32(cmbSucursal.EditValue), Convert.ToInt32(cmbBodega.EditValue), infoBodega.EsBodegaSecundaria, row.IdProducto);
+                    if (string.IsNullOrEmpty(mensaje))
+                    {
+                        gvNoAsignado.SetRowCellValue(i, colSeleccionadoNA, chkSeleccionarTodo.Checked);
+                    }else
+                        MessageBox.Show(mensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }else
+                    gvNoAsignado.SetRowCellValue(i, colSeleccionadoNA, chkSeleccionarTodo.Checked);
             }
         }
         #endregion                
@@ -128,6 +149,23 @@ namespace Core.Erp.Winform.Inventario
         private void cmbBodega_EditValueChanged(object sender, EventArgs e)
         {
             CargarDetalle();
+        }
+
+        private void chkSeleccion_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if ((bool)e.NewValue)
+            {
+                var row = (in_ProductoPor_tb_bodega_Info)gvNoAsignado.GetFocusedRow();
+                if (row != null)
+                {
+                    mensaje = busProductoPorBodega.ValidarExisteEnMultiplesBodegas(param.IdEmpresa, Convert.ToInt32(cmbSucursal.EditValue), Convert.ToInt32(cmbBodega.EditValue), infoBodega.EsBodegaSecundaria, row.IdProducto);
+                    if (!string.IsNullOrEmpty(mensaje))
+                    {
+                        MessageBox.Show(mensaje, param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
     }
 }

@@ -352,6 +352,7 @@ namespace Core.Erp.Business.ActivoFijo
                             info.IdCatalogo_Modelo = "TIP_DISEÑO_0000001";
                             info.IdCatalogo_Color = "TIP_COLOR_0000007";
                             info.IdTipoCatalogo_Ubicacion = "TIP_UBICACION_0000001";
+                            info.Af_observacion = "";
                             
                             for (int col = 0; col < ds.Columns.Count + 1; col++)
                             {
@@ -370,34 +371,29 @@ namespace Core.Erp.Business.ActivoFijo
                                         case 1://Activo fijo Nombre
                                             info.Af_Nombre = Convert.ToString(row[col]);
                                             break;
-
-                                        case 2://Observacion
-                                            info.Af_observacion = Convert.ToString(row[col]);
-
-                                            break;
-
-                                        case 3://Af_Fecha_compra
+                                            
+                                        case 2://Af_Fecha_compra
                                             info.Af_fecha_compra = Convert.ToDateTime(row[col]);
 
                                             break;
 
-                                        case 4://Af_fecha_ini_depre
+                                        case 3://Af_fecha_ini_depre
                                             info.Af_fecha_ini_depre = (Convert.ToDateTime(row[col]));
                                             break;
 
-                                        case 5://Af_fecha_fin_depre
+                                        case 4://Af_fecha_fin_depre
                                             info.Af_fecha_fin_depre = Convert.ToDateTime(row[col]);
                                             break;
 
-                                        case 6://Af_costo_compra
+                                        case 5://Af_costo_compra
                                             info.Af_costo_compra = Convert.ToDouble(row[col]);
                                             break;
 
-                                        case 7://Af_depreciacion_acumulada
+                                        case 6://Af_depreciacion_acumulada
                                             info.Af_Depreciacion_acum = Convert.ToDouble(row[col]);
                                             break;
 
-                                        case 8://Af_Costo_historico
+                                        case 7://Af_Costo_historico
                                             info.Af_Costo_historico = Convert.ToDouble(row[col]);
                                             break;
 

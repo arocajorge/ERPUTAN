@@ -232,16 +232,19 @@ namespace Core.Erp.Winform.Contabilidad
                 var ValorTotalDistribucion = blstDet.Sum(q => q.F3);
                 foreach (var Cta in blstPlanctaSaldo)
                 {
-                    blstDiario.Add(new ct_Cbtecble_det_Info
+                    if (cmbPlanctaCabecera.EditValue == null)
                     {
-                        IdCtaCble = cmbPlanctaCabecera.EditValue == null ? Cta.IdCtaCble : cmbPlanctaCabecera.EditValue.ToString(),
-                        IdCentroCosto = Cta.IdCentroCosto,
-                        IdCentroCosto_sub_centro_costo = Cta.IdCentroCosto_sub_centro_costo,
-                        IdRegistro = string.IsNullOrEmpty(Cta.IdCentroCosto) ? null : (Cta.IdCentroCosto + "-" + Cta.IdCentroCosto_sub_centro_costo),
-                        dc_Valor = Convert.ToDouble(Math.Round(Cta.Valor * -1,2,MidpointRounding.AwayFromZero)),
-                        dc_Valor_D = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) : 0),
-                        dc_Valor_H = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero)) : 0),
-                    });
+                        blstDiario.Add(new ct_Cbtecble_det_Info
+                        {
+                            IdCtaCble = Cta.IdCtaCble,
+                            IdCentroCosto = Cta.IdCentroCosto,
+                            IdCentroCosto_sub_centro_costo = Cta.IdCentroCosto_sub_centro_costo,
+                            IdRegistro = string.IsNullOrEmpty(Cta.IdCentroCosto) ? null : (Cta.IdCentroCosto + "-" + Cta.IdCentroCosto_sub_centro_costo),
+                            dc_Valor = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero)),
+                            dc_Valor_D = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) : 0),
+                            dc_Valor_H = Convert.ToDouble(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(Cta.Valor * -1, 2, MidpointRounding.AwayFromZero)) : 0),
+                        });
+                    }
 
                     foreach (var Dis in blstDet)
                     {
@@ -255,8 +258,20 @@ namespace Core.Erp.Winform.Contabilidad
                             dc_Valor_D = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) : 0),
                             dc_Valor_H = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)) : 0),
                         });
-                    }    
+                    }
                 }
+
+                blstDiario.Add(new ct_Cbtecble_det_Info
+                {
+                    IdCtaCble = cmbPlanctaCabecera.EditValue.ToString(),
+                    IdCentroCosto = null,
+                    IdCentroCosto_sub_centro_costo = null,
+                    IdRegistro = null,
+                    dc_Valor = Convert.ToDouble(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero)),
+                    dc_Valor_D = Convert.ToDouble(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero) : 0),
+                    dc_Valor_H = Convert.ToDouble(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero)) : 0),
+                });
+
                 gcDiario.DataSource = null;
                 gcDiario.DataSource = blstDiario;
                 tabControl1.SelectedTab = tpDiario;    
@@ -401,7 +416,10 @@ namespace Core.Erp.Winform.Contabilidad
 
         private void ucMenu_event_btnAnular_Click(object sender, EventArgs e)
         {
-
+            if (AccionGuardar())
+            {
+                this.Close();
+            }
         }
 
         private bool AccionGuardar()

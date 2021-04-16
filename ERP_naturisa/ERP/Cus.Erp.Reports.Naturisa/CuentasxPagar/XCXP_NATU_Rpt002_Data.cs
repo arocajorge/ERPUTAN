@@ -140,7 +140,7 @@ namespace Cus.Erp.Reports.Naturisa.CuentasxPagar
                             descripcion_clas_prove = Convert.ToString(reader["descripcion_clas_prove"]),
                             IdOrdenPago = reader["IdOrdenPago"] == DBNull.Value ? 0 : (decimal)(reader["IdOrdenPago"]),
                             IdPersona = Convert.ToDecimal(reader["IdPersona"]),
-                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdSucursal = reader["IdSucursal"] == DBNull.Value ? 0 : Convert.ToInt32(reader["IdSucursal"]),
                             Su_Descripcion = Convert.ToString(reader["Su_Descripcion"])
                         });
                     }

@@ -114,6 +114,7 @@
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
@@ -183,8 +184,9 @@
             this.ucMenu.Enabled_btnImprimirSoporte = true;
             this.ucMenu.Enabled_btnproductos = true;
             this.ucMenu.Location = new System.Drawing.Point(0, 0);
+            this.ucMenu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucMenu.Name = "ucMenu";
-            this.ucMenu.Size = new System.Drawing.Size(1450, 29);
+            this.ucMenu.Size = new System.Drawing.Size(1924, 36);
             this.ucMenu.TabIndex = 0;
             this.ucMenu.Visible_bntAnular = false;
             this.ucMenu.Visible_bntAprobar = false;
@@ -223,22 +225,25 @@
             this.panel1.Controls.Add(this.gcDetalleCuenta);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1436, 597);
+            this.panel1.Size = new System.Drawing.Size(1908, 737);
             this.panel1.TabIndex = 1;
             // 
             // gcDetalle
             // 
             this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.Location = new System.Drawing.Point(696, 55);
+            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcDetalle.Location = new System.Drawing.Point(928, 68);
             this.gcDetalle.MainView = this.gvDetalle;
+            this.gcDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcDetalle.Name = "gcDetalle";
             this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCuenta,
             this.cmbCentroCosto,
             this.cmbSubCentro});
-            this.gcDetalle.Size = new System.Drawing.Size(740, 542);
+            this.gcDetalle.Size = new System.Drawing.Size(980, 669);
             this.gcDetalle.TabIndex = 2;
             this.gcDetalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalle});
@@ -250,7 +255,8 @@
             this.gridColumn4,
             this.colSCDet,
             this.colF1,
-            this.colF2});
+            this.colF2,
+            this.gridColumn7});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Name = "gvDetalle";
             this.gvDetalle.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -270,7 +276,7 @@
             this.colCuentaDis.Name = "colCuentaDis";
             this.colCuentaDis.Visible = true;
             this.colCuentaDis.VisibleIndex = 0;
-            this.colCuentaDis.Width = 447;
+            this.colCuentaDis.Width = 487;
             // 
             // cmbCuenta
             // 
@@ -329,7 +335,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 332;
+            this.gridColumn4.Width = 362;
             // 
             // cmbCentroCosto
             // 
@@ -378,7 +384,7 @@
             this.colSCDet.Name = "colSCDet";
             this.colSCDet.Visible = true;
             this.colSCDet.VisibleIndex = 2;
-            this.colSCDet.Width = 303;
+            this.colSCDet.Width = 330;
             // 
             // cmbSubCentro
             // 
@@ -401,7 +407,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F1", "{0:n2}")});
             this.colF1.Visible = true;
             this.colF1.VisibleIndex = 3;
-            this.colF1.Width = 216;
+            this.colF1.Width = 143;
             // 
             // colF2
             // 
@@ -412,20 +418,22 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "F2", "{0:n2}")});
             this.colF2.Visible = true;
             this.colF2.VisibleIndex = 4;
-            this.colF2.Width = 216;
+            this.colF2.Width = 118;
             // 
             // gcDetalleCuenta
             // 
             this.gcDetalleCuenta.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gcDetalleCuenta.Location = new System.Drawing.Point(0, 55);
+            this.gcDetalleCuenta.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcDetalleCuenta.Location = new System.Drawing.Point(0, 68);
             this.gcDetalleCuenta.MainView = this.gvDetalleCuenta;
+            this.gcDetalleCuenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcDetalleCuenta.Name = "gcDetalleCuenta";
             this.gcDetalleCuenta.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbPlanctaCuenta,
             this.cmbCentroCostoCuenta,
             this.cmbSubCentroCuenta,
             this.cmbImagen});
-            this.gcDetalleCuenta.Size = new System.Drawing.Size(696, 542);
+            this.gcDetalleCuenta.Size = new System.Drawing.Size(928, 669);
             this.gcDetalleCuenta.TabIndex = 5;
             this.gcDetalleCuenta.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDetalleCuenta});
@@ -630,21 +638,24 @@
             this.panel2.Controls.Add(this.btnDistribuir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1436, 55);
+            this.panel2.Size = new System.Drawing.Size(1908, 68);
             this.panel2.TabIndex = 4;
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(8, 12);
+            this.labelControl5.Location = new System.Drawing.Point(11, 15);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(87, 13);
+            this.labelControl5.Size = new System.Drawing.Size(102, 16);
             this.labelControl5.TabIndex = 15;
             this.labelControl5.Text = "Cuenta transitoria";
             // 
             // cmbPlanctaCabecera
             // 
-            this.cmbPlanctaCabecera.Location = new System.Drawing.Point(117, 9);
+            this.cmbPlanctaCabecera.Location = new System.Drawing.Point(156, 11);
+            this.cmbPlanctaCabecera.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbPlanctaCabecera.Name = "cmbPlanctaCabecera";
             this.cmbPlanctaCabecera.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -652,7 +663,7 @@
             this.cmbPlanctaCabecera.Properties.NullText = "";
             this.cmbPlanctaCabecera.Properties.ValueMember = "IdCtaCble";
             this.cmbPlanctaCabecera.Properties.View = this.gridView2;
-            this.cmbPlanctaCabecera.Size = new System.Drawing.Size(579, 20);
+            this.cmbPlanctaCabecera.Size = new System.Drawing.Size(772, 22);
             this.cmbPlanctaCabecera.TabIndex = 12;
             // 
             // gridView2
@@ -697,9 +708,10 @@
             // chkConsiderarCC
             // 
             this.chkConsiderarCC.AutoSize = true;
-            this.chkConsiderarCC.Location = new System.Drawing.Point(8, 35);
+            this.chkConsiderarCC.Location = new System.Drawing.Point(11, 43);
+            this.chkConsiderarCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkConsiderarCC.Name = "chkConsiderarCC";
-            this.chkConsiderarCC.Size = new System.Drawing.Size(205, 17);
+            this.chkConsiderarCC.Size = new System.Drawing.Size(270, 21);
             this.chkConsiderarCC.TabIndex = 6;
             this.chkConsiderarCC.Text = "Mostrar saldo considerando CC y SCC";
             this.chkConsiderarCC.UseVisualStyleBackColor = true;
@@ -710,9 +722,10 @@
             this.btnDistribuir.Image = global::Core.Erp.Winform.Properties.Resources.Distribuir_16x16;
             this.btnDistribuir.ImageIndex = 8;
             this.btnDistribuir.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnDistribuir.Location = new System.Drawing.Point(1342, 3);
+            this.btnDistribuir.Location = new System.Drawing.Point(1782, 4);
+            this.btnDistribuir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDistribuir.Name = "btnDistribuir";
-            this.btnDistribuir.Size = new System.Drawing.Size(90, 46);
+            this.btnDistribuir.Size = new System.Drawing.Size(120, 57);
             this.btnDistribuir.TabIndex = 5;
             this.btnDistribuir.Text = "Distribuir";
             this.btnDistribuir.Click += new System.EventHandler(this.btnDistribuir_Click);
@@ -732,114 +745,127 @@
             this.panel3.Controls.Add(this.txtIdDistribucion);
             this.panel3.Controls.Add(this.cmbTipoCbte);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 29);
+            this.panel3.Location = new System.Drawing.Point(0, 36);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1450, 100);
+            this.panel3.Size = new System.Drawing.Size(1924, 123);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(805, 26);
+            this.labelControl7.Location = new System.Drawing.Point(1073, 32);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(58, 13);
+            this.labelControl7.Size = new System.Drawing.Size(70, 16);
             this.labelControl7.TabIndex = 18;
             this.labelControl7.Text = "Fecha diario";
             // 
             // deFecha
             // 
             this.deFecha.EditValue = null;
-            this.deFecha.Location = new System.Drawing.Point(898, 23);
+            this.deFecha.Location = new System.Drawing.Point(1197, 28);
+            this.deFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deFecha.Name = "deFecha";
             this.deFecha.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFecha.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFecha.Size = new System.Drawing.Size(117, 20);
+            this.deFecha.Size = new System.Drawing.Size(156, 22);
             this.deFecha.TabIndex = 17;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(805, 52);
+            this.labelControl6.Location = new System.Drawing.Point(1073, 64);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(61, 13);
+            this.labelControl6.Size = new System.Drawing.Size(72, 16);
             this.labelControl6.TabIndex = 16;
             this.labelControl6.Text = "Fecha desde";
             // 
             // deFechaIni
             // 
             this.deFechaIni.EditValue = null;
-            this.deFechaIni.Location = new System.Drawing.Point(898, 49);
+            this.deFechaIni.Location = new System.Drawing.Point(1197, 60);
+            this.deFechaIni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deFechaIni.Name = "deFechaIni";
             this.deFechaIni.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaIni.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaIni.Size = new System.Drawing.Size(117, 20);
+            this.deFechaIni.Size = new System.Drawing.Size(156, 22);
             this.deFechaIni.TabIndex = 15;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(12, 43);
+            this.labelControl4.Location = new System.Drawing.Point(16, 53);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(60, 13);
+            this.labelControl4.Size = new System.Drawing.Size(70, 16);
             this.labelControl4.TabIndex = 14;
             this.labelControl4.Text = "Observacion";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 17);
+            this.labelControl3.Location = new System.Drawing.Point(16, 21);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(11, 13);
+            this.labelControl3.Size = new System.Drawing.Size(12, 16);
             this.labelControl3.TabIndex = 13;
             this.labelControl3.Text = "ID";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(285, 17);
+            this.labelControl2.Location = new System.Drawing.Point(380, 21);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(86, 13);
+            this.labelControl2.Size = new System.Drawing.Size(104, 16);
             this.labelControl2.TabIndex = 12;
             this.labelControl2.Text = "Tipo comprobante";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(805, 78);
+            this.labelControl1.Location = new System.Drawing.Point(1073, 96);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(59, 13);
+            this.labelControl1.Size = new System.Drawing.Size(69, 16);
             this.labelControl1.TabIndex = 8;
             this.labelControl1.Text = "Fecha hasta";
             // 
             // deFechaFin
             // 
             this.deFechaFin.EditValue = null;
-            this.deFechaFin.Location = new System.Drawing.Point(898, 75);
+            this.deFechaFin.Location = new System.Drawing.Point(1197, 92);
+            this.deFechaFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deFechaFin.Name = "deFechaFin";
             this.deFechaFin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deFechaFin.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deFechaFin.Size = new System.Drawing.Size(117, 20);
+            this.deFechaFin.Size = new System.Drawing.Size(156, 22);
             this.deFechaFin.TabIndex = 7;
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(100, 40);
+            this.txtObservacion.Location = new System.Drawing.Point(133, 49);
+            this.txtObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.Size = new System.Drawing.Size(689, 54);
+            this.txtObservacion.Size = new System.Drawing.Size(919, 66);
             this.txtObservacion.TabIndex = 9;
             // 
             // txtIdDistribucion
             // 
-            this.txtIdDistribucion.Location = new System.Drawing.Point(100, 14);
+            this.txtIdDistribucion.Location = new System.Drawing.Point(133, 17);
+            this.txtIdDistribucion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdDistribucion.Name = "txtIdDistribucion";
             this.txtIdDistribucion.Properties.ReadOnly = true;
-            this.txtIdDistribucion.Size = new System.Drawing.Size(120, 20);
+            this.txtIdDistribucion.Size = new System.Drawing.Size(160, 22);
             this.txtIdDistribucion.TabIndex = 10;
             // 
             // cmbTipoCbte
             // 
-            this.cmbTipoCbte.Location = new System.Drawing.Point(381, 14);
+            this.cmbTipoCbte.Location = new System.Drawing.Point(508, 17);
+            this.cmbTipoCbte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTipoCbte.Name = "cmbTipoCbte";
             this.cmbTipoCbte.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -847,7 +873,7 @@
             this.cmbTipoCbte.Properties.NullText = "";
             this.cmbTipoCbte.Properties.ValueMember = "IdTipoCbte";
             this.cmbTipoCbte.Properties.View = this.searchLookUpEdit1View;
-            this.cmbTipoCbte.Size = new System.Drawing.Size(408, 20);
+            this.cmbTipoCbte.Size = new System.Drawing.Size(544, 22);
             this.cmbTipoCbte.TabIndex = 11;
             // 
             // searchLookUpEdit1View
@@ -884,19 +910,21 @@
             this.tabControl1.Controls.Add(this.tpDistribucion);
             this.tabControl1.Controls.Add(this.tpDiario);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 129);
+            this.tabControl1.Location = new System.Drawing.Point(0, 159);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1450, 629);
+            this.tabControl1.Size = new System.Drawing.Size(1924, 774);
             this.tabControl1.TabIndex = 3;
             // 
             // tpDistribucion
             // 
             this.tpDistribucion.Controls.Add(this.panel1);
-            this.tpDistribucion.Location = new System.Drawing.Point(4, 22);
+            this.tpDistribucion.Location = new System.Drawing.Point(4, 25);
+            this.tpDistribucion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpDistribucion.Name = "tpDistribucion";
-            this.tpDistribucion.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDistribucion.Size = new System.Drawing.Size(1442, 603);
+            this.tpDistribucion.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpDistribucion.Size = new System.Drawing.Size(1916, 745);
             this.tpDistribucion.TabIndex = 0;
             this.tpDistribucion.Text = "Distribución";
             this.tpDistribucion.UseVisualStyleBackColor = true;
@@ -904,9 +932,10 @@
             // tpDiario
             // 
             this.tpDiario.Controls.Add(this.gcDiario);
-            this.tpDiario.Location = new System.Drawing.Point(4, 22);
+            this.tpDiario.Location = new System.Drawing.Point(4, 25);
+            this.tpDiario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpDiario.Name = "tpDiario";
-            this.tpDiario.Size = new System.Drawing.Size(1442, 603);
+            this.tpDiario.Size = new System.Drawing.Size(1925, 745);
             this.tpDiario.TabIndex = 2;
             this.tpDiario.Text = "DiarioContable";
             this.tpDiario.UseVisualStyleBackColor = true;
@@ -914,14 +943,16 @@
             // gcDiario
             // 
             this.gcDiario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDiario.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcDiario.Location = new System.Drawing.Point(0, 0);
             this.gcDiario.MainView = this.gvDiario;
+            this.gcDiario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcDiario.Name = "gcDiario";
             this.gcDiario.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbCuentaDiario,
             this.cmbCentroCostoDiario,
             this.cmbSubcentroDiario});
-            this.gcDiario.Size = new System.Drawing.Size(1442, 603);
+            this.gcDiario.Size = new System.Drawing.Size(1925, 745);
             this.gcDiario.TabIndex = 3;
             this.gcDiario.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDiario});
@@ -1105,15 +1136,24 @@
             this.gridColumn23.VisibleIndex = 5;
             this.gridColumn23.Width = 454;
             // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Observacion";
+            this.gridColumn7.FieldName = "Observacion";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.Width = 294;
+            // 
             // frmCon_DistribucionMantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1450, 758);
+            this.ClientSize = new System.Drawing.Size(1924, 933);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.ucMenu);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCon_DistribucionMantenimiento";
             this.Text = "frmCon_DistribucionMantenimiento";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCon_DistribucionMantenimiento_FormClosed);
@@ -1250,5 +1290,6 @@
         private DevExpress.XtraEditors.DateEdit deFechaIni;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.DateEdit deFecha;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }

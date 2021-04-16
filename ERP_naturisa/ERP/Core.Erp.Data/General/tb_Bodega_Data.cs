@@ -6,6 +6,7 @@ using System.Text;
 using Core.Erp.Info.General;
 using Core.Erp.Info.Contabilidad;
 using Core.Erp.Data.General;
+using System.Data.SqlClient;
 
 namespace Core.Erp.Data.General
 {
@@ -18,33 +19,39 @@ namespace Core.Erp.Data.General
             try
             {
                 List<tb_Bodega_Info> lM = new List<tb_Bodega_Info>();
-                EntitiesGeneral OEGeneral = new EntitiesGeneral();
 
-                var select_pv = from A in OEGeneral.tb_bodega
-                                where A.IdEmpresa==IdEmpresa && A.IdSucursal==IdSucursal
-                                      select A;
-                
-                foreach (var item in select_pv)
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    tb_Bodega_Info info = new tb_Bodega_Info();
-                    info.IdEmpresa = item.IdEmpresa;
-                    info.IdBodega = item.IdBodega;
-                    info.IdSucursal = item.IdSucursal;
-                    info.cod_bodega = item.cod_bodega;
-                    info.bo_Descripcion = item.bo_Descripcion.Trim();
-                    info.bo_Descripcion2 = "[" + item.IdBodega + "]-" + item.bo_Descripcion.Trim();
-                    info.IdCentroCosto = item.IdCentroCosto;
-                    info.cod_punto_emision = item.cod_punto_emision;
-                    info.bo_esBodega = item.bo_EsBodega;
-                    info.bo_manejaFacturacion = item.bo_manejaFacturacion;
-                    info.Estado = (item.Estado == "A") ? true : false;
-                    info.IdEstadoAproba_x_Ing_Egr_Inven = item.IdEstadoAproba_x_Ing_Egr_Inven;
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select IdEmpresa, IdSucursal, IdBodega, cod_bodega, bo_Descripcion, "
+                    + " '['+cast(IdBodega as varchar(10))+'] '+bo_Descripcion as bo_Descripcion2, cod_punto_emision, bo_EsBodega, bo_manejaFacturacion, case when Estado ='A' then cast(1 as bit) else cast(0 as bit) end as Estado, "
+                    + " IdEstadoAproba_x_Ing_Egr_Inven, IdCtaCtble_Inve, IdCtaCtble_Costo, isnull(EsBodegaSecundaria, cast(0 as bit)) as EsBodegaSecundaria"
+                    + " from tb_bodega with (nolock) where IdEmpresa = " + IdEmpresa.ToString() + " and IdSucursal = " + IdSucursal.ToString();
 
-                    info.IdCtaCtble_Inve = item.IdCtaCtble_Inve;
-                    info.IdCtaCtble_Costo = item.IdCtaCtble_Costo;
-
-
-                    lM.Add(info);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lM.Add(new tb_Bodega_Info
+                        {
+                            IdEmpresa = Convert.ToInt32(reader["IdEmpresa"]),
+                            IdSucursal = Convert.ToInt32(reader["IdSucursal"]),
+                            IdBodega = Convert.ToInt32(reader["IdBodega"]),
+                            cod_bodega = Convert.ToString(reader["cod_bodega"]),
+                            bo_Descripcion = Convert.ToString(reader["bo_Descripcion"]),
+                            bo_Descripcion2 = Convert.ToString(reader["bo_Descripcion2"]),
+                            cod_punto_emision = Convert.ToString(reader["cod_punto_emision"]),
+                            bo_esBodega = Convert.ToString(reader["bo_EsBodega"]),
+                            bo_manejaFacturacion = Convert.ToString(reader["bo_manejaFacturacion"]),
+                            Estado = Convert.ToBoolean(reader["Estado"]),
+                            IdEstadoAproba_x_Ing_Egr_Inven = Convert.ToString(reader["IdEstadoAproba_x_Ing_Egr_Inven"]),
+                            IdCtaCtble_Inve = reader["IdCtaCtble_Inve"] == DBNull.Value ? null : Convert.ToString(reader["IdCtaCtble_Inve"]),
+                            IdCtaCtble_Costo = reader["IdCtaCtble_Costo"] == DBNull.Value ? null : Convert.ToString(reader["IdCtaCtble_Costo"]),
+                            EsBodegaSecundaria = Convert.ToBoolean(reader["EsBodegaSecundaria"]),
+                        });
+                    }
+                    reader.Close();
                 }
                 return (lM);
             }

@@ -51,6 +51,7 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chkSeleccion = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBodega.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -58,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNoAsignado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNoAsignado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccion)).BeginInit();
             this.SuspendLayout();
             // 
             // ucGe_Menu_Superior_Mant1
@@ -87,8 +89,9 @@
             this.ucGe_Menu_Superior_Mant1.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant1.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
+            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
-            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1050, 25);
+            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1400, 31);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 0;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAnular = false;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAprobar = false;
@@ -128,17 +131,19 @@
             this.panel1.Controls.Add(this.cmbBodega);
             this.panel1.Controls.Add(this.cmbSucursal);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 87);
+            this.panel1.Size = new System.Drawing.Size(1400, 107);
             this.panel1.TabIndex = 1;
             // 
             // chkSeleccionarTodo
             // 
             this.chkSeleccionarTodo.AutoSize = true;
-            this.chkSeleccionarTodo.Location = new System.Drawing.Point(35, 65);
+            this.chkSeleccionarTodo.Location = new System.Drawing.Point(47, 80);
+            this.chkSeleccionarTodo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkSeleccionarTodo.Name = "chkSeleccionarTodo";
-            this.chkSeleccionarTodo.Size = new System.Drawing.Size(106, 17);
+            this.chkSeleccionarTodo.Size = new System.Drawing.Size(136, 21);
             this.chkSeleccionarTodo.TabIndex = 25;
             this.chkSeleccionarTodo.Text = "Seleccionar todo";
             this.chkSeleccionarTodo.UseVisualStyleBackColor = true;
@@ -147,33 +152,32 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 42);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(43, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 24;
             this.label2.Text = "Bodega";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(43, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 23;
             this.label1.Text = "Sucursal";
             // 
             // cmbBodega
             // 
-            this.cmbBodega.Location = new System.Drawing.Point(105, 39);
+            this.cmbBodega.Location = new System.Drawing.Point(140, 48);
+            this.cmbBodega.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbBodega.Name = "cmbBodega";
             this.cmbBodega.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbBodega.Properties.DisplayMember = "bo_Descripcion2";
             this.cmbBodega.Properties.ValueMember = "IdBodega";
             this.cmbBodega.Properties.View = this.gridView1;
-            this.cmbBodega.Size = new System.Drawing.Size(425, 20);
+            this.cmbBodega.Size = new System.Drawing.Size(567, 22);
             this.cmbBodega.TabIndex = 22;
             this.cmbBodega.EditValueChanged += new System.EventHandler(this.cmbBodega_EditValueChanged);
             // 
@@ -207,14 +211,15 @@
             // 
             // cmbSucursal
             // 
-            this.cmbSucursal.Location = new System.Drawing.Point(105, 15);
+            this.cmbSucursal.Location = new System.Drawing.Point(140, 18);
+            this.cmbSucursal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbSucursal.Name = "cmbSucursal";
             this.cmbSucursal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSucursal.Properties.DisplayMember = "Su_Descripcion2";
             this.cmbSucursal.Properties.ValueMember = "IdSucursal";
             this.cmbSucursal.Properties.View = this.searchLookUpEdit1View;
-            this.cmbSucursal.Size = new System.Drawing.Size(425, 20);
+            this.cmbSucursal.Size = new System.Drawing.Size(567, 22);
             this.cmbSucursal.TabIndex = 21;
             this.cmbSucursal.EditValueChanged += new System.EventHandler(this.cmbSucursal_EditValueChanged);
             // 
@@ -260,12 +265,14 @@
             // gcNoAsignado
             // 
             this.gcNoAsignado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcNoAsignado.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gcNoAsignado.Location = new System.Drawing.Point(0, 112);
+            this.gcNoAsignado.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gcNoAsignado.Location = new System.Drawing.Point(0, 138);
             this.gcNoAsignado.MainView = this.gvNoAsignado;
-            this.gcNoAsignado.Margin = new System.Windows.Forms.Padding(2);
+            this.gcNoAsignado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcNoAsignado.Name = "gcNoAsignado";
-            this.gcNoAsignado.Size = new System.Drawing.Size(1050, 578);
+            this.gcNoAsignado.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.chkSeleccion});
+            this.gcNoAsignado.Size = new System.Drawing.Size(1400, 711);
             this.gcNoAsignado.TabIndex = 20;
             this.gcNoAsignado.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvNoAsignado});
@@ -311,6 +318,7 @@
             // colSeleccionadoNA
             // 
             this.colSeleccionadoNA.Caption = "*";
+            this.colSeleccionadoNA.ColumnEdit = this.chkSeleccion;
             this.colSeleccionadoNA.FieldName = "Seleccionado";
             this.colSeleccionadoNA.Name = "colSeleccionadoNA";
             this.colSeleccionadoNA.Visible = true;
@@ -357,14 +365,23 @@
             this.gridColumn10.VisibleIndex = 6;
             this.gridColumn10.Width = 235;
             // 
+            // chkSeleccion
+            // 
+            this.chkSeleccion.AutoHeight = false;
+            this.chkSeleccion.Name = "chkSeleccion";
+            this.chkSeleccion.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.chkSeleccion.ValueGrayed = false;
+            this.chkSeleccion.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.chkSeleccion_EditValueChanging);
+            // 
             // FrmIn_AsignacionProductoPorBodega
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 690);
+            this.ClientSize = new System.Drawing.Size(1400, 849);
             this.Controls.Add(this.gcNoAsignado);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmIn_AsignacionProductoPorBodega";
             this.Text = "FrmIn_AsignacionProductoPorBodega";
             this.Load += new System.EventHandler(this.FrmIn_AsignacionProductoPorBodega_Load);
@@ -376,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNoAsignado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNoAsignado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSeleccion)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +423,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private System.Windows.Forms.CheckBox chkSeleccionarTodo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkSeleccion;
     }
 }

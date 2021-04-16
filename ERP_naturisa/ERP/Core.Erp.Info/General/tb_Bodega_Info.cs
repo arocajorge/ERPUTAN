@@ -42,5 +42,7 @@ namespace Core.Erp.Info.General
         {
         EstaEnBase ="N";
         }
+
+        public bool EsBodegaSecundaria { get; set; }
     }
 }
