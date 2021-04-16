@@ -74,12 +74,8 @@
         <AssociationConnector Association="DBERPModelCompras.FK_com_solicitante_x_com_departamento_com_departamento" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_solicitante_x_com_departamento_com_solicitante" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDetAprobacion" Width="1.5" PointX="10.847935320273011" PointY="20.134527662831605" />
-        <EntityTypeShape EntityType="DBERPModelCompras.com_ordencompra_local_det" Width="1.5" PointX="7.7176645955618763" PointY="8.8909493428147162" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_ordencompra_local_det" Width="1.5" PointX="11.18521522506383" PointY="17.050358750415203" />
         <EntityTypeShape EntityType="DBERPModelCompras.vwcom_OrdenPedidoPlantilla" Width="1.5" PointX="11.978336909775779" PointY="31.085812449029561" />
-        <AssociationConnector Association="DBERPModelCompras.FK_com_dev_compra_det_com_ordencompra_local_det" />
-        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_com_ordencompra_local" />
-        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_ordencompra_local_det" />
         <EntityTypeShape EntityType="DBERPModelCompras.com_OrdenPedidoPlantilla" Width="1.5" PointX="2.1231973404638458" PointY="30.348253010934336" />
         <EntityTypeShape EntityType="DBERPModelCompras.com_OrdenPedidoPlantillaDet" Width="1.5" PointX="11.216713970162306" PointY="19.279087701476687" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_OrdenPedidoPlantillaDet_com_OrdenPedido" />
@@ -110,6 +106,10 @@
         <EntityTypeShape EntityType="DBERPModelCompras.com_OrdenPedidoDet" Width="1.5" PointX="3.9460994545119341" PointY="23.473464887344029" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_CotizacionPedidoDet_com_OrdenPedidoDet" />
         <AssociationConnector Association="DBERPModelCompras.FK_com_OrdenPedidoDet_com_OrdenPedido" />
+        <EntityTypeShape EntityType="DBERPModelCompras.com_ordencompra_local_det" Width="1.5" PointX="3.7732692266689933" PointY="18.02535370831627" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_dev_compra_det_com_ordencompra_local_det" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_com_ordencompra_local" />
+        <AssociationConnector Association="DBERPModelCompras.FK_com_ordencompra_local_det_x_com_solicitud_compra_det_com_ordencompra_local_det" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
