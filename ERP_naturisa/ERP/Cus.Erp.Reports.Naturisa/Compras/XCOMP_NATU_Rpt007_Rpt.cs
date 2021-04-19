@@ -43,11 +43,12 @@ namespace Cus.Erp.Reports.Naturisa.Compras
                 if (listDataRpt.Count > 0)
                 {
                     var Primero = listDataRpt[0];
+                    /*
                     if ((Primero.EsProcesoSolicitud ?? false) == false)
                         PbFirma.Visible = false;
                     else
                         PbFirma.Visible = true;
-
+                    */
                     lblPedido.Text = Primero.IdOrdenPedido == null ? "" : ("SOL #" + Primero.IdOrdenPedido);
                 }
                 this.DataSource = listDataRpt.ToArray();

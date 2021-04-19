@@ -25,29 +25,29 @@ namespace Core.Erp.Reportes.Inventario
                                 +" c.Costo_uni, c.Descuento, c.SubTotal, c.valor_Iva, c.Total, g.Su_Descripcion as SucursalIngreso,"
                                 +" m.pe_nombreCompleto, b.co_observacion, b.co_subtotal_siniva, b.co_subtotal_iva, b.co_valoriva, b.co_total,"
                                 +" b.co_FechaFactura_vct, b.co_serie+'-'+b.co_factura co_factura, isnull(n.re_valor_retencion,0) re_valor_retencion, b.co_total - isnull(re_valor_retencion,0) as ValorAPagar,"
-                                +" c.IdNumMovi_Ing_Egr_Inv"
-                                +" from cp_Aprobacion_Ing_Bod_x_OC as a inner join"
-                                +" cp_orden_giro as b on a.idempresa = b.idempresa and a.IdTipoCbte_Ogiro = b.IdTipoCbte_Ogiro and a.IdCbteCble_Ogiro = b.IdCbteCble_Ogiro inner join"
-                                +" cp_Aprobacion_Ing_Bod_x_OC_det as c on a.IdEmpresa = c.IdEmpresa and a.IdAprobacion = c.IdAprobacion inner join"
-                                +" in_Ing_Egr_Inven_det as d on c.IdEmpresa_Ing_Egr_Inv = d.IdEmpresa and c.IdSucursal_Ing_Egr_Inv = d.IdSucursal and c.IdMovi_inven_tipo_Ing_Egr_Inv = d.IdMovi_inven_tipo and c.IdNumMovi_Ing_Egr_Inv = d.IdNumMovi and c.Secuencia_Ing_Egr_Inv = d.Secuencia inner join"
-                                +" com_ordencompra_local_det as e on d.IdEmpresa_oc = e.IdEmpresa and d.IdSucursal_oc = e.IdSucursal and d.IdOrdenCompra = e.IdOrdenCompra and d.Secuencia_oc = e.Secuencia left join"
-                                +" in_Producto as f on e.idempresa = f.idempresa and e.IdProducto = f.IdProducto left join"
-                                +" tb_sucursal as g on d.IdEmpresa = g.IdEmpresa and d.IdSucursal = g.IdSucursal left join"
-                                +" tb_sucursal as h on e.IdEmpresa = h.IdEmpresa and e.IdSucursal = h.IdSucursal left join"
-                                +" com_ordencompra_local as i on e.idempresa = i.idempresa and e.IdSucursal = i.IdSucursal and e.IdOrdenCompra = i.IdOrdenCompra left join"
-                                +" in_Ing_Egr_Inven as j on d.IdEmpresa = j.IdEmpresa and d.IdSucursal = j.IdSucursal and d.IdMovi_inven_tipo = j.IdMovi_inven_tipo and d.IdNumMovi = j.IdNumMovi left join"
-                                +" in_UnidadMedida as k on d.IdUnidadMedida_sinConversion = k.IdUnidadMedida left join"
-                                +" cp_proveedor as l on b.IdEmpresa = l.IdEmpresa and b.IdProveedor = l.IdProveedor left join"
-                                +" tb_persona as m on l.IdPersona = m.IdPersona left join"
+                                + " c.IdNumMovi_Ing_Egr_Inv, i.oc_observacion"
+                                +" from cp_Aprobacion_Ing_Bod_x_OC as a with (nolock) inner join"
+                                + " cp_orden_giro as b with (nolock) on a.idempresa = b.idempresa and a.IdTipoCbte_Ogiro = b.IdTipoCbte_Ogiro and a.IdCbteCble_Ogiro = b.IdCbteCble_Ogiro inner join"
+                                + " cp_Aprobacion_Ing_Bod_x_OC_det as c  with (nolock) on a.IdEmpresa = c.IdEmpresa and a.IdAprobacion = c.IdAprobacion inner join"
+                                + " in_Ing_Egr_Inven_det as d with (nolock) on c.IdEmpresa_Ing_Egr_Inv = d.IdEmpresa and c.IdSucursal_Ing_Egr_Inv = d.IdSucursal and c.IdMovi_inven_tipo_Ing_Egr_Inv = d.IdMovi_inven_tipo and c.IdNumMovi_Ing_Egr_Inv = d.IdNumMovi and c.Secuencia_Ing_Egr_Inv = d.Secuencia inner join"
+                                + " com_ordencompra_local_det as e with (nolock) on d.IdEmpresa_oc = e.IdEmpresa and d.IdSucursal_oc = e.IdSucursal and d.IdOrdenCompra = e.IdOrdenCompra and d.Secuencia_oc = e.Secuencia left join"
+                                + " in_Producto as f with (nolock) on e.idempresa = f.idempresa and e.IdProducto = f.IdProducto left join"
+                                + " tb_sucursal as g with (nolock) on d.IdEmpresa = g.IdEmpresa and d.IdSucursal = g.IdSucursal left join"
+                                + " tb_sucursal as h with (nolock) on e.IdEmpresa = h.IdEmpresa and e.IdSucursal = h.IdSucursal left join"
+                                + " com_ordencompra_local as i with (nolock) on e.idempresa = i.idempresa and e.IdSucursal = i.IdSucursal and e.IdOrdenCompra = i.IdOrdenCompra left join"
+                                + " in_Ing_Egr_Inven as j with (nolock) on d.IdEmpresa = j.IdEmpresa and d.IdSucursal = j.IdSucursal and d.IdMovi_inven_tipo = j.IdMovi_inven_tipo and d.IdNumMovi = j.IdNumMovi left join"
+                                + " in_UnidadMedida as k with (nolock) on d.IdUnidadMedida_sinConversion = k.IdUnidadMedida left join"
+                                + " cp_proveedor as l with (nolock) on b.IdEmpresa = l.IdEmpresa and b.IdProveedor = l.IdProveedor left join"
+                                + " tb_persona as m with (nolock) on l.IdPersona = m.IdPersona left join"
                                 +" ("
                                 +" select a.IdEmpresa_Ogiro, a.IdTipoCbte_Ogiro, a.IdCbteCble_Ogiro, sum(b.re_valor_retencion) re_valor_retencion "
-                                +" from cp_retencion as a inner join"
-                                +" cp_retencion_det as b on a.IdEmpresa = b.IdEmpresa and a.IdRetencion = b.IdRetencion"
+                                + " from cp_retencion as a with (nolock) inner join"
+                                + " cp_retencion_det as b with (nolock) on a.IdEmpresa = b.IdEmpresa and a.IdRetencion = b.IdRetencion"
                                 +" where a.IdEmpresa = "+IdEmpresa.ToString()+" and a.IdTipoCbte_Ogiro = "+IdTipoCbte.ToString()+" and a.IdCbteCble_Ogiro = "+IdCbteCble.ToString()
                                 +" group by a.IdEmpresa_Ogiro, a.IdTipoCbte_Ogiro, a.IdCbteCble_Ogiro"
                                 +" ) as n on b.IdEmpresa = n.IdEmpresa_Ogiro and b.IdTipoCbte_Ogiro = n.IdTipoCbte_Ogiro and b.IdCbteCble_Ogiro = n.IdCbteCble_Ogiro left join"
-                                +" com_CotizacionPedido as o on i.IdEmpresa = o.IdEmpresa and i.IdSucursal = o.IdSucursal and i.IdOrdenCompra = o.oc_IdOrdenCompra left join"
-                                +" com_OrdenPedido as p on o.IdEmpresa = p.IdEmpresa and o.IdOrdenPedido = p.IdOrdenPedido"
+                                + " com_CotizacionPedido as o with (nolock) on i.IdEmpresa = o.IdEmpresa and i.IdSucursal = o.IdSucursal and i.IdOrdenCompra = o.oc_IdOrdenCompra left join"
+                                + " com_OrdenPedido as p with (nolock) on o.IdEmpresa = p.IdEmpresa and o.IdOrdenPedido = p.IdOrdenPedido"
                                 +" where b.IdEmpresa = "+IdEmpresa.ToString()+" and b.IdTipoCbte_Ogiro = "+IdTipoCbte.ToString()+" and b.IdCbteCble_Ogiro = "+IdCbteCble.ToString();
                     SqlCommand command = new SqlCommand(query,connection);
                     SqlDataReader reader = command.ExecuteReader();
@@ -84,7 +84,8 @@ namespace Core.Erp.Reportes.Inventario
                             ValorAPagar = Convert.ToDouble(reader["ValorAPagar"]),
                             IdNumMovi_Ing_Egr_Inv = Convert.ToDecimal(reader["IdNumMovi_Ing_Egr_Inv"]),
                             IdUsuarioApro = Convert.ToString(reader["IdUsuarioAprobacion"]),
-                            IdOrdenPedido = string.IsNullOrEmpty(reader["IdOrdenPedido"].ToString()) ? null : (decimal?)reader["IdOrdenPedido"]
+                            IdOrdenPedido = string.IsNullOrEmpty(reader["IdOrdenPedido"].ToString()) ? null : (decimal?)reader["IdOrdenPedido"],
+                            oc_observacion = reader["oc_observacion"].ToString()
                         });
                     }
                 }

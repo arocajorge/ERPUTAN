@@ -254,12 +254,14 @@ namespace Core.Erp.Winform.Contabilidad
                             IdCentroCosto = Dis.IdCentroCosto,
                             IdCentroCosto_sub_centro_costo = Dis.IdCentroCosto_sub_centro_costo,
                             IdRegistro = string.IsNullOrEmpty(Dis.IdCentroCosto) ? null : (Dis.IdCentroCosto + "-" + Dis.IdCentroCosto_sub_centro_costo),
+                            dc_Observacion = Dis.Observacion,
                             dc_Valor = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)),
                             dc_Valor_D = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) : 0),
                             dc_Valor_H = Convert.ToDouble(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round((Cta.Valor / ValorTotalDistribucion) * Dis.F3, 2, MidpointRounding.AwayFromZero)) : 0),
                         });
                     }
                 }
+                var SaldoDiario = blstDiario.Sum(q => q.dc_Valor) * -1;
 
                 blstDiario.Add(new ct_Cbtecble_det_Info
                 {
@@ -267,9 +269,9 @@ namespace Core.Erp.Winform.Contabilidad
                     IdCentroCosto = null,
                     IdCentroCosto_sub_centro_costo = null,
                     IdRegistro = null,
-                    dc_Valor = Convert.ToDouble(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero)),
-                    dc_Valor_D = Convert.ToDouble(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero) : 0),
-                    dc_Valor_H = Convert.ToDouble(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(ValorTotalDistribucion, 2, MidpointRounding.AwayFromZero)) : 0),
+                    dc_Valor = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)),
+                    dc_Valor_D = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) : 0),
+                    dc_Valor_H = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)) : 0),
                 });
 
                 gcDiario.DataSource = null;

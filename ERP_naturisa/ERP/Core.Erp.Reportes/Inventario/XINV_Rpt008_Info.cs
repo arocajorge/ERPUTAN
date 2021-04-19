@@ -38,5 +38,7 @@ namespace Core.Erp.Reportes.Inventario
         public decimal IdNumMovi_Ing_Egr_Inv { get; set; }
         public string IdUsuarioApro { get; set; }
         public decimal? IdOrdenPedido { get; set; }
+
+        public string oc_observacion { get; set; }
     }
 }
