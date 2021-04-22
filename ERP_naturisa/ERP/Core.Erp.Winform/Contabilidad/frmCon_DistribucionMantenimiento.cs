@@ -262,18 +262,19 @@ namespace Core.Erp.Winform.Contabilidad
                     }
                 }
                 var SaldoDiario = blstDiario.Sum(q => q.dc_Valor) * -1;
-
-                blstDiario.Add(new ct_Cbtecble_det_Info
+                if (cmbPlanctaCabecera.EditValue != null)
                 {
-                    IdCtaCble = cmbPlanctaCabecera.EditValue.ToString(),
-                    IdCentroCosto = null,
-                    IdCentroCosto_sub_centro_costo = null,
-                    IdRegistro = null,
-                    dc_Valor = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)),
-                    dc_Valor_D = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) : 0),
-                    dc_Valor_H = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)) : 0),
-                });
-
+                    blstDiario.Add(new ct_Cbtecble_det_Info
+                    {
+                        IdCtaCble = cmbPlanctaCabecera.EditValue.ToString(),
+                        IdCentroCosto = null,
+                        IdCentroCosto_sub_centro_costo = null,
+                        IdRegistro = null,
+                        dc_Valor = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)),
+                        dc_Valor_D = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) > 0 ? Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) : 0),
+                        dc_Valor_H = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)) : 0),
+                    });
+                }
                 gcDiario.DataSource = null;
                 gcDiario.DataSource = blstDiario;
                 tabControl1.SelectedTab = tpDiario;    

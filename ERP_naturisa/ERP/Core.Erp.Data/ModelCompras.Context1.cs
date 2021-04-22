@@ -26,7 +26,6 @@ namespace Core.Erp.Data
         {
             ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = TimeOut;
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -40,7 +39,6 @@ namespace Core.Erp.Data
         public DbSet<com_dev_compra> com_dev_compra { get; set; }
         public DbSet<com_estado_cierre> com_estado_cierre { get; set; }
         public DbSet<com_Motivo_Orden_Compra> com_Motivo_Orden_Compra { get; set; }
-        public DbSet<com_ordencompra_local> com_ordencompra_local { get; set; }
         public DbSet<com_ordencompra_local_det_x_com_solicitud_compra_det> com_ordencompra_local_det_x_com_solicitud_compra_det { get; set; }
         public DbSet<vwcom_Catalogo_IdAuto_numeric> vwcom_Catalogo_IdAuto_numeric { get; set; }
         public DbSet<vwcom_dev_compra> vwcom_dev_compra { get; set; }
@@ -101,6 +99,7 @@ namespace Core.Erp.Data
         public DbSet<vwcom_OrdenPedido> vwcom_OrdenPedido { get; set; }
         public DbSet<com_OrdenPedidoDet> com_OrdenPedidoDet { get; set; }
         public DbSet<com_ordencompra_local_det> com_ordencompra_local_det { get; set; }
+        public DbSet<com_ordencompra_local> com_ordencompra_local { get; set; }
     
         public virtual ObjectResult<SPCOM_ComprasPorPuntoCargo_Result> SPCOM_ComprasPorPuntoCargo(Nullable<int> idEmpresa, Nullable<int> idPuntoCargo)
         {

@@ -47,7 +47,7 @@ namespace Core.Erp.Data
         public Nullable<int> IdSucursalDestino { get; set; }
     
         public virtual ICollection<com_dev_compra_det> com_dev_compra_det { get; set; }
-        public virtual com_ordencompra_local com_ordencompra_local { get; set; }
         public virtual ICollection<com_ordencompra_local_det_x_com_solicitud_compra_det> com_ordencompra_local_det_x_com_solicitud_compra_det { get; set; }
+        public virtual com_ordencompra_local com_ordencompra_local { get; set; }
     }
 }
