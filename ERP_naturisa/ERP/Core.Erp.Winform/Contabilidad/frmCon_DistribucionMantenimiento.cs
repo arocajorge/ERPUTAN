@@ -275,9 +275,30 @@ namespace Core.Erp.Winform.Contabilidad
                         dc_Valor_H = Convert.ToDouble(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero) < 0 ? Math.Abs(Math.Round(SaldoDiario, 2, MidpointRounding.AwayFromZero)) : 0),
                     });
                 }
+
+                blstDiario = new BindingList<ct_Cbtecble_det_Info>((from q in blstDiario
+                                                                    group q by new { q.IdCtaCble, q.dc_Observacion }
+                                                                        into g
+                                                                        select new ct_Cbtecble_det_Info
+                                                                        {
+                                                                            dc_Valor = g.Sum(a=> a.dc_Valor),
+                                                                            IdCtaCble = g.Key.IdCtaCble,
+                                                                            dc_Observacion = g.Key.dc_Observacion                                                                            
+                                                                        }).ToList());
+                
+                foreach (var item in blstDiario)
+                {
+                    item.dc_Valor = Math.Round(item.dc_Valor, 2);
+                    item.dc_Valor_D = item.dc_Valor > 0 ? item.dc_Valor : 0;
+                    item.dc_Valor_H = item.dc_Valor < 0 ? Math.Abs(item.dc_Valor) : 0;
+                }
+
+                blstDiario = new BindingList<ct_Cbtecble_det_Info>(blstDiario.Where(q=> Math.Round(q.dc_Valor,2) != 0).ToList());
+
                 gcDiario.DataSource = null;
                 gcDiario.DataSource = blstDiario;
-                tabControl1.SelectedTab = tpDiario;    
+                tabControl1.SelectedTab = tpDiario;
+
             }
             catch (Exception)
             {
@@ -405,7 +426,7 @@ namespace Core.Erp.Winform.Contabilidad
         {
             if (AccionGuardar())
             {
-                //this.lim
+                this.Limpiar();
             }   
         }
 
@@ -524,6 +545,31 @@ namespace Core.Erp.Winform.Contabilidad
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Limpiar()
+        {
+            try
+            {
+                txtIdDistribucion.Text = "0";
+                txtObservacion.Text = string.Empty;
+                cmbPlanctaCabecera.EditValue = null;
+                cmbTipoCbte.EditValue = null;
+                Accion = Cl_Enumeradores.eTipo_action.grabar;
+                blstDet = new BindingList<ct_DistribucionDetDistribuido_Info>();
+                gcDetalle.DataSource = blstDet;
+                blstDiario = new BindingList<ct_Cbtecble_det_Info>();
+                gcDiario.DataSource = blstDiario;
+                blstPlanctaSaldo = new BindingList<ct_DistribucionDetPorDistribuir_Info>();
+                gcDetalleCuenta.DataSource = blstPlanctaSaldo;
+                SetAccionInControls();
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

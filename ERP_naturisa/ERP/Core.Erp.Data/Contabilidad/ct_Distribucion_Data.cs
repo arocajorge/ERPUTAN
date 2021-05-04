@@ -167,7 +167,7 @@ namespace Core.Erp.Data.Contabilidad
                     }
                     command.ExecuteNonQuery();
                     #endregion
-
+                    command.CommandText = string.Empty;
                     #region Distribucion
                     info.IdDistribucion = GetID(info.IdEmpresa);
                     command.CommandText += "Insert into ct_Distribucion ([IdEmpresa],[IdDistribucion],[Fecha], FechaDesde, FechaHasta,[Observacion],[Estado],[IdTipoCbte],[IdCbteCble],[IdUsuarioCreacion],[FechaCreacion], [IdCtaCble])"
@@ -193,7 +193,7 @@ namespace Core.Erp.Data.Contabilidad
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
                 throw;
