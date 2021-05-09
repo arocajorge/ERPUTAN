@@ -62,6 +62,9 @@
             this.pivotGridField1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.pivotGridField2 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.pivotGridField3 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotGridField4 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotGridField5 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotGridField8 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.bttnImprimir = new System.Windows.Forms.ToolStripButton();
             this.xtraTabControlData = new DevExpress.XtraTab.XtraTabControl();
@@ -151,21 +154,19 @@
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.dockPanel2.FloatVertical = true;
             this.dockPanel2.ID = new System.Guid("c07e659c-69a4-4e9f-a3a4-7d5c0bf5ece1");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 632);
-            this.dockPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 470);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(1121, 232);
-            this.dockPanel2.Size = new System.Drawing.Size(1495, 232);
+            this.dockPanel2.Size = new System.Drawing.Size(1121, 232);
             this.dockPanel2.Text = "Graficos";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.chartControl1);
             this.dockPanel2_Container.Controls.Add(this.toolStrip1);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 24);
-            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(4);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1487, 204);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(1113, 205);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // chartControl1
@@ -181,7 +182,6 @@
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl1.Legend.MaxHorizontalPercentage = 30D;
             this.chartControl1.Location = new System.Drawing.Point(0, 25);
-            this.chartControl1.Margin = new System.Windows.Forms.Padding(4);
             this.chartControl1.Name = "chartControl1";
             this.chartControl1.SeriesDataMember = "Series";
             sideBySideBarSeriesLabel1.LineVisible = true;
@@ -198,7 +198,7 @@
             sideBySideBarSeriesLabel3.LineVisible = true;
             this.chartControl1.SeriesTemplate.Label = sideBySideBarSeriesLabel3;
             this.chartControl1.SeriesTemplate.ValueDataMembersSerializable = "Values";
-            this.chartControl1.Size = new System.Drawing.Size(1487, 179);
+            this.chartControl1.Size = new System.Drawing.Size(1113, 180);
             this.chartControl1.TabIndex = 14;
             // 
             // PVGrid_orden_compra
@@ -221,11 +221,13 @@
             this.fieldsubcentrocosto1,
             this.pivotGridField1,
             this.pivotGridField2,
-            this.pivotGridField3});
+            this.pivotGridField3,
+            this.pivotGridField4,
+            this.pivotGridField5,
+            this.pivotGridField8});
             this.PVGrid_orden_compra.Location = new System.Drawing.Point(0, 0);
-            this.PVGrid_orden_compra.Margin = new System.Windows.Forms.Padding(4);
             this.PVGrid_orden_compra.Name = "PVGrid_orden_compra";
-            this.PVGrid_orden_compra.Size = new System.Drawing.Size(1489, 484);
+            this.PVGrid_orden_compra.Size = new System.Drawing.Size(1115, 347);
             this.PVGrid_orden_compra.TabIndex = 0;
             // 
             // xCOMPRpt004InfoBindingSource
@@ -286,6 +288,8 @@
             // 
             this.fieldprecio1.AreaIndex = 1;
             this.fieldprecio1.Caption = "Precio";
+            this.fieldprecio1.CellFormat.FormatString = "c2";
+            this.fieldprecio1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.fieldprecio1.FieldName = "precio";
             this.fieldprecio1.Name = "fieldprecio1";
             // 
@@ -293,6 +297,8 @@
             // 
             this.fielddosubtotal1.AreaIndex = 2;
             this.fielddosubtotal1.Caption = "SubTotal";
+            this.fielddosubtotal1.CellFormat.FormatString = "c2";
+            this.fielddosubtotal1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.fielddosubtotal1.FieldName = "do_subtotal";
             this.fielddosubtotal1.Name = "fielddosubtotal1";
             // 
@@ -300,6 +306,8 @@
             // 
             this.fielddoiva1.AreaIndex = 3;
             this.fielddoiva1.Caption = "Iva";
+            this.fielddoiva1.CellFormat.FormatString = "c2";
+            this.fielddoiva1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.fielddoiva1.FieldName = "do_iva";
             this.fielddoiva1.Name = "fielddoiva1";
             // 
@@ -307,8 +315,8 @@
             // 
             this.fielddototal1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
             this.fielddototal1.AreaIndex = 0;
-            this.fielddototal1.Caption = "Total";
-            this.fielddototal1.CellFormat.FormatString = "n2";
+            this.fielddototal1.Caption = "$ Total";
+            this.fielddototal1.CellFormat.FormatString = "c2";
             this.fielddototal1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.fielddototal1.FieldName = "do_total";
             this.fielddototal1.Name = "fielddototal1";
@@ -358,13 +366,38 @@
             this.pivotGridField3.FieldName = "Dia";
             this.pivotGridField3.Name = "pivotGridField3";
             // 
+            // pivotGridField4
+            // 
+            this.pivotGridField4.AreaIndex = 13;
+            this.pivotGridField4.Caption = "Cant. Ing.";
+            this.pivotGridField4.CellFormat.FormatString = "n2";
+            this.pivotGridField4.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.pivotGridField4.FieldName = "CantIng";
+            this.pivotGridField4.Name = "pivotGridField4";
+            // 
+            // pivotGridField5
+            // 
+            this.pivotGridField5.AreaIndex = 14;
+            this.pivotGridField5.Caption = "Saldo";
+            this.pivotGridField5.CellFormat.FormatString = "n2";
+            this.pivotGridField5.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.pivotGridField5.FieldName = "Saldo";
+            this.pivotGridField5.Name = "pivotGridField5";
+            // 
+            // pivotGridField8
+            // 
+            this.pivotGridField8.AreaIndex = 15;
+            this.pivotGridField8.Caption = "Familia";
+            this.pivotGridField8.FieldName = "fa_Descripcion";
+            this.pivotGridField8.Name = "pivotGridField8";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bttnImprimir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1487, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1113, 25);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -382,10 +415,9 @@
             // 
             this.xtraTabControlData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControlData.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControlData.Margin = new System.Windows.Forms.Padding(4);
             this.xtraTabControlData.Name = "xtraTabControlData";
             this.xtraTabControlData.SelectedTabPage = this.xtraTabPage_Matriz_pivot;
-            this.xtraTabControlData.Size = new System.Drawing.Size(1495, 515);
+            this.xtraTabControlData.Size = new System.Drawing.Size(1121, 375);
             this.xtraTabControlData.TabIndex = 0;
             this.xtraTabControlData.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage_Matriz_pivot});
@@ -393,9 +425,8 @@
             // xtraTabPage_Matriz_pivot
             // 
             this.xtraTabPage_Matriz_pivot.Controls.Add(this.PVGrid_orden_compra);
-            this.xtraTabPage_Matriz_pivot.Margin = new System.Windows.Forms.Padding(4);
             this.xtraTabPage_Matriz_pivot.Name = "xtraTabPage_Matriz_pivot";
-            this.xtraTabPage_Matriz_pivot.Size = new System.Drawing.Size(1489, 484);
+            this.xtraTabPage_Matriz_pivot.Size = new System.Drawing.Size(1115, 347);
             this.xtraTabPage_Matriz_pivot.Text = "Ordenes de Compras";
             // 
             // ucGe_Menu
@@ -405,9 +436,9 @@
             this.ucGe_Menu.Enable_boton_Refrescar = true;
             this.ucGe_Menu.Enable_boton_Salir = true;
             this.ucGe_Menu.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(5);
+            this.ucGe_Menu.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_Menu.Name = "ucGe_Menu";
-            this.ucGe_Menu.Size = new System.Drawing.Size(1495, 117);
+            this.ucGe_Menu.Size = new System.Drawing.Size(1121, 95);
             this.ucGe_Menu.TabIndex = 13;
             this.ucGe_Menu.Visible_bei_grupo = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucGe_Menu.Visible_bei_producto = DevExpress.XtraBars.BarItemVisibility.Always;
@@ -427,21 +458,19 @@
             // 
             this.panel1.Controls.Add(this.xtraTabControlData);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 117);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 95);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1495, 515);
+            this.panel1.Size = new System.Drawing.Size(1121, 375);
             this.panel1.TabIndex = 14;
             // 
             // XCOMP_Rpt004_frm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1495, 864);
+            this.ClientSize = new System.Drawing.Size(1121, 702);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu);
             this.Controls.Add(this.dockPanel2);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "XCOMP_Rpt004_frm";
             this.Text = "MATRIZ DE COMPRAS";
             this.Load += new System.EventHandler(this.XCOMP_Rpt004_frm_Load);
@@ -505,6 +534,9 @@
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField1;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField2;
         private DevExpress.XtraPivotGrid.PivotGridField pivotGridField3;
+        private DevExpress.XtraPivotGrid.PivotGridField pivotGridField4;
+        private DevExpress.XtraPivotGrid.PivotGridField pivotGridField5;
+        private DevExpress.XtraPivotGrid.PivotGridField pivotGridField8;
 
 
 

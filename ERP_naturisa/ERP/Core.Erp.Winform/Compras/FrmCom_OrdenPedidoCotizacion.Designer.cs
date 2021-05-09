@@ -101,8 +101,8 @@
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmbRegularizacion = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chk_MostrarAR = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -144,8 +144,10 @@
             // gc_detalle
             // 
             this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.Location = new System.Drawing.Point(0, 129);
+            this.gc_detalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gc_detalle.Location = new System.Drawing.Point(0, 105);
             this.gc_detalle.MainView = this.gv_detalle;
+            this.gc_detalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_SucursalOrdigen,
@@ -162,7 +164,7 @@
             this.cmb_adjunto,
             this.txtIdOrdenPedido,
             this.cmbRegularizacion});
-            this.gc_detalle.Size = new System.Drawing.Size(1096, 532);
+            this.gc_detalle.Size = new System.Drawing.Size(822, 432);
             this.gc_detalle.TabIndex = 6;
             this.gc_detalle.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_detalle});
@@ -213,7 +215,6 @@
             this.gv_detalle.OptionsView.ColumnAutoWidth = false;
             this.gv_detalle.OptionsView.ShowAutoFilterRow = true;
             this.gv_detalle.OptionsView.ShowFooter = true;
-            this.gv_detalle.OptionsView.ShowGroupPanel = false;
             this.gv_detalle.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn23, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn34, DevExpress.Data.ColumnSortOrder.Ascending),
@@ -962,16 +963,6 @@
             this.gridColumn40.VisibleIndex = 8;
             this.gridColumn40.Width = 52;
             // 
-            // gridColumn41
-            // 
-            this.gridColumn41.Caption = "# Regularizado";
-            this.gridColumn41.FieldName = "IdOrdenPedidoReg";
-            this.gridColumn41.Name = "gridColumn41";
-            this.gridColumn41.OptionsColumn.AllowEdit = false;
-            this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 3;
-            this.gridColumn41.Width = 85;
-            // 
             // cmbRegularizacion
             // 
             this.cmbRegularizacion.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
@@ -987,6 +978,16 @@
             this.cmbRegularizacion.ReadOnly = true;
             this.cmbRegularizacion.Click += new System.EventHandler(this.cmbRegularizacion_Click);
             // 
+            // gridColumn41
+            // 
+            this.gridColumn41.Caption = "# Regularizado";
+            this.gridColumn41.FieldName = "IdOrdenPedidoReg";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.OptionsColumn.AllowEdit = false;
+            this.gridColumn41.Visible = true;
+            this.gridColumn41.VisibleIndex = 3;
+            this.gridColumn41.Width = 85;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.chk_MostrarAR);
@@ -996,64 +997,71 @@
             this.panel1.Controls.Add(this.de_Desde);
             this.panel1.Controls.Add(this.btn_Buscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 29);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1096, 100);
+            this.panel1.Size = new System.Drawing.Size(822, 81);
             this.panel1.TabIndex = 7;
             // 
             // chk_MostrarAR
             // 
-            this.chk_MostrarAR.Location = new System.Drawing.Point(595, 23);
+            this.chk_MostrarAR.Location = new System.Drawing.Point(446, 19);
+            this.chk_MostrarAR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chk_MostrarAR.Name = "chk_MostrarAR";
             this.chk_MostrarAR.Properties.Caption = "Mostrar grupos aprobados y rechazados";
-            this.chk_MostrarAR.Size = new System.Drawing.Size(385, 21);
+            this.chk_MostrarAR.Size = new System.Drawing.Size(289, 19);
             this.chk_MostrarAR.TabIndex = 9;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(142, 54);
+            this.labelControl2.Location = new System.Drawing.Point(106, 44);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(37, 16);
+            this.labelControl2.Size = new System.Drawing.Size(32, 13);
             this.labelControl2.TabIndex = 8;
             this.labelControl2.Text = "Hasta:";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(142, 26);
+            this.labelControl1.Location = new System.Drawing.Point(106, 21);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(40, 16);
+            this.labelControl1.Size = new System.Drawing.Size(34, 13);
             this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Desde:";
             // 
             // de_Hasta
             // 
             this.de_Hasta.EditValue = null;
-            this.de_Hasta.Location = new System.Drawing.Point(214, 51);
+            this.de_Hasta.Location = new System.Drawing.Point(160, 41);
+            this.de_Hasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.de_Hasta.Name = "de_Hasta";
             this.de_Hasta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_Hasta.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_Hasta.Size = new System.Drawing.Size(137, 22);
+            this.de_Hasta.Size = new System.Drawing.Size(103, 20);
             this.de_Hasta.TabIndex = 6;
             // 
             // de_Desde
             // 
             this.de_Desde.EditValue = null;
-            this.de_Desde.Location = new System.Drawing.Point(214, 23);
+            this.de_Desde.Location = new System.Drawing.Point(160, 19);
+            this.de_Desde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.de_Desde.Name = "de_Desde";
             this.de_Desde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_Desde.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.de_Desde.Size = new System.Drawing.Size(137, 22);
+            this.de_Desde.Size = new System.Drawing.Size(103, 20);
             this.de_Desde.TabIndex = 5;
             // 
             // btn_Buscar
             // 
-            this.btn_Buscar.Location = new System.Drawing.Point(452, 26);
+            this.btn_Buscar.Location = new System.Drawing.Point(339, 21);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(105, 47);
+            this.btn_Buscar.Size = new System.Drawing.Size(79, 38);
             this.btn_Buscar.TabIndex = 4;
             this.btn_Buscar.Text = "Buscar";
             this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
@@ -1085,9 +1093,8 @@
             this.ucGe_Menu_Superior_Mant1.Enabled_btnImprimirSoporte = true;
             this.ucGe_Menu_Superior_Mant1.Enabled_btnproductos = true;
             this.ucGe_Menu_Superior_Mant1.Location = new System.Drawing.Point(0, 0);
-            this.ucGe_Menu_Superior_Mant1.Margin = new System.Windows.Forms.Padding(4);
             this.ucGe_Menu_Superior_Mant1.Name = "ucGe_Menu_Superior_Mant1";
-            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(1096, 29);
+            this.ucGe_Menu_Superior_Mant1.Size = new System.Drawing.Size(822, 24);
             this.ucGe_Menu_Superior_Mant1.TabIndex = 5;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAnular = true;
             this.ucGe_Menu_Superior_Mant1.Visible_bntAprobar = true;
@@ -1123,12 +1130,13 @@
             // 
             // FrmCom_OrdenPedidoCotizacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 661);
+            this.ClientSize = new System.Drawing.Size(822, 537);
             this.Controls.Add(this.gc_detalle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmCom_OrdenPedidoCotizacion";
             this.Text = "Cotización";
             this.Load += new System.EventHandler(this.FrmCom_OrdenPedidoCotizacion_Load);

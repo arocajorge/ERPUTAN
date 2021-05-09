@@ -44,5 +44,15 @@ namespace Core.Erp.Reportes.Compras
        public int Dia { get; set; }
         #endregion
 
+
+       public double CantIng { get; set; }
+
+       public double Saldo { get; set; }
+
+       public double yTotalIngresado { get; set; }
+
+       public double yTotalPorIngresar { get; set; }
+
+       public string fa_Descripcion { get; set; }
     }
 }
