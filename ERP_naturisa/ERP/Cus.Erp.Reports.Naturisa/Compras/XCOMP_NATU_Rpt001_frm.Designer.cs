@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XCOMP_NATU_Rpt001_frm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ucCom_Menu_Reportes1 = new Core.Erp.Reportes.Controles.UCCom_Menu_Reportes();
-            this.printBarManager1 = new DevExpress.XtraPrinting.Preview.PrintBarManager();
+            this.printBarManager1 = new DevExpress.XtraPrinting.Preview.PrintBarManager(this.components);
             this.previewBar1 = new DevExpress.XtraPrinting.Preview.PreviewBar();
             this.printPreviewBarItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.printPreviewBarItem3 = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
@@ -124,6 +125,8 @@
             this.ucCom_Menu_Reportes1.Name = "ucCom_Menu_Reportes1";
             this.ucCom_Menu_Reportes1.Size = new System.Drawing.Size(1234, 95);
             this.ucCom_Menu_Reportes1.TabIndex = 1;
+            this.ucCom_Menu_Reportes1.Visible_bei_grupo = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.ucCom_Menu_Reportes1.Visible_bei_producto = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucCom_Menu_Reportes1.Visible_boton_Imprimir = DevExpress.XtraBars.BarItemVisibility.Never;
             this.ucCom_Menu_Reportes1.Visible_boton_Refrescar = DevExpress.XtraBars.BarItemVisibility.Always;
             this.ucCom_Menu_Reportes1.Visible_boton_Salir = DevExpress.XtraBars.BarItemVisibility.Always;

@@ -91,5 +91,7 @@ namespace Core.Erp.Info.Compras
         public decimal? IdOrdenPedidoReg { get; set; }
 
         public int? SecuenciaReg { get; set; }
+
+        public string fa_Descripcion { get; set; }
     }
 }

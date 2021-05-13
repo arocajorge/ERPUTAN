@@ -41,11 +41,6 @@ namespace Core.Erp.Reportes.Inventario
                 DateTime FechaIni = ucInv_MenuReportes_21.dtpDesde.EditValue == null ? DateTime.Now.Date : Convert.ToDateTime(ucInv_MenuReportes_21.dtpDesde.EditValue).Date;
                 DateTime FechaFin = ucInv_MenuReportes_21.dtpHasta.EditValue == null ? DateTime.Now.Date : Convert.ToDateTime(ucInv_MenuReportes_21.dtpHasta.EditValue).Date;
 
-                if (IdSucursal == 0)
-                {
-                    MessageBox.Show("Debe seleccionar una sucursal",param.Nombre_sistema,MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                    return;
-                }
                 PVGrid_orden_compra.DataSource = busRpt.GetList(param.IdEmpresa, IdProducto, FechaIni, FechaFin, IdCentroCosto, IdSucursal, IdBodega);
             }
             catch (Exception)

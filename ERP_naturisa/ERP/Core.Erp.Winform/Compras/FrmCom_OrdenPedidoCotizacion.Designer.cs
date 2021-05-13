@@ -111,6 +111,7 @@
             this.de_Desde = new DevExpress.XtraEditors.DateEdit();
             this.btn_Buscar = new DevExpress.XtraEditors.SimpleButton();
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
+            this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalOrdigen)).BeginInit();
@@ -144,10 +145,10 @@
             // gc_detalle
             // 
             this.gc_detalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_detalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gc_detalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gc_detalle.Location = new System.Drawing.Point(0, 105);
             this.gc_detalle.MainView = this.gv_detalle;
-            this.gc_detalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gc_detalle.Margin = new System.Windows.Forms.Padding(2);
             this.gc_detalle.Name = "gc_detalle";
             this.gc_detalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmb_SucursalOrdigen,
@@ -205,7 +206,8 @@
             this.gridColumn38,
             this.gridColumn39,
             this.gridColumn40,
-            this.gridColumn41});
+            this.gridColumn41,
+            this.gridColumn42});
             this.gv_detalle.CustomizationFormBounds = new System.Drawing.Rectangle(978, 706, 218, 212);
             this.gv_detalle.GridControl = this.gc_detalle;
             this.gv_detalle.GroupCount = 3;
@@ -998,7 +1000,7 @@
             this.panel1.Controls.Add(this.btn_Buscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(822, 81);
             this.panel1.TabIndex = 7;
@@ -1006,7 +1008,7 @@
             // chk_MostrarAR
             // 
             this.chk_MostrarAR.Location = new System.Drawing.Point(446, 19);
-            this.chk_MostrarAR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chk_MostrarAR.Margin = new System.Windows.Forms.Padding(2);
             this.chk_MostrarAR.Name = "chk_MostrarAR";
             this.chk_MostrarAR.Properties.Caption = "Mostrar grupos aprobados y rechazados";
             this.chk_MostrarAR.Size = new System.Drawing.Size(289, 19);
@@ -1015,7 +1017,7 @@
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(106, 44);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(32, 13);
             this.labelControl2.TabIndex = 8;
@@ -1024,7 +1026,7 @@
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(106, 21);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(34, 13);
             this.labelControl1.TabIndex = 7;
@@ -1034,7 +1036,7 @@
             // 
             this.de_Hasta.EditValue = null;
             this.de_Hasta.Location = new System.Drawing.Point(160, 41);
-            this.de_Hasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.de_Hasta.Margin = new System.Windows.Forms.Padding(2);
             this.de_Hasta.Name = "de_Hasta";
             this.de_Hasta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1047,7 +1049,7 @@
             // 
             this.de_Desde.EditValue = null;
             this.de_Desde.Location = new System.Drawing.Point(160, 19);
-            this.de_Desde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.de_Desde.Margin = new System.Windows.Forms.Padding(2);
             this.de_Desde.Name = "de_Desde";
             this.de_Desde.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1059,7 +1061,7 @@
             // btn_Buscar
             // 
             this.btn_Buscar.Location = new System.Drawing.Point(339, 21);
-            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Buscar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(79, 38);
             this.btn_Buscar.TabIndex = 4;
@@ -1128,6 +1130,15 @@
             this.ucGe_Menu_Superior_Mant1.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.ucGe_Menu_Superior_Mant1_event_btnAnular_Click);
             this.ucGe_Menu_Superior_Mant1.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucGe_Menu_Superior_Mant1_event_btnSalir_Click);
             // 
+            // gridColumn42
+            // 
+            this.gridColumn42.Caption = "Familia";
+            this.gridColumn42.FieldName = "fa_Descripcion";
+            this.gridColumn42.Name = "gridColumn42";
+            this.gridColumn42.Visible = true;
+            this.gridColumn42.VisibleIndex = 29;
+            this.gridColumn42.Width = 100;
+            // 
             // FrmCom_OrdenPedidoCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1136,7 +1147,7 @@
             this.Controls.Add(this.gc_detalle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ucGe_Menu_Superior_Mant1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCom_OrdenPedidoCotizacion";
             this.Text = "Cotización";
             this.Load += new System.EventHandler(this.FrmCom_OrdenPedidoCotizacion_Load);
@@ -1256,5 +1267,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmbRegularizacion;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
     }
 }

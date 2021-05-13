@@ -175,14 +175,14 @@ namespace Core.Erp.Data.Contabilidad
                     Secuencia = 1;
                     foreach (var item in info.ListaDistribuido)
                     {
-                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetDistribuido]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto_sub_centro_costo],[IdCentroCosto],[F1],[F2], [Observacion])"
+                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetDistribuido]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto],[IdCentroCosto_sub_centro_costo],[F1],[F2], [Observacion])"
                             + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdDistribucion.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.F1.ToString() + "," + item.F2.ToString() + ",'" + item.Observacion + "');";
                         Secuencia++;
                     }
                     Secuencia = 1;
                     foreach (var item in info.ListaPorDistribuir)
                     {
-                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetPorDistribuir]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto_sub_centro_costo],[IdCentroCosto],[Valor])"
+                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetPorDistribuir]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto],[IdCentroCosto_sub_centro_costo],[Valor])"
                             + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdDistribucion.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.Valor.ToString() + ");";
                         Secuencia++;
                     }
@@ -251,14 +251,14 @@ namespace Core.Erp.Data.Contabilidad
                     Secuencia = 1;
                     foreach (var item in info.ListaDistribuido)
                     {
-                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetDistribuido]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto_sub_centro_costo],[IdCentroCosto],[F1],[F2], [Observacion])"
+                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetDistribuido]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto], [IdCentroCosto_sub_centro_costo],[F1],[F2], [Observacion])"
                             + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdDistribucion.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.F1.ToString() + "," + item.F2.ToString() + ",'" + item.Observacion + "');";
                         Secuencia++;
                     }
                     Secuencia = 1;
                     foreach (var item in info.ListaPorDistribuir)
                     {
-                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetPorDistribuir]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto_sub_centro_costo],[IdCentroCosto],[Valor])"
+                        command.CommandText += "INSERT INTO [dbo].[ct_DistribucionDetPorDistribuir]([IdEmpresa],[IdDistribucion],[Secuencia],[IdCtaCble],[IdCentroCosto], [IdCentroCosto_sub_centro_costo],[Valor])"
                             + " VALUES(" + info.IdEmpresa.ToString() + "," + info.IdDistribucion.ToString() + "," + Secuencia.ToString() + ",'" + item.IdCtaCble + "'," + (string.IsNullOrEmpty(item.IdCentroCosto) ? "NULL" : "'" + item.IdCentroCosto + "'") + "," + (string.IsNullOrEmpty(item.IdCentroCosto_sub_centro_costo) ? "NULL" : "'" + item.IdCentroCosto_sub_centro_costo + "'") + "," + item.Valor.ToString() + ");";
                         Secuencia++;
                     }

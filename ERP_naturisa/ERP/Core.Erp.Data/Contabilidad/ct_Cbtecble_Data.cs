@@ -461,7 +461,7 @@ namespace Core.Erp.Data.Contabilidad
         {
             try
             {
-                decimal IdcbteCble = 0;
+                decimal IdcbteCble = 1;
                 using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
                     connection.Open();

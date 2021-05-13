@@ -277,12 +277,15 @@ namespace Core.Erp.Winform.Contabilidad
                 }
 
                 blstDiario = new BindingList<ct_Cbtecble_det_Info>((from q in blstDiario
-                                                                    group q by new { q.IdCtaCble, q.dc_Observacion }
+                                                                    group q by new { q.IdCtaCble, q.dc_Observacion, q.IdCentroCosto, q.IdCentroCosto_sub_centro_costo, q.IdRegistro }
                                                                         into g
                                                                         select new ct_Cbtecble_det_Info
                                                                         {
                                                                             dc_Valor = g.Sum(a=> a.dc_Valor),
+                                                                            IdCentroCosto = g.Key.IdCentroCosto,
+                                                                            IdCentroCosto_sub_centro_costo = g.Key.IdCentroCosto_sub_centro_costo,
                                                                             IdCtaCble = g.Key.IdCtaCble,
+                                                                            IdRegistro = g.Key.IdRegistro,
                                                                             dc_Observacion = g.Key.dc_Observacion                                                                            
                                                                         }).ToList());
                 
