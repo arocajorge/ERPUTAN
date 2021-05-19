@@ -41,7 +41,7 @@ namespace Core.Erp.Data.Compras
             {
                 EntitiesInventario dbi = new EntitiesInventario();
                 EntitiesGeneral dbg = new EntitiesGeneral();
-
+                int Contadot = 0;
                 using (EntitiesCompras db = new EntitiesCompras())
                 {
                     db.com_CotizacionPedido.Add(new com_CotizacionPedido
@@ -65,62 +65,68 @@ namespace Core.Erp.Data.Compras
                     });
 
                     int Secuencia = 1;
-
                     foreach (var item in info.ListaDetalle)
                     {
-                        db.com_CotizacionPedidoDet.Add(new com_CotizacionPedidoDet
+                        var Cont = db.com_CotizacionPedidoDet.Where(q => q.opd_IdEmpresa == item.opd_IdEmpresa && q.opd_IdOrdenPedido == item.opd_IdOrdenPedido && q.opd_Secuencia == item.opd_Secuencia && (q.com_CotizacionPedido.EstadoJC == "P" || q.EstadoJC == true)).Count();
+                        if (Cont == 0)
                         {
-                            IdEmpresa = info.IdEmpresa,
-                            IdCotizacion = info.IdCotizacion,
-                            Secuencia = Secuencia++,
-                            opd_IdEmpresa = item.opd_IdEmpresa,
-                            opd_IdOrdenPedido = item.opd_IdOrdenPedido,
-                            opd_Secuencia = item.opd_Secuencia,
-                            cd_Cantidad = item.cd_Cantidad,
-                            cd_precioCompra = item.cd_precioCompra,
-                            cd_porc_des = item.cd_porc_des,
-                            cd_descuento = item.cd_descuento,
-                            cd_precioFinal = item.cd_precioFinal,
-                            cd_subtotal = item.cd_subtotal,
-                            IdCod_Impuesto = item.IdCod_Impuesto,
-                            Por_Iva = item.Por_Iva,
-                            cd_iva = item.cd_iva,
-                            cd_total = item.cd_total,                            
-                            IdProducto = item.IdProducto ?? 0,
-                            IdPunto_cargo = item.IdPunto_cargo ,
-                            IdUnidadMedida = item.IdUnidadMedida,
-                            cd_DetallePorItem = item.cd_DetallePorItem
-                        });
-
-                        var det_op = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.opd_IdEmpresa && q.IdOrdenPedido == item.opd_IdOrdenPedido && q.Secuencia == item.opd_Secuencia && q.opd_EstadoProceso == "A").FirstOrDefault();
-                        if (det_op != null)
-                        {
-                            det_op.opd_EstadoProceso = "AC";
-                            if (det_op.IdProducto == null)
+                            Contadot++;
+                            db.com_CotizacionPedidoDet.Add(new com_CotizacionPedidoDet
                             {
-                                det_op.pr_descripcion = dbi.in_Producto.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdProducto == item.IdProducto).FirstOrDefault().pr_descripcion;
-                                det_op.IdUnidadMedida = item.IdUnidadMedida;
-                                det_op.IdProducto = item.IdProducto;
-                            }
-                            det_op.FechaCotizacion = DateTime.Now;
-                            det_op.IdUsuarioCotizacion = info.IdUsuario;
+                                IdEmpresa = info.IdEmpresa,
+                                IdCotizacion = info.IdCotizacion,
+                                Secuencia = Secuencia++,
+                                opd_IdEmpresa = item.opd_IdEmpresa,
+                                opd_IdOrdenPedido = item.opd_IdOrdenPedido,
+                                opd_Secuencia = item.opd_Secuencia,
+                                cd_Cantidad = item.cd_Cantidad,
+                                cd_precioCompra = item.cd_precioCompra,
+                                cd_porc_des = item.cd_porc_des,
+                                cd_descuento = item.cd_descuento,
+                                cd_precioFinal = item.cd_precioFinal,
+                                cd_subtotal = item.cd_subtotal,
+                                IdCod_Impuesto = item.IdCod_Impuesto,
+                                Por_Iva = item.Por_Iva,
+                                cd_iva = item.cd_iva,
+                                cd_total = item.cd_total,
+                                IdProducto = item.IdProducto ?? 0,
+                                IdPunto_cargo = item.IdPunto_cargo,
+                                IdUnidadMedida = item.IdUnidadMedida,
+                                cd_DetallePorItem = item.cd_DetallePorItem
+                            });
+
+                            var det_op = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.opd_IdEmpresa && q.IdOrdenPedido == item.opd_IdOrdenPedido && q.Secuencia == item.opd_Secuencia && q.opd_EstadoProceso == "A").FirstOrDefault();
+                            if (det_op != null)
+                            {
+                                det_op.opd_EstadoProceso = "AC";
+                                if (det_op.IdProducto == null)
+                                {
+                                    det_op.pr_descripcion = dbi.in_Producto.Where(q => q.IdEmpresa == info.IdEmpresa && q.IdProducto == item.IdProducto).FirstOrDefault().pr_descripcion;
+                                    det_op.IdUnidadMedida = item.IdUnidadMedida;
+                                    det_op.IdProducto = item.IdProducto;
+                                }
+                                det_op.FechaCotizacion = DateTime.Now;
+                                det_op.IdUsuarioCotizacion = info.IdUsuario;
+                            }    
                         }
                     }
                     var persona = dbg.tb_persona.Where(q => q.IdPersona == info.IdPersona).FirstOrDefault();
                     if (persona != null)
                         persona.pe_correo_secundario1 = info.pe_correo;
-                    db.SaveChanges();
-                    dbg.SaveChanges();
 
-                    
+                    db.SaveChanges();
+                    if(Contadot > 0)
+                        dbg.SaveChanges();
                 }
 
                 com_OrdenPedido_Data data_ped = new com_OrdenPedido_Data();
-                if (data_ped.SaltarPaso4(info.IdEmpresa, info.IdOrdenPedido ?? 0, info.IdUsuario))
+                if (Contadot > 0)
                 {
+                    if (data_ped.SaltarPaso4(info.IdEmpresa, info.IdOrdenPedido ?? 0, info.IdUsuario))
+                    {
 
+                    }    
                 }
-
                 if (data_ped.ValidarProceso(info.IdEmpresa, info.IdOrdenPedido ?? 0))
                 {
 
@@ -576,20 +582,20 @@ namespace Core.Erp.Data.Compras
                     string query = "SELECT c.IdEmpresa, c.IdCotizacion, c.IdSucursal, c.IdProveedor, c.IdTerminoPago, c.cp_Fecha, c.cp_Plazo, c.cp_Observacion, "
                                 + " c.IdComprador, c.IdSolicitante, c.IdDepartamento, c.EstadoJC, c.EstadoGA, suc.Su_Descripcion, "
                                 + " per.pe_nombreCompleto, tp.Descripcion AS TerminoPago, com.Descripcion AS Comprador, sol.nom_solicitante, dep.nom_departamento, CASE WHEN saltar.IdEmpresa IS NULL THEN CAST(0 AS bit) "
-                                + " ELSE CAST(1 AS bit) END AS Pasado, c.cp_PlazoEntrega, d.opd_IdOrdenPedido, c.cp_ObservacionAdicional, dbo.com_OrdenPedido.EsCompraUrgente, com_OrdenPedido.IdOrdenPedidoReg"
-                                + " FROM     dbo.com_OrdenPedido RIGHT OUTER JOIN"
-                                + " (SELECT IdEmpresa, IdCotizacion, MAX(opd_IdOrdenPedido) AS opd_IdOrdenPedido"
-                                + " FROM      dbo.com_CotizacionPedidoDet"
+                                + " ELSE CAST(1 AS bit) END AS Pasado, c.cp_PlazoEntrega, d.opd_IdOrdenPedido, c.cp_ObservacionAdicional, dbo.com_OrdenPedido.EsCompraUrgente, com_OrdenPedido.IdOrdenPedidoReg, cd_total"
+                                + " FROM     dbo.com_OrdenPedido with (nolock) RIGHT OUTER JOIN"
+                                + " (SELECT IdEmpresa, IdCotizacion, MAX(opd_IdOrdenPedido) AS opd_IdOrdenPedido, sum(cd_total) cd_total"
+                                + " FROM      dbo.com_CotizacionPedidoDet with (nolock)"
                                 + " GROUP BY IdEmpresa, IdCotizacion) AS d ON dbo.com_OrdenPedido.IdEmpresa = d.IdEmpresa AND dbo.com_OrdenPedido.IdOrdenPedido = d.opd_IdOrdenPedido RIGHT OUTER JOIN"
-                                + " dbo.com_departamento AS dep INNER JOIN"
-                                + " dbo.tb_persona AS per INNER JOIN"
-                                + " dbo.tb_sucursal AS suc INNER JOIN"
-                                + " dbo.com_CotizacionPedido AS c ON suc.IdEmpresa = c.IdEmpresa AND suc.IdSucursal = c.IdSucursal INNER JOIN"
-                                + " dbo.cp_proveedor AS pro ON c.IdEmpresa = pro.IdEmpresa AND c.IdProveedor = pro.IdProveedor ON per.IdPersona = pro.IdPersona INNER JOIN"
-                                + " dbo.com_TerminoPago AS tp ON c.IdTerminoPago = tp.IdTerminoPago INNER JOIN"
-                                + " dbo.com_comprador AS com ON c.IdEmpresa = com.IdEmpresa AND c.IdComprador = com.IdComprador INNER JOIN"
-                                + " dbo.com_solicitante AS sol ON c.IdSolicitante = sol.IdSolicitante AND c.IdEmpresa = sol.IdEmpresa ON dep.IdEmpresa = c.IdEmpresa AND dep.IdDepartamento = c.IdDepartamento LEFT OUTER JOIN"
-                                + " dbo.com_CotizacionPedidoSaltar AS saltar ON c.IdEmpresa = saltar.IdEmpresa AND c.IdCotizacion = saltar.IdCotizacion ON d.IdEmpresa = c.IdEmpresa AND d.IdCotizacion = c.IdCotizacion"
+                                + " dbo.com_departamento AS dep with (nolock) INNER JOIN"
+                                + " dbo.tb_persona AS per with (nolock) INNER JOIN"
+                                + " dbo.tb_sucursal AS suc with (nolock) INNER JOIN"
+                                + " dbo.com_CotizacionPedido AS c with (nolock) ON suc.IdEmpresa = c.IdEmpresa AND suc.IdSucursal = c.IdSucursal INNER JOIN"
+                                + " dbo.cp_proveedor AS pro with (nolock) ON c.IdEmpresa = pro.IdEmpresa AND c.IdProveedor = pro.IdProveedor ON per.IdPersona = pro.IdPersona INNER JOIN"
+                                + " dbo.com_TerminoPago AS tp with (nolock) ON c.IdTerminoPago = tp.IdTerminoPago INNER JOIN"
+                                + " dbo.com_comprador AS com with (nolock) ON c.IdEmpresa = com.IdEmpresa AND c.IdComprador = com.IdComprador INNER JOIN"
+                                + " dbo.com_solicitante AS sol with (nolock) ON c.IdSolicitante = sol.IdSolicitante AND c.IdEmpresa = sol.IdEmpresa ON dep.IdEmpresa = c.IdEmpresa AND dep.IdDepartamento = c.IdDepartamento LEFT OUTER JOIN"
+                                + " dbo.com_CotizacionPedidoSaltar AS saltar with (nolock) ON c.IdEmpresa = saltar.IdEmpresa AND c.IdCotizacion = saltar.IdCotizacion ON d.IdEmpresa = c.IdEmpresa AND d.IdCotizacion = c.IdCotizacion"
                                 + " WHERE  (c.EstadoJC  "+(Cargo == "HIS" ? " <> 'P'" :  "='P'")+") and c.IdEmpresa = " + IdEmpresa.ToString();
 
                     SqlCommand command = new SqlCommand(query, connection);
@@ -623,7 +629,8 @@ namespace Core.Erp.Data.Compras
                             IdOrdenPedido = string.IsNullOrEmpty(reader["opd_IdOrdenPedido"].ToString()) ? null : (decimal?)reader["opd_IdOrdenPedido"],
                             cp_ObservacionAdicional = Convert.ToString(reader["cp_ObservacionAdicional"]),
                             EsCompraUrgente = string.IsNullOrEmpty(reader["EsCompraUrgente"].ToString()) ? null : (bool?)reader["EsCompraUrgente"],
-                            IdOrdenPedidoReg = string.IsNullOrEmpty(reader["IdOrdenPedidoReg"].ToString()) ? null : (decimal?)reader["IdOrdenPedidoReg"]
+                            IdOrdenPedidoReg = string.IsNullOrEmpty(reader["IdOrdenPedidoReg"].ToString()) ? null : (decimal?)reader["IdOrdenPedidoReg"],
+                            cd_total = string.IsNullOrEmpty(reader["cd_total"].ToString()) ? null : (double?)reader["cd_total"]
                         });
                     }
                     reader.Close();

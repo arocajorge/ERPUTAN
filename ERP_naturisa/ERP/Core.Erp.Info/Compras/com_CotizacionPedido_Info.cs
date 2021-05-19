@@ -59,5 +59,6 @@ namespace Core.Erp.Info.Compras
         public bool? EsCompraUrgente { get; set; }
 
         public decimal? IdOrdenPedidoReg { get; set; }
+        public double? cd_total { get; set; }
     }
 }
