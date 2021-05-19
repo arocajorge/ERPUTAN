@@ -35,7 +35,7 @@
     <SuiteName>Vzen Erp 2017</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>455</ApplicationRevision>
+    <ApplicationRevision>456</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -250,6 +250,12 @@
     </Compile>
     <Compile Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.Designer.cs">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmCom_SeguimientoEntregaConCosto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmCom_SeguimientoEntregaConCosto.Designer.cs">
+      <DependentUpon>FrmCom_SeguimientoEntregaConCosto.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmCom_OrdenPedidoRegularizacionMant.cs">
       <SubType>Form</SubType>
@@ -3930,6 +3936,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caja\FrmCa_Caja_Talonario_Recibo_Mant.resx">
       <DependentUpon>FrmCa_Caja_Talonario_Recibo_Mant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmCom_SeguimientoEntregaConCosto.resx">
+      <DependentUpon>FrmCom_SeguimientoEntregaConCosto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmCom_OrdenPedidoRegularizacionMant.resx">
       <DependentUpon>frmCom_OrdenPedidoRegularizacionMant.cs</DependentUpon>

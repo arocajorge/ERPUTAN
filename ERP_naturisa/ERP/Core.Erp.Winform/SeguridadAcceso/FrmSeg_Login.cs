@@ -133,7 +133,7 @@ namespace Core.Erp.Winform.SeguridadAcceso
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             this.Text = param.Nombre_sistema;
-            /*
+            
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 this.Text = " Publicación #.- " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
@@ -142,7 +142,7 @@ namespace Core.Erp.Winform.SeguridadAcceso
             {
                 this.Text = " Publicación #.- " + Assembly.GetExecutingAssembly().GetName().Version;
             }
-            */
+            
             txtUsuario.Focus();
         }
 

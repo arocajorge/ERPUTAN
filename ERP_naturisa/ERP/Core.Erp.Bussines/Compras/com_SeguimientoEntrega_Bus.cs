@@ -24,5 +24,18 @@ namespace Core.Erp.Business.Compras
                 throw;
             }
         }
+
+        public List<com_SeguimientoEntrega_Info> GetListConCosto(int IdEmpresa, DateTime FechaDesde, DateTime FechaHasta)
+        {
+            try
+            {
+                return odata.GetListConCosto(IdEmpresa, FechaDesde, FechaHasta);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

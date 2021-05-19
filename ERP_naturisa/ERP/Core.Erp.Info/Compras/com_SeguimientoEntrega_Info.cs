@@ -56,5 +56,17 @@ namespace Core.Erp.Info.Compras
         public Nullable<System.DateTime> FechaRecepcionTransferencia { get; set; }
 
         public string IdUsuarioGA { get; set; }
+
+        public DateTime? FechaCotizacion { get; set; }
+
+        public string Familia { get; set; }
+
+        public double? do_precioFinal { get; set; }
+
+        public double? do_subtotal { get; set; }
+
+        public double? do_iva { get; set; }
+
+        public double? do_total { get; set; }
     }
 }
