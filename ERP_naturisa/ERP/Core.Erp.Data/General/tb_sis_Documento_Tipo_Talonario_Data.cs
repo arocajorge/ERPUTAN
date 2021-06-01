@@ -204,7 +204,32 @@ namespace Core.Erp.Data.General
            }
        }
 
+       public tb_sis_Documento_Tipo_Talonario_Info GetInfoRetElectronico(int IdEmpresa)
+       {
+           try
+           {
+               tb_sis_Documento_Tipo_Talonario_Info info = new tb_sis_Documento_Tipo_Talonario_Info();
 
+               using (EntitiesGeneral db = new EntitiesGeneral())
+               {
+                   var Talonario = db.tb_sis_Documento_Tipo_Talonario.Where(q => q.IdEmpresa == IdEmpresa && q.CodDocumentoTipo == "RETEN" && q.es_Documento_Electronico == true && q.Estado == "A" && q.Usado == false).GroupBy(q => new { q.Establecimiento, q.PuntoEmision }).ToList();
+                   var Primero = Talonario.OrderBy(q => q.Key.Establecimiento).ThenBy(q => q.Key.PuntoEmision).FirstOrDefault();
+                   if (Primero != null)
+                   {
+                       info.Establecimiento = Primero.Key.Establecimiento;
+                       info.PuntoEmision = Primero.Key.PuntoEmision;
+                       info.CodDocumentoTipo = "RETEN";
+                   }
+               }
+
+               return info;
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }
 
        public tb_sis_Documento_Tipo_Talonario_Info Get_Info_Documento_Tipo_Talonario
            (int IdEmpresa, string tipodoc, string establecimiento, string puntoemision, string NumDocumento)
