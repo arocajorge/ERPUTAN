@@ -36,6 +36,8 @@ namespace Core.Erp.Data
         public bool EstadoJC { get; set; }
         public bool EstadoGA { get; set; }
         public string cd_DetallePorItem { get; set; }
+        public Nullable<bool> AdjuntoC { get; set; }
+        public string NombreArchivoC { get; set; }
     
         public virtual com_CotizacionPedido com_CotizacionPedido { get; set; }
         public virtual com_OrdenPedidoDet com_OrdenPedidoDet { get; set; }

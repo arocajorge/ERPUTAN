@@ -29,7 +29,7 @@ namespace Core.Erp.Data.Compras
                         opd_IdOrdenPedido = q.opd_IdOrdenPedido,
                         opd_Secuencia = q.opd_Secuencia,
                         IdProducto = q.IdProducto,
-                        cd_Cantidad = q.cd_Cantidad,
+                        cd_Cantidad = q.cd_Cantidad ,
                         cd_precioCompra = q.cd_precioCompra,
                         cd_porc_des = q.cd_porc_des,
                         cd_descuento = q.cd_descuento,
@@ -53,7 +53,9 @@ namespace Core.Erp.Data.Compras
                         opd_Detalle = q.opd_Detalle,
                         FechaCantidad = q.FechaCantidad,
                         Adjunto = q.Adjunto ?? false,
-                        NombreArchivo = q.NombreArchivo
+                        NombreArchivo = q.NombreArchivo,
+                        AdjuntoC = q.AdjuntoC ?? false,
+                        NombreArchivoC = q.NombreArchivoC
                     }).ToList();
                 }
 
@@ -102,7 +104,7 @@ namespace Core.Erp.Data.Compras
                                 +" 'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'OC GENERADA' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso"
                                 +" = 'RGA' THEN 'COTIZACION RECHAZADA' WHEN d .opd_EstadoProceso = 'I' THEN 'INGRESADO A BODEGA' WHEN d .opd_EstadoProceso = 'T' THEN 'TRANSFERIDO' END AS EstadoDetalle, c.ObservacionGA, su.Su_Descripcion, "
                                 + " su.codigo + '-' + CAST(coc.oc_IdOrdenCompra AS varchar(20)) AS CodigoOC, case when  d.IdProducto is null then cast(1 as bit) else cast(0 as bit) end Agregar, case when  d.IdProducto is null then cast(1 as bit) else cast(0 as bit) end Selec, "
-                                + " d.IdOrdenPedidoReg, case when d.IdOrdenPedidoReg is null then cast(0 as bit) else cast(1 as bit) end as EsRegularizacion, d.SecuenciaReg, f.fa_Descripcion"
+                                + " d.IdOrdenPedidoReg, case when d.IdOrdenPedidoReg is null then cast(0 as bit) else cast(1 as bit) end as EsRegularizacion, d.SecuenciaReg, f.fa_Descripcion, cod.AdjuntoC, cod.NombreArchivoC"
                                 +" FROM     dbo.com_comprador with (nolock) INNER JOIN"
                                 + " dbo.com_comprador_familia with (nolock) ON dbo.com_comprador.IdEmpresa = dbo.com_comprador_familia.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_comprador_familia.IdComprador INNER JOIN"
                                 + " dbo.in_Producto AS p with (nolock) ON dbo.com_comprador_familia.IdEmpresa = p.IdEmpresa AND dbo.com_comprador_familia.IdFamilia = p.IdFamilia RIGHT OUTER JOIN"
@@ -175,7 +177,9 @@ namespace Core.Erp.Data.Compras
                             su_Descripcion = Convert.ToString(reader["su_Descripcion"]),
                             ObservacionGA = Convert.ToString(reader["ObservacionGA"]),
 
-                            fa_Descripcion = reader["fa_Descripcion"].ToString()
+                            fa_Descripcion = reader["fa_Descripcion"].ToString(),
+                            AdjuntoC = reader["AdjuntoC"] == DBNull.Value ? false : Convert.ToBoolean(reader["AdjuntoC"]),
+                            NombreArchivoC = reader["NombreArchivoC"] == DBNull.Value ? null : reader["NombreArchivoC"].ToString()
                         });
                     }
                     reader.Close();
@@ -210,7 +214,8 @@ namespace Core.Erp.Data.Compras
                                         + " CASE WHEN d .opd_EstadoProceso = 'P' THEN 'PENDIENTE' WHEN d .opd_EstadoProceso = 'A' THEN 'CANTIDAD APROBADA' WHEN d .opd_EstadoProceso = 'RA' THEN 'CANTIDAD RECHAZADA' WHEN d .opd_EstadoProceso = 'AJC' THEN"
                                         + " 'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'COMPRADO' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso"
                                         + " = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle, d.opd_EstadoProceso, d.IdSucursalDestino, d.IdSucursalOrigen, c.Secuencia AS SecuenciaCot, c.cd_DetallePorItem, dbo.com_CotizacionPedido.cp_Observacion, "
-                                        + " dbo.com_CotizacionPedido.cp_ObservacionAdicional, ISNULL(dbo.com_CotizacionPedido.cp_Fecha, CAST(GETDATE() AS date)) AS cp_Fecha, dbo.com_comprador.Descripcion AS Comprador, d.opd_Detalle"
+                                        + " dbo.com_CotizacionPedido.cp_ObservacionAdicional, ISNULL(dbo.com_CotizacionPedido.cp_Fecha, CAST(GETDATE() AS date)) AS cp_Fecha, dbo.com_comprador.Descripcion AS Comprador, d.opd_Detalle,"
+                                        + " d.AdjuntoC, d.NombreArchivoC"
                                         + " FROM     dbo.com_comprador INNER JOIN"
                                         + " dbo.com_CotizacionPedido ON dbo.com_comprador.IdEmpresa = dbo.com_CotizacionPedido.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_CotizacionPedido.IdComprador RIGHT OUTER JOIN"
                                         + " dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN"
@@ -262,69 +267,14 @@ namespace Core.Erp.Data.Compras
                             cp_Fecha = Convert.ToDateTime(reader["cp_Fecha"]),
                             Comprador = Convert.ToString(reader["Comprador"]),
                             opd_Detalle = Convert.ToString(reader["opd_Detalle"]),
+                            AdjuntoC = reader["AdjuntoC"] == DBNull.Value ? false : Convert.ToBoolean(reader["AdjuntoC"]),
+                            NombreArchivoC = reader["NombreArchivoC"] == DBNull.Value ? null : Convert.ToString(reader["NombreArchivoC"]),
                             A = true
                         });
                     }
                     reader.Close();
                 }
-                /*
-                using (EntitiesCompras db = new EntitiesCompras())
-                {
-                    Lista = db.vwcom_CotizacionPedidoDetAprobacion.Where(q => q.IdEmpresa == IdEmpresa && q.IdOrdenPedido == IdOrdenPedido && q.IdUsuario == IdUsuario).Select(q => new com_CotizacionPedidoDet_Info
-                    {
-                        IdEmpresa = q.IdEmpresa,
-                        opd_IdEmpresa = q.IdEmpresa,
-                        opd_IdOrdenPedido = q.IdOrdenPedido,
-                        opd_Secuencia = q.Secuencia,
-                        IdUnidadMedida = q.IdUnidadMedida,
-                        IdPunto_cargo = q.IdPunto_cargo,
-
-                        IdSucursalOrigen = q.IdSucursalOrigen,
-                        IdSucursalDestino = q.IdSucursalDestino,
-
-                        cd_Cantidad = q.cd_cantidad,
-                        IdCod_Impuesto = q.IdCod_Impuesto,
-                        pr_descripcion = q.pr_descripcion,
-                        IdProducto = q.IdProducto,
-                        nom_solicitante = q.nom_solicitante,
-
-                        IdDepartamento = q.IdDepartamento,
-                        IdSolicitante = q.IdSolicitante,
-                        EstadoDetalle = q.EstadoDetalle,
-
-                        cd_precioCompra = q.cd_precioCompra ?? 0,
-                        cd_descuento = q.cd_descuento ?? 0,
-                        cd_porc_des = q.cd_porc_des ?? 0,
-                        Por_Iva = q.Por_Iva ?? 0,
-                        cd_iva = q.cd_iva ?? 0,
-                        cd_subtotal = q.cd_subtotal ?? 0,
-                        cd_total = q.cd_total ?? 0,
-                        nom_punto_cargo = q.nom_punto_cargo,
-                        NomUnidadMedida = q.nomUnidadMedida,
-
-                        IdCotizacion = q.IdCotizacion ?? 0,
-                        Secuencia = q.SecuenciaCot ?? 0,
-                        cd_precioFinal = q.cd_precioFinal ?? 0,
-                        opd_EstadoProceso = q.opd_EstadoProceso,
-                        cd_DetallePorItem = q.cd_DetallePorItem,
-                        A = true,
-                        cp_ObservacionAdicional = q.cp_ObservacionAdicional,
-                        opd_Detalle = q.opd_Detalle,
-                        Comprador = q.Comprador,
-                        cp_Fecha = q.cp_Fecha,
-                        cp_Observacion = q.cp_Observacion,
-                        
-                    }).ToList();
-                
-                }*/
                 Lista.ForEach(q => q.cp_Observacion = "Comprador: "+q.Comprador + " Fecha cotización: " + q.cp_Fecha.ToString("dd/MM/yyyy") + " Observación: " + q.cp_Observacion);
-                /*
-                in_Producto_data odata = new in_Producto_data();
-                foreach (var item in Lista.Where(q => q.IdProducto != null).ToList())
-                {
-                    item.Stock = odata.GetStockProductoPorEmpresa(item.IdEmpresa, item.IdProducto ?? 0);
-                }*/
-
                 return Lista;
             }
             catch (Exception)

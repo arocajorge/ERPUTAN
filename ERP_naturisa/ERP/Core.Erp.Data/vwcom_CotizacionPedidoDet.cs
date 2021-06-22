@@ -45,5 +45,7 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> FechaCantidad { get; set; }
         public Nullable<bool> Adjunto { get; set; }
         public string NombreArchivo { get; set; }
+        public Nullable<bool> AdjuntoC { get; set; }
+        public string NombreArchivoC { get; set; }
     }
 }

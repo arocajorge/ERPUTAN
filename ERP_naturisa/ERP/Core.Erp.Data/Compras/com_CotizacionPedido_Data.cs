@@ -7,23 +7,33 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Erp.Data.General;
 using System.Data.SqlClient;
+using System.IO;
+using Core.Erp.Info.General;
 namespace Core.Erp.Data.Compras
 {
     public class com_CotizacionPedido_Data
     {
         tb_sis_impuesto_Data odataImp = new tb_sis_impuesto_Data();
-        
+        com_parametro_Data paramData = new com_parametro_Data();
+        Funciones Fx = new Funciones();
         private decimal GetID(int IdEmpresa)
         {
             try
             {
                 decimal ID = 1;
 
-                using (EntitiesCompras db = new EntitiesCompras())
+                using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
                 {
-                    var lst = db.com_CotizacionPedido.Where(q => q.IdEmpresa == IdEmpresa).Select(q=> q.IdCotizacion).ToList();
-                    if (lst.Count != 0)
-                        ID = lst.Max() + 1;
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "select max(IdCotizacion) + 1 IdCotizacion from com_CotizacionPedido with (nolock) where IdEmpresa = "+IdEmpresa.ToString();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ID = Convert.ToDecimal(reader["IdCotizacion"]);
+                    }
+                    reader.Close();
                 }
 
                 return ID;
@@ -92,7 +102,9 @@ namespace Core.Erp.Data.Compras
                                 IdProducto = item.IdProducto ?? 0,
                                 IdPunto_cargo = item.IdPunto_cargo,
                                 IdUnidadMedida = item.IdUnidadMedida,
-                                cd_DetallePorItem = item.cd_DetallePorItem
+                                cd_DetallePorItem = item.cd_DetallePorItem,
+                                AdjuntoC = item.AdjuntoC,
+                                NombreArchivoC = item.NombreArchivoC
                             });
 
                             var det_op = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.opd_IdEmpresa && q.IdOrdenPedido == item.opd_IdOrdenPedido && q.Secuencia == item.opd_Secuencia && q.opd_EstadoProceso == "A").FirstOrDefault();
@@ -117,6 +129,8 @@ namespace Core.Erp.Data.Compras
                     db.SaveChanges();
                     if(Contadot > 0)
                         dbg.SaveChanges();
+
+
                 }
 
                 com_OrdenPedido_Data data_ped = new com_OrdenPedido_Data();
@@ -130,6 +144,39 @@ namespace Core.Erp.Data.Compras
                 if (data_ped.ValidarProceso(info.IdEmpresa, info.IdOrdenPedido ?? 0))
                 {
 
+                }
+
+                try
+                {
+                    #region Adjuntos
+                    var lst_adjuntos = info.ListaDetalle.Where(q => q.AdjuntoC == true).ToList();
+                    var param = paramData.Get_Info_parametro(info.IdEmpresa);
+                    if (param != null && !string.IsNullOrEmpty(param.UbicacionArchivosCotizacion))
+                    {
+                        string Comando = "/c Net Use " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                        Fx.ExecuteCommand(@"" + Comando);
+                        Directory.CreateDirectory(param.UbicacionArchivosCotizacion + @"\" + info.IdCotizacion.ToString());
+                        foreach (var item in lst_adjuntos)
+                        {
+                            var ext = Path.GetFileName(item.NombreArchivoC);
+                            System.IO.File.Copy(item.NombreArchivoC, param.UbicacionArchivosCotizacion + @"\" + info.IdCotizacion.ToString() + @"\" + ext, true);
+                        }
+
+                        Comando = "/c Net Use /DELETE " + param.FileDominio + " /USER:" + param.FileUsuario + " " + param.FileContrasenia;
+                        Fx.ExecuteCommand(@"" + Comando);
+                    }
+                    #endregion
+                }
+                catch (Exception)
+                {
+                    using (SqlConnection connection = new SqlConnection(ConexionERP.GetConnectionString()))
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = connection;
+                        command.CommandText = "update com_CotizacionPedidoDet set AdjuntoC = false, NombreArchivoC = NULL where IdEmpresa = " + info.IdEmpresa.ToString() + " and IdCotizacion = " + info.IdCotizacion.ToString();
+                        command.ExecuteNonQuery();
+                    }
                 }
 
                 return true;

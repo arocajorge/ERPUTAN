@@ -46,7 +46,7 @@ namespace Core.Erp.Data
         public string cd_DetallePorItem { get; set; }
         public string cp_Observacion { get; set; }
         public string cp_ObservacionAdicional { get; set; }
-        public System.DateTime cp_Fecha { get; set; }
+        public Nullable<System.DateTime> cp_Fecha { get; set; }
         public string Comprador { get; set; }
         public string opd_Detalle { get; set; }
     }

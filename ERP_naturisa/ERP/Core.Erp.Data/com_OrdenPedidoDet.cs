@@ -43,7 +43,7 @@ namespace Core.Erp.Data
         public Nullable<System.DateTime> FechaRef { get; set; }
         public string IdUsuarioReg { get; set; }
     
-        public virtual ICollection<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
         public virtual com_OrdenPedido com_OrdenPedido { get; set; }
+        public virtual ICollection<com_CotizacionPedidoDet> com_CotizacionPedidoDet { get; set; }
     }
 }

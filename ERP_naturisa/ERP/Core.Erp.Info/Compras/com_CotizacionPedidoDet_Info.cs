@@ -93,5 +93,9 @@ namespace Core.Erp.Info.Compras
         public int? SecuenciaReg { get; set; }
 
         public string fa_Descripcion { get; set; }
+
+        public string NombreArchivoC { get; set; }
+
+        public bool AdjuntoC { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Core.Erp.Info.Compras
         public string  IdEstado_cierre{ get; set; }
 
         public string UbicacionArchivosPedido { get; set; }
+        public string UbicacionArchivosCotizacion { get; set; }
         public string Correo { get; set; }
         public string Contrasenia { get; set; }
         public string Dominio { get; set; }
