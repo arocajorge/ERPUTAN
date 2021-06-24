@@ -344,5 +344,31 @@ namespace Core.Erp.Winform.Compras
             }
         }
 
+        private void cmb_adjuntoC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+
+                if (!row.AdjuntoC)
+                    return;
+
+                string Comando = "/c Net Use " + com_param.FileDominio + " /USER:" + com_param.FileUsuario + " " + com_param.FileContrasenia;
+                Fx.ExecuteCommand(@"" + Comando);
+
+                var ruta = com_param.UbicacionArchivosCotizacion + @"\" + row.IdCotizacion.ToString() + @"\" + row.NombreArchivoC;
+                Process.Start(@"" + ruta);
+
+                Comando = "/c Net Use /DELETE " + com_param.FileDominio + " /USER:" + com_param.FileUsuario + " " + com_param.FileContrasenia;
+                Fx.ExecuteCommand(@"" + Comando);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo no se encuentra en el servidor", param.Nombre_sistema, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
     }
 }

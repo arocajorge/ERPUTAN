@@ -288,7 +288,9 @@ namespace Core.Erp.Winform.Compras
                     IdPunto_cargo = q.IdPunto_cargo,
                     cd_DetallePorItem = q.cd_DetallePorItem,
                     IdSucursalDestino = q.IdSucursalDestino,
-                    IdSucursalOrigen = q.IdSucursalOrigen
+                    IdSucursalOrigen = q.IdSucursalOrigen,
+                    NombreArchivoC = q.NombreArchivoC,
+                    AdjuntoC = q.AdjuntoC
                 }).ToList();
                 cab.Subtotal = cab.ListaDetalle.Sum(q => q.cd_subtotal);
                 cab.IVA = cab.ListaDetalle.Sum(q => q.cd_iva);
@@ -654,6 +656,33 @@ namespace Core.Erp.Winform.Compras
             catch (Exception)
             {
 
+            }
+        }
+
+        private void cmb_adjuntar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                com_CotizacionPedidoDet_Info row = (com_CotizacionPedidoDet_Info)gv_detalle.GetFocusedRow();
+                if (row == null)
+                    return;
+                string filePath = null;
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFileDialog1.FileName;
+                    row.NombreArchivoC = openFileDialog1.FileName;
+                    row.AdjuntoC = true;
+                    gc_detalle.RefreshDataSource();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

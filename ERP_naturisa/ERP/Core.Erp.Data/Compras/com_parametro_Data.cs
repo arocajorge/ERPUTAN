@@ -31,6 +31,7 @@ namespace Core.Erp.Data.Compras
                            IdEstado_cierre = q.IdEstado_cierre,
 
                            UbicacionArchivosPedido = q.UbicacionArchivosPedido,
+                           UbicacionArchivosCotizacion = q.UbicacionArchivosCotizacion,
                            Correo = q.Correo,
                            Contrasenia = q.Contrasenia,
                            Dominio = q.Dominio,

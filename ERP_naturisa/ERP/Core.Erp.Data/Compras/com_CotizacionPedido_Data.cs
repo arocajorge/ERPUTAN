@@ -104,7 +104,7 @@ namespace Core.Erp.Data.Compras
                                 IdUnidadMedida = item.IdUnidadMedida,
                                 cd_DetallePorItem = item.cd_DetallePorItem,
                                 AdjuntoC = item.AdjuntoC,
-                                NombreArchivoC = item.NombreArchivoC
+                                NombreArchivoC = !string.IsNullOrEmpty(item.NombreArchivoC) ? Path.GetFileName(item.NombreArchivoC) : item.NombreArchivoC
                             });
 
                             var det_op = db.com_OrdenPedidoDet.Where(q => q.IdEmpresa == item.opd_IdEmpresa && q.IdOrdenPedido == item.opd_IdOrdenPedido && q.Secuencia == item.opd_Secuencia && q.opd_EstadoProceso == "A").FirstOrDefault();

@@ -104,6 +104,8 @@
             this.cmbRegularizacion = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmb_adjuntar = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chk_MostrarAR = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -112,8 +114,7 @@
             this.de_Desde = new DevExpress.XtraEditors.DateEdit();
             this.btn_Buscar = new DevExpress.XtraEditors.SimpleButton();
             this.ucGe_Menu_Superior_Mant1 = new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant();
-            this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmb_adjuntar = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gc_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_SucursalOrdigen)).BeginInit();
@@ -136,13 +137,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_addPC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbRegularizacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjuntar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_MostrarAR.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Hasta.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Hasta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjuntar)).BeginInit();
             this.SuspendLayout();
             // 
             // gc_detalle
@@ -1006,6 +1007,31 @@
             this.gridColumn42.VisibleIndex = 29;
             this.gridColumn42.Width = 100;
             // 
+            // gridColumn43
+            // 
+            this.gridColumn43.ColumnEdit = this.cmb_adjuntar;
+            this.gridColumn43.FieldName = "AdjuntoC";
+            this.gridColumn43.ImageAlignment = System.Drawing.StringAlignment.Center;
+            this.gridColumn43.ImageIndex = 6;
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 30;
+            // 
+            // cmb_adjuntar
+            // 
+            this.cmb_adjuntar.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
+            this.cmb_adjuntar.AutoHeight = false;
+            this.cmb_adjuntar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_adjuntar.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.cmb_adjuntar.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", false, 6),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", true, 5)});
+            this.cmb_adjuntar.LargeImages = this.imageList1;
+            this.cmb_adjuntar.Name = "cmb_adjuntar";
+            this.cmb_adjuntar.ReadOnly = true;
+            this.cmb_adjuntar.Click += new System.EventHandler(this.cmb_adjuntar_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.chk_MostrarAR);
@@ -1146,24 +1172,9 @@
             this.ucGe_Menu_Superior_Mant1.event_btnAnular_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnAnular_Click(this.ucGe_Menu_Superior_Mant1_event_btnAnular_Click);
             this.ucGe_Menu_Superior_Mant1.event_btnSalir_Click += new Core.Erp.Winform.Controles.UCGe_Menu_Superior_Mant.delegate_btnSalir_Click(this.ucGe_Menu_Superior_Mant1_event_btnSalir_Click);
             // 
-            // gridColumn43
+            // openFileDialog1
             // 
-            this.gridColumn43.ImageAlignment = System.Drawing.StringAlignment.Center;
-            this.gridColumn43.ImageIndex = 6;
-            this.gridColumn43.Name = "gridColumn43";
-            this.gridColumn43.Visible = true;
-            this.gridColumn43.VisibleIndex = 30;
-            // 
-            // cmb_adjuntar
-            // 
-            this.cmb_adjuntar.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
-            this.cmb_adjuntar.AutoHeight = false;
-            this.cmb_adjuntar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_adjuntar.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.cmb_adjuntar.LargeImages = this.imageList1;
-            this.cmb_adjuntar.Name = "cmb_adjuntar";
-            this.cmb_adjuntar.ReadOnly = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FrmCom_OrdenPedidoCotizacion
             // 
@@ -1199,6 +1210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmb_addPC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_adjunto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbRegularizacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjuntar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chk_MostrarAR.Properties)).EndInit();
@@ -1206,7 +1218,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_Hasta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_Desde.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_adjuntar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1297,5 +1308,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn42;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn43;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox cmb_adjuntar;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
