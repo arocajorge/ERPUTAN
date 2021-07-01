@@ -1688,8 +1688,8 @@
           <Property Name="Fecha_UltAnu" Type="datetime" />
           <Property Name="MotiAnula" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_Catalogo_IdAuto_numeric' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_Catalogo_IdAuto_numeric' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_Catalogo_IdAuto_numeric">
           <Key>
@@ -1698,8 +1698,8 @@
           <Property Name="IdCatalogocompra" Type="varchar" MaxLength="4" />
           <Property Name="observacion" Type="varchar" Nullable="false" MaxLength="1" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ConvenioPreciosPorProducto' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ConvenioPreciosPorProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ConvenioPreciosPorProducto">
           <Key>
@@ -1747,8 +1747,8 @@
           <Property Name="pe_nombreCompleto" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="SaltoPaso5" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedido' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_CotizacionPedido">
           <Key>
@@ -1797,8 +1797,8 @@
           <Property Name="cp_ObservacionAdicional" Type="varchar(max)" />
           <Property Name="EsCompraUrgente" Type="bit" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoConvenioPrecios' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoConvenioPrecios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_CotizacionPedidoConvenioPrecios">
           <Key>
@@ -1810,8 +1810,8 @@
           <Property Name="IdCotizacion" Type="numeric" Nullable="false" />
           <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoDet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoDet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_CotizacionPedidoDet">
           <Key>
@@ -1870,8 +1870,8 @@
           <Property Name="AdjuntoC" Type="bit" />
           <Property Name="NombreArchivoC" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoDetAprobacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_CotizacionPedidoDetAprobacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_CotizacionPedidoDetAprobacion">
           <Key>
@@ -1922,8 +1922,8 @@
           <Property Name="Comprador" Type="varchar" MaxLength="100" />
           <Property Name="opd_Detalle" Type="varchar(max)" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_dev_compra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_dev_compra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_dev_compra">
           <Key>
@@ -1956,8 +1956,8 @@
           <Property Name="nom_sucursal" Type="nchar" Nullable="false" MaxLength="60" />
           <Property Name="nom_bodega" Type="nchar" Nullable="false" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_dev_compra_con_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_dev_compra_con_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_dev_compra_con_det">
           <Key>
@@ -2024,8 +2024,8 @@
           <Property Name="ocdet_IdOrdenCompra" Type="numeric" />
           <Property Name="ocdet_Secuencia" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_dev_compra_det_cant_devuelta_x_prod' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_dev_compra_det_cant_devuelta_x_prod' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_dev_compra_det_cant_devuelta_x_prod">
           <Key>
@@ -2038,8 +2038,8 @@
           <Property Name="IdProducto" Type="numeric" Nullable="false" />
           <Property Name="cant_devuelta" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_EstadoAnulacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_EstadoAnulacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_EstadoAnulacion">
           <Key>
@@ -2056,8 +2056,8 @@
           <Property Name="Orden" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_EstadoAprob_List_Req' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_EstadoAprob_List_Req' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_EstadoAprob_List_Req">
           <Key>
@@ -2074,8 +2074,8 @@
           <Property Name="Orden" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_EstadoAprobacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_EstadoAprobacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_EstadoAprobacion">
           <Key>
@@ -2092,8 +2092,8 @@
           <Property Name="Orden" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_EstadoAprobacion_sol_compra' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_EstadoAprobacion_sol_compra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_EstadoAprobacion_sol_compra">
           <Key>
@@ -2110,8 +2110,8 @@
           <Property Name="Orden" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_EstadoRecibido' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_EstadoRecibido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_EstadoRecibido">
           <Key>
@@ -2128,8 +2128,8 @@
           <Property Name="Orden" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_MotivoRequerimiento' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_MotivoRequerimiento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_MotivoRequerimiento">
           <Key>
@@ -2146,8 +2146,8 @@
           <Property Name="Orden" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local">
           <Key>
@@ -2221,8 +2221,8 @@
           <Property Name="nom_EstadoCerrado" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="En_guia" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_con_cant_devolver' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_con_cant_devolver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_con_cant_devolver">
           <Key>
@@ -2278,8 +2278,8 @@
           <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="5" />
           <Property Name="oc_fechaVencimiento" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_consulta' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_consulta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_consulta">
           <Key>
@@ -2316,8 +2316,8 @@
           <Property Name="Fecha_UltMod" Type="datetime" />
           <Property Name="IdUsuarioUltMod" Type="char" MaxLength="20" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_correo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_correo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_correo">
           <Key>
@@ -2336,8 +2336,8 @@
           <Property Name="Codigo" Type="varchar" MaxLength="41" />
           <Property Name="CorreoComprador" Type="varchar(max)" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_det">
           <Key>
@@ -2403,8 +2403,8 @@
           <Property Name="Por_Iva" Type="float" Nullable="false" />
           <Property Name="IdCod_Impuesto" Type="varchar" Nullable="false" MaxLength="25" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven">
           <Key>
@@ -2457,8 +2457,8 @@
           <Property Name="IdUnidadMedida" Type="varchar" MaxLength="25" />
           <Property Name="oc_NumDocumento" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_det_con_saldo_x_ing_a_inven_con_saldo">
           <Key>
@@ -2508,8 +2508,8 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="500" />
           <Property Name="oc_NumDocumento" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det_x_MoviInven_SaldoItem' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_det_x_MoviInven_SaldoItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_det_x_MoviInven_SaldoItem">
           <Key>
@@ -2548,8 +2548,8 @@
           <Property Name="IdUsuario_Aprueba" Type="varchar" MaxLength="20" />
           <Property Name="co_fecha_aprobacion" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega">
           <Key>
@@ -2576,8 +2576,8 @@
           <Property Name="Cantidad_enviar" Type="float" Nullable="false" />
           <Property Name="Saldo_x_Enviar" Type="float" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_consul">
           <Key>
@@ -2626,8 +2626,8 @@
           <Property Name="Referencia" Type="varchar" MaxLength="100" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_sin_Guia_x_traspaso_bodega_det">
           <Key>
@@ -2667,8 +2667,8 @@
           <Property Name="oc_NumDocumento" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="nom_punto_cargo" Type="varchar" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_vs_in_Guia_x_traspaso_bodega_Total_Reg' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_vs_in_Guia_x_traspaso_bodega_Total_Reg' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_vs_in_Guia_x_traspaso_bodega_Total_Reg">
           <Key>
@@ -2682,8 +2682,8 @@
           <Property Name="Total_reg_x_OC" Type="int" />
           <Property Name="Total_reg_x_Guia" Type="int" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_x_in_guia_x_traspaso_bodega' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_ordencompra_local_x_in_guia_x_traspaso_bodega' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_ordencompra_local_x_in_guia_x_traspaso_bodega">
           <Key>
@@ -2703,8 +2703,8 @@
           <Property Name="IdOrdenCompra_OC" Type="numeric" />
           <Property Name="Fecha" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedido' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedido' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedido">
           <Key>
@@ -2738,8 +2738,8 @@
           <Property Name="ObservacionGA" Type="varchar(max)" />
           <Property Name="IdOrdenPedidoReg" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoAprobar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoAprobar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoAprobar">
           <Key>
@@ -2771,8 +2771,8 @@
           <Property Name="nom_solicitante" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="cd_total" Type="float" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoConvenioPrecios' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoConvenioPrecios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoConvenioPrecios">
           <Key>
@@ -2856,8 +2856,8 @@
           <Property Name="Total" Type="float" Nullable="false" />
           <Property Name="Dias" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDet">
           <Key>
@@ -2893,8 +2893,8 @@
           <Property Name="NombreArchivo" Type="varchar" MaxLength="1000" />
           <Property Name="NomComprador" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_Aprobacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_Aprobacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDet_Aprobacion">
           <Key>
@@ -2933,8 +2933,8 @@
           <Property Name="op_Fecha" Type="date" Nullable="false" />
           <Property Name="NombreArchivo" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_Cotizacion' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_Cotizacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDet_Cotizacion">
           <Key>
@@ -2996,8 +2996,8 @@
           <Property Name="Su_Descripcion" Type="nchar" MaxLength="60" />
           <Property Name="CodigoOC" Type="varchar" MaxLength="31" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_FamiliaComprador' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_FamiliaComprador' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDet_FamiliaComprador">
           <Key>
@@ -3015,8 +3015,8 @@
           <Property Name="Comprador" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Producto" Type="nvarchar" Nullable="false" MaxLength="500" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_PorOC' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_PorOC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDet_PorOC">
           <Key>
@@ -3035,8 +3035,8 @@
           <Property Name="Secuencia_pd" Type="int" Nullable="false" />
           <Property Name="IdNumMovi" Type="numeric" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_PorTR' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDet_PorTR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDet_PorTR">
           <Key>
@@ -3054,8 +3054,8 @@
           <Property Name="IdOrdenPedido" Type="numeric" Nullable="false" />
           <Property Name="Secuencia_pd" Type="int" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDetConvenioPrecios' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoDetConvenioPrecios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoDetConvenioPrecios">
           <Key>
@@ -3115,8 +3115,8 @@
           <Property Name="Dias" Type="int" Nullable="false" />
           <Property Name="SaltoPaso5" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoPlantilla' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_OrdenPedidoPlantilla' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_OrdenPedidoPlantilla">
           <Key>
@@ -3133,8 +3133,8 @@
           <Property Name="EsCompraUrgente" Type="bit" />
           <Property Name="nom_punto_cargo" Type="varchar" Nullable="false" MaxLength="250" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_solicitante' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_solicitante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_solicitante">
           <Key>
@@ -3153,8 +3153,8 @@
           <Property Name="nom_departamento" Type="varchar" MaxLength="50" />
           <Property Name="ConsultaDepartamento" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DBERP_NAT_PROD.dbo.vwcom_TerminoPago' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DBERP_NAT_PROD.dbo.vwcom_TerminoPago' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vwcom_TerminoPago">
           <Key>
@@ -3795,17 +3795,6 @@
           <EntitySet Name="vwcom_OrdenPedidoDet_Cotizacion" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_Cotizacion" />
           <EntitySet Name="vwcom_OrdenPedidoDet_PorOC" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorOC" />
           <EntitySet Name="vwcom_OrdenPedidoDet_PorTR" EntityType="DBERPModelCompras.vwcom_OrdenPedidoDet_PorTR" />
-          <FunctionImport Name="SPCOM_SeguimientoEntrega" ReturnType="Collection(DBERPModelCompras.SPCOM_SeguimientoEntrega_Result)">
-            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
-            <Parameter Name="IdUsuario" Mode="In" Type="String" />
-            <Parameter Name="IdSolicitante" Mode="In" Type="Int32" />
-            <Parameter Name="IdComprador" Mode="In" Type="Int32" />
-            <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
-            <Parameter Name="IdProveedor" Mode="In" Type="Decimal" />
-            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
-            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
-            <Parameter Name="IdOrdenPedido" Mode="In" Type="Decimal" />
-          </FunctionImport>
           <FunctionImport Name="SPCOM_SeguimientoOrdenCompraContable" ReturnType="Collection(DBERPModelCompras.SPCOM_SeguimientoOrdenCompraContable_Result)">
             <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
             <Parameter Name="IdSucursal" Mode="In" Type="Int32" />
@@ -3904,6 +3893,17 @@
             <End Role="com_parametro" EntitySet="com_parametro" />
           </AssociationSet>
           <EntitySet Name="vwcom_CotizacionPedidoDet" EntityType="DBERPModelCompras.vwcom_CotizacionPedidoDet" />
+          <FunctionImport Name="SPCOM_SeguimientoEntrega" ReturnType="Collection(DBERPModelCompras.SPCOM_SeguimientoEntrega_Result)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="IdUsuario" Mode="In" Type="String" />
+            <Parameter Name="IdSolicitante" Mode="In" Type="Int32" />
+            <Parameter Name="IdComprador" Mode="In" Type="Int32" />
+            <Parameter Name="IdProducto" Mode="In" Type="Decimal" />
+            <Parameter Name="IdProveedor" Mode="In" Type="Decimal" />
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdOrdenPedido" Mode="In" Type="Decimal" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="com_catalogo">
           <Key>
@@ -5785,55 +5785,6 @@
           <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Int32" Name="Secuencia_pd" Nullable="false" />
         </EntityType>
-        <ComplexType Name="SPCOM_SeguimientoEntrega_Result">
-          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
-          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
-          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="Secuencia" Nullable="false" />
-          <Property Type="Decimal" Name="IdProducto" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="String" Name="pr_descripcion" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="EstadoSolpe" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
-          <Property Type="String" Name="CodigoSucOrigen" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NombreSucursalOrigen" Nullable="true" MaxLength="60" />
-          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
-          <Property Type="String" Name="CodigoSucDestino" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NombreSucursalDestino" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="EstadoDetalle" Nullable="true" MaxLength="23" />
-          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" />
-          <Property Type="DateTime" Name="op_Fecha" Nullable="false" />
-          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
-          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
-          <Property Type="String" Name="IdUsuarioCantidad" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="FechaCantidad" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NombreUsuarioCantidad" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NomUnidadMedida" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="op_Observacion" Nullable="true" />
-          <Property Type="String" Name="ObservacionGA" Nullable="true" />
-          <Property Type="String" Name="opd_Detalle" Nullable="true" />
-          <Property Type="Int32" Name="IdSucursalOC" Nullable="true" />
-          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Int32" Name="SecuenciaOC" Nullable="true" />
-          <Property Type="Decimal" Name="IdProveedor" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="CodigoOC" Nullable="true" MaxLength="50" />
-          <Property Type="Double" Name="CantidadOC" Nullable="true" />
-          <Property Type="DateTime" Name="FechaOC" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="FechaEntrega" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="IdComprador" Nullable="true" />
-          <Property Type="String" Name="NombreComprador" Nullable="true" MaxLength="100" />
-          <Property Type="Decimal" Name="IB_UltIdNumMovi" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="Double" Name="IB_Cantidad" Nullable="true" />
-          <Property Type="DateTime" Name="IB_Fecha" Nullable="true" />
-          <Property Type="Int32" Name="AlertaEntrega" Nullable="true" />
-          <Property Type="Double" Name="CantidadPendiente" Nullable="true" />
-          <Property Type="Int32" Name="DiasPendiente" Nullable="true" />
-          <Property Type="String" Name="NombreSucursalTransferencia" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="NombreBodegaTransferencia" Nullable="true" MaxLength="500" />
-          <Property Type="DateTime" Name="FechaTransferencia" Nullable="true" />
-          <Property Type="DateTime" Name="FechaRecepcionTransferencia" Nullable="true" />
-          <Property Type="String" Name="IdUsuarioGA" Nullable="true" MaxLength="200" />
-        </ComplexType>
         <ComplexType Name="SPCOM_SeguimientoOrdenCompraContable_Result">
           <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
           <Property Type="Int32" Name="IdSucursal" Nullable="false" />
@@ -6502,6 +6453,57 @@
           <Property Type="Boolean" Name="AdjuntoC" />
           <Property Type="String" Name="NombreArchivoC" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="SPCOM_SeguimientoEntrega_Result">
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="IdOrdenPedido" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="Secuencia" Nullable="false" />
+          <Property Type="Decimal" Name="IdProducto" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pr_descripcion" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="EstadoSolpe" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="IdSucursalOrigen" Nullable="false" />
+          <Property Type="String" Name="CodigoSucOrigen" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NombreSucursalOrigen" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="IdSucursalDestino" Nullable="false" />
+          <Property Type="String" Name="CodigoSucDestino" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NombreSucursalDestino" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="EstadoDetalle" Nullable="true" MaxLength="23" />
+          <Property Type="String" Name="nom_solicitante" Nullable="false" MaxLength="500" />
+          <Property Type="DateTime" Name="op_Fecha" Nullable="false" />
+          <Property Type="Double" Name="opd_Cantidad" Nullable="false" />
+          <Property Type="Double" Name="opd_CantidadApro" Nullable="false" />
+          <Property Type="String" Name="IdUsuarioCantidad" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaCantidad" Nullable="true" Precision="23" />
+          <Property Type="String" Name="NombreUsuarioCantidad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NomUnidadMedida" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="op_Observacion" Nullable="true" />
+          <Property Type="String" Name="ObservacionGA" Nullable="true" />
+          <Property Type="String" Name="opd_Detalle" Nullable="true" />
+          <Property Type="Int32" Name="IdSucursalOC" Nullable="true" />
+          <Property Type="Decimal" Name="IdOrdenCompra" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="SecuenciaOC" Nullable="true" />
+          <Property Type="Decimal" Name="IdProveedor" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="pe_nombreCompleto" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CodigoOC" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="CantidadOC" Nullable="true" />
+          <Property Type="DateTime" Name="FechaOC" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FechaEntrega" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="IdComprador" Nullable="true" />
+          <Property Type="String" Name="NombreComprador" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="IB_UltIdNumMovi" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Double" Name="IB_Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="IB_Fecha" Nullable="true" />
+          <Property Type="Int32" Name="AlertaEntrega" Nullable="true" />
+          <Property Type="Double" Name="CantidadPendiente" Nullable="true" />
+          <Property Type="Int32" Name="DiasPendiente" Nullable="true" />
+          <Property Type="String" Name="NombreSucursalTransferencia" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NombreBodegaTransferencia" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="FechaTransferencia" Nullable="true" />
+          <Property Type="DateTime" Name="FechaRecepcionTransferencia" Nullable="true" />
+          <Property Type="String" Name="IdUsuarioGA" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TerminoPago" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="EstadoCierre" Nullable="true" MaxLength="200" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7818,59 +7820,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SPCOM_SeguimientoEntrega" FunctionName="DBERPModelCompras.Store.SPCOM_SeguimientoEntrega">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_SeguimientoEntrega_Result">
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
-                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
-                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
-                <ScalarProperty Name="EstadoSolpe" ColumnName="EstadoSolpe" />
-                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
-                <ScalarProperty Name="CodigoSucOrigen" ColumnName="CodigoSucOrigen" />
-                <ScalarProperty Name="NombreSucursalOrigen" ColumnName="NombreSucursalOrigen" />
-                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
-                <ScalarProperty Name="CodigoSucDestino" ColumnName="CodigoSucDestino" />
-                <ScalarProperty Name="NombreSucursalDestino" ColumnName="NombreSucursalDestino" />
-                <ScalarProperty Name="EstadoDetalle" ColumnName="EstadoDetalle" />
-                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
-                <ScalarProperty Name="op_Fecha" ColumnName="op_Fecha" />
-                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
-                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
-                <ScalarProperty Name="IdUsuarioCantidad" ColumnName="IdUsuarioCantidad" />
-                <ScalarProperty Name="FechaCantidad" ColumnName="FechaCantidad" />
-                <ScalarProperty Name="NombreUsuarioCantidad" ColumnName="NombreUsuarioCantidad" />
-                <ScalarProperty Name="NomUnidadMedida" ColumnName="NomUnidadMedida" />
-                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
-                <ScalarProperty Name="ObservacionGA" ColumnName="ObservacionGA" />
-                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
-                <ScalarProperty Name="IdSucursalOC" ColumnName="IdSucursalOC" />
-                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
-                <ScalarProperty Name="SecuenciaOC" ColumnName="SecuenciaOC" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
-                <ScalarProperty Name="CodigoOC" ColumnName="CodigoOC" />
-                <ScalarProperty Name="CantidadOC" ColumnName="CantidadOC" />
-                <ScalarProperty Name="FechaOC" ColumnName="FechaOC" />
-                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
-                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
-                <ScalarProperty Name="NombreComprador" ColumnName="NombreComprador" />
-                <ScalarProperty Name="IB_UltIdNumMovi" ColumnName="IB_UltIdNumMovi" />
-                <ScalarProperty Name="IB_Cantidad" ColumnName="IB_Cantidad" />
-                <ScalarProperty Name="IB_Fecha" ColumnName="IB_Fecha" />
-                <ScalarProperty Name="AlertaEntrega" ColumnName="AlertaEntrega" />
-                <ScalarProperty Name="CantidadPendiente" ColumnName="CantidadPendiente" />
-                <ScalarProperty Name="DiasPendiente" ColumnName="DiasPendiente" />
-                <ScalarProperty Name="NombreSucursalTransferencia" ColumnName="NombreSucursalTransferencia" />
-                <ScalarProperty Name="NombreBodegaTransferencia" ColumnName="NombreBodegaTransferencia" />
-                <ScalarProperty Name="FechaTransferencia" ColumnName="FechaTransferencia" />
-                <ScalarProperty Name="FechaRecepcionTransferencia" ColumnName="FechaRecepcionTransferencia" />
-                <ScalarProperty Name="IdUsuarioGA" ColumnName="IdUsuarioGA" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SPCOM_SeguimientoOrdenCompraContable" FunctionName="DBERPModelCompras.Store.SPCOM_SeguimientoOrdenCompraContable">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_SeguimientoOrdenCompraContable_Result">
@@ -8193,6 +8142,61 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPCOM_SeguimientoEntrega" FunctionName="DBERPModelCompras.Store.SPCOM_SeguimientoEntrega">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBERPModelCompras.SPCOM_SeguimientoEntrega_Result">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdOrdenPedido" ColumnName="IdOrdenPedido" />
+                <ScalarProperty Name="Secuencia" ColumnName="Secuencia" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="pr_descripcion" ColumnName="pr_descripcion" />
+                <ScalarProperty Name="EstadoSolpe" ColumnName="EstadoSolpe" />
+                <ScalarProperty Name="IdSucursalOrigen" ColumnName="IdSucursalOrigen" />
+                <ScalarProperty Name="CodigoSucOrigen" ColumnName="CodigoSucOrigen" />
+                <ScalarProperty Name="NombreSucursalOrigen" ColumnName="NombreSucursalOrigen" />
+                <ScalarProperty Name="IdSucursalDestino" ColumnName="IdSucursalDestino" />
+                <ScalarProperty Name="CodigoSucDestino" ColumnName="CodigoSucDestino" />
+                <ScalarProperty Name="NombreSucursalDestino" ColumnName="NombreSucursalDestino" />
+                <ScalarProperty Name="EstadoDetalle" ColumnName="EstadoDetalle" />
+                <ScalarProperty Name="nom_solicitante" ColumnName="nom_solicitante" />
+                <ScalarProperty Name="op_Fecha" ColumnName="op_Fecha" />
+                <ScalarProperty Name="opd_Cantidad" ColumnName="opd_Cantidad" />
+                <ScalarProperty Name="opd_CantidadApro" ColumnName="opd_CantidadApro" />
+                <ScalarProperty Name="IdUsuarioCantidad" ColumnName="IdUsuarioCantidad" />
+                <ScalarProperty Name="FechaCantidad" ColumnName="FechaCantidad" />
+                <ScalarProperty Name="NombreUsuarioCantidad" ColumnName="NombreUsuarioCantidad" />
+                <ScalarProperty Name="NomUnidadMedida" ColumnName="NomUnidadMedida" />
+                <ScalarProperty Name="op_Observacion" ColumnName="op_Observacion" />
+                <ScalarProperty Name="ObservacionGA" ColumnName="ObservacionGA" />
+                <ScalarProperty Name="opd_Detalle" ColumnName="opd_Detalle" />
+                <ScalarProperty Name="IdSucursalOC" ColumnName="IdSucursalOC" />
+                <ScalarProperty Name="IdOrdenCompra" ColumnName="IdOrdenCompra" />
+                <ScalarProperty Name="SecuenciaOC" ColumnName="SecuenciaOC" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="pe_nombreCompleto" ColumnName="pe_nombreCompleto" />
+                <ScalarProperty Name="CodigoOC" ColumnName="CodigoOC" />
+                <ScalarProperty Name="CantidadOC" ColumnName="CantidadOC" />
+                <ScalarProperty Name="FechaOC" ColumnName="FechaOC" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="NombreComprador" ColumnName="NombreComprador" />
+                <ScalarProperty Name="IB_UltIdNumMovi" ColumnName="IB_UltIdNumMovi" />
+                <ScalarProperty Name="IB_Cantidad" ColumnName="IB_Cantidad" />
+                <ScalarProperty Name="IB_Fecha" ColumnName="IB_Fecha" />
+                <ScalarProperty Name="AlertaEntrega" ColumnName="AlertaEntrega" />
+                <ScalarProperty Name="CantidadPendiente" ColumnName="CantidadPendiente" />
+                <ScalarProperty Name="DiasPendiente" ColumnName="DiasPendiente" />
+                <ScalarProperty Name="NombreSucursalTransferencia" ColumnName="NombreSucursalTransferencia" />
+                <ScalarProperty Name="NombreBodegaTransferencia" ColumnName="NombreBodegaTransferencia" />
+                <ScalarProperty Name="FechaTransferencia" ColumnName="FechaTransferencia" />
+                <ScalarProperty Name="FechaRecepcionTransferencia" ColumnName="FechaRecepcionTransferencia" />
+                <ScalarProperty Name="IdUsuarioGA" ColumnName="IdUsuarioGA" />
+                <ScalarProperty Name="TerminoPago" ColumnName="TerminoPago" />
+                <ScalarProperty Name="EstadoCierre" ColumnName="EstadoCierre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

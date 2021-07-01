@@ -68,5 +68,9 @@ namespace Core.Erp.Info.Compras
         public double? do_iva { get; set; }
 
         public double? do_total { get; set; }
+
+        public string TerminoPago { get; set; }
+
+        public string EstadoCierre { get; set; }
     }
 }

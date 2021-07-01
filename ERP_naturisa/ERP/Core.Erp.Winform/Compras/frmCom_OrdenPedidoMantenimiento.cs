@@ -498,38 +498,6 @@ namespace Core.Erp.Winform.Compras
                 throw;
             }
         }
-
-        private void gv_detalle_FocusedColumnChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventArgs e)
-        {
-            SetEstadoCelda(gv_detalle.FocusedRowHandle);
-        }
-
-        private void gv_detalle_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            SetEstadoCelda(e.FocusedRowHandle);
-        }
-
-        private void SetEstadoCelda(int RowHandle)
-        {
-            com_OrdenPedidoDet_Info row = (com_OrdenPedidoDet_Info)gv_detalle.GetRow(RowHandle);
-            if (row == null)
-            {
-                col_IdUnidadMedida.OptionsColumn.AllowEdit = true;
-                col_pr_descripcion.OptionsColumn.AllowEdit = true;
-            }
-            else
-                if (row.IdProducto == null)
-            {
-                col_IdUnidadMedida.OptionsColumn.AllowEdit = false;
-                col_pr_descripcion.OptionsColumn.AllowEdit = true;
-            }else
-            if (row.IdProducto != null)
-            {
-                col_IdUnidadMedida.OptionsColumn.AllowEdit = true;
-                col_pr_descripcion.OptionsColumn.AllowEdit = false;
-            }
-        }
-
         private void txtStock_DoubleClick(object sender, EventArgs e)
         {
             try

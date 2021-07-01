@@ -57,10 +57,16 @@
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmbImagen = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
@@ -71,12 +77,8 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbImagen)).BeginInit();
@@ -91,10 +93,10 @@
             // gcDetalle
             // 
             this.gcDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcDetalle.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gcDetalle.Location = new System.Drawing.Point(0, 92);
             this.gcDetalle.MainView = this.gvDetalle;
-            this.gcDetalle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gcDetalle.Margin = new System.Windows.Forms.Padding(2);
             this.gcDetalle.Name = "gcDetalle";
             this.gcDetalle.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmbImagen});
@@ -138,7 +140,9 @@
             this.gridColumn28,
             this.gridColumn29,
             this.gridColumn30,
-            this.gridColumn31});
+            this.gridColumn31,
+            this.gridColumn32,
+            this.gridColumn33});
             this.gvDetalle.GridControl = this.gcDetalle;
             this.gvDetalle.Name = "gvDetalle";
             this.gvDetalle.OptionsBehavior.ReadOnly = true;
@@ -356,7 +360,7 @@
             this.gridColumn25.FieldName = "IB_UltIdNumMovi";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 29;
+            this.gridColumn25.VisibleIndex = 31;
             this.gridColumn25.Width = 100;
             // 
             // gridColumn26
@@ -365,7 +369,7 @@
             this.gridColumn26.FieldName = "IB_Cantidad";
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 30;
+            this.gridColumn26.VisibleIndex = 32;
             this.gridColumn26.Width = 100;
             // 
             // gridColumn27
@@ -376,8 +380,85 @@
             this.gridColumn27.FieldName = "IB_Fecha";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 31;
+            this.gridColumn27.VisibleIndex = 33;
             this.gridColumn27.Width = 100;
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "# OC";
+            this.gridColumn39.FieldName = "CodigoOC";
+            this.gridColumn39.Name = "gridColumn39";
+            this.gridColumn39.Visible = true;
+            this.gridColumn39.VisibleIndex = 19;
+            this.gridColumn39.Width = 101;
+            // 
+            // gridColumn43
+            // 
+            this.gridColumn43.Caption = "Usuario GA";
+            this.gridColumn43.FieldName = "IdUsuarioGA";
+            this.gridColumn43.Name = "gridColumn43";
+            this.gridColumn43.Visible = true;
+            this.gridColumn43.VisibleIndex = 15;
+            this.gridColumn43.Width = 159;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Fecha Cotizacion";
+            this.gridColumn4.DisplayFormat.FormatString = "d";
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn4.FieldName = "FechaCotizacion";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 18;
+            this.gridColumn4.Width = 104;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Familia";
+            this.gridColumn15.FieldName = "Familia";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 34;
+            // 
+            // gridColumn28
+            // 
+            this.gridColumn28.Caption = "Precio final";
+            this.gridColumn28.DisplayFormat.FormatString = "n2";
+            this.gridColumn28.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn28.FieldName = "do_precioFinal";
+            this.gridColumn28.Name = "gridColumn28";
+            this.gridColumn28.Visible = true;
+            this.gridColumn28.VisibleIndex = 22;
+            // 
+            // gridColumn29
+            // 
+            this.gridColumn29.Caption = "Subtotal";
+            this.gridColumn29.DisplayFormat.FormatString = "n2";
+            this.gridColumn29.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn29.FieldName = "do_subtotal";
+            this.gridColumn29.Name = "gridColumn29";
+            this.gridColumn29.Visible = true;
+            this.gridColumn29.VisibleIndex = 23;
+            // 
+            // gridColumn30
+            // 
+            this.gridColumn30.Caption = "I.V.A.";
+            this.gridColumn30.DisplayFormat.FormatString = "n2";
+            this.gridColumn30.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn30.FieldName = "do_iva";
+            this.gridColumn30.Name = "gridColumn30";
+            this.gridColumn30.Visible = true;
+            this.gridColumn30.VisibleIndex = 24;
+            // 
+            // gridColumn31
+            // 
+            this.gridColumn31.Caption = "Total";
+            this.gridColumn31.DisplayFormat.FormatString = "n2";
+            this.gridColumn31.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn31.FieldName = "do_total";
+            this.gridColumn31.Name = "gridColumn31";
+            this.gridColumn31.Visible = true;
+            this.gridColumn31.VisibleIndex = 26;
             // 
             // cmbImagen
             // 
@@ -403,24 +484,6 @@
             this.imageList1.Images.SetKeyName(1, "ColorVerde_16x16.png");
             this.imageList1.Images.SetKeyName(2, "ColorAmarillo_16x16.png");
             this.imageList1.Images.SetKeyName(3, "ColorRojo_16x16.png");
-            // 
-            // gridColumn39
-            // 
-            this.gridColumn39.Caption = "# OC";
-            this.gridColumn39.FieldName = "CodigoOC";
-            this.gridColumn39.Name = "gridColumn39";
-            this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 19;
-            this.gridColumn39.Width = 101;
-            // 
-            // gridColumn43
-            // 
-            this.gridColumn43.Caption = "Usuario GA";
-            this.gridColumn43.FieldName = "IdUsuarioGA";
-            this.gridColumn43.Name = "gridColumn43";
-            this.gridColumn43.Visible = true;
-            this.gridColumn43.VisibleIndex = 15;
-            this.gridColumn43.Width = 159;
             // 
             // toolStrip1
             // 
@@ -518,64 +581,23 @@
             this.panel1.Size = new System.Drawing.Size(1053, 67);
             this.panel1.TabIndex = 0;
             // 
-            // gridColumn4
+            // gridColumn32
             // 
-            this.gridColumn4.Caption = "Fecha Cotizacion";
-            this.gridColumn4.DisplayFormat.FormatString = "d";
-            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn4.FieldName = "FechaCotizacion";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 18;
-            this.gridColumn4.Width = 104;
+            this.gridColumn32.Caption = "Termino de pago";
+            this.gridColumn32.FieldName = "TerminoPago";
+            this.gridColumn32.Name = "gridColumn32";
+            this.gridColumn32.Visible = true;
+            this.gridColumn32.VisibleIndex = 29;
+            this.gridColumn32.Width = 132;
             // 
-            // gridColumn15
+            // gridColumn33
             // 
-            this.gridColumn15.Caption = "Familia";
-            this.gridColumn15.FieldName = "Familia";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 32;
-            // 
-            // gridColumn28
-            // 
-            this.gridColumn28.Caption = "Precio final";
-            this.gridColumn28.DisplayFormat.FormatString = "n2";
-            this.gridColumn28.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn28.FieldName = "do_precioFinal";
-            this.gridColumn28.Name = "gridColumn28";
-            this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 22;
-            // 
-            // gridColumn29
-            // 
-            this.gridColumn29.Caption = "Subtotal";
-            this.gridColumn29.DisplayFormat.FormatString = "n2";
-            this.gridColumn29.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn29.FieldName = "do_subtotal";
-            this.gridColumn29.Name = "gridColumn29";
-            this.gridColumn29.Visible = true;
-            this.gridColumn29.VisibleIndex = 23;
-            // 
-            // gridColumn30
-            // 
-            this.gridColumn30.Caption = "I.V.A.";
-            this.gridColumn30.DisplayFormat.FormatString = "n2";
-            this.gridColumn30.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn30.FieldName = "do_iva";
-            this.gridColumn30.Name = "gridColumn30";
-            this.gridColumn30.Visible = true;
-            this.gridColumn30.VisibleIndex = 24;
-            // 
-            // gridColumn31
-            // 
-            this.gridColumn31.Caption = "Total";
-            this.gridColumn31.DisplayFormat.FormatString = "n2";
-            this.gridColumn31.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn31.FieldName = "do_total";
-            this.gridColumn31.Name = "gridColumn31";
-            this.gridColumn31.Visible = true;
-            this.gridColumn31.VisibleIndex = 26;
+            this.gridColumn33.Caption = "Estado Cierre";
+            this.gridColumn33.FieldName = "EstadoCierre";
+            this.gridColumn33.Name = "gridColumn33";
+            this.gridColumn33.Visible = true;
+            this.gridColumn33.VisibleIndex = 30;
+            this.gridColumn33.Width = 137;
             // 
             // FrmCom_SeguimientoEntregaConCosto
             // 
@@ -585,7 +607,7 @@
             this.Controls.Add(this.gcDetalle);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCom_SeguimientoEntregaConCosto";
             this.Text = "Seguimiento de entrega";
             this.Load += new System.EventHandler(this.FrmCom_SeguimientoEntregaConCosto_Load);
@@ -653,6 +675,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn30;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

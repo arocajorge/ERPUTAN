@@ -27,7 +27,7 @@ namespace Core.Erp.Data.Compras
                     connection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
-                    command.CommandText = "select max(IdCotizacion) + 1 IdCotizacion from com_CotizacionPedido with (nolock) where IdEmpresa = "+IdEmpresa.ToString();
+                    command.CommandText = "select max(IdCotizacion) + 1 IdCotizacion from com_CotizacionPedido where IdEmpresa = "+IdEmpresa.ToString();
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -174,17 +174,25 @@ namespace Core.Erp.Data.Compras
                         connection.Open();
                         SqlCommand command = new SqlCommand();
                         command.Connection = connection;
-                        command.CommandText = "update com_CotizacionPedidoDet set AdjuntoC = false, NombreArchivoC = NULL where IdEmpresa = " + info.IdEmpresa.ToString() + " and IdCotizacion = " + info.IdCotizacion.ToString();
+                        command.CommandText = "update com_CotizacionPedidoDet set AdjuntoC = 0, NombreArchivoC = NULL where IdEmpresa = " + info.IdEmpresa.ToString() + " and IdCotizacion = " + info.IdCotizacion.ToString();
                         command.ExecuteNonQuery();
                     }
                 }
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
-                throw;
+                string mensaje = string.Empty;
+                string arreglo = ToString();
+                tb_sis_Log_Error_Vzen_Data oDataLog = new tb_sis_Log_Error_Vzen_Data();
+                tb_sis_Log_Error_Vzen_Info Log_Error_sis = new tb_sis_Log_Error_Vzen_Info(
+                    ex.InnerException != null && ex.InnerException.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message                    
+                    , "", arreglo, "",
+                                    "", "", "", "", DateTime.Now);
+                oDataLog.Guardar_Log_Error(Log_Error_sis, ref mensaje);
+                mensaje = ex.ToString();
+                throw new Exception(ex.ToString());
             }
         }
 

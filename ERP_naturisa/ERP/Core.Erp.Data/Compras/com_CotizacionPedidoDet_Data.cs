@@ -215,7 +215,7 @@ namespace Core.Erp.Data.Compras
                                         + " 'PRECIO APROBADO' WHEN d .opd_EstadoProceso = 'C' THEN 'COMPRADO' WHEN d .opd_EstadoProceso = 'RC' THEN 'RECHAZADO POR COMPRADOR' WHEN d .opd_EstadoProceso = 'AC' THEN 'COTIZADO' WHEN d .opd_EstadoProceso"
                                         + " = 'RGA' THEN 'COTIZACION RECHAZADA' END AS EstadoDetalle, d.opd_EstadoProceso, d.IdSucursalDestino, d.IdSucursalOrigen, c.Secuencia AS SecuenciaCot, c.cd_DetallePorItem, dbo.com_CotizacionPedido.cp_Observacion, "
                                         + " dbo.com_CotizacionPedido.cp_ObservacionAdicional, ISNULL(dbo.com_CotizacionPedido.cp_Fecha, CAST(GETDATE() AS date)) AS cp_Fecha, dbo.com_comprador.Descripcion AS Comprador, d.opd_Detalle,"
-                                        + " d.AdjuntoC, d.NombreArchivoC"
+                                        + " c.AdjuntoC, c.NombreArchivoC"
                                         + " FROM     dbo.com_comprador INNER JOIN"
                                         + " dbo.com_CotizacionPedido ON dbo.com_comprador.IdEmpresa = dbo.com_CotizacionPedido.IdEmpresa AND dbo.com_comprador.IdComprador = dbo.com_CotizacionPedido.IdComprador RIGHT OUTER JOIN"
                                         + " dbo.com_OrdenPedidoDet AS d LEFT OUTER JOIN"

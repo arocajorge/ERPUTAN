@@ -71,7 +71,9 @@ namespace Core.Erp.Data.Compras
                             NombreBodegaTransferencia = item.NombreBodegaTransferencia,
                             FechaTransferencia = item.FechaTransferencia,
                             FechaRecepcionTransferencia = item.FechaRecepcionTransferencia,
-                            IdUsuarioGA = item.IdUsuarioGA
+                            IdUsuarioGA = item.IdUsuarioGA,
+                            TerminoPago = item.TerminoPago,
+                            EstadoCierre = item.EstadoCierre
                         });
                     }
                 }
@@ -105,7 +107,7 @@ namespace Core.Erp.Data.Compras
                                     + " c.codigo as CodigoOrigen, c.Su_Descripcion as SucursalOrigen, d.codigo as CodigoDestino, d.Su_Descripcion as SucursalDestino, e.nom_solicitante, a.opd_Cantidad, a.opd_CantidadApro, a.IdUsuarioCantidad,"
                                     + " f.Descripcion as NomUnidadMedida, b.op_Observacion, b.IdUsuarioAprobacion, b.ObservacionGA, a.opd_Detalle, a.FechaCotizacion, a.IdUsuarioCotizacion, h.IdUsuarioJC, j.pe_nombreCompleto,"
                                     + " k.codigo+'-'+cast(h.oc_IdOrdenCompra as varchar(20)) as CodigoOC, l.do_Cantidad, l.do_precioFinal, l.do_subtotal, l.do_iva, l.do_total, m.oc_fecha, m.oc_fechaVencimiento, n.Descripcion as NomComprador,"
-                                    + " p.fa_Descripcion as Familia, q.CantidadIngresada, cm_fecha, IdNumMovi"
+                                    + " p.fa_Descripcion as Familia, q.CantidadIngresada, cm_fecha, IdNumMovi, case when m.IdEstado_cierre = 'CERR' THEN 'CERRADO' ELSE 'ABIERTO' END AS EstadoCierre, t.Descripcion as TerminoPago"
                                     + " from com_OrdenPedidoDet as a with (nolock)"
                                     + " join com_OrdenPedido as b with (nolock) on a.IdEmpresa = b.IdEmpresa and a.IdOrdenPedido = b.IdOrdenPedido and b.Estado = 1"
                                     + " left join tb_sucursal as c with (nolock) on a.IdEmpresa = c.IdEmpresa and a.IdSucursalOrigen = c.IdSucursal"
@@ -122,6 +124,7 @@ namespace Core.Erp.Data.Compras
                                     + " left join com_comprador as n with (nolock) on h.IdEmpresa = n.IdEmpresa and h.IdComprador = n.IdComprador"
                                     + " left join in_Producto as o with (nolock) on o.IdEmpresa = a.IdEmpresa and o.IdProducto = isnull(a.IdProducto,g.IdProducto)"
                                     + " left join in_Familia as p with (nolock) on o.IdEmpresa = p.IdEmpresa and o.IdFamilia = p.IdFamilia"
+                                    + " LEFT JOIN com_TerminoPago AS t on h.IdTerminoPago = t.IdTerminoPago"
                                     + " left join"
                                     + " ("
                                         + " select IdEmpresa_oc, IdSucursal_oc, IdOrdenCompra, Secuencia_oc, sum(a.dm_cantidad_sinConversion) CantidadIngresada, max(b.cm_fecha) cm_fecha, max(b.IdNumMovi) IdNumMovi"
@@ -171,7 +174,9 @@ namespace Core.Erp.Data.Compras
                         Familia = Convert.ToString(reader["Familia"]),
                         IB_Cantidad = reader["CantidadIngresada"] == DBNull.Value ? null : (double?)(reader["CantidadIngresada"]),
                         IB_Fecha = reader["cm_fecha"] == DBNull.Value ? null : (DateTime?)(reader["cm_fecha"]),
-                        IB_UltIdNumMovi = reader["IdNumMovi"] == DBNull.Value ? null : (decimal?)(reader["IdNumMovi"])
+                        IB_UltIdNumMovi = reader["IdNumMovi"] == DBNull.Value ? null : (decimal?)(reader["IdNumMovi"]),
+                        EstadoCierre = reader["EstadoCierre"].ToString(),
+                        TerminoPago = reader["TerminoPago"].ToString(),
                     });
                 }
                 reader.Close();
